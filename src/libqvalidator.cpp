@@ -42,25 +42,6 @@ int QValidator_Metacall(QValidator* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QValidator_OnMetacall(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Metacall_Callback(reinterpret_cast<VirtualQValidator::QValidator_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QValidator_QBaseMetacall(QValidator* self, int param1, int param2, void** param3) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Metacall_IsBase(true);
-        return vqvalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QValidator_Tr(const char* s) {
     QString _ret = QValidator::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -91,51 +72,11 @@ int QValidator_Validate(const QValidator* self, libqt_string param1, int* param2
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QValidator_OnValidate(const QValidator* self, intptr_t slot) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Validate_Callback(reinterpret_cast<VirtualQValidator::QValidator_Validate_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QValidator_QBaseValidate(const QValidator* self, libqt_string param1, int* param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto* vqvalidator = dynamic_cast<const VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Validate_IsBase(true);
-        return static_cast<int>(vqvalidator->validate(param1_QString, static_cast<int&>(*param2)));
-    } else {
-        return static_cast<int>(((VirtualQValidator*)self)->validate(param1_QString, static_cast<int&>(*param2)));
-    }
-}
-
 void QValidator_Fixup(const QValidator* self, libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     auto* vqvalidator = dynamic_cast<const VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         self->fixup(param1_QString);
-    } else {
-        ((VirtualQValidator*)self)->fixup(param1_QString);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QValidator_OnFixup(const QValidator* self, intptr_t slot) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Fixup_Callback(reinterpret_cast<VirtualQValidator::QValidator_Fixup_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QValidator_QBaseFixup(const QValidator* self, libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto* vqvalidator = dynamic_cast<const VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Fixup_IsBase(true);
-        vqvalidator->fixup(param1_QString);
     } else {
         ((VirtualQValidator*)self)->fixup(param1_QString);
     }
@@ -174,6 +115,65 @@ libqt_string QValidator_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QValidator_QBaseMetacall(QValidator* self, int param1, int param2, void** param3) {
+    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_Metacall_IsBase(true);
+        return vqvalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QValidator_OnMetacall(QValidator* self, intptr_t slot) {
+    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_Metacall_Callback(reinterpret_cast<VirtualQValidator::QValidator_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QValidator_QBaseValidate(const QValidator* self, libqt_string param1, int* param2) {
+    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_Validate_IsBase(true);
+        return static_cast<int>(vqvalidator->validate(param1_QString, static_cast<int&>(*param2)));
+    } else {
+        return static_cast<int>(((VirtualQValidator*)self)->validate(param1_QString, static_cast<int&>(*param2)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QValidator_OnValidate(const QValidator* self, intptr_t slot) {
+    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_Validate_Callback(reinterpret_cast<VirtualQValidator::QValidator_Validate_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QValidator_QBaseFixup(const QValidator* self, libqt_string param1) {
+    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_Fixup_IsBase(true);
+        vqvalidator->fixup(param1_QString);
+    } else {
+        self->QValidator::fixup(param1_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QValidator_OnFixup(const QValidator* self, intptr_t slot) {
+    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_Fixup_Callback(reinterpret_cast<VirtualQValidator::QValidator_Fixup_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -532,25 +532,6 @@ int QIntValidator_Metacall(QIntValidator* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QIntValidator_OnMetacall(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Metacall_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QIntValidator_QBaseMetacall(QIntValidator* self, int param1, int param2, void** param3) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Metacall_IsBase(true);
-        return vqintvalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQIntValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QIntValidator_Tr(const char* s) {
     QString _ret = QIntValidator::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -573,51 +554,11 @@ int QIntValidator_Validate(const QIntValidator* self, libqt_string param1, int* 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QIntValidator_OnValidate(const QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Validate_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Validate_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QIntValidator_QBaseValidate(const QIntValidator* self, libqt_string param1, int* param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto* vqintvalidator = dynamic_cast<const VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Validate_IsBase(true);
-        return static_cast<int>(vqintvalidator->validate(param1_QString, static_cast<int&>(*param2)));
-    } else {
-        return static_cast<int>(((VirtualQIntValidator*)self)->validate(param1_QString, static_cast<int&>(*param2)));
-    }
-}
-
 void QIntValidator_Fixup(const QIntValidator* self, libqt_string input) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
     auto* vqintvalidator = dynamic_cast<const VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         self->fixup(input_QString);
-    } else {
-        ((VirtualQIntValidator*)self)->fixup(input_QString);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QIntValidator_OnFixup(const QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Fixup_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Fixup_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QIntValidator_QBaseFixup(const QIntValidator* self, libqt_string input) {
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vqintvalidator = dynamic_cast<const VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Fixup_IsBase(true);
-        vqintvalidator->fixup(input_QString);
     } else {
         ((VirtualQIntValidator*)self)->fixup(input_QString);
     }
@@ -689,6 +630,65 @@ libqt_string QIntValidator_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QIntValidator_QBaseMetacall(QIntValidator* self, int param1, int param2, void** param3) {
+    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_Metacall_IsBase(true);
+        return vqintvalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QIntValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIntValidator_OnMetacall(QIntValidator* self, intptr_t slot) {
+    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_Metacall_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QIntValidator_QBaseValidate(const QIntValidator* self, libqt_string param1, int* param2) {
+    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_Validate_IsBase(true);
+        return static_cast<int>(vqintvalidator->validate(param1_QString, static_cast<int&>(*param2)));
+    } else {
+        return static_cast<int>(self->QIntValidator::validate(param1_QString, static_cast<int&>(*param2)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIntValidator_OnValidate(const QIntValidator* self, intptr_t slot) {
+    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_Validate_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Validate_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QIntValidator_QBaseFixup(const QIntValidator* self, libqt_string input) {
+    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_Fixup_IsBase(true);
+        vqintvalidator->fixup(input_QString);
+    } else {
+        self->QIntValidator::fixup(input_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIntValidator_OnFixup(const QIntValidator* self, intptr_t slot) {
+    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_Fixup_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Fixup_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -1047,25 +1047,6 @@ int QDoubleValidator_Metacall(QDoubleValidator* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDoubleValidator_OnMetacall(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Metacall_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDoubleValidator_QBaseMetacall(QDoubleValidator* self, int param1, int param2, void** param3) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Metacall_IsBase(true);
-        return vqdoublevalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDoubleValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QDoubleValidator_Tr(const char* s) {
     QString _ret = QDoubleValidator::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1088,51 +1069,11 @@ int QDoubleValidator_Validate(const QDoubleValidator* self, libqt_string param1,
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDoubleValidator_OnValidate(const QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Validate_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Validate_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDoubleValidator_QBaseValidate(const QDoubleValidator* self, libqt_string param1, int* param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto* vqdoublevalidator = dynamic_cast<const VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Validate_IsBase(true);
-        return static_cast<int>(vqdoublevalidator->validate(param1_QString, static_cast<int&>(*param2)));
-    } else {
-        return static_cast<int>(((VirtualQDoubleValidator*)self)->validate(param1_QString, static_cast<int&>(*param2)));
-    }
-}
-
 void QDoubleValidator_Fixup(const QDoubleValidator* self, libqt_string input) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
     auto* vqdoublevalidator = dynamic_cast<const VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         self->fixup(input_QString);
-    } else {
-        ((VirtualQDoubleValidator*)self)->fixup(input_QString);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QDoubleValidator_OnFixup(const QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Fixup_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Fixup_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QDoubleValidator_QBaseFixup(const QDoubleValidator* self, libqt_string input) {
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vqdoublevalidator = dynamic_cast<const VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Fixup_IsBase(true);
-        vqdoublevalidator->fixup(input_QString);
     } else {
         ((VirtualQDoubleValidator*)self)->fixup(input_QString);
     }
@@ -1248,6 +1189,65 @@ libqt_string QDoubleValidator_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QDoubleValidator_QBaseMetacall(QDoubleValidator* self, int param1, int param2, void** param3) {
+    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_Metacall_IsBase(true);
+        return vqdoublevalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QDoubleValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDoubleValidator_OnMetacall(QDoubleValidator* self, intptr_t slot) {
+    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_Metacall_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QDoubleValidator_QBaseValidate(const QDoubleValidator* self, libqt_string param1, int* param2) {
+    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_Validate_IsBase(true);
+        return static_cast<int>(vqdoublevalidator->validate(param1_QString, static_cast<int&>(*param2)));
+    } else {
+        return static_cast<int>(self->QDoubleValidator::validate(param1_QString, static_cast<int&>(*param2)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDoubleValidator_OnValidate(const QDoubleValidator* self, intptr_t slot) {
+    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_Validate_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Validate_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QDoubleValidator_QBaseFixup(const QDoubleValidator* self, libqt_string input) {
+    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_Fixup_IsBase(true);
+        vqdoublevalidator->fixup(input_QString);
+    } else {
+        self->QDoubleValidator::fixup(input_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDoubleValidator_OnFixup(const QDoubleValidator* self, intptr_t slot) {
+    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_Fixup_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Fixup_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -1606,25 +1606,6 @@ int QRegularExpressionValidator_Metacall(QRegularExpressionValidator* self, int 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QRegularExpressionValidator_OnMetacall(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacall_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QRegularExpressionValidator_QBaseMetacall(QRegularExpressionValidator* self, int param1, int param2, void** param3) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacall_IsBase(true);
-        return vqregularexpressionvalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QRegularExpressionValidator_Tr(const char* s) {
     QString _ret = QRegularExpressionValidator::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1642,26 +1623,6 @@ int QRegularExpressionValidator_Validate(const QRegularExpressionValidator* self
     auto* vqregularexpressionvalidator = dynamic_cast<const VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         return static_cast<int>(self->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQRegularExpressionValidator*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QRegularExpressionValidator_OnValidate(const QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Validate_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Validate_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QRegularExpressionValidator_QBaseValidate(const QRegularExpressionValidator* self, libqt_string input, int* pos) {
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vqregularexpressionvalidator = dynamic_cast<const VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Validate_IsBase(true);
-        return static_cast<int>(vqregularexpressionvalidator->validate(input_QString, static_cast<int&>(*pos)));
     } else {
         return static_cast<int>(((VirtualQRegularExpressionValidator*)self)->validate(input_QString, static_cast<int&>(*pos)));
     }
@@ -1711,6 +1672,45 @@ libqt_string QRegularExpressionValidator_Tr3(const char* s, const char* c, int n
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QRegularExpressionValidator_QBaseMetacall(QRegularExpressionValidator* self, int param1, int param2, void** param3) {
+    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacall_IsBase(true);
+        return vqregularexpressionvalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QRegularExpressionValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRegularExpressionValidator_OnMetacall(QRegularExpressionValidator* self, intptr_t slot) {
+    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacall_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QRegularExpressionValidator_QBaseValidate(const QRegularExpressionValidator* self, libqt_string input, int* pos) {
+    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        vqregularexpressionvalidator->setQRegularExpressionValidator_Validate_IsBase(true);
+        return static_cast<int>(vqregularexpressionvalidator->validate(input_QString, static_cast<int&>(*pos)));
+    } else {
+        return static_cast<int>(self->QRegularExpressionValidator::validate(input_QString, static_cast<int&>(*pos)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRegularExpressionValidator_OnValidate(const QRegularExpressionValidator* self, intptr_t slot) {
+    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        vqregularexpressionvalidator->setQRegularExpressionValidator_Validate_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Validate_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

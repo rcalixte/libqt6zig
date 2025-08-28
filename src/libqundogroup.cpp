@@ -40,25 +40,6 @@ int QUndoGroup_Metacall(QUndoGroup* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QUndoGroup_OnMetacall(QUndoGroup* self, intptr_t slot) {
-    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
-    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
-        vqundogroup->setQUndoGroup_Metacall_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QUndoGroup_QBaseMetacall(QUndoGroup* self, int param1, int param2, void** param3) {
-    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
-    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
-        vqundogroup->setQUndoGroup_Metacall_IsBase(true);
-        return vqundogroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQUndoGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QUndoGroup_Tr(const char* s) {
     QString _ret = QUndoGroup::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -284,6 +265,25 @@ QAction* QUndoGroup_CreateUndoAction2(const QUndoGroup* self, QObject* parent, c
 QAction* QUndoGroup_CreateRedoAction2(const QUndoGroup* self, QObject* parent, const libqt_string prefix) {
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     return self->createRedoAction(parent, prefix_QString);
+}
+
+// Base class handler implementation
+int QUndoGroup_QBaseMetacall(QUndoGroup* self, int param1, int param2, void** param3) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
+        vqundogroup->setQUndoGroup_Metacall_IsBase(true);
+        return vqundogroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QUndoGroup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QUndoGroup_OnMetacall(QUndoGroup* self, intptr_t slot) {
+    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
+    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
+        vqundogroup->setQUndoGroup_Metacall_Callback(reinterpret_cast<VirtualQUndoGroup::QUndoGroup_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -489,25 +489,6 @@ void QGraphicsItem_Advance(QGraphicsItem* self, int phase) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnAdvance(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Advance_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Advance_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseAdvance(QGraphicsItem* self, int phase) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Advance_IsBase(true);
-        vqgraphicsitem->advance(static_cast<int>(phase));
-    } else {
-        ((VirtualQGraphicsItem*)self)->advance(static_cast<int>(phase));
-    }
-}
-
 double QGraphicsItem_ZValue(const QGraphicsItem* self) {
     return static_cast<double>(self->zValue());
 }
@@ -523,25 +504,6 @@ void QGraphicsItem_StackBefore(QGraphicsItem* self, const QGraphicsItem* sibling
 QRectF* QGraphicsItem_BoundingRect(const QGraphicsItem* self) {
     auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return new QRectF(vqgraphicsitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsItem*)self)->boundingRect());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnBoundingRect(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsItem_QBaseBoundingRect(const QGraphicsItem* self) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_BoundingRect_IsBase(true);
         return new QRectF(vqgraphicsitem->boundingRect());
     } else {
         return new QRectF(((VirtualQGraphicsItem*)self)->boundingRect());
@@ -565,25 +527,6 @@ QPainterPath* QGraphicsItem_Shape(const QGraphicsItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnShape(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Shape_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsItem_QBaseShape(const QGraphicsItem* self) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicsitem->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsItem*)self)->shape());
-    }
-}
-
 bool QGraphicsItem_IsClipped(const QGraphicsItem* self) {
     return self->isClipped();
 }
@@ -601,25 +544,6 @@ bool QGraphicsItem_Contains(const QGraphicsItem* self, const QPointF* point) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnContains(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Contains_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsItem_QBaseContains(const QGraphicsItem* self, const QPointF* point) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Contains_IsBase(true);
-        return vqgraphicsitem->contains(*point);
-    } else {
-        return ((VirtualQGraphicsItem*)self)->contains(*point);
-    }
-}
-
 bool QGraphicsItem_CollidesWithItem(const QGraphicsItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
@@ -629,48 +553,10 @@ bool QGraphicsItem_CollidesWithItem(const QGraphicsItem* self, const QGraphicsIt
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnCollidesWithItem(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_CollidesWithItem_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_CollidesWithItem_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsItem_QBaseCollidesWithItem(const QGraphicsItem* self, const QGraphicsItem* other, int mode) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_CollidesWithItem_IsBase(true);
-        return vqgraphicsitem->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return ((VirtualQGraphicsItem*)self)->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    }
-}
-
 bool QGraphicsItem_CollidesWithPath(const QGraphicsItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         return self->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return ((VirtualQGraphicsItem*)self)->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnCollidesWithPath(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_CollidesWithPath_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_CollidesWithPath_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsItem_QBaseCollidesWithPath(const QGraphicsItem* self, const QPainterPath* path, int mode) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_CollidesWithPath_IsBase(true);
-        return vqgraphicsitem->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
     } else {
         return ((VirtualQGraphicsItem*)self)->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
     }
@@ -706,48 +592,10 @@ bool QGraphicsItem_IsObscuredBy(const QGraphicsItem* self, const QGraphicsItem* 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnIsObscuredBy(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsItem_QBaseIsObscuredBy(const QGraphicsItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_IsObscuredBy_IsBase(true);
-        return vqgraphicsitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsItem_OpaqueArea(const QGraphicsItem* self) {
     auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsItem*)self)->opaqueArea());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnOpaqueArea(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsItem_QBaseOpaqueArea(const QGraphicsItem* self) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicsitem->opaqueArea());
     } else {
         return new QPainterPath(((VirtualQGraphicsItem*)self)->opaqueArea());
     }
@@ -768,25 +616,6 @@ void QGraphicsItem_SetBoundingRegionGranularity(QGraphicsItem* self, double gran
 void QGraphicsItem_Paint(QGraphicsItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsItem*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnPaint(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBasePaint(QGraphicsItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Paint_IsBase(true);
         vqgraphicsitem->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsItem*)self)->paint(painter, option, widget);
@@ -962,25 +791,6 @@ int QGraphicsItem_Type(const QGraphicsItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnType(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Type_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsItem_QBaseType(const QGraphicsItem* self) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Type_IsBase(true);
-        return vqgraphicsitem->type();
-    } else {
-        return ((VirtualQGraphicsItem*)self)->type();
-    }
-}
-
 void QGraphicsItem_InstallSceneEventFilter(QGraphicsItem* self, QGraphicsItem* filterItem) {
     self->installSceneEventFilter(filterItem);
 }
@@ -997,45 +807,9 @@ bool QGraphicsItem_SceneEventFilter(QGraphicsItem* self, QGraphicsItem* watched,
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnSceneEventFilter(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_SceneEventFilter_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_SceneEventFilter_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsItem_QBaseSceneEventFilter(QGraphicsItem* self, QGraphicsItem* watched, QEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_SceneEventFilter_IsBase(true);
-        return vqgraphicsitem->sceneEventFilter(watched, event);
-    }
-    return {};
-}
-
 bool QGraphicsItem_SceneEvent(QGraphicsItem* self, QEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return vqgraphicsitem->sceneEvent(event);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnSceneEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_SceneEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_SceneEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsItem_QBaseSceneEvent(QGraphicsItem* self, QEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_SceneEvent_IsBase(true);
         return vqgraphicsitem->sceneEvent(event);
     }
     return {};
@@ -1048,43 +822,9 @@ void QGraphicsItem_ContextMenuEvent(QGraphicsItem* self, QGraphicsSceneContextMe
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnContextMenuEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseContextMenuEvent(QGraphicsItem* self, QGraphicsSceneContextMenuEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_ContextMenuEvent_IsBase(true);
-        vqgraphicsitem->contextMenuEvent(event);
-    }
-}
-
 void QGraphicsItem_DragEnterEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->dragEnterEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnDragEnterEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_DragEnterEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseDragEnterEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_DragEnterEvent_IsBase(true);
         vqgraphicsitem->dragEnterEvent(event);
     }
 }
@@ -1096,43 +836,9 @@ void QGraphicsItem_DragLeaveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEve
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnDragLeaveEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_DragLeaveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseDragLeaveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_DragLeaveEvent_IsBase(true);
-        vqgraphicsitem->dragLeaveEvent(event);
-    }
-}
-
 void QGraphicsItem_DragMoveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->dragMoveEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnDragMoveEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_DragMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseDragMoveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_DragMoveEvent_IsBase(true);
         vqgraphicsitem->dragMoveEvent(event);
     }
 }
@@ -1144,43 +850,9 @@ void QGraphicsItem_DropEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* e
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnDropEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_DropEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseDropEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_DropEvent_IsBase(true);
-        vqgraphicsitem->dropEvent(event);
-    }
-}
-
 void QGraphicsItem_FocusInEvent(QGraphicsItem* self, QFocusEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->focusInEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnFocusInEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseFocusInEvent(QGraphicsItem* self, QFocusEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_FocusInEvent_IsBase(true);
         vqgraphicsitem->focusInEvent(event);
     }
 }
@@ -1192,43 +864,9 @@ void QGraphicsItem_FocusOutEvent(QGraphicsItem* self, QFocusEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnFocusOutEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_FocusOutEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseFocusOutEvent(QGraphicsItem* self, QFocusEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_FocusOutEvent_IsBase(true);
-        vqgraphicsitem->focusOutEvent(event);
-    }
-}
-
 void QGraphicsItem_HoverEnterEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->hoverEnterEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnHoverEnterEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_HoverEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_HoverEnterEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseHoverEnterEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_HoverEnterEvent_IsBase(true);
         vqgraphicsitem->hoverEnterEvent(event);
     }
 }
@@ -1240,43 +878,9 @@ void QGraphicsItem_HoverMoveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent*
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnHoverMoveEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_HoverMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_HoverMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseHoverMoveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_HoverMoveEvent_IsBase(true);
-        vqgraphicsitem->hoverMoveEvent(event);
-    }
-}
-
 void QGraphicsItem_HoverLeaveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->hoverLeaveEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnHoverLeaveEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_HoverLeaveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseHoverLeaveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_HoverLeaveEvent_IsBase(true);
         vqgraphicsitem->hoverLeaveEvent(event);
     }
 }
@@ -1288,43 +892,9 @@ void QGraphicsItem_KeyPressEvent(QGraphicsItem* self, QKeyEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnKeyPressEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseKeyPressEvent(QGraphicsItem* self, QKeyEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_KeyPressEvent_IsBase(true);
-        vqgraphicsitem->keyPressEvent(event);
-    }
-}
-
 void QGraphicsItem_KeyReleaseEvent(QGraphicsItem* self, QKeyEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->keyReleaseEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnKeyReleaseEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_KeyReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseKeyReleaseEvent(QGraphicsItem* self, QKeyEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_KeyReleaseEvent_IsBase(true);
         vqgraphicsitem->keyReleaseEvent(event);
     }
 }
@@ -1336,43 +906,9 @@ void QGraphicsItem_MousePressEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnMousePressEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseMousePressEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_MousePressEvent_IsBase(true);
-        vqgraphicsitem->mousePressEvent(event);
-    }
-}
-
 void QGraphicsItem_MouseMoveEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->mouseMoveEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnMouseMoveEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseMouseMoveEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_MouseMoveEvent_IsBase(true);
         vqgraphicsitem->mouseMoveEvent(event);
     }
 }
@@ -1384,43 +920,9 @@ void QGraphicsItem_MouseReleaseEvent(QGraphicsItem* self, QGraphicsSceneMouseEve
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnMouseReleaseEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseMouseReleaseEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_MouseReleaseEvent_IsBase(true);
-        vqgraphicsitem->mouseReleaseEvent(event);
-    }
-}
-
 void QGraphicsItem_MouseDoubleClickEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->mouseDoubleClickEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnMouseDoubleClickEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_MouseDoubleClickEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseMouseDoubleClickEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_MouseDoubleClickEvent_IsBase(true);
         vqgraphicsitem->mouseDoubleClickEvent(event);
     }
 }
@@ -1432,23 +934,6 @@ void QGraphicsItem_WheelEvent(QGraphicsItem* self, QGraphicsSceneWheelEvent* eve
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnWheelEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_WheelEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_WheelEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseWheelEvent(QGraphicsItem* self, QGraphicsSceneWheelEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_WheelEvent_IsBase(true);
-        vqgraphicsitem->wheelEvent(event);
-    }
-}
-
 void QGraphicsItem_InputMethodEvent(QGraphicsItem* self, QInputMethodEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
@@ -1456,44 +941,9 @@ void QGraphicsItem_InputMethodEvent(QGraphicsItem* self, QInputMethodEvent* even
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnInputMethodEvent(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_InputMethodEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseInputMethodEvent(QGraphicsItem* self, QInputMethodEvent* event) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_InputMethodEvent_IsBase(true);
-        vqgraphicsitem->inputMethodEvent(event);
-    }
-}
-
 QVariant* QGraphicsItem_InputMethodQuery(const QGraphicsItem* self, int query) {
     auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return new QVariant(vqgraphicsitem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnInputMethodQuery(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_InputMethodQuery_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QGraphicsItem_QBaseInputMethodQuery(const QGraphicsItem* self, int query) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_InputMethodQuery_IsBase(true);
         return new QVariant(vqgraphicsitem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
     }
     return {};
@@ -1507,45 +957,9 @@ QVariant* QGraphicsItem_ItemChange(QGraphicsItem* self, int change, const QVaria
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnItemChange(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_ItemChange_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_ItemChange_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QGraphicsItem_QBaseItemChange(QGraphicsItem* self, int change, const QVariant* value) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_ItemChange_IsBase(true);
-        return new QVariant(vqgraphicsitem->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
-    }
-    return {};
-}
-
 bool QGraphicsItem_SupportsExtension(const QGraphicsItem* self, int extension) {
     auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return vqgraphicsitem->supportsExtension(static_cast<VirtualQGraphicsItem::Extension>(extension));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnSupportsExtension(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_SupportsExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsItem_QBaseSupportsExtension(const QGraphicsItem* self, int extension) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_SupportsExtension_IsBase(true);
         return vqgraphicsitem->supportsExtension(static_cast<VirtualQGraphicsItem::Extension>(extension));
     }
     return {};
@@ -1558,44 +972,9 @@ void QGraphicsItem_SetExtension(QGraphicsItem* self, int extension, const QVaria
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnSetExtension(QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_SetExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItem_QBaseSetExtension(QGraphicsItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_SetExtension_IsBase(true);
-        vqgraphicsitem->setExtension(static_cast<VirtualQGraphicsItem::Extension>(extension), *variant);
-    }
-}
-
 QVariant* QGraphicsItem_Extension(const QGraphicsItem* self, const QVariant* variant) {
     auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return new QVariant(vqgraphicsitem->extension(*variant));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItem_OnExtension(const QGraphicsItem* self, intptr_t slot) {
-    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Extension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QGraphicsItem_QBaseExtension(const QGraphicsItem* self, const QVariant* variant) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->setQGraphicsItem_Extension_IsBase(true);
         return new QVariant(vqgraphicsitem->extension(*variant));
     }
     return {};
@@ -1664,6 +1043,668 @@ void QGraphicsItem_Update1(QGraphicsItem* self, const QRectF* rect) {
 
 void QGraphicsItem_Scroll3(QGraphicsItem* self, double dx, double dy, const QRectF* rect) {
     self->scroll(static_cast<qreal>(dx), static_cast<qreal>(dy), *rect);
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseAdvance(QGraphicsItem* self, int phase) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Advance_IsBase(true);
+        vqgraphicsitem->advance(static_cast<int>(phase));
+    } else {
+        self->QGraphicsItem::advance(static_cast<int>(phase));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnAdvance(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Advance_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Advance_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRectF* QGraphicsItem_QBaseBoundingRect(const QGraphicsItem* self) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicsitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsItem*)self)->boundingRect());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnBoundingRect(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsItem_QBaseShape(const QGraphicsItem* self) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Shape_IsBase(true);
+        return new QPainterPath(vqgraphicsitem->shape());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsItem*)self)->shape());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnShape(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Shape_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsItem_QBaseContains(const QGraphicsItem* self, const QPointF* point) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Contains_IsBase(true);
+        return vqgraphicsitem->contains(*point);
+    } else {
+        return self->QGraphicsItem::contains(*point);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnContains(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Contains_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsItem_QBaseCollidesWithItem(const QGraphicsItem* self, const QGraphicsItem* other, int mode) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_CollidesWithItem_IsBase(true);
+        return vqgraphicsitem->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
+    } else {
+        return self->QGraphicsItem::collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnCollidesWithItem(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_CollidesWithItem_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_CollidesWithItem_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsItem_QBaseCollidesWithPath(const QGraphicsItem* self, const QPainterPath* path, int mode) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_CollidesWithPath_IsBase(true);
+        return vqgraphicsitem->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
+    } else {
+        return self->QGraphicsItem::collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnCollidesWithPath(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_CollidesWithPath_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_CollidesWithPath_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsItem_QBaseIsObscuredBy(const QGraphicsItem* self, const QGraphicsItem* item) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_IsObscuredBy_IsBase(true);
+        return vqgraphicsitem->isObscuredBy(item);
+    } else {
+        return self->QGraphicsItem::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnIsObscuredBy(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsItem_QBaseOpaqueArea(const QGraphicsItem* self) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicsitem->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnOpaqueArea(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBasePaint(QGraphicsItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Paint_IsBase(true);
+        vqgraphicsitem->paint(painter, option, widget);
+    } else {
+        ((VirtualQGraphicsItem*)self)->paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnPaint(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsItem_QBaseType(const QGraphicsItem* self) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Type_IsBase(true);
+        return vqgraphicsitem->type();
+    } else {
+        return self->QGraphicsItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnType(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Type_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsItem_QBaseSceneEventFilter(QGraphicsItem* self, QGraphicsItem* watched, QEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_SceneEventFilter_IsBase(true);
+        return vqgraphicsitem->sceneEventFilter(watched, event);
+    } else {
+        return ((VirtualQGraphicsItem*)self)->sceneEventFilter(watched, event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnSceneEventFilter(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_SceneEventFilter_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_SceneEventFilter_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsItem_QBaseSceneEvent(QGraphicsItem* self, QEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_SceneEvent_IsBase(true);
+        return vqgraphicsitem->sceneEvent(event);
+    } else {
+        return ((VirtualQGraphicsItem*)self)->sceneEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnSceneEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_SceneEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_SceneEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseContextMenuEvent(QGraphicsItem* self, QGraphicsSceneContextMenuEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_ContextMenuEvent_IsBase(true);
+        vqgraphicsitem->contextMenuEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->contextMenuEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnContextMenuEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseDragEnterEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_DragEnterEvent_IsBase(true);
+        vqgraphicsitem->dragEnterEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->dragEnterEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnDragEnterEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_DragEnterEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseDragLeaveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_DragLeaveEvent_IsBase(true);
+        vqgraphicsitem->dragLeaveEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->dragLeaveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnDragLeaveEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_DragLeaveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseDragMoveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_DragMoveEvent_IsBase(true);
+        vqgraphicsitem->dragMoveEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->dragMoveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnDragMoveEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_DragMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseDropEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_DropEvent_IsBase(true);
+        vqgraphicsitem->dropEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->dropEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnDropEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_DropEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseFocusInEvent(QGraphicsItem* self, QFocusEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_FocusInEvent_IsBase(true);
+        vqgraphicsitem->focusInEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->focusInEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnFocusInEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseFocusOutEvent(QGraphicsItem* self, QFocusEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_FocusOutEvent_IsBase(true);
+        vqgraphicsitem->focusOutEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->focusOutEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnFocusOutEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseHoverEnterEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_HoverEnterEvent_IsBase(true);
+        vqgraphicsitem->hoverEnterEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->hoverEnterEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnHoverEnterEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_HoverEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_HoverEnterEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseHoverMoveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_HoverMoveEvent_IsBase(true);
+        vqgraphicsitem->hoverMoveEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->hoverMoveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnHoverMoveEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_HoverMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_HoverMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseHoverLeaveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_HoverLeaveEvent_IsBase(true);
+        vqgraphicsitem->hoverLeaveEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->hoverLeaveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnHoverLeaveEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_HoverLeaveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseKeyPressEvent(QGraphicsItem* self, QKeyEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_KeyPressEvent_IsBase(true);
+        vqgraphicsitem->keyPressEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->keyPressEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnKeyPressEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseKeyReleaseEvent(QGraphicsItem* self, QKeyEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_KeyReleaseEvent_IsBase(true);
+        vqgraphicsitem->keyReleaseEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->keyReleaseEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnKeyReleaseEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_KeyReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseMousePressEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_MousePressEvent_IsBase(true);
+        vqgraphicsitem->mousePressEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->mousePressEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnMousePressEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseMouseMoveEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_MouseMoveEvent_IsBase(true);
+        vqgraphicsitem->mouseMoveEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->mouseMoveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnMouseMoveEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseMouseReleaseEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_MouseReleaseEvent_IsBase(true);
+        vqgraphicsitem->mouseReleaseEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->mouseReleaseEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnMouseReleaseEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseMouseDoubleClickEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_MouseDoubleClickEvent_IsBase(true);
+        vqgraphicsitem->mouseDoubleClickEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->mouseDoubleClickEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnMouseDoubleClickEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_MouseDoubleClickEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseWheelEvent(QGraphicsItem* self, QGraphicsSceneWheelEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_WheelEvent_IsBase(true);
+        vqgraphicsitem->wheelEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->wheelEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnWheelEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_WheelEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_WheelEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseInputMethodEvent(QGraphicsItem* self, QInputMethodEvent* event) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_InputMethodEvent_IsBase(true);
+        vqgraphicsitem->inputMethodEvent(event);
+    } else {
+        ((VirtualQGraphicsItem*)self)->inputMethodEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnInputMethodEvent(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_InputMethodEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QGraphicsItem_QBaseInputMethodQuery(const QGraphicsItem* self, int query) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_InputMethodQuery_IsBase(true);
+        return new QVariant(vqgraphicsitem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnInputMethodQuery(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_InputMethodQuery_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QGraphicsItem_QBaseItemChange(QGraphicsItem* self, int change, const QVariant* value) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_ItemChange_IsBase(true);
+        return new QVariant(vqgraphicsitem->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnItemChange(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_ItemChange_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_ItemChange_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsItem_QBaseSupportsExtension(const QGraphicsItem* self, int extension) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_SupportsExtension_IsBase(true);
+        return vqgraphicsitem->supportsExtension(static_cast<VirtualQGraphicsItem::Extension>(extension));
+    } else {
+        return ((VirtualQGraphicsItem*)self)->supportsExtension(static_cast<VirtualQGraphicsItem::Extension>(extension));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnSupportsExtension(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_SupportsExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItem_QBaseSetExtension(QGraphicsItem* self, int extension, const QVariant* variant) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_SetExtension_IsBase(true);
+        vqgraphicsitem->setExtension(static_cast<VirtualQGraphicsItem::Extension>(extension), *variant);
+    } else {
+        ((VirtualQGraphicsItem*)self)->setExtension(static_cast<VirtualQGraphicsItem::Extension>(extension), *variant);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnSetExtension(QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_SetExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QGraphicsItem_QBaseExtension(const QGraphicsItem* self, const QVariant* variant) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Extension_IsBase(true);
+        return new QVariant(vqgraphicsitem->extension(*variant));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItem_OnExtension(const QGraphicsItem* self, intptr_t slot) {
+    auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
+    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
+        vqgraphicsitem->setQGraphicsItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsItem::QGraphicsItem_Extension_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -1806,25 +1847,6 @@ int QGraphicsObject_Metacall(QGraphicsObject* self, int param1, int param2, void
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsObject*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsObject_OnMetacall(QGraphicsObject* self, intptr_t slot) {
-    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
-    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
-        vqgraphicsobject->setQGraphicsObject_Metacall_Callback(reinterpret_cast<VirtualQGraphicsObject::QGraphicsObject_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsObject_QBaseMetacall(QGraphicsObject* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
-    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
-        vqgraphicsobject->setQGraphicsObject_Metacall_IsBase(true);
-        return vqgraphicsobject->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
         return ((VirtualQGraphicsObject*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
@@ -1990,24 +2012,6 @@ bool QGraphicsObject_Event(QGraphicsObject* self, QEvent* ev) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsObject_OnEvent(QGraphicsObject* self, intptr_t slot) {
-    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
-    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
-        vqgraphicsobject->setQGraphicsObject_Event_Callback(reinterpret_cast<VirtualQGraphicsObject::QGraphicsObject_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsObject_QBaseEvent(QGraphicsObject* self, QEvent* ev) {
-    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
-    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
-        vqgraphicsobject->setQGraphicsObject_Event_IsBase(true);
-        return vqgraphicsobject->event(ev);
-    }
-    return {};
-}
-
 libqt_string QGraphicsObject_Tr2(const char* s, const char* c) {
     QString _ret = QGraphicsObject::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2034,6 +2038,44 @@ libqt_string QGraphicsObject_Tr3(const char* s, const char* c, int n) {
 
 void QGraphicsObject_GrabGesture2(QGraphicsObject* self, int typeVal, int flags) {
     self->grabGesture(static_cast<Qt::GestureType>(typeVal), static_cast<Qt::GestureFlags>(flags));
+}
+
+// Base class handler implementation
+int QGraphicsObject_QBaseMetacall(QGraphicsObject* self, int param1, int param2, void** param3) {
+    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        vqgraphicsobject->setQGraphicsObject_Metacall_IsBase(true);
+        return vqgraphicsobject->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsObject::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsObject_OnMetacall(QGraphicsObject* self, intptr_t slot) {
+    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        vqgraphicsobject->setQGraphicsObject_Metacall_Callback(reinterpret_cast<VirtualQGraphicsObject::QGraphicsObject_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsObject_QBaseEvent(QGraphicsObject* self, QEvent* ev) {
+    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        vqgraphicsobject->setQGraphicsObject_Event_IsBase(true);
+        return vqgraphicsobject->event(ev);
+    } else {
+        return ((VirtualQGraphicsObject*)self)->event(ev);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsObject_OnEvent(QGraphicsObject* self, intptr_t slot) {
+    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        vqgraphicsobject->setQGraphicsObject_Event_Callback(reinterpret_cast<VirtualQGraphicsObject::QGraphicsObject_Event_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -3488,25 +3530,6 @@ bool QAbstractGraphicsShapeItem_IsObscuredBy(const QAbstractGraphicsShapeItem* s
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractGraphicsShapeItem_OnIsObscuredBy(const QAbstractGraphicsShapeItem* self, intptr_t slot) {
-    auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
-    if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
-        vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQAbstractGraphicsShapeItem::QAbstractGraphicsShapeItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QAbstractGraphicsShapeItem_QBaseIsObscuredBy(const QAbstractGraphicsShapeItem* self, const QGraphicsItem* item) {
-    auto* vqabstractgraphicsshapeitem = dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self);
-    if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
-        vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_IsObscuredBy_IsBase(true);
-        return vqabstractgraphicsshapeitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQAbstractGraphicsShapeItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QAbstractGraphicsShapeItem_OpaqueArea(const QAbstractGraphicsShapeItem* self) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
@@ -3516,22 +3539,41 @@ QPainterPath* QAbstractGraphicsShapeItem_OpaqueArea(const QAbstractGraphicsShape
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractGraphicsShapeItem_OnOpaqueArea(const QAbstractGraphicsShapeItem* self, intptr_t slot) {
+// Base class handler implementation
+bool QAbstractGraphicsShapeItem_QBaseIsObscuredBy(const QAbstractGraphicsShapeItem* self, const QGraphicsItem* item) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
-        vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_OpaqueArea_Callback(reinterpret_cast<VirtualQAbstractGraphicsShapeItem::QAbstractGraphicsShapeItem_OpaqueArea_Callback>(slot));
+        vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_IsObscuredBy_IsBase(true);
+        return vqabstractgraphicsshapeitem->isObscuredBy(item);
+    } else {
+        return self->QAbstractGraphicsShapeItem::isObscuredBy(item);
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void QAbstractGraphicsShapeItem_OnIsObscuredBy(const QAbstractGraphicsShapeItem* self, intptr_t slot) {
+    auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
+    if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
+        vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQAbstractGraphicsShapeItem::QAbstractGraphicsShapeItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QPainterPath* QAbstractGraphicsShapeItem_QBaseOpaqueArea(const QAbstractGraphicsShapeItem* self) {
-    auto* vqabstractgraphicsshapeitem = dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self);
+    auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_OpaqueArea_IsBase(true);
         return new QPainterPath(vqabstractgraphicsshapeitem->opaqueArea());
     } else {
         return new QPainterPath(((VirtualQAbstractGraphicsShapeItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractGraphicsShapeItem_OnOpaqueArea(const QAbstractGraphicsShapeItem* self, intptr_t slot) {
+    auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
+    if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
+        vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_OpaqueArea_Callback(reinterpret_cast<VirtualQAbstractGraphicsShapeItem::QAbstractGraphicsShapeItem_OpaqueArea_Callback>(slot));
     }
 }
 
@@ -4639,48 +4681,10 @@ QRectF* QGraphicsPathItem_BoundingRect(const QGraphicsPathItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnBoundingRect(const QGraphicsPathItem* self, intptr_t slot) {
-    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsPathItem_QBaseBoundingRect(const QGraphicsPathItem* self) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicspathitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsPathItem*)self)->boundingRect());
-    }
-}
-
 QPainterPath* QGraphicsPathItem_Shape(const QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPathItem*)self)->shape());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnShape(const QGraphicsPathItem* self, intptr_t slot) {
-    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Shape_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsPathItem_QBaseShape(const QGraphicsPathItem* self) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicspathitem->shape());
     } else {
         return new QPainterPath(((VirtualQGraphicsPathItem*)self)->shape());
     }
@@ -4695,48 +4699,10 @@ bool QGraphicsPathItem_Contains(const QGraphicsPathItem* self, const QPointF* po
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnContains(const QGraphicsPathItem* self, intptr_t slot) {
-    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Contains_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsPathItem_QBaseContains(const QGraphicsPathItem* self, const QPointF* point) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_Contains_IsBase(true);
-        return vqgraphicspathitem->contains(*point);
-    } else {
-        return ((VirtualQGraphicsPathItem*)self)->contains(*point);
-    }
-}
-
 void QGraphicsPathItem_Paint(QGraphicsPathItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsPathItem*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnPaint(QGraphicsPathItem* self, intptr_t slot) {
-    auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsPathItem_QBasePaint(QGraphicsPathItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_Paint_IsBase(true);
-        vqgraphicspathitem->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsPathItem*)self)->paint(painter, option, widget);
     }
@@ -4751,48 +4717,10 @@ bool QGraphicsPathItem_IsObscuredBy(const QGraphicsPathItem* self, const QGraphi
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnIsObscuredBy(const QGraphicsPathItem* self, intptr_t slot) {
-    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsPathItem_QBaseIsObscuredBy(const QGraphicsPathItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_IsObscuredBy_IsBase(true);
-        return vqgraphicspathitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsPathItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsPathItem_OpaqueArea(const QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPathItem*)self)->opaqueArea());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnOpaqueArea(const QGraphicsPathItem* self, intptr_t slot) {
-    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsPathItem_QBaseOpaqueArea(const QGraphicsPathItem* self) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicspathitem->opaqueArea());
     } else {
         return new QPainterPath(((VirtualQGraphicsPathItem*)self)->opaqueArea());
     }
@@ -4807,46 +4735,9 @@ int QGraphicsPathItem_Type(const QGraphicsPathItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnType(const QGraphicsPathItem* self, intptr_t slot) {
-    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_Type_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsPathItem_QBaseType(const QGraphicsPathItem* self) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_Type_IsBase(true);
-        return vqgraphicspathitem->type();
-    } else {
-        return ((VirtualQGraphicsPathItem*)self)->type();
-    }
-}
-
 bool QGraphicsPathItem_SupportsExtension(const QGraphicsPathItem* self, int extension) {
     auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        return vqgraphicspathitem->supportsExtension(static_cast<VirtualQGraphicsPathItem::Extension>(extension));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnSupportsExtension(const QGraphicsPathItem* self, intptr_t slot) {
-    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_SupportsExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsPathItem_QBaseSupportsExtension(const QGraphicsPathItem* self, int extension) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_SupportsExtension_IsBase(true);
         return vqgraphicspathitem->supportsExtension(static_cast<VirtualQGraphicsPathItem::Extension>(extension));
     }
     return {};
@@ -4859,23 +4750,6 @@ void QGraphicsPathItem_SetExtension(QGraphicsPathItem* self, int extension, cons
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnSetExtension(QGraphicsPathItem* self, intptr_t slot) {
-    auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_SetExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsPathItem_QBaseSetExtension(QGraphicsPathItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_SetExtension_IsBase(true);
-        vqgraphicspathitem->setExtension(static_cast<VirtualQGraphicsPathItem::Extension>(extension), *variant);
-    }
-}
-
 QVariant* QGraphicsPathItem_Extension(const QGraphicsPathItem* self, const QVariant* variant) {
     auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
@@ -4884,22 +4758,193 @@ QVariant* QGraphicsPathItem_Extension(const QGraphicsPathItem* self, const QVari
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPathItem_OnExtension(const QGraphicsPathItem* self, intptr_t slot) {
+// Base class handler implementation
+QRectF* QGraphicsPathItem_QBaseBoundingRect(const QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        vqgraphicspathitem->setQGraphicsPathItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Extension_Callback>(slot));
+        vqgraphicspathitem->setQGraphicsPathItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicspathitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsPathItem*)self)->boundingRect());
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnBoundingRect(const QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsPathItem_QBaseShape(const QGraphicsPathItem* self) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_Shape_IsBase(true);
+        return new QPainterPath(vqgraphicspathitem->shape());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsPathItem*)self)->shape());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnShape(const QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Shape_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsPathItem_QBaseContains(const QGraphicsPathItem* self, const QPointF* point) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_Contains_IsBase(true);
+        return vqgraphicspathitem->contains(*point);
+    } else {
+        return self->QGraphicsPathItem::contains(*point);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnContains(const QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Contains_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsPathItem_QBasePaint(QGraphicsPathItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_Paint_IsBase(true);
+        vqgraphicspathitem->paint(painter, option, widget);
+    } else {
+        self->QGraphicsPathItem::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnPaint(QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsPathItem_QBaseIsObscuredBy(const QGraphicsPathItem* self, const QGraphicsItem* item) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_IsObscuredBy_IsBase(true);
+        return vqgraphicspathitem->isObscuredBy(item);
+    } else {
+        return self->QGraphicsPathItem::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnIsObscuredBy(const QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsPathItem_QBaseOpaqueArea(const QGraphicsPathItem* self) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicspathitem->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsPathItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnOpaqueArea(const QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsPathItem_QBaseType(const QGraphicsPathItem* self) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_Type_IsBase(true);
+        return vqgraphicspathitem->type();
+    } else {
+        return self->QGraphicsPathItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnType(const QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_Type_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsPathItem_QBaseSupportsExtension(const QGraphicsPathItem* self, int extension) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_SupportsExtension_IsBase(true);
+        return vqgraphicspathitem->supportsExtension(static_cast<VirtualQGraphicsPathItem::Extension>(extension));
+    } else {
+        return ((VirtualQGraphicsPathItem*)self)->supportsExtension(static_cast<VirtualQGraphicsPathItem::Extension>(extension));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnSupportsExtension(const QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_SupportsExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsPathItem_QBaseSetExtension(QGraphicsPathItem* self, int extension, const QVariant* variant) {
+    auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_SetExtension_IsBase(true);
+        vqgraphicspathitem->setExtension(static_cast<VirtualQGraphicsPathItem::Extension>(extension), *variant);
+    } else {
+        ((VirtualQGraphicsPathItem*)self)->setExtension(static_cast<VirtualQGraphicsPathItem::Extension>(extension), *variant);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnSetExtension(QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_SetExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QVariant* QGraphicsPathItem_QBaseExtension(const QGraphicsPathItem* self, const QVariant* variant) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_Extension_IsBase(true);
         return new QVariant(vqgraphicspathitem->extension(*variant));
     }
     return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPathItem_OnExtension(const QGraphicsPathItem* self, intptr_t slot) {
+    auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
+    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
+        vqgraphicspathitem->setQGraphicsPathItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsPathItem::QGraphicsPathItem_Extension_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -5788,48 +5833,10 @@ QRectF* QGraphicsRectItem_BoundingRect(const QGraphicsRectItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnBoundingRect(const QGraphicsRectItem* self, intptr_t slot) {
-    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsRectItem_QBaseBoundingRect(const QGraphicsRectItem* self) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicsrectitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsRectItem*)self)->boundingRect());
-    }
-}
-
 QPainterPath* QGraphicsRectItem_Shape(const QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsRectItem*)self)->shape());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnShape(const QGraphicsRectItem* self, intptr_t slot) {
-    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Shape_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsRectItem_QBaseShape(const QGraphicsRectItem* self) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicsrectitem->shape());
     } else {
         return new QPainterPath(((VirtualQGraphicsRectItem*)self)->shape());
     }
@@ -5844,48 +5851,10 @@ bool QGraphicsRectItem_Contains(const QGraphicsRectItem* self, const QPointF* po
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnContains(const QGraphicsRectItem* self, intptr_t slot) {
-    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Contains_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsRectItem_QBaseContains(const QGraphicsRectItem* self, const QPointF* point) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_Contains_IsBase(true);
-        return vqgraphicsrectitem->contains(*point);
-    } else {
-        return ((VirtualQGraphicsRectItem*)self)->contains(*point);
-    }
-}
-
 void QGraphicsRectItem_Paint(QGraphicsRectItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsRectItem*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnPaint(QGraphicsRectItem* self, intptr_t slot) {
-    auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsRectItem_QBasePaint(QGraphicsRectItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_Paint_IsBase(true);
-        vqgraphicsrectitem->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsRectItem*)self)->paint(painter, option, widget);
     }
@@ -5900,48 +5869,10 @@ bool QGraphicsRectItem_IsObscuredBy(const QGraphicsRectItem* self, const QGraphi
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnIsObscuredBy(const QGraphicsRectItem* self, intptr_t slot) {
-    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsRectItem_QBaseIsObscuredBy(const QGraphicsRectItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_IsObscuredBy_IsBase(true);
-        return vqgraphicsrectitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsRectItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsRectItem_OpaqueArea(const QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsRectItem*)self)->opaqueArea());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnOpaqueArea(const QGraphicsRectItem* self, intptr_t slot) {
-    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsRectItem_QBaseOpaqueArea(const QGraphicsRectItem* self) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicsrectitem->opaqueArea());
     } else {
         return new QPainterPath(((VirtualQGraphicsRectItem*)self)->opaqueArea());
     }
@@ -5956,46 +5887,9 @@ int QGraphicsRectItem_Type(const QGraphicsRectItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnType(const QGraphicsRectItem* self, intptr_t slot) {
-    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_Type_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsRectItem_QBaseType(const QGraphicsRectItem* self) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_Type_IsBase(true);
-        return vqgraphicsrectitem->type();
-    } else {
-        return ((VirtualQGraphicsRectItem*)self)->type();
-    }
-}
-
 bool QGraphicsRectItem_SupportsExtension(const QGraphicsRectItem* self, int extension) {
     auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        return vqgraphicsrectitem->supportsExtension(static_cast<VirtualQGraphicsRectItem::Extension>(extension));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnSupportsExtension(const QGraphicsRectItem* self, intptr_t slot) {
-    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_SupportsExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsRectItem_QBaseSupportsExtension(const QGraphicsRectItem* self, int extension) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_SupportsExtension_IsBase(true);
         return vqgraphicsrectitem->supportsExtension(static_cast<VirtualQGraphicsRectItem::Extension>(extension));
     }
     return {};
@@ -6008,23 +5902,6 @@ void QGraphicsRectItem_SetExtension(QGraphicsRectItem* self, int extension, cons
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnSetExtension(QGraphicsRectItem* self, intptr_t slot) {
-    auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_SetExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsRectItem_QBaseSetExtension(QGraphicsRectItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_SetExtension_IsBase(true);
-        vqgraphicsrectitem->setExtension(static_cast<VirtualQGraphicsRectItem::Extension>(extension), *variant);
-    }
-}
-
 QVariant* QGraphicsRectItem_Extension(const QGraphicsRectItem* self, const QVariant* variant) {
     auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
@@ -6033,22 +5910,193 @@ QVariant* QGraphicsRectItem_Extension(const QGraphicsRectItem* self, const QVari
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRectItem_OnExtension(const QGraphicsRectItem* self, intptr_t slot) {
+// Base class handler implementation
+QRectF* QGraphicsRectItem_QBaseBoundingRect(const QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        vqgraphicsrectitem->setQGraphicsRectItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Extension_Callback>(slot));
+        vqgraphicsrectitem->setQGraphicsRectItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicsrectitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsRectItem*)self)->boundingRect());
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnBoundingRect(const QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsRectItem_QBaseShape(const QGraphicsRectItem* self) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_Shape_IsBase(true);
+        return new QPainterPath(vqgraphicsrectitem->shape());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsRectItem*)self)->shape());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnShape(const QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Shape_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsRectItem_QBaseContains(const QGraphicsRectItem* self, const QPointF* point) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_Contains_IsBase(true);
+        return vqgraphicsrectitem->contains(*point);
+    } else {
+        return self->QGraphicsRectItem::contains(*point);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnContains(const QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Contains_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsRectItem_QBasePaint(QGraphicsRectItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_Paint_IsBase(true);
+        vqgraphicsrectitem->paint(painter, option, widget);
+    } else {
+        self->QGraphicsRectItem::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnPaint(QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsRectItem_QBaseIsObscuredBy(const QGraphicsRectItem* self, const QGraphicsItem* item) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_IsObscuredBy_IsBase(true);
+        return vqgraphicsrectitem->isObscuredBy(item);
+    } else {
+        return self->QGraphicsRectItem::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnIsObscuredBy(const QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsRectItem_QBaseOpaqueArea(const QGraphicsRectItem* self) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicsrectitem->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsRectItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnOpaqueArea(const QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsRectItem_QBaseType(const QGraphicsRectItem* self) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_Type_IsBase(true);
+        return vqgraphicsrectitem->type();
+    } else {
+        return self->QGraphicsRectItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnType(const QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_Type_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsRectItem_QBaseSupportsExtension(const QGraphicsRectItem* self, int extension) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_SupportsExtension_IsBase(true);
+        return vqgraphicsrectitem->supportsExtension(static_cast<VirtualQGraphicsRectItem::Extension>(extension));
+    } else {
+        return ((VirtualQGraphicsRectItem*)self)->supportsExtension(static_cast<VirtualQGraphicsRectItem::Extension>(extension));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnSupportsExtension(const QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_SupportsExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsRectItem_QBaseSetExtension(QGraphicsRectItem* self, int extension, const QVariant* variant) {
+    auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_SetExtension_IsBase(true);
+        vqgraphicsrectitem->setExtension(static_cast<VirtualQGraphicsRectItem::Extension>(extension), *variant);
+    } else {
+        ((VirtualQGraphicsRectItem*)self)->setExtension(static_cast<VirtualQGraphicsRectItem::Extension>(extension), *variant);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnSetExtension(QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_SetExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QVariant* QGraphicsRectItem_QBaseExtension(const QGraphicsRectItem* self, const QVariant* variant) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_Extension_IsBase(true);
         return new QVariant(vqgraphicsrectitem->extension(*variant));
     }
     return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRectItem_OnExtension(const QGraphicsRectItem* self, intptr_t slot) {
+    auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
+    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
+        vqgraphicsrectitem->setQGraphicsRectItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsRectItem::QGraphicsRectItem_Extension_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -6953,48 +7001,10 @@ QRectF* QGraphicsEllipseItem_BoundingRect(const QGraphicsEllipseItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnBoundingRect(const QGraphicsEllipseItem* self, intptr_t slot) {
-    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsEllipseItem_QBaseBoundingRect(const QGraphicsEllipseItem* self) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicsellipseitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsEllipseItem*)self)->boundingRect());
-    }
-}
-
 QPainterPath* QGraphicsEllipseItem_Shape(const QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsEllipseItem*)self)->shape());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnShape(const QGraphicsEllipseItem* self, intptr_t slot) {
-    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Shape_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsEllipseItem_QBaseShape(const QGraphicsEllipseItem* self) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicsellipseitem->shape());
     } else {
         return new QPainterPath(((VirtualQGraphicsEllipseItem*)self)->shape());
     }
@@ -7009,48 +7019,10 @@ bool QGraphicsEllipseItem_Contains(const QGraphicsEllipseItem* self, const QPoin
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnContains(const QGraphicsEllipseItem* self, intptr_t slot) {
-    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Contains_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsEllipseItem_QBaseContains(const QGraphicsEllipseItem* self, const QPointF* point) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_Contains_IsBase(true);
-        return vqgraphicsellipseitem->contains(*point);
-    } else {
-        return ((VirtualQGraphicsEllipseItem*)self)->contains(*point);
-    }
-}
-
 void QGraphicsEllipseItem_Paint(QGraphicsEllipseItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsEllipseItem*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnPaint(QGraphicsEllipseItem* self, intptr_t slot) {
-    auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsEllipseItem_QBasePaint(QGraphicsEllipseItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_Paint_IsBase(true);
-        vqgraphicsellipseitem->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsEllipseItem*)self)->paint(painter, option, widget);
     }
@@ -7065,48 +7037,10 @@ bool QGraphicsEllipseItem_IsObscuredBy(const QGraphicsEllipseItem* self, const Q
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnIsObscuredBy(const QGraphicsEllipseItem* self, intptr_t slot) {
-    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsEllipseItem_QBaseIsObscuredBy(const QGraphicsEllipseItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_IsObscuredBy_IsBase(true);
-        return vqgraphicsellipseitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsEllipseItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsEllipseItem_OpaqueArea(const QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsEllipseItem*)self)->opaqueArea());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnOpaqueArea(const QGraphicsEllipseItem* self, intptr_t slot) {
-    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsEllipseItem_QBaseOpaqueArea(const QGraphicsEllipseItem* self) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicsellipseitem->opaqueArea());
     } else {
         return new QPainterPath(((VirtualQGraphicsEllipseItem*)self)->opaqueArea());
     }
@@ -7121,46 +7055,9 @@ int QGraphicsEllipseItem_Type(const QGraphicsEllipseItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnType(const QGraphicsEllipseItem* self, intptr_t slot) {
-    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_Type_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsEllipseItem_QBaseType(const QGraphicsEllipseItem* self) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_Type_IsBase(true);
-        return vqgraphicsellipseitem->type();
-    } else {
-        return ((VirtualQGraphicsEllipseItem*)self)->type();
-    }
-}
-
 bool QGraphicsEllipseItem_SupportsExtension(const QGraphicsEllipseItem* self, int extension) {
     auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        return vqgraphicsellipseitem->supportsExtension(static_cast<VirtualQGraphicsEllipseItem::Extension>(extension));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnSupportsExtension(const QGraphicsEllipseItem* self, intptr_t slot) {
-    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_SupportsExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsEllipseItem_QBaseSupportsExtension(const QGraphicsEllipseItem* self, int extension) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_SupportsExtension_IsBase(true);
         return vqgraphicsellipseitem->supportsExtension(static_cast<VirtualQGraphicsEllipseItem::Extension>(extension));
     }
     return {};
@@ -7173,23 +7070,6 @@ void QGraphicsEllipseItem_SetExtension(QGraphicsEllipseItem* self, int extension
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnSetExtension(QGraphicsEllipseItem* self, intptr_t slot) {
-    auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_SetExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsEllipseItem_QBaseSetExtension(QGraphicsEllipseItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_SetExtension_IsBase(true);
-        vqgraphicsellipseitem->setExtension(static_cast<VirtualQGraphicsEllipseItem::Extension>(extension), *variant);
-    }
-}
-
 QVariant* QGraphicsEllipseItem_Extension(const QGraphicsEllipseItem* self, const QVariant* variant) {
     auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
@@ -7198,22 +7078,193 @@ QVariant* QGraphicsEllipseItem_Extension(const QGraphicsEllipseItem* self, const
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEllipseItem_OnExtension(const QGraphicsEllipseItem* self, intptr_t slot) {
+// Base class handler implementation
+QRectF* QGraphicsEllipseItem_QBaseBoundingRect(const QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        vqgraphicsellipseitem->setQGraphicsEllipseItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Extension_Callback>(slot));
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicsellipseitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsEllipseItem*)self)->boundingRect());
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnBoundingRect(const QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsEllipseItem_QBaseShape(const QGraphicsEllipseItem* self) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_Shape_IsBase(true);
+        return new QPainterPath(vqgraphicsellipseitem->shape());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsEllipseItem*)self)->shape());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnShape(const QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Shape_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsEllipseItem_QBaseContains(const QGraphicsEllipseItem* self, const QPointF* point) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_Contains_IsBase(true);
+        return vqgraphicsellipseitem->contains(*point);
+    } else {
+        return self->QGraphicsEllipseItem::contains(*point);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnContains(const QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Contains_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsEllipseItem_QBasePaint(QGraphicsEllipseItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_Paint_IsBase(true);
+        vqgraphicsellipseitem->paint(painter, option, widget);
+    } else {
+        self->QGraphicsEllipseItem::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnPaint(QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsEllipseItem_QBaseIsObscuredBy(const QGraphicsEllipseItem* self, const QGraphicsItem* item) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_IsObscuredBy_IsBase(true);
+        return vqgraphicsellipseitem->isObscuredBy(item);
+    } else {
+        return self->QGraphicsEllipseItem::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnIsObscuredBy(const QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsEllipseItem_QBaseOpaqueArea(const QGraphicsEllipseItem* self) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicsellipseitem->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsEllipseItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnOpaqueArea(const QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsEllipseItem_QBaseType(const QGraphicsEllipseItem* self) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_Type_IsBase(true);
+        return vqgraphicsellipseitem->type();
+    } else {
+        return self->QGraphicsEllipseItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnType(const QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_Type_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsEllipseItem_QBaseSupportsExtension(const QGraphicsEllipseItem* self, int extension) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_SupportsExtension_IsBase(true);
+        return vqgraphicsellipseitem->supportsExtension(static_cast<VirtualQGraphicsEllipseItem::Extension>(extension));
+    } else {
+        return ((VirtualQGraphicsEllipseItem*)self)->supportsExtension(static_cast<VirtualQGraphicsEllipseItem::Extension>(extension));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnSupportsExtension(const QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_SupportsExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsEllipseItem_QBaseSetExtension(QGraphicsEllipseItem* self, int extension, const QVariant* variant) {
+    auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_SetExtension_IsBase(true);
+        vqgraphicsellipseitem->setExtension(static_cast<VirtualQGraphicsEllipseItem::Extension>(extension), *variant);
+    } else {
+        ((VirtualQGraphicsEllipseItem*)self)->setExtension(static_cast<VirtualQGraphicsEllipseItem::Extension>(extension), *variant);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnSetExtension(QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_SetExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QVariant* QGraphicsEllipseItem_QBaseExtension(const QGraphicsEllipseItem* self, const QVariant* variant) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_Extension_IsBase(true);
         return new QVariant(vqgraphicsellipseitem->extension(*variant));
     }
     return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEllipseItem_OnExtension(const QGraphicsEllipseItem* self, intptr_t slot) {
+    auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
+    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
+        vqgraphicsellipseitem->setQGraphicsEllipseItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsEllipseItem::QGraphicsEllipseItem_Extension_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -8082,48 +8133,10 @@ QRectF* QGraphicsPolygonItem_BoundingRect(const QGraphicsPolygonItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnBoundingRect(const QGraphicsPolygonItem* self, intptr_t slot) {
-    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsPolygonItem_QBaseBoundingRect(const QGraphicsPolygonItem* self) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicspolygonitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsPolygonItem*)self)->boundingRect());
-    }
-}
-
 QPainterPath* QGraphicsPolygonItem_Shape(const QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPolygonItem*)self)->shape());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnShape(const QGraphicsPolygonItem* self, intptr_t slot) {
-    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Shape_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsPolygonItem_QBaseShape(const QGraphicsPolygonItem* self) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicspolygonitem->shape());
     } else {
         return new QPainterPath(((VirtualQGraphicsPolygonItem*)self)->shape());
     }
@@ -8138,48 +8151,10 @@ bool QGraphicsPolygonItem_Contains(const QGraphicsPolygonItem* self, const QPoin
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnContains(const QGraphicsPolygonItem* self, intptr_t slot) {
-    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Contains_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsPolygonItem_QBaseContains(const QGraphicsPolygonItem* self, const QPointF* point) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_Contains_IsBase(true);
-        return vqgraphicspolygonitem->contains(*point);
-    } else {
-        return ((VirtualQGraphicsPolygonItem*)self)->contains(*point);
-    }
-}
-
 void QGraphicsPolygonItem_Paint(QGraphicsPolygonItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsPolygonItem*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnPaint(QGraphicsPolygonItem* self, intptr_t slot) {
-    auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsPolygonItem_QBasePaint(QGraphicsPolygonItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_Paint_IsBase(true);
-        vqgraphicspolygonitem->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsPolygonItem*)self)->paint(painter, option, widget);
     }
@@ -8194,48 +8169,10 @@ bool QGraphicsPolygonItem_IsObscuredBy(const QGraphicsPolygonItem* self, const Q
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnIsObscuredBy(const QGraphicsPolygonItem* self, intptr_t slot) {
-    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsPolygonItem_QBaseIsObscuredBy(const QGraphicsPolygonItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_IsObscuredBy_IsBase(true);
-        return vqgraphicspolygonitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsPolygonItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsPolygonItem_OpaqueArea(const QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPolygonItem*)self)->opaqueArea());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnOpaqueArea(const QGraphicsPolygonItem* self, intptr_t slot) {
-    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsPolygonItem_QBaseOpaqueArea(const QGraphicsPolygonItem* self) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicspolygonitem->opaqueArea());
     } else {
         return new QPainterPath(((VirtualQGraphicsPolygonItem*)self)->opaqueArea());
     }
@@ -8250,46 +8187,9 @@ int QGraphicsPolygonItem_Type(const QGraphicsPolygonItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnType(const QGraphicsPolygonItem* self, intptr_t slot) {
-    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_Type_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsPolygonItem_QBaseType(const QGraphicsPolygonItem* self) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_Type_IsBase(true);
-        return vqgraphicspolygonitem->type();
-    } else {
-        return ((VirtualQGraphicsPolygonItem*)self)->type();
-    }
-}
-
 bool QGraphicsPolygonItem_SupportsExtension(const QGraphicsPolygonItem* self, int extension) {
     auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        return vqgraphicspolygonitem->supportsExtension(static_cast<VirtualQGraphicsPolygonItem::Extension>(extension));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnSupportsExtension(const QGraphicsPolygonItem* self, intptr_t slot) {
-    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_SupportsExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsPolygonItem_QBaseSupportsExtension(const QGraphicsPolygonItem* self, int extension) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_SupportsExtension_IsBase(true);
         return vqgraphicspolygonitem->supportsExtension(static_cast<VirtualQGraphicsPolygonItem::Extension>(extension));
     }
     return {};
@@ -8302,23 +8202,6 @@ void QGraphicsPolygonItem_SetExtension(QGraphicsPolygonItem* self, int extension
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnSetExtension(QGraphicsPolygonItem* self, intptr_t slot) {
-    auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_SetExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsPolygonItem_QBaseSetExtension(QGraphicsPolygonItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_SetExtension_IsBase(true);
-        vqgraphicspolygonitem->setExtension(static_cast<VirtualQGraphicsPolygonItem::Extension>(extension), *variant);
-    }
-}
-
 QVariant* QGraphicsPolygonItem_Extension(const QGraphicsPolygonItem* self, const QVariant* variant) {
     auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
@@ -8327,22 +8210,193 @@ QVariant* QGraphicsPolygonItem_Extension(const QGraphicsPolygonItem* self, const
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPolygonItem_OnExtension(const QGraphicsPolygonItem* self, intptr_t slot) {
+// Base class handler implementation
+QRectF* QGraphicsPolygonItem_QBaseBoundingRect(const QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        vqgraphicspolygonitem->setQGraphicsPolygonItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Extension_Callback>(slot));
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicspolygonitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsPolygonItem*)self)->boundingRect());
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnBoundingRect(const QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsPolygonItem_QBaseShape(const QGraphicsPolygonItem* self) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_Shape_IsBase(true);
+        return new QPainterPath(vqgraphicspolygonitem->shape());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsPolygonItem*)self)->shape());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnShape(const QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Shape_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsPolygonItem_QBaseContains(const QGraphicsPolygonItem* self, const QPointF* point) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_Contains_IsBase(true);
+        return vqgraphicspolygonitem->contains(*point);
+    } else {
+        return self->QGraphicsPolygonItem::contains(*point);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnContains(const QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Contains_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsPolygonItem_QBasePaint(QGraphicsPolygonItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_Paint_IsBase(true);
+        vqgraphicspolygonitem->paint(painter, option, widget);
+    } else {
+        self->QGraphicsPolygonItem::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnPaint(QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsPolygonItem_QBaseIsObscuredBy(const QGraphicsPolygonItem* self, const QGraphicsItem* item) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_IsObscuredBy_IsBase(true);
+        return vqgraphicspolygonitem->isObscuredBy(item);
+    } else {
+        return self->QGraphicsPolygonItem::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnIsObscuredBy(const QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsPolygonItem_QBaseOpaqueArea(const QGraphicsPolygonItem* self) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicspolygonitem->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsPolygonItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnOpaqueArea(const QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsPolygonItem_QBaseType(const QGraphicsPolygonItem* self) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_Type_IsBase(true);
+        return vqgraphicspolygonitem->type();
+    } else {
+        return self->QGraphicsPolygonItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnType(const QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_Type_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsPolygonItem_QBaseSupportsExtension(const QGraphicsPolygonItem* self, int extension) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_SupportsExtension_IsBase(true);
+        return vqgraphicspolygonitem->supportsExtension(static_cast<VirtualQGraphicsPolygonItem::Extension>(extension));
+    } else {
+        return ((VirtualQGraphicsPolygonItem*)self)->supportsExtension(static_cast<VirtualQGraphicsPolygonItem::Extension>(extension));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnSupportsExtension(const QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_SupportsExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsPolygonItem_QBaseSetExtension(QGraphicsPolygonItem* self, int extension, const QVariant* variant) {
+    auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_SetExtension_IsBase(true);
+        vqgraphicspolygonitem->setExtension(static_cast<VirtualQGraphicsPolygonItem::Extension>(extension), *variant);
+    } else {
+        ((VirtualQGraphicsPolygonItem*)self)->setExtension(static_cast<VirtualQGraphicsPolygonItem::Extension>(extension), *variant);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnSetExtension(QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_SetExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QVariant* QGraphicsPolygonItem_QBaseExtension(const QGraphicsPolygonItem* self, const QVariant* variant) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_Extension_IsBase(true);
         return new QVariant(vqgraphicspolygonitem->extension(*variant));
     }
     return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPolygonItem_OnExtension(const QGraphicsPolygonItem* self, intptr_t slot) {
+    auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
+    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
+        vqgraphicspolygonitem->setQGraphicsPolygonItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsPolygonItem::QGraphicsPolygonItem_Extension_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -9239,48 +9293,10 @@ QRectF* QGraphicsLineItem_BoundingRect(const QGraphicsLineItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnBoundingRect(const QGraphicsLineItem* self, intptr_t slot) {
-    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsLineItem_QBaseBoundingRect(const QGraphicsLineItem* self) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicslineitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsLineItem*)self)->boundingRect());
-    }
-}
-
 QPainterPath* QGraphicsLineItem_Shape(const QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsLineItem*)self)->shape());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnShape(const QGraphicsLineItem* self, intptr_t slot) {
-    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Shape_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsLineItem_QBaseShape(const QGraphicsLineItem* self) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicslineitem->shape());
     } else {
         return new QPainterPath(((VirtualQGraphicsLineItem*)self)->shape());
     }
@@ -9295,48 +9311,10 @@ bool QGraphicsLineItem_Contains(const QGraphicsLineItem* self, const QPointF* po
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnContains(const QGraphicsLineItem* self, intptr_t slot) {
-    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Contains_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsLineItem_QBaseContains(const QGraphicsLineItem* self, const QPointF* point) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_Contains_IsBase(true);
-        return vqgraphicslineitem->contains(*point);
-    } else {
-        return ((VirtualQGraphicsLineItem*)self)->contains(*point);
-    }
-}
-
 void QGraphicsLineItem_Paint(QGraphicsLineItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsLineItem*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnPaint(QGraphicsLineItem* self, intptr_t slot) {
-    auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsLineItem_QBasePaint(QGraphicsLineItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_Paint_IsBase(true);
-        vqgraphicslineitem->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsLineItem*)self)->paint(painter, option, widget);
     }
@@ -9351,48 +9329,10 @@ bool QGraphicsLineItem_IsObscuredBy(const QGraphicsLineItem* self, const QGraphi
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnIsObscuredBy(const QGraphicsLineItem* self, intptr_t slot) {
-    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsLineItem_QBaseIsObscuredBy(const QGraphicsLineItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_IsObscuredBy_IsBase(true);
-        return vqgraphicslineitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsLineItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsLineItem_OpaqueArea(const QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsLineItem*)self)->opaqueArea());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnOpaqueArea(const QGraphicsLineItem* self, intptr_t slot) {
-    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsLineItem_QBaseOpaqueArea(const QGraphicsLineItem* self) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicslineitem->opaqueArea());
     } else {
         return new QPainterPath(((VirtualQGraphicsLineItem*)self)->opaqueArea());
     }
@@ -9407,46 +9347,9 @@ int QGraphicsLineItem_Type(const QGraphicsLineItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnType(const QGraphicsLineItem* self, intptr_t slot) {
-    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_Type_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsLineItem_QBaseType(const QGraphicsLineItem* self) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_Type_IsBase(true);
-        return vqgraphicslineitem->type();
-    } else {
-        return ((VirtualQGraphicsLineItem*)self)->type();
-    }
-}
-
 bool QGraphicsLineItem_SupportsExtension(const QGraphicsLineItem* self, int extension) {
     auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        return vqgraphicslineitem->supportsExtension(static_cast<VirtualQGraphicsLineItem::Extension>(extension));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnSupportsExtension(const QGraphicsLineItem* self, intptr_t slot) {
-    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_SupportsExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsLineItem_QBaseSupportsExtension(const QGraphicsLineItem* self, int extension) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_SupportsExtension_IsBase(true);
         return vqgraphicslineitem->supportsExtension(static_cast<VirtualQGraphicsLineItem::Extension>(extension));
     }
     return {};
@@ -9459,23 +9362,6 @@ void QGraphicsLineItem_SetExtension(QGraphicsLineItem* self, int extension, cons
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnSetExtension(QGraphicsLineItem* self, intptr_t slot) {
-    auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_SetExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsLineItem_QBaseSetExtension(QGraphicsLineItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_SetExtension_IsBase(true);
-        vqgraphicslineitem->setExtension(static_cast<VirtualQGraphicsLineItem::Extension>(extension), *variant);
-    }
-}
-
 QVariant* QGraphicsLineItem_Extension(const QGraphicsLineItem* self, const QVariant* variant) {
     auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
@@ -9484,22 +9370,193 @@ QVariant* QGraphicsLineItem_Extension(const QGraphicsLineItem* self, const QVari
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsLineItem_OnExtension(const QGraphicsLineItem* self, intptr_t slot) {
+// Base class handler implementation
+QRectF* QGraphicsLineItem_QBaseBoundingRect(const QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        vqgraphicslineitem->setQGraphicsLineItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Extension_Callback>(slot));
+        vqgraphicslineitem->setQGraphicsLineItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicslineitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsLineItem*)self)->boundingRect());
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnBoundingRect(const QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsLineItem_QBaseShape(const QGraphicsLineItem* self) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_Shape_IsBase(true);
+        return new QPainterPath(vqgraphicslineitem->shape());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsLineItem*)self)->shape());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnShape(const QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Shape_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsLineItem_QBaseContains(const QGraphicsLineItem* self, const QPointF* point) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_Contains_IsBase(true);
+        return vqgraphicslineitem->contains(*point);
+    } else {
+        return self->QGraphicsLineItem::contains(*point);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnContains(const QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Contains_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsLineItem_QBasePaint(QGraphicsLineItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_Paint_IsBase(true);
+        vqgraphicslineitem->paint(painter, option, widget);
+    } else {
+        self->QGraphicsLineItem::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnPaint(QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsLineItem_QBaseIsObscuredBy(const QGraphicsLineItem* self, const QGraphicsItem* item) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_IsObscuredBy_IsBase(true);
+        return vqgraphicslineitem->isObscuredBy(item);
+    } else {
+        return self->QGraphicsLineItem::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnIsObscuredBy(const QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsLineItem_QBaseOpaqueArea(const QGraphicsLineItem* self) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicslineitem->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsLineItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnOpaqueArea(const QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsLineItem_QBaseType(const QGraphicsLineItem* self) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_Type_IsBase(true);
+        return vqgraphicslineitem->type();
+    } else {
+        return self->QGraphicsLineItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnType(const QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_Type_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsLineItem_QBaseSupportsExtension(const QGraphicsLineItem* self, int extension) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_SupportsExtension_IsBase(true);
+        return vqgraphicslineitem->supportsExtension(static_cast<VirtualQGraphicsLineItem::Extension>(extension));
+    } else {
+        return ((VirtualQGraphicsLineItem*)self)->supportsExtension(static_cast<VirtualQGraphicsLineItem::Extension>(extension));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnSupportsExtension(const QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_SupportsExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsLineItem_QBaseSetExtension(QGraphicsLineItem* self, int extension, const QVariant* variant) {
+    auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_SetExtension_IsBase(true);
+        vqgraphicslineitem->setExtension(static_cast<VirtualQGraphicsLineItem::Extension>(extension), *variant);
+    } else {
+        ((VirtualQGraphicsLineItem*)self)->setExtension(static_cast<VirtualQGraphicsLineItem::Extension>(extension), *variant);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnSetExtension(QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_SetExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QVariant* QGraphicsLineItem_QBaseExtension(const QGraphicsLineItem* self, const QVariant* variant) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_Extension_IsBase(true);
         return new QVariant(vqgraphicslineitem->extension(*variant));
     }
     return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsLineItem_OnExtension(const QGraphicsLineItem* self, intptr_t slot) {
+    auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
+    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
+        vqgraphicslineitem->setQGraphicsLineItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsLineItem::QGraphicsLineItem_Extension_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -10396,48 +10453,10 @@ QRectF* QGraphicsPixmapItem_BoundingRect(const QGraphicsPixmapItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnBoundingRect(const QGraphicsPixmapItem* self, intptr_t slot) {
-    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsPixmapItem_QBaseBoundingRect(const QGraphicsPixmapItem* self) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicspixmapitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsPixmapItem*)self)->boundingRect());
-    }
-}
-
 QPainterPath* QGraphicsPixmapItem_Shape(const QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPixmapItem*)self)->shape());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnShape(const QGraphicsPixmapItem* self, intptr_t slot) {
-    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Shape_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsPixmapItem_QBaseShape(const QGraphicsPixmapItem* self) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicspixmapitem->shape());
     } else {
         return new QPainterPath(((VirtualQGraphicsPixmapItem*)self)->shape());
     }
@@ -10452,48 +10471,10 @@ bool QGraphicsPixmapItem_Contains(const QGraphicsPixmapItem* self, const QPointF
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnContains(const QGraphicsPixmapItem* self, intptr_t slot) {
-    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Contains_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsPixmapItem_QBaseContains(const QGraphicsPixmapItem* self, const QPointF* point) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_Contains_IsBase(true);
-        return vqgraphicspixmapitem->contains(*point);
-    } else {
-        return ((VirtualQGraphicsPixmapItem*)self)->contains(*point);
-    }
-}
-
 void QGraphicsPixmapItem_Paint(QGraphicsPixmapItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsPixmapItem*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnPaint(QGraphicsPixmapItem* self, intptr_t slot) {
-    auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsPixmapItem_QBasePaint(QGraphicsPixmapItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_Paint_IsBase(true);
-        vqgraphicspixmapitem->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsPixmapItem*)self)->paint(painter, option, widget);
     }
@@ -10508,25 +10489,6 @@ bool QGraphicsPixmapItem_IsObscuredBy(const QGraphicsPixmapItem* self, const QGr
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnIsObscuredBy(const QGraphicsPixmapItem* self, intptr_t slot) {
-    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsPixmapItem_QBaseIsObscuredBy(const QGraphicsPixmapItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_IsObscuredBy_IsBase(true);
-        return vqgraphicspixmapitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsPixmapItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsPixmapItem_OpaqueArea(const QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
@@ -10536,48 +10498,10 @@ QPainterPath* QGraphicsPixmapItem_OpaqueArea(const QGraphicsPixmapItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnOpaqueArea(const QGraphicsPixmapItem* self, intptr_t slot) {
-    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsPixmapItem_QBaseOpaqueArea(const QGraphicsPixmapItem* self) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicspixmapitem->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPixmapItem*)self)->opaqueArea());
-    }
-}
-
 int QGraphicsPixmapItem_Type(const QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         return self->type();
-    } else {
-        return ((VirtualQGraphicsPixmapItem*)self)->type();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnType(const QGraphicsPixmapItem* self, intptr_t slot) {
-    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_Type_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsPixmapItem_QBaseType(const QGraphicsPixmapItem* self) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_Type_IsBase(true);
-        return vqgraphicspixmapitem->type();
     } else {
         return ((VirtualQGraphicsPixmapItem*)self)->type();
     }
@@ -10599,44 +10523,9 @@ bool QGraphicsPixmapItem_SupportsExtension(const QGraphicsPixmapItem* self, int 
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnSupportsExtension(const QGraphicsPixmapItem* self, intptr_t slot) {
-    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_SupportsExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsPixmapItem_QBaseSupportsExtension(const QGraphicsPixmapItem* self, int extension) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_SupportsExtension_IsBase(true);
-        return vqgraphicspixmapitem->supportsExtension(static_cast<VirtualQGraphicsPixmapItem::Extension>(extension));
-    }
-    return {};
-}
-
 void QGraphicsPixmapItem_SetExtension(QGraphicsPixmapItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setExtension(static_cast<VirtualQGraphicsPixmapItem::Extension>(extension), *variant);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnSetExtension(QGraphicsPixmapItem* self, intptr_t slot) {
-    auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_SetExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsPixmapItem_QBaseSetExtension(QGraphicsPixmapItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_SetExtension_IsBase(true);
         vqgraphicspixmapitem->setExtension(static_cast<VirtualQGraphicsPixmapItem::Extension>(extension), *variant);
     }
 }
@@ -10649,22 +10538,193 @@ QVariant* QGraphicsPixmapItem_Extension(const QGraphicsPixmapItem* self, const Q
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsPixmapItem_OnExtension(const QGraphicsPixmapItem* self, intptr_t slot) {
+// Base class handler implementation
+QRectF* QGraphicsPixmapItem_QBaseBoundingRect(const QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        vqgraphicspixmapitem->setQGraphicsPixmapItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Extension_Callback>(slot));
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicspixmapitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsPixmapItem*)self)->boundingRect());
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnBoundingRect(const QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsPixmapItem_QBaseShape(const QGraphicsPixmapItem* self) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_Shape_IsBase(true);
+        return new QPainterPath(vqgraphicspixmapitem->shape());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsPixmapItem*)self)->shape());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnShape(const QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Shape_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsPixmapItem_QBaseContains(const QGraphicsPixmapItem* self, const QPointF* point) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_Contains_IsBase(true);
+        return vqgraphicspixmapitem->contains(*point);
+    } else {
+        return self->QGraphicsPixmapItem::contains(*point);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnContains(const QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Contains_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsPixmapItem_QBasePaint(QGraphicsPixmapItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_Paint_IsBase(true);
+        vqgraphicspixmapitem->paint(painter, option, widget);
+    } else {
+        self->QGraphicsPixmapItem::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnPaint(QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsPixmapItem_QBaseIsObscuredBy(const QGraphicsPixmapItem* self, const QGraphicsItem* item) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_IsObscuredBy_IsBase(true);
+        return vqgraphicspixmapitem->isObscuredBy(item);
+    } else {
+        return self->QGraphicsPixmapItem::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnIsObscuredBy(const QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsPixmapItem_QBaseOpaqueArea(const QGraphicsPixmapItem* self) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicspixmapitem->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsPixmapItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnOpaqueArea(const QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsPixmapItem_QBaseType(const QGraphicsPixmapItem* self) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_Type_IsBase(true);
+        return vqgraphicspixmapitem->type();
+    } else {
+        return self->QGraphicsPixmapItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnType(const QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_Type_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsPixmapItem_QBaseSupportsExtension(const QGraphicsPixmapItem* self, int extension) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_SupportsExtension_IsBase(true);
+        return vqgraphicspixmapitem->supportsExtension(static_cast<VirtualQGraphicsPixmapItem::Extension>(extension));
+    } else {
+        return ((VirtualQGraphicsPixmapItem*)self)->supportsExtension(static_cast<VirtualQGraphicsPixmapItem::Extension>(extension));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnSupportsExtension(const QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_SupportsExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsPixmapItem_QBaseSetExtension(QGraphicsPixmapItem* self, int extension, const QVariant* variant) {
+    auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_SetExtension_IsBase(true);
+        vqgraphicspixmapitem->setExtension(static_cast<VirtualQGraphicsPixmapItem::Extension>(extension), *variant);
+    } else {
+        ((VirtualQGraphicsPixmapItem*)self)->setExtension(static_cast<VirtualQGraphicsPixmapItem::Extension>(extension), *variant);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnSetExtension(QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_SetExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QVariant* QGraphicsPixmapItem_QBaseExtension(const QGraphicsPixmapItem* self, const QVariant* variant) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_Extension_IsBase(true);
         return new QVariant(vqgraphicspixmapitem->extension(*variant));
     }
     return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsPixmapItem_OnExtension(const QGraphicsPixmapItem* self, intptr_t slot) {
+    auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
+    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
+        vqgraphicspixmapitem->setQGraphicsPixmapItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsPixmapItem::QGraphicsPixmapItem_Extension_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -11543,25 +11603,6 @@ int QGraphicsTextItem_Metacall(QGraphicsTextItem* self, int param1, int param2, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnMetacall(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Metacall_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsTextItem_QBaseMetacall(QGraphicsTextItem* self, int param1, int param2, void** param3) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Metacall_IsBase(true);
-        return vqgraphicstextitem->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsTextItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsTextItem_Tr(const char* s) {
     QString _ret = QGraphicsTextItem::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -11633,48 +11674,10 @@ QRectF* QGraphicsTextItem_BoundingRect(const QGraphicsTextItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnBoundingRect(const QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsTextItem_QBaseBoundingRect(const QGraphicsTextItem* self) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicstextitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsTextItem*)self)->boundingRect());
-    }
-}
-
 QPainterPath* QGraphicsTextItem_Shape(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsTextItem*)self)->shape());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnShape(const QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Shape_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsTextItem_QBaseShape(const QGraphicsTextItem* self) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicstextitem->shape());
     } else {
         return new QPainterPath(((VirtualQGraphicsTextItem*)self)->shape());
     }
@@ -11689,48 +11692,10 @@ bool QGraphicsTextItem_Contains(const QGraphicsTextItem* self, const QPointF* po
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnContains(const QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Contains_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsTextItem_QBaseContains(const QGraphicsTextItem* self, const QPointF* point) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Contains_IsBase(true);
-        return vqgraphicstextitem->contains(*point);
-    } else {
-        return ((VirtualQGraphicsTextItem*)self)->contains(*point);
-    }
-}
-
 void QGraphicsTextItem_Paint(QGraphicsTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsTextItem*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnPaint(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBasePaint(QGraphicsTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Paint_IsBase(true);
-        vqgraphicstextitem->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsTextItem*)self)->paint(painter, option, widget);
     }
@@ -11745,25 +11710,6 @@ bool QGraphicsTextItem_IsObscuredBy(const QGraphicsTextItem* self, const QGraphi
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnIsObscuredBy(const QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsTextItem_QBaseIsObscuredBy(const QGraphicsTextItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_IsObscuredBy_IsBase(true);
-        return vqgraphicstextitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsTextItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsTextItem_OpaqueArea(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
@@ -11773,48 +11719,10 @@ QPainterPath* QGraphicsTextItem_OpaqueArea(const QGraphicsTextItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnOpaqueArea(const QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsTextItem_QBaseOpaqueArea(const QGraphicsTextItem* self) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicstextitem->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsTextItem*)self)->opaqueArea());
-    }
-}
-
 int QGraphicsTextItem_Type(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         return self->type();
-    } else {
-        return ((VirtualQGraphicsTextItem*)self)->type();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnType(const QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Type_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsTextItem_QBaseType(const QGraphicsTextItem* self) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Type_IsBase(true);
-        return vqgraphicstextitem->type();
     } else {
         return ((VirtualQGraphicsTextItem*)self)->type();
     }
@@ -11920,44 +11828,9 @@ bool QGraphicsTextItem_SceneEvent(QGraphicsTextItem* self, QEvent* event) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnSceneEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_SceneEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_SceneEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsTextItem_QBaseSceneEvent(QGraphicsTextItem* self, QEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_SceneEvent_IsBase(true);
-        return vqgraphicstextitem->sceneEvent(event);
-    }
-    return {};
-}
-
 void QGraphicsTextItem_MousePressEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->mousePressEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnMousePressEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseMousePressEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_MousePressEvent_IsBase(true);
         vqgraphicstextitem->mousePressEvent(event);
     }
 }
@@ -11969,43 +11842,9 @@ void QGraphicsTextItem_MouseMoveEvent(QGraphicsTextItem* self, QGraphicsSceneMou
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnMouseMoveEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseMouseMoveEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_MouseMoveEvent_IsBase(true);
-        vqgraphicstextitem->mouseMoveEvent(event);
-    }
-}
-
 void QGraphicsTextItem_MouseReleaseEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->mouseReleaseEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnMouseReleaseEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseMouseReleaseEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_MouseReleaseEvent_IsBase(true);
         vqgraphicstextitem->mouseReleaseEvent(event);
     }
 }
@@ -12017,43 +11856,9 @@ void QGraphicsTextItem_MouseDoubleClickEvent(QGraphicsTextItem* self, QGraphicsS
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnMouseDoubleClickEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_MouseDoubleClickEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseMouseDoubleClickEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_MouseDoubleClickEvent_IsBase(true);
-        vqgraphicstextitem->mouseDoubleClickEvent(event);
-    }
-}
-
 void QGraphicsTextItem_ContextMenuEvent(QGraphicsTextItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->contextMenuEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnContextMenuEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseContextMenuEvent(QGraphicsTextItem* self, QGraphicsSceneContextMenuEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_ContextMenuEvent_IsBase(true);
         vqgraphicstextitem->contextMenuEvent(event);
     }
 }
@@ -12065,43 +11870,9 @@ void QGraphicsTextItem_KeyPressEvent(QGraphicsTextItem* self, QKeyEvent* event) 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnKeyPressEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseKeyPressEvent(QGraphicsTextItem* self, QKeyEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_KeyPressEvent_IsBase(true);
-        vqgraphicstextitem->keyPressEvent(event);
-    }
-}
-
 void QGraphicsTextItem_KeyReleaseEvent(QGraphicsTextItem* self, QKeyEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->keyReleaseEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnKeyReleaseEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_KeyReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseKeyReleaseEvent(QGraphicsTextItem* self, QKeyEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_KeyReleaseEvent_IsBase(true);
         vqgraphicstextitem->keyReleaseEvent(event);
     }
 }
@@ -12113,43 +11884,9 @@ void QGraphicsTextItem_FocusInEvent(QGraphicsTextItem* self, QFocusEvent* event)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnFocusInEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseFocusInEvent(QGraphicsTextItem* self, QFocusEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_FocusInEvent_IsBase(true);
-        vqgraphicstextitem->focusInEvent(event);
-    }
-}
-
 void QGraphicsTextItem_FocusOutEvent(QGraphicsTextItem* self, QFocusEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->focusOutEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnFocusOutEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_FocusOutEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseFocusOutEvent(QGraphicsTextItem* self, QFocusEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_FocusOutEvent_IsBase(true);
         vqgraphicstextitem->focusOutEvent(event);
     }
 }
@@ -12161,43 +11898,9 @@ void QGraphicsTextItem_DragEnterEvent(QGraphicsTextItem* self, QGraphicsSceneDra
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnDragEnterEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_DragEnterEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseDragEnterEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_DragEnterEvent_IsBase(true);
-        vqgraphicstextitem->dragEnterEvent(event);
-    }
-}
-
 void QGraphicsTextItem_DragLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->dragLeaveEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnDragLeaveEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_DragLeaveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseDragLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_DragLeaveEvent_IsBase(true);
         vqgraphicstextitem->dragLeaveEvent(event);
     }
 }
@@ -12209,43 +11912,9 @@ void QGraphicsTextItem_DragMoveEvent(QGraphicsTextItem* self, QGraphicsSceneDrag
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnDragMoveEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_DragMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseDragMoveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_DragMoveEvent_IsBase(true);
-        vqgraphicstextitem->dragMoveEvent(event);
-    }
-}
-
 void QGraphicsTextItem_DropEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->dropEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnDropEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_DropEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseDropEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_DropEvent_IsBase(true);
         vqgraphicstextitem->dropEvent(event);
     }
 }
@@ -12257,43 +11926,9 @@ void QGraphicsTextItem_InputMethodEvent(QGraphicsTextItem* self, QInputMethodEve
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnInputMethodEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_InputMethodEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseInputMethodEvent(QGraphicsTextItem* self, QInputMethodEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_InputMethodEvent_IsBase(true);
-        vqgraphicstextitem->inputMethodEvent(event);
-    }
-}
-
 void QGraphicsTextItem_HoverEnterEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->hoverEnterEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnHoverEnterEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_HoverEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_HoverEnterEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseHoverEnterEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_HoverEnterEvent_IsBase(true);
         vqgraphicstextitem->hoverEnterEvent(event);
     }
 }
@@ -12305,23 +11940,6 @@ void QGraphicsTextItem_HoverMoveEvent(QGraphicsTextItem* self, QGraphicsSceneHov
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnHoverMoveEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_HoverMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_HoverMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseHoverMoveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_HoverMoveEvent_IsBase(true);
-        vqgraphicstextitem->hoverMoveEvent(event);
-    }
-}
-
 void QGraphicsTextItem_HoverLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
@@ -12329,44 +11947,9 @@ void QGraphicsTextItem_HoverLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneHo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnHoverLeaveEvent(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_HoverLeaveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseHoverLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_HoverLeaveEvent_IsBase(true);
-        vqgraphicstextitem->hoverLeaveEvent(event);
-    }
-}
-
 QVariant* QGraphicsTextItem_InputMethodQuery(const QGraphicsTextItem* self, int query) {
     auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return new QVariant(vqgraphicstextitem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnInputMethodQuery(const QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_InputMethodQuery_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QGraphicsTextItem_QBaseInputMethodQuery(const QGraphicsTextItem* self, int query) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_InputMethodQuery_IsBase(true);
         return new QVariant(vqgraphicstextitem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
     }
     return {};
@@ -12380,24 +11963,6 @@ bool QGraphicsTextItem_SupportsExtension(const QGraphicsTextItem* self, int exte
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnSupportsExtension(const QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_SupportsExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsTextItem_QBaseSupportsExtension(const QGraphicsTextItem* self, int extension) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_SupportsExtension_IsBase(true);
-        return vqgraphicstextitem->supportsExtension(static_cast<VirtualQGraphicsTextItem::Extension>(extension));
-    }
-    return {};
-}
-
 void QGraphicsTextItem_SetExtension(QGraphicsTextItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
@@ -12405,44 +11970,9 @@ void QGraphicsTextItem_SetExtension(QGraphicsTextItem* self, int extension, cons
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnSetExtension(QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_SetExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTextItem_QBaseSetExtension(QGraphicsTextItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_SetExtension_IsBase(true);
-        vqgraphicstextitem->setExtension(static_cast<VirtualQGraphicsTextItem::Extension>(extension), *variant);
-    }
-}
-
 QVariant* QGraphicsTextItem_Extension(const QGraphicsTextItem* self, const QVariant* variant) {
     auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return new QVariant(vqgraphicstextitem->extension(*variant));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTextItem_OnExtension(const QGraphicsTextItem* self, intptr_t slot) {
-    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Extension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QGraphicsTextItem_QBaseExtension(const QGraphicsTextItem* self, const QVariant* variant) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        vqgraphicstextitem->setQGraphicsTextItem_Extension_IsBase(true);
         return new QVariant(vqgraphicstextitem->extension(*variant));
     }
     return {};
@@ -12470,6 +12000,574 @@ libqt_string QGraphicsTextItem_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsTextItem_QBaseMetacall(QGraphicsTextItem* self, int param1, int param2, void** param3) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Metacall_IsBase(true);
+        return vqgraphicstextitem->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsTextItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnMetacall(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Metacall_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRectF* QGraphicsTextItem_QBaseBoundingRect(const QGraphicsTextItem* self) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicstextitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsTextItem*)self)->boundingRect());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnBoundingRect(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsTextItem_QBaseShape(const QGraphicsTextItem* self) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Shape_IsBase(true);
+        return new QPainterPath(vqgraphicstextitem->shape());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsTextItem*)self)->shape());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnShape(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Shape_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsTextItem_QBaseContains(const QGraphicsTextItem* self, const QPointF* point) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Contains_IsBase(true);
+        return vqgraphicstextitem->contains(*point);
+    } else {
+        return self->QGraphicsTextItem::contains(*point);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnContains(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Contains_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBasePaint(QGraphicsTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Paint_IsBase(true);
+        vqgraphicstextitem->paint(painter, option, widget);
+    } else {
+        self->QGraphicsTextItem::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnPaint(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsTextItem_QBaseIsObscuredBy(const QGraphicsTextItem* self, const QGraphicsItem* item) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_IsObscuredBy_IsBase(true);
+        return vqgraphicstextitem->isObscuredBy(item);
+    } else {
+        return self->QGraphicsTextItem::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnIsObscuredBy(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsTextItem_QBaseOpaqueArea(const QGraphicsTextItem* self) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicstextitem->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsTextItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnOpaqueArea(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsTextItem_QBaseType(const QGraphicsTextItem* self) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Type_IsBase(true);
+        return vqgraphicstextitem->type();
+    } else {
+        return self->QGraphicsTextItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnType(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Type_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsTextItem_QBaseSceneEvent(QGraphicsTextItem* self, QEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_SceneEvent_IsBase(true);
+        return vqgraphicstextitem->sceneEvent(event);
+    } else {
+        return ((VirtualQGraphicsTextItem*)self)->sceneEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnSceneEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_SceneEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_SceneEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseMousePressEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MousePressEvent_IsBase(true);
+        vqgraphicstextitem->mousePressEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->mousePressEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnMousePressEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseMouseMoveEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MouseMoveEvent_IsBase(true);
+        vqgraphicstextitem->mouseMoveEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->mouseMoveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnMouseMoveEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseMouseReleaseEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MouseReleaseEvent_IsBase(true);
+        vqgraphicstextitem->mouseReleaseEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->mouseReleaseEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnMouseReleaseEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseMouseDoubleClickEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MouseDoubleClickEvent_IsBase(true);
+        vqgraphicstextitem->mouseDoubleClickEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->mouseDoubleClickEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnMouseDoubleClickEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_MouseDoubleClickEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseContextMenuEvent(QGraphicsTextItem* self, QGraphicsSceneContextMenuEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_ContextMenuEvent_IsBase(true);
+        vqgraphicstextitem->contextMenuEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->contextMenuEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnContextMenuEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseKeyPressEvent(QGraphicsTextItem* self, QKeyEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_KeyPressEvent_IsBase(true);
+        vqgraphicstextitem->keyPressEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->keyPressEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnKeyPressEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseKeyReleaseEvent(QGraphicsTextItem* self, QKeyEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_KeyReleaseEvent_IsBase(true);
+        vqgraphicstextitem->keyReleaseEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->keyReleaseEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnKeyReleaseEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_KeyReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseFocusInEvent(QGraphicsTextItem* self, QFocusEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_FocusInEvent_IsBase(true);
+        vqgraphicstextitem->focusInEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->focusInEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnFocusInEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseFocusOutEvent(QGraphicsTextItem* self, QFocusEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_FocusOutEvent_IsBase(true);
+        vqgraphicstextitem->focusOutEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->focusOutEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnFocusOutEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseDragEnterEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_DragEnterEvent_IsBase(true);
+        vqgraphicstextitem->dragEnterEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->dragEnterEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnDragEnterEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_DragEnterEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseDragLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_DragLeaveEvent_IsBase(true);
+        vqgraphicstextitem->dragLeaveEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->dragLeaveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnDragLeaveEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_DragLeaveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseDragMoveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_DragMoveEvent_IsBase(true);
+        vqgraphicstextitem->dragMoveEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->dragMoveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnDragMoveEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_DragMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseDropEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_DropEvent_IsBase(true);
+        vqgraphicstextitem->dropEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->dropEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnDropEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_DropEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseInputMethodEvent(QGraphicsTextItem* self, QInputMethodEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_InputMethodEvent_IsBase(true);
+        vqgraphicstextitem->inputMethodEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->inputMethodEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnInputMethodEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_InputMethodEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseHoverEnterEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_HoverEnterEvent_IsBase(true);
+        vqgraphicstextitem->hoverEnterEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->hoverEnterEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnHoverEnterEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_HoverEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_HoverEnterEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseHoverMoveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_HoverMoveEvent_IsBase(true);
+        vqgraphicstextitem->hoverMoveEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->hoverMoveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnHoverMoveEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_HoverMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_HoverMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseHoverLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_HoverLeaveEvent_IsBase(true);
+        vqgraphicstextitem->hoverLeaveEvent(event);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->hoverLeaveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnHoverLeaveEvent(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_HoverLeaveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QGraphicsTextItem_QBaseInputMethodQuery(const QGraphicsTextItem* self, int query) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_InputMethodQuery_IsBase(true);
+        return new QVariant(vqgraphicstextitem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnInputMethodQuery(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_InputMethodQuery_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsTextItem_QBaseSupportsExtension(const QGraphicsTextItem* self, int extension) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_SupportsExtension_IsBase(true);
+        return vqgraphicstextitem->supportsExtension(static_cast<VirtualQGraphicsTextItem::Extension>(extension));
+    } else {
+        return ((VirtualQGraphicsTextItem*)self)->supportsExtension(static_cast<VirtualQGraphicsTextItem::Extension>(extension));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnSupportsExtension(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_SupportsExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTextItem_QBaseSetExtension(QGraphicsTextItem* self, int extension, const QVariant* variant) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_SetExtension_IsBase(true);
+        vqgraphicstextitem->setExtension(static_cast<VirtualQGraphicsTextItem::Extension>(extension), *variant);
+    } else {
+        ((VirtualQGraphicsTextItem*)self)->setExtension(static_cast<VirtualQGraphicsTextItem::Extension>(extension), *variant);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnSetExtension(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_SetExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QGraphicsTextItem_QBaseExtension(const QGraphicsTextItem* self, const QVariant* variant) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Extension_IsBase(true);
+        return new QVariant(vqgraphicstextitem->extension(*variant));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnExtension(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Extension_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -13135,48 +13233,10 @@ QRectF* QGraphicsSimpleTextItem_BoundingRect(const QGraphicsSimpleTextItem* self
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnBoundingRect(const QGraphicsSimpleTextItem* self, intptr_t slot) {
-    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsSimpleTextItem_QBaseBoundingRect(const QGraphicsSimpleTextItem* self) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicssimpletextitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsSimpleTextItem*)self)->boundingRect());
-    }
-}
-
 QPainterPath* QGraphicsSimpleTextItem_Shape(const QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsSimpleTextItem*)self)->shape());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnShape(const QGraphicsSimpleTextItem* self, intptr_t slot) {
-    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Shape_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsSimpleTextItem_QBaseShape(const QGraphicsSimpleTextItem* self) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicssimpletextitem->shape());
     } else {
         return new QPainterPath(((VirtualQGraphicsSimpleTextItem*)self)->shape());
     }
@@ -13191,48 +13251,10 @@ bool QGraphicsSimpleTextItem_Contains(const QGraphicsSimpleTextItem* self, const
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnContains(const QGraphicsSimpleTextItem* self, intptr_t slot) {
-    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Contains_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseContains(const QGraphicsSimpleTextItem* self, const QPointF* point) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Contains_IsBase(true);
-        return vqgraphicssimpletextitem->contains(*point);
-    } else {
-        return ((VirtualQGraphicsSimpleTextItem*)self)->contains(*point);
-    }
-}
-
 void QGraphicsSimpleTextItem_Paint(QGraphicsSimpleTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsSimpleTextItem*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnPaint(QGraphicsSimpleTextItem* self, intptr_t slot) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsSimpleTextItem_QBasePaint(QGraphicsSimpleTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Paint_IsBase(true);
-        vqgraphicssimpletextitem->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsSimpleTextItem*)self)->paint(painter, option, widget);
     }
@@ -13247,48 +13269,10 @@ bool QGraphicsSimpleTextItem_IsObscuredBy(const QGraphicsSimpleTextItem* self, c
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnIsObscuredBy(const QGraphicsSimpleTextItem* self, intptr_t slot) {
-    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseIsObscuredBy(const QGraphicsSimpleTextItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_IsObscuredBy_IsBase(true);
-        return vqgraphicssimpletextitem->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsSimpleTextItem*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsSimpleTextItem_OpaqueArea(const QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsSimpleTextItem*)self)->opaqueArea());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnOpaqueArea(const QGraphicsSimpleTextItem* self, intptr_t slot) {
-    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsSimpleTextItem_QBaseOpaqueArea(const QGraphicsSimpleTextItem* self) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicssimpletextitem->opaqueArea());
     } else {
         return new QPainterPath(((VirtualQGraphicsSimpleTextItem*)self)->opaqueArea());
     }
@@ -13303,46 +13287,9 @@ int QGraphicsSimpleTextItem_Type(const QGraphicsSimpleTextItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnType(const QGraphicsSimpleTextItem* self, intptr_t slot) {
-    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Type_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsSimpleTextItem_QBaseType(const QGraphicsSimpleTextItem* self) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Type_IsBase(true);
-        return vqgraphicssimpletextitem->type();
-    } else {
-        return ((VirtualQGraphicsSimpleTextItem*)self)->type();
-    }
-}
-
 bool QGraphicsSimpleTextItem_SupportsExtension(const QGraphicsSimpleTextItem* self, int extension) {
     auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        return vqgraphicssimpletextitem->supportsExtension(static_cast<VirtualQGraphicsSimpleTextItem::Extension>(extension));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnSupportsExtension(const QGraphicsSimpleTextItem* self, intptr_t slot) {
-    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_SupportsExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseSupportsExtension(const QGraphicsSimpleTextItem* self, int extension) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SupportsExtension_IsBase(true);
         return vqgraphicssimpletextitem->supportsExtension(static_cast<VirtualQGraphicsSimpleTextItem::Extension>(extension));
     }
     return {};
@@ -13355,23 +13302,6 @@ void QGraphicsSimpleTextItem_SetExtension(QGraphicsSimpleTextItem* self, int ext
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnSetExtension(QGraphicsSimpleTextItem* self, intptr_t slot) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_SetExtension_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsSimpleTextItem_QBaseSetExtension(QGraphicsSimpleTextItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SetExtension_IsBase(true);
-        vqgraphicssimpletextitem->setExtension(static_cast<VirtualQGraphicsSimpleTextItem::Extension>(extension), *variant);
-    }
-}
-
 QVariant* QGraphicsSimpleTextItem_Extension(const QGraphicsSimpleTextItem* self, const QVariant* variant) {
     auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
@@ -13380,22 +13310,193 @@ QVariant* QGraphicsSimpleTextItem_Extension(const QGraphicsSimpleTextItem* self,
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsSimpleTextItem_OnExtension(const QGraphicsSimpleTextItem* self, intptr_t slot) {
+// Base class handler implementation
+QRectF* QGraphicsSimpleTextItem_QBaseBoundingRect(const QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Extension_Callback>(slot));
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicssimpletextitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsSimpleTextItem*)self)->boundingRect());
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnBoundingRect(const QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsSimpleTextItem_QBaseShape(const QGraphicsSimpleTextItem* self) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Shape_IsBase(true);
+        return new QPainterPath(vqgraphicssimpletextitem->shape());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsSimpleTextItem*)self)->shape());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnShape(const QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Shape_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsSimpleTextItem_QBaseContains(const QGraphicsSimpleTextItem* self, const QPointF* point) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Contains_IsBase(true);
+        return vqgraphicssimpletextitem->contains(*point);
+    } else {
+        return self->QGraphicsSimpleTextItem::contains(*point);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnContains(const QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Contains_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsSimpleTextItem_QBasePaint(QGraphicsSimpleTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Paint_IsBase(true);
+        vqgraphicssimpletextitem->paint(painter, option, widget);
+    } else {
+        self->QGraphicsSimpleTextItem::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnPaint(QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsSimpleTextItem_QBaseIsObscuredBy(const QGraphicsSimpleTextItem* self, const QGraphicsItem* item) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_IsObscuredBy_IsBase(true);
+        return vqgraphicssimpletextitem->isObscuredBy(item);
+    } else {
+        return self->QGraphicsSimpleTextItem::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnIsObscuredBy(const QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsSimpleTextItem_QBaseOpaqueArea(const QGraphicsSimpleTextItem* self) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicssimpletextitem->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsSimpleTextItem*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnOpaqueArea(const QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsSimpleTextItem_QBaseType(const QGraphicsSimpleTextItem* self) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Type_IsBase(true);
+        return vqgraphicssimpletextitem->type();
+    } else {
+        return self->QGraphicsSimpleTextItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnType(const QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Type_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsSimpleTextItem_QBaseSupportsExtension(const QGraphicsSimpleTextItem* self, int extension) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SupportsExtension_IsBase(true);
+        return vqgraphicssimpletextitem->supportsExtension(static_cast<VirtualQGraphicsSimpleTextItem::Extension>(extension));
+    } else {
+        return ((VirtualQGraphicsSimpleTextItem*)self)->supportsExtension(static_cast<VirtualQGraphicsSimpleTextItem::Extension>(extension));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnSupportsExtension(const QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_SupportsExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsSimpleTextItem_QBaseSetExtension(QGraphicsSimpleTextItem* self, int extension, const QVariant* variant) {
+    auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SetExtension_IsBase(true);
+        vqgraphicssimpletextitem->setExtension(static_cast<VirtualQGraphicsSimpleTextItem::Extension>(extension), *variant);
+    } else {
+        ((VirtualQGraphicsSimpleTextItem*)self)->setExtension(static_cast<VirtualQGraphicsSimpleTextItem::Extension>(extension), *variant);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnSetExtension(QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_SetExtension_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QVariant* QGraphicsSimpleTextItem_QBaseExtension(const QGraphicsSimpleTextItem* self, const QVariant* variant) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Extension_IsBase(true);
         return new QVariant(vqgraphicssimpletextitem->extension(*variant));
     }
     return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSimpleTextItem_OnExtension(const QGraphicsSimpleTextItem* self, intptr_t slot) {
+    auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
+    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
+        vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsSimpleTextItem::QGraphicsSimpleTextItem_Extension_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -14264,48 +14365,10 @@ QRectF* QGraphicsItemGroup_BoundingRect(const QGraphicsItemGroup* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItemGroup_OnBoundingRect(const QGraphicsItemGroup* self, intptr_t slot) {
-    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        vqgraphicsitemgroup->setQGraphicsItemGroup_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsItemGroup_QBaseBoundingRect(const QGraphicsItemGroup* self) {
-    auto* vqgraphicsitemgroup = dynamic_cast<const VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        vqgraphicsitemgroup->setQGraphicsItemGroup_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicsitemgroup->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsItemGroup*)self)->boundingRect());
-    }
-}
-
 void QGraphicsItemGroup_Paint(QGraphicsItemGroup* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsItemGroup*)self)->paint(painter, option, widget);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItemGroup_OnPaint(QGraphicsItemGroup* self, intptr_t slot) {
-    auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        vqgraphicsitemgroup->setQGraphicsItemGroup_Paint_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsItemGroup_QBasePaint(QGraphicsItemGroup* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        vqgraphicsitemgroup->setQGraphicsItemGroup_Paint_IsBase(true);
-        vqgraphicsitemgroup->paint(painter, option, widget);
     } else {
         ((VirtualQGraphicsItemGroup*)self)->paint(painter, option, widget);
     }
@@ -14320,48 +14383,10 @@ bool QGraphicsItemGroup_IsObscuredBy(const QGraphicsItemGroup* self, const QGrap
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItemGroup_OnIsObscuredBy(const QGraphicsItemGroup* self, intptr_t slot) {
-    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        vqgraphicsitemgroup->setQGraphicsItemGroup_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_IsObscuredBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGraphicsItemGroup_QBaseIsObscuredBy(const QGraphicsItemGroup* self, const QGraphicsItem* item) {
-    auto* vqgraphicsitemgroup = dynamic_cast<const VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        vqgraphicsitemgroup->setQGraphicsItemGroup_IsObscuredBy_IsBase(true);
-        return vqgraphicsitemgroup->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsItemGroup*)self)->isObscuredBy(item);
-    }
-}
-
 QPainterPath* QGraphicsItemGroup_OpaqueArea(const QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = dynamic_cast<const VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsItemGroup*)self)->opaqueArea());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItemGroup_OnOpaqueArea(const QGraphicsItemGroup* self, intptr_t slot) {
-    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        vqgraphicsitemgroup->setQGraphicsItemGroup_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_OpaqueArea_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainterPath* QGraphicsItemGroup_QBaseOpaqueArea(const QGraphicsItemGroup* self) {
-    auto* vqgraphicsitemgroup = dynamic_cast<const VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        vqgraphicsitemgroup->setQGraphicsItemGroup_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicsitemgroup->opaqueArea());
     } else {
         return new QPainterPath(((VirtualQGraphicsItemGroup*)self)->opaqueArea());
     }
@@ -14376,22 +14401,98 @@ int QGraphicsItemGroup_Type(const QGraphicsItemGroup* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsItemGroup_OnType(const QGraphicsItemGroup* self, intptr_t slot) {
+// Base class handler implementation
+QRectF* QGraphicsItemGroup_QBaseBoundingRect(const QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        vqgraphicsitemgroup->setQGraphicsItemGroup_Type_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_Type_Callback>(slot));
+        vqgraphicsitemgroup->setQGraphicsItemGroup_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicsitemgroup->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsItemGroup*)self)->boundingRect());
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItemGroup_OnBoundingRect(const QGraphicsItemGroup* self, intptr_t slot) {
+    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
+    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
+        vqgraphicsitemgroup->setQGraphicsItemGroup_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsItemGroup_QBasePaint(QGraphicsItemGroup* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
+    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
+        vqgraphicsitemgroup->setQGraphicsItemGroup_Paint_IsBase(true);
+        vqgraphicsitemgroup->paint(painter, option, widget);
+    } else {
+        self->QGraphicsItemGroup::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItemGroup_OnPaint(QGraphicsItemGroup* self, intptr_t slot) {
+    auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
+    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
+        vqgraphicsitemgroup->setQGraphicsItemGroup_Paint_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGraphicsItemGroup_QBaseIsObscuredBy(const QGraphicsItemGroup* self, const QGraphicsItem* item) {
+    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
+    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
+        vqgraphicsitemgroup->setQGraphicsItemGroup_IsObscuredBy_IsBase(true);
+        return vqgraphicsitemgroup->isObscuredBy(item);
+    } else {
+        return self->QGraphicsItemGroup::isObscuredBy(item);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItemGroup_OnIsObscuredBy(const QGraphicsItemGroup* self, intptr_t slot) {
+    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
+    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
+        vqgraphicsitemgroup->setQGraphicsItemGroup_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_IsObscuredBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainterPath* QGraphicsItemGroup_QBaseOpaqueArea(const QGraphicsItemGroup* self) {
+    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
+    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
+        vqgraphicsitemgroup->setQGraphicsItemGroup_OpaqueArea_IsBase(true);
+        return new QPainterPath(vqgraphicsitemgroup->opaqueArea());
+    } else {
+        return new QPainterPath(((VirtualQGraphicsItemGroup*)self)->opaqueArea());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItemGroup_OnOpaqueArea(const QGraphicsItemGroup* self, intptr_t slot) {
+    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
+    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
+        vqgraphicsitemgroup->setQGraphicsItemGroup_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_OpaqueArea_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 int QGraphicsItemGroup_QBaseType(const QGraphicsItemGroup* self) {
-    auto* vqgraphicsitemgroup = dynamic_cast<const VirtualQGraphicsItemGroup*>(self);
+    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_Type_IsBase(true);
         return vqgraphicsitemgroup->type();
     } else {
-        return ((VirtualQGraphicsItemGroup*)self)->type();
+        return self->QGraphicsItemGroup::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItemGroup_OnType(const QGraphicsItemGroup* self, intptr_t slot) {
+    auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
+    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
+        vqgraphicsitemgroup->setQGraphicsItemGroup_Type_Callback(reinterpret_cast<VirtualQGraphicsItemGroup::QGraphicsItemGroup_Type_Callback>(slot));
     }
 }
 

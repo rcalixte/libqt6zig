@@ -51,25 +51,6 @@ int QFile_Metacall(QFile* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QFile_OnMetacall(QFile* self, intptr_t slot) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Metacall_Callback(reinterpret_cast<VirtualQFile::QFile_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QFile_QBaseMetacall(QFile* self, int param1, int param2, void** param3) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Metacall_IsBase(true);
-        return vqfile->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFile*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QFile_Tr(const char* s) {
     QString _ret = QFile::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -86,41 +67,6 @@ libqt_string QFile_FileName(const QFile* self) {
     auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         QString _ret = self->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQFile*)self)->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QFile_OnFileName(const QFile* self, intptr_t slot) {
-    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_FileName_Callback(reinterpret_cast<VirtualQFile::QFile_FileName_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_string QFile_QBaseFileName(const QFile* self) {
-    auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_FileName_IsBase(true);
-        QString _ret = vqfile->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -277,25 +223,6 @@ bool QFile_Open(QFile* self, int flags) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QFile_OnOpen(QFile* self, intptr_t slot) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Open_Callback(reinterpret_cast<VirtualQFile::QFile_Open_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QFile_QBaseOpen(QFile* self, int flags) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Open_IsBase(true);
-        return vqfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    } else {
-        return ((VirtualQFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    }
-}
-
 bool QFile_Open2(QFile* self, int flags, int permissions) {
     return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags), static_cast<QFileDevice::Permissions>(permissions));
 }
@@ -313,48 +240,10 @@ long long QFile_Size(const QFile* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QFile_OnSize(const QFile* self, intptr_t slot) {
-    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Size_Callback(reinterpret_cast<VirtualQFile::QFile_Size_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-long long QFile_QBaseSize(const QFile* self) {
-    auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Size_IsBase(true);
-        return static_cast<long long>(vqfile->size());
-    } else {
-        return static_cast<long long>(((VirtualQFile*)self)->size());
-    }
-}
-
 bool QFile_Resize(QFile* self, long long sz) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         return self->resize(static_cast<qint64>(sz));
-    } else {
-        return ((VirtualQFile*)self)->resize(static_cast<qint64>(sz));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QFile_OnResize(QFile* self, intptr_t slot) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Resize_Callback(reinterpret_cast<VirtualQFile::QFile_Resize_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QFile_QBaseResize(QFile* self, long long sz) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Resize_IsBase(true);
-        return vqfile->resize(static_cast<qint64>(sz));
     } else {
         return ((VirtualQFile*)self)->resize(static_cast<qint64>(sz));
     }
@@ -374,25 +263,6 @@ int QFile_Permissions(const QFile* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QFile_OnPermissions(const QFile* self, intptr_t slot) {
-    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Permissions_Callback(reinterpret_cast<VirtualQFile::QFile_Permissions_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QFile_QBasePermissions(const QFile* self) {
-    auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_Permissions_IsBase(true);
-        return static_cast<int>(vqfile->permissions());
-    } else {
-        return static_cast<int>(((VirtualQFile*)self)->permissions());
-    }
-}
-
 int QFile_Permissions2(const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return static_cast<int>(QFile::permissions(filename_QString));
@@ -402,25 +272,6 @@ bool QFile_SetPermissions(QFile* self, int permissionSpec) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         return self->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    } else {
-        return ((VirtualQFile*)self)->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QFile_OnSetPermissions(QFile* self, intptr_t slot) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_SetPermissions_Callback(reinterpret_cast<VirtualQFile::QFile_SetPermissions_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QFile_QBaseSetPermissions(QFile* self, int permissionSpec) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        vqfile->setQFile_SetPermissions_IsBase(true);
-        return vqfile->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
     } else {
         return ((VirtualQFile*)self)->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
     }
@@ -457,6 +308,155 @@ libqt_string QFile_Tr3(const char* s, const char* c, int n) {
 
 bool QFile_Open33(QFile* self, int fd, int ioFlags, int handleFlags) {
     return self->open(static_cast<int>(fd), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(ioFlags), static_cast<QFileDevice::FileHandleFlags>(handleFlags));
+}
+
+// Base class handler implementation
+int QFile_QBaseMetacall(QFile* self, int param1, int param2, void** param3) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Metacall_IsBase(true);
+        return vqfile->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QFile::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFile_OnMetacall(QFile* self, intptr_t slot) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Metacall_Callback(reinterpret_cast<VirtualQFile::QFile_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_string QFile_QBaseFileName(const QFile* self) {
+    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_FileName_IsBase(true);
+        QString _ret = vqfile->fileName();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = self->QFile::fileName();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFile_OnFileName(const QFile* self, intptr_t slot) {
+    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_FileName_Callback(reinterpret_cast<VirtualQFile::QFile_FileName_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QFile_QBaseOpen(QFile* self, int flags) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Open_IsBase(true);
+        return vqfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
+    } else {
+        return self->QFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFile_OnOpen(QFile* self, intptr_t slot) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Open_Callback(reinterpret_cast<VirtualQFile::QFile_Open_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+long long QFile_QBaseSize(const QFile* self) {
+    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Size_IsBase(true);
+        return static_cast<long long>(vqfile->size());
+    } else {
+        return static_cast<long long>(self->QFile::size());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFile_OnSize(const QFile* self, intptr_t slot) {
+    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Size_Callback(reinterpret_cast<VirtualQFile::QFile_Size_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QFile_QBaseResize(QFile* self, long long sz) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Resize_IsBase(true);
+        return vqfile->resize(static_cast<qint64>(sz));
+    } else {
+        return self->QFile::resize(static_cast<qint64>(sz));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFile_OnResize(QFile* self, intptr_t slot) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Resize_Callback(reinterpret_cast<VirtualQFile::QFile_Resize_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QFile_QBasePermissions(const QFile* self) {
+    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Permissions_IsBase(true);
+        return static_cast<int>(vqfile->permissions());
+    } else {
+        return static_cast<int>(self->QFile::permissions());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFile_OnPermissions(const QFile* self, intptr_t slot) {
+    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Permissions_Callback(reinterpret_cast<VirtualQFile::QFile_Permissions_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QFile_QBaseSetPermissions(QFile* self, int permissionSpec) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_SetPermissions_IsBase(true);
+        return vqfile->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
+    } else {
+        return self->QFile::setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFile_OnSetPermissions(QFile* self, intptr_t slot) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_SetPermissions_Callback(reinterpret_cast<VirtualQFile::QFile_SetPermissions_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

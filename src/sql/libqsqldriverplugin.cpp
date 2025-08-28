@@ -38,25 +38,6 @@ int QSqlDriverPlugin_Metacall(QSqlDriverPlugin* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlDriverPlugin_OnMetacall(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Metacall_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSqlDriverPlugin_QBaseMetacall(QSqlDriverPlugin* self, int param1, int param2, void** param3) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Metacall_IsBase(true);
-        return vqsqldriverplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QSqlDriverPlugin_Tr(const char* s) {
     QString _ret = QSqlDriverPlugin::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -73,26 +54,6 @@ QSqlDriver* QSqlDriverPlugin_Create(QSqlDriverPlugin* self, const libqt_string k
     QString key_QString = QString::fromUtf8(key.data, key.len);
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return vqsqldriverplugin->create(key_QString);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->create(key_QString);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlDriverPlugin_OnCreate(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Create_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Create_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSqlDriver* QSqlDriverPlugin_QBaseCreate(QSqlDriverPlugin* self, const libqt_string key) {
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Create_IsBase(true);
         return vqsqldriverplugin->create(key_QString);
     } else {
         return ((VirtualQSqlDriverPlugin*)self)->create(key_QString);
@@ -121,6 +82,45 @@ libqt_string QSqlDriverPlugin_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QSqlDriverPlugin_QBaseMetacall(QSqlDriverPlugin* self, int param1, int param2, void** param3) {
+    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
+    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
+        vqsqldriverplugin->setQSqlDriverPlugin_Metacall_IsBase(true);
+        return vqsqldriverplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QSqlDriverPlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlDriverPlugin_OnMetacall(QSqlDriverPlugin* self, intptr_t slot) {
+    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
+    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
+        vqsqldriverplugin->setQSqlDriverPlugin_Metacall_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSqlDriver* QSqlDriverPlugin_QBaseCreate(QSqlDriverPlugin* self, const libqt_string key) {
+    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
+        vqsqldriverplugin->setQSqlDriverPlugin_Create_IsBase(true);
+        return vqsqldriverplugin->create(key_QString);
+    } else {
+        return ((VirtualQSqlDriverPlugin*)self)->create(key_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlDriverPlugin_OnCreate(QSqlDriverPlugin* self, intptr_t slot) {
+    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
+    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
+        vqsqldriverplugin->setQSqlDriverPlugin_Create_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Create_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -66,25 +66,6 @@ int QStackedWidget_Metacall(QStackedWidget* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStackedWidget_OnMetacall(QStackedWidget* self, intptr_t slot) {
-    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
-        vqstackedwidget->setQStackedWidget_Metacall_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QStackedWidget_QBaseMetacall(QStackedWidget* self, int param1, int param2, void** param3) {
-    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
-        vqstackedwidget->setQStackedWidget_Metacall_IsBase(true);
-        return vqstackedwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQStackedWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QStackedWidget_Tr(const char* s) {
     QString _ret = QStackedWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -169,24 +150,6 @@ bool QStackedWidget_Event(QStackedWidget* self, QEvent* e) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStackedWidget_OnEvent(QStackedWidget* self, intptr_t slot) {
-    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
-        vqstackedwidget->setQStackedWidget_Event_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QStackedWidget_QBaseEvent(QStackedWidget* self, QEvent* e) {
-    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
-        vqstackedwidget->setQStackedWidget_Event_IsBase(true);
-        return vqstackedwidget->event(e);
-    }
-    return {};
-}
-
 libqt_string QStackedWidget_Tr2(const char* s, const char* c) {
     QString _ret = QStackedWidget::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -209,6 +172,44 @@ libqt_string QStackedWidget_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QStackedWidget_QBaseMetacall(QStackedWidget* self, int param1, int param2, void** param3) {
+    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_Metacall_IsBase(true);
+        return vqstackedwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QStackedWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStackedWidget_OnMetacall(QStackedWidget* self, intptr_t slot) {
+    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_Metacall_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QStackedWidget_QBaseEvent(QStackedWidget* self, QEvent* e) {
+    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_Event_IsBase(true);
+        return vqstackedwidget->event(e);
+    } else {
+        return ((VirtualQStackedWidget*)self)->event(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStackedWidget_OnEvent(QStackedWidget* self, intptr_t slot) {
+    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_Event_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Event_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

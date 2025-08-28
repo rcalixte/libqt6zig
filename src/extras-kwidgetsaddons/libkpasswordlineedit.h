@@ -57,8 +57,6 @@ KPasswordLineEdit* KPasswordLineEdit_new2();
 QMetaObject* KPasswordLineEdit_MetaObject(const KPasswordLineEdit* self);
 void* KPasswordLineEdit_Metacast(KPasswordLineEdit* self, const char* param1);
 int KPasswordLineEdit_Metacall(KPasswordLineEdit* self, int param1, int param2, void** param3);
-void KPasswordLineEdit_OnMetacall(KPasswordLineEdit* self, intptr_t slot);
-int KPasswordLineEdit_QBaseMetacall(KPasswordLineEdit* self, int param1, int param2, void** param3);
 libqt_string KPasswordLineEdit_Tr(const char* s);
 void KPasswordLineEdit_SetPassword(KPasswordLineEdit* self, const libqt_string password);
 libqt_string KPasswordLineEdit_Password(const KPasswordLineEdit* self);
@@ -81,6 +79,8 @@ void KPasswordLineEdit_PasswordChanged(KPasswordLineEdit* self, const libqt_stri
 void KPasswordLineEdit_Connect_PasswordChanged(KPasswordLineEdit* self, intptr_t slot);
 libqt_string KPasswordLineEdit_Tr2(const char* s, const char* c);
 libqt_string KPasswordLineEdit_Tr3(const char* s, const char* c, int n);
+void KPasswordLineEdit_OnMetacall(KPasswordLineEdit* self, intptr_t slot);
+int KPasswordLineEdit_QBaseMetacall(KPasswordLineEdit* self, int param1, int param2, void** param3);
 int KPasswordLineEdit_DevType(const KPasswordLineEdit* self);
 void KPasswordLineEdit_OnDevType(const KPasswordLineEdit* self, intptr_t slot);
 int KPasswordLineEdit_QBaseDevType(const KPasswordLineEdit* self);

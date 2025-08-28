@@ -50,25 +50,6 @@ int QGuiApplication_Metacall(QGuiApplication* self, int param1, int param2, void
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGuiApplication_OnMetacall(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Metacall_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGuiApplication_QBaseMetacall(QGuiApplication* self, int param1, int param2, void** param3) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Metacall_IsBase(true);
-        return vqguiapplication->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGuiApplication*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGuiApplication_Tr(const char* s) {
     QString _ret = QGuiApplication::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -319,25 +300,6 @@ bool QGuiApplication_Notify(QGuiApplication* self, QObject* param1, QEvent* para
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGuiApplication_OnNotify(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Notify_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Notify_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGuiApplication_QBaseNotify(QGuiApplication* self, QObject* param1, QEvent* param2) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Notify_IsBase(true);
-        return vqguiapplication->notify(param1, param2);
-    } else {
-        return ((VirtualQGuiApplication*)self)->notify(param1, param2);
-    }
-}
-
 bool QGuiApplication_IsSessionRestored(const QGuiApplication* self) {
     return self->isSessionRestored();
 }
@@ -555,24 +517,6 @@ bool QGuiApplication_Event(QGuiApplication* self, QEvent* param1) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGuiApplication_OnEvent(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Event_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGuiApplication_QBaseEvent(QGuiApplication* self, QEvent* param1) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Event_IsBase(true);
-        return vqguiapplication->event(param1);
-    }
-    return {};
-}
-
 libqt_string QGuiApplication_Tr2(const char* s, const char* c) {
     QString _ret = QGuiApplication::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -595,6 +539,63 @@ libqt_string QGuiApplication_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGuiApplication_QBaseMetacall(QGuiApplication* self, int param1, int param2, void** param3) {
+    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_Metacall_IsBase(true);
+        return vqguiapplication->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGuiApplication::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGuiApplication_OnMetacall(QGuiApplication* self, intptr_t slot) {
+    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_Metacall_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGuiApplication_QBaseNotify(QGuiApplication* self, QObject* param1, QEvent* param2) {
+    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_Notify_IsBase(true);
+        return vqguiapplication->notify(param1, param2);
+    } else {
+        return self->QGuiApplication::notify(param1, param2);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGuiApplication_OnNotify(QGuiApplication* self, intptr_t slot) {
+    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_Notify_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Notify_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGuiApplication_QBaseEvent(QGuiApplication* self, QEvent* param1) {
+    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_Event_IsBase(true);
+        return vqguiapplication->event(param1);
+    } else {
+        return ((VirtualQGuiApplication*)self)->event(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGuiApplication_OnEvent(QGuiApplication* self, intptr_t slot) {
+    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_Event_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Event_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -45,25 +45,6 @@ int QMediaPlayer_Metacall(QMediaPlayer* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMediaPlayer_OnMetacall(QMediaPlayer* self, intptr_t slot) {
-    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
-    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
-        vqmediaplayer->setQMediaPlayer_Metacall_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QMediaPlayer_QBaseMetacall(QMediaPlayer* self, int param1, int param2, void** param3) {
-    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
-    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
-        vqmediaplayer->setQMediaPlayer_Metacall_IsBase(true);
-        return vqmediaplayer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMediaPlayer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QMediaPlayer_Tr(const char* s) {
     QString _ret = QMediaPlayer::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -552,6 +533,25 @@ libqt_string QMediaPlayer_Tr3(const char* s, const char* c, int n) {
 
 void QMediaPlayer_SetSourceDevice2(QMediaPlayer* self, QIODevice* device, const QUrl* sourceUrl) {
     self->setSourceDevice(device, *sourceUrl);
+}
+
+// Base class handler implementation
+int QMediaPlayer_QBaseMetacall(QMediaPlayer* self, int param1, int param2, void** param3) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
+        vqmediaplayer->setQMediaPlayer_Metacall_IsBase(true);
+        return vqmediaplayer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QMediaPlayer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaPlayer_OnMetacall(QMediaPlayer* self, intptr_t slot) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
+        vqmediaplayer->setQMediaPlayer_Metacall_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

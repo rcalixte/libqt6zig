@@ -36,25 +36,6 @@ int QAudioRoom_Metacall(QAudioRoom* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAudioRoom_OnMetacall(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_Metacall_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAudioRoom_QBaseMetacall(QAudioRoom* self, int param1, int param2, void** param3) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_Metacall_IsBase(true);
-        return vqaudioroom->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAudioRoom*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QAudioRoom_Tr(const char* s) {
     QString _ret = QAudioRoom::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -241,6 +222,25 @@ libqt_string QAudioRoom_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QAudioRoom_QBaseMetacall(QAudioRoom* self, int param1, int param2, void** param3) {
+    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+        vqaudioroom->setQAudioRoom_Metacall_IsBase(true);
+        return vqaudioroom->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QAudioRoom::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioRoom_OnMetacall(QAudioRoom* self, intptr_t slot) {
+    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+        vqaudioroom->setQAudioRoom_Metacall_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

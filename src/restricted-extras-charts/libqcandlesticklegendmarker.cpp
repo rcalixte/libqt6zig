@@ -40,25 +40,6 @@ int QCandlestickLegendMarker_Metacall(QCandlestickLegendMarker* self, int param1
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QCandlestickLegendMarker_OnMetacall(QCandlestickLegendMarker* self, intptr_t slot) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQCandlestickLegendMarker::QCandlestickLegendMarker_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QCandlestickLegendMarker_QBaseMetacall(QCandlestickLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Metacall_IsBase(true);
-        return vqcandlesticklegendmarker->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCandlestickLegendMarker*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QCandlestickLegendMarker_Tr(const char* s) {
     QString _ret = QCandlestickLegendMarker::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -80,48 +61,10 @@ int QCandlestickLegendMarker_Type(QCandlestickLegendMarker* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QCandlestickLegendMarker_OnType(QCandlestickLegendMarker* self, intptr_t slot) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Type_Callback(reinterpret_cast<VirtualQCandlestickLegendMarker::QCandlestickLegendMarker_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QCandlestickLegendMarker_QBaseType(QCandlestickLegendMarker* self) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Type_IsBase(true);
-        return static_cast<int>(vqcandlesticklegendmarker->type());
-    } else {
-        return static_cast<int>(((VirtualQCandlestickLegendMarker*)self)->type());
-    }
-}
-
 QCandlestickSeries* QCandlestickLegendMarker_Series(QCandlestickLegendMarker* self) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         return self->series();
-    } else {
-        return ((VirtualQCandlestickLegendMarker*)self)->series();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QCandlestickLegendMarker_OnSeries(QCandlestickLegendMarker* self, intptr_t slot) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Series_Callback(reinterpret_cast<VirtualQCandlestickLegendMarker::QCandlestickLegendMarker_Series_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QCandlestickSeries* QCandlestickLegendMarker_QBaseSeries(QCandlestickLegendMarker* self) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Series_IsBase(true);
-        return vqcandlesticklegendmarker->series();
     } else {
         return ((VirtualQCandlestickLegendMarker*)self)->series();
     }
@@ -149,6 +92,63 @@ libqt_string QCandlestickLegendMarker_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QCandlestickLegendMarker_QBaseMetacall(QCandlestickLegendMarker* self, int param1, int param2, void** param3) {
+    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Metacall_IsBase(true);
+        return vqcandlesticklegendmarker->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QCandlestickLegendMarker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCandlestickLegendMarker_OnMetacall(QCandlestickLegendMarker* self, intptr_t slot) {
+    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQCandlestickLegendMarker::QCandlestickLegendMarker_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QCandlestickLegendMarker_QBaseType(QCandlestickLegendMarker* self) {
+    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Type_IsBase(true);
+        return static_cast<int>(vqcandlesticklegendmarker->type());
+    } else {
+        return static_cast<int>(self->QCandlestickLegendMarker::type());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCandlestickLegendMarker_OnType(QCandlestickLegendMarker* self, intptr_t slot) {
+    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Type_Callback(reinterpret_cast<VirtualQCandlestickLegendMarker::QCandlestickLegendMarker_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QCandlestickSeries* QCandlestickLegendMarker_QBaseSeries(QCandlestickLegendMarker* self) {
+    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Series_IsBase(true);
+        return vqcandlesticklegendmarker->series();
+    } else {
+        return self->QCandlestickLegendMarker::series();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCandlestickLegendMarker_OnSeries(QCandlestickLegendMarker* self, intptr_t slot) {
+    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Series_Callback(reinterpret_cast<VirtualQCandlestickLegendMarker::QCandlestickLegendMarker_Series_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

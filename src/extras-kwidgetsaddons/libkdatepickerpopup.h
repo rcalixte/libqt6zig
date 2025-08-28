@@ -62,8 +62,6 @@ KDatePickerPopup* KDatePickerPopup_new4(int modes, QDate* date, QWidget* parent)
 QMetaObject* KDatePickerPopup_MetaObject(const KDatePickerPopup* self);
 void* KDatePickerPopup_Metacast(KDatePickerPopup* self, const char* param1);
 int KDatePickerPopup_Metacall(KDatePickerPopup* self, int param1, int param2, void** param3);
-void KDatePickerPopup_OnMetacall(KDatePickerPopup* self, intptr_t slot);
-int KDatePickerPopup_QBaseMetacall(KDatePickerPopup* self, int param1, int param2, void** param3);
 libqt_string KDatePickerPopup_Tr(const char* s);
 int KDatePickerPopup_Modes(const KDatePickerPopup* self);
 void KDatePickerPopup_SetModes(KDatePickerPopup* self, int modes);
@@ -76,6 +74,8 @@ void KDatePickerPopup_DateChanged(KDatePickerPopup* self, const QDate* date);
 void KDatePickerPopup_Connect_DateChanged(KDatePickerPopup* self, intptr_t slot);
 libqt_string KDatePickerPopup_Tr2(const char* s, const char* c);
 libqt_string KDatePickerPopup_Tr3(const char* s, const char* c, int n);
+void KDatePickerPopup_OnMetacall(KDatePickerPopup* self, intptr_t slot);
+int KDatePickerPopup_QBaseMetacall(KDatePickerPopup* self, int param1, int param2, void** param3);
 QSize* KDatePickerPopup_SizeHint(const KDatePickerPopup* self);
 void KDatePickerPopup_OnSizeHint(const KDatePickerPopup* self, intptr_t slot);
 QSize* KDatePickerPopup_QBaseSizeHint(const KDatePickerPopup* self);

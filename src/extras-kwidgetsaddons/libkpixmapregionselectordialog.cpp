@@ -69,25 +69,6 @@ int KPixmapRegionSelectorDialog_Metacall(KPixmapRegionSelectorDialog* self, int 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPixmapRegionSelectorDialog_OnMetacall(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacall_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KPixmapRegionSelectorDialog_QBaseMetacall(KPixmapRegionSelectorDialog* self, int param1, int param2, void** param3) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacall_IsBase(true);
-        return vkpixmapregionselectordialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KPixmapRegionSelectorDialog_Tr(const char* s) {
     QString _ret = KPixmapRegionSelectorDialog::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -162,6 +143,25 @@ QImage* KPixmapRegionSelectorDialog_GetSelectedImage22(const QPixmap* pixmap, QW
 
 QImage* KPixmapRegionSelectorDialog_GetSelectedImage4(const QPixmap* pixmap, int aspectRatioWidth, int aspectRatioHeight, QWidget* parent) {
     return new QImage(KPixmapRegionSelectorDialog::getSelectedImage(*pixmap, static_cast<int>(aspectRatioWidth), static_cast<int>(aspectRatioHeight), parent));
+}
+
+// Base class handler implementation
+int KPixmapRegionSelectorDialog_QBaseMetacall(KPixmapRegionSelectorDialog* self, int param1, int param2, void** param3) {
+    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacall_IsBase(true);
+        return vkpixmapregionselectordialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KPixmapRegionSelectorDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapRegionSelectorDialog_OnMetacall(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacall_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

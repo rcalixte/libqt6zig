@@ -38,25 +38,6 @@ int QIconEnginePlugin_Metacall(QIconEnginePlugin* self, int param1, int param2, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QIconEnginePlugin_OnMetacall(QIconEnginePlugin* self, intptr_t slot) {
-    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
-        vqiconengineplugin->setQIconEnginePlugin_Metacall_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QIconEnginePlugin_QBaseMetacall(QIconEnginePlugin* self, int param1, int param2, void** param3) {
-    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
-        vqiconengineplugin->setQIconEnginePlugin_Metacall_IsBase(true);
-        return vqiconengineplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQIconEnginePlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QIconEnginePlugin_Tr(const char* s) {
     QString _ret = QIconEnginePlugin::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -73,26 +54,6 @@ QIconEngine* QIconEnginePlugin_Create(QIconEnginePlugin* self, const libqt_strin
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
-        return vqiconengineplugin->create(filename_QString);
-    } else {
-        return ((VirtualQIconEnginePlugin*)self)->create(filename_QString);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QIconEnginePlugin_OnCreate(QIconEnginePlugin* self, intptr_t slot) {
-    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
-        vqiconengineplugin->setQIconEnginePlugin_Create_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Create_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QIconEngine* QIconEnginePlugin_QBaseCreate(QIconEnginePlugin* self, const libqt_string filename) {
-    QString filename_QString = QString::fromUtf8(filename.data, filename.len);
-    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
-        vqiconengineplugin->setQIconEnginePlugin_Create_IsBase(true);
         return vqiconengineplugin->create(filename_QString);
     } else {
         return ((VirtualQIconEnginePlugin*)self)->create(filename_QString);
@@ -121,6 +82,45 @@ libqt_string QIconEnginePlugin_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QIconEnginePlugin_QBaseMetacall(QIconEnginePlugin* self, int param1, int param2, void** param3) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        vqiconengineplugin->setQIconEnginePlugin_Metacall_IsBase(true);
+        return vqiconengineplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QIconEnginePlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIconEnginePlugin_OnMetacall(QIconEnginePlugin* self, intptr_t slot) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        vqiconengineplugin->setQIconEnginePlugin_Metacall_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QIconEngine* QIconEnginePlugin_QBaseCreate(QIconEnginePlugin* self, const libqt_string filename) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    QString filename_QString = QString::fromUtf8(filename.data, filename.len);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        vqiconengineplugin->setQIconEnginePlugin_Create_IsBase(true);
+        return vqiconengineplugin->create(filename_QString);
+    } else {
+        return ((VirtualQIconEnginePlugin*)self)->create(filename_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIconEnginePlugin_OnCreate(QIconEnginePlugin* self, intptr_t slot) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        vqiconengineplugin->setQIconEnginePlugin_Create_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Create_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -34,8 +34,6 @@ QsciLexerMakefile* QsciLexerMakefile_new2(QObject* parent);
 QMetaObject* QsciLexerMakefile_MetaObject(const QsciLexerMakefile* self);
 void* QsciLexerMakefile_Metacast(QsciLexerMakefile* self, const char* param1);
 int QsciLexerMakefile_Metacall(QsciLexerMakefile* self, int param1, int param2, void** param3);
-void QsciLexerMakefile_OnMetacall(QsciLexerMakefile* self, intptr_t slot);
-int QsciLexerMakefile_QBaseMetacall(QsciLexerMakefile* self, int param1, int param2, void** param3);
 libqt_string QsciLexerMakefile_Tr(const char* s);
 const char* QsciLexerMakefile_Language(const QsciLexerMakefile* self);
 const char* QsciLexerMakefile_Lexer(const QsciLexerMakefile* self);
@@ -47,6 +45,8 @@ QColor* QsciLexerMakefile_DefaultPaper(const QsciLexerMakefile* self, int style)
 libqt_string QsciLexerMakefile_Description(const QsciLexerMakefile* self, int style);
 libqt_string QsciLexerMakefile_Tr2(const char* s, const char* c);
 libqt_string QsciLexerMakefile_Tr3(const char* s, const char* c, int n);
+void QsciLexerMakefile_OnMetacall(QsciLexerMakefile* self, intptr_t slot);
+int QsciLexerMakefile_QBaseMetacall(QsciLexerMakefile* self, int param1, int param2, void** param3);
 int QsciLexerMakefile_LexerId(const QsciLexerMakefile* self);
 void QsciLexerMakefile_OnLexerId(const QsciLexerMakefile* self, intptr_t slot);
 int QsciLexerMakefile_QBaseLexerId(const QsciLexerMakefile* self);

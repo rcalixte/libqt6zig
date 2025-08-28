@@ -89,25 +89,6 @@ int KRuler_Metacall(KRuler* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KRuler_OnMetacall(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Metacall_Callback(reinterpret_cast<VirtualKRuler::KRuler_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KRuler_QBaseMetacall(KRuler* self, int param1, int param2, void** param3) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Metacall_IsBase(true);
-        return vkruler->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKRuler*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KRuler_Tr(const char* s) {
     QString _ret = KRuler::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -292,23 +273,6 @@ void KRuler_PaintEvent(KRuler* self, QPaintEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KRuler_OnPaintEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_PaintEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KRuler_QBasePaintEvent(KRuler* self, QPaintEvent* param1) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_PaintEvent_IsBase(true);
-        vkruler->paintEvent(param1);
-    }
-}
-
 libqt_string KRuler_Tr2(const char* s, const char* c) {
     QString _ret = KRuler::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -339,6 +303,44 @@ void KRuler_SlideUp1(KRuler* self, int count) {
 
 void KRuler_SlideDown1(KRuler* self, int count) {
     self->slideDown(static_cast<int>(count));
+}
+
+// Base class handler implementation
+int KRuler_QBaseMetacall(KRuler* self, int param1, int param2, void** param3) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_Metacall_IsBase(true);
+        return vkruler->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KRuler::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRuler_OnMetacall(KRuler* self, intptr_t slot) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_Metacall_Callback(reinterpret_cast<VirtualKRuler::KRuler_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KRuler_QBasePaintEvent(KRuler* self, QPaintEvent* param1) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_PaintEvent_IsBase(true);
+        vkruler->paintEvent(param1);
+    } else {
+        ((VirtualKRuler*)self)->paintEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRuler_OnPaintEvent(KRuler* self, intptr_t slot) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_PaintEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_PaintEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

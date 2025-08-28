@@ -82,25 +82,6 @@ int KSeparator_Metacall(KSeparator* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KSeparator_OnMetacall(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Metacall_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KSeparator_QBaseMetacall(KSeparator* self, int param1, int param2, void** param3) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Metacall_IsBase(true);
-        return vkseparator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSeparator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KSeparator_Tr(const char* s) {
     QString _ret = KSeparator::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -143,6 +124,25 @@ libqt_string KSeparator_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KSeparator_QBaseMetacall(KSeparator* self, int param1, int param2, void** param3) {
+    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
+    if (vkseparator && vkseparator->isVirtualKSeparator) {
+        vkseparator->setKSeparator_Metacall_IsBase(true);
+        return vkseparator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KSeparator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSeparator_OnMetacall(KSeparator* self, intptr_t slot) {
+    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
+    if (vkseparator && vkseparator->isVirtualKSeparator) {
+        vkseparator->setKSeparator_Metacall_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

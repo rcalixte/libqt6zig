@@ -35,25 +35,6 @@ int QAmbientSound_Metacall(QAmbientSound* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAmbientSound_OnMetacall(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_Metacall_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAmbientSound_QBaseMetacall(QAmbientSound* self, int param1, int param2, void** param3) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_Metacall_IsBase(true);
-        return vqambientsound->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAmbientSound*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QAmbientSound_Tr(const char* s) {
     QString _ret = QAmbientSound::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -180,6 +161,25 @@ libqt_string QAmbientSound_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QAmbientSound_QBaseMetacall(QAmbientSound* self, int param1, int param2, void** param3) {
+    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
+    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+        vqambientsound->setQAmbientSound_Metacall_IsBase(true);
+        return vqambientsound->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QAmbientSound::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAmbientSound_OnMetacall(QAmbientSound* self, intptr_t slot) {
+    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
+    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+        vqambientsound->setQAmbientSound_Metacall_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

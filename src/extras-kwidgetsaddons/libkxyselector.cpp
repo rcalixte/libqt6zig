@@ -66,25 +66,6 @@ int KXYSelector_Metacall(KXYSelector* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KXYSelector_OnMetacall(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Metacall_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KXYSelector_QBaseMetacall(KXYSelector* self, int param1, int param2, void** param3) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Metacall_IsBase(true);
-        return vkxyselector->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKXYSelector*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KXYSelector_Tr(const char* s) {
     QString _ret = KXYSelector::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -138,25 +119,6 @@ QSize* KXYSelector_MinimumSizeHint(const KXYSelector* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KXYSelector_OnMinimumSizeHint(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* KXYSelector_QBaseMinimumSizeHint(const KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<const VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MinimumSizeHint_IsBase(true);
-        return new QSize(vkxyselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKXYSelector*)self)->minimumSizeHint());
-    }
-}
-
 void KXYSelector_ValueChanged(KXYSelector* self, int x, int y) {
     self->valueChanged(static_cast<int>(x), static_cast<int>(y));
 }
@@ -177,43 +139,9 @@ void KXYSelector_DrawContents(KXYSelector* self, QPainter* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KXYSelector_OnDrawContents(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DrawContents_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawContents_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KXYSelector_QBaseDrawContents(KXYSelector* self, QPainter* param1) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DrawContents_IsBase(true);
-        vkxyselector->drawContents(param1);
-    }
-}
-
 void KXYSelector_DrawMarker(KXYSelector* self, QPainter* p, int xp, int yp) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->drawMarker(p, static_cast<int>(xp), static_cast<int>(yp));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KXYSelector_OnDrawMarker(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DrawMarker_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawMarker_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KXYSelector_QBaseDrawMarker(KXYSelector* self, QPainter* p, int xp, int yp) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DrawMarker_IsBase(true);
         vkxyselector->drawMarker(p, static_cast<int>(xp), static_cast<int>(yp));
     }
 }
@@ -225,43 +153,9 @@ void KXYSelector_PaintEvent(KXYSelector* self, QPaintEvent* e) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KXYSelector_OnPaintEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_PaintEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KXYSelector_QBasePaintEvent(KXYSelector* self, QPaintEvent* e) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_PaintEvent_IsBase(true);
-        vkxyselector->paintEvent(e);
-    }
-}
-
 void KXYSelector_MousePressEvent(KXYSelector* self, QMouseEvent* e) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->mousePressEvent(e);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KXYSelector_OnMousePressEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KXYSelector_QBaseMousePressEvent(KXYSelector* self, QMouseEvent* e) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MousePressEvent_IsBase(true);
         vkxyselector->mousePressEvent(e);
     }
 }
@@ -273,43 +167,9 @@ void KXYSelector_MouseMoveEvent(KXYSelector* self, QMouseEvent* e) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KXYSelector_OnMouseMoveEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KXYSelector_QBaseMouseMoveEvent(KXYSelector* self, QMouseEvent* e) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MouseMoveEvent_IsBase(true);
-        vkxyselector->mouseMoveEvent(e);
-    }
-}
-
 void KXYSelector_WheelEvent(KXYSelector* self, QWheelEvent* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->wheelEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KXYSelector_OnWheelEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_WheelEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_WheelEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KXYSelector_QBaseWheelEvent(KXYSelector* self, QWheelEvent* param1) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_WheelEvent_IsBase(true);
         vkxyselector->wheelEvent(param1);
     }
 }
@@ -336,6 +196,158 @@ libqt_string KXYSelector_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KXYSelector_QBaseMetacall(KXYSelector* self, int param1, int param2, void** param3) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_Metacall_IsBase(true);
+        return vkxyselector->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KXYSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnMetacall(KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_Metacall_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* KXYSelector_QBaseMinimumSizeHint(const KXYSelector* self) {
+    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_MinimumSizeHint_IsBase(true);
+        return new QSize(vkxyselector->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKXYSelector*)self)->minimumSizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnMinimumSizeHint(const KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KXYSelector_QBaseDrawContents(KXYSelector* self, QPainter* param1) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_DrawContents_IsBase(true);
+        vkxyselector->drawContents(param1);
+    } else {
+        ((VirtualKXYSelector*)self)->drawContents(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnDrawContents(KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_DrawContents_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawContents_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KXYSelector_QBaseDrawMarker(KXYSelector* self, QPainter* p, int xp, int yp) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_DrawMarker_IsBase(true);
+        vkxyselector->drawMarker(p, static_cast<int>(xp), static_cast<int>(yp));
+    } else {
+        ((VirtualKXYSelector*)self)->drawMarker(p, static_cast<int>(xp), static_cast<int>(yp));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnDrawMarker(KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_DrawMarker_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawMarker_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KXYSelector_QBasePaintEvent(KXYSelector* self, QPaintEvent* e) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_PaintEvent_IsBase(true);
+        vkxyselector->paintEvent(e);
+    } else {
+        ((VirtualKXYSelector*)self)->paintEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnPaintEvent(KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_PaintEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_PaintEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KXYSelector_QBaseMousePressEvent(KXYSelector* self, QMouseEvent* e) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_MousePressEvent_IsBase(true);
+        vkxyselector->mousePressEvent(e);
+    } else {
+        ((VirtualKXYSelector*)self)->mousePressEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnMousePressEvent(KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KXYSelector_QBaseMouseMoveEvent(KXYSelector* self, QMouseEvent* e) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_MouseMoveEvent_IsBase(true);
+        vkxyselector->mouseMoveEvent(e);
+    } else {
+        ((VirtualKXYSelector*)self)->mouseMoveEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnMouseMoveEvent(KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KXYSelector_QBaseWheelEvent(KXYSelector* self, QWheelEvent* param1) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_WheelEvent_IsBase(true);
+        vkxyselector->wheelEvent(param1);
+    } else {
+        ((VirtualKXYSelector*)self)->wheelEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnWheelEvent(KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_WheelEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_WheelEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

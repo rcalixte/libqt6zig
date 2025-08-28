@@ -77,25 +77,6 @@ int QChart_Metacall(QChart* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QChart_OnMetacall(QChart* self, intptr_t slot) {
-    auto* vqchart = dynamic_cast<VirtualQChart*>(self);
-    if (vqchart && vqchart->isVirtualQChart) {
-        vqchart->setQChart_Metacall_Callback(reinterpret_cast<VirtualQChart::QChart_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QChart_QBaseMetacall(QChart* self, int param1, int param2, void** param3) {
-    auto* vqchart = dynamic_cast<VirtualQChart*>(self);
-    if (vqchart && vqchart->isVirtualQChart) {
-        vqchart->setQChart_Metacall_IsBase(true);
-        return vqchart->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQChart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QChart_Tr(const char* s) {
     QString _ret = QChart::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -477,6 +458,25 @@ QPointF* QChart_MapToValue2(QChart* self, const QPointF* position, QAbstractSeri
 
 QPointF* QChart_MapToPosition2(QChart* self, const QPointF* value, QAbstractSeries* series) {
     return new QPointF(self->mapToPosition(*value, series));
+}
+
+// Base class handler implementation
+int QChart_QBaseMetacall(QChart* self, int param1, int param2, void** param3) {
+    auto* vqchart = dynamic_cast<VirtualQChart*>(self);
+    if (vqchart && vqchart->isVirtualQChart) {
+        vqchart->setQChart_Metacall_IsBase(true);
+        return vqchart->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QChart::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChart_OnMetacall(QChart* self, intptr_t slot) {
+    auto* vqchart = dynamic_cast<VirtualQChart*>(self);
+    if (vqchart && vqchart->isVirtualQChart) {
+        vqchart->setQChart_Metacall_Callback(reinterpret_cast<VirtualQChart::QChart_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -43,25 +43,6 @@ int QSplineSeries_Metacall(QSplineSeries* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSplineSeries_OnMetacall(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Metacall_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSplineSeries_QBaseMetacall(QSplineSeries* self, int param1, int param2, void** param3) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Metacall_IsBase(true);
-        return vqsplineseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSplineSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QSplineSeries_Tr(const char* s) {
     QString _ret = QSplineSeries::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -78,25 +59,6 @@ int QSplineSeries_Type(const QSplineSeries* self) {
     auto* vqsplineseries = dynamic_cast<const VirtualQSplineSeries*>(self);
     if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
         return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQSplineSeries*)self)->type());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QSplineSeries_OnType(const QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Type_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSplineSeries_QBaseType(const QSplineSeries* self) {
-    auto* vqsplineseries = dynamic_cast<const VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Type_IsBase(true);
-        return static_cast<int>(vqsplineseries->type());
     } else {
         return static_cast<int>(((VirtualQSplineSeries*)self)->type());
     }
@@ -124,6 +86,44 @@ libqt_string QSplineSeries_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QSplineSeries_QBaseMetacall(QSplineSeries* self, int param1, int param2, void** param3) {
+    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        vqsplineseries->setQSplineSeries_Metacall_IsBase(true);
+        return vqsplineseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QSplineSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplineSeries_OnMetacall(QSplineSeries* self, intptr_t slot) {
+    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        vqsplineseries->setQSplineSeries_Metacall_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QSplineSeries_QBaseType(const QSplineSeries* self) {
+    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        vqsplineseries->setQSplineSeries_Type_IsBase(true);
+        return static_cast<int>(vqsplineseries->type());
+    } else {
+        return static_cast<int>(self->QSplineSeries::type());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplineSeries_OnType(const QSplineSeries* self, intptr_t slot) {
+    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        vqsplineseries->setQSplineSeries_Type_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Type_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

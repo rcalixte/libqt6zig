@@ -40,25 +40,6 @@ int KTwoFingerTap_Metacall(KTwoFingerTap* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KTwoFingerTap_OnMetacall(KTwoFingerTap* self, intptr_t slot) {
-    auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
-        vktwofingertap->setKTwoFingerTap_Metacall_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KTwoFingerTap_QBaseMetacall(KTwoFingerTap* self, int param1, int param2, void** param3) {
-    auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
-        vktwofingertap->setKTwoFingerTap_Metacall_IsBase(true);
-        return vktwofingertap->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTwoFingerTap*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KTwoFingerTap_Tr(const char* s) {
     QString _ret = KTwoFingerTap::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -117,6 +98,25 @@ libqt_string KTwoFingerTap_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KTwoFingerTap_QBaseMetacall(KTwoFingerTap* self, int param1, int param2, void** param3) {
+    auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+        vktwofingertap->setKTwoFingerTap_Metacall_IsBase(true);
+        return vktwofingertap->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KTwoFingerTap::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTwoFingerTap_OnMetacall(KTwoFingerTap* self, intptr_t slot) {
+    auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+        vktwofingertap->setKTwoFingerTap_Metacall_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -455,48 +455,10 @@ QGesture* KTwoFingerTapRecognizer_Create(KTwoFingerTapRecognizer* self, QObject*
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KTwoFingerTapRecognizer_OnCreate(KTwoFingerTapRecognizer* self, intptr_t slot) {
-    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Create_Callback(reinterpret_cast<VirtualKTwoFingerTapRecognizer::KTwoFingerTapRecognizer_Create_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QGesture* KTwoFingerTapRecognizer_QBaseCreate(KTwoFingerTapRecognizer* self, QObject* target) {
-    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Create_IsBase(true);
-        return vktwofingertaprecognizer->create(target);
-    } else {
-        return ((VirtualKTwoFingerTapRecognizer*)self)->create(target);
-    }
-}
-
 int KTwoFingerTapRecognizer_Recognize(KTwoFingerTapRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
     if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
         return static_cast<int>(self->recognize(gesture, watched, event));
-    } else {
-        return static_cast<int>(((VirtualKTwoFingerTapRecognizer*)self)->recognize(gesture, watched, event));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KTwoFingerTapRecognizer_OnRecognize(KTwoFingerTapRecognizer* self, intptr_t slot) {
-    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Recognize_Callback(reinterpret_cast<VirtualKTwoFingerTapRecognizer::KTwoFingerTapRecognizer_Recognize_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KTwoFingerTapRecognizer_QBaseRecognize(KTwoFingerTapRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
-    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Recognize_IsBase(true);
-        return static_cast<int>(vktwofingertaprecognizer->recognize(gesture, watched, event));
     } else {
         return static_cast<int>(((VirtualKTwoFingerTapRecognizer*)self)->recognize(gesture, watched, event));
     }
@@ -508,6 +470,44 @@ int KTwoFingerTapRecognizer_TapRadius(const KTwoFingerTapRecognizer* self) {
 
 void KTwoFingerTapRecognizer_SetTapRadius(KTwoFingerTapRecognizer* self, int i) {
     self->setTapRadius(static_cast<int>(i));
+}
+
+// Base class handler implementation
+QGesture* KTwoFingerTapRecognizer_QBaseCreate(KTwoFingerTapRecognizer* self, QObject* target) {
+    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
+    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
+        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Create_IsBase(true);
+        return vktwofingertaprecognizer->create(target);
+    } else {
+        return self->KTwoFingerTapRecognizer::create(target);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTwoFingerTapRecognizer_OnCreate(KTwoFingerTapRecognizer* self, intptr_t slot) {
+    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
+    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
+        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Create_Callback(reinterpret_cast<VirtualKTwoFingerTapRecognizer::KTwoFingerTapRecognizer_Create_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int KTwoFingerTapRecognizer_QBaseRecognize(KTwoFingerTapRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
+    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
+    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
+        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Recognize_IsBase(true);
+        return static_cast<int>(vktwofingertaprecognizer->recognize(gesture, watched, event));
+    } else {
+        return static_cast<int>(self->KTwoFingerTapRecognizer::recognize(gesture, watched, event));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTwoFingerTapRecognizer_OnRecognize(KTwoFingerTapRecognizer* self, intptr_t slot) {
+    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
+    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
+        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Recognize_Callback(reinterpret_cast<VirtualKTwoFingerTapRecognizer::KTwoFingerTapRecognizer_Recognize_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

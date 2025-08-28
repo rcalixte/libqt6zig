@@ -38,25 +38,6 @@ int KJobUiDelegate_Metacall(KJobUiDelegate* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobUiDelegate_OnMetacall(KJobUiDelegate* self, intptr_t slot) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        vkjobuidelegate->setKJobUiDelegate_Metacall_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KJobUiDelegate_QBaseMetacall(KJobUiDelegate* self, int param1, int param2, void** param3) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        vkjobuidelegate->setKJobUiDelegate_Metacall_IsBase(true);
-        return vkjobuidelegate->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKJobUiDelegate*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KJobUiDelegate_Tr(const char* s) {
     QString _ret = KJobUiDelegate::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -77,47 +58,10 @@ bool KJobUiDelegate_SetJob(KJobUiDelegate* self, KJob* job) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobUiDelegate_OnSetJob(KJobUiDelegate* self, intptr_t slot) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        vkjobuidelegate->setKJobUiDelegate_SetJob_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_SetJob_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KJobUiDelegate_QBaseSetJob(KJobUiDelegate* self, KJob* job) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        vkjobuidelegate->setKJobUiDelegate_SetJob_IsBase(true);
-        return vkjobuidelegate->setJob(job);
-    }
-    return {};
-}
-
 void KJobUiDelegate_ShowErrorMessage(KJobUiDelegate* self) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         self->showErrorMessage();
-    } else {
-        ((VirtualKJobUiDelegate*)self)->showErrorMessage();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KJobUiDelegate_OnShowErrorMessage(KJobUiDelegate* self, intptr_t slot) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        vkjobuidelegate->setKJobUiDelegate_ShowErrorMessage_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_ShowErrorMessage_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobUiDelegate_QBaseShowErrorMessage(KJobUiDelegate* self) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        vkjobuidelegate->setKJobUiDelegate_ShowErrorMessage_IsBase(true);
-        vkjobuidelegate->showErrorMessage();
     } else {
         ((VirtualKJobUiDelegate*)self)->showErrorMessage();
     }
@@ -147,24 +91,6 @@ void KJobUiDelegate_SlotWarning(KJobUiDelegate* self, KJob* job, const libqt_str
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobUiDelegate_OnSlotWarning(KJobUiDelegate* self, intptr_t slot) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        vkjobuidelegate->setKJobUiDelegate_SlotWarning_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_SlotWarning_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobUiDelegate_QBaseSlotWarning(KJobUiDelegate* self, KJob* job, const libqt_string message) {
-    QString message_QString = QString::fromUtf8(message.data, message.len);
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        vkjobuidelegate->setKJobUiDelegate_SlotWarning_IsBase(true);
-        vkjobuidelegate->slotWarning(job, message_QString);
-    }
-}
-
 libqt_string KJobUiDelegate_Tr2(const char* s, const char* c) {
     QString _ret = KJobUiDelegate::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -187,6 +113,83 @@ libqt_string KJobUiDelegate_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KJobUiDelegate_QBaseMetacall(KJobUiDelegate* self, int param1, int param2, void** param3) {
+    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+        vkjobuidelegate->setKJobUiDelegate_Metacall_IsBase(true);
+        return vkjobuidelegate->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KJobUiDelegate::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobUiDelegate_OnMetacall(KJobUiDelegate* self, intptr_t slot) {
+    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+        vkjobuidelegate->setKJobUiDelegate_Metacall_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KJobUiDelegate_QBaseSetJob(KJobUiDelegate* self, KJob* job) {
+    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+        vkjobuidelegate->setKJobUiDelegate_SetJob_IsBase(true);
+        return vkjobuidelegate->setJob(job);
+    } else {
+        return ((VirtualKJobUiDelegate*)self)->setJob(job);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobUiDelegate_OnSetJob(KJobUiDelegate* self, intptr_t slot) {
+    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+        vkjobuidelegate->setKJobUiDelegate_SetJob_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_SetJob_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobUiDelegate_QBaseShowErrorMessage(KJobUiDelegate* self) {
+    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+        vkjobuidelegate->setKJobUiDelegate_ShowErrorMessage_IsBase(true);
+        vkjobuidelegate->showErrorMessage();
+    } else {
+        self->KJobUiDelegate::showErrorMessage();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobUiDelegate_OnShowErrorMessage(KJobUiDelegate* self, intptr_t slot) {
+    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+        vkjobuidelegate->setKJobUiDelegate_ShowErrorMessage_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_ShowErrorMessage_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobUiDelegate_QBaseSlotWarning(KJobUiDelegate* self, KJob* job, const libqt_string message) {
+    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
+    QString message_QString = QString::fromUtf8(message.data, message.len);
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+        vkjobuidelegate->setKJobUiDelegate_SlotWarning_IsBase(true);
+        vkjobuidelegate->slotWarning(job, message_QString);
+    } else {
+        ((VirtualKJobUiDelegate*)self)->slotWarning(job, message_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobUiDelegate_OnSlotWarning(KJobUiDelegate* self, intptr_t slot) {
+    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+        vkjobuidelegate->setKJobUiDelegate_SlotWarning_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_SlotWarning_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

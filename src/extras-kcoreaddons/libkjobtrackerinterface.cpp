@@ -39,25 +39,6 @@ int KJobTrackerInterface_Metacall(KJobTrackerInterface* self, int param1, int pa
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnMetacall(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Metacall_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KJobTrackerInterface_QBaseMetacall(KJobTrackerInterface* self, int param1, int param2, void** param3) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Metacall_IsBase(true);
-        return vkjobtrackerinterface->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKJobTrackerInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KJobTrackerInterface_Tr(const char* s) {
     QString _ret = KJobTrackerInterface::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -79,48 +60,10 @@ void KJobTrackerInterface_RegisterJob(KJobTrackerInterface* self, KJob* job) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnRegisterJob(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_RegisterJob_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_RegisterJob_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseRegisterJob(KJobTrackerInterface* self, KJob* job) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_RegisterJob_IsBase(true);
-        vkjobtrackerinterface->registerJob(job);
-    } else {
-        ((VirtualKJobTrackerInterface*)self)->registerJob(job);
-    }
-}
-
 void KJobTrackerInterface_UnregisterJob(KJobTrackerInterface* self, KJob* job) {
     auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
     if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
         self->unregisterJob(job);
-    } else {
-        ((VirtualKJobTrackerInterface*)self)->unregisterJob(job);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnUnregisterJob(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_UnregisterJob_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_UnregisterJob_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseUnregisterJob(KJobTrackerInterface* self, KJob* job) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_UnregisterJob_IsBase(true);
-        vkjobtrackerinterface->unregisterJob(job);
     } else {
         ((VirtualKJobTrackerInterface*)self)->unregisterJob(job);
     }
@@ -133,23 +76,6 @@ void KJobTrackerInterface_Finished(KJobTrackerInterface* self, KJob* job) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnFinished(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Finished_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Finished_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseFinished(KJobTrackerInterface* self, KJob* job) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Finished_IsBase(true);
-        vkjobtrackerinterface->finished(job);
-    }
-}
-
 void KJobTrackerInterface_Suspended(KJobTrackerInterface* self, KJob* job) {
     auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
     if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
@@ -157,43 +83,9 @@ void KJobTrackerInterface_Suspended(KJobTrackerInterface* self, KJob* job) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnSuspended(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Suspended_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Suspended_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseSuspended(KJobTrackerInterface* self, KJob* job) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Suspended_IsBase(true);
-        vkjobtrackerinterface->suspended(job);
-    }
-}
-
 void KJobTrackerInterface_Resumed(KJobTrackerInterface* self, KJob* job) {
     auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
     if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->resumed(job);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnResumed(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Resumed_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Resumed_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseResumed(KJobTrackerInterface* self, KJob* job) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Resumed_IsBase(true);
         vkjobtrackerinterface->resumed(job);
     }
 }
@@ -220,60 +112,10 @@ void KJobTrackerInterface_Description(KJobTrackerInterface* self, KJob* job, con
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnDescription(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Description_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Description_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseDescription(KJobTrackerInterface* self, KJob* job, const libqt_string title, const libqt_pair /* tuple of libqt_string and libqt_string */ field1, const libqt_pair /* tuple of libqt_string and libqt_string */ field2) {
-    QString title_QString = QString::fromUtf8(title.data, title.len);
-    QPair<QString, QString> field1_QPair;
-    libqt_string* field1_first = static_cast<libqt_string*>(field1.first);
-    libqt_string* field1_second = static_cast<libqt_string*>(field1.second);
-    QString field1_first_0_QString = QString::fromUtf8(field1_first[0].data, field1_first[0].len);
-    QString field1_second_0_QString = QString::fromUtf8(field1_second[0].data, field1_second[0].len);
-    field1_QPair.first = field1_first_0_QString;
-    field1_QPair.second = field1_second_0_QString;
-    QPair<QString, QString> field2_QPair;
-    libqt_string* field2_first = static_cast<libqt_string*>(field2.first);
-    libqt_string* field2_second = static_cast<libqt_string*>(field2.second);
-    QString field2_first_0_QString = QString::fromUtf8(field2_first[0].data, field2_first[0].len);
-    QString field2_second_0_QString = QString::fromUtf8(field2_second[0].data, field2_second[0].len);
-    field2_QPair.first = field2_first_0_QString;
-    field2_QPair.second = field2_second_0_QString;
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Description_IsBase(true);
-        vkjobtrackerinterface->description(job, title_QString, field1_QPair, field2_QPair);
-    }
-}
-
 void KJobTrackerInterface_InfoMessage(KJobTrackerInterface* self, KJob* job, const libqt_string message) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
     if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->infoMessage(job, message_QString);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnInfoMessage(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_InfoMessage_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_InfoMessage_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseInfoMessage(KJobTrackerInterface* self, KJob* job, const libqt_string message) {
-    QString message_QString = QString::fromUtf8(message.data, message.len);
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_InfoMessage_IsBase(true);
         vkjobtrackerinterface->infoMessage(job, message_QString);
     }
 }
@@ -286,44 +128,9 @@ void KJobTrackerInterface_Warning(KJobTrackerInterface* self, KJob* job, const l
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnWarning(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Warning_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Warning_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseWarning(KJobTrackerInterface* self, KJob* job, const libqt_string message) {
-    QString message_QString = QString::fromUtf8(message.data, message.len);
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Warning_IsBase(true);
-        vkjobtrackerinterface->warning(job, message_QString);
-    }
-}
-
 void KJobTrackerInterface_TotalAmount(KJobTrackerInterface* self, KJob* job, int unit, unsigned long long amount) {
     auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
     if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->totalAmount(job, static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnTotalAmount(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_TotalAmount_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_TotalAmount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseTotalAmount(KJobTrackerInterface* self, KJob* job, int unit, unsigned long long amount) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_TotalAmount_IsBase(true);
         vkjobtrackerinterface->totalAmount(job, static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
     }
 }
@@ -335,23 +142,6 @@ void KJobTrackerInterface_ProcessedAmount(KJobTrackerInterface* self, KJob* job,
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnProcessedAmount(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_ProcessedAmount_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_ProcessedAmount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseProcessedAmount(KJobTrackerInterface* self, KJob* job, int unit, unsigned long long amount) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_ProcessedAmount_IsBase(true);
-        vkjobtrackerinterface->processedAmount(job, static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
 void KJobTrackerInterface_Percent(KJobTrackerInterface* self, KJob* job, unsigned long percent) {
     auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
     if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
@@ -359,43 +149,9 @@ void KJobTrackerInterface_Percent(KJobTrackerInterface* self, KJob* job, unsigne
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnPercent(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Percent_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Percent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBasePercent(KJobTrackerInterface* self, KJob* job, unsigned long percent) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Percent_IsBase(true);
-        vkjobtrackerinterface->percent(job, static_cast<unsigned long>(percent));
-    }
-}
-
 void KJobTrackerInterface_Speed(KJobTrackerInterface* self, KJob* job, unsigned long value) {
     auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
     if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->speed(job, static_cast<unsigned long>(value));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KJobTrackerInterface_OnSpeed(KJobTrackerInterface* self, intptr_t slot) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Speed_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Speed_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJobTrackerInterface_QBaseSpeed(KJobTrackerInterface* self, KJob* job, unsigned long value) {
-    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
-    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
-        vkjobtrackerinterface->setKJobTrackerInterface_Speed_IsBase(true);
         vkjobtrackerinterface->speed(job, static_cast<unsigned long>(value));
     }
 }
@@ -422,6 +178,270 @@ libqt_string KJobTrackerInterface_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KJobTrackerInterface_QBaseMetacall(KJobTrackerInterface* self, int param1, int param2, void** param3) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Metacall_IsBase(true);
+        return vkjobtrackerinterface->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KJobTrackerInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnMetacall(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Metacall_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseRegisterJob(KJobTrackerInterface* self, KJob* job) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_RegisterJob_IsBase(true);
+        vkjobtrackerinterface->registerJob(job);
+    } else {
+        self->KJobTrackerInterface::registerJob(job);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnRegisterJob(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_RegisterJob_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_RegisterJob_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseUnregisterJob(KJobTrackerInterface* self, KJob* job) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_UnregisterJob_IsBase(true);
+        vkjobtrackerinterface->unregisterJob(job);
+    } else {
+        self->KJobTrackerInterface::unregisterJob(job);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnUnregisterJob(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_UnregisterJob_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_UnregisterJob_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseFinished(KJobTrackerInterface* self, KJob* job) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Finished_IsBase(true);
+        vkjobtrackerinterface->finished(job);
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->finished(job);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnFinished(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Finished_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Finished_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseSuspended(KJobTrackerInterface* self, KJob* job) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Suspended_IsBase(true);
+        vkjobtrackerinterface->suspended(job);
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->suspended(job);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnSuspended(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Suspended_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Suspended_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseResumed(KJobTrackerInterface* self, KJob* job) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Resumed_IsBase(true);
+        vkjobtrackerinterface->resumed(job);
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->resumed(job);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnResumed(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Resumed_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Resumed_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseDescription(KJobTrackerInterface* self, KJob* job, const libqt_string title, const libqt_pair /* tuple of libqt_string and libqt_string */ field1, const libqt_pair /* tuple of libqt_string and libqt_string */ field2) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    QString title_QString = QString::fromUtf8(title.data, title.len);
+    QPair<QString, QString> field1_QPair;
+    libqt_string* field1_first = static_cast<libqt_string*>(field1.first);
+    libqt_string* field1_second = static_cast<libqt_string*>(field1.second);
+    QString field1_first_0_QString = QString::fromUtf8(field1_first[0].data, field1_first[0].len);
+    QString field1_second_0_QString = QString::fromUtf8(field1_second[0].data, field1_second[0].len);
+    field1_QPair.first = field1_first_0_QString;
+    field1_QPair.second = field1_second_0_QString;
+    QPair<QString, QString> field2_QPair;
+    libqt_string* field2_first = static_cast<libqt_string*>(field2.first);
+    libqt_string* field2_second = static_cast<libqt_string*>(field2.second);
+    QString field2_first_0_QString = QString::fromUtf8(field2_first[0].data, field2_first[0].len);
+    QString field2_second_0_QString = QString::fromUtf8(field2_second[0].data, field2_second[0].len);
+    field2_QPair.first = field2_first_0_QString;
+    field2_QPair.second = field2_second_0_QString;
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Description_IsBase(true);
+        vkjobtrackerinterface->description(job, title_QString, field1_QPair, field2_QPair);
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->description(job, title_QString, field1_QPair, field2_QPair);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnDescription(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Description_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Description_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseInfoMessage(KJobTrackerInterface* self, KJob* job, const libqt_string message) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    QString message_QString = QString::fromUtf8(message.data, message.len);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_InfoMessage_IsBase(true);
+        vkjobtrackerinterface->infoMessage(job, message_QString);
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->infoMessage(job, message_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnInfoMessage(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_InfoMessage_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_InfoMessage_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseWarning(KJobTrackerInterface* self, KJob* job, const libqt_string message) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    QString message_QString = QString::fromUtf8(message.data, message.len);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Warning_IsBase(true);
+        vkjobtrackerinterface->warning(job, message_QString);
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->warning(job, message_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnWarning(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Warning_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Warning_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseTotalAmount(KJobTrackerInterface* self, KJob* job, int unit, unsigned long long amount) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_TotalAmount_IsBase(true);
+        vkjobtrackerinterface->totalAmount(job, static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->totalAmount(job, static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnTotalAmount(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_TotalAmount_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_TotalAmount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseProcessedAmount(KJobTrackerInterface* self, KJob* job, int unit, unsigned long long amount) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_ProcessedAmount_IsBase(true);
+        vkjobtrackerinterface->processedAmount(job, static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->processedAmount(job, static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnProcessedAmount(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_ProcessedAmount_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_ProcessedAmount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBasePercent(KJobTrackerInterface* self, KJob* job, unsigned long percent) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Percent_IsBase(true);
+        vkjobtrackerinterface->percent(job, static_cast<unsigned long>(percent));
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->percent(job, static_cast<unsigned long>(percent));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnPercent(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Percent_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Percent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJobTrackerInterface_QBaseSpeed(KJobTrackerInterface* self, KJob* job, unsigned long value) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Speed_IsBase(true);
+        vkjobtrackerinterface->speed(job, static_cast<unsigned long>(value));
+    } else {
+        ((VirtualKJobTrackerInterface*)self)->speed(job, static_cast<unsigned long>(value));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJobTrackerInterface_OnSpeed(KJobTrackerInterface* self, intptr_t slot) {
+    auto* vkjobtrackerinterface = dynamic_cast<VirtualKJobTrackerInterface*>(self);
+    if (vkjobtrackerinterface && vkjobtrackerinterface->isVirtualKJobTrackerInterface) {
+        vkjobtrackerinterface->setKJobTrackerInterface_Speed_Callback(reinterpret_cast<VirtualKJobTrackerInterface::KJobTrackerInterface_Speed_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

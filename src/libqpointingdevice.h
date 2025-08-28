@@ -48,8 +48,6 @@ QPointingDevice* QPointingDevice_new6(const libqt_string name, long long systemI
 QMetaObject* QPointingDevice_MetaObject(const QPointingDevice* self);
 void* QPointingDevice_Metacast(QPointingDevice* self, const char* param1);
 int QPointingDevice_Metacall(QPointingDevice* self, int param1, int param2, void** param3);
-void QPointingDevice_OnMetacall(QPointingDevice* self, intptr_t slot);
-int QPointingDevice_QBaseMetacall(QPointingDevice* self, int param1, int param2, void** param3);
 libqt_string QPointingDevice_Tr(const char* s);
 void QPointingDevice_SetType(QPointingDevice* self, int devType);
 void QPointingDevice_SetCapabilities(QPointingDevice* self, int caps);
@@ -65,6 +63,8 @@ void QPointingDevice_Connect_GrabChanged(QPointingDevice* self, intptr_t slot);
 libqt_string QPointingDevice_Tr2(const char* s, const char* c);
 libqt_string QPointingDevice_Tr3(const char* s, const char* c, int n);
 QPointingDevice* QPointingDevice_PrimaryPointingDevice1(const libqt_string seatName);
+void QPointingDevice_OnMetacall(QPointingDevice* self, intptr_t slot);
+int QPointingDevice_QBaseMetacall(QPointingDevice* self, int param1, int param2, void** param3);
 bool QPointingDevice_Event(QPointingDevice* self, QEvent* event);
 void QPointingDevice_OnEvent(QPointingDevice* self, intptr_t slot);
 bool QPointingDevice_QBaseEvent(QPointingDevice* self, QEvent* event);

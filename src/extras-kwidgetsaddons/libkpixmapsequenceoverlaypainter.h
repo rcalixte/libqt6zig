@@ -35,8 +35,6 @@ KPixmapSequenceOverlayPainter* KPixmapSequenceOverlayPainter_new4(const KPixmapS
 QMetaObject* KPixmapSequenceOverlayPainter_MetaObject(const KPixmapSequenceOverlayPainter* self);
 void* KPixmapSequenceOverlayPainter_Metacast(KPixmapSequenceOverlayPainter* self, const char* param1);
 int KPixmapSequenceOverlayPainter_Metacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3);
-void KPixmapSequenceOverlayPainter_OnMetacall(KPixmapSequenceOverlayPainter* self, intptr_t slot);
-int KPixmapSequenceOverlayPainter_QBaseMetacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3);
 libqt_string KPixmapSequenceOverlayPainter_Tr(const char* s);
 KPixmapSequence* KPixmapSequenceOverlayPainter_Sequence(const KPixmapSequenceOverlayPainter* self);
 int KPixmapSequenceOverlayPainter_Interval(const KPixmapSequenceOverlayPainter* self);
@@ -52,10 +50,12 @@ void KPixmapSequenceOverlayPainter_SetOffset(KPixmapSequenceOverlayPainter* self
 void KPixmapSequenceOverlayPainter_Start(KPixmapSequenceOverlayPainter* self);
 void KPixmapSequenceOverlayPainter_Stop(KPixmapSequenceOverlayPainter* self);
 bool KPixmapSequenceOverlayPainter_EventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event);
-void KPixmapSequenceOverlayPainter_OnEventFilter(KPixmapSequenceOverlayPainter* self, intptr_t slot);
-bool KPixmapSequenceOverlayPainter_QBaseEventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event);
 libqt_string KPixmapSequenceOverlayPainter_Tr2(const char* s, const char* c);
 libqt_string KPixmapSequenceOverlayPainter_Tr3(const char* s, const char* c, int n);
+void KPixmapSequenceOverlayPainter_OnMetacall(KPixmapSequenceOverlayPainter* self, intptr_t slot);
+int KPixmapSequenceOverlayPainter_QBaseMetacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3);
+void KPixmapSequenceOverlayPainter_OnEventFilter(KPixmapSequenceOverlayPainter* self, intptr_t slot);
+bool KPixmapSequenceOverlayPainter_QBaseEventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event);
 bool KPixmapSequenceOverlayPainter_Event(KPixmapSequenceOverlayPainter* self, QEvent* event);
 void KPixmapSequenceOverlayPainter_OnEvent(KPixmapSequenceOverlayPainter* self, intptr_t slot);
 bool KPixmapSequenceOverlayPainter_QBaseEvent(KPixmapSequenceOverlayPainter* self, QEvent* event);

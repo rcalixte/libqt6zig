@@ -40,25 +40,6 @@ int QPieSeries_Metacall(QPieSeries* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPieSeries_OnMetacall(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Metacall_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPieSeries_QBaseMetacall(QPieSeries* self, int param1, int param2, void** param3) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Metacall_IsBase(true);
-        return vqpieseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPieSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPieSeries_Tr(const char* s) {
     QString _ret = QPieSeries::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -75,25 +56,6 @@ int QPieSeries_Type(const QPieSeries* self) {
     auto* vqpieseries = dynamic_cast<const VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPieSeries*)self)->type());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QPieSeries_OnType(const QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Type_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPieSeries_QBaseType(const QPieSeries* self) {
-    auto* vqpieseries = dynamic_cast<const VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Type_IsBase(true);
-        return static_cast<int>(vqpieseries->type());
     } else {
         return static_cast<int>(((VirtualQPieSeries*)self)->type());
     }
@@ -384,6 +346,44 @@ libqt_string QPieSeries_Tr3(const char* s, const char* c, int n) {
 
 void QPieSeries_SetLabelsVisible1(QPieSeries* self, bool visible) {
     self->setLabelsVisible(visible);
+}
+
+// Base class handler implementation
+int QPieSeries_QBaseMetacall(QPieSeries* self, int param1, int param2, void** param3) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_Metacall_IsBase(true);
+        return vqpieseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPieSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPieSeries_OnMetacall(QPieSeries* self, intptr_t slot) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_Metacall_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QPieSeries_QBaseType(const QPieSeries* self) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_Type_IsBase(true);
+        return static_cast<int>(vqpieseries->type());
+    } else {
+        return static_cast<int>(self->QPieSeries::type());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPieSeries_OnType(const QPieSeries* self, intptr_t slot) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_Type_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Type_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

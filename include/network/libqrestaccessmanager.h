@@ -36,8 +36,6 @@ QRestAccessManager* QRestAccessManager_new2(QNetworkAccessManager* manager, QObj
 QMetaObject* QRestAccessManager_MetaObject(const QRestAccessManager* self);
 void* QRestAccessManager_Metacast(QRestAccessManager* self, const char* param1);
 int QRestAccessManager_Metacall(QRestAccessManager* self, int param1, int param2, void** param3);
-void QRestAccessManager_OnMetacall(QRestAccessManager* self, intptr_t slot);
-int QRestAccessManager_QBaseMetacall(QRestAccessManager* self, int param1, int param2, void** param3);
 libqt_string QRestAccessManager_Tr(const char* s);
 QNetworkAccessManager* QRestAccessManager_NetworkAccessManager(const QRestAccessManager* self);
 QNetworkReply* QRestAccessManager_DeleteResource(QRestAccessManager* self, const QNetworkRequest* request);
@@ -65,6 +63,8 @@ QNetworkReply* QRestAccessManager_SendCustomRequest2(QRestAccessManager* self, c
 QNetworkReply* QRestAccessManager_SendCustomRequest3(QRestAccessManager* self, const QNetworkRequest* request, const libqt_string method, QHttpMultiPart* data);
 libqt_string QRestAccessManager_Tr2(const char* s, const char* c);
 libqt_string QRestAccessManager_Tr3(const char* s, const char* c, int n);
+void QRestAccessManager_OnMetacall(QRestAccessManager* self, intptr_t slot);
+int QRestAccessManager_QBaseMetacall(QRestAccessManager* self, int param1, int param2, void** param3);
 bool QRestAccessManager_Event(QRestAccessManager* self, QEvent* event);
 void QRestAccessManager_OnEvent(QRestAccessManager* self, intptr_t slot);
 bool QRestAccessManager_QBaseEvent(QRestAccessManager* self, QEvent* event);

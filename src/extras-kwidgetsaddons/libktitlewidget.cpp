@@ -65,25 +65,6 @@ int KTitleWidget_Metacall(KTitleWidget* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KTitleWidget_OnMetacall(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Metacall_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KTitleWidget_QBaseMetacall(KTitleWidget* self, int param1, int param2, void** param3) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Metacall_IsBase(true);
-        return vktitlewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTitleWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KTitleWidget_Tr(const char* s) {
     QString _ret = KTitleWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -186,23 +167,6 @@ void KTitleWidget_ChangeEvent(KTitleWidget* self, QEvent* e) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KTitleWidget_OnChangeEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KTitleWidget_QBaseChangeEvent(KTitleWidget* self, QEvent* e) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ChangeEvent_IsBase(true);
-        vktitlewidget->changeEvent(e);
-    }
-}
-
 void KTitleWidget_ShowEvent(KTitleWidget* self, QShowEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
@@ -210,44 +174,9 @@ void KTitleWidget_ShowEvent(KTitleWidget* self, QShowEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KTitleWidget_OnShowEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ShowEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ShowEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KTitleWidget_QBaseShowEvent(KTitleWidget* self, QShowEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ShowEvent_IsBase(true);
-        vktitlewidget->showEvent(event);
-    }
-}
-
 bool KTitleWidget_EventFilter(KTitleWidget* self, QObject* object, QEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->eventFilter(object, event);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KTitleWidget_OnEventFilter(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_EventFilter_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_EventFilter_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KTitleWidget_QBaseEventFilter(KTitleWidget* self, QObject* object, QEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_EventFilter_IsBase(true);
         return vktitlewidget->eventFilter(object, event);
     }
     return {};
@@ -293,6 +222,82 @@ void KTitleWidget_SetIcon22(KTitleWidget* self, const QIcon* icon, int alignment
 
 void KTitleWidget_SetIcon23(KTitleWidget* self, int typeVal, int alignment) {
     self->setIcon(static_cast<KTitleWidget::MessageType>(typeVal), static_cast<KTitleWidget::ImageAlignment>(alignment));
+}
+
+// Base class handler implementation
+int KTitleWidget_QBaseMetacall(KTitleWidget* self, int param1, int param2, void** param3) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_Metacall_IsBase(true);
+        return vktitlewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KTitleWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTitleWidget_OnMetacall(KTitleWidget* self, intptr_t slot) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_Metacall_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KTitleWidget_QBaseChangeEvent(KTitleWidget* self, QEvent* e) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_ChangeEvent_IsBase(true);
+        vktitlewidget->changeEvent(e);
+    } else {
+        ((VirtualKTitleWidget*)self)->changeEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTitleWidget_OnChangeEvent(KTitleWidget* self, intptr_t slot) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KTitleWidget_QBaseShowEvent(KTitleWidget* self, QShowEvent* event) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_ShowEvent_IsBase(true);
+        vktitlewidget->showEvent(event);
+    } else {
+        ((VirtualKTitleWidget*)self)->showEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTitleWidget_OnShowEvent(KTitleWidget* self, intptr_t slot) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_ShowEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ShowEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KTitleWidget_QBaseEventFilter(KTitleWidget* self, QObject* object, QEvent* event) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_EventFilter_IsBase(true);
+        return vktitlewidget->eventFilter(object, event);
+    } else {
+        return ((VirtualKTitleWidget*)self)->eventFilter(object, event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTitleWidget_OnEventFilter(KTitleWidget* self, intptr_t slot) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_EventFilter_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_EventFilter_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

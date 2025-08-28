@@ -51,25 +51,6 @@ int QPdfWriter_Metacall(QPdfWriter* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfWriter_OnMetacall(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Metacall_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPdfWriter_QBaseMetacall(QPdfWriter* self, int param1, int param2, void** param3) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Metacall_IsBase(true);
-        return vqpdfwriter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfWriter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPdfWriter_Tr(const char* s) {
     QString _ret = QPdfWriter::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -141,25 +122,6 @@ bool QPdfWriter_NewPage(QPdfWriter* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfWriter_OnNewPage(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_NewPage_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_NewPage_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QPdfWriter_QBaseNewPage(QPdfWriter* self) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_NewPage_IsBase(true);
-        return vqpdfwriter->newPage();
-    } else {
-        return ((VirtualQPdfWriter*)self)->newPage();
-    }
-}
-
 void QPdfWriter_SetResolution(QPdfWriter* self, int resolution) {
     self->setResolution(static_cast<int>(resolution));
 }
@@ -213,45 +175,9 @@ QPaintEngine* QPdfWriter_PaintEngine(const QPdfWriter* self) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfWriter_OnPaintEngine(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_PaintEngine_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_PaintEngine_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPaintEngine* QPdfWriter_QBasePaintEngine(const QPdfWriter* self) {
-    auto* vqpdfwriter = dynamic_cast<const VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_PaintEngine_IsBase(true);
-        return vqpdfwriter->paintEngine();
-    }
-    return {};
-}
-
 int QPdfWriter_Metric(const QPdfWriter* self, int id) {
     auto* vqpdfwriter = dynamic_cast<const VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(id));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfWriter_OnMetric(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Metric_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metric_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPdfWriter_QBaseMetric(const QPdfWriter* self, int id) {
-    auto* vqpdfwriter = dynamic_cast<const VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Metric_IsBase(true);
         return vqpdfwriter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(id));
     }
     return {};
@@ -286,6 +212,82 @@ void QPdfWriter_AddFileAttachment3(QPdfWriter* self, const libqt_string fileName
     QByteArray data_QByteArray(data.data, data.len);
     QString mimeType_QString = QString::fromUtf8(mimeType.data, mimeType.len);
     self->addFileAttachment(fileName_QString, data_QByteArray, mimeType_QString);
+}
+
+// Base class handler implementation
+int QPdfWriter_QBaseMetacall(QPdfWriter* self, int param1, int param2, void** param3) {
+    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_Metacall_IsBase(true);
+        return vqpdfwriter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPdfWriter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfWriter_OnMetacall(QPdfWriter* self, intptr_t slot) {
+    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_Metacall_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QPdfWriter_QBaseNewPage(QPdfWriter* self) {
+    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_NewPage_IsBase(true);
+        return vqpdfwriter->newPage();
+    } else {
+        return self->QPdfWriter::newPage();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfWriter_OnNewPage(QPdfWriter* self, intptr_t slot) {
+    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_NewPage_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_NewPage_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPaintEngine* QPdfWriter_QBasePaintEngine(const QPdfWriter* self) {
+    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_PaintEngine_IsBase(true);
+        return vqpdfwriter->paintEngine();
+    } else {
+        return ((VirtualQPdfWriter*)self)->paintEngine();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfWriter_OnPaintEngine(const QPdfWriter* self, intptr_t slot) {
+    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_PaintEngine_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_PaintEngine_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QPdfWriter_QBaseMetric(const QPdfWriter* self, int id) {
+    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_Metric_IsBase(true);
+        return vqpdfwriter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(id));
+    } else {
+        return ((VirtualQPdfWriter*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(id));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfWriter_OnMetric(const QPdfWriter* self, intptr_t slot) {
+    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_Metric_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metric_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

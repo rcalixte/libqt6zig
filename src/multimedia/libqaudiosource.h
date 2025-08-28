@@ -36,8 +36,6 @@ QAudioSource* QAudioSource_new6(const QAudioDevice* audioDeviceInfo, const QAudi
 QMetaObject* QAudioSource_MetaObject(const QAudioSource* self);
 void* QAudioSource_Metacast(QAudioSource* self, const char* param1);
 int QAudioSource_Metacall(QAudioSource* self, int param1, int param2, void** param3);
-void QAudioSource_OnMetacall(QAudioSource* self, intptr_t slot);
-int QAudioSource_QBaseMetacall(QAudioSource* self, int param1, int param2, void** param3);
 libqt_string QAudioSource_Tr(const char* s);
 bool QAudioSource_IsNull(const QAudioSource* self);
 QAudioFormat* QAudioSource_Format(const QAudioSource* self);
@@ -60,6 +58,8 @@ void QAudioSource_StateChanged(QAudioSource* self, int state);
 void QAudioSource_Connect_StateChanged(QAudioSource* self, intptr_t slot);
 libqt_string QAudioSource_Tr2(const char* s, const char* c);
 libqt_string QAudioSource_Tr3(const char* s, const char* c, int n);
+void QAudioSource_OnMetacall(QAudioSource* self, intptr_t slot);
+int QAudioSource_QBaseMetacall(QAudioSource* self, int param1, int param2, void** param3);
 bool QAudioSource_Event(QAudioSource* self, QEvent* event);
 void QAudioSource_OnEvent(QAudioSource* self, intptr_t slot);
 bool QAudioSource_QBaseEvent(QAudioSource* self, QEvent* event);

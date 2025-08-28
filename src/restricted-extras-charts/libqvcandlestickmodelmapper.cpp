@@ -38,25 +38,6 @@ int QVCandlestickModelMapper_Metacall(QVCandlestickModelMapper* self, int param1
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QVCandlestickModelMapper_OnMetacall(QVCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
-        vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QVCandlestickModelMapper_QBaseMetacall(QVCandlestickModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
-        vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Metacall_IsBase(true);
-        return vqvcandlestickmodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVCandlestickModelMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QVCandlestickModelMapper_Tr(const char* s) {
     QString _ret = QVCandlestickModelMapper::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -73,25 +54,6 @@ int QVCandlestickModelMapper_Orientation(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<const VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         return static_cast<int>(self->orientation());
-    } else {
-        return static_cast<int>(((VirtualQVCandlestickModelMapper*)self)->orientation());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QVCandlestickModelMapper_OnOrientation(const QVCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
-        vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Orientation_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Orientation_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QVCandlestickModelMapper_QBaseOrientation(const QVCandlestickModelMapper* self) {
-    auto* vqvcandlestickmodelmapper = dynamic_cast<const VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
-        vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Orientation_IsBase(true);
-        return static_cast<int>(vqvcandlestickmodelmapper->orientation());
     } else {
         return static_cast<int>(((VirtualQVCandlestickModelMapper*)self)->orientation());
     }
@@ -252,6 +214,44 @@ libqt_string QVCandlestickModelMapper_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QVCandlestickModelMapper_QBaseMetacall(QVCandlestickModelMapper* self, int param1, int param2, void** param3) {
+    auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+        vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Metacall_IsBase(true);
+        return vqvcandlestickmodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QVCandlestickModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVCandlestickModelMapper_OnMetacall(QVCandlestickModelMapper* self, intptr_t slot) {
+    auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+        vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QVCandlestickModelMapper_QBaseOrientation(const QVCandlestickModelMapper* self) {
+    auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+        vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Orientation_IsBase(true);
+        return static_cast<int>(vqvcandlestickmodelmapper->orientation());
+    } else {
+        return static_cast<int>(self->QVCandlestickModelMapper::orientation());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVCandlestickModelMapper_OnOrientation(const QVCandlestickModelMapper* self, intptr_t slot) {
+    auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+        vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Orientation_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Orientation_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

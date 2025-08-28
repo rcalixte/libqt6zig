@@ -47,25 +47,6 @@ int QDtlsClientVerifier_Metacall(QDtlsClientVerifier* self, int param1, int para
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDtlsClientVerifier_OnMetacall(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_Metacall_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDtlsClientVerifier_QBaseMetacall(QDtlsClientVerifier* self, int param1, int param2, void** param3) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_Metacall_IsBase(true);
-        return vqdtlsclientverifier->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QDtlsClientVerifier_Tr(const char* s) {
     QString _ret = QDtlsClientVerifier::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -139,6 +120,25 @@ libqt_string QDtlsClientVerifier_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QDtlsClientVerifier_QBaseMetacall(QDtlsClientVerifier* self, int param1, int param2, void** param3) {
+    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+        vqdtlsclientverifier->setQDtlsClientVerifier_Metacall_IsBase(true);
+        return vqdtlsclientverifier->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QDtlsClientVerifier::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDtlsClientVerifier_OnMetacall(QDtlsClientVerifier* self, intptr_t slot) {
+    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+        vqdtlsclientverifier->setQDtlsClientVerifier_Metacall_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -489,25 +489,6 @@ int QDtls_Metacall(QDtls* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDtls_OnMetacall(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_Metacall_Callback(reinterpret_cast<VirtualQDtls::QDtls_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDtls_QBaseMetacall(QDtls* self, int param1, int param2, void** param3) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_Metacall_IsBase(true);
-        return vqdtls->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDtls*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QDtls_Tr(const char* s) {
     QString _ret = QDtls::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -723,6 +704,25 @@ bool QDtls_SetPeer3(QDtls* self, const QHostAddress* address, uint16_t port, con
 bool QDtls_DoHandshake2(QDtls* self, QUdpSocket* socket, const libqt_string dgram) {
     QByteArray dgram_QByteArray(dgram.data, dgram.len);
     return self->doHandshake(socket, dgram_QByteArray);
+}
+
+// Base class handler implementation
+int QDtls_QBaseMetacall(QDtls* self, int param1, int param2, void** param3) {
+    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
+    if (vqdtls && vqdtls->isVirtualQDtls) {
+        vqdtls->setQDtls_Metacall_IsBase(true);
+        return vqdtls->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QDtls::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDtls_OnMetacall(QDtls* self, intptr_t slot) {
+    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
+    if (vqdtls && vqdtls->isVirtualQDtls) {
+        vqdtls->setQDtls_Metacall_Callback(reinterpret_cast<VirtualQDtls::QDtls_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

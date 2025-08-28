@@ -70,25 +70,6 @@ int QInputDialog_Metacall(QInputDialog* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QInputDialog_OnMetacall(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Metacall_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QInputDialog_QBaseMetacall(QInputDialog* self, int param1, int param2, void** param3) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Metacall_IsBase(true);
-        return vqinputdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQInputDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QInputDialog_Tr(const char* s) {
     QString _ret = QInputDialog::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -322,25 +303,6 @@ QSize* QInputDialog_MinimumSizeHint(const QInputDialog* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QInputDialog_OnMinimumSizeHint(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QInputDialog_QBaseMinimumSizeHint(const QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<const VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vqinputdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQInputDialog*)self)->minimumSizeHint());
-    }
-}
-
 QSize* QInputDialog_SizeHint(const QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<const VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
@@ -350,48 +312,10 @@ QSize* QInputDialog_SizeHint(const QInputDialog* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QInputDialog_OnSizeHint(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_SizeHint_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QInputDialog_QBaseSizeHint(const QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<const VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_SizeHint_IsBase(true);
-        return new QSize(vqinputdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQInputDialog*)self)->sizeHint());
-    }
-}
-
 void QInputDialog_SetVisible(QInputDialog* self, bool visible) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         self->setVisible(visible);
-    } else {
-        ((VirtualQInputDialog*)self)->setVisible(visible);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QInputDialog_OnSetVisible(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_SetVisible_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_SetVisible_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QInputDialog_QBaseSetVisible(QInputDialog* self, bool visible) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_SetVisible_IsBase(true);
-        vqinputdialog->setVisible(visible);
     } else {
         ((VirtualQInputDialog*)self)->setVisible(visible);
     }
@@ -558,25 +482,6 @@ void QInputDialog_Done(QInputDialog* self, int result) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         self->done(static_cast<int>(result));
-    } else {
-        ((VirtualQInputDialog*)self)->done(static_cast<int>(result));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QInputDialog_OnDone(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Done_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Done_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QInputDialog_QBaseDone(QInputDialog* self, int result) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Done_IsBase(true);
-        vqinputdialog->done(static_cast<int>(result));
     } else {
         ((VirtualQInputDialog*)self)->done(static_cast<int>(result));
     }
@@ -925,6 +830,101 @@ double QInputDialog_GetDouble10(QWidget* parent, const libqt_string title, const
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString label_QString = QString::fromUtf8(label.data, label.len);
     return QInputDialog::getDouble(parent, title_QString, label_QString, static_cast<double>(value), static_cast<double>(minValue), static_cast<double>(maxValue), static_cast<int>(decimals), ok, static_cast<Qt::WindowFlags>(flags), static_cast<double>(step));
+}
+
+// Base class handler implementation
+int QInputDialog_QBaseMetacall(QInputDialog* self, int param1, int param2, void** param3) {
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_Metacall_IsBase(true);
+        return vqinputdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QInputDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDialog_OnMetacall(QInputDialog* self, intptr_t slot) {
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_Metacall_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QInputDialog_QBaseMinimumSizeHint(const QInputDialog* self) {
+    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_MinimumSizeHint_IsBase(true);
+        return new QSize(vqinputdialog->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQInputDialog*)self)->minimumSizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDialog_OnMinimumSizeHint(const QInputDialog* self, intptr_t slot) {
+    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QInputDialog_QBaseSizeHint(const QInputDialog* self) {
+    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_SizeHint_IsBase(true);
+        return new QSize(vqinputdialog->sizeHint());
+    } else {
+        return new QSize(((VirtualQInputDialog*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDialog_OnSizeHint(const QInputDialog* self, intptr_t slot) {
+    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_SizeHint_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_SizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QInputDialog_QBaseSetVisible(QInputDialog* self, bool visible) {
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_SetVisible_IsBase(true);
+        vqinputdialog->setVisible(visible);
+    } else {
+        self->QInputDialog::setVisible(visible);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDialog_OnSetVisible(QInputDialog* self, intptr_t slot) {
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_SetVisible_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_SetVisible_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QInputDialog_QBaseDone(QInputDialog* self, int result) {
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_Done_IsBase(true);
+        vqinputdialog->done(static_cast<int>(result));
+    } else {
+        self->QInputDialog::done(static_cast<int>(result));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDialog_OnDone(QInputDialog* self, intptr_t slot) {
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_Done_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Done_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

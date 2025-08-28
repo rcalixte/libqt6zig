@@ -37,25 +37,6 @@ int KColorSchemeWatcher_Metacall(KColorSchemeWatcher* self, int param1, int para
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KColorSchemeWatcher_OnMetacall(KColorSchemeWatcher* self, intptr_t slot) {
-    auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
-        vkcolorschemewatcher->setKColorSchemeWatcher_Metacall_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KColorSchemeWatcher_QBaseMetacall(KColorSchemeWatcher* self, int param1, int param2, void** param3) {
-    auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
-        vkcolorschemewatcher->setKColorSchemeWatcher_Metacall_IsBase(true);
-        return vkcolorschemewatcher->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKColorSchemeWatcher*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KColorSchemeWatcher_Tr(const char* s) {
     QString _ret = KColorSchemeWatcher::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -105,6 +86,25 @@ libqt_string KColorSchemeWatcher_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KColorSchemeWatcher_QBaseMetacall(KColorSchemeWatcher* self, int param1, int param2, void** param3) {
+    auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+        vkcolorschemewatcher->setKColorSchemeWatcher_Metacall_IsBase(true);
+        return vkcolorschemewatcher->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KColorSchemeWatcher::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorSchemeWatcher_OnMetacall(KColorSchemeWatcher* self, intptr_t slot) {
+    auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+        vkcolorschemewatcher->setKColorSchemeWatcher_Metacall_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

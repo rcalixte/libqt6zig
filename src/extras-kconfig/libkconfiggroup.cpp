@@ -63,25 +63,6 @@ bool KConfigGroup_Sync(KConfigGroup* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnSync(KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_Sync_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_Sync_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KConfigGroup_QBaseSync(KConfigGroup* self) {
-    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_Sync_IsBase(true);
-        return vkconfiggroup->sync();
-    } else {
-        return ((VirtualKConfigGroup*)self)->sync();
-    }
-}
-
 void KConfigGroup_MarkAsClean(KConfigGroup* self) {
     auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
     if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
@@ -91,48 +72,10 @@ void KConfigGroup_MarkAsClean(KConfigGroup* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnMarkAsClean(KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_MarkAsClean_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_MarkAsClean_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KConfigGroup_QBaseMarkAsClean(KConfigGroup* self) {
-    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_MarkAsClean_IsBase(true);
-        vkconfiggroup->markAsClean();
-    } else {
-        ((VirtualKConfigGroup*)self)->markAsClean();
-    }
-}
-
 int KConfigGroup_AccessMode(const KConfigGroup* self) {
     auto* vkconfiggroup = dynamic_cast<const VirtualKConfigGroup*>(self);
     if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
         return static_cast<int>(self->accessMode());
-    } else {
-        return static_cast<int>(((VirtualKConfigGroup*)self)->accessMode());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnAccessMode(const KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_AccessMode_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_AccessMode_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KConfigGroup_QBaseAccessMode(const KConfigGroup* self) {
-    auto* vkconfiggroup = dynamic_cast<const VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_AccessMode_IsBase(true);
-        return static_cast<int>(vkconfiggroup->accessMode());
     } else {
         return static_cast<int>(((VirtualKConfigGroup*)self)->accessMode());
     }
@@ -176,59 +119,6 @@ libqt_list /* of libqt_string */ KConfigGroup_GroupList(const KConfigGroup* self
     auto* vkconfiggroup = dynamic_cast<const VirtualKConfigGroup*>(self);
     if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
         QList<QString> _ret = self->groupList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKConfigGroup*)self)->groupList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnGroupList(const KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_GroupList_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_GroupList_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_list /* of libqt_string */ KConfigGroup_QBaseGroupList(const KConfigGroup* self) {
-    auto* vkconfiggroup = dynamic_cast<const VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_GroupList_IsBase(true);
-        QList<QString> _ret = vkconfiggroup->groupList();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -770,25 +660,6 @@ bool KConfigGroup_IsImmutable(const KConfigGroup* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnIsImmutable(const KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_IsImmutable_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_IsImmutable_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KConfigGroup_QBaseIsImmutable(const KConfigGroup* self) {
-    auto* vkconfiggroup = dynamic_cast<const VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_IsImmutable_IsBase(true);
-        return vkconfiggroup->isImmutable();
-    } else {
-        return ((VirtualKConfigGroup*)self)->isImmutable();
-    }
-}
-
 bool KConfigGroup_IsEntryImmutable(const KConfigGroup* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return self->isEntryImmutable(key_QString);
@@ -859,48 +730,10 @@ bool KConfigGroup_HasGroupImpl(const KConfigGroup* self, const libqt_string grou
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnHasGroupImpl(const KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_HasGroupImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_HasGroupImpl_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KConfigGroup_QBaseHasGroupImpl(const KConfigGroup* self, const libqt_string groupName) {
-    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    auto* vkconfiggroup = dynamic_cast<const VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_HasGroupImpl_IsBase(true);
-        return vkconfiggroup->hasGroupImpl(groupName_QString);
-    }
-    return {};
-}
-
 KConfigGroup* KConfigGroup_GroupImpl(KConfigGroup* self, const libqt_string groupName) {
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
     auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
     if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        return new KConfigGroup(vkconfiggroup->groupImpl(groupName_QString));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnGroupImpl(KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_GroupImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_GroupImpl_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-KConfigGroup* KConfigGroup_QBaseGroupImpl(KConfigGroup* self, const libqt_string groupName) {
-    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_GroupImpl_IsBase(true);
         return new KConfigGroup(vkconfiggroup->groupImpl(groupName_QString));
     }
     return {};
@@ -915,25 +748,6 @@ KConfigGroup* KConfigGroup_GroupImpl2(const KConfigGroup* self, const libqt_stri
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnGroupImpl2(const KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_GroupImpl2_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_GroupImpl2_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-KConfigGroup* KConfigGroup_QBaseGroupImpl2(const KConfigGroup* self, const libqt_string groupName) {
-    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    auto* vkconfiggroup = dynamic_cast<const VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_GroupImpl2_IsBase(true);
-        return new KConfigGroup(vkconfiggroup->groupImpl(groupName_QString));
-    }
-    return {};
-}
-
 void KConfigGroup_DeleteGroupImpl(KConfigGroup* self, const libqt_string groupName, int flags) {
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
     auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
@@ -942,47 +756,10 @@ void KConfigGroup_DeleteGroupImpl(KConfigGroup* self, const libqt_string groupNa
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnDeleteGroupImpl(KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_DeleteGroupImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_DeleteGroupImpl_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KConfigGroup_QBaseDeleteGroupImpl(KConfigGroup* self, const libqt_string groupName, int flags) {
-    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_DeleteGroupImpl_IsBase(true);
-        vkconfiggroup->deleteGroupImpl(groupName_QString, static_cast<KConfigBase::WriteConfigFlags>(flags));
-    }
-}
-
 bool KConfigGroup_IsGroupImmutableImpl(const KConfigGroup* self, const libqt_string groupName) {
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
     auto* vkconfiggroup = dynamic_cast<const VirtualKConfigGroup*>(self);
     if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        return vkconfiggroup->isGroupImmutableImpl(groupName_QString);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigGroup_OnIsGroupImmutableImpl(const KConfigGroup* self, intptr_t slot) {
-    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_IsGroupImmutableImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_IsGroupImmutableImpl_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KConfigGroup_QBaseIsGroupImmutableImpl(const KConfigGroup* self, const libqt_string groupName) {
-    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    auto* vkconfiggroup = dynamic_cast<const VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
-        vkconfiggroup->setKConfigGroup_IsGroupImmutableImpl_IsBase(true);
         return vkconfiggroup->isGroupImmutableImpl(groupName_QString);
     }
     return {};
@@ -1280,6 +1057,233 @@ void KConfigGroup_RevertToDefault22(KConfigGroup* self, const libqt_string key, 
 
 void KConfigGroup_RevertToDefault23(KConfigGroup* self, const char* key, int pFlag) {
     self->revertToDefault(key, static_cast<KConfigBase::WriteConfigFlags>(pFlag));
+}
+
+// Base class handler implementation
+bool KConfigGroup_QBaseSync(KConfigGroup* self) {
+    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_Sync_IsBase(true);
+        return vkconfiggroup->sync();
+    } else {
+        return self->KConfigGroup::sync();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnSync(KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_Sync_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_Sync_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KConfigGroup_QBaseMarkAsClean(KConfigGroup* self) {
+    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_MarkAsClean_IsBase(true);
+        vkconfiggroup->markAsClean();
+    } else {
+        self->KConfigGroup::markAsClean();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnMarkAsClean(KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_MarkAsClean_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_MarkAsClean_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int KConfigGroup_QBaseAccessMode(const KConfigGroup* self) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_AccessMode_IsBase(true);
+        return static_cast<int>(vkconfiggroup->accessMode());
+    } else {
+        return static_cast<int>(self->KConfigGroup::accessMode());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnAccessMode(const KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_AccessMode_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_AccessMode_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_list /* of libqt_string */ KConfigGroup_QBaseGroupList(const KConfigGroup* self) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_GroupList_IsBase(true);
+        QList<QString> _ret = vkconfiggroup->groupList();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    } else {
+        QList<QString> _ret = self->KConfigGroup::groupList();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnGroupList(const KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_GroupList_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_GroupList_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KConfigGroup_QBaseIsImmutable(const KConfigGroup* self) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_IsImmutable_IsBase(true);
+        return vkconfiggroup->isImmutable();
+    } else {
+        return self->KConfigGroup::isImmutable();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnIsImmutable(const KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_IsImmutable_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_IsImmutable_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KConfigGroup_QBaseHasGroupImpl(const KConfigGroup* self, const libqt_string groupName) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_HasGroupImpl_IsBase(true);
+        return vkconfiggroup->hasGroupImpl(groupName_QString);
+    } else {
+        return ((VirtualKConfigGroup*)self)->hasGroupImpl(groupName_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnHasGroupImpl(const KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_HasGroupImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_HasGroupImpl_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+KConfigGroup* KConfigGroup_QBaseGroupImpl(KConfigGroup* self, const libqt_string groupName) {
+    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
+    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_GroupImpl_IsBase(true);
+        return new KConfigGroup(vkconfiggroup->groupImpl(groupName_QString));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnGroupImpl(KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_GroupImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_GroupImpl_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+KConfigGroup* KConfigGroup_QBaseGroupImpl2(const KConfigGroup* self, const libqt_string groupName) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_GroupImpl2_IsBase(true);
+        return new KConfigGroup(vkconfiggroup->groupImpl(groupName_QString));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnGroupImpl2(const KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_GroupImpl2_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_GroupImpl2_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KConfigGroup_QBaseDeleteGroupImpl(KConfigGroup* self, const libqt_string groupName, int flags) {
+    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
+    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_DeleteGroupImpl_IsBase(true);
+        vkconfiggroup->deleteGroupImpl(groupName_QString, static_cast<KConfigBase::WriteConfigFlags>(flags));
+    } else {
+        ((VirtualKConfigGroup*)self)->deleteGroupImpl(groupName_QString, static_cast<KConfigBase::WriteConfigFlags>(flags));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnDeleteGroupImpl(KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_DeleteGroupImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_DeleteGroupImpl_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KConfigGroup_QBaseIsGroupImmutableImpl(const KConfigGroup* self, const libqt_string groupName) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_IsGroupImmutableImpl_IsBase(true);
+        return vkconfiggroup->isGroupImmutableImpl(groupName_QString);
+    } else {
+        return ((VirtualKConfigGroup*)self)->isGroupImmutableImpl(groupName_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigGroup_OnIsGroupImmutableImpl(const KConfigGroup* self, intptr_t slot) {
+    auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+        vkconfiggroup->setKConfigGroup_IsGroupImmutableImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_IsGroupImmutableImpl_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

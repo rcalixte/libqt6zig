@@ -79,25 +79,6 @@ int QTableView_Metacall(QTableView* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnMetacall(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_Metacall_Callback(reinterpret_cast<VirtualQTableView::QTableView_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTableView_QBaseMetacall(QTableView* self, int param1, int param2, void** param3) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_Metacall_IsBase(true);
-        return vqtableview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTableView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QTableView_Tr(const char* s) {
     QString _ret = QTableView::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -119,48 +100,10 @@ void QTableView_SetModel(QTableView* self, QAbstractItemModel* model) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnSetModel(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SetModel_Callback(reinterpret_cast<VirtualQTableView::QTableView_SetModel_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseSetModel(QTableView* self, QAbstractItemModel* model) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SetModel_IsBase(true);
-        vqtableview->setModel(model);
-    } else {
-        ((VirtualQTableView*)self)->setModel(model);
-    }
-}
-
 void QTableView_SetRootIndex(QTableView* self, const QModelIndex* index) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
         self->setRootIndex(*index);
-    } else {
-        ((VirtualQTableView*)self)->setRootIndex(*index);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnSetRootIndex(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SetRootIndex_Callback(reinterpret_cast<VirtualQTableView::QTableView_SetRootIndex_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseSetRootIndex(QTableView* self, const QModelIndex* index) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SetRootIndex_IsBase(true);
-        vqtableview->setRootIndex(*index);
     } else {
         ((VirtualQTableView*)self)->setRootIndex(*index);
     }
@@ -175,48 +118,10 @@ void QTableView_SetSelectionModel(QTableView* self, QItemSelectionModel* selecti
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnSetSelectionModel(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SetSelectionModel_Callback(reinterpret_cast<VirtualQTableView::QTableView_SetSelectionModel_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseSetSelectionModel(QTableView* self, QItemSelectionModel* selectionModel) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SetSelectionModel_IsBase(true);
-        vqtableview->setSelectionModel(selectionModel);
-    } else {
-        ((VirtualQTableView*)self)->setSelectionModel(selectionModel);
-    }
-}
-
 void QTableView_DoItemsLayout(QTableView* self) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
         self->doItemsLayout();
-    } else {
-        ((VirtualQTableView*)self)->doItemsLayout();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnDoItemsLayout(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_DoItemsLayout_Callback(reinterpret_cast<VirtualQTableView::QTableView_DoItemsLayout_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseDoItemsLayout(QTableView* self) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_DoItemsLayout_IsBase(true);
-        vqtableview->doItemsLayout();
     } else {
         ((VirtualQTableView*)self)->doItemsLayout();
     }
@@ -331,25 +236,6 @@ QRect* QTableView_VisualRect(const QTableView* self, const QModelIndex* index) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnVisualRect(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_VisualRect_Callback(reinterpret_cast<VirtualQTableView::QTableView_VisualRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRect* QTableView_QBaseVisualRect(const QTableView* self, const QModelIndex* index) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_VisualRect_IsBase(true);
-        return new QRect(vqtableview->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQTableView*)self)->visualRect(*index));
-    }
-}
-
 void QTableView_ScrollTo(QTableView* self, const QModelIndex* index, int hint) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
@@ -359,48 +245,10 @@ void QTableView_ScrollTo(QTableView* self, const QModelIndex* index, int hint) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnScrollTo(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_ScrollTo_Callback(reinterpret_cast<VirtualQTableView::QTableView_ScrollTo_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseScrollTo(QTableView* self, const QModelIndex* index, int hint) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_ScrollTo_IsBase(true);
-        vqtableview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        ((VirtualQTableView*)self)->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
-}
-
 QModelIndex* QTableView_IndexAt(const QTableView* self, const QPoint* p) {
     auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
         return new QModelIndex(self->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQTableView*)self)->indexAt(*p));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnIndexAt(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_IndexAt_Callback(reinterpret_cast<VirtualQTableView::QTableView_IndexAt_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QTableView_QBaseIndexAt(const QTableView* self, const QPoint* p) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_IndexAt_IsBase(true);
-        return new QModelIndex(vqtableview->indexAt(*p));
     } else {
         return new QModelIndex(((VirtualQTableView*)self)->indexAt(*p));
     }
@@ -477,43 +325,9 @@ void QTableView_ScrollContentsBy(QTableView* self, int dx, int dy) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnScrollContentsBy(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQTableView::QTableView_ScrollContentsBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseScrollContentsBy(QTableView* self, int dx, int dy) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_ScrollContentsBy_IsBase(true);
-        vqtableview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
 void QTableView_InitViewItemOption(const QTableView* self, QStyleOptionViewItem* option) {
     auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->initViewItemOption(option);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnInitViewItemOption(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_InitViewItemOption_Callback(reinterpret_cast<VirtualQTableView::QTableView_InitViewItemOption_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseInitViewItemOption(const QTableView* self, QStyleOptionViewItem* option) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_InitViewItemOption_IsBase(true);
         vqtableview->initViewItemOption(option);
     }
 }
@@ -525,43 +339,9 @@ void QTableView_PaintEvent(QTableView* self, QPaintEvent* e) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnPaintEvent(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_PaintEvent_Callback(reinterpret_cast<VirtualQTableView::QTableView_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBasePaintEvent(QTableView* self, QPaintEvent* e) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_PaintEvent_IsBase(true);
-        vqtableview->paintEvent(e);
-    }
-}
-
 void QTableView_TimerEvent(QTableView* self, QTimerEvent* event) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->timerEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnTimerEvent(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_TimerEvent_Callback(reinterpret_cast<VirtualQTableView::QTableView_TimerEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseTimerEvent(QTableView* self, QTimerEvent* event) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_TimerEvent_IsBase(true);
         vqtableview->timerEvent(event);
     }
 }
@@ -573,44 +353,9 @@ void QTableView_DropEvent(QTableView* self, QDropEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnDropEvent(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_DropEvent_Callback(reinterpret_cast<VirtualQTableView::QTableView_DropEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseDropEvent(QTableView* self, QDropEvent* event) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_DropEvent_IsBase(true);
-        vqtableview->dropEvent(event);
-    }
-}
-
 int QTableView_HorizontalOffset(const QTableView* self) {
     auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        return vqtableview->horizontalOffset();
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnHorizontalOffset(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_HorizontalOffset_Callback(reinterpret_cast<VirtualQTableView::QTableView_HorizontalOffset_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTableView_QBaseHorizontalOffset(const QTableView* self) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_HorizontalOffset_IsBase(true);
         return vqtableview->horizontalOffset();
     }
     return {};
@@ -624,45 +369,9 @@ int QTableView_VerticalOffset(const QTableView* self) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnVerticalOffset(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_VerticalOffset_Callback(reinterpret_cast<VirtualQTableView::QTableView_VerticalOffset_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTableView_QBaseVerticalOffset(const QTableView* self) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_VerticalOffset_IsBase(true);
-        return vqtableview->verticalOffset();
-    }
-    return {};
-}
-
 QModelIndex* QTableView_MoveCursor(QTableView* self, int cursorAction, int modifiers) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        return new QModelIndex(vqtableview->moveCursor(static_cast<VirtualQTableView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnMoveCursor(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_MoveCursor_Callback(reinterpret_cast<VirtualQTableView::QTableView_MoveCursor_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QTableView_QBaseMoveCursor(QTableView* self, int cursorAction, int modifiers) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_MoveCursor_IsBase(true);
         return new QModelIndex(vqtableview->moveCursor(static_cast<VirtualQTableView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
     }
     return {};
@@ -675,44 +384,9 @@ void QTableView_SetSelection(QTableView* self, const QRect* rect, int command) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnSetSelection(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SetSelection_Callback(reinterpret_cast<VirtualQTableView::QTableView_SetSelection_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseSetSelection(QTableView* self, const QRect* rect, int command) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SetSelection_IsBase(true);
-        vqtableview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
-}
-
 QRegion* QTableView_VisualRegionForSelection(const QTableView* self, const QItemSelection* selection) {
     auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        return new QRegion(vqtableview->visualRegionForSelection(*selection));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnVisualRegionForSelection(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQTableView::QTableView_VisualRegionForSelection_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRegion* QTableView_QBaseVisualRegionForSelection(const QTableView* self, const QItemSelection* selection) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_VisualRegionForSelection_IsBase(true);
         return new QRegion(vqtableview->visualRegionForSelection(*selection));
     }
     return {};
@@ -735,33 +409,6 @@ libqt_list /* of QModelIndex* */ QTableView_SelectedIndexes(const QTableView* se
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnSelectedIndexes(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SelectedIndexes_Callback(reinterpret_cast<VirtualQTableView::QTableView_SelectedIndexes_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_list /* of QModelIndex* */ QTableView_QBaseSelectedIndexes(const QTableView* self) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SelectedIndexes_IsBase(true);
-        QList<QModelIndex> _ret = vqtableview->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-    return {};
-}
-
 void QTableView_UpdateGeometries(QTableView* self) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
@@ -769,44 +416,9 @@ void QTableView_UpdateGeometries(QTableView* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnUpdateGeometries(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_UpdateGeometries_Callback(reinterpret_cast<VirtualQTableView::QTableView_UpdateGeometries_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseUpdateGeometries(QTableView* self) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_UpdateGeometries_IsBase(true);
-        vqtableview->updateGeometries();
-    }
-}
-
 QSize* QTableView_ViewportSizeHint(const QTableView* self) {
     auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        return new QSize(vqtableview->viewportSizeHint());
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnViewportSizeHint(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQTableView::QTableView_ViewportSizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QTableView_QBaseViewportSizeHint(const QTableView* self) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_ViewportSizeHint_IsBase(true);
         return new QSize(vqtableview->viewportSizeHint());
     }
     return {};
@@ -820,45 +432,9 @@ int QTableView_SizeHintForRow(const QTableView* self, int row) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnSizeHintForRow(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SizeHintForRow_Callback(reinterpret_cast<VirtualQTableView::QTableView_SizeHintForRow_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTableView_QBaseSizeHintForRow(const QTableView* self, int row) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SizeHintForRow_IsBase(true);
-        return vqtableview->sizeHintForRow(static_cast<int>(row));
-    }
-    return {};
-}
-
 int QTableView_SizeHintForColumn(const QTableView* self, int column) {
     auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        return vqtableview->sizeHintForColumn(static_cast<int>(column));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnSizeHintForColumn(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQTableView::QTableView_SizeHintForColumn_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTableView_QBaseSizeHintForColumn(const QTableView* self, int column) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SizeHintForColumn_IsBase(true);
         return vqtableview->sizeHintForColumn(static_cast<int>(column));
     }
     return {};
@@ -871,43 +447,9 @@ void QTableView_VerticalScrollbarAction(QTableView* self, int action) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnVerticalScrollbarAction(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQTableView::QTableView_VerticalScrollbarAction_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseVerticalScrollbarAction(QTableView* self, int action) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_VerticalScrollbarAction_IsBase(true);
-        vqtableview->verticalScrollbarAction(static_cast<int>(action));
-    }
-}
-
 void QTableView_HorizontalScrollbarAction(QTableView* self, int action) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->horizontalScrollbarAction(static_cast<int>(action));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnHorizontalScrollbarAction(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQTableView::QTableView_HorizontalScrollbarAction_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseHorizontalScrollbarAction(QTableView* self, int action) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_HorizontalScrollbarAction_IsBase(true);
         vqtableview->horizontalScrollbarAction(static_cast<int>(action));
     }
 }
@@ -920,24 +462,6 @@ bool QTableView_IsIndexHidden(const QTableView* self, const QModelIndex* index) 
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnIsIndexHidden(const QTableView* self, intptr_t slot) {
-    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_IsIndexHidden_Callback(reinterpret_cast<VirtualQTableView::QTableView_IsIndexHidden_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QTableView_QBaseIsIndexHidden(const QTableView* self, const QModelIndex* index) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_IsIndexHidden_IsBase(true);
-        return vqtableview->isIndexHidden(*index);
-    }
-    return {};
-}
-
 void QTableView_SelectionChanged(QTableView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
@@ -945,43 +469,9 @@ void QTableView_SelectionChanged(QTableView* self, const QItemSelection* selecte
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnSelectionChanged(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SelectionChanged_Callback(reinterpret_cast<VirtualQTableView::QTableView_SelectionChanged_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseSelectionChanged(QTableView* self, const QItemSelection* selected, const QItemSelection* deselected) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_SelectionChanged_IsBase(true);
-        vqtableview->selectionChanged(*selected, *deselected);
-    }
-}
-
 void QTableView_CurrentChanged(QTableView* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->currentChanged(*current, *previous);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTableView_OnCurrentChanged(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_CurrentChanged_Callback(reinterpret_cast<VirtualQTableView::QTableView_CurrentChanged_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTableView_QBaseCurrentChanged(QTableView* self, const QModelIndex* current, const QModelIndex* previous) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_CurrentChanged_IsBase(true);
         vqtableview->currentChanged(*current, *previous);
     }
 }
@@ -1008,6 +498,553 @@ libqt_string QTableView_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QTableView_QBaseMetacall(QTableView* self, int param1, int param2, void** param3) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_Metacall_IsBase(true);
+        return vqtableview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QTableView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnMetacall(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_Metacall_Callback(reinterpret_cast<VirtualQTableView::QTableView_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseSetModel(QTableView* self, QAbstractItemModel* model) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SetModel_IsBase(true);
+        vqtableview->setModel(model);
+    } else {
+        self->QTableView::setModel(model);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnSetModel(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SetModel_Callback(reinterpret_cast<VirtualQTableView::QTableView_SetModel_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseSetRootIndex(QTableView* self, const QModelIndex* index) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SetRootIndex_IsBase(true);
+        vqtableview->setRootIndex(*index);
+    } else {
+        self->QTableView::setRootIndex(*index);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnSetRootIndex(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SetRootIndex_Callback(reinterpret_cast<VirtualQTableView::QTableView_SetRootIndex_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseSetSelectionModel(QTableView* self, QItemSelectionModel* selectionModel) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SetSelectionModel_IsBase(true);
+        vqtableview->setSelectionModel(selectionModel);
+    } else {
+        self->QTableView::setSelectionModel(selectionModel);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnSetSelectionModel(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SetSelectionModel_Callback(reinterpret_cast<VirtualQTableView::QTableView_SetSelectionModel_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseDoItemsLayout(QTableView* self) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_DoItemsLayout_IsBase(true);
+        vqtableview->doItemsLayout();
+    } else {
+        self->QTableView::doItemsLayout();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnDoItemsLayout(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_DoItemsLayout_Callback(reinterpret_cast<VirtualQTableView::QTableView_DoItemsLayout_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRect* QTableView_QBaseVisualRect(const QTableView* self, const QModelIndex* index) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_VisualRect_IsBase(true);
+        return new QRect(vqtableview->visualRect(*index));
+    } else {
+        return new QRect(((VirtualQTableView*)self)->visualRect(*index));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnVisualRect(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_VisualRect_Callback(reinterpret_cast<VirtualQTableView::QTableView_VisualRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseScrollTo(QTableView* self, const QModelIndex* index, int hint) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_ScrollTo_IsBase(true);
+        vqtableview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
+    } else {
+        self->QTableView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnScrollTo(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_ScrollTo_Callback(reinterpret_cast<VirtualQTableView::QTableView_ScrollTo_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QTableView_QBaseIndexAt(const QTableView* self, const QPoint* p) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_IndexAt_IsBase(true);
+        return new QModelIndex(vqtableview->indexAt(*p));
+    } else {
+        return new QModelIndex(((VirtualQTableView*)self)->indexAt(*p));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnIndexAt(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_IndexAt_Callback(reinterpret_cast<VirtualQTableView::QTableView_IndexAt_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseScrollContentsBy(QTableView* self, int dx, int dy) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_ScrollContentsBy_IsBase(true);
+        vqtableview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else {
+        ((VirtualQTableView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnScrollContentsBy(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQTableView::QTableView_ScrollContentsBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseInitViewItemOption(const QTableView* self, QStyleOptionViewItem* option) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_InitViewItemOption_IsBase(true);
+        vqtableview->initViewItemOption(option);
+    } else {
+        ((VirtualQTableView*)self)->initViewItemOption(option);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnInitViewItemOption(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_InitViewItemOption_Callback(reinterpret_cast<VirtualQTableView::QTableView_InitViewItemOption_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBasePaintEvent(QTableView* self, QPaintEvent* e) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_PaintEvent_IsBase(true);
+        vqtableview->paintEvent(e);
+    } else {
+        ((VirtualQTableView*)self)->paintEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnPaintEvent(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_PaintEvent_Callback(reinterpret_cast<VirtualQTableView::QTableView_PaintEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseTimerEvent(QTableView* self, QTimerEvent* event) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_TimerEvent_IsBase(true);
+        vqtableview->timerEvent(event);
+    } else {
+        ((VirtualQTableView*)self)->timerEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnTimerEvent(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_TimerEvent_Callback(reinterpret_cast<VirtualQTableView::QTableView_TimerEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseDropEvent(QTableView* self, QDropEvent* event) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_DropEvent_IsBase(true);
+        vqtableview->dropEvent(event);
+    } else {
+        ((VirtualQTableView*)self)->dropEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnDropEvent(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_DropEvent_Callback(reinterpret_cast<VirtualQTableView::QTableView_DropEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QTableView_QBaseHorizontalOffset(const QTableView* self) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_HorizontalOffset_IsBase(true);
+        return vqtableview->horizontalOffset();
+    } else {
+        return ((VirtualQTableView*)self)->horizontalOffset();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnHorizontalOffset(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_HorizontalOffset_Callback(reinterpret_cast<VirtualQTableView::QTableView_HorizontalOffset_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QTableView_QBaseVerticalOffset(const QTableView* self) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_VerticalOffset_IsBase(true);
+        return vqtableview->verticalOffset();
+    } else {
+        return ((VirtualQTableView*)self)->verticalOffset();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnVerticalOffset(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_VerticalOffset_Callback(reinterpret_cast<VirtualQTableView::QTableView_VerticalOffset_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QTableView_QBaseMoveCursor(QTableView* self, int cursorAction, int modifiers) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_MoveCursor_IsBase(true);
+        return new QModelIndex(vqtableview->moveCursor(static_cast<VirtualQTableView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnMoveCursor(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_MoveCursor_Callback(reinterpret_cast<VirtualQTableView::QTableView_MoveCursor_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseSetSelection(QTableView* self, const QRect* rect, int command) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SetSelection_IsBase(true);
+        vqtableview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else {
+        ((VirtualQTableView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnSetSelection(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SetSelection_Callback(reinterpret_cast<VirtualQTableView::QTableView_SetSelection_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRegion* QTableView_QBaseVisualRegionForSelection(const QTableView* self, const QItemSelection* selection) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_VisualRegionForSelection_IsBase(true);
+        return new QRegion(vqtableview->visualRegionForSelection(*selection));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnVisualRegionForSelection(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQTableView::QTableView_VisualRegionForSelection_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_list /* of QModelIndex* */ QTableView_QBaseSelectedIndexes(const QTableView* self) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SelectedIndexes_IsBase(true);
+        QList<QModelIndex> _ret = vqtableview->selectedIndexes();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            _arr[i] = new QModelIndex(_ret[i]);
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    } else {
+        QList<QModelIndex> _ret = ((VirtualQTableView*)self)->selectedIndexes();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            _arr[i] = new QModelIndex(_ret[i]);
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnSelectedIndexes(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SelectedIndexes_Callback(reinterpret_cast<VirtualQTableView::QTableView_SelectedIndexes_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseUpdateGeometries(QTableView* self) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_UpdateGeometries_IsBase(true);
+        vqtableview->updateGeometries();
+    } else {
+        ((VirtualQTableView*)self)->updateGeometries();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnUpdateGeometries(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_UpdateGeometries_Callback(reinterpret_cast<VirtualQTableView::QTableView_UpdateGeometries_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QTableView_QBaseViewportSizeHint(const QTableView* self) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_ViewportSizeHint_IsBase(true);
+        return new QSize(vqtableview->viewportSizeHint());
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnViewportSizeHint(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQTableView::QTableView_ViewportSizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QTableView_QBaseSizeHintForRow(const QTableView* self, int row) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SizeHintForRow_IsBase(true);
+        return vqtableview->sizeHintForRow(static_cast<int>(row));
+    } else {
+        return ((VirtualQTableView*)self)->sizeHintForRow(static_cast<int>(row));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnSizeHintForRow(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SizeHintForRow_Callback(reinterpret_cast<VirtualQTableView::QTableView_SizeHintForRow_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QTableView_QBaseSizeHintForColumn(const QTableView* self, int column) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SizeHintForColumn_IsBase(true);
+        return vqtableview->sizeHintForColumn(static_cast<int>(column));
+    } else {
+        return ((VirtualQTableView*)self)->sizeHintForColumn(static_cast<int>(column));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnSizeHintForColumn(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQTableView::QTableView_SizeHintForColumn_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseVerticalScrollbarAction(QTableView* self, int action) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_VerticalScrollbarAction_IsBase(true);
+        vqtableview->verticalScrollbarAction(static_cast<int>(action));
+    } else {
+        ((VirtualQTableView*)self)->verticalScrollbarAction(static_cast<int>(action));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnVerticalScrollbarAction(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQTableView::QTableView_VerticalScrollbarAction_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseHorizontalScrollbarAction(QTableView* self, int action) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_HorizontalScrollbarAction_IsBase(true);
+        vqtableview->horizontalScrollbarAction(static_cast<int>(action));
+    } else {
+        ((VirtualQTableView*)self)->horizontalScrollbarAction(static_cast<int>(action));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnHorizontalScrollbarAction(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQTableView::QTableView_HorizontalScrollbarAction_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QTableView_QBaseIsIndexHidden(const QTableView* self, const QModelIndex* index) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_IsIndexHidden_IsBase(true);
+        return vqtableview->isIndexHidden(*index);
+    } else {
+        return ((VirtualQTableView*)self)->isIndexHidden(*index);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnIsIndexHidden(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_IsIndexHidden_Callback(reinterpret_cast<VirtualQTableView::QTableView_IsIndexHidden_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseSelectionChanged(QTableView* self, const QItemSelection* selected, const QItemSelection* deselected) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SelectionChanged_IsBase(true);
+        vqtableview->selectionChanged(*selected, *deselected);
+    } else {
+        ((VirtualQTableView*)self)->selectionChanged(*selected, *deselected);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnSelectionChanged(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_SelectionChanged_Callback(reinterpret_cast<VirtualQTableView::QTableView_SelectionChanged_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseCurrentChanged(QTableView* self, const QModelIndex* current, const QModelIndex* previous) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_CurrentChanged_IsBase(true);
+        vqtableview->currentChanged(*current, *previous);
+    } else {
+        ((VirtualQTableView*)self)->currentChanged(*current, *previous);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnCurrentChanged(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_CurrentChanged_Callback(reinterpret_cast<VirtualQTableView::QTableView_CurrentChanged_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

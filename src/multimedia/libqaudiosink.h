@@ -36,8 +36,6 @@ QAudioSink* QAudioSink_new6(const QAudioDevice* audioDeviceInfo, const QAudioFor
 QMetaObject* QAudioSink_MetaObject(const QAudioSink* self);
 void* QAudioSink_Metacast(QAudioSink* self, const char* param1);
 int QAudioSink_Metacall(QAudioSink* self, int param1, int param2, void** param3);
-void QAudioSink_OnMetacall(QAudioSink* self, intptr_t slot);
-int QAudioSink_QBaseMetacall(QAudioSink* self, int param1, int param2, void** param3);
 libqt_string QAudioSink_Tr(const char* s);
 bool QAudioSink_IsNull(const QAudioSink* self);
 QAudioFormat* QAudioSink_Format(const QAudioSink* self);
@@ -60,6 +58,8 @@ void QAudioSink_StateChanged(QAudioSink* self, int state);
 void QAudioSink_Connect_StateChanged(QAudioSink* self, intptr_t slot);
 libqt_string QAudioSink_Tr2(const char* s, const char* c);
 libqt_string QAudioSink_Tr3(const char* s, const char* c, int n);
+void QAudioSink_OnMetacall(QAudioSink* self, intptr_t slot);
+int QAudioSink_QBaseMetacall(QAudioSink* self, int param1, int param2, void** param3);
 bool QAudioSink_Event(QAudioSink* self, QEvent* event);
 void QAudioSink_OnEvent(QAudioSink* self, intptr_t slot);
 bool QAudioSink_QBaseEvent(QAudioSink* self, QEvent* event);

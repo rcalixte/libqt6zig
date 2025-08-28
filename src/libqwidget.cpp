@@ -248,25 +248,6 @@ int QWidget_Metacall(QWidget* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnMetacall(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Metacall_Callback(reinterpret_cast<VirtualQWidget::QWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QWidget_QBaseMetacall(QWidget* self, int param1, int param2, void** param3) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Metacall_IsBase(true);
-        return vqwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QWidget_Tr(const char* s) {
     QString _ret = QWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -283,25 +264,6 @@ int QWidget_DevType(const QWidget* self) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
         return self->devType();
-    } else {
-        return ((VirtualQWidget*)self)->devType();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnDevType(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DevType_Callback(reinterpret_cast<VirtualQWidget::QWidget_DevType_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QWidget_QBaseDevType(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DevType_IsBase(true);
-        return vqwidget->devType();
     } else {
         return ((VirtualQWidget*)self)->devType();
     }
@@ -1080,25 +1042,6 @@ void QWidget_SetVisible(QWidget* self, bool visible) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnSetVisible(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SetVisible_Callback(reinterpret_cast<VirtualQWidget::QWidget_SetVisible_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseSetVisible(QWidget* self, bool visible) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SetVisible_IsBase(true);
-        vqwidget->setVisible(visible);
-    } else {
-        ((VirtualQWidget*)self)->setVisible(visible);
-    }
-}
-
 void QWidget_SetHidden(QWidget* self, bool hidden) {
     self->setHidden(hidden);
 }
@@ -1231,48 +1174,10 @@ QSize* QWidget_SizeHint(const QWidget* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnSizeHint(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SizeHint_Callback(reinterpret_cast<VirtualQWidget::QWidget_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QWidget_QBaseSizeHint(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SizeHint_IsBase(true);
-        return new QSize(vqwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQWidget*)self)->sizeHint());
-    }
-}
-
 QSize* QWidget_MinimumSizeHint(const QWidget* self) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
         return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQWidget*)self)->minimumSizeHint());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnMinimumSizeHint(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQWidget::QWidget_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QWidget_QBaseMinimumSizeHint(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vqwidget->minimumSizeHint());
     } else {
         return new QSize(((VirtualQWidget*)self)->minimumSizeHint());
     }
@@ -1299,48 +1204,10 @@ int QWidget_HeightForWidth(const QWidget* self, int param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnHeightForWidth(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQWidget::QWidget_HeightForWidth_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QWidget_QBaseHeightForWidth(const QWidget* self, int param1) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_HeightForWidth_IsBase(true);
-        return vqwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQWidget*)self)->heightForWidth(static_cast<int>(param1));
-    }
-}
-
 bool QWidget_HasHeightForWidth(const QWidget* self) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
         return self->hasHeightForWidth();
-    } else {
-        return ((VirtualQWidget*)self)->hasHeightForWidth();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnHasHeightForWidth(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQWidget::QWidget_HasHeightForWidth_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QWidget_QBaseHasHeightForWidth(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_HasHeightForWidth_IsBase(true);
-        return vqwidget->hasHeightForWidth();
     } else {
         return ((VirtualQWidget*)self)->hasHeightForWidth();
     }
@@ -1536,25 +1403,6 @@ QPaintEngine* QWidget_PaintEngine(const QWidget* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnPaintEngine(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_PaintEngine_Callback(reinterpret_cast<VirtualQWidget::QWidget_PaintEngine_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPaintEngine* QWidget_QBasePaintEngine(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_PaintEngine_IsBase(true);
-        return vqwidget->paintEngine();
-    } else {
-        return ((VirtualQWidget*)self)->paintEngine();
-    }
-}
-
 void QWidget_EnsurePolished(const QWidget* self) {
     self->ensurePolished();
 }
@@ -1667,44 +1515,9 @@ bool QWidget_Event(QWidget* self, QEvent* event) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Event_Callback(reinterpret_cast<VirtualQWidget::QWidget_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QWidget_QBaseEvent(QWidget* self, QEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Event_IsBase(true);
-        return vqwidget->event(event);
-    }
-    return {};
-}
-
 void QWidget_MousePressEvent(QWidget* self, QMouseEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->mousePressEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnMousePressEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseMousePressEvent(QWidget* self, QMouseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MousePressEvent_IsBase(true);
         vqwidget->mousePressEvent(event);
     }
 }
@@ -1716,43 +1529,9 @@ void QWidget_MouseReleaseEvent(QWidget* self, QMouseEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnMouseReleaseEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseMouseReleaseEvent(QWidget* self, QMouseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MouseReleaseEvent_IsBase(true);
-        vqwidget->mouseReleaseEvent(event);
-    }
-}
-
 void QWidget_MouseDoubleClickEvent(QWidget* self, QMouseEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->mouseDoubleClickEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnMouseDoubleClickEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseMouseDoubleClickEvent(QWidget* self, QMouseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MouseDoubleClickEvent_IsBase(true);
         vqwidget->mouseDoubleClickEvent(event);
     }
 }
@@ -1764,43 +1543,9 @@ void QWidget_MouseMoveEvent(QWidget* self, QMouseEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnMouseMoveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseMouseMoveEvent(QWidget* self, QMouseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MouseMoveEvent_IsBase(true);
-        vqwidget->mouseMoveEvent(event);
-    }
-}
-
 void QWidget_WheelEvent(QWidget* self, QWheelEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->wheelEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnWheelEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_WheelEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_WheelEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseWheelEvent(QWidget* self, QWheelEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_WheelEvent_IsBase(true);
         vqwidget->wheelEvent(event);
     }
 }
@@ -1812,43 +1557,9 @@ void QWidget_KeyPressEvent(QWidget* self, QKeyEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnKeyPressEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseKeyPressEvent(QWidget* self, QKeyEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_KeyPressEvent_IsBase(true);
-        vqwidget->keyPressEvent(event);
-    }
-}
-
 void QWidget_KeyReleaseEvent(QWidget* self, QKeyEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->keyReleaseEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnKeyReleaseEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_KeyReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseKeyReleaseEvent(QWidget* self, QKeyEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_KeyReleaseEvent_IsBase(true);
         vqwidget->keyReleaseEvent(event);
     }
 }
@@ -1860,43 +1571,9 @@ void QWidget_FocusInEvent(QWidget* self, QFocusEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnFocusInEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseFocusInEvent(QWidget* self, QFocusEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusInEvent_IsBase(true);
-        vqwidget->focusInEvent(event);
-    }
-}
-
 void QWidget_FocusOutEvent(QWidget* self, QFocusEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->focusOutEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnFocusOutEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusOutEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseFocusOutEvent(QWidget* self, QFocusEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusOutEvent_IsBase(true);
         vqwidget->focusOutEvent(event);
     }
 }
@@ -1908,43 +1585,9 @@ void QWidget_EnterEvent(QWidget* self, QEnterEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnEnterEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_EnterEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_EnterEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseEnterEvent(QWidget* self, QEnterEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_EnterEvent_IsBase(true);
-        vqwidget->enterEvent(event);
-    }
-}
-
 void QWidget_LeaveEvent(QWidget* self, QEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->leaveEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnLeaveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_LeaveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseLeaveEvent(QWidget* self, QEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_LeaveEvent_IsBase(true);
         vqwidget->leaveEvent(event);
     }
 }
@@ -1956,43 +1599,9 @@ void QWidget_PaintEvent(QWidget* self, QPaintEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnPaintEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_PaintEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBasePaintEvent(QWidget* self, QPaintEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_PaintEvent_IsBase(true);
-        vqwidget->paintEvent(event);
-    }
-}
-
 void QWidget_MoveEvent(QWidget* self, QMoveEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->moveEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnMoveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MoveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseMoveEvent(QWidget* self, QMoveEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MoveEvent_IsBase(true);
         vqwidget->moveEvent(event);
     }
 }
@@ -2004,43 +1613,9 @@ void QWidget_ResizeEvent(QWidget* self, QResizeEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnResizeEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseResizeEvent(QWidget* self, QResizeEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ResizeEvent_IsBase(true);
-        vqwidget->resizeEvent(event);
-    }
-}
-
 void QWidget_CloseEvent(QWidget* self, QCloseEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->closeEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnCloseEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_CloseEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_CloseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseCloseEvent(QWidget* self, QCloseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_CloseEvent_IsBase(true);
         vqwidget->closeEvent(event);
     }
 }
@@ -2052,43 +1627,9 @@ void QWidget_ContextMenuEvent(QWidget* self, QContextMenuEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnContextMenuEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseContextMenuEvent(QWidget* self, QContextMenuEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ContextMenuEvent_IsBase(true);
-        vqwidget->contextMenuEvent(event);
-    }
-}
-
 void QWidget_TabletEvent(QWidget* self, QTabletEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->tabletEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnTabletEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_TabletEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_TabletEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseTabletEvent(QWidget* self, QTabletEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_TabletEvent_IsBase(true);
         vqwidget->tabletEvent(event);
     }
 }
@@ -2100,43 +1641,9 @@ void QWidget_ActionEvent(QWidget* self, QActionEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnActionEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ActionEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ActionEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseActionEvent(QWidget* self, QActionEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ActionEvent_IsBase(true);
-        vqwidget->actionEvent(event);
-    }
-}
-
 void QWidget_DragEnterEvent(QWidget* self, QDragEnterEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->dragEnterEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnDragEnterEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DragEnterEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseDragEnterEvent(QWidget* self, QDragEnterEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DragEnterEvent_IsBase(true);
         vqwidget->dragEnterEvent(event);
     }
 }
@@ -2148,43 +1655,9 @@ void QWidget_DragMoveEvent(QWidget* self, QDragMoveEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnDragMoveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DragMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseDragMoveEvent(QWidget* self, QDragMoveEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DragMoveEvent_IsBase(true);
-        vqwidget->dragMoveEvent(event);
-    }
-}
-
 void QWidget_DragLeaveEvent(QWidget* self, QDragLeaveEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->dragLeaveEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnDragLeaveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DragLeaveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseDragLeaveEvent(QWidget* self, QDragLeaveEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DragLeaveEvent_IsBase(true);
         vqwidget->dragLeaveEvent(event);
     }
 }
@@ -2196,23 +1669,6 @@ void QWidget_DropEvent(QWidget* self, QDropEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnDropEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DropEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DropEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseDropEvent(QWidget* self, QDropEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DropEvent_IsBase(true);
-        vqwidget->dropEvent(event);
-    }
-}
-
 void QWidget_ShowEvent(QWidget* self, QShowEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
@@ -2220,43 +1676,9 @@ void QWidget_ShowEvent(QWidget* self, QShowEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnShowEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ShowEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ShowEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseShowEvent(QWidget* self, QShowEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ShowEvent_IsBase(true);
-        vqwidget->showEvent(event);
-    }
-}
-
 void QWidget_HideEvent(QWidget* self, QHideEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->hideEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnHideEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_HideEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_HideEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseHideEvent(QWidget* self, QHideEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_HideEvent_IsBase(true);
         vqwidget->hideEvent(event);
     }
 }
@@ -2270,45 +1692,9 @@ bool QWidget_NativeEvent(QWidget* self, const libqt_string eventType, void* mess
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnNativeEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_NativeEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_NativeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QWidget_QBaseNativeEvent(QWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_NativeEvent_IsBase(true);
-        return vqwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
-    return {};
-}
-
 void QWidget_ChangeEvent(QWidget* self, QEvent* param1) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->changeEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnChangeEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseChangeEvent(QWidget* self, QEvent* param1) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ChangeEvent_IsBase(true);
         vqwidget->changeEvent(param1);
     }
 }
@@ -2321,24 +1707,6 @@ int QWidget_Metric(const QWidget* self, int param1) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnMetric(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Metric_Callback(reinterpret_cast<VirtualQWidget::QWidget_Metric_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QWidget_QBaseMetric(const QWidget* self, int param1) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Metric_IsBase(true);
-        return vqwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
-    return {};
-}
-
 void QWidget_InitPainter(const QWidget* self, QPainter* painter) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
@@ -2346,44 +1714,9 @@ void QWidget_InitPainter(const QWidget* self, QPainter* painter) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnInitPainter(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_InitPainter_Callback(reinterpret_cast<VirtualQWidget::QWidget_InitPainter_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseInitPainter(const QWidget* self, QPainter* painter) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_InitPainter_IsBase(true);
-        vqwidget->initPainter(painter);
-    }
-}
-
 QPaintDevice* QWidget_Redirected(const QWidget* self, QPoint* offset) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->redirected(offset);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnRedirected(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Redirected_Callback(reinterpret_cast<VirtualQWidget::QWidget_Redirected_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPaintDevice* QWidget_QBaseRedirected(const QWidget* self, QPoint* offset) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Redirected_IsBase(true);
         return vqwidget->redirected(offset);
     }
     return {};
@@ -2397,44 +1730,9 @@ QPainter* QWidget_SharedPainter(const QWidget* self) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnSharedPainter(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SharedPainter_Callback(reinterpret_cast<VirtualQWidget::QWidget_SharedPainter_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPainter* QWidget_QBaseSharedPainter(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SharedPainter_IsBase(true);
-        return vqwidget->sharedPainter();
-    }
-    return {};
-}
-
 void QWidget_InputMethodEvent(QWidget* self, QInputMethodEvent* param1) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->inputMethodEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnInputMethodEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_InputMethodEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWidget_QBaseInputMethodEvent(QWidget* self, QInputMethodEvent* param1) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_InputMethodEvent_IsBase(true);
         vqwidget->inputMethodEvent(param1);
     }
 }
@@ -2443,25 +1741,6 @@ QVariant* QWidget_InputMethodQuery(const QWidget* self, int param1) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
         return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnInputMethodQuery(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQWidget::QWidget_InputMethodQuery_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QWidget_QBaseInputMethodQuery(const QWidget* self, int param1) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vqwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
     } else {
         return new QVariant(((VirtualQWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
     }
@@ -2478,24 +1757,6 @@ void QWidget_SetInputMethodHints(QWidget* self, int hints) {
 bool QWidget_FocusNextPrevChild(QWidget* self, bool next) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->focusNextPrevChild(next);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWidget_OnFocusNextPrevChild(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusNextPrevChild_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QWidget_QBaseFocusNextPrevChild(QWidget* self, bool next) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusNextPrevChild_IsBase(true);
         return vqwidget->focusNextPrevChild(next);
     }
     return {};
@@ -2583,6 +1844,805 @@ QWidget* QWidget_CreateWindowContainer2(QWindow* window, QWidget* parent) {
 
 QWidget* QWidget_CreateWindowContainer3(QWindow* window, QWidget* parent, int flags) {
     return QWidget::createWindowContainer(window, parent, static_cast<Qt::WindowFlags>(flags));
+}
+
+// Base class handler implementation
+int QWidget_QBaseMetacall(QWidget* self, int param1, int param2, void** param3) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Metacall_IsBase(true);
+        return vqwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMetacall(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Metacall_Callback(reinterpret_cast<VirtualQWidget::QWidget_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QWidget_QBaseDevType(const QWidget* self) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DevType_IsBase(true);
+        return vqwidget->devType();
+    } else {
+        return self->QWidget::devType();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnDevType(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DevType_Callback(reinterpret_cast<VirtualQWidget::QWidget_DevType_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseSetVisible(QWidget* self, bool visible) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_SetVisible_IsBase(true);
+        vqwidget->setVisible(visible);
+    } else {
+        self->QWidget::setVisible(visible);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnSetVisible(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_SetVisible_Callback(reinterpret_cast<VirtualQWidget::QWidget_SetVisible_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QWidget_QBaseSizeHint(const QWidget* self) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_SizeHint_IsBase(true);
+        return new QSize(vqwidget->sizeHint());
+    } else {
+        return new QSize(((VirtualQWidget*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnSizeHint(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_SizeHint_Callback(reinterpret_cast<VirtualQWidget::QWidget_SizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QWidget_QBaseMinimumSizeHint(const QWidget* self) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MinimumSizeHint_IsBase(true);
+        return new QSize(vqwidget->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQWidget*)self)->minimumSizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMinimumSizeHint(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQWidget::QWidget_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QWidget_QBaseHeightForWidth(const QWidget* self, int param1) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_HeightForWidth_IsBase(true);
+        return vqwidget->heightForWidth(static_cast<int>(param1));
+    } else {
+        return self->QWidget::heightForWidth(static_cast<int>(param1));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnHeightForWidth(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQWidget::QWidget_HeightForWidth_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QWidget_QBaseHasHeightForWidth(const QWidget* self) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_HasHeightForWidth_IsBase(true);
+        return vqwidget->hasHeightForWidth();
+    } else {
+        return self->QWidget::hasHeightForWidth();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnHasHeightForWidth(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQWidget::QWidget_HasHeightForWidth_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPaintEngine* QWidget_QBasePaintEngine(const QWidget* self) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_PaintEngine_IsBase(true);
+        return vqwidget->paintEngine();
+    } else {
+        return self->QWidget::paintEngine();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnPaintEngine(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_PaintEngine_Callback(reinterpret_cast<VirtualQWidget::QWidget_PaintEngine_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QWidget_QBaseEvent(QWidget* self, QEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Event_IsBase(true);
+        return vqwidget->event(event);
+    } else {
+        return ((VirtualQWidget*)self)->event(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Event_Callback(reinterpret_cast<VirtualQWidget::QWidget_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseMousePressEvent(QWidget* self, QMouseEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MousePressEvent_IsBase(true);
+        vqwidget->mousePressEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->mousePressEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMousePressEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseMouseReleaseEvent(QWidget* self, QMouseEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MouseReleaseEvent_IsBase(true);
+        vqwidget->mouseReleaseEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->mouseReleaseEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMouseReleaseEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseMouseDoubleClickEvent(QWidget* self, QMouseEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MouseDoubleClickEvent_IsBase(true);
+        vqwidget->mouseDoubleClickEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->mouseDoubleClickEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMouseDoubleClickEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MouseDoubleClickEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseMouseMoveEvent(QWidget* self, QMouseEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MouseMoveEvent_IsBase(true);
+        vqwidget->mouseMoveEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->mouseMoveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMouseMoveEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseWheelEvent(QWidget* self, QWheelEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_WheelEvent_IsBase(true);
+        vqwidget->wheelEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->wheelEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnWheelEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_WheelEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_WheelEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseKeyPressEvent(QWidget* self, QKeyEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_KeyPressEvent_IsBase(true);
+        vqwidget->keyPressEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->keyPressEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnKeyPressEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseKeyReleaseEvent(QWidget* self, QKeyEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_KeyReleaseEvent_IsBase(true);
+        vqwidget->keyReleaseEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->keyReleaseEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnKeyReleaseEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_KeyReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseFocusInEvent(QWidget* self, QFocusEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_FocusInEvent_IsBase(true);
+        vqwidget->focusInEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->focusInEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnFocusInEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseFocusOutEvent(QWidget* self, QFocusEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_FocusOutEvent_IsBase(true);
+        vqwidget->focusOutEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->focusOutEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnFocusOutEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseEnterEvent(QWidget* self, QEnterEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_EnterEvent_IsBase(true);
+        vqwidget->enterEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->enterEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnEnterEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_EnterEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_EnterEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseLeaveEvent(QWidget* self, QEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_LeaveEvent_IsBase(true);
+        vqwidget->leaveEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->leaveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnLeaveEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_LeaveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBasePaintEvent(QWidget* self, QPaintEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_PaintEvent_IsBase(true);
+        vqwidget->paintEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->paintEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnPaintEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_PaintEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_PaintEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseMoveEvent(QWidget* self, QMoveEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MoveEvent_IsBase(true);
+        vqwidget->moveEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->moveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMoveEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MoveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseResizeEvent(QWidget* self, QResizeEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ResizeEvent_IsBase(true);
+        vqwidget->resizeEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->resizeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnResizeEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseCloseEvent(QWidget* self, QCloseEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_CloseEvent_IsBase(true);
+        vqwidget->closeEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->closeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnCloseEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_CloseEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_CloseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseContextMenuEvent(QWidget* self, QContextMenuEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ContextMenuEvent_IsBase(true);
+        vqwidget->contextMenuEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->contextMenuEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnContextMenuEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseTabletEvent(QWidget* self, QTabletEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_TabletEvent_IsBase(true);
+        vqwidget->tabletEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->tabletEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnTabletEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_TabletEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_TabletEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseActionEvent(QWidget* self, QActionEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ActionEvent_IsBase(true);
+        vqwidget->actionEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->actionEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnActionEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ActionEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ActionEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseDragEnterEvent(QWidget* self, QDragEnterEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DragEnterEvent_IsBase(true);
+        vqwidget->dragEnterEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->dragEnterEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnDragEnterEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DragEnterEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseDragMoveEvent(QWidget* self, QDragMoveEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DragMoveEvent_IsBase(true);
+        vqwidget->dragMoveEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->dragMoveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnDragMoveEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DragMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseDragLeaveEvent(QWidget* self, QDragLeaveEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DragLeaveEvent_IsBase(true);
+        vqwidget->dragLeaveEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->dragLeaveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnDragLeaveEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DragLeaveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseDropEvent(QWidget* self, QDropEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DropEvent_IsBase(true);
+        vqwidget->dropEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->dropEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnDropEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_DropEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DropEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseShowEvent(QWidget* self, QShowEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ShowEvent_IsBase(true);
+        vqwidget->showEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->showEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnShowEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ShowEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ShowEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseHideEvent(QWidget* self, QHideEvent* event) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_HideEvent_IsBase(true);
+        vqwidget->hideEvent(event);
+    } else {
+        ((VirtualQWidget*)self)->hideEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnHideEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_HideEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_HideEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QWidget_QBaseNativeEvent(QWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    QByteArray eventType_QByteArray(eventType.data, eventType.len);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_NativeEvent_IsBase(true);
+        return vqwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else {
+        return ((VirtualQWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnNativeEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_NativeEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_NativeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseChangeEvent(QWidget* self, QEvent* param1) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ChangeEvent_IsBase(true);
+        vqwidget->changeEvent(param1);
+    } else {
+        ((VirtualQWidget*)self)->changeEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnChangeEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QWidget_QBaseMetric(const QWidget* self, int param1) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Metric_IsBase(true);
+        return vqwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else {
+        return ((VirtualQWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMetric(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Metric_Callback(reinterpret_cast<VirtualQWidget::QWidget_Metric_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseInitPainter(const QWidget* self, QPainter* painter) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_InitPainter_IsBase(true);
+        vqwidget->initPainter(painter);
+    } else {
+        ((VirtualQWidget*)self)->initPainter(painter);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnInitPainter(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_InitPainter_Callback(reinterpret_cast<VirtualQWidget::QWidget_InitPainter_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPaintDevice* QWidget_QBaseRedirected(const QWidget* self, QPoint* offset) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Redirected_IsBase(true);
+        return vqwidget->redirected(offset);
+    } else {
+        return ((VirtualQWidget*)self)->redirected(offset);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnRedirected(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Redirected_Callback(reinterpret_cast<VirtualQWidget::QWidget_Redirected_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPainter* QWidget_QBaseSharedPainter(const QWidget* self) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_SharedPainter_IsBase(true);
+        return vqwidget->sharedPainter();
+    } else {
+        return ((VirtualQWidget*)self)->sharedPainter();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnSharedPainter(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_SharedPainter_Callback(reinterpret_cast<VirtualQWidget::QWidget_SharedPainter_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWidget_QBaseInputMethodEvent(QWidget* self, QInputMethodEvent* param1) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_InputMethodEvent_IsBase(true);
+        vqwidget->inputMethodEvent(param1);
+    } else {
+        ((VirtualQWidget*)self)->inputMethodEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnInputMethodEvent(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_InputMethodEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QWidget_QBaseInputMethodQuery(const QWidget* self, int param1) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_InputMethodQuery_IsBase(true);
+        return new QVariant(vqwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    } else {
+        return new QVariant(((VirtualQWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnInputMethodQuery(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQWidget::QWidget_InputMethodQuery_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QWidget_QBaseFocusNextPrevChild(QWidget* self, bool next) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_FocusNextPrevChild_IsBase(true);
+        return vqwidget->focusNextPrevChild(next);
+    } else {
+        return ((VirtualQWidget*)self)->focusNextPrevChild(next);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnFocusNextPrevChild(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusNextPrevChild_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

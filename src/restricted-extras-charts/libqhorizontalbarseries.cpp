@@ -39,25 +39,6 @@ int QHorizontalBarSeries_Metacall(QHorizontalBarSeries* self, int param1, int pa
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHorizontalBarSeries_OnMetacall(QHorizontalBarSeries* self, intptr_t slot) {
-    auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        vqhorizontalbarseries->setQHorizontalBarSeries_Metacall_Callback(reinterpret_cast<VirtualQHorizontalBarSeries::QHorizontalBarSeries_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QHorizontalBarSeries_QBaseMetacall(QHorizontalBarSeries* self, int param1, int param2, void** param3) {
-    auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        vqhorizontalbarseries->setQHorizontalBarSeries_Metacall_IsBase(true);
-        return vqhorizontalbarseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHorizontalBarSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QHorizontalBarSeries_Tr(const char* s) {
     QString _ret = QHorizontalBarSeries::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -74,25 +55,6 @@ int QHorizontalBarSeries_Type(const QHorizontalBarSeries* self) {
     auto* vqhorizontalbarseries = dynamic_cast<const VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQHorizontalBarSeries*)self)->type());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHorizontalBarSeries_OnType(const QHorizontalBarSeries* self, intptr_t slot) {
-    auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        vqhorizontalbarseries->setQHorizontalBarSeries_Type_Callback(reinterpret_cast<VirtualQHorizontalBarSeries::QHorizontalBarSeries_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QHorizontalBarSeries_QBaseType(const QHorizontalBarSeries* self) {
-    auto* vqhorizontalbarseries = dynamic_cast<const VirtualQHorizontalBarSeries*>(self);
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        vqhorizontalbarseries->setQHorizontalBarSeries_Type_IsBase(true);
-        return static_cast<int>(vqhorizontalbarseries->type());
     } else {
         return static_cast<int>(((VirtualQHorizontalBarSeries*)self)->type());
     }
@@ -120,6 +82,44 @@ libqt_string QHorizontalBarSeries_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QHorizontalBarSeries_QBaseMetacall(QHorizontalBarSeries* self, int param1, int param2, void** param3) {
+    auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
+    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
+        vqhorizontalbarseries->setQHorizontalBarSeries_Metacall_IsBase(true);
+        return vqhorizontalbarseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QHorizontalBarSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHorizontalBarSeries_OnMetacall(QHorizontalBarSeries* self, intptr_t slot) {
+    auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
+    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
+        vqhorizontalbarseries->setQHorizontalBarSeries_Metacall_Callback(reinterpret_cast<VirtualQHorizontalBarSeries::QHorizontalBarSeries_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QHorizontalBarSeries_QBaseType(const QHorizontalBarSeries* self) {
+    auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
+    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
+        vqhorizontalbarseries->setQHorizontalBarSeries_Type_IsBase(true);
+        return static_cast<int>(vqhorizontalbarseries->type());
+    } else {
+        return static_cast<int>(self->QHorizontalBarSeries::type());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHorizontalBarSeries_OnType(const QHorizontalBarSeries* self, intptr_t slot) {
+    auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
+    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
+        vqhorizontalbarseries->setQHorizontalBarSeries_Type_Callback(reinterpret_cast<VirtualQHorizontalBarSeries::QHorizontalBarSeries_Type_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

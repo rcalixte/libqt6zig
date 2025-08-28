@@ -79,25 +79,6 @@ int QMenu_Metacall(QMenu* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnMetacall(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_Metacall_Callback(reinterpret_cast<VirtualQMenu::QMenu_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QMenu_QBaseMetacall(QMenu* self, int param1, int param2, void** param3) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_Metacall_IsBase(true);
-        return vqmenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QMenu_Tr(const char* s) {
     QString _ret = QMenu::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -235,25 +216,6 @@ QSize* QMenu_SizeHint(const QMenu* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnSizeHint(const QMenu* self, intptr_t slot) {
-    auto* vqmenu = const_cast<VirtualQMenu*>(dynamic_cast<const VirtualQMenu*>(self));
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_SizeHint_Callback(reinterpret_cast<VirtualQMenu::QMenu_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QMenu_QBaseSizeHint(const QMenu* self) {
-    auto* vqmenu = dynamic_cast<const VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_SizeHint_IsBase(true);
-        return new QSize(vqmenu->sizeHint());
-    } else {
-        return new QSize(((VirtualQMenu*)self)->sizeHint());
-    }
-}
-
 QRect* QMenu_ActionGeometry(const QMenu* self, QAction* param1) {
     return new QRect(self->actionGeometry(param1));
 }
@@ -368,43 +330,9 @@ void QMenu_ChangeEvent(QMenu* self, QEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnChangeEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_ChangeEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseChangeEvent(QMenu* self, QEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_ChangeEvent_IsBase(true);
-        vqmenu->changeEvent(param1);
-    }
-}
-
 void QMenu_KeyPressEvent(QMenu* self, QKeyEvent* param1) {
     auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
     if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->keyPressEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnKeyPressEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_KeyPressEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseKeyPressEvent(QMenu* self, QKeyEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_KeyPressEvent_IsBase(true);
         vqmenu->keyPressEvent(param1);
     }
 }
@@ -416,43 +344,9 @@ void QMenu_MouseReleaseEvent(QMenu* self, QMouseEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnMouseReleaseEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseMouseReleaseEvent(QMenu* self, QMouseEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_MouseReleaseEvent_IsBase(true);
-        vqmenu->mouseReleaseEvent(param1);
-    }
-}
-
 void QMenu_MousePressEvent(QMenu* self, QMouseEvent* param1) {
     auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
     if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->mousePressEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnMousePressEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_MousePressEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseMousePressEvent(QMenu* self, QMouseEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_MousePressEvent_IsBase(true);
         vqmenu->mousePressEvent(param1);
     }
 }
@@ -464,43 +358,9 @@ void QMenu_MouseMoveEvent(QMenu* self, QMouseEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnMouseMoveEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseMouseMoveEvent(QMenu* self, QMouseEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_MouseMoveEvent_IsBase(true);
-        vqmenu->mouseMoveEvent(param1);
-    }
-}
-
 void QMenu_WheelEvent(QMenu* self, QWheelEvent* param1) {
     auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
     if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->wheelEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnWheelEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_WheelEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_WheelEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseWheelEvent(QMenu* self, QWheelEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_WheelEvent_IsBase(true);
         vqmenu->wheelEvent(param1);
     }
 }
@@ -512,43 +372,9 @@ void QMenu_EnterEvent(QMenu* self, QEnterEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnEnterEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_EnterEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_EnterEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseEnterEvent(QMenu* self, QEnterEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_EnterEvent_IsBase(true);
-        vqmenu->enterEvent(param1);
-    }
-}
-
 void QMenu_LeaveEvent(QMenu* self, QEvent* param1) {
     auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
     if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->leaveEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnLeaveEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_LeaveEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_LeaveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseLeaveEvent(QMenu* self, QEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_LeaveEvent_IsBase(true);
         vqmenu->leaveEvent(param1);
     }
 }
@@ -560,43 +386,9 @@ void QMenu_HideEvent(QMenu* self, QHideEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnHideEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_HideEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_HideEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseHideEvent(QMenu* self, QHideEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_HideEvent_IsBase(true);
-        vqmenu->hideEvent(param1);
-    }
-}
-
 void QMenu_PaintEvent(QMenu* self, QPaintEvent* param1) {
     auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
     if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->paintEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnPaintEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_PaintEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBasePaintEvent(QMenu* self, QPaintEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_PaintEvent_IsBase(true);
         vqmenu->paintEvent(param1);
     }
 }
@@ -608,23 +400,6 @@ void QMenu_ActionEvent(QMenu* self, QActionEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnActionEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_ActionEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_ActionEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseActionEvent(QMenu* self, QActionEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_ActionEvent_IsBase(true);
-        vqmenu->actionEvent(param1);
-    }
-}
-
 void QMenu_TimerEvent(QMenu* self, QTimerEvent* param1) {
     auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
     if (vqmenu && vqmenu->isVirtualQMenu) {
@@ -632,44 +407,9 @@ void QMenu_TimerEvent(QMenu* self, QTimerEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnTimerEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_TimerEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_TimerEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseTimerEvent(QMenu* self, QTimerEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_TimerEvent_IsBase(true);
-        vqmenu->timerEvent(param1);
-    }
-}
-
 bool QMenu_Event(QMenu* self, QEvent* param1) {
     auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
     if (vqmenu && vqmenu->isVirtualQMenu) {
-        return vqmenu->event(param1);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnEvent(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_Event_Callback(reinterpret_cast<VirtualQMenu::QMenu_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QMenu_QBaseEvent(QMenu* self, QEvent* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_Event_IsBase(true);
         return vqmenu->event(param1);
     }
     return {};
@@ -683,44 +423,9 @@ bool QMenu_FocusNextPrevChild(QMenu* self, bool next) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnFocusNextPrevChild(QMenu* self, intptr_t slot) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMenu::QMenu_FocusNextPrevChild_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QMenu_QBaseFocusNextPrevChild(QMenu* self, bool next) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_FocusNextPrevChild_IsBase(true);
-        return vqmenu->focusNextPrevChild(next);
-    }
-    return {};
-}
-
 void QMenu_InitStyleOption(const QMenu* self, QStyleOptionMenuItem* option, const QAction* action) {
     auto* vqmenu = dynamic_cast<const VirtualQMenu*>(self);
     if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->initStyleOption(option, action);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QMenu_OnInitStyleOption(const QMenu* self, intptr_t slot) {
-    auto* vqmenu = const_cast<VirtualQMenu*>(dynamic_cast<const VirtualQMenu*>(self));
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_InitStyleOption_Callback(reinterpret_cast<VirtualQMenu::QMenu_InitStyleOption_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMenu_QBaseInitStyleOption(const QMenu* self, QStyleOptionMenuItem* option, const QAction* action) {
-    auto* vqmenu = dynamic_cast<const VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        vqmenu->setQMenu_InitStyleOption_IsBase(true);
         vqmenu->initStyleOption(option, action);
     }
 }
@@ -775,6 +480,329 @@ QAction* QMenu_Exec4(const libqt_list /* of QAction* */ actions, const QPoint* p
         actions_QList.push_back(actions_arr[i]);
     }
     return QMenu::exec(actions_QList, *pos, at, parent);
+}
+
+// Base class handler implementation
+int QMenu_QBaseMetacall(QMenu* self, int param1, int param2, void** param3) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_Metacall_IsBase(true);
+        return vqmenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnMetacall(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_Metacall_Callback(reinterpret_cast<VirtualQMenu::QMenu_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QMenu_QBaseSizeHint(const QMenu* self) {
+    auto* vqmenu = const_cast<VirtualQMenu*>(dynamic_cast<const VirtualQMenu*>(self));
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_SizeHint_IsBase(true);
+        return new QSize(vqmenu->sizeHint());
+    } else {
+        return new QSize(((VirtualQMenu*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnSizeHint(const QMenu* self, intptr_t slot) {
+    auto* vqmenu = const_cast<VirtualQMenu*>(dynamic_cast<const VirtualQMenu*>(self));
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_SizeHint_Callback(reinterpret_cast<VirtualQMenu::QMenu_SizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseChangeEvent(QMenu* self, QEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_ChangeEvent_IsBase(true);
+        vqmenu->changeEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->changeEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnChangeEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_ChangeEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseKeyPressEvent(QMenu* self, QKeyEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_KeyPressEvent_IsBase(true);
+        vqmenu->keyPressEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->keyPressEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnKeyPressEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_KeyPressEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseMouseReleaseEvent(QMenu* self, QMouseEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_MouseReleaseEvent_IsBase(true);
+        vqmenu->mouseReleaseEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->mouseReleaseEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnMouseReleaseEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseMousePressEvent(QMenu* self, QMouseEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_MousePressEvent_IsBase(true);
+        vqmenu->mousePressEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->mousePressEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnMousePressEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_MousePressEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseMouseMoveEvent(QMenu* self, QMouseEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_MouseMoveEvent_IsBase(true);
+        vqmenu->mouseMoveEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->mouseMoveEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnMouseMoveEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseWheelEvent(QMenu* self, QWheelEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_WheelEvent_IsBase(true);
+        vqmenu->wheelEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->wheelEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnWheelEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_WheelEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_WheelEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseEnterEvent(QMenu* self, QEnterEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_EnterEvent_IsBase(true);
+        vqmenu->enterEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->enterEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnEnterEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_EnterEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_EnterEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseLeaveEvent(QMenu* self, QEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_LeaveEvent_IsBase(true);
+        vqmenu->leaveEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->leaveEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnLeaveEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_LeaveEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_LeaveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseHideEvent(QMenu* self, QHideEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_HideEvent_IsBase(true);
+        vqmenu->hideEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->hideEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnHideEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_HideEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_HideEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBasePaintEvent(QMenu* self, QPaintEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_PaintEvent_IsBase(true);
+        vqmenu->paintEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->paintEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnPaintEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_PaintEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_PaintEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseActionEvent(QMenu* self, QActionEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_ActionEvent_IsBase(true);
+        vqmenu->actionEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->actionEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnActionEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_ActionEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_ActionEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseTimerEvent(QMenu* self, QTimerEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_TimerEvent_IsBase(true);
+        vqmenu->timerEvent(param1);
+    } else {
+        ((VirtualQMenu*)self)->timerEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnTimerEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_TimerEvent_Callback(reinterpret_cast<VirtualQMenu::QMenu_TimerEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QMenu_QBaseEvent(QMenu* self, QEvent* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_Event_IsBase(true);
+        return vqmenu->event(param1);
+    } else {
+        return ((VirtualQMenu*)self)->event(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnEvent(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_Event_Callback(reinterpret_cast<VirtualQMenu::QMenu_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QMenu_QBaseFocusNextPrevChild(QMenu* self, bool next) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_FocusNextPrevChild_IsBase(true);
+        return vqmenu->focusNextPrevChild(next);
+    } else {
+        return ((VirtualQMenu*)self)->focusNextPrevChild(next);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnFocusNextPrevChild(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMenu::QMenu_FocusNextPrevChild_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMenu_QBaseInitStyleOption(const QMenu* self, QStyleOptionMenuItem* option, const QAction* action) {
+    auto* vqmenu = const_cast<VirtualQMenu*>(dynamic_cast<const VirtualQMenu*>(self));
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_InitStyleOption_IsBase(true);
+        vqmenu->initStyleOption(option, action);
+    } else {
+        ((VirtualQMenu*)self)->initStyleOption(option, action);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnInitStyleOption(const QMenu* self, intptr_t slot) {
+    auto* vqmenu = const_cast<VirtualQMenu*>(dynamic_cast<const VirtualQMenu*>(self));
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_InitStyleOption_Callback(reinterpret_cast<VirtualQMenu::QMenu_InitStyleOption_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

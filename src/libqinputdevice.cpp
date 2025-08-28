@@ -56,25 +56,6 @@ int QInputDevice_Metacall(QInputDevice* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QInputDevice_OnMetacall(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_Metacall_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QInputDevice_QBaseMetacall(QInputDevice* self, int param1, int param2, void** param3) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_Metacall_IsBase(true);
-        return vqinputdevice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQInputDevice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QInputDevice_Tr(const char* s) {
     QString _ret = QInputDevice::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -212,6 +193,25 @@ libqt_string QInputDevice_Tr3(const char* s, const char* c, int n) {
 QInputDevice* QInputDevice_PrimaryKeyboard1(const libqt_string seatName) {
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
     return (QInputDevice*)QInputDevice::primaryKeyboard(seatName_QString);
+}
+
+// Base class handler implementation
+int QInputDevice_QBaseMetacall(QInputDevice* self, int param1, int param2, void** param3) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+        vqinputdevice->setQInputDevice_Metacall_IsBase(true);
+        return vqinputdevice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QInputDevice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDevice_OnMetacall(QInputDevice* self, intptr_t slot) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+        vqinputdevice->setQInputDevice_Metacall_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

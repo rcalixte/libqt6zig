@@ -49,25 +49,6 @@ int QPdfBookmarkModel_Metacall(QPdfBookmarkModel* self, int param1, int param2, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfBookmarkModel_OnMetacall(QPdfBookmarkModel* self, intptr_t slot) {
-    auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_Metacall_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPdfBookmarkModel_QBaseMetacall(QPdfBookmarkModel* self, int param1, int param2, void** param3) {
-    auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_Metacall_IsBase(true);
-        return vqpdfbookmarkmodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfBookmarkModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPdfBookmarkModel_Tr(const char* s) {
     QString _ret = QPdfBookmarkModel::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -97,48 +78,10 @@ QVariant* QPdfBookmarkModel_Data(const QPdfBookmarkModel* self, const QModelInde
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfBookmarkModel_OnData(const QPdfBookmarkModel* self, intptr_t slot) {
-    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_Data_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Data_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QPdfBookmarkModel_QBaseData(const QPdfBookmarkModel* self, const QModelIndex* index, int role) {
-    auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_Data_IsBase(true);
-        return new QVariant(vqpdfbookmarkmodel->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQPdfBookmarkModel*)self)->data(*index, static_cast<int>(role)));
-    }
-}
-
 QModelIndex* QPdfBookmarkModel_Index(const QPdfBookmarkModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
     if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
         return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQPdfBookmarkModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfBookmarkModel_OnIndex(const QPdfBookmarkModel* self, intptr_t slot) {
-    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_Index_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Index_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QPdfBookmarkModel_QBaseIndex(const QPdfBookmarkModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_Index_IsBase(true);
-        return new QModelIndex(vqpdfbookmarkmodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
     } else {
         return new QModelIndex(((VirtualQPdfBookmarkModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
     }
@@ -153,48 +96,10 @@ QModelIndex* QPdfBookmarkModel_Parent(const QPdfBookmarkModel* self, const QMode
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfBookmarkModel_OnParent(const QPdfBookmarkModel* self, intptr_t slot) {
-    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_Parent_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Parent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QPdfBookmarkModel_QBaseParent(const QPdfBookmarkModel* self, const QModelIndex* index) {
-    auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_Parent_IsBase(true);
-        return new QModelIndex(vqpdfbookmarkmodel->parent(*index));
-    } else {
-        return new QModelIndex(((VirtualQPdfBookmarkModel*)self)->parent(*index));
-    }
-}
-
 int QPdfBookmarkModel_RowCount(const QPdfBookmarkModel* self, const QModelIndex* parent) {
     auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
     if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
         return self->rowCount(*parent);
-    } else {
-        return ((VirtualQPdfBookmarkModel*)self)->rowCount(*parent);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfBookmarkModel_OnRowCount(const QPdfBookmarkModel* self, intptr_t slot) {
-    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_RowCount_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_RowCount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPdfBookmarkModel_QBaseRowCount(const QPdfBookmarkModel* self, const QModelIndex* parent) {
-    auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_RowCount_IsBase(true);
-        return vqpdfbookmarkmodel->rowCount(*parent);
     } else {
         return ((VirtualQPdfBookmarkModel*)self)->rowCount(*parent);
     }
@@ -209,88 +114,10 @@ int QPdfBookmarkModel_ColumnCount(const QPdfBookmarkModel* self, const QModelInd
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfBookmarkModel_OnColumnCount(const QPdfBookmarkModel* self, intptr_t slot) {
-    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_ColumnCount_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ColumnCount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPdfBookmarkModel_QBaseColumnCount(const QPdfBookmarkModel* self, const QModelIndex* parent) {
-    auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_ColumnCount_IsBase(true);
-        return vqpdfbookmarkmodel->columnCount(*parent);
-    } else {
-        return ((VirtualQPdfBookmarkModel*)self)->columnCount(*parent);
-    }
-}
-
 libqt_map /* of int to libqt_string */ QPdfBookmarkModel_RoleNames(const QPdfBookmarkModel* self) {
     auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
     if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
         QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualQPdfBookmarkModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfBookmarkModel_OnRoleNames(const QPdfBookmarkModel* self, intptr_t slot) {
-    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_RoleNames_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_RoleNames_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_map /* of int to libqt_string */ QPdfBookmarkModel_QBaseRoleNames(const QPdfBookmarkModel* self) {
-    auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
-        vqpdfbookmarkmodel->setQPdfBookmarkModel_RoleNames_IsBase(true);
-        QHash<int, QByteArray> _ret = vqpdfbookmarkmodel->roleNames();
         // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
@@ -370,6 +197,179 @@ libqt_string QPdfBookmarkModel_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QPdfBookmarkModel_QBaseMetacall(QPdfBookmarkModel* self, int param1, int param2, void** param3) {
+    auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Metacall_IsBase(true);
+        return vqpdfbookmarkmodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPdfBookmarkModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfBookmarkModel_OnMetacall(QPdfBookmarkModel* self, intptr_t slot) {
+    auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Metacall_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QPdfBookmarkModel_QBaseData(const QPdfBookmarkModel* self, const QModelIndex* index, int role) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Data_IsBase(true);
+        return new QVariant(vqpdfbookmarkmodel->data(*index, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQPdfBookmarkModel*)self)->data(*index, static_cast<int>(role)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfBookmarkModel_OnData(const QPdfBookmarkModel* self, intptr_t slot) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Data_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Data_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QPdfBookmarkModel_QBaseIndex(const QPdfBookmarkModel* self, int row, int column, const QModelIndex* parent) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Index_IsBase(true);
+        return new QModelIndex(vqpdfbookmarkmodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
+    } else {
+        return new QModelIndex(((VirtualQPdfBookmarkModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfBookmarkModel_OnIndex(const QPdfBookmarkModel* self, intptr_t slot) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Index_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Index_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QPdfBookmarkModel_QBaseParent(const QPdfBookmarkModel* self, const QModelIndex* index) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Parent_IsBase(true);
+        return new QModelIndex(vqpdfbookmarkmodel->parent(*index));
+    } else {
+        return new QModelIndex(((VirtualQPdfBookmarkModel*)self)->parent(*index));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfBookmarkModel_OnParent(const QPdfBookmarkModel* self, intptr_t slot) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Parent_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Parent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QPdfBookmarkModel_QBaseRowCount(const QPdfBookmarkModel* self, const QModelIndex* parent) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_RowCount_IsBase(true);
+        return vqpdfbookmarkmodel->rowCount(*parent);
+    } else {
+        return self->QPdfBookmarkModel::rowCount(*parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfBookmarkModel_OnRowCount(const QPdfBookmarkModel* self, intptr_t slot) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_RowCount_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_RowCount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QPdfBookmarkModel_QBaseColumnCount(const QPdfBookmarkModel* self, const QModelIndex* parent) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_ColumnCount_IsBase(true);
+        return vqpdfbookmarkmodel->columnCount(*parent);
+    } else {
+        return self->QPdfBookmarkModel::columnCount(*parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfBookmarkModel_OnColumnCount(const QPdfBookmarkModel* self, intptr_t slot) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_ColumnCount_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ColumnCount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_map /* of int to libqt_string */ QPdfBookmarkModel_QBaseRoleNames(const QPdfBookmarkModel* self) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_RoleNames_IsBase(true);
+        QHash<int, QByteArray> _ret = vqpdfbookmarkmodel->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QHash<int, QByteArray> _ret = self->QPdfBookmarkModel::roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfBookmarkModel_OnRoleNames(const QPdfBookmarkModel* self, intptr_t slot) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_RoleNames_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_RoleNames_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

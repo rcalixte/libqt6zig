@@ -104,25 +104,6 @@ int QPointingDevice_Metacall(QPointingDevice* self, int param1, int param2, void
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPointingDevice_OnMetacall(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_Metacall_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPointingDevice_QBaseMetacall(QPointingDevice* self, int param1, int param2, void** param3) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_Metacall_IsBase(true);
-        return vqpointingdevice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPointingDevice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPointingDevice_Tr(const char* s) {
     QString _ret = QPointingDevice::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -215,6 +196,25 @@ libqt_string QPointingDevice_Tr3(const char* s, const char* c, int n) {
 QPointingDevice* QPointingDevice_PrimaryPointingDevice1(const libqt_string seatName) {
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
     return (QPointingDevice*)QPointingDevice::primaryPointingDevice(seatName_QString);
+}
+
+// Base class handler implementation
+int QPointingDevice_QBaseMetacall(QPointingDevice* self, int param1, int param2, void** param3) {
+    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
+    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+        vqpointingdevice->setQPointingDevice_Metacall_IsBase(true);
+        return vqpointingdevice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPointingDevice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPointingDevice_OnMetacall(QPointingDevice* self, intptr_t slot) {
+    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
+    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+        vqpointingdevice->setQPointingDevice_Metacall_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

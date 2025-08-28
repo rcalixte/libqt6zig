@@ -48,25 +48,6 @@ int QVideoFrameInput_Metacall(QVideoFrameInput* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QVideoFrameInput_OnMetacall(QVideoFrameInput* self, intptr_t slot) {
-    auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
-        vqvideoframeinput->setQVideoFrameInput_Metacall_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QVideoFrameInput_QBaseMetacall(QVideoFrameInput* self, int param1, int param2, void** param3) {
-    auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
-        vqvideoframeinput->setQVideoFrameInput_Metacall_IsBase(true);
-        return vqvideoframeinput->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVideoFrameInput*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QVideoFrameInput_Tr(const char* s) {
     QString _ret = QVideoFrameInput::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -124,6 +105,25 @@ libqt_string QVideoFrameInput_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QVideoFrameInput_QBaseMetacall(QVideoFrameInput* self, int param1, int param2, void** param3) {
+    auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+        vqvideoframeinput->setQVideoFrameInput_Metacall_IsBase(true);
+        return vqvideoframeinput->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QVideoFrameInput::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoFrameInput_OnMetacall(QVideoFrameInput* self, intptr_t slot) {
+    auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+        vqvideoframeinput->setQVideoFrameInput_Metacall_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

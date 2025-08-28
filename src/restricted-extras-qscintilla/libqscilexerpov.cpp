@@ -41,25 +41,6 @@ int QsciLexerPOV_Metacall(QsciLexerPOV* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPOV_OnMetacall(QsciLexerPOV* self, intptr_t slot) {
-    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
-    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
-        vqscilexerpov->setQsciLexerPOV_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerPOV_QBaseMetacall(QsciLexerPOV* self, int param1, int param2, void** param3) {
-    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
-    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
-        vqscilexerpov->setQsciLexerPOV_Metacall_IsBase(true);
-        return vqscilexerpov->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPOV*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerPOV_Tr(const char* s) {
     QString _ret = QsciLexerPOV::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -145,25 +126,6 @@ void QsciLexerPOV_SetFoldComments(QsciLexerPOV* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPOV_OnSetFoldComments(QsciLexerPOV* self, intptr_t slot) {
-    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
-    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
-        vqscilexerpov->setQsciLexerPOV_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_SetFoldComments_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPOV_QBaseSetFoldComments(QsciLexerPOV* self, bool fold) {
-    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
-    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
-        vqscilexerpov->setQsciLexerPOV_SetFoldComments_IsBase(true);
-        vqscilexerpov->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerPOV*)self)->setFoldComments(fold);
-    }
-}
-
 void QsciLexerPOV_SetFoldCompact(QsciLexerPOV* self, bool fold) {
     auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
     if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
@@ -173,48 +135,10 @@ void QsciLexerPOV_SetFoldCompact(QsciLexerPOV* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPOV_OnSetFoldCompact(QsciLexerPOV* self, intptr_t slot) {
-    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
-    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
-        vqscilexerpov->setQsciLexerPOV_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPOV_QBaseSetFoldCompact(QsciLexerPOV* self, bool fold) {
-    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
-    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
-        vqscilexerpov->setQsciLexerPOV_SetFoldCompact_IsBase(true);
-        vqscilexerpov->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerPOV*)self)->setFoldCompact(fold);
-    }
-}
-
 void QsciLexerPOV_SetFoldDirectives(QsciLexerPOV* self, bool fold) {
     auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
     if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
         self->setFoldDirectives(fold);
-    } else {
-        ((VirtualQsciLexerPOV*)self)->setFoldDirectives(fold);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPOV_OnSetFoldDirectives(QsciLexerPOV* self, intptr_t slot) {
-    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
-    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
-        vqscilexerpov->setQsciLexerPOV_SetFoldDirectives_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_SetFoldDirectives_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPOV_QBaseSetFoldDirectives(QsciLexerPOV* self, bool fold) {
-    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
-    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
-        vqscilexerpov->setQsciLexerPOV_SetFoldDirectives_IsBase(true);
-        vqscilexerpov->setFoldDirectives(fold);
     } else {
         ((VirtualQsciLexerPOV*)self)->setFoldDirectives(fold);
     }
@@ -242,6 +166,82 @@ libqt_string QsciLexerPOV_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QsciLexerPOV_QBaseMetacall(QsciLexerPOV* self, int param1, int param2, void** param3) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_Metacall_IsBase(true);
+        return vqscilexerpov->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerPOV*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPOV_OnMetacall(QsciLexerPOV* self, intptr_t slot) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPOV_QBaseSetFoldComments(QsciLexerPOV* self, bool fold) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_SetFoldComments_IsBase(true);
+        vqscilexerpov->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerPOV*)self)->setFoldComments(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPOV_OnSetFoldComments(QsciLexerPOV* self, intptr_t slot) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_SetFoldComments_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPOV_QBaseSetFoldCompact(QsciLexerPOV* self, bool fold) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_SetFoldCompact_IsBase(true);
+        vqscilexerpov->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerPOV*)self)->setFoldCompact(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPOV_OnSetFoldCompact(QsciLexerPOV* self, intptr_t slot) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_SetFoldCompact_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPOV_QBaseSetFoldDirectives(QsciLexerPOV* self, bool fold) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_SetFoldDirectives_IsBase(true);
+        vqscilexerpov->setFoldDirectives(fold);
+    } else {
+        ((VirtualQsciLexerPOV*)self)->setFoldDirectives(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPOV_OnSetFoldDirectives(QsciLexerPOV* self, intptr_t slot) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_SetFoldDirectives_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_SetFoldDirectives_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

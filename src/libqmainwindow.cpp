@@ -74,25 +74,6 @@ int QMainWindow_Metacall(QMainWindow* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMainWindow_OnMetacall(QMainWindow* self, intptr_t slot) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_Metacall_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QMainWindow_QBaseMetacall(QMainWindow* self, int param1, int param2, void** param3) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_Metacall_IsBase(true);
-        return vqmainwindow->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMainWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QMainWindow_Tr(const char* s) {
     QString _ret = QMainWindow::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -335,25 +316,6 @@ QMenu* QMainWindow_CreatePopupMenu(QMainWindow* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMainWindow_OnCreatePopupMenu(QMainWindow* self, intptr_t slot) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_CreatePopupMenu_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_CreatePopupMenu_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QMenu* QMainWindow_QBaseCreatePopupMenu(QMainWindow* self) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_CreatePopupMenu_IsBase(true);
-        return vqmainwindow->createPopupMenu();
-    } else {
-        return ((VirtualQMainWindow*)self)->createPopupMenu();
-    }
-}
-
 void QMainWindow_SetAnimated(QMainWindow* self, bool enabled) {
     self->setAnimated(enabled);
 }
@@ -411,44 +373,9 @@ void QMainWindow_ContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QMainWindow_OnContextMenuEvent(QMainWindow* self, intptr_t slot) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QMainWindow_QBaseContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_ContextMenuEvent_IsBase(true);
-        vqmainwindow->contextMenuEvent(event);
-    }
-}
-
 bool QMainWindow_Event(QMainWindow* self, QEvent* event) {
     auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
     if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        return vqmainwindow->event(event);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QMainWindow_OnEvent(QMainWindow* self, intptr_t slot) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_Event_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QMainWindow_QBaseEvent(QMainWindow* self, QEvent* event) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_Event_IsBase(true);
         return vqmainwindow->event(event);
     }
     return {};
@@ -495,6 +422,82 @@ libqt_string QMainWindow_SaveState1(const QMainWindow* self, int version) {
 bool QMainWindow_RestoreState2(QMainWindow* self, const libqt_string state, int version) {
     QByteArray state_QByteArray(state.data, state.len);
     return self->restoreState(state_QByteArray, static_cast<int>(version));
+}
+
+// Base class handler implementation
+int QMainWindow_QBaseMetacall(QMainWindow* self, int param1, int param2, void** param3) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_Metacall_IsBase(true);
+        return vqmainwindow->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QMainWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMainWindow_OnMetacall(QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_Metacall_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QMenu* QMainWindow_QBaseCreatePopupMenu(QMainWindow* self) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_CreatePopupMenu_IsBase(true);
+        return vqmainwindow->createPopupMenu();
+    } else {
+        return self->QMainWindow::createPopupMenu();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMainWindow_OnCreatePopupMenu(QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_CreatePopupMenu_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_CreatePopupMenu_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QMainWindow_QBaseContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_ContextMenuEvent_IsBase(true);
+        vqmainwindow->contextMenuEvent(event);
+    } else {
+        ((VirtualQMainWindow*)self)->contextMenuEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMainWindow_OnContextMenuEvent(QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QMainWindow_QBaseEvent(QMainWindow* self, QEvent* event) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_Event_IsBase(true);
+        return vqmainwindow->event(event);
+    } else {
+        return ((VirtualQMainWindow*)self)->event(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMainWindow_OnEvent(QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_Event_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Event_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

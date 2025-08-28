@@ -56,8 +56,6 @@ QPdfPageSelector* QPdfPageSelector_new2();
 QMetaObject* QPdfPageSelector_MetaObject(const QPdfPageSelector* self);
 void* QPdfPageSelector_Metacast(QPdfPageSelector* self, const char* param1);
 int QPdfPageSelector_Metacall(QPdfPageSelector* self, int param1, int param2, void** param3);
-void QPdfPageSelector_OnMetacall(QPdfPageSelector* self, intptr_t slot);
-int QPdfPageSelector_QBaseMetacall(QPdfPageSelector* self, int param1, int param2, void** param3);
 libqt_string QPdfPageSelector_Tr(const char* s);
 void QPdfPageSelector_SetDocument(QPdfPageSelector* self, QPdfDocument* document);
 QPdfDocument* QPdfPageSelector_Document(const QPdfPageSelector* self);
@@ -72,6 +70,8 @@ void QPdfPageSelector_CurrentPageLabelChanged(QPdfPageSelector* self, const libq
 void QPdfPageSelector_Connect_CurrentPageLabelChanged(QPdfPageSelector* self, intptr_t slot);
 libqt_string QPdfPageSelector_Tr2(const char* s, const char* c);
 libqt_string QPdfPageSelector_Tr3(const char* s, const char* c, int n);
+void QPdfPageSelector_OnMetacall(QPdfPageSelector* self, intptr_t slot);
+int QPdfPageSelector_QBaseMetacall(QPdfPageSelector* self, int param1, int param2, void** param3);
 int QPdfPageSelector_DevType(const QPdfPageSelector* self);
 void QPdfPageSelector_OnDevType(const QPdfPageSelector* self, intptr_t slot);
 int QPdfPageSelector_QBaseDevType(const QPdfPageSelector* self);

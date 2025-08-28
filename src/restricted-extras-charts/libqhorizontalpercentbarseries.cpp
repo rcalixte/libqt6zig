@@ -39,25 +39,6 @@ int QHorizontalPercentBarSeries_Metacall(QHorizontalPercentBarSeries* self, int 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHorizontalPercentBarSeries_OnMetacall(QHorizontalPercentBarSeries* self, intptr_t slot) {
-    auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
-    if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
-        vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Metacall_Callback(reinterpret_cast<VirtualQHorizontalPercentBarSeries::QHorizontalPercentBarSeries_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QHorizontalPercentBarSeries_QBaseMetacall(QHorizontalPercentBarSeries* self, int param1, int param2, void** param3) {
-    auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
-    if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
-        vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Metacall_IsBase(true);
-        return vqhorizontalpercentbarseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHorizontalPercentBarSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QHorizontalPercentBarSeries_Tr(const char* s) {
     QString _ret = QHorizontalPercentBarSeries::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -74,25 +55,6 @@ int QHorizontalPercentBarSeries_Type(const QHorizontalPercentBarSeries* self) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQHorizontalPercentBarSeries*)self)->type());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHorizontalPercentBarSeries_OnType(const QHorizontalPercentBarSeries* self, intptr_t slot) {
-    auto* vqhorizontalpercentbarseries = const_cast<VirtualQHorizontalPercentBarSeries*>(dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self));
-    if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
-        vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Type_Callback(reinterpret_cast<VirtualQHorizontalPercentBarSeries::QHorizontalPercentBarSeries_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QHorizontalPercentBarSeries_QBaseType(const QHorizontalPercentBarSeries* self) {
-    auto* vqhorizontalpercentbarseries = dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self);
-    if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
-        vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Type_IsBase(true);
-        return static_cast<int>(vqhorizontalpercentbarseries->type());
     } else {
         return static_cast<int>(((VirtualQHorizontalPercentBarSeries*)self)->type());
     }
@@ -120,6 +82,44 @@ libqt_string QHorizontalPercentBarSeries_Tr3(const char* s, const char* c, int n
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QHorizontalPercentBarSeries_QBaseMetacall(QHorizontalPercentBarSeries* self, int param1, int param2, void** param3) {
+    auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
+    if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
+        vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Metacall_IsBase(true);
+        return vqhorizontalpercentbarseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QHorizontalPercentBarSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHorizontalPercentBarSeries_OnMetacall(QHorizontalPercentBarSeries* self, intptr_t slot) {
+    auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
+    if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
+        vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Metacall_Callback(reinterpret_cast<VirtualQHorizontalPercentBarSeries::QHorizontalPercentBarSeries_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QHorizontalPercentBarSeries_QBaseType(const QHorizontalPercentBarSeries* self) {
+    auto* vqhorizontalpercentbarseries = const_cast<VirtualQHorizontalPercentBarSeries*>(dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self));
+    if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
+        vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Type_IsBase(true);
+        return static_cast<int>(vqhorizontalpercentbarseries->type());
+    } else {
+        return static_cast<int>(self->QHorizontalPercentBarSeries::type());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHorizontalPercentBarSeries_OnType(const QHorizontalPercentBarSeries* self, intptr_t slot) {
+    auto* vqhorizontalpercentbarseries = const_cast<VirtualQHorizontalPercentBarSeries*>(dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self));
+    if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
+        vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Type_Callback(reinterpret_cast<VirtualQHorizontalPercentBarSeries::QHorizontalPercentBarSeries_Type_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

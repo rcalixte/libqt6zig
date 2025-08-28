@@ -42,25 +42,6 @@ int QDataWidgetMapper_Metacall(QDataWidgetMapper* self, int param1, int param2, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDataWidgetMapper_OnMetacall(QDataWidgetMapper* self, intptr_t slot) {
-    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
-    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
-        vqdatawidgetmapper->setQDataWidgetMapper_Metacall_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDataWidgetMapper_QBaseMetacall(QDataWidgetMapper* self, int param1, int param2, void** param3) {
-    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
-    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
-        vqdatawidgetmapper->setQDataWidgetMapper_Metacall_IsBase(true);
-        return vqdatawidgetmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDataWidgetMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QDataWidgetMapper_Tr(const char* s) {
     QString _ret = QDataWidgetMapper::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -185,25 +166,6 @@ void QDataWidgetMapper_SetCurrentIndex(QDataWidgetMapper* self, int index) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDataWidgetMapper_OnSetCurrentIndex(QDataWidgetMapper* self, intptr_t slot) {
-    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
-    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
-        vqdatawidgetmapper->setQDataWidgetMapper_SetCurrentIndex_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_SetCurrentIndex_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QDataWidgetMapper_QBaseSetCurrentIndex(QDataWidgetMapper* self, int index) {
-    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
-    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
-        vqdatawidgetmapper->setQDataWidgetMapper_SetCurrentIndex_IsBase(true);
-        vqdatawidgetmapper->setCurrentIndex(static_cast<int>(index));
-    } else {
-        ((VirtualQDataWidgetMapper*)self)->setCurrentIndex(static_cast<int>(index));
-    }
-}
-
 void QDataWidgetMapper_SetCurrentModelIndex(QDataWidgetMapper* self, const QModelIndex* index) {
     self->setCurrentModelIndex(*index);
 }
@@ -242,6 +204,44 @@ libqt_string QDataWidgetMapper_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QDataWidgetMapper_QBaseMetacall(QDataWidgetMapper* self, int param1, int param2, void** param3) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        vqdatawidgetmapper->setQDataWidgetMapper_Metacall_IsBase(true);
+        return vqdatawidgetmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QDataWidgetMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDataWidgetMapper_OnMetacall(QDataWidgetMapper* self, intptr_t slot) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        vqdatawidgetmapper->setQDataWidgetMapper_Metacall_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QDataWidgetMapper_QBaseSetCurrentIndex(QDataWidgetMapper* self, int index) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        vqdatawidgetmapper->setQDataWidgetMapper_SetCurrentIndex_IsBase(true);
+        vqdatawidgetmapper->setCurrentIndex(static_cast<int>(index));
+    } else {
+        self->QDataWidgetMapper::setCurrentIndex(static_cast<int>(index));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDataWidgetMapper_OnSetCurrentIndex(QDataWidgetMapper* self, intptr_t slot) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        vqdatawidgetmapper->setQDataWidgetMapper_SetCurrentIndex_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_SetCurrentIndex_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

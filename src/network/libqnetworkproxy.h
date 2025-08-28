@@ -90,8 +90,6 @@ void QNetworkProxy_Delete(QNetworkProxy* self);
 
 QNetworkProxyFactory* QNetworkProxyFactory_new();
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_QueryProxy(QNetworkProxyFactory* self, const QNetworkProxyQuery* query);
-void QNetworkProxyFactory_OnQueryProxy(QNetworkProxyFactory* self, intptr_t slot);
-libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_QBaseQueryProxy(QNetworkProxyFactory* self, const QNetworkProxyQuery* query);
 bool QNetworkProxyFactory_UsesSystemConfiguration();
 void QNetworkProxyFactory_SetUseSystemConfiguration(bool enable);
 void QNetworkProxyFactory_SetApplicationProxyFactory(QNetworkProxyFactory* factory);
@@ -99,6 +97,8 @@ libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_ProxyForQuery(const QNet
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SystemProxyForQuery();
 void QNetworkProxyFactory_OperatorAssign(QNetworkProxyFactory* self, const QNetworkProxyFactory* param1);
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SystemProxyForQuery1(const QNetworkProxyQuery* query);
+void QNetworkProxyFactory_OnQueryProxy(QNetworkProxyFactory* self, intptr_t slot);
+libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_QBaseQueryProxy(QNetworkProxyFactory* self, const QNetworkProxyQuery* query);
 void QNetworkProxyFactory_Delete(QNetworkProxyFactory* self);
 
 #ifdef __cplusplus

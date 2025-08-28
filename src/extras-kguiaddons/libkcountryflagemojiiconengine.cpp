@@ -28,64 +28,10 @@ QIconEngine* KCountryFlagEmojiIconEngine_Clone(const KCountryFlagEmojiIconEngine
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KCountryFlagEmojiIconEngine_OnClone(const KCountryFlagEmojiIconEngine* self, intptr_t slot) {
-    auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Clone_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Clone_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QIconEngine* KCountryFlagEmojiIconEngine_QBaseClone(const KCountryFlagEmojiIconEngine* self) {
-    auto* vkcountryflagemojiiconengine = dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Clone_IsBase(true);
-        return vkcountryflagemojiiconengine->clone();
-    } else {
-        return ((VirtualKCountryFlagEmojiIconEngine*)self)->clone();
-    }
-}
-
 libqt_string KCountryFlagEmojiIconEngine_Key(const KCountryFlagEmojiIconEngine* self) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self);
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
         QString _ret = self->key();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualKCountryFlagEmojiIconEngine*)self)->key();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KCountryFlagEmojiIconEngine_OnKey(const KCountryFlagEmojiIconEngine* self, intptr_t slot) {
-    auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Key_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Key_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_string KCountryFlagEmojiIconEngine_QBaseKey(const KCountryFlagEmojiIconEngine* self) {
-    auto* vkcountryflagemojiiconengine = dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Key_IsBase(true);
-        QString _ret = vkcountryflagemojiiconengine->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -116,48 +62,10 @@ void KCountryFlagEmojiIconEngine_Paint(KCountryFlagEmojiIconEngine* self, QPaint
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KCountryFlagEmojiIconEngine_OnPaint(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
-    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Paint_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KCountryFlagEmojiIconEngine_QBasePaint(KCountryFlagEmojiIconEngine* self, QPainter* painter, const QRect* rect, int mode, int state) {
-    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Paint_IsBase(true);
-        vkcountryflagemojiiconengine->paint(painter, *rect, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-    } else {
-        ((VirtualKCountryFlagEmojiIconEngine*)self)->paint(painter, *rect, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-    }
-}
-
 QPixmap* KCountryFlagEmojiIconEngine_Pixmap(KCountryFlagEmojiIconEngine* self, const QSize* size, int mode, int state) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
         return new QPixmap(self->pixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
-    } else {
-        return new QPixmap(((VirtualKCountryFlagEmojiIconEngine*)self)->pixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KCountryFlagEmojiIconEngine_OnPixmap(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
-    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Pixmap_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Pixmap_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPixmap* KCountryFlagEmojiIconEngine_QBasePixmap(KCountryFlagEmojiIconEngine* self, const QSize* size, int mode, int state) {
-    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Pixmap_IsBase(true);
-        return new QPixmap(vkcountryflagemojiiconengine->pixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
     } else {
         return new QPixmap(((VirtualKCountryFlagEmojiIconEngine*)self)->pixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
     }
@@ -172,15 +80,112 @@ QPixmap* KCountryFlagEmojiIconEngine_ScaledPixmap(KCountryFlagEmojiIconEngine* s
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KCountryFlagEmojiIconEngine_OnScaledPixmap(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
+bool KCountryFlagEmojiIconEngine_IsNull(KCountryFlagEmojiIconEngine* self) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_ScaledPixmap_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_ScaledPixmap_Callback>(slot));
+        return self->isNull();
+    } else {
+        return ((VirtualKCountryFlagEmojiIconEngine*)self)->isNull();
     }
 }
 
-// Virtual base class handler implementation
+void KCountryFlagEmojiIconEngine_SetGlobalDefaultFont(const QFont* font) {
+    KCountryFlagEmojiIconEngine::setGlobalDefaultFont(*font);
+}
+
+// Base class handler implementation
+QIconEngine* KCountryFlagEmojiIconEngine_QBaseClone(const KCountryFlagEmojiIconEngine* self) {
+    auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Clone_IsBase(true);
+        return vkcountryflagemojiiconengine->clone();
+    } else {
+        return self->KCountryFlagEmojiIconEngine::clone();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCountryFlagEmojiIconEngine_OnClone(const KCountryFlagEmojiIconEngine* self, intptr_t slot) {
+    auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Clone_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Clone_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_string KCountryFlagEmojiIconEngine_QBaseKey(const KCountryFlagEmojiIconEngine* self) {
+    auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Key_IsBase(true);
+        QString _ret = vkcountryflagemojiiconengine->key();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = self->KCountryFlagEmojiIconEngine::key();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCountryFlagEmojiIconEngine_OnKey(const KCountryFlagEmojiIconEngine* self, intptr_t slot) {
+    auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Key_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Key_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCountryFlagEmojiIconEngine_QBasePaint(KCountryFlagEmojiIconEngine* self, QPainter* painter, const QRect* rect, int mode, int state) {
+    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Paint_IsBase(true);
+        vkcountryflagemojiiconengine->paint(painter, *rect, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
+    } else {
+        self->KCountryFlagEmojiIconEngine::paint(painter, *rect, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCountryFlagEmojiIconEngine_OnPaint(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
+    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Paint_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPixmap* KCountryFlagEmojiIconEngine_QBasePixmap(KCountryFlagEmojiIconEngine* self, const QSize* size, int mode, int state) {
+    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Pixmap_IsBase(true);
+        return new QPixmap(vkcountryflagemojiiconengine->pixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
+    } else {
+        return new QPixmap(((VirtualKCountryFlagEmojiIconEngine*)self)->pixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCountryFlagEmojiIconEngine_OnPixmap(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
+    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Pixmap_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Pixmap_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QPixmap* KCountryFlagEmojiIconEngine_QBaseScaledPixmap(KCountryFlagEmojiIconEngine* self, const QSize* size, int mode, int state, double scale) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
@@ -191,36 +196,31 @@ QPixmap* KCountryFlagEmojiIconEngine_QBaseScaledPixmap(KCountryFlagEmojiIconEngi
     }
 }
 
-bool KCountryFlagEmojiIconEngine_IsNull(KCountryFlagEmojiIconEngine* self) {
+// Auxiliary method to allow providing re-implementation
+void KCountryFlagEmojiIconEngine_OnScaledPixmap(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        return self->isNull();
-    } else {
-        return ((VirtualKCountryFlagEmojiIconEngine*)self)->isNull();
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_ScaledPixmap_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_ScaledPixmap_Callback>(slot));
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KCountryFlagEmojiIconEngine_OnIsNull(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
-    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_IsNull_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_IsNull_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
+// Base class handler implementation
 bool KCountryFlagEmojiIconEngine_QBaseIsNull(KCountryFlagEmojiIconEngine* self) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_IsNull_IsBase(true);
         return vkcountryflagemojiiconengine->isNull();
     } else {
-        return ((VirtualKCountryFlagEmojiIconEngine*)self)->isNull();
+        return self->KCountryFlagEmojiIconEngine::isNull();
     }
 }
 
-void KCountryFlagEmojiIconEngine_SetGlobalDefaultFont(const QFont* font) {
-    KCountryFlagEmojiIconEngine::setGlobalDefaultFont(*font);
+// Auxiliary method to allow providing re-implementation
+void KCountryFlagEmojiIconEngine_OnIsNull(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
+    auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+        vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_IsNull_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_IsNull_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

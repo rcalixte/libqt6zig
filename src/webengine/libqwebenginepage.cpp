@@ -78,25 +78,6 @@ int QWebEnginePage_Metacall(QWebEnginePage* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEnginePage_OnMetacall(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_Metacall_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QWebEnginePage_QBaseMetacall(QWebEnginePage* self, int param1, int param2, void** param3) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_Metacall_IsBase(true);
-        return vqwebenginepage->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QWebEnginePage_Tr(const char* s) {
     QString _ret = QWebEnginePage::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -146,25 +127,6 @@ void QWebEnginePage_TriggerAction(QWebEnginePage* self, int action, bool checked
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEnginePage_OnTriggerAction(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_TriggerAction_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_TriggerAction_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWebEnginePage_QBaseTriggerAction(QWebEnginePage* self, int action, bool checked) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_TriggerAction_IsBase(true);
-        vqwebenginepage->triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
-    } else {
-        ((VirtualQWebEnginePage*)self)->triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
-    }
-}
-
 void QWebEnginePage_ReplaceMisspelledWord(QWebEnginePage* self, const libqt_string replacement) {
     QString replacement_QString = QString::fromUtf8(replacement.data, replacement.len);
     self->replaceMisspelledWord(replacement_QString);
@@ -174,25 +136,6 @@ bool QWebEnginePage_Event(QWebEnginePage* self, QEvent* param1) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         return self->event(param1);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->event(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEnginePage_OnEvent(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_Event_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QWebEnginePage_QBaseEvent(QWebEnginePage* self, QEvent* param1) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_Event_IsBase(true);
-        return vqwebenginepage->event(param1);
     } else {
         return ((VirtualQWebEnginePage*)self)->event(param1);
     }
@@ -962,24 +905,6 @@ QWebEnginePage* QWebEnginePage_CreateWindow(QWebEnginePage* self, int typeVal) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEnginePage_OnCreateWindow(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_CreateWindow_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_CreateWindow_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QWebEnginePage* QWebEnginePage_QBaseCreateWindow(QWebEnginePage* self, int typeVal) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_CreateWindow_IsBase(true);
-        return vqwebenginepage->createWindow(static_cast<QWebEnginePage::WebWindowType>(typeVal));
-    }
-    return {};
-}
-
 libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes) {
     QList<QString> oldFiles_QList;
     oldFiles_QList.reserve(oldFiles.len);
@@ -1019,55 +944,6 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEnginePage_OnChooseFiles(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_ChooseFiles_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_ChooseFiles_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes) {
-    QList<QString> oldFiles_QList;
-    oldFiles_QList.reserve(oldFiles.len);
-    libqt_string* oldFiles_arr = static_cast<libqt_string*>(oldFiles.data);
-    for (size_t i = 0; i < oldFiles.len; ++i) {
-        QString oldFiles_arr_i_QString = QString::fromUtf8(oldFiles_arr[i].data, oldFiles_arr[i].len);
-        oldFiles_QList.push_back(oldFiles_arr_i_QString);
-    }
-    QList<QString> acceptedMimeTypes_QList;
-    acceptedMimeTypes_QList.reserve(acceptedMimeTypes.len);
-    libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(acceptedMimeTypes.data);
-    for (size_t i = 0; i < acceptedMimeTypes.len; ++i) {
-        QString acceptedMimeTypes_arr_i_QString = QString::fromUtf8(acceptedMimeTypes_arr[i].data, acceptedMimeTypes_arr[i].len);
-        acceptedMimeTypes_QList.push_back(acceptedMimeTypes_arr_i_QString);
-    }
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_ChooseFiles_IsBase(true);
-        QList<QString> _ret = vqwebenginepage->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-    return {};
-}
-
 void QWebEnginePage_JavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
@@ -1076,47 +952,10 @@ void QWebEnginePage_JavaScriptAlert(QWebEnginePage* self, const QUrl* securityOr
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEnginePage_OnJavaScriptAlert(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_JavaScriptAlert_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptAlert_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWebEnginePage_QBaseJavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
-    QString msg_QString = QString::fromUtf8(msg.data, msg.len);
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_JavaScriptAlert_IsBase(true);
-        vqwebenginepage->javaScriptAlert(*securityOrigin, msg_QString);
-    }
-}
-
 bool QWebEnginePage_JavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return vqwebenginepage->javaScriptConfirm(*securityOrigin, msg_QString);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEnginePage_OnJavaScriptConfirm(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_JavaScriptConfirm_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptConfirm_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QWebEnginePage_QBaseJavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
-    QString msg_QString = QString::fromUtf8(msg.data, msg.len);
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_JavaScriptConfirm_IsBase(true);
         return vqwebenginepage->javaScriptConfirm(*securityOrigin, msg_QString);
     }
     return {};
@@ -1131,46 +970,9 @@ void QWebEnginePage_JavaScriptConsoleMessage(QWebEnginePage* self, int level, co
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEnginePage_OnJavaScriptConsoleMessage(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_JavaScriptConsoleMessage_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptConsoleMessage_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWebEnginePage_QBaseJavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID) {
-    QString message_QString = QString::fromUtf8(message.data, message.len);
-    QString sourceID_QString = QString::fromUtf8(sourceID.data, sourceID.len);
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_JavaScriptConsoleMessage_IsBase(true);
-        vqwebenginepage->javaScriptConsoleMessage(static_cast<QWebEnginePage::JavaScriptConsoleMessageLevel>(level), message_QString, static_cast<int>(lineNumber), sourceID_QString);
-    }
-}
-
 bool QWebEnginePage_AcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return vqwebenginepage->acceptNavigationRequest(*url, static_cast<QWebEnginePage::NavigationType>(typeVal), isMainFrame);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEnginePage_OnAcceptNavigationRequest(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_AcceptNavigationRequest_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_AcceptNavigationRequest_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QWebEnginePage_QBaseAcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_AcceptNavigationRequest_IsBase(true);
         return vqwebenginepage->acceptNavigationRequest(*url, static_cast<QWebEnginePage::NavigationType>(typeVal), isMainFrame);
     }
     return {};
@@ -1239,6 +1041,229 @@ void QWebEnginePage_PrintToPdf2(QWebEnginePage* self, const libqt_string filePat
 void QWebEnginePage_PrintToPdf3(QWebEnginePage* self, const libqt_string filePath, const QPageLayout* layout, const QPageRanges* ranges) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString, *layout, *ranges);
+}
+
+// Base class handler implementation
+int QWebEnginePage_QBaseMetacall(QWebEnginePage* self, int param1, int param2, void** param3) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_Metacall_IsBase(true);
+        return vqwebenginepage->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QWebEnginePage::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnMetacall(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_Metacall_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWebEnginePage_QBaseTriggerAction(QWebEnginePage* self, int action, bool checked) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_TriggerAction_IsBase(true);
+        vqwebenginepage->triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
+    } else {
+        self->QWebEnginePage::triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnTriggerAction(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_TriggerAction_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_TriggerAction_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QWebEnginePage_QBaseEvent(QWebEnginePage* self, QEvent* param1) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_Event_IsBase(true);
+        return vqwebenginepage->event(param1);
+    } else {
+        return self->QWebEnginePage::event(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnEvent(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_Event_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QWebEnginePage* QWebEnginePage_QBaseCreateWindow(QWebEnginePage* self, int typeVal) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_CreateWindow_IsBase(true);
+        return vqwebenginepage->createWindow(static_cast<QWebEnginePage::WebWindowType>(typeVal));
+    } else {
+        return ((VirtualQWebEnginePage*)self)->createWindow(static_cast<QWebEnginePage::WebWindowType>(typeVal));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnCreateWindow(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_CreateWindow_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_CreateWindow_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    QList<QString> oldFiles_QList;
+    oldFiles_QList.reserve(oldFiles.len);
+    libqt_string* oldFiles_arr = static_cast<libqt_string*>(oldFiles.data);
+    for (size_t i = 0; i < oldFiles.len; ++i) {
+        QString oldFiles_arr_i_QString = QString::fromUtf8(oldFiles_arr[i].data, oldFiles_arr[i].len);
+        oldFiles_QList.push_back(oldFiles_arr_i_QString);
+    }
+    QList<QString> acceptedMimeTypes_QList;
+    acceptedMimeTypes_QList.reserve(acceptedMimeTypes.len);
+    libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(acceptedMimeTypes.data);
+    for (size_t i = 0; i < acceptedMimeTypes.len; ++i) {
+        QString acceptedMimeTypes_arr_i_QString = QString::fromUtf8(acceptedMimeTypes_arr[i].data, acceptedMimeTypes_arr[i].len);
+        acceptedMimeTypes_QList.push_back(acceptedMimeTypes_arr_i_QString);
+    }
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_ChooseFiles_IsBase(true);
+        QList<QString> _ret = vqwebenginepage->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    } else {
+        QList<QString> _ret = ((VirtualQWebEnginePage*)self)->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnChooseFiles(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_ChooseFiles_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_ChooseFiles_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWebEnginePage_QBaseJavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    QString msg_QString = QString::fromUtf8(msg.data, msg.len);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_JavaScriptAlert_IsBase(true);
+        vqwebenginepage->javaScriptAlert(*securityOrigin, msg_QString);
+    } else {
+        ((VirtualQWebEnginePage*)self)->javaScriptAlert(*securityOrigin, msg_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnJavaScriptAlert(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_JavaScriptAlert_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptAlert_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QWebEnginePage_QBaseJavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    QString msg_QString = QString::fromUtf8(msg.data, msg.len);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_JavaScriptConfirm_IsBase(true);
+        return vqwebenginepage->javaScriptConfirm(*securityOrigin, msg_QString);
+    } else {
+        return ((VirtualQWebEnginePage*)self)->javaScriptConfirm(*securityOrigin, msg_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnJavaScriptConfirm(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_JavaScriptConfirm_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptConfirm_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWebEnginePage_QBaseJavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    QString message_QString = QString::fromUtf8(message.data, message.len);
+    QString sourceID_QString = QString::fromUtf8(sourceID.data, sourceID.len);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_JavaScriptConsoleMessage_IsBase(true);
+        vqwebenginepage->javaScriptConsoleMessage(static_cast<QWebEnginePage::JavaScriptConsoleMessageLevel>(level), message_QString, static_cast<int>(lineNumber), sourceID_QString);
+    } else {
+        ((VirtualQWebEnginePage*)self)->javaScriptConsoleMessage(static_cast<QWebEnginePage::JavaScriptConsoleMessageLevel>(level), message_QString, static_cast<int>(lineNumber), sourceID_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnJavaScriptConsoleMessage(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_JavaScriptConsoleMessage_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptConsoleMessage_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QWebEnginePage_QBaseAcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_AcceptNavigationRequest_IsBase(true);
+        return vqwebenginepage->acceptNavigationRequest(*url, static_cast<QWebEnginePage::NavigationType>(typeVal), isMainFrame);
+    } else {
+        return ((VirtualQWebEnginePage*)self)->acceptNavigationRequest(*url, static_cast<QWebEnginePage::NavigationType>(typeVal), isMainFrame);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnAcceptNavigationRequest(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_AcceptNavigationRequest_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_AcceptNavigationRequest_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

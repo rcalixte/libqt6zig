@@ -85,25 +85,6 @@ int QDockWidget_Metacall(QDockWidget* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDockWidget_OnMetacall(QDockWidget* self, intptr_t slot) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_Metacall_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDockWidget_QBaseMetacall(QDockWidget* self, int param1, int param2, void** param3) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_Metacall_IsBase(true);
-        return vqdockwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDockWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QDockWidget_Tr(const char* s) {
     QString _ret = QDockWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -231,23 +212,6 @@ void QDockWidget_ChangeEvent(QDockWidget* self, QEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDockWidget_OnChangeEvent(QDockWidget* self, intptr_t slot) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QDockWidget_QBaseChangeEvent(QDockWidget* self, QEvent* event) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_ChangeEvent_IsBase(true);
-        vqdockwidget->changeEvent(event);
-    }
-}
-
 void QDockWidget_CloseEvent(QDockWidget* self, QCloseEvent* event) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
     if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
@@ -255,43 +219,9 @@ void QDockWidget_CloseEvent(QDockWidget* self, QCloseEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDockWidget_OnCloseEvent(QDockWidget* self, intptr_t slot) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_CloseEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_CloseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QDockWidget_QBaseCloseEvent(QDockWidget* self, QCloseEvent* event) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_CloseEvent_IsBase(true);
-        vqdockwidget->closeEvent(event);
-    }
-}
-
 void QDockWidget_PaintEvent(QDockWidget* self, QPaintEvent* event) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
     if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->paintEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QDockWidget_OnPaintEvent(QDockWidget* self, intptr_t slot) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_PaintEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QDockWidget_QBasePaintEvent(QDockWidget* self, QPaintEvent* event) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_PaintEvent_IsBase(true);
         vqdockwidget->paintEvent(event);
     }
 }
@@ -304,44 +234,9 @@ bool QDockWidget_Event(QDockWidget* self, QEvent* event) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDockWidget_OnEvent(QDockWidget* self, intptr_t slot) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_Event_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QDockWidget_QBaseEvent(QDockWidget* self, QEvent* event) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_Event_IsBase(true);
-        return vqdockwidget->event(event);
-    }
-    return {};
-}
-
 void QDockWidget_InitStyleOption(const QDockWidget* self, QStyleOptionDockWidget* option) {
     auto* vqdockwidget = dynamic_cast<const VirtualQDockWidget*>(self);
     if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->initStyleOption(option);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QDockWidget_OnInitStyleOption(const QDockWidget* self, intptr_t slot) {
-    auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_InitStyleOption_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QDockWidget_QBaseInitStyleOption(const QDockWidget* self, QStyleOptionDockWidget* option) {
-    auto* vqdockwidget = dynamic_cast<const VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        vqdockwidget->setQDockWidget_InitStyleOption_IsBase(true);
         vqdockwidget->initStyleOption(option);
     }
 }
@@ -368,6 +263,120 @@ libqt_string QDockWidget_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QDockWidget_QBaseMetacall(QDockWidget* self, int param1, int param2, void** param3) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_Metacall_IsBase(true);
+        return vqdockwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QDockWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDockWidget_OnMetacall(QDockWidget* self, intptr_t slot) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_Metacall_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QDockWidget_QBaseChangeEvent(QDockWidget* self, QEvent* event) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_ChangeEvent_IsBase(true);
+        vqdockwidget->changeEvent(event);
+    } else {
+        ((VirtualQDockWidget*)self)->changeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDockWidget_OnChangeEvent(QDockWidget* self, intptr_t slot) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QDockWidget_QBaseCloseEvent(QDockWidget* self, QCloseEvent* event) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_CloseEvent_IsBase(true);
+        vqdockwidget->closeEvent(event);
+    } else {
+        ((VirtualQDockWidget*)self)->closeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDockWidget_OnCloseEvent(QDockWidget* self, intptr_t slot) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_CloseEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_CloseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QDockWidget_QBasePaintEvent(QDockWidget* self, QPaintEvent* event) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_PaintEvent_IsBase(true);
+        vqdockwidget->paintEvent(event);
+    } else {
+        ((VirtualQDockWidget*)self)->paintEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDockWidget_OnPaintEvent(QDockWidget* self, intptr_t slot) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_PaintEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_PaintEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QDockWidget_QBaseEvent(QDockWidget* self, QEvent* event) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_Event_IsBase(true);
+        return vqdockwidget->event(event);
+    } else {
+        return ((VirtualQDockWidget*)self)->event(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDockWidget_OnEvent(QDockWidget* self, intptr_t slot) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_Event_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QDockWidget_QBaseInitStyleOption(const QDockWidget* self, QStyleOptionDockWidget* option) {
+    auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_InitStyleOption_IsBase(true);
+        vqdockwidget->initStyleOption(option);
+    } else {
+        ((VirtualQDockWidget*)self)->initStyleOption(option);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDockWidget_OnInitStyleOption(const QDockWidget* self, intptr_t slot) {
+    auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_InitStyleOption_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

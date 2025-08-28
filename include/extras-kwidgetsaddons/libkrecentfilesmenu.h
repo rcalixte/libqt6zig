@@ -61,8 +61,6 @@ KRecentFilesMenu* KRecentFilesMenu_new4(const libqt_string title, QWidget* paren
 QMetaObject* KRecentFilesMenu_MetaObject(const KRecentFilesMenu* self);
 void* KRecentFilesMenu_Metacast(KRecentFilesMenu* self, const char* param1);
 int KRecentFilesMenu_Metacall(KRecentFilesMenu* self, int param1, int param2, void** param3);
-void KRecentFilesMenu_OnMetacall(KRecentFilesMenu* self, intptr_t slot);
-int KRecentFilesMenu_QBaseMetacall(KRecentFilesMenu* self, int param1, int param2, void** param3);
 libqt_string KRecentFilesMenu_Tr(const char* s);
 libqt_string KRecentFilesMenu_Group(const KRecentFilesMenu* self);
 void KRecentFilesMenu_SetGroup(KRecentFilesMenu* self, const libqt_string group);
@@ -79,6 +77,8 @@ void KRecentFilesMenu_Connect_RecentFilesChanged(KRecentFilesMenu* self, intptr_
 libqt_string KRecentFilesMenu_Tr2(const char* s, const char* c);
 libqt_string KRecentFilesMenu_Tr3(const char* s, const char* c, int n);
 void KRecentFilesMenu_AddUrl2(KRecentFilesMenu* self, const QUrl* url, const libqt_string name);
+void KRecentFilesMenu_OnMetacall(KRecentFilesMenu* self, intptr_t slot);
+int KRecentFilesMenu_QBaseMetacall(KRecentFilesMenu* self, int param1, int param2, void** param3);
 QSize* KRecentFilesMenu_SizeHint(const KRecentFilesMenu* self);
 void KRecentFilesMenu_OnSizeHint(const KRecentFilesMenu* self, intptr_t slot);
 QSize* KRecentFilesMenu_QBaseSizeHint(const KRecentFilesMenu* self);

@@ -68,25 +68,6 @@ int KPageView_Metacall(KPageView* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPageView_OnMetacall(KPageView* self, intptr_t slot) {
-    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        vkpageview->setKPageView_Metacall_Callback(reinterpret_cast<VirtualKPageView::KPageView_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KPageView_QBaseMetacall(KPageView* self, int param1, int param2, void** param3) {
-    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        vkpageview->setKPageView_Metacall_IsBase(true);
-        return vkpageview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPageView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KPageView_Tr(const char* s) {
     QString _ret = KPageView::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -176,24 +157,6 @@ QAbstractItemView* KPageView_CreateView(KPageView* self) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPageView_OnCreateView(KPageView* self, intptr_t slot) {
-    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        vkpageview->setKPageView_CreateView_Callback(reinterpret_cast<VirtualKPageView::KPageView_CreateView_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QAbstractItemView* KPageView_QBaseCreateView(KPageView* self) {
-    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        vkpageview->setKPageView_CreateView_IsBase(true);
-        return vkpageview->createView();
-    }
-    return {};
-}
-
 bool KPageView_ShowPageHeader(const KPageView* self) {
     auto* vkpageview = dynamic_cast<const VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
@@ -202,45 +165,9 @@ bool KPageView_ShowPageHeader(const KPageView* self) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPageView_OnShowPageHeader(const KPageView* self, intptr_t slot) {
-    auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        vkpageview->setKPageView_ShowPageHeader_Callback(reinterpret_cast<VirtualKPageView::KPageView_ShowPageHeader_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KPageView_QBaseShowPageHeader(const KPageView* self) {
-    auto* vkpageview = dynamic_cast<const VirtualKPageView*>(self);
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        vkpageview->setKPageView_ShowPageHeader_IsBase(true);
-        return vkpageview->showPageHeader();
-    }
-    return {};
-}
-
 int KPageView_ViewPosition(const KPageView* self) {
     auto* vkpageview = dynamic_cast<const VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
-        return static_cast<int>(vkpageview->viewPosition());
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KPageView_OnViewPosition(const KPageView* self, intptr_t slot) {
-    auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        vkpageview->setKPageView_ViewPosition_Callback(reinterpret_cast<VirtualKPageView::KPageView_ViewPosition_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KPageView_QBaseViewPosition(const KPageView* self) {
-    auto* vkpageview = dynamic_cast<const VirtualKPageView*>(self);
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        vkpageview->setKPageView_ViewPosition_IsBase(true);
         return static_cast<int>(vkpageview->viewPosition());
     }
     return {};
@@ -268,6 +195,82 @@ libqt_string KPageView_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KPageView_QBaseMetacall(KPageView* self, int param1, int param2, void** param3) {
+    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
+    if (vkpageview && vkpageview->isVirtualKPageView) {
+        vkpageview->setKPageView_Metacall_IsBase(true);
+        return vkpageview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KPageView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageView_OnMetacall(KPageView* self, intptr_t slot) {
+    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
+    if (vkpageview && vkpageview->isVirtualKPageView) {
+        vkpageview->setKPageView_Metacall_Callback(reinterpret_cast<VirtualKPageView::KPageView_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QAbstractItemView* KPageView_QBaseCreateView(KPageView* self) {
+    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
+    if (vkpageview && vkpageview->isVirtualKPageView) {
+        vkpageview->setKPageView_CreateView_IsBase(true);
+        return vkpageview->createView();
+    } else {
+        return ((VirtualKPageView*)self)->createView();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageView_OnCreateView(KPageView* self, intptr_t slot) {
+    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
+    if (vkpageview && vkpageview->isVirtualKPageView) {
+        vkpageview->setKPageView_CreateView_Callback(reinterpret_cast<VirtualKPageView::KPageView_CreateView_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KPageView_QBaseShowPageHeader(const KPageView* self) {
+    auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
+    if (vkpageview && vkpageview->isVirtualKPageView) {
+        vkpageview->setKPageView_ShowPageHeader_IsBase(true);
+        return vkpageview->showPageHeader();
+    } else {
+        return ((VirtualKPageView*)self)->showPageHeader();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageView_OnShowPageHeader(const KPageView* self, intptr_t slot) {
+    auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
+    if (vkpageview && vkpageview->isVirtualKPageView) {
+        vkpageview->setKPageView_ShowPageHeader_Callback(reinterpret_cast<VirtualKPageView::KPageView_ShowPageHeader_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int KPageView_QBaseViewPosition(const KPageView* self) {
+    auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
+    if (vkpageview && vkpageview->isVirtualKPageView) {
+        vkpageview->setKPageView_ViewPosition_IsBase(true);
+        return static_cast<int>(vkpageview->viewPosition());
+    } else {
+        return static_cast<int>(((VirtualKPageView*)self)->viewPosition());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageView_OnViewPosition(const KPageView* self, intptr_t slot) {
+    auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
+    if (vkpageview && vkpageview->isVirtualKPageView) {
+        vkpageview->setKPageView_ViewPosition_Callback(reinterpret_cast<VirtualKPageView::KPageView_ViewPosition_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

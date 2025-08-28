@@ -43,25 +43,6 @@ int QGridLayout_Metacall(QGridLayout* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnMetacall(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Metacall_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGridLayout_QBaseMetacall(QGridLayout* self, int param1, int param2, void** param3) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Metacall_IsBase(true);
-        return vqgridlayout->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGridLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGridLayout_Tr(const char* s) {
     QString _ret = QGridLayout::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -83,25 +64,6 @@ QSize* QGridLayout_SizeHint(const QGridLayout* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnSizeHint(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SizeHint_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QGridLayout_QBaseSizeHint(const QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SizeHint_IsBase(true);
-        return new QSize(vqgridlayout->sizeHint());
-    } else {
-        return new QSize(((VirtualQGridLayout*)self)->sizeHint());
-    }
-}
-
 QSize* QGridLayout_MinimumSize(const QGridLayout* self) {
     auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
@@ -111,48 +73,10 @@ QSize* QGridLayout_MinimumSize(const QGridLayout* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnMinimumSize(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MinimumSize_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MinimumSize_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QGridLayout_QBaseMinimumSize(const QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MinimumSize_IsBase(true);
-        return new QSize(vqgridlayout->minimumSize());
-    } else {
-        return new QSize(((VirtualQGridLayout*)self)->minimumSize());
-    }
-}
-
 QSize* QGridLayout_MaximumSize(const QGridLayout* self) {
     auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
         return new QSize(self->maximumSize());
-    } else {
-        return new QSize(((VirtualQGridLayout*)self)->maximumSize());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnMaximumSize(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MaximumSize_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MaximumSize_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QGridLayout_QBaseMaximumSize(const QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MaximumSize_IsBase(true);
-        return new QSize(vqgridlayout->maximumSize());
     } else {
         return new QSize(((VirtualQGridLayout*)self)->maximumSize());
     }
@@ -183,48 +107,10 @@ void QGridLayout_SetSpacing(QGridLayout* self, int spacing) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnSetSpacing(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SetSpacing_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SetSpacing_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGridLayout_QBaseSetSpacing(QGridLayout* self, int spacing) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SetSpacing_IsBase(true);
-        vqgridlayout->setSpacing(static_cast<int>(spacing));
-    } else {
-        ((VirtualQGridLayout*)self)->setSpacing(static_cast<int>(spacing));
-    }
-}
-
 int QGridLayout_Spacing(const QGridLayout* self) {
     auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
         return self->spacing();
-    } else {
-        return ((VirtualQGridLayout*)self)->spacing();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnSpacing(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Spacing_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Spacing_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGridLayout_QBaseSpacing(const QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Spacing_IsBase(true);
-        return vqgridlayout->spacing();
     } else {
         return ((VirtualQGridLayout*)self)->spacing();
     }
@@ -283,48 +169,10 @@ bool QGridLayout_HasHeightForWidth(const QGridLayout* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnHasHeightForWidth(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_HasHeightForWidth_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_HasHeightForWidth_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGridLayout_QBaseHasHeightForWidth(const QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_HasHeightForWidth_IsBase(true);
-        return vqgridlayout->hasHeightForWidth();
-    } else {
-        return ((VirtualQGridLayout*)self)->hasHeightForWidth();
-    }
-}
-
 int QGridLayout_HeightForWidth(const QGridLayout* self, int param1) {
     auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
         return self->heightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQGridLayout*)self)->heightForWidth(static_cast<int>(param1));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnHeightForWidth(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_HeightForWidth_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_HeightForWidth_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGridLayout_QBaseHeightForWidth(const QGridLayout* self, int param1) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_HeightForWidth_IsBase(true);
-        return vqgridlayout->heightForWidth(static_cast<int>(param1));
     } else {
         return ((VirtualQGridLayout*)self)->heightForWidth(static_cast<int>(param1));
     }
@@ -339,25 +187,6 @@ int QGridLayout_MinimumHeightForWidth(const QGridLayout* self, int param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnMinimumHeightForWidth(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MinimumHeightForWidth_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MinimumHeightForWidth_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGridLayout_QBaseMinimumHeightForWidth(const QGridLayout* self, int param1) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MinimumHeightForWidth_IsBase(true);
-        return vqgridlayout->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQGridLayout*)self)->minimumHeightForWidth(static_cast<int>(param1));
-    }
-}
-
 int QGridLayout_ExpandingDirections(const QGridLayout* self) {
     auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
@@ -367,48 +196,10 @@ int QGridLayout_ExpandingDirections(const QGridLayout* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnExpandingDirections(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ExpandingDirections_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ExpandingDirections_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGridLayout_QBaseExpandingDirections(const QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ExpandingDirections_IsBase(true);
-        return static_cast<int>(vqgridlayout->expandingDirections());
-    } else {
-        return static_cast<int>(((VirtualQGridLayout*)self)->expandingDirections());
-    }
-}
-
 void QGridLayout_Invalidate(QGridLayout* self) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
         self->invalidate();
-    } else {
-        ((VirtualQGridLayout*)self)->invalidate();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnInvalidate(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Invalidate_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Invalidate_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGridLayout_QBaseInvalidate(QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Invalidate_IsBase(true);
-        vqgridlayout->invalidate();
     } else {
         ((VirtualQGridLayout*)self)->invalidate();
     }
@@ -451,25 +242,6 @@ QLayoutItem* QGridLayout_ItemAt(const QGridLayout* self, int index) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnItemAt(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ItemAt_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ItemAt_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QLayoutItem* QGridLayout_QBaseItemAt(const QGridLayout* self, int index) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ItemAt_IsBase(true);
-        return vqgridlayout->itemAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQGridLayout*)self)->itemAt(static_cast<int>(index));
-    }
-}
-
 QLayoutItem* QGridLayout_ItemAtPosition(const QGridLayout* self, int row, int column) {
     return self->itemAtPosition(static_cast<int>(row), static_cast<int>(column));
 }
@@ -478,25 +250,6 @@ QLayoutItem* QGridLayout_TakeAt(QGridLayout* self, int index) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
         return self->takeAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQGridLayout*)self)->takeAt(static_cast<int>(index));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnTakeAt(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_TakeAt_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_TakeAt_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QLayoutItem* QGridLayout_QBaseTakeAt(QGridLayout* self, int index) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_TakeAt_IsBase(true);
-        return vqgridlayout->takeAt(static_cast<int>(index));
     } else {
         return ((VirtualQGridLayout*)self)->takeAt(static_cast<int>(index));
     }
@@ -511,48 +264,10 @@ int QGridLayout_Count(const QGridLayout* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnCount(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Count_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Count_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGridLayout_QBaseCount(const QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Count_IsBase(true);
-        return vqgridlayout->count();
-    } else {
-        return ((VirtualQGridLayout*)self)->count();
-    }
-}
-
 void QGridLayout_SetGeometry(QGridLayout* self, const QRect* geometry) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
         self->setGeometry(*geometry);
-    } else {
-        ((VirtualQGridLayout*)self)->setGeometry(*geometry);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnSetGeometry(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SetGeometry_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SetGeometry_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGridLayout_QBaseSetGeometry(QGridLayout* self, const QRect* geometry) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SetGeometry_IsBase(true);
-        vqgridlayout->setGeometry(*geometry);
     } else {
         ((VirtualQGridLayout*)self)->setGeometry(*geometry);
     }
@@ -573,23 +288,6 @@ void QGridLayout_GetItemPosition(const QGridLayout* self, int idx, int* row, int
 void QGridLayout_AddItem2(QGridLayout* self, QLayoutItem* param1) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->addItem(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGridLayout_OnAddItem2(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_AddItem2_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_AddItem2_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGridLayout_QBaseAddItem2(QGridLayout* self, QLayoutItem* param1) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_AddItem2_IsBase(true);
         vqgridlayout->addItem(param1);
     }
 }
@@ -644,6 +342,310 @@ void QGridLayout_AddItem5(QGridLayout* self, QLayoutItem* item, int row, int col
 
 void QGridLayout_AddItem6(QGridLayout* self, QLayoutItem* item, int row, int column, int rowSpan, int columnSpan, int param6) {
     self->addItem(item, static_cast<int>(row), static_cast<int>(column), static_cast<int>(rowSpan), static_cast<int>(columnSpan), static_cast<QFlags<Qt::AlignmentFlag>>(param6));
+}
+
+// Base class handler implementation
+int QGridLayout_QBaseMetacall(QGridLayout* self, int param1, int param2, void** param3) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Metacall_IsBase(true);
+        return vqgridlayout->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGridLayout::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnMetacall(QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Metacall_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QGridLayout_QBaseSizeHint(const QGridLayout* self) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_SizeHint_IsBase(true);
+        return new QSize(vqgridlayout->sizeHint());
+    } else {
+        return new QSize(((VirtualQGridLayout*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnSizeHint(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_SizeHint_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QGridLayout_QBaseMinimumSize(const QGridLayout* self) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_MinimumSize_IsBase(true);
+        return new QSize(vqgridlayout->minimumSize());
+    } else {
+        return new QSize(((VirtualQGridLayout*)self)->minimumSize());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnMinimumSize(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_MinimumSize_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MinimumSize_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QGridLayout_QBaseMaximumSize(const QGridLayout* self) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_MaximumSize_IsBase(true);
+        return new QSize(vqgridlayout->maximumSize());
+    } else {
+        return new QSize(((VirtualQGridLayout*)self)->maximumSize());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnMaximumSize(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_MaximumSize_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MaximumSize_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGridLayout_QBaseSetSpacing(QGridLayout* self, int spacing) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_SetSpacing_IsBase(true);
+        vqgridlayout->setSpacing(static_cast<int>(spacing));
+    } else {
+        self->QGridLayout::setSpacing(static_cast<int>(spacing));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnSetSpacing(QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_SetSpacing_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SetSpacing_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGridLayout_QBaseSpacing(const QGridLayout* self) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Spacing_IsBase(true);
+        return vqgridlayout->spacing();
+    } else {
+        return self->QGridLayout::spacing();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnSpacing(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Spacing_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Spacing_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGridLayout_QBaseHasHeightForWidth(const QGridLayout* self) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_HasHeightForWidth_IsBase(true);
+        return vqgridlayout->hasHeightForWidth();
+    } else {
+        return self->QGridLayout::hasHeightForWidth();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnHasHeightForWidth(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_HasHeightForWidth_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_HasHeightForWidth_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGridLayout_QBaseHeightForWidth(const QGridLayout* self, int param1) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_HeightForWidth_IsBase(true);
+        return vqgridlayout->heightForWidth(static_cast<int>(param1));
+    } else {
+        return self->QGridLayout::heightForWidth(static_cast<int>(param1));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnHeightForWidth(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_HeightForWidth_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_HeightForWidth_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGridLayout_QBaseMinimumHeightForWidth(const QGridLayout* self, int param1) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_MinimumHeightForWidth_IsBase(true);
+        return vqgridlayout->minimumHeightForWidth(static_cast<int>(param1));
+    } else {
+        return self->QGridLayout::minimumHeightForWidth(static_cast<int>(param1));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnMinimumHeightForWidth(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_MinimumHeightForWidth_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MinimumHeightForWidth_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGridLayout_QBaseExpandingDirections(const QGridLayout* self) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_ExpandingDirections_IsBase(true);
+        return static_cast<int>(vqgridlayout->expandingDirections());
+    } else {
+        return static_cast<int>(self->QGridLayout::expandingDirections());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnExpandingDirections(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_ExpandingDirections_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ExpandingDirections_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGridLayout_QBaseInvalidate(QGridLayout* self) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Invalidate_IsBase(true);
+        vqgridlayout->invalidate();
+    } else {
+        self->QGridLayout::invalidate();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnInvalidate(QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Invalidate_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Invalidate_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QLayoutItem* QGridLayout_QBaseItemAt(const QGridLayout* self, int index) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_ItemAt_IsBase(true);
+        return vqgridlayout->itemAt(static_cast<int>(index));
+    } else {
+        return self->QGridLayout::itemAt(static_cast<int>(index));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnItemAt(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_ItemAt_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ItemAt_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QLayoutItem* QGridLayout_QBaseTakeAt(QGridLayout* self, int index) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_TakeAt_IsBase(true);
+        return vqgridlayout->takeAt(static_cast<int>(index));
+    } else {
+        return self->QGridLayout::takeAt(static_cast<int>(index));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnTakeAt(QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_TakeAt_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_TakeAt_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGridLayout_QBaseCount(const QGridLayout* self) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Count_IsBase(true);
+        return vqgridlayout->count();
+    } else {
+        return self->QGridLayout::count();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnCount(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Count_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Count_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGridLayout_QBaseSetGeometry(QGridLayout* self, const QRect* geometry) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_SetGeometry_IsBase(true);
+        vqgridlayout->setGeometry(*geometry);
+    } else {
+        self->QGridLayout::setGeometry(*geometry);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnSetGeometry(QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_SetGeometry_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SetGeometry_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGridLayout_QBaseAddItem2(QGridLayout* self, QLayoutItem* param1) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_AddItem2_IsBase(true);
+        vqgridlayout->addItem(param1);
+    } else {
+        ((VirtualQGridLayout*)self)->addItem(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnAddItem2(QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_AddItem2_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_AddItem2_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

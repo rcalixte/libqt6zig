@@ -33,8 +33,6 @@ QPdfPageRenderer* QPdfPageRenderer_new2(QObject* parent);
 QMetaObject* QPdfPageRenderer_MetaObject(const QPdfPageRenderer* self);
 void* QPdfPageRenderer_Metacast(QPdfPageRenderer* self, const char* param1);
 int QPdfPageRenderer_Metacall(QPdfPageRenderer* self, int param1, int param2, void** param3);
-void QPdfPageRenderer_OnMetacall(QPdfPageRenderer* self, intptr_t slot);
-int QPdfPageRenderer_QBaseMetacall(QPdfPageRenderer* self, int param1, int param2, void** param3);
 libqt_string QPdfPageRenderer_Tr(const char* s);
 int QPdfPageRenderer_RenderMode(const QPdfPageRenderer* self);
 void QPdfPageRenderer_SetRenderMode(QPdfPageRenderer* self, int mode);
@@ -50,6 +48,8 @@ void QPdfPageRenderer_Connect_PageRendered(QPdfPageRenderer* self, intptr_t slot
 libqt_string QPdfPageRenderer_Tr2(const char* s, const char* c);
 libqt_string QPdfPageRenderer_Tr3(const char* s, const char* c, int n);
 unsigned long long QPdfPageRenderer_RequestPage3(QPdfPageRenderer* self, int pageNumber, QSize* imageSize, QPdfDocumentRenderOptions* options);
+void QPdfPageRenderer_OnMetacall(QPdfPageRenderer* self, intptr_t slot);
+int QPdfPageRenderer_QBaseMetacall(QPdfPageRenderer* self, int param1, int param2, void** param3);
 bool QPdfPageRenderer_Event(QPdfPageRenderer* self, QEvent* event);
 void QPdfPageRenderer_OnEvent(QPdfPageRenderer* self, intptr_t slot);
 bool QPdfPageRenderer_QBaseEvent(QPdfPageRenderer* self, QEvent* event);

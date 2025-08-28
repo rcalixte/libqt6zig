@@ -71,25 +71,6 @@ int QPolarChart_Metacall(QPolarChart* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPolarChart_OnMetacall(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Metacall_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPolarChart_QBaseMetacall(QPolarChart* self, int param1, int param2, void** param3) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Metacall_IsBase(true);
-        return vqpolarchart->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPolarChart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPolarChart_Tr(const char* s) {
     QString _ret = QPolarChart::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -171,6 +152,25 @@ libqt_list /* of QAbstractAxis* */ QPolarChart_Axes2(const QPolarChart* self, in
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+int QPolarChart_QBaseMetacall(QPolarChart* self, int param1, int param2, void** param3) {
+    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+        vqpolarchart->setQPolarChart_Metacall_IsBase(true);
+        return vqpolarchart->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPolarChart::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPolarChart_OnMetacall(QPolarChart* self, intptr_t slot) {
+    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+        vqpolarchart->setQPolarChart_Metacall_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

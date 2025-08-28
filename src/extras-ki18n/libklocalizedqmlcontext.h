@@ -31,8 +31,6 @@ KLocalizedQmlContext* KLocalizedQmlContext_new2(QObject* parent);
 QMetaObject* KLocalizedQmlContext_MetaObject(const KLocalizedQmlContext* self);
 void* KLocalizedQmlContext_Metacast(KLocalizedQmlContext* self, const char* param1);
 int KLocalizedQmlContext_Metacall(KLocalizedQmlContext* self, int param1, int param2, void** param3);
-void KLocalizedQmlContext_OnMetacall(KLocalizedQmlContext* self, intptr_t slot);
-int KLocalizedQmlContext_QBaseMetacall(KLocalizedQmlContext* self, int param1, int param2, void** param3);
 libqt_string KLocalizedQmlContext_Tr(const char* s);
 libqt_string KLocalizedQmlContext_TranslationDomain(const KLocalizedQmlContext* self);
 void KLocalizedQmlContext_SetTranslationDomain(KLocalizedQmlContext* self, const libqt_string domain);
@@ -216,6 +214,8 @@ libqt_string KLocalizedQmlContext_Xi18ndcp11(const KLocalizedQmlContext* self, c
 libqt_string KLocalizedQmlContext_Xi18ndcp12(const KLocalizedQmlContext* self, const libqt_string domain, const libqt_string context, const libqt_string singular, const libqt_string plural, const QVariant* param1, const QVariant* param2, const QVariant* param3, const QVariant* param4, const QVariant* param5, const QVariant* param6, const QVariant* param7, const QVariant* param8);
 libqt_string KLocalizedQmlContext_Xi18ndcp13(const KLocalizedQmlContext* self, const libqt_string domain, const libqt_string context, const libqt_string singular, const libqt_string plural, const QVariant* param1, const QVariant* param2, const QVariant* param3, const QVariant* param4, const QVariant* param5, const QVariant* param6, const QVariant* param7, const QVariant* param8, const QVariant* param9);
 libqt_string KLocalizedQmlContext_Xi18ndcp14(const KLocalizedQmlContext* self, const libqt_string domain, const libqt_string context, const libqt_string singular, const libqt_string plural, const QVariant* param1, const QVariant* param2, const QVariant* param3, const QVariant* param4, const QVariant* param5, const QVariant* param6, const QVariant* param7, const QVariant* param8, const QVariant* param9, const QVariant* param10);
+void KLocalizedQmlContext_OnMetacall(KLocalizedQmlContext* self, intptr_t slot);
+int KLocalizedQmlContext_QBaseMetacall(KLocalizedQmlContext* self, int param1, int param2, void** param3);
 bool KLocalizedQmlContext_Event(KLocalizedQmlContext* self, QEvent* event);
 void KLocalizedQmlContext_OnEvent(KLocalizedQmlContext* self, intptr_t slot);
 bool KLocalizedQmlContext_QBaseEvent(KLocalizedQmlContext* self, QEvent* event);

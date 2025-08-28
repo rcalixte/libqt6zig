@@ -65,25 +65,6 @@ int QProgressBar_Metacall(QProgressBar* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QProgressBar_OnMetacall(QProgressBar* self, intptr_t slot) {
-    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_Metacall_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QProgressBar_QBaseMetacall(QProgressBar* self, int param1, int param2, void** param3) {
-    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_Metacall_IsBase(true);
-        return vqprogressbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQProgressBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QProgressBar_Tr(const char* s) {
     QString _ret = QProgressBar::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -133,41 +114,6 @@ libqt_string QProgressBar_Text(const QProgressBar* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QProgressBar_OnText(const QProgressBar* self, intptr_t slot) {
-    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_Text_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Text_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_string QProgressBar_QBaseText(const QProgressBar* self) {
-    auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_Text_IsBase(true);
-        QString _ret = vqprogressbar->text();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQProgressBar*)self)->text();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
 void QProgressBar_SetTextVisible(QProgressBar* self, bool visible) {
     self->setTextVisible(visible);
 }
@@ -193,48 +139,10 @@ QSize* QProgressBar_SizeHint(const QProgressBar* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QProgressBar_OnSizeHint(const QProgressBar* self, intptr_t slot) {
-    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_SizeHint_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QProgressBar_QBaseSizeHint(const QProgressBar* self) {
-    auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_SizeHint_IsBase(true);
-        return new QSize(vqprogressbar->sizeHint());
-    } else {
-        return new QSize(((VirtualQProgressBar*)self)->sizeHint());
-    }
-}
-
 QSize* QProgressBar_MinimumSizeHint(const QProgressBar* self) {
     auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQProgressBar*)self)->minimumSizeHint());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QProgressBar_OnMinimumSizeHint(const QProgressBar* self, intptr_t slot) {
-    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QProgressBar_QBaseMinimumSizeHint(const QProgressBar* self) {
-    auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vqprogressbar->minimumSizeHint());
     } else {
         return new QSize(((VirtualQProgressBar*)self)->minimumSizeHint());
     }
@@ -325,24 +233,6 @@ bool QProgressBar_Event(QProgressBar* self, QEvent* e) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QProgressBar_OnEvent(QProgressBar* self, intptr_t slot) {
-    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_Event_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QProgressBar_QBaseEvent(QProgressBar* self, QEvent* e) {
-    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_Event_IsBase(true);
-        return vqprogressbar->event(e);
-    }
-    return {};
-}
-
 void QProgressBar_PaintEvent(QProgressBar* self, QPaintEvent* param1) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
@@ -350,43 +240,9 @@ void QProgressBar_PaintEvent(QProgressBar* self, QPaintEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QProgressBar_OnPaintEvent(QProgressBar* self, intptr_t slot) {
-    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_PaintEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QProgressBar_QBasePaintEvent(QProgressBar* self, QPaintEvent* param1) {
-    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_PaintEvent_IsBase(true);
-        vqprogressbar->paintEvent(param1);
-    }
-}
-
 void QProgressBar_InitStyleOption(const QProgressBar* self, QStyleOptionProgressBar* option) {
     auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->initStyleOption(option);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QProgressBar_OnInitStyleOption(const QProgressBar* self, intptr_t slot) {
-    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_InitStyleOption_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_InitStyleOption_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QProgressBar_QBaseInitStyleOption(const QProgressBar* self, QStyleOptionProgressBar* option) {
-    auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        vqprogressbar->setQProgressBar_InitStyleOption_IsBase(true);
         vqprogressbar->initStyleOption(option);
     }
 }
@@ -413,6 +269,155 @@ libqt_string QProgressBar_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QProgressBar_QBaseMetacall(QProgressBar* self, int param1, int param2, void** param3) {
+    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_Metacall_IsBase(true);
+        return vqprogressbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QProgressBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnMetacall(QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_Metacall_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_string QProgressBar_QBaseText(const QProgressBar* self) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_Text_IsBase(true);
+        QString _ret = vqprogressbar->text();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = self->QProgressBar::text();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnText(const QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_Text_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Text_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QProgressBar_QBaseSizeHint(const QProgressBar* self) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_SizeHint_IsBase(true);
+        return new QSize(vqprogressbar->sizeHint());
+    } else {
+        return new QSize(((VirtualQProgressBar*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnSizeHint(const QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_SizeHint_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_SizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QProgressBar_QBaseMinimumSizeHint(const QProgressBar* self) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_MinimumSizeHint_IsBase(true);
+        return new QSize(vqprogressbar->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQProgressBar*)self)->minimumSizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnMinimumSizeHint(const QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QProgressBar_QBaseEvent(QProgressBar* self, QEvent* e) {
+    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_Event_IsBase(true);
+        return vqprogressbar->event(e);
+    } else {
+        return ((VirtualQProgressBar*)self)->event(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnEvent(QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_Event_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QProgressBar_QBasePaintEvent(QProgressBar* self, QPaintEvent* param1) {
+    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_PaintEvent_IsBase(true);
+        vqprogressbar->paintEvent(param1);
+    } else {
+        ((VirtualQProgressBar*)self)->paintEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnPaintEvent(QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_PaintEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_PaintEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QProgressBar_QBaseInitStyleOption(const QProgressBar* self, QStyleOptionProgressBar* option) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_InitStyleOption_IsBase(true);
+        vqprogressbar->initStyleOption(option);
+    } else {
+        ((VirtualQProgressBar*)self)->initStyleOption(option);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnInitStyleOption(const QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_InitStyleOption_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_InitStyleOption_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

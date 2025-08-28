@@ -48,25 +48,6 @@ int QSystemTrayIcon_Metacall(QSystemTrayIcon* self, int param1, int param2, void
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSystemTrayIcon_OnMetacall(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_Metacall_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSystemTrayIcon_QBaseMetacall(QSystemTrayIcon* self, int param1, int param2, void** param3) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_Metacall_IsBase(true);
-        return vqsystemtrayicon->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QSystemTrayIcon_Tr(const char* s) {
     QString _ret = QSystemTrayIcon::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -183,24 +164,6 @@ bool QSystemTrayIcon_Event(QSystemTrayIcon* self, QEvent* event) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSystemTrayIcon_OnEvent(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_Event_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QSystemTrayIcon_QBaseEvent(QSystemTrayIcon* self, QEvent* event) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_Event_IsBase(true);
-        return vqsystemtrayicon->event(event);
-    }
-    return {};
-}
-
 libqt_string QSystemTrayIcon_Tr2(const char* s, const char* c) {
     QString _ret = QSystemTrayIcon::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -241,6 +204,44 @@ void QSystemTrayIcon_ShowMessage42(QSystemTrayIcon* self, const libqt_string tit
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
     self->showMessage(title_QString, msg_QString, static_cast<QSystemTrayIcon::MessageIcon>(icon), static_cast<int>(msecs));
+}
+
+// Base class handler implementation
+int QSystemTrayIcon_QBaseMetacall(QSystemTrayIcon* self, int param1, int param2, void** param3) {
+    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        vqsystemtrayicon->setQSystemTrayIcon_Metacall_IsBase(true);
+        return vqsystemtrayicon->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QSystemTrayIcon::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSystemTrayIcon_OnMetacall(QSystemTrayIcon* self, intptr_t slot) {
+    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        vqsystemtrayicon->setQSystemTrayIcon_Metacall_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QSystemTrayIcon_QBaseEvent(QSystemTrayIcon* self, QEvent* event) {
+    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        vqsystemtrayicon->setQSystemTrayIcon_Event_IsBase(true);
+        return vqsystemtrayicon->event(event);
+    } else {
+        return ((VirtualQSystemTrayIcon*)self)->event(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSystemTrayIcon_OnEvent(QSystemTrayIcon* self, intptr_t slot) {
+    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        vqsystemtrayicon->setQSystemTrayIcon_Event_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Event_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

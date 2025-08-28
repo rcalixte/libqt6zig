@@ -48,25 +48,6 @@ int QGraphicsEffect_Metacall(QGraphicsEffect* self, int param1, int param2, void
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEffect_OnMetacall(QGraphicsEffect* self, intptr_t slot) {
-    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        vqgraphicseffect->setQGraphicsEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsEffect_QBaseMetacall(QGraphicsEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        vqgraphicseffect->setQGraphicsEffect_Metacall_IsBase(true);
-        return vqgraphicseffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsEffect_Tr(const char* s) {
     QString _ret = QGraphicsEffect::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -83,25 +64,6 @@ QRectF* QGraphicsEffect_BoundingRectFor(const QGraphicsEffect* self, const QRect
     auto* vqgraphicseffect = dynamic_cast<const VirtualQGraphicsEffect*>(self);
     if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
         return new QRectF(self->boundingRectFor(*sourceRect));
-    } else {
-        return new QRectF(((VirtualQGraphicsEffect*)self)->boundingRectFor(*sourceRect));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEffect_OnBoundingRectFor(const QGraphicsEffect* self, intptr_t slot) {
-    auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        vqgraphicseffect->setQGraphicsEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_BoundingRectFor_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsEffect_QBaseBoundingRectFor(const QGraphicsEffect* self, const QRectF* sourceRect) {
-    auto* vqgraphicseffect = dynamic_cast<const VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        vqgraphicseffect->setQGraphicsEffect_BoundingRectFor_IsBase(true);
-        return new QRectF(vqgraphicseffect->boundingRectFor(*sourceRect));
     } else {
         return new QRectF(((VirtualQGraphicsEffect*)self)->boundingRectFor(*sourceRect));
     }
@@ -142,43 +104,9 @@ void QGraphicsEffect_Draw(QGraphicsEffect* self, QPainter* painter) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEffect_OnDraw(QGraphicsEffect* self, intptr_t slot) {
-    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        vqgraphicseffect->setQGraphicsEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Draw_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsEffect_QBaseDraw(QGraphicsEffect* self, QPainter* painter) {
-    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        vqgraphicseffect->setQGraphicsEffect_Draw_IsBase(true);
-        vqgraphicseffect->draw(painter);
-    }
-}
-
 void QGraphicsEffect_SourceChanged(QGraphicsEffect* self, int flags) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
     if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        vqgraphicseffect->sourceChanged(static_cast<QGraphicsEffect::ChangeFlags>(flags));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsEffect_OnSourceChanged(QGraphicsEffect* self, intptr_t slot) {
-    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        vqgraphicseffect->setQGraphicsEffect_SourceChanged_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourceChanged_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsEffect_QBaseSourceChanged(QGraphicsEffect* self, int flags) {
-    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        vqgraphicseffect->setQGraphicsEffect_SourceChanged_IsBase(true);
         vqgraphicseffect->sourceChanged(static_cast<QGraphicsEffect::ChangeFlags>(flags));
     }
 }
@@ -205,6 +133,82 @@ libqt_string QGraphicsEffect_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsEffect_QBaseMetacall(QGraphicsEffect* self, int param1, int param2, void** param3) {
+    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_Metacall_IsBase(true);
+        return vqgraphicseffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsEffect::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEffect_OnMetacall(QGraphicsEffect* self, intptr_t slot) {
+    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRectF* QGraphicsEffect_QBaseBoundingRectFor(const QGraphicsEffect* self, const QRectF* sourceRect) {
+    auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_BoundingRectFor_IsBase(true);
+        return new QRectF(vqgraphicseffect->boundingRectFor(*sourceRect));
+    } else {
+        return new QRectF(((VirtualQGraphicsEffect*)self)->boundingRectFor(*sourceRect));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEffect_OnBoundingRectFor(const QGraphicsEffect* self, intptr_t slot) {
+    auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_BoundingRectFor_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsEffect_QBaseDraw(QGraphicsEffect* self, QPainter* painter) {
+    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_Draw_IsBase(true);
+        vqgraphicseffect->draw(painter);
+    } else {
+        ((VirtualQGraphicsEffect*)self)->draw(painter);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEffect_OnDraw(QGraphicsEffect* self, intptr_t slot) {
+    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Draw_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsEffect_QBaseSourceChanged(QGraphicsEffect* self, int flags) {
+    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_SourceChanged_IsBase(true);
+        vqgraphicseffect->sourceChanged(static_cast<QGraphicsEffect::ChangeFlags>(flags));
+    } else {
+        ((VirtualQGraphicsEffect*)self)->sourceChanged(static_cast<QGraphicsEffect::ChangeFlags>(flags));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEffect_OnSourceChanged(QGraphicsEffect* self, intptr_t slot) {
+    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_SourceChanged_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourceChanged_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -804,25 +808,6 @@ int QGraphicsColorizeEffect_Metacall(QGraphicsColorizeEffect* self, int param1, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsColorizeEffect_OnMetacall(QGraphicsColorizeEffect* self, intptr_t slot) {
-    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
-        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsColorizeEffect_QBaseMetacall(QGraphicsColorizeEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
-        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Metacall_IsBase(true);
-        return vqgraphicscolorizeeffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsColorizeEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsColorizeEffect_Tr(const char* s) {
     QString _ret = QGraphicsColorizeEffect::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -884,23 +869,6 @@ void QGraphicsColorizeEffect_Draw(QGraphicsColorizeEffect* self, QPainter* paint
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsColorizeEffect_OnDraw(QGraphicsColorizeEffect* self, intptr_t slot) {
-    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
-        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Draw_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsColorizeEffect_QBaseDraw(QGraphicsColorizeEffect* self, QPainter* painter) {
-    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
-        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Draw_IsBase(true);
-        vqgraphicscolorizeeffect->draw(painter);
-    }
-}
-
 libqt_string QGraphicsColorizeEffect_Tr2(const char* s, const char* c) {
     QString _ret = QGraphicsColorizeEffect::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -923,6 +891,44 @@ libqt_string QGraphicsColorizeEffect_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsColorizeEffect_QBaseMetacall(QGraphicsColorizeEffect* self, int param1, int param2, void** param3) {
+    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Metacall_IsBase(true);
+        return vqgraphicscolorizeeffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsColorizeEffect::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsColorizeEffect_OnMetacall(QGraphicsColorizeEffect* self, intptr_t slot) {
+    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsColorizeEffect_QBaseDraw(QGraphicsColorizeEffect* self, QPainter* painter) {
+    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Draw_IsBase(true);
+        vqgraphicscolorizeeffect->draw(painter);
+    } else {
+        ((VirtualQGraphicsColorizeEffect*)self)->draw(painter);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsColorizeEffect_OnDraw(QGraphicsColorizeEffect* self, intptr_t slot) {
+    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Draw_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -1472,25 +1478,6 @@ int QGraphicsBlurEffect_Metacall(QGraphicsBlurEffect* self, int param1, int para
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsBlurEffect_OnMetacall(QGraphicsBlurEffect* self, intptr_t slot) {
-    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        vqgraphicsblureffect->setQGraphicsBlurEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsBlurEffect_QBaseMetacall(QGraphicsBlurEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        vqgraphicsblureffect->setQGraphicsBlurEffect_Metacall_IsBase(true);
-        return vqgraphicsblureffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsBlurEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsBlurEffect_Tr(const char* s) {
     QString _ret = QGraphicsBlurEffect::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1507,25 +1494,6 @@ QRectF* QGraphicsBlurEffect_BoundingRectFor(const QGraphicsBlurEffect* self, con
     auto* vqgraphicsblureffect = dynamic_cast<const VirtualQGraphicsBlurEffect*>(self);
     if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
         return new QRectF(self->boundingRectFor(*rect));
-    } else {
-        return new QRectF(((VirtualQGraphicsBlurEffect*)self)->boundingRectFor(*rect));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsBlurEffect_OnBoundingRectFor(const QGraphicsBlurEffect* self, intptr_t slot) {
-    auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        vqgraphicsblureffect->setQGraphicsBlurEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_BoundingRectFor_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsBlurEffect_QBaseBoundingRectFor(const QGraphicsBlurEffect* self, const QRectF* rect) {
-    auto* vqgraphicsblureffect = dynamic_cast<const VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        vqgraphicsblureffect->setQGraphicsBlurEffect_BoundingRectFor_IsBase(true);
-        return new QRectF(vqgraphicsblureffect->boundingRectFor(*rect));
     } else {
         return new QRectF(((VirtualQGraphicsBlurEffect*)self)->boundingRectFor(*rect));
     }
@@ -1578,23 +1546,6 @@ void QGraphicsBlurEffect_Draw(QGraphicsBlurEffect* self, QPainter* painter) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsBlurEffect_OnDraw(QGraphicsBlurEffect* self, intptr_t slot) {
-    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        vqgraphicsblureffect->setQGraphicsBlurEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Draw_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsBlurEffect_QBaseDraw(QGraphicsBlurEffect* self, QPainter* painter) {
-    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        vqgraphicsblureffect->setQGraphicsBlurEffect_Draw_IsBase(true);
-        vqgraphicsblureffect->draw(painter);
-    }
-}
-
 libqt_string QGraphicsBlurEffect_Tr2(const char* s, const char* c) {
     QString _ret = QGraphicsBlurEffect::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1617,6 +1568,63 @@ libqt_string QGraphicsBlurEffect_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsBlurEffect_QBaseMetacall(QGraphicsBlurEffect* self, int param1, int param2, void** param3) {
+    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_Metacall_IsBase(true);
+        return vqgraphicsblureffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsBlurEffect::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsBlurEffect_OnMetacall(QGraphicsBlurEffect* self, intptr_t slot) {
+    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRectF* QGraphicsBlurEffect_QBaseBoundingRectFor(const QGraphicsBlurEffect* self, const QRectF* rect) {
+    auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_BoundingRectFor_IsBase(true);
+        return new QRectF(vqgraphicsblureffect->boundingRectFor(*rect));
+    } else {
+        return new QRectF(((VirtualQGraphicsBlurEffect*)self)->boundingRectFor(*rect));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsBlurEffect_OnBoundingRectFor(const QGraphicsBlurEffect* self, intptr_t slot) {
+    auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_BoundingRectFor_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsBlurEffect_QBaseDraw(QGraphicsBlurEffect* self, QPainter* painter) {
+    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_Draw_IsBase(true);
+        vqgraphicsblureffect->draw(painter);
+    } else {
+        ((VirtualQGraphicsBlurEffect*)self)->draw(painter);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsBlurEffect_OnDraw(QGraphicsBlurEffect* self, intptr_t slot) {
+    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Draw_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -2137,25 +2145,6 @@ int QGraphicsDropShadowEffect_Metacall(QGraphicsDropShadowEffect* self, int para
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsDropShadowEffect_OnMetacall(QGraphicsDropShadowEffect* self, intptr_t slot) {
-    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsDropShadowEffect_QBaseMetacall(QGraphicsDropShadowEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Metacall_IsBase(true);
-        return vqgraphicsdropshadoweffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsDropShadowEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsDropShadowEffect_Tr(const char* s) {
     QString _ret = QGraphicsDropShadowEffect::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2172,25 +2161,6 @@ QRectF* QGraphicsDropShadowEffect_BoundingRectFor(const QGraphicsDropShadowEffec
     auto* vqgraphicsdropshadoweffect = dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self);
     if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
         return new QRectF(self->boundingRectFor(*rect));
-    } else {
-        return new QRectF(((VirtualQGraphicsDropShadowEffect*)self)->boundingRectFor(*rect));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsDropShadowEffect_OnBoundingRectFor(const QGraphicsDropShadowEffect* self, intptr_t slot) {
-    auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_BoundingRectFor_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsDropShadowEffect_QBaseBoundingRectFor(const QGraphicsDropShadowEffect* self, const QRectF* rect) {
-    auto* vqgraphicsdropshadoweffect = dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_BoundingRectFor_IsBase(true);
-        return new QRectF(vqgraphicsdropshadoweffect->boundingRectFor(*rect));
     } else {
         return new QRectF(((VirtualQGraphicsDropShadowEffect*)self)->boundingRectFor(*rect));
     }
@@ -2291,23 +2261,6 @@ void QGraphicsDropShadowEffect_Draw(QGraphicsDropShadowEffect* self, QPainter* p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsDropShadowEffect_OnDraw(QGraphicsDropShadowEffect* self, intptr_t slot) {
-    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Draw_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsDropShadowEffect_QBaseDraw(QGraphicsDropShadowEffect* self, QPainter* painter) {
-    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Draw_IsBase(true);
-        vqgraphicsdropshadoweffect->draw(painter);
-    }
-}
-
 libqt_string QGraphicsDropShadowEffect_Tr2(const char* s, const char* c) {
     QString _ret = QGraphicsDropShadowEffect::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2330,6 +2283,63 @@ libqt_string QGraphicsDropShadowEffect_Tr3(const char* s, const char* c, int n) 
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsDropShadowEffect_QBaseMetacall(QGraphicsDropShadowEffect* self, int param1, int param2, void** param3) {
+    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Metacall_IsBase(true);
+        return vqgraphicsdropshadoweffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsDropShadowEffect::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsDropShadowEffect_OnMetacall(QGraphicsDropShadowEffect* self, intptr_t slot) {
+    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRectF* QGraphicsDropShadowEffect_QBaseBoundingRectFor(const QGraphicsDropShadowEffect* self, const QRectF* rect) {
+    auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_BoundingRectFor_IsBase(true);
+        return new QRectF(vqgraphicsdropshadoweffect->boundingRectFor(*rect));
+    } else {
+        return new QRectF(((VirtualQGraphicsDropShadowEffect*)self)->boundingRectFor(*rect));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsDropShadowEffect_OnBoundingRectFor(const QGraphicsDropShadowEffect* self, intptr_t slot) {
+    auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_BoundingRectFor_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsDropShadowEffect_QBaseDraw(QGraphicsDropShadowEffect* self, QPainter* painter) {
+    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Draw_IsBase(true);
+        vqgraphicsdropshadoweffect->draw(painter);
+    } else {
+        ((VirtualQGraphicsDropShadowEffect*)self)->draw(painter);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsDropShadowEffect_OnDraw(QGraphicsDropShadowEffect* self, intptr_t slot) {
+    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Draw_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -2850,25 +2860,6 @@ int QGraphicsOpacityEffect_Metacall(QGraphicsOpacityEffect* self, int param1, in
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsOpacityEffect_OnMetacall(QGraphicsOpacityEffect* self, intptr_t slot) {
-    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
-        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsOpacityEffect_QBaseMetacall(QGraphicsOpacityEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
-        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Metacall_IsBase(true);
-        return vqgraphicsopacityeffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsOpacityEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsOpacityEffect_Tr(const char* s) {
     QString _ret = QGraphicsOpacityEffect::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2930,23 +2921,6 @@ void QGraphicsOpacityEffect_Draw(QGraphicsOpacityEffect* self, QPainter* painter
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsOpacityEffect_OnDraw(QGraphicsOpacityEffect* self, intptr_t slot) {
-    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
-        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Draw_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsOpacityEffect_QBaseDraw(QGraphicsOpacityEffect* self, QPainter* painter) {
-    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
-        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Draw_IsBase(true);
-        vqgraphicsopacityeffect->draw(painter);
-    }
-}
-
 libqt_string QGraphicsOpacityEffect_Tr2(const char* s, const char* c) {
     QString _ret = QGraphicsOpacityEffect::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2969,6 +2943,44 @@ libqt_string QGraphicsOpacityEffect_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsOpacityEffect_QBaseMetacall(QGraphicsOpacityEffect* self, int param1, int param2, void** param3) {
+    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Metacall_IsBase(true);
+        return vqgraphicsopacityeffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsOpacityEffect::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsOpacityEffect_OnMetacall(QGraphicsOpacityEffect* self, intptr_t slot) {
+    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsOpacityEffect_QBaseDraw(QGraphicsOpacityEffect* self, QPainter* painter) {
+    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Draw_IsBase(true);
+        vqgraphicsopacityeffect->draw(painter);
+    } else {
+        ((VirtualQGraphicsOpacityEffect*)self)->draw(painter);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsOpacityEffect_OnDraw(QGraphicsOpacityEffect* self, intptr_t slot) {
+    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Draw_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

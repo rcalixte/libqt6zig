@@ -41,25 +41,6 @@ int QsciLexerCSS_Metacall(QsciLexerCSS* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerCSS_OnMetacall(QsciLexerCSS* self, intptr_t slot) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        vqscilexercss->setQsciLexerCSS_Metacall_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerCSS_QBaseMetacall(QsciLexerCSS* self, int param1, int param2, void** param3) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        vqscilexercss->setQsciLexerCSS_Metacall_IsBase(true);
-        return vqscilexercss->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerCSS*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerCSS_Tr(const char* s) {
     QString _ret = QsciLexerCSS::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -161,48 +142,10 @@ void QsciLexerCSS_SetFoldComments(QsciLexerCSS* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerCSS_OnSetFoldComments(QsciLexerCSS* self, intptr_t slot) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        vqscilexercss->setQsciLexerCSS_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetFoldComments_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerCSS_QBaseSetFoldComments(QsciLexerCSS* self, bool fold) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        vqscilexercss->setQsciLexerCSS_SetFoldComments_IsBase(true);
-        vqscilexercss->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerCSS*)self)->setFoldComments(fold);
-    }
-}
-
 void QsciLexerCSS_SetFoldCompact(QsciLexerCSS* self, bool fold) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
     if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
         self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerCSS*)self)->setFoldCompact(fold);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerCSS_OnSetFoldCompact(QsciLexerCSS* self, intptr_t slot) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        vqscilexercss->setQsciLexerCSS_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerCSS_QBaseSetFoldCompact(QsciLexerCSS* self, bool fold) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        vqscilexercss->setQsciLexerCSS_SetFoldCompact_IsBase(true);
-        vqscilexercss->setFoldCompact(fold);
     } else {
         ((VirtualQsciLexerCSS*)self)->setFoldCompact(fold);
     }
@@ -238,6 +181,63 @@ const char* QsciLexerCSS_BlockEnd1(const QsciLexerCSS* self, int* style) {
 
 const char* QsciLexerCSS_BlockStart1(const QsciLexerCSS* self, int* style) {
     return (const char*)self->blockStart(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+int QsciLexerCSS_QBaseMetacall(QsciLexerCSS* self, int param1, int param2, void** param3) {
+    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+        vqscilexercss->setQsciLexerCSS_Metacall_IsBase(true);
+        return vqscilexercss->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerCSS*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerCSS_OnMetacall(QsciLexerCSS* self, intptr_t slot) {
+    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+        vqscilexercss->setQsciLexerCSS_Metacall_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerCSS_QBaseSetFoldComments(QsciLexerCSS* self, bool fold) {
+    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+        vqscilexercss->setQsciLexerCSS_SetFoldComments_IsBase(true);
+        vqscilexercss->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerCSS*)self)->setFoldComments(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerCSS_OnSetFoldComments(QsciLexerCSS* self, intptr_t slot) {
+    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+        vqscilexercss->setQsciLexerCSS_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetFoldComments_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerCSS_QBaseSetFoldCompact(QsciLexerCSS* self, bool fold) {
+    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+        vqscilexercss->setQsciLexerCSS_SetFoldCompact_IsBase(true);
+        vqscilexercss->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerCSS*)self)->setFoldCompact(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerCSS_OnSetFoldCompact(QsciLexerCSS* self, intptr_t slot) {
+    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+        vqscilexercss->setQsciLexerCSS_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetFoldCompact_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

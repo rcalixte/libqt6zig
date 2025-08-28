@@ -82,25 +82,6 @@ int QPrintPreviewDialog_Metacall(QPrintPreviewDialog* self, int param1, int para
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPrintPreviewDialog_OnMetacall(QPrintPreviewDialog* self, intptr_t slot) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_Metacall_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPrintPreviewDialog_QBaseMetacall(QPrintPreviewDialog* self, int param1, int param2, void** param3) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_Metacall_IsBase(true);
-        return vqprintpreviewdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPrintPreviewDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPrintPreviewDialog_Tr(const char* s) {
     QString _ret = QPrintPreviewDialog::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -126,48 +107,10 @@ void QPrintPreviewDialog_SetVisible(QPrintPreviewDialog* self, bool visible) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPrintPreviewDialog_OnSetVisible(QPrintPreviewDialog* self, intptr_t slot) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_SetVisible_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QPrintPreviewDialog_QBaseSetVisible(QPrintPreviewDialog* self, bool visible) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_SetVisible_IsBase(true);
-        vqprintpreviewdialog->setVisible(visible);
-    } else {
-        ((VirtualQPrintPreviewDialog*)self)->setVisible(visible);
-    }
-}
-
 void QPrintPreviewDialog_Done(QPrintPreviewDialog* self, int result) {
     auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
     if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
         self->done(static_cast<int>(result));
-    } else {
-        ((VirtualQPrintPreviewDialog*)self)->done(static_cast<int>(result));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QPrintPreviewDialog_OnDone(QPrintPreviewDialog* self, intptr_t slot) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_Done_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_Done_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QPrintPreviewDialog_QBaseDone(QPrintPreviewDialog* self, int result) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_Done_IsBase(true);
-        vqprintpreviewdialog->done(static_cast<int>(result));
     } else {
         ((VirtualQPrintPreviewDialog*)self)->done(static_cast<int>(result));
     }
@@ -207,6 +150,63 @@ libqt_string QPrintPreviewDialog_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QPrintPreviewDialog_QBaseMetacall(QPrintPreviewDialog* self, int param1, int param2, void** param3) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_Metacall_IsBase(true);
+        return vqprintpreviewdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPrintPreviewDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPrintPreviewDialog_OnMetacall(QPrintPreviewDialog* self, intptr_t slot) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_Metacall_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QPrintPreviewDialog_QBaseSetVisible(QPrintPreviewDialog* self, bool visible) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_SetVisible_IsBase(true);
+        vqprintpreviewdialog->setVisible(visible);
+    } else {
+        self->QPrintPreviewDialog::setVisible(visible);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPrintPreviewDialog_OnSetVisible(QPrintPreviewDialog* self, intptr_t slot) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_SetVisible_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QPrintPreviewDialog_QBaseDone(QPrintPreviewDialog* self, int result) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_Done_IsBase(true);
+        vqprintpreviewdialog->done(static_cast<int>(result));
+    } else {
+        self->QPrintPreviewDialog::done(static_cast<int>(result));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPrintPreviewDialog_OnDone(QPrintPreviewDialog* self, intptr_t slot) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_Done_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_Done_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

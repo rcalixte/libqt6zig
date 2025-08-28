@@ -34,8 +34,6 @@ QVideoFrameInput* QVideoFrameInput_new4(const QVideoFrameFormat* format, QObject
 QMetaObject* QVideoFrameInput_MetaObject(const QVideoFrameInput* self);
 void* QVideoFrameInput_Metacast(QVideoFrameInput* self, const char* param1);
 int QVideoFrameInput_Metacall(QVideoFrameInput* self, int param1, int param2, void** param3);
-void QVideoFrameInput_OnMetacall(QVideoFrameInput* self, intptr_t slot);
-int QVideoFrameInput_QBaseMetacall(QVideoFrameInput* self, int param1, int param2, void** param3);
 libqt_string QVideoFrameInput_Tr(const char* s);
 bool QVideoFrameInput_SendVideoFrame(QVideoFrameInput* self, const QVideoFrame* frame);
 QVideoFrameFormat* QVideoFrameInput_Format(const QVideoFrameInput* self);
@@ -44,6 +42,8 @@ void QVideoFrameInput_ReadyToSendVideoFrame(QVideoFrameInput* self);
 void QVideoFrameInput_Connect_ReadyToSendVideoFrame(QVideoFrameInput* self, intptr_t slot);
 libqt_string QVideoFrameInput_Tr2(const char* s, const char* c);
 libqt_string QVideoFrameInput_Tr3(const char* s, const char* c, int n);
+void QVideoFrameInput_OnMetacall(QVideoFrameInput* self, intptr_t slot);
+int QVideoFrameInput_QBaseMetacall(QVideoFrameInput* self, int param1, int param2, void** param3);
 bool QVideoFrameInput_Event(QVideoFrameInput* self, QEvent* event);
 void QVideoFrameInput_OnEvent(QVideoFrameInput* self, intptr_t slot);
 bool QVideoFrameInput_QBaseEvent(QVideoFrameInput* self, QEvent* event);

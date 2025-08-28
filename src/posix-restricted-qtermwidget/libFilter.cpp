@@ -37,31 +37,31 @@ void Konsole__Filter_Process(Konsole__Filter* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__Filter_OnProcess(Konsole__Filter* self, intptr_t slot) {
-    auto* vkonsole__filter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsole__filter && vkonsole__filter->isVirtualKonsoleFilter) {
-        vkonsole__filter->setKonsole__Filter_Process_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Process_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void Konsole__Filter_QBaseProcess(Konsole__Filter* self) {
-    auto* vkonsole__filter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsole__filter && vkonsole__filter->isVirtualKonsoleFilter) {
-        vkonsole__filter->setKonsole__Filter_Process_IsBase(true);
-        vkonsole__filter->process();
-    } else {
-        ((VirtualKonsoleFilter*)self)->process();
-    }
-}
-
 void Konsole__Filter_Reset(Konsole__Filter* self) {
     self->reset();
 }
 
 Konsole__Filter__HotSpot* Konsole__Filter_HotSpotAt(const Konsole__Filter* self, int line, int column) {
     return self->hotSpotAt(static_cast<int>(line), static_cast<int>(column));
+}
+
+// Base class handler implementation
+void Konsole__Filter_QBaseProcess(Konsole__Filter* self) {
+    auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+        vkonsolefilter->setKonsole__Filter_Process_IsBase(true);
+        vkonsolefilter->process();
+    } else {
+        ((VirtualKonsoleFilter*)self)->process();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__Filter_OnProcess(Konsole__Filter* self, intptr_t slot) {
+    auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+        vkonsolefilter->setKonsole__Filter_Process_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Process_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -556,25 +556,6 @@ void Konsole__RegExpFilter_Process(Konsole__RegExpFilter* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__RegExpFilter_OnProcess(Konsole__RegExpFilter* self, intptr_t slot) {
-    auto* vkonsole__regexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsole__regexpfilter && vkonsole__regexpfilter->isVirtualKonsoleRegExpFilter) {
-        vkonsole__regexpfilter->setKonsole__RegExpFilter_Process_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Process_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void Konsole__RegExpFilter_QBaseProcess(Konsole__RegExpFilter* self) {
-    auto* vkonsole__regexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsole__regexpfilter && vkonsole__regexpfilter->isVirtualKonsoleRegExpFilter) {
-        vkonsole__regexpfilter->setKonsole__RegExpFilter_Process_IsBase(true);
-        vkonsole__regexpfilter->process();
-    } else {
-        ((VirtualKonsoleRegExpFilter*)self)->process();
-    }
-}
-
 Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_NewHotSpot(Konsole__RegExpFilter* self, int startLine, int startColumn, int endLine, int endColumn) {
     auto* vkonsole__regexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsole__regexpfilter && vkonsole__regexpfilter->isVirtualKonsoleRegExpFilter) {
@@ -583,22 +564,42 @@ Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_NewHotSpot(Konsole__RegExp
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__RegExpFilter_OnNewHotSpot(Konsole__RegExpFilter* self, intptr_t slot) {
-    auto* vkonsole__regexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsole__regexpfilter && vkonsole__regexpfilter->isVirtualKonsoleRegExpFilter) {
-        vkonsole__regexpfilter->setKonsole__RegExpFilter_NewHotSpot_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_NewHotSpot_Callback>(slot));
+// Base class handler implementation
+void Konsole__RegExpFilter_QBaseProcess(Konsole__RegExpFilter* self) {
+    auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        vkonsoleregexpfilter->setKonsole__RegExpFilter_Process_IsBase(true);
+        vkonsoleregexpfilter->process();
+    } else {
+        self->Konsole::RegExpFilter::process();
     }
 }
 
-// Virtual base class handler implementation
-Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_QBaseNewHotSpot(Konsole__RegExpFilter* self, int startLine, int startColumn, int endLine, int endColumn) {
-    auto* vkonsole__regexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsole__regexpfilter && vkonsole__regexpfilter->isVirtualKonsoleRegExpFilter) {
-        vkonsole__regexpfilter->setKonsole__RegExpFilter_NewHotSpot_IsBase(true);
-        return vkonsole__regexpfilter->newHotSpot(static_cast<int>(startLine), static_cast<int>(startColumn), static_cast<int>(endLine), static_cast<int>(endColumn));
+// Auxiliary method to allow providing re-implementation
+void Konsole__RegExpFilter_OnProcess(Konsole__RegExpFilter* self, intptr_t slot) {
+    auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        vkonsoleregexpfilter->setKonsole__RegExpFilter_Process_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Process_Callback>(slot));
     }
-    return {};
+}
+
+// Base class handler implementation
+Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_QBaseNewHotSpot(Konsole__RegExpFilter* self, int startLine, int startColumn, int endLine, int endColumn) {
+    auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        vkonsoleregexpfilter->setKonsole__RegExpFilter_NewHotSpot_IsBase(true);
+        return vkonsoleregexpfilter->newHotSpot(static_cast<int>(startLine), static_cast<int>(startColumn), static_cast<int>(endLine), static_cast<int>(endColumn));
+    } else {
+        return ((VirtualKonsoleRegExpFilter*)self)->newHotSpot(static_cast<int>(startLine), static_cast<int>(startColumn), static_cast<int>(endLine), static_cast<int>(endColumn));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__RegExpFilter_OnNewHotSpot(Konsole__RegExpFilter* self, intptr_t slot) {
+    auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        vkonsoleregexpfilter->setKonsole__RegExpFilter_NewHotSpot_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_NewHotSpot_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -1093,25 +1094,6 @@ int Konsole__UrlFilter_Metacall(Konsole__UrlFilter* self, int param1, int param2
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__UrlFilter_OnMetacall(Konsole__UrlFilter* self, intptr_t slot) {
-    auto* vkonsole__urlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsole__urlfilter && vkonsole__urlfilter->isVirtualKonsoleUrlFilter) {
-        vkonsole__urlfilter->setKonsole__UrlFilter_Metacall_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int Konsole__UrlFilter_QBaseMetacall(Konsole__UrlFilter* self, int param1, int param2, void** param3) {
-    auto* vkonsole__urlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsole__urlfilter && vkonsole__urlfilter->isVirtualKonsoleUrlFilter) {
-        vkonsole__urlfilter->setKonsole__UrlFilter_Metacall_IsBase(true);
-        return vkonsole__urlfilter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKonsoleUrlFilter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string Konsole__UrlFilter_Tr(const char* s) {
     QString _ret = Konsole::UrlFilter::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1127,24 +1109,6 @@ libqt_string Konsole__UrlFilter_Tr(const char* s) {
 Konsole__RegExpFilter__HotSpot* Konsole__UrlFilter_NewHotSpot(Konsole__UrlFilter* self, int param1, int param2, int param3, int param4) {
     auto* vkonsole__urlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsole__urlfilter && vkonsole__urlfilter->isVirtualKonsoleUrlFilter) {
-        return vkonsole__urlfilter->newHotSpot(static_cast<int>(param1), static_cast<int>(param2), static_cast<int>(param3), static_cast<int>(param4));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__UrlFilter_OnNewHotSpot(Konsole__UrlFilter* self, intptr_t slot) {
-    auto* vkonsole__urlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsole__urlfilter && vkonsole__urlfilter->isVirtualKonsoleUrlFilter) {
-        vkonsole__urlfilter->setKonsole__UrlFilter_NewHotSpot_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_NewHotSpot_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-Konsole__RegExpFilter__HotSpot* Konsole__UrlFilter_QBaseNewHotSpot(Konsole__UrlFilter* self, int param1, int param2, int param3, int param4) {
-    auto* vkonsole__urlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsole__urlfilter && vkonsole__urlfilter->isVirtualKonsoleUrlFilter) {
-        vkonsole__urlfilter->setKonsole__UrlFilter_NewHotSpot_IsBase(true);
         return vkonsole__urlfilter->newHotSpot(static_cast<int>(param1), static_cast<int>(param2), static_cast<int>(param3), static_cast<int>(param4));
     }
     return {};
@@ -1187,6 +1151,44 @@ libqt_string Konsole__UrlFilter_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int Konsole__UrlFilter_QBaseMetacall(Konsole__UrlFilter* self, int param1, int param2, void** param3) {
+    auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+        vkonsoleurlfilter->setKonsole__UrlFilter_Metacall_IsBase(true);
+        return vkonsoleurlfilter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->Konsole::UrlFilter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__UrlFilter_OnMetacall(Konsole__UrlFilter* self, intptr_t slot) {
+    auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+        vkonsoleurlfilter->setKonsole__UrlFilter_Metacall_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+Konsole__RegExpFilter__HotSpot* Konsole__UrlFilter_QBaseNewHotSpot(Konsole__UrlFilter* self, int param1, int param2, int param3, int param4) {
+    auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+        vkonsoleurlfilter->setKonsole__UrlFilter_NewHotSpot_IsBase(true);
+        return vkonsoleurlfilter->newHotSpot(static_cast<int>(param1), static_cast<int>(param2), static_cast<int>(param3), static_cast<int>(param4));
+    } else {
+        return ((VirtualKonsoleUrlFilter*)self)->newHotSpot(static_cast<int>(param1), static_cast<int>(param2), static_cast<int>(param3), static_cast<int>(param4));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__UrlFilter_OnNewHotSpot(Konsole__UrlFilter* self, intptr_t slot) {
+    auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+        vkonsoleurlfilter->setKonsole__UrlFilter_NewHotSpot_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_NewHotSpot_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -1681,25 +1683,6 @@ int Konsole__FilterObject_Metacall(Konsole__FilterObject* self, int param1, int 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__FilterObject_OnMetacall(Konsole__FilterObject* self, intptr_t slot) {
-    auto* vkonsole__filterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsole__filterobject && vkonsole__filterobject->isVirtualKonsoleFilterObject) {
-        vkonsole__filterobject->setKonsole__FilterObject_Metacall_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int Konsole__FilterObject_QBaseMetacall(Konsole__FilterObject* self, int param1, int param2, void** param3) {
-    auto* vkonsole__filterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsole__filterobject && vkonsole__filterobject->isVirtualKonsoleFilterObject) {
-        vkonsole__filterobject->setKonsole__FilterObject_Metacall_IsBase(true);
-        return vkonsole__filterobject->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKonsoleFilterObject*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string Konsole__FilterObject_Tr(const char* s) {
     QString _ret = Konsole::FilterObject::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1757,6 +1740,25 @@ libqt_string Konsole__FilterObject_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int Konsole__FilterObject_QBaseMetacall(Konsole__FilterObject* self, int param1, int param2, void** param3) {
+    auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+        vkonsolefilterobject->setKonsole__FilterObject_Metacall_IsBase(true);
+        return vkonsolefilterobject->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->Konsole::FilterObject::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__FilterObject_OnMetacall(Konsole__FilterObject* self, intptr_t slot) {
+    auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+        vkonsolefilterobject->setKonsole__FilterObject_Metacall_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -2185,26 +2187,6 @@ void Konsole__Filter__HotSpot_Activate(Konsole__Filter__HotSpot* self, const lib
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__Filter__HotSpot_OnActivate(Konsole__Filter__HotSpot* self, intptr_t slot) {
-    auto* vkonsole__filter__hotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
-    if (vkonsole__filter__hotspot && vkonsole__filter__hotspot->isVirtualKonsoleFilterHotSpot) {
-        vkonsole__filter__hotspot->setKonsole__Filter__HotSpot_Activate_Callback(reinterpret_cast<VirtualKonsoleFilterHotSpot::Konsole__Filter__HotSpot_Activate_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void Konsole__Filter__HotSpot_QBaseActivate(Konsole__Filter__HotSpot* self, const libqt_string action) {
-    QString action_QString = QString::fromUtf8(action.data, action.len);
-    auto* vkonsole__filter__hotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
-    if (vkonsole__filter__hotspot && vkonsole__filter__hotspot->isVirtualKonsoleFilterHotSpot) {
-        vkonsole__filter__hotspot->setKonsole__Filter__HotSpot_Activate_IsBase(true);
-        vkonsole__filter__hotspot->activate(action_QString);
-    } else {
-        ((VirtualKonsoleFilterHotSpot*)self)->activate(action_QString);
-    }
-}
-
 libqt_list /* of QAction* */ Konsole__Filter__HotSpot_Actions(Konsole__Filter__HotSpot* self) {
     auto* vkonsole__filter__hotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
     if (vkonsole__filter__hotspot && vkonsole__filter__hotspot->isVirtualKonsoleFilterHotSpot) {
@@ -2232,20 +2214,32 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_Actions(Konsole__Filter__H
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__Filter__HotSpot_OnActions(Konsole__Filter__HotSpot* self, intptr_t slot) {
-    auto* vkonsole__filter__hotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
-    if (vkonsole__filter__hotspot && vkonsole__filter__hotspot->isVirtualKonsoleFilterHotSpot) {
-        vkonsole__filter__hotspot->setKonsole__Filter__HotSpot_Actions_Callback(reinterpret_cast<VirtualKonsoleFilterHotSpot::Konsole__Filter__HotSpot_Actions_Callback>(slot));
+// Base class handler implementation
+void Konsole__Filter__HotSpot_QBaseActivate(Konsole__Filter__HotSpot* self, const libqt_string action) {
+    auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
+    QString action_QString = QString::fromUtf8(action.data, action.len);
+    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
+        vkonsolefilterhotspot->setKonsole__Filter__HotSpot_Activate_IsBase(true);
+        vkonsolefilterhotspot->activate(action_QString);
+    } else {
+        ((VirtualKonsoleFilterHotSpot*)self)->activate(action_QString);
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void Konsole__Filter__HotSpot_OnActivate(Konsole__Filter__HotSpot* self, intptr_t slot) {
+    auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
+    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
+        vkonsolefilterhotspot->setKonsole__Filter__HotSpot_Activate_Callback(reinterpret_cast<VirtualKonsoleFilterHotSpot::Konsole__Filter__HotSpot_Activate_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 libqt_list /* of QAction* */ Konsole__Filter__HotSpot_QBaseActions(Konsole__Filter__HotSpot* self) {
-    auto* vkonsole__filter__hotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
-    if (vkonsole__filter__hotspot && vkonsole__filter__hotspot->isVirtualKonsoleFilterHotSpot) {
-        vkonsole__filter__hotspot->setKonsole__Filter__HotSpot_Actions_IsBase(true);
-        QList<QAction*> _ret = vkonsole__filter__hotspot->actions();
+    auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
+    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
+        vkonsolefilterhotspot->setKonsole__Filter__HotSpot_Actions_IsBase(true);
+        QList<QAction*> _ret = vkonsolefilterhotspot->actions();
         // Convert QList<> from C++ memory to manually-managed C memory
         QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -2256,7 +2250,7 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_QBaseActions(Konsole__Filt
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QList<QAction*> _ret = ((VirtualKonsoleFilterHotSpot*)self)->actions();
+        QList<QAction*> _ret = self->Konsole::Filter::HotSpot::actions();
         // Convert QList<> from C++ memory to manually-managed C memory
         QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -2266,6 +2260,14 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_QBaseActions(Konsole__Filt
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__Filter__HotSpot_OnActions(Konsole__Filter__HotSpot* self, intptr_t slot) {
+    auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
+    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
+        vkonsolefilterhotspot->setKonsole__Filter__HotSpot_Actions_Callback(reinterpret_cast<VirtualKonsoleFilterHotSpot::Konsole__Filter__HotSpot_Actions_Callback>(slot));
     }
 }
 
@@ -2320,26 +2322,6 @@ void Konsole__RegExpFilter__HotSpot_Activate(Konsole__RegExpFilter__HotSpot* sel
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__RegExpFilter__HotSpot_OnActivate(Konsole__RegExpFilter__HotSpot* self, intptr_t slot) {
-    auto* vkonsole__regexpfilter__hotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
-    if (vkonsole__regexpfilter__hotspot && vkonsole__regexpfilter__hotspot->isVirtualKonsoleRegExpFilterHotSpot) {
-        vkonsole__regexpfilter__hotspot->setKonsole__RegExpFilter__HotSpot_Activate_Callback(reinterpret_cast<VirtualKonsoleRegExpFilterHotSpot::Konsole__RegExpFilter__HotSpot_Activate_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void Konsole__RegExpFilter__HotSpot_QBaseActivate(Konsole__RegExpFilter__HotSpot* self, const libqt_string action) {
-    QString action_QString = QString::fromUtf8(action.data, action.len);
-    auto* vkonsole__regexpfilter__hotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
-    if (vkonsole__regexpfilter__hotspot && vkonsole__regexpfilter__hotspot->isVirtualKonsoleRegExpFilterHotSpot) {
-        vkonsole__regexpfilter__hotspot->setKonsole__RegExpFilter__HotSpot_Activate_IsBase(true);
-        vkonsole__regexpfilter__hotspot->activate(action_QString);
-    } else {
-        ((VirtualKonsoleRegExpFilterHotSpot*)self)->activate(action_QString);
-    }
-}
-
 void Konsole__RegExpFilter__HotSpot_SetCapturedTexts(Konsole__RegExpFilter__HotSpot* self, const libqt_list /* of libqt_string */ texts) {
     QList<QString> texts_QList;
     texts_QList.reserve(texts.len);
@@ -2370,6 +2352,26 @@ libqt_list /* of libqt_string */ Konsole__RegExpFilter__HotSpot_CapturedTexts(co
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+void Konsole__RegExpFilter__HotSpot_QBaseActivate(Konsole__RegExpFilter__HotSpot* self, const libqt_string action) {
+    auto* vkonsoleregexpfilterhotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
+    QString action_QString = QString::fromUtf8(action.data, action.len);
+    if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot) {
+        vkonsoleregexpfilterhotspot->setKonsole__RegExpFilter__HotSpot_Activate_IsBase(true);
+        vkonsoleregexpfilterhotspot->activate(action_QString);
+    } else {
+        self->Konsole::RegExpFilter::HotSpot::activate(action_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__RegExpFilter__HotSpot_OnActivate(Konsole__RegExpFilter__HotSpot* self, intptr_t slot) {
+    auto* vkonsoleregexpfilterhotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
+    if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot) {
+        vkonsoleregexpfilterhotspot->setKonsole__RegExpFilter__HotSpot_Activate_Callback(reinterpret_cast<VirtualKonsoleRegExpFilterHotSpot::Konsole__RegExpFilter__HotSpot_Activate_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -2505,43 +2507,6 @@ libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_Actions(Konsole__UrlFil
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__UrlFilter__HotSpot_OnActions(Konsole__UrlFilter__HotSpot* self, intptr_t slot) {
-    auto* vkonsole__urlfilter__hotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
-    if (vkonsole__urlfilter__hotspot && vkonsole__urlfilter__hotspot->isVirtualKonsoleUrlFilterHotSpot) {
-        vkonsole__urlfilter__hotspot->setKonsole__UrlFilter__HotSpot_Actions_Callback(reinterpret_cast<VirtualKonsoleUrlFilterHotSpot::Konsole__UrlFilter__HotSpot_Actions_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_QBaseActions(Konsole__UrlFilter__HotSpot* self) {
-    auto* vkonsole__urlfilter__hotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
-    if (vkonsole__urlfilter__hotspot && vkonsole__urlfilter__hotspot->isVirtualKonsoleUrlFilterHotSpot) {
-        vkonsole__urlfilter__hotspot->setKonsole__UrlFilter__HotSpot_Actions_IsBase(true);
-        QList<QAction*> _ret = vkonsole__urlfilter__hotspot->actions();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QAction*> _ret = ((VirtualKonsoleUrlFilterHotSpot*)self)->actions();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
 void Konsole__UrlFilter__HotSpot_Activate(Konsole__UrlFilter__HotSpot* self, const libqt_string action) {
     QString action_QString = QString::fromUtf8(action.data, action.len);
     auto* vkonsole__urlfilter__hotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
@@ -2552,23 +2517,60 @@ void Konsole__UrlFilter__HotSpot_Activate(Konsole__UrlFilter__HotSpot* self, con
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void Konsole__UrlFilter__HotSpot_OnActivate(Konsole__UrlFilter__HotSpot* self, intptr_t slot) {
-    auto* vkonsole__urlfilter__hotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
-    if (vkonsole__urlfilter__hotspot && vkonsole__urlfilter__hotspot->isVirtualKonsoleUrlFilterHotSpot) {
-        vkonsole__urlfilter__hotspot->setKonsole__UrlFilter__HotSpot_Activate_Callback(reinterpret_cast<VirtualKonsoleUrlFilterHotSpot::Konsole__UrlFilter__HotSpot_Activate_Callback>(slot));
+// Base class handler implementation
+libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_QBaseActions(Konsole__UrlFilter__HotSpot* self) {
+    auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
+    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
+        vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_Actions_IsBase(true);
+        QList<QAction*> _ret = vkonsoleurlfilterhotspot->actions();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            _arr[i] = _ret[i];
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    } else {
+        QList<QAction*> _ret = self->Konsole::UrlFilter::HotSpot::actions();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            _arr[i] = _ret[i];
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void Konsole__UrlFilter__HotSpot_OnActions(Konsole__UrlFilter__HotSpot* self, intptr_t slot) {
+    auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
+    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
+        vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_Actions_Callback(reinterpret_cast<VirtualKonsoleUrlFilterHotSpot::Konsole__UrlFilter__HotSpot_Actions_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 void Konsole__UrlFilter__HotSpot_QBaseActivate(Konsole__UrlFilter__HotSpot* self, const libqt_string action) {
+    auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
     QString action_QString = QString::fromUtf8(action.data, action.len);
-    auto* vkonsole__urlfilter__hotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
-    if (vkonsole__urlfilter__hotspot && vkonsole__urlfilter__hotspot->isVirtualKonsoleUrlFilterHotSpot) {
-        vkonsole__urlfilter__hotspot->setKonsole__UrlFilter__HotSpot_Activate_IsBase(true);
-        vkonsole__urlfilter__hotspot->activate(action_QString);
+    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
+        vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_Activate_IsBase(true);
+        vkonsoleurlfilterhotspot->activate(action_QString);
     } else {
-        ((VirtualKonsoleUrlFilterHotSpot*)self)->activate(action_QString);
+        self->Konsole::UrlFilter::HotSpot::activate(action_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__UrlFilter__HotSpot_OnActivate(Konsole__UrlFilter__HotSpot* self, intptr_t slot) {
+    auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
+    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
+        vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_Activate_Callback(reinterpret_cast<VirtualKonsoleUrlFilterHotSpot::Konsole__UrlFilter__HotSpot_Activate_Callback>(slot));
     }
 }
 

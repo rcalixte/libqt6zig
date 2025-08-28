@@ -75,25 +75,6 @@ int QGroupBox_Metacall(QGroupBox* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnMetacall(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_Metacall_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGroupBox_QBaseMetacall(QGroupBox* self, int param1, int param2, void** param3) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_Metacall_IsBase(true);
-        return vqgroupbox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGroupBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGroupBox_Tr(const char* s) {
     QString _ret = QGroupBox::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -135,25 +116,6 @@ QSize* QGroupBox_MinimumSizeHint(const QGroupBox* self) {
     auto* vqgroupbox = dynamic_cast<const VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQGroupBox*)self)->minimumSizeHint());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnMinimumSizeHint(const QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QGroupBox_QBaseMinimumSizeHint(const QGroupBox* self) {
-    auto* vqgroupbox = dynamic_cast<const VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vqgroupbox->minimumSizeHint());
     } else {
         return new QSize(((VirtualQGroupBox*)self)->minimumSizeHint());
     }
@@ -214,44 +176,9 @@ bool QGroupBox_Event(QGroupBox* self, QEvent* event) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnEvent(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_Event_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QGroupBox_QBaseEvent(QGroupBox* self, QEvent* event) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_Event_IsBase(true);
-        return vqgroupbox->event(event);
-    }
-    return {};
-}
-
 void QGroupBox_ChildEvent(QGroupBox* self, QChildEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->childEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnChildEvent(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_ChildEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ChildEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGroupBox_QBaseChildEvent(QGroupBox* self, QChildEvent* event) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_ChildEvent_IsBase(true);
         vqgroupbox->childEvent(event);
     }
 }
@@ -263,43 +190,9 @@ void QGroupBox_ResizeEvent(QGroupBox* self, QResizeEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnResizeEvent(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_ResizeEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGroupBox_QBaseResizeEvent(QGroupBox* self, QResizeEvent* event) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_ResizeEvent_IsBase(true);
-        vqgroupbox->resizeEvent(event);
-    }
-}
-
 void QGroupBox_PaintEvent(QGroupBox* self, QPaintEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->paintEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnPaintEvent(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_PaintEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGroupBox_QBasePaintEvent(QGroupBox* self, QPaintEvent* event) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_PaintEvent_IsBase(true);
         vqgroupbox->paintEvent(event);
     }
 }
@@ -311,43 +204,9 @@ void QGroupBox_FocusInEvent(QGroupBox* self, QFocusEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnFocusInEvent(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_FocusInEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGroupBox_QBaseFocusInEvent(QGroupBox* self, QFocusEvent* event) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_FocusInEvent_IsBase(true);
-        vqgroupbox->focusInEvent(event);
-    }
-}
-
 void QGroupBox_ChangeEvent(QGroupBox* self, QEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->changeEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnChangeEvent(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_ChangeEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGroupBox_QBaseChangeEvent(QGroupBox* self, QEvent* event) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_ChangeEvent_IsBase(true);
         vqgroupbox->changeEvent(event);
     }
 }
@@ -359,43 +218,9 @@ void QGroupBox_MousePressEvent(QGroupBox* self, QMouseEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnMousePressEvent(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_MousePressEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGroupBox_QBaseMousePressEvent(QGroupBox* self, QMouseEvent* event) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_MousePressEvent_IsBase(true);
-        vqgroupbox->mousePressEvent(event);
-    }
-}
-
 void QGroupBox_MouseMoveEvent(QGroupBox* self, QMouseEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->mouseMoveEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnMouseMoveEvent(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGroupBox_QBaseMouseMoveEvent(QGroupBox* self, QMouseEvent* event) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_MouseMoveEvent_IsBase(true);
         vqgroupbox->mouseMoveEvent(event);
     }
 }
@@ -407,43 +232,9 @@ void QGroupBox_MouseReleaseEvent(QGroupBox* self, QMouseEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnMouseReleaseEvent(QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGroupBox_QBaseMouseReleaseEvent(QGroupBox* self, QMouseEvent* event) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_MouseReleaseEvent_IsBase(true);
-        vqgroupbox->mouseReleaseEvent(event);
-    }
-}
-
 void QGroupBox_InitStyleOption(const QGroupBox* self, QStyleOptionGroupBox* option) {
     auto* vqgroupbox = dynamic_cast<const VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->initStyleOption(option);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGroupBox_OnInitStyleOption(const QGroupBox* self, intptr_t slot) {
-    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_InitStyleOption_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_InitStyleOption_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGroupBox_QBaseInitStyleOption(const QGroupBox* self, QStyleOptionGroupBox* option) {
-    auto* vqgroupbox = dynamic_cast<const VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        vqgroupbox->setQGroupBox_InitStyleOption_IsBase(true);
         vqgroupbox->initStyleOption(option);
     }
 }
@@ -482,6 +273,234 @@ void QGroupBox_Connect_Clicked1(QGroupBox* self, intptr_t slot) {
         bool sigval1 = checked;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+int QGroupBox_QBaseMetacall(QGroupBox* self, int param1, int param2, void** param3) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_Metacall_IsBase(true);
+        return vqgroupbox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGroupBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnMetacall(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_Metacall_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QGroupBox_QBaseMinimumSizeHint(const QGroupBox* self) {
+    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MinimumSizeHint_IsBase(true);
+        return new QSize(vqgroupbox->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQGroupBox*)self)->minimumSizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnMinimumSizeHint(const QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QGroupBox_QBaseEvent(QGroupBox* self, QEvent* event) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_Event_IsBase(true);
+        return vqgroupbox->event(event);
+    } else {
+        return ((VirtualQGroupBox*)self)->event(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnEvent(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_Event_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGroupBox_QBaseChildEvent(QGroupBox* self, QChildEvent* event) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_ChildEvent_IsBase(true);
+        vqgroupbox->childEvent(event);
+    } else {
+        ((VirtualQGroupBox*)self)->childEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnChildEvent(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_ChildEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ChildEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGroupBox_QBaseResizeEvent(QGroupBox* self, QResizeEvent* event) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_ResizeEvent_IsBase(true);
+        vqgroupbox->resizeEvent(event);
+    } else {
+        ((VirtualQGroupBox*)self)->resizeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnResizeEvent(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_ResizeEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGroupBox_QBasePaintEvent(QGroupBox* self, QPaintEvent* event) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_PaintEvent_IsBase(true);
+        vqgroupbox->paintEvent(event);
+    } else {
+        ((VirtualQGroupBox*)self)->paintEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnPaintEvent(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_PaintEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_PaintEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGroupBox_QBaseFocusInEvent(QGroupBox* self, QFocusEvent* event) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_FocusInEvent_IsBase(true);
+        vqgroupbox->focusInEvent(event);
+    } else {
+        ((VirtualQGroupBox*)self)->focusInEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnFocusInEvent(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_FocusInEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGroupBox_QBaseChangeEvent(QGroupBox* self, QEvent* event) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_ChangeEvent_IsBase(true);
+        vqgroupbox->changeEvent(event);
+    } else {
+        ((VirtualQGroupBox*)self)->changeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnChangeEvent(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_ChangeEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGroupBox_QBaseMousePressEvent(QGroupBox* self, QMouseEvent* event) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MousePressEvent_IsBase(true);
+        vqgroupbox->mousePressEvent(event);
+    } else {
+        ((VirtualQGroupBox*)self)->mousePressEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnMousePressEvent(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MousePressEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGroupBox_QBaseMouseMoveEvent(QGroupBox* self, QMouseEvent* event) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MouseMoveEvent_IsBase(true);
+        vqgroupbox->mouseMoveEvent(event);
+    } else {
+        ((VirtualQGroupBox*)self)->mouseMoveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnMouseMoveEvent(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGroupBox_QBaseMouseReleaseEvent(QGroupBox* self, QMouseEvent* event) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MouseReleaseEvent_IsBase(true);
+        vqgroupbox->mouseReleaseEvent(event);
+    } else {
+        ((VirtualQGroupBox*)self)->mouseReleaseEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnMouseReleaseEvent(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGroupBox_QBaseInitStyleOption(const QGroupBox* self, QStyleOptionGroupBox* option) {
+    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_InitStyleOption_IsBase(true);
+        vqgroupbox->initStyleOption(option);
+    } else {
+        ((VirtualQGroupBox*)self)->initStyleOption(option);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnInitStyleOption(const QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_InitStyleOption_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_InitStyleOption_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

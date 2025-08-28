@@ -49,25 +49,6 @@ int KFontSizeAction_Metacall(KFontSizeAction* self, int param1, int param2, void
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KFontSizeAction_OnMetacall(KFontSizeAction* self, intptr_t slot) {
-    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
-        vkfontsizeaction->setKFontSizeAction_Metacall_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KFontSizeAction_QBaseMetacall(KFontSizeAction* self, int param1, int param2, void** param3) {
-    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
-        vkfontsizeaction->setKFontSizeAction_Metacall_IsBase(true);
-        return vkfontsizeaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFontSizeAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KFontSizeAction_Tr(const char* s) {
     QString _ret = KFontSizeAction::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -107,23 +88,6 @@ void KFontSizeAction_SlotActionTriggered(KFontSizeAction* self, QAction* action)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KFontSizeAction_OnSlotActionTriggered(KFontSizeAction* self, intptr_t slot) {
-    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
-        vkfontsizeaction->setKFontSizeAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_SlotActionTriggered_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KFontSizeAction_QBaseSlotActionTriggered(KFontSizeAction* self, QAction* action) {
-    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
-        vkfontsizeaction->setKFontSizeAction_SlotActionTriggered_IsBase(true);
-        vkfontsizeaction->slotActionTriggered(action);
-    }
-}
-
 libqt_string KFontSizeAction_Tr2(const char* s, const char* c) {
     QString _ret = KFontSizeAction::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -146,6 +110,44 @@ libqt_string KFontSizeAction_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KFontSizeAction_QBaseMetacall(KFontSizeAction* self, int param1, int param2, void** param3) {
+    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        vkfontsizeaction->setKFontSizeAction_Metacall_IsBase(true);
+        return vkfontsizeaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KFontSizeAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontSizeAction_OnMetacall(KFontSizeAction* self, intptr_t slot) {
+    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        vkfontsizeaction->setKFontSizeAction_Metacall_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KFontSizeAction_QBaseSlotActionTriggered(KFontSizeAction* self, QAction* action) {
+    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        vkfontsizeaction->setKFontSizeAction_SlotActionTriggered_IsBase(true);
+        vkfontsizeaction->slotActionTriggered(action);
+    } else {
+        ((VirtualKFontSizeAction*)self)->slotActionTriggered(action);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontSizeAction_OnSlotActionTriggered(KFontSizeAction* self, intptr_t slot) {
+    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        vkfontsizeaction->setKFontSizeAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_SlotActionTriggered_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -32,8 +32,6 @@ KProcess* KProcess_new2(QObject* parent);
 QMetaObject* KProcess_MetaObject(const KProcess* self);
 void* KProcess_Metacast(KProcess* self, const char* param1);
 int KProcess_Metacall(KProcess* self, int param1, int param2, void** param3);
-void KProcess_OnMetacall(KProcess* self, intptr_t slot);
-int KProcess_QBaseMetacall(KProcess* self, int param1, int param2, void** param3);
 libqt_string KProcess_Tr(const char* s);
 void KProcess_SetOutputChannelMode(KProcess* self, int mode);
 int KProcess_OutputChannelMode(const KProcess* self);
@@ -64,6 +62,8 @@ int KProcess_Execute22(const libqt_string exe, const libqt_list /* of libqt_stri
 int KProcess_Execute32(const libqt_string exe, const libqt_list /* of libqt_string */ args, int msecs);
 int KProcess_Execute23(const libqt_list /* of libqt_string */ argv, int msecs);
 int KProcess_StartDetached22(const libqt_string exe, const libqt_list /* of libqt_string */ args);
+void KProcess_OnMetacall(KProcess* self, intptr_t slot);
+int KProcess_QBaseMetacall(KProcess* self, int param1, int param2, void** param3);
 bool KProcess_Open(KProcess* self, int mode);
 void KProcess_OnOpen(KProcess* self, intptr_t slot);
 bool KProcess_QBaseOpen(KProcess* self, int mode);

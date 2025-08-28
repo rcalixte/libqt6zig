@@ -39,25 +39,6 @@ int QAbstractAnimation_Metacall(QAbstractAnimation* self, int param1, int param2
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractAnimation_OnMetacall(QAbstractAnimation* self, intptr_t slot) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_Metacall_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAbstractAnimation_QBaseMetacall(QAbstractAnimation* self, int param1, int param2, void** param3) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_Metacall_IsBase(true);
-        return vqabstractanimation->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractAnimation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QAbstractAnimation_Tr(const char* s) {
     QString _ret = QAbstractAnimation::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -109,25 +90,6 @@ int QAbstractAnimation_CurrentLoop(const QAbstractAnimation* self) {
 int QAbstractAnimation_Duration(const QAbstractAnimation* self) {
     auto* vqabstractanimation = dynamic_cast<const VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        return vqabstractanimation->duration();
-    } else {
-        return ((VirtualQAbstractAnimation*)self)->duration();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractAnimation_OnDuration(const QAbstractAnimation* self, intptr_t slot) {
-    auto* vqabstractanimation = const_cast<VirtualQAbstractAnimation*>(dynamic_cast<const VirtualQAbstractAnimation*>(self));
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_Duration_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_Duration_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAbstractAnimation_QBaseDuration(const QAbstractAnimation* self) {
-    auto* vqabstractanimation = dynamic_cast<const VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_Duration_IsBase(true);
         return vqabstractanimation->duration();
     } else {
         return ((VirtualQAbstractAnimation*)self)->duration();
@@ -218,44 +180,9 @@ bool QAbstractAnimation_Event(QAbstractAnimation* self, QEvent* event) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractAnimation_OnEvent(QAbstractAnimation* self, intptr_t slot) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_Event_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QAbstractAnimation_QBaseEvent(QAbstractAnimation* self, QEvent* event) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_Event_IsBase(true);
-        return vqabstractanimation->event(event);
-    }
-    return {};
-}
-
 void QAbstractAnimation_UpdateCurrentTime(QAbstractAnimation* self, int currentTime) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->updateCurrentTime(static_cast<int>(currentTime));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractAnimation_OnUpdateCurrentTime(QAbstractAnimation* self, intptr_t slot) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_UpdateCurrentTime_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAbstractAnimation_QBaseUpdateCurrentTime(QAbstractAnimation* self, int currentTime) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_UpdateCurrentTime_IsBase(true);
         vqabstractanimation->updateCurrentTime(static_cast<int>(currentTime));
     }
 }
@@ -267,43 +194,9 @@ void QAbstractAnimation_UpdateState(QAbstractAnimation* self, int newState, int 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractAnimation_OnUpdateState(QAbstractAnimation* self, intptr_t slot) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_UpdateState_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_UpdateState_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAbstractAnimation_QBaseUpdateState(QAbstractAnimation* self, int newState, int oldState) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_UpdateState_IsBase(true);
-        vqabstractanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    }
-}
-
 void QAbstractAnimation_UpdateDirection(QAbstractAnimation* self, int direction) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractAnimation_OnUpdateDirection(QAbstractAnimation* self, intptr_t slot) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_UpdateDirection_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_UpdateDirection_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAbstractAnimation_QBaseUpdateDirection(QAbstractAnimation* self, int direction) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        vqabstractanimation->setQAbstractAnimation_UpdateDirection_IsBase(true);
         vqabstractanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     }
 }
@@ -334,6 +227,120 @@ libqt_string QAbstractAnimation_Tr3(const char* s, const char* c, int n) {
 
 void QAbstractAnimation_Start1(QAbstractAnimation* self, int policy) {
     self->start(static_cast<QAbstractAnimation::DeletionPolicy>(policy));
+}
+
+// Base class handler implementation
+int QAbstractAnimation_QBaseMetacall(QAbstractAnimation* self, int param1, int param2, void** param3) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_Metacall_IsBase(true);
+        return vqabstractanimation->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QAbstractAnimation::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractAnimation_OnMetacall(QAbstractAnimation* self, intptr_t slot) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_Metacall_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QAbstractAnimation_QBaseDuration(const QAbstractAnimation* self) {
+    auto* vqabstractanimation = const_cast<VirtualQAbstractAnimation*>(dynamic_cast<const VirtualQAbstractAnimation*>(self));
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_Duration_IsBase(true);
+        return vqabstractanimation->duration();
+    } else {
+        return ((VirtualQAbstractAnimation*)self)->duration();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractAnimation_OnDuration(const QAbstractAnimation* self, intptr_t slot) {
+    auto* vqabstractanimation = const_cast<VirtualQAbstractAnimation*>(dynamic_cast<const VirtualQAbstractAnimation*>(self));
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_Duration_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_Duration_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QAbstractAnimation_QBaseEvent(QAbstractAnimation* self, QEvent* event) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_Event_IsBase(true);
+        return vqabstractanimation->event(event);
+    } else {
+        return ((VirtualQAbstractAnimation*)self)->event(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractAnimation_OnEvent(QAbstractAnimation* self, intptr_t slot) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_Event_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAbstractAnimation_QBaseUpdateCurrentTime(QAbstractAnimation* self, int currentTime) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_UpdateCurrentTime_IsBase(true);
+        vqabstractanimation->updateCurrentTime(static_cast<int>(currentTime));
+    } else {
+        ((VirtualQAbstractAnimation*)self)->updateCurrentTime(static_cast<int>(currentTime));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractAnimation_OnUpdateCurrentTime(QAbstractAnimation* self, intptr_t slot) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_UpdateCurrentTime_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAbstractAnimation_QBaseUpdateState(QAbstractAnimation* self, int newState, int oldState) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_UpdateState_IsBase(true);
+        vqabstractanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+    } else {
+        ((VirtualQAbstractAnimation*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractAnimation_OnUpdateState(QAbstractAnimation* self, intptr_t slot) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_UpdateState_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_UpdateState_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAbstractAnimation_QBaseUpdateDirection(QAbstractAnimation* self, int direction) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_UpdateDirection_IsBase(true);
+        vqabstractanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+    } else {
+        ((VirtualQAbstractAnimation*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractAnimation_OnUpdateDirection(QAbstractAnimation* self, intptr_t slot) {
+    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
+    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
+        vqabstractanimation->setQAbstractAnimation_UpdateDirection_Callback(reinterpret_cast<VirtualQAbstractAnimation::QAbstractAnimation_UpdateDirection_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -655,25 +662,6 @@ int QAnimationDriver_Metacall(QAnimationDriver* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAnimationDriver_OnMetacall(QAnimationDriver* self, intptr_t slot) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Metacall_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAnimationDriver_QBaseMetacall(QAnimationDriver* self, int param1, int param2, void** param3) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Metacall_IsBase(true);
-        return vqanimationdriver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAnimationDriver*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QAnimationDriver_Tr(const char* s) {
     QString _ret = QAnimationDriver::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -695,25 +683,6 @@ void QAnimationDriver_Advance(QAnimationDriver* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAnimationDriver_OnAdvance(QAnimationDriver* self, intptr_t slot) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Advance_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Advance_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAnimationDriver_QBaseAdvance(QAnimationDriver* self) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Advance_IsBase(true);
-        vqanimationdriver->advance();
-    } else {
-        ((VirtualQAnimationDriver*)self)->advance();
-    }
-}
-
 void QAnimationDriver_Install(QAnimationDriver* self) {
     self->install();
 }
@@ -730,25 +699,6 @@ long long QAnimationDriver_Elapsed(const QAnimationDriver* self) {
     auto* vqanimationdriver = dynamic_cast<const VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         return static_cast<long long>(self->elapsed());
-    } else {
-        return static_cast<long long>(((VirtualQAnimationDriver*)self)->elapsed());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAnimationDriver_OnElapsed(const QAnimationDriver* self, intptr_t slot) {
-    auto* vqanimationdriver = const_cast<VirtualQAnimationDriver*>(dynamic_cast<const VirtualQAnimationDriver*>(self));
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Elapsed_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Elapsed_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-long long QAnimationDriver_QBaseElapsed(const QAnimationDriver* self) {
-    auto* vqanimationdriver = dynamic_cast<const VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Elapsed_IsBase(true);
-        return static_cast<long long>(vqanimationdriver->elapsed());
     } else {
         return static_cast<long long>(((VirtualQAnimationDriver*)self)->elapsed());
     }
@@ -783,43 +733,9 @@ void QAnimationDriver_Start(QAnimationDriver* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAnimationDriver_OnStart(QAnimationDriver* self, intptr_t slot) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Start_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Start_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAnimationDriver_QBaseStart(QAnimationDriver* self) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Start_IsBase(true);
-        vqanimationdriver->start();
-    }
-}
-
 void QAnimationDriver_Stop(QAnimationDriver* self) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->stop();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAnimationDriver_OnStop(QAnimationDriver* self, intptr_t slot) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Stop_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Stop_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAnimationDriver_QBaseStop(QAnimationDriver* self) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        vqanimationdriver->setQAnimationDriver_Stop_IsBase(true);
         vqanimationdriver->stop();
     }
 }
@@ -846,6 +762,101 @@ libqt_string QAnimationDriver_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QAnimationDriver_QBaseMetacall(QAnimationDriver* self, int param1, int param2, void** param3) {
+    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Metacall_IsBase(true);
+        return vqanimationdriver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QAnimationDriver::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAnimationDriver_OnMetacall(QAnimationDriver* self, intptr_t slot) {
+    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Metacall_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAnimationDriver_QBaseAdvance(QAnimationDriver* self) {
+    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Advance_IsBase(true);
+        vqanimationdriver->advance();
+    } else {
+        self->QAnimationDriver::advance();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAnimationDriver_OnAdvance(QAnimationDriver* self, intptr_t slot) {
+    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Advance_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Advance_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+long long QAnimationDriver_QBaseElapsed(const QAnimationDriver* self) {
+    auto* vqanimationdriver = const_cast<VirtualQAnimationDriver*>(dynamic_cast<const VirtualQAnimationDriver*>(self));
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Elapsed_IsBase(true);
+        return static_cast<long long>(vqanimationdriver->elapsed());
+    } else {
+        return static_cast<long long>(self->QAnimationDriver::elapsed());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAnimationDriver_OnElapsed(const QAnimationDriver* self, intptr_t slot) {
+    auto* vqanimationdriver = const_cast<VirtualQAnimationDriver*>(dynamic_cast<const VirtualQAnimationDriver*>(self));
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Elapsed_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Elapsed_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAnimationDriver_QBaseStart(QAnimationDriver* self) {
+    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Start_IsBase(true);
+        vqanimationdriver->start();
+    } else {
+        ((VirtualQAnimationDriver*)self)->start();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAnimationDriver_OnStart(QAnimationDriver* self, intptr_t slot) {
+    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Start_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Start_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAnimationDriver_QBaseStop(QAnimationDriver* self) {
+    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Stop_IsBase(true);
+        vqanimationdriver->stop();
+    } else {
+        ((VirtualQAnimationDriver*)self)->stop();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAnimationDriver_OnStop(QAnimationDriver* self, intptr_t slot) {
+    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
+    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
+        vqanimationdriver->setQAnimationDriver_Stop_Callback(reinterpret_cast<VirtualQAnimationDriver::QAnimationDriver_Stop_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

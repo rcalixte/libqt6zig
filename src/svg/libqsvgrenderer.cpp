@@ -72,25 +72,6 @@ int QSvgRenderer_Metacall(QSvgRenderer* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSvgRenderer_OnMetacall(QSvgRenderer* self, intptr_t slot) {
-    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
-    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
-        vqsvgrenderer->setQSvgRenderer_Metacall_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSvgRenderer_QBaseMetacall(QSvgRenderer* self, int param1, int param2, void** param3) {
-    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
-    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
-        vqsvgrenderer->setQSvgRenderer_Metacall_IsBase(true);
-        return vqsvgrenderer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSvgRenderer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QSvgRenderer_Tr(const char* s) {
     QString _ret = QSvgRenderer::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -259,6 +240,25 @@ libqt_string QSvgRenderer_Tr3(const char* s, const char* c, int n) {
 void QSvgRenderer_Render32(QSvgRenderer* self, QPainter* p, const libqt_string elementId, const QRectF* bounds) {
     QString elementId_QString = QString::fromUtf8(elementId.data, elementId.len);
     self->render(p, elementId_QString, *bounds);
+}
+
+// Base class handler implementation
+int QSvgRenderer_QBaseMetacall(QSvgRenderer* self, int param1, int param2, void** param3) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
+        vqsvgrenderer->setQSvgRenderer_Metacall_IsBase(true);
+        return vqsvgrenderer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QSvgRenderer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSvgRenderer_OnMetacall(QSvgRenderer* self, intptr_t slot) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
+        vqsvgrenderer->setQSvgRenderer_Metacall_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -60,25 +60,6 @@ int QFileSystemWatcher_Metacall(QFileSystemWatcher* self, int param1, int param2
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QFileSystemWatcher_OnMetacall(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_Metacall_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QFileSystemWatcher_QBaseMetacall(QFileSystemWatcher* self, int param1, int param2, void** param3) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_Metacall_IsBase(true);
-        return vqfilesystemwatcher->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFileSystemWatcher*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QFileSystemWatcher_Tr(const char* s) {
     QString _ret = QFileSystemWatcher::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -221,6 +202,25 @@ libqt_string QFileSystemWatcher_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QFileSystemWatcher_QBaseMetacall(QFileSystemWatcher* self, int param1, int param2, void** param3) {
+    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+        vqfilesystemwatcher->setQFileSystemWatcher_Metacall_IsBase(true);
+        return vqfilesystemwatcher->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QFileSystemWatcher::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileSystemWatcher_OnMetacall(QFileSystemWatcher* self, intptr_t slot) {
+    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+        vqfilesystemwatcher->setQFileSystemWatcher_Metacall_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

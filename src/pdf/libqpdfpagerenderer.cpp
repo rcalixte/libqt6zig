@@ -41,25 +41,6 @@ int QPdfPageRenderer_Metacall(QPdfPageRenderer* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfPageRenderer_OnMetacall(QPdfPageRenderer* self, intptr_t slot) {
-    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
-    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
-        vqpdfpagerenderer->setQPdfPageRenderer_Metacall_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPdfPageRenderer_QBaseMetacall(QPdfPageRenderer* self, int param1, int param2, void** param3) {
-    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
-    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
-        vqpdfpagerenderer->setQPdfPageRenderer_Metacall_IsBase(true);
-        return vqpdfpagerenderer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfPageRenderer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPdfPageRenderer_Tr(const char* s) {
     QString _ret = QPdfPageRenderer::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -160,6 +141,25 @@ libqt_string QPdfPageRenderer_Tr3(const char* s, const char* c, int n) {
 
 unsigned long long QPdfPageRenderer_RequestPage3(QPdfPageRenderer* self, int pageNumber, QSize* imageSize, QPdfDocumentRenderOptions* options) {
     return static_cast<unsigned long long>(self->requestPage(static_cast<int>(pageNumber), *imageSize, *options));
+}
+
+// Base class handler implementation
+int QPdfPageRenderer_QBaseMetacall(QPdfPageRenderer* self, int param1, int param2, void** param3) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
+        vqpdfpagerenderer->setQPdfPageRenderer_Metacall_IsBase(true);
+        return vqpdfpagerenderer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPdfPageRenderer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfPageRenderer_OnMetacall(QPdfPageRenderer* self, intptr_t slot) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
+        vqpdfpagerenderer->setQPdfPageRenderer_Metacall_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

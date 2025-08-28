@@ -71,25 +71,6 @@ int KDateTimeEdit_Metacall(KDateTimeEdit* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KDateTimeEdit_OnMetacall(KDateTimeEdit* self, intptr_t slot) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_Metacall_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KDateTimeEdit_QBaseMetacall(KDateTimeEdit* self, int param1, int param2, void** param3) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_Metacall_IsBase(true);
-        return vkdatetimeedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDateTimeEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KDateTimeEdit_Tr(const char* s) {
     QString _ret = KDateTimeEdit::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -518,44 +499,9 @@ bool KDateTimeEdit_EventFilter(KDateTimeEdit* self, QObject* object, QEvent* eve
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KDateTimeEdit_OnEventFilter(KDateTimeEdit* self, intptr_t slot) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_EventFilter_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_EventFilter_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KDateTimeEdit_QBaseEventFilter(KDateTimeEdit* self, QObject* object, QEvent* event) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_EventFilter_IsBase(true);
-        return vkdatetimeedit->eventFilter(object, event);
-    }
-    return {};
-}
-
 void KDateTimeEdit_FocusInEvent(KDateTimeEdit* self, QFocusEvent* event) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
     if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->focusInEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KDateTimeEdit_OnFocusInEvent(KDateTimeEdit* self, intptr_t slot) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KDateTimeEdit_QBaseFocusInEvent(KDateTimeEdit* self, QFocusEvent* event) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_FocusInEvent_IsBase(true);
         vkdatetimeedit->focusInEvent(event);
     }
 }
@@ -567,43 +513,9 @@ void KDateTimeEdit_FocusOutEvent(KDateTimeEdit* self, QFocusEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KDateTimeEdit_OnFocusOutEvent(KDateTimeEdit* self, intptr_t slot) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_FocusOutEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KDateTimeEdit_QBaseFocusOutEvent(KDateTimeEdit* self, QFocusEvent* event) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_FocusOutEvent_IsBase(true);
-        vkdatetimeedit->focusOutEvent(event);
-    }
-}
-
 void KDateTimeEdit_ResizeEvent(KDateTimeEdit* self, QResizeEvent* event) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
     if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->resizeEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KDateTimeEdit_OnResizeEvent(KDateTimeEdit* self, intptr_t slot) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KDateTimeEdit_QBaseResizeEvent(KDateTimeEdit* self, QResizeEvent* event) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_ResizeEvent_IsBase(true);
         vkdatetimeedit->resizeEvent(event);
     }
 }
@@ -615,23 +527,6 @@ void KDateTimeEdit_AssignDateTime(KDateTimeEdit* self, const QDateTime* dateTime
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KDateTimeEdit_OnAssignDateTime(KDateTimeEdit* self, intptr_t slot) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_AssignDateTime_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignDateTime_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KDateTimeEdit_QBaseAssignDateTime(KDateTimeEdit* self, const QDateTime* dateTime) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_AssignDateTime_IsBase(true);
-        vkdatetimeedit->assignDateTime(*dateTime);
-    }
-}
-
 void KDateTimeEdit_AssignDate(KDateTimeEdit* self, const QDate* date) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
     if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
@@ -639,43 +534,9 @@ void KDateTimeEdit_AssignDate(KDateTimeEdit* self, const QDate* date) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KDateTimeEdit_OnAssignDate(KDateTimeEdit* self, intptr_t slot) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_AssignDate_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignDate_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KDateTimeEdit_QBaseAssignDate(KDateTimeEdit* self, const QDate* date) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_AssignDate_IsBase(true);
-        vkdatetimeedit->assignDate(*date);
-    }
-}
-
 void KDateTimeEdit_AssignTime(KDateTimeEdit* self, const QTime* time) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
     if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->assignTime(*time);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KDateTimeEdit_OnAssignTime(KDateTimeEdit* self, intptr_t slot) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_AssignTime_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignTime_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KDateTimeEdit_QBaseAssignTime(KDateTimeEdit* self, const QTime* time) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        vkdatetimeedit->setKDateTimeEdit_AssignTime_IsBase(true);
         vkdatetimeedit->assignTime(*time);
     }
 }
@@ -746,6 +607,158 @@ void KDateTimeEdit_SetTimeList3(KDateTimeEdit* self, libqt_list /* of QTime* */ 
     QString minWarnMsg_QString = QString::fromUtf8(minWarnMsg.data, minWarnMsg.len);
     QString maxWarnMsg_QString = QString::fromUtf8(maxWarnMsg.data, maxWarnMsg.len);
     self->setTimeList(timeList_QList, minWarnMsg_QString, maxWarnMsg_QString);
+}
+
+// Base class handler implementation
+int KDateTimeEdit_QBaseMetacall(KDateTimeEdit* self, int param1, int param2, void** param3) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_Metacall_IsBase(true);
+        return vkdatetimeedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KDateTimeEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnMetacall(KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_Metacall_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KDateTimeEdit_QBaseEventFilter(KDateTimeEdit* self, QObject* object, QEvent* event) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_EventFilter_IsBase(true);
+        return vkdatetimeedit->eventFilter(object, event);
+    } else {
+        return ((VirtualKDateTimeEdit*)self)->eventFilter(object, event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnEventFilter(KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_EventFilter_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_EventFilter_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KDateTimeEdit_QBaseFocusInEvent(KDateTimeEdit* self, QFocusEvent* event) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_FocusInEvent_IsBase(true);
+        vkdatetimeedit->focusInEvent(event);
+    } else {
+        ((VirtualKDateTimeEdit*)self)->focusInEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnFocusInEvent(KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KDateTimeEdit_QBaseFocusOutEvent(KDateTimeEdit* self, QFocusEvent* event) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_FocusOutEvent_IsBase(true);
+        vkdatetimeedit->focusOutEvent(event);
+    } else {
+        ((VirtualKDateTimeEdit*)self)->focusOutEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnFocusOutEvent(KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KDateTimeEdit_QBaseResizeEvent(KDateTimeEdit* self, QResizeEvent* event) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_ResizeEvent_IsBase(true);
+        vkdatetimeedit->resizeEvent(event);
+    } else {
+        ((VirtualKDateTimeEdit*)self)->resizeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnResizeEvent(KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KDateTimeEdit_QBaseAssignDateTime(KDateTimeEdit* self, const QDateTime* dateTime) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_AssignDateTime_IsBase(true);
+        vkdatetimeedit->assignDateTime(*dateTime);
+    } else {
+        ((VirtualKDateTimeEdit*)self)->assignDateTime(*dateTime);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnAssignDateTime(KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_AssignDateTime_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignDateTime_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KDateTimeEdit_QBaseAssignDate(KDateTimeEdit* self, const QDate* date) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_AssignDate_IsBase(true);
+        vkdatetimeedit->assignDate(*date);
+    } else {
+        ((VirtualKDateTimeEdit*)self)->assignDate(*date);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnAssignDate(KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_AssignDate_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignDate_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KDateTimeEdit_QBaseAssignTime(KDateTimeEdit* self, const QTime* time) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_AssignTime_IsBase(true);
+        vkdatetimeedit->assignTime(*time);
+    } else {
+        ((VirtualKDateTimeEdit*)self)->assignTime(*time);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnAssignTime(KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_AssignTime_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignTime_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

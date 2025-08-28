@@ -39,25 +39,6 @@ int KDateValidator_Metacall(KDateValidator* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KDateValidator_OnMetacall(KDateValidator* self, intptr_t slot) {
-    auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        vkdatevalidator->setKDateValidator_Metacall_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KDateValidator_QBaseMetacall(KDateValidator* self, int param1, int param2, void** param3) {
-    auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        vkdatevalidator->setKDateValidator_Metacall_IsBase(true);
-        return vkdatevalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDateValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KDateValidator_Tr(const char* s) {
     QString _ret = KDateValidator::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -80,51 +61,11 @@ int KDateValidator_Validate(const KDateValidator* self, libqt_string text, int* 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KDateValidator_OnValidate(const KDateValidator* self, intptr_t slot) {
-    auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        vkdatevalidator->setKDateValidator_Validate_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Validate_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KDateValidator_QBaseValidate(const KDateValidator* self, libqt_string text, int* e) {
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vkdatevalidator = dynamic_cast<const VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        vkdatevalidator->setKDateValidator_Validate_IsBase(true);
-        return static_cast<int>(vkdatevalidator->validate(text_QString, static_cast<int&>(*e)));
-    } else {
-        return static_cast<int>(((VirtualKDateValidator*)self)->validate(text_QString, static_cast<int&>(*e)));
-    }
-}
-
 void KDateValidator_Fixup(const KDateValidator* self, libqt_string input) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
     auto* vkdatevalidator = dynamic_cast<const VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         self->fixup(input_QString);
-    } else {
-        ((VirtualKDateValidator*)self)->fixup(input_QString);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KDateValidator_OnFixup(const KDateValidator* self, intptr_t slot) {
-    auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        vkdatevalidator->setKDateValidator_Fixup_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Fixup_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KDateValidator_QBaseFixup(const KDateValidator* self, libqt_string input) {
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vkdatevalidator = dynamic_cast<const VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        vkdatevalidator->setKDateValidator_Fixup_IsBase(true);
-        vkdatevalidator->fixup(input_QString);
     } else {
         ((VirtualKDateValidator*)self)->fixup(input_QString);
     }
@@ -157,6 +98,65 @@ libqt_string KDateValidator_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KDateValidator_QBaseMetacall(KDateValidator* self, int param1, int param2, void** param3) {
+    auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_Metacall_IsBase(true);
+        return vkdatevalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KDateValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateValidator_OnMetacall(KDateValidator* self, intptr_t slot) {
+    auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_Metacall_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int KDateValidator_QBaseValidate(const KDateValidator* self, libqt_string text, int* e) {
+    auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_Validate_IsBase(true);
+        return static_cast<int>(vkdatevalidator->validate(text_QString, static_cast<int&>(*e)));
+    } else {
+        return static_cast<int>(self->KDateValidator::validate(text_QString, static_cast<int&>(*e)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateValidator_OnValidate(const KDateValidator* self, intptr_t slot) {
+    auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_Validate_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Validate_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KDateValidator_QBaseFixup(const KDateValidator* self, libqt_string input) {
+    auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_Fixup_IsBase(true);
+        vkdatevalidator->fixup(input_QString);
+    } else {
+        self->KDateValidator::fixup(input_QString);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateValidator_OnFixup(const KDateValidator* self, intptr_t slot) {
+    auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_Fixup_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Fixup_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

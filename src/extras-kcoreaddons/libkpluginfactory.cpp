@@ -37,25 +37,6 @@ int KPluginFactory_Metacall(KPluginFactory* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPluginFactory_OnMetacall(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Metacall_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KPluginFactory_QBaseMetacall(KPluginFactory* self, int param1, int param2, void** param3) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Metacall_IsBase(true);
-        return vkpluginfactory->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPluginFactory*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KPluginFactory_Tr(const char* s) {
     QString _ret = KPluginFactory::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -90,30 +71,6 @@ QObject* KPluginFactory_Create(KPluginFactory* self, const char* iface, QWidget*
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPluginFactory_OnCreate(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Create_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Create_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QObject* KPluginFactory_QBaseCreate(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args) {
-    QList<QVariant> args_QList;
-    args_QList.reserve(args.len);
-    QVariant** args_arr = static_cast<QVariant**>(args.data);
-    for (size_t i = 0; i < args.len; ++i) {
-        args_QList.push_back(*(args_arr[i]));
-    }
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Create_IsBase(true);
-        return vkpluginfactory->create(iface, parentWidget, parent, args_QList);
-    }
-    return {};
-}
-
 libqt_string KPluginFactory_Tr2(const char* s, const char* c) {
     QString _ret = KPluginFactory::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -136,6 +93,50 @@ libqt_string KPluginFactory_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KPluginFactory_QBaseMetacall(KPluginFactory* self, int param1, int param2, void** param3) {
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_Metacall_IsBase(true);
+        return vkpluginfactory->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KPluginFactory::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPluginFactory_OnMetacall(KPluginFactory* self, intptr_t slot) {
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_Metacall_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QObject* KPluginFactory_QBaseCreate(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args) {
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    QList<QVariant> args_QList;
+    args_QList.reserve(args.len);
+    QVariant** args_arr = static_cast<QVariant**>(args.data);
+    for (size_t i = 0; i < args.len; ++i) {
+        args_QList.push_back(*(args_arr[i]));
+    }
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_Create_IsBase(true);
+        return vkpluginfactory->create(iface, parentWidget, parent, args_QList);
+    } else {
+        return ((VirtualKPluginFactory*)self)->create(iface, parentWidget, parent, args_QList);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPluginFactory_OnCreate(KPluginFactory* self, intptr_t slot) {
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_Create_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Create_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

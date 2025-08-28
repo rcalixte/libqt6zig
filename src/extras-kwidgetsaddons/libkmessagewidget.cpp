@@ -78,25 +78,6 @@ int KMessageWidget_Metacall(KMessageWidget* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KMessageWidget_OnMetacall(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Metacall_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KMessageWidget_QBaseMetacall(KMessageWidget* self, int param1, int param2, void** param3) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Metacall_IsBase(true);
-        return vkmessagewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKMessageWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KMessageWidget_Tr(const char* s) {
     QString _ret = KMessageWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -166,25 +147,6 @@ QSize* KMessageWidget_SizeHint(const KMessageWidget* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KMessageWidget_OnSizeHint(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_SizeHint_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* KMessageWidget_QBaseSizeHint(const KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_SizeHint_IsBase(true);
-        return new QSize(vkmessagewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKMessageWidget*)self)->sizeHint());
-    }
-}
-
 QSize* KMessageWidget_MinimumSizeHint(const KMessageWidget* self) {
     auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
@@ -194,48 +156,10 @@ QSize* KMessageWidget_MinimumSizeHint(const KMessageWidget* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KMessageWidget_OnMinimumSizeHint(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* KMessageWidget_QBaseMinimumSizeHint(const KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vkmessagewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKMessageWidget*)self)->minimumSizeHint());
-    }
-}
-
 int KMessageWidget_HeightForWidth(const KMessageWidget* self, int width) {
     auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         return self->heightForWidth(static_cast<int>(width));
-    } else {
-        return ((VirtualKMessageWidget*)self)->heightForWidth(static_cast<int>(width));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KMessageWidget_OnHeightForWidth(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HeightForWidth_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KMessageWidget_QBaseHeightForWidth(const KMessageWidget* self, int width) {
-    auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_HeightForWidth_IsBase(true);
-        return vkmessagewidget->heightForWidth(static_cast<int>(width));
     } else {
         return ((VirtualKMessageWidget*)self)->heightForWidth(static_cast<int>(width));
     }
@@ -355,23 +279,6 @@ void KMessageWidget_PaintEvent(KMessageWidget* self, QPaintEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KMessageWidget_OnPaintEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_PaintEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KMessageWidget_QBasePaintEvent(KMessageWidget* self, QPaintEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_PaintEvent_IsBase(true);
-        vkmessagewidget->paintEvent(event);
-    }
-}
-
 bool KMessageWidget_Event(KMessageWidget* self, QEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
@@ -380,44 +287,9 @@ bool KMessageWidget_Event(KMessageWidget* self, QEvent* event) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KMessageWidget_OnEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Event_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KMessageWidget_QBaseEvent(KMessageWidget* self, QEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Event_IsBase(true);
-        return vkmessagewidget->event(event);
-    }
-    return {};
-}
-
 void KMessageWidget_ResizeEvent(KMessageWidget* self, QResizeEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->resizeEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KMessageWidget_OnResizeEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KMessageWidget_QBaseResizeEvent(KMessageWidget* self, QResizeEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_ResizeEvent_IsBase(true);
         vkmessagewidget->resizeEvent(event);
     }
 }
@@ -444,6 +316,139 @@ libqt_string KMessageWidget_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KMessageWidget_QBaseMetacall(KMessageWidget* self, int param1, int param2, void** param3) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_Metacall_IsBase(true);
+        return vkmessagewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KMessageWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageWidget_OnMetacall(KMessageWidget* self, intptr_t slot) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_Metacall_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* KMessageWidget_QBaseSizeHint(const KMessageWidget* self) {
+    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_SizeHint_IsBase(true);
+        return new QSize(vkmessagewidget->sizeHint());
+    } else {
+        return new QSize(((VirtualKMessageWidget*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageWidget_OnSizeHint(const KMessageWidget* self, intptr_t slot) {
+    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_SizeHint_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* KMessageWidget_QBaseMinimumSizeHint(const KMessageWidget* self) {
+    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_MinimumSizeHint_IsBase(true);
+        return new QSize(vkmessagewidget->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKMessageWidget*)self)->minimumSizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageWidget_OnMinimumSizeHint(const KMessageWidget* self, intptr_t slot) {
+    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int KMessageWidget_QBaseHeightForWidth(const KMessageWidget* self, int width) {
+    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_HeightForWidth_IsBase(true);
+        return vkmessagewidget->heightForWidth(static_cast<int>(width));
+    } else {
+        return self->KMessageWidget::heightForWidth(static_cast<int>(width));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageWidget_OnHeightForWidth(const KMessageWidget* self, intptr_t slot) {
+    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HeightForWidth_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KMessageWidget_QBasePaintEvent(KMessageWidget* self, QPaintEvent* event) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_PaintEvent_IsBase(true);
+        vkmessagewidget->paintEvent(event);
+    } else {
+        ((VirtualKMessageWidget*)self)->paintEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageWidget_OnPaintEvent(KMessageWidget* self, intptr_t slot) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_PaintEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_PaintEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KMessageWidget_QBaseEvent(KMessageWidget* self, QEvent* event) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_Event_IsBase(true);
+        return vkmessagewidget->event(event);
+    } else {
+        return ((VirtualKMessageWidget*)self)->event(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageWidget_OnEvent(KMessageWidget* self, intptr_t slot) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_Event_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KMessageWidget_QBaseResizeEvent(KMessageWidget* self, QResizeEvent* event) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_ResizeEvent_IsBase(true);
+        vkmessagewidget->resizeEvent(event);
+    } else {
+        ((VirtualKMessageWidget*)self)->resizeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageWidget_OnResizeEvent(KMessageWidget* self, intptr_t slot) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ResizeEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

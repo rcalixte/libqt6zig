@@ -41,25 +41,6 @@ int QsciLexerPostScript_Metacall(QsciLexerPostScript* self, int param1, int para
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPostScript_OnMetacall(QsciLexerPostScript* self, intptr_t slot) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerPostScript_QBaseMetacall(QsciLexerPostScript* self, int param1, int param2, void** param3) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_Metacall_IsBase(true);
-        return vqscilexerpostscript->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPostScript*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerPostScript_Tr(const char* s) {
     QString _ret = QsciLexerPostScript::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -141,48 +122,10 @@ void QsciLexerPostScript_SetTokenize(QsciLexerPostScript* self, bool tokenize) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPostScript_OnSetTokenize(QsciLexerPostScript* self, intptr_t slot) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_SetTokenize_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetTokenize_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPostScript_QBaseSetTokenize(QsciLexerPostScript* self, bool tokenize) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_SetTokenize_IsBase(true);
-        vqscilexerpostscript->setTokenize(tokenize);
-    } else {
-        ((VirtualQsciLexerPostScript*)self)->setTokenize(tokenize);
-    }
-}
-
 void QsciLexerPostScript_SetLevel(QsciLexerPostScript* self, int level) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         self->setLevel(static_cast<int>(level));
-    } else {
-        ((VirtualQsciLexerPostScript*)self)->setLevel(static_cast<int>(level));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPostScript_OnSetLevel(QsciLexerPostScript* self, intptr_t slot) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_SetLevel_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetLevel_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPostScript_QBaseSetLevel(QsciLexerPostScript* self, int level) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_SetLevel_IsBase(true);
-        vqscilexerpostscript->setLevel(static_cast<int>(level));
     } else {
         ((VirtualQsciLexerPostScript*)self)->setLevel(static_cast<int>(level));
     }
@@ -197,48 +140,10 @@ void QsciLexerPostScript_SetFoldCompact(QsciLexerPostScript* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPostScript_OnSetFoldCompact(QsciLexerPostScript* self, intptr_t slot) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPostScript_QBaseSetFoldCompact(QsciLexerPostScript* self, bool fold) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_SetFoldCompact_IsBase(true);
-        vqscilexerpostscript->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerPostScript*)self)->setFoldCompact(fold);
-    }
-}
-
 void QsciLexerPostScript_SetFoldAtElse(QsciLexerPostScript* self, bool fold) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         self->setFoldAtElse(fold);
-    } else {
-        ((VirtualQsciLexerPostScript*)self)->setFoldAtElse(fold);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPostScript_OnSetFoldAtElse(QsciLexerPostScript* self, intptr_t slot) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetFoldAtElse_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPostScript_QBaseSetFoldAtElse(QsciLexerPostScript* self, bool fold) {
-    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_SetFoldAtElse_IsBase(true);
-        vqscilexerpostscript->setFoldAtElse(fold);
     } else {
         ((VirtualQsciLexerPostScript*)self)->setFoldAtElse(fold);
     }
@@ -266,6 +171,101 @@ libqt_string QsciLexerPostScript_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QsciLexerPostScript_QBaseMetacall(QsciLexerPostScript* self, int param1, int param2, void** param3) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_Metacall_IsBase(true);
+        return vqscilexerpostscript->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerPostScript*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPostScript_OnMetacall(QsciLexerPostScript* self, intptr_t slot) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPostScript_QBaseSetTokenize(QsciLexerPostScript* self, bool tokenize) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_SetTokenize_IsBase(true);
+        vqscilexerpostscript->setTokenize(tokenize);
+    } else {
+        ((VirtualQsciLexerPostScript*)self)->setTokenize(tokenize);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPostScript_OnSetTokenize(QsciLexerPostScript* self, intptr_t slot) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_SetTokenize_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetTokenize_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPostScript_QBaseSetLevel(QsciLexerPostScript* self, int level) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_SetLevel_IsBase(true);
+        vqscilexerpostscript->setLevel(static_cast<int>(level));
+    } else {
+        ((VirtualQsciLexerPostScript*)self)->setLevel(static_cast<int>(level));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPostScript_OnSetLevel(QsciLexerPostScript* self, intptr_t slot) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_SetLevel_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetLevel_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPostScript_QBaseSetFoldCompact(QsciLexerPostScript* self, bool fold) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_SetFoldCompact_IsBase(true);
+        vqscilexerpostscript->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerPostScript*)self)->setFoldCompact(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPostScript_OnSetFoldCompact(QsciLexerPostScript* self, intptr_t slot) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetFoldCompact_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPostScript_QBaseSetFoldAtElse(QsciLexerPostScript* self, bool fold) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_SetFoldAtElse_IsBase(true);
+        vqscilexerpostscript->setFoldAtElse(fold);
+    } else {
+        ((VirtualQsciLexerPostScript*)self)->setFoldAtElse(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPostScript_OnSetFoldAtElse(QsciLexerPostScript* self, intptr_t slot) {
+    auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+        vqscilexerpostscript->setQsciLexerPostScript_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetFoldAtElse_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

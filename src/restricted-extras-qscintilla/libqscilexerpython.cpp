@@ -41,25 +41,6 @@ int QsciLexerPython_Metacall(QsciLexerPython* self, int param1, int param2, void
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPython_OnMetacall(QsciLexerPython* self, intptr_t slot) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerPython_QBaseMetacall(QsciLexerPython* self, int param1, int param2, void** param3) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_Metacall_IsBase(true);
-        return vqscilexerpython->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPython*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerPython_Tr(const char* s) {
     QString _ret = QsciLexerPython::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -133,25 +114,6 @@ int QsciLexerPython_IndentationGuideView(const QsciLexerPython* self) {
     auto* vqscilexerpython = dynamic_cast<const VirtualQsciLexerPython*>(self);
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
         return self->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerPython*)self)->indentationGuideView();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPython_OnIndentationGuideView(const QsciLexerPython* self, intptr_t slot) {
-    auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_IndentationGuideView_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerPython_QBaseIndentationGuideView(const QsciLexerPython* self) {
-    auto* vqscilexerpython = dynamic_cast<const VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_IndentationGuideView_IsBase(true);
-        return vqscilexerpython->indentationGuideView();
     } else {
         return ((VirtualQsciLexerPython*)self)->indentationGuideView();
     }
@@ -246,25 +208,6 @@ void QsciLexerPython_SetFoldComments(QsciLexerPython* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPython_OnSetFoldComments(QsciLexerPython* self, intptr_t slot) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetFoldComments_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPython_QBaseSetFoldComments(QsciLexerPython* self, bool fold) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_SetFoldComments_IsBase(true);
-        vqscilexerpython->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerPython*)self)->setFoldComments(fold);
-    }
-}
-
 void QsciLexerPython_SetFoldQuotes(QsciLexerPython* self, bool fold) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
@@ -274,48 +217,10 @@ void QsciLexerPython_SetFoldQuotes(QsciLexerPython* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPython_OnSetFoldQuotes(QsciLexerPython* self, intptr_t slot) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_SetFoldQuotes_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetFoldQuotes_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPython_QBaseSetFoldQuotes(QsciLexerPython* self, bool fold) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_SetFoldQuotes_IsBase(true);
-        vqscilexerpython->setFoldQuotes(fold);
-    } else {
-        ((VirtualQsciLexerPython*)self)->setFoldQuotes(fold);
-    }
-}
-
 void QsciLexerPython_SetIndentationWarning(QsciLexerPython* self, int warn) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
         self->setIndentationWarning(static_cast<QsciLexerPython::IndentationWarning>(warn));
-    } else {
-        ((VirtualQsciLexerPython*)self)->setIndentationWarning(static_cast<QsciLexerPython::IndentationWarning>(warn));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPython_OnSetIndentationWarning(QsciLexerPython* self, intptr_t slot) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_SetIndentationWarning_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetIndentationWarning_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPython_QBaseSetIndentationWarning(QsciLexerPython* self, int warn) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_SetIndentationWarning_IsBase(true);
-        vqscilexerpython->setIndentationWarning(static_cast<QsciLexerPython::IndentationWarning>(warn));
     } else {
         ((VirtualQsciLexerPython*)self)->setIndentationWarning(static_cast<QsciLexerPython::IndentationWarning>(warn));
     }
@@ -347,6 +252,101 @@ libqt_string QsciLexerPython_Tr3(const char* s, const char* c, int n) {
 
 const char* QsciLexerPython_BlockStart1(const QsciLexerPython* self, int* style) {
     return (const char*)self->blockStart(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+int QsciLexerPython_QBaseMetacall(QsciLexerPython* self, int param1, int param2, void** param3) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_Metacall_IsBase(true);
+        return vqscilexerpython->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerPython*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPython_OnMetacall(QsciLexerPython* self, intptr_t slot) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QsciLexerPython_QBaseIndentationGuideView(const QsciLexerPython* self) {
+    auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_IndentationGuideView_IsBase(true);
+        return vqscilexerpython->indentationGuideView();
+    } else {
+        return ((VirtualQsciLexerPython*)self)->indentationGuideView();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPython_OnIndentationGuideView(const QsciLexerPython* self, intptr_t slot) {
+    auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_IndentationGuideView_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPython_QBaseSetFoldComments(QsciLexerPython* self, bool fold) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_SetFoldComments_IsBase(true);
+        vqscilexerpython->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerPython*)self)->setFoldComments(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPython_OnSetFoldComments(QsciLexerPython* self, intptr_t slot) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetFoldComments_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPython_QBaseSetFoldQuotes(QsciLexerPython* self, bool fold) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_SetFoldQuotes_IsBase(true);
+        vqscilexerpython->setFoldQuotes(fold);
+    } else {
+        ((VirtualQsciLexerPython*)self)->setFoldQuotes(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPython_OnSetFoldQuotes(QsciLexerPython* self, intptr_t slot) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_SetFoldQuotes_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetFoldQuotes_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPython_QBaseSetIndentationWarning(QsciLexerPython* self, int warn) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_SetIndentationWarning_IsBase(true);
+        vqscilexerpython->setIndentationWarning(static_cast<QsciLexerPython::IndentationWarning>(warn));
+    } else {
+        ((VirtualQsciLexerPython*)self)->setIndentationWarning(static_cast<QsciLexerPython::IndentationWarning>(warn));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPython_OnSetIndentationWarning(QsciLexerPython* self, intptr_t slot) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_SetIndentationWarning_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetIndentationWarning_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

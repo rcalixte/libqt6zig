@@ -31,8 +31,6 @@ QWindowCapture* QWindowCapture_new2(QObject* parent);
 QMetaObject* QWindowCapture_MetaObject(const QWindowCapture* self);
 void* QWindowCapture_Metacast(QWindowCapture* self, const char* param1);
 int QWindowCapture_Metacall(QWindowCapture* self, int param1, int param2, void** param3);
-void QWindowCapture_OnMetacall(QWindowCapture* self, intptr_t slot);
-int QWindowCapture_QBaseMetacall(QWindowCapture* self, int param1, int param2, void** param3);
 libqt_string QWindowCapture_Tr(const char* s);
 libqt_list /* of QCapturableWindow* */ QWindowCapture_CapturableWindows();
 QMediaCaptureSession* QWindowCapture_CaptureSession(const QWindowCapture* self);
@@ -54,6 +52,8 @@ void QWindowCapture_ErrorOccurred(QWindowCapture* self, int errorVal, const libq
 void QWindowCapture_Connect_ErrorOccurred(QWindowCapture* self, intptr_t slot);
 libqt_string QWindowCapture_Tr2(const char* s, const char* c);
 libqt_string QWindowCapture_Tr3(const char* s, const char* c, int n);
+void QWindowCapture_OnMetacall(QWindowCapture* self, intptr_t slot);
+int QWindowCapture_QBaseMetacall(QWindowCapture* self, int param1, int param2, void** param3);
 bool QWindowCapture_Event(QWindowCapture* self, QEvent* event);
 void QWindowCapture_OnEvent(QWindowCapture* self, intptr_t slot);
 bool QWindowCapture_QBaseEvent(QWindowCapture* self, QEvent* event);

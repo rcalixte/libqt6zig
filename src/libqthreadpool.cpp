@@ -40,25 +40,6 @@ int QThreadPool_Metacall(QThreadPool* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QThreadPool_OnMetacall(QThreadPool* self, intptr_t slot) {
-    auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
-        vqthreadpool->setQThreadPool_Metacall_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QThreadPool_QBaseMetacall(QThreadPool* self, int param1, int param2, void** param3) {
-    auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
-        vqthreadpool->setQThreadPool_Metacall_IsBase(true);
-        return vqthreadpool->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQThreadPool*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QThreadPool_Tr(const char* s) {
     QString _ret = QThreadPool::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -181,6 +162,25 @@ void QThreadPool_Start2(QThreadPool* self, QRunnable* runnable, int priority) {
 
 bool QThreadPool_WaitForDone1(QThreadPool* self, QDeadlineTimer* deadline) {
     return self->waitForDone(*deadline);
+}
+
+// Base class handler implementation
+int QThreadPool_QBaseMetacall(QThreadPool* self, int param1, int param2, void** param3) {
+    auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+        vqthreadpool->setQThreadPool_Metacall_IsBase(true);
+        return vqthreadpool->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QThreadPool::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QThreadPool_OnMetacall(QThreadPool* self, intptr_t slot) {
+    auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+        vqthreadpool->setQThreadPool_Metacall_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

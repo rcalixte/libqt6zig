@@ -79,25 +79,6 @@ int KMultiTabBar_Metacall(KMultiTabBar* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KMultiTabBar_OnMetacall(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Metacall_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KMultiTabBar_QBaseMetacall(KMultiTabBar* self, int param1, int param2, void** param3) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Metacall_IsBase(true);
-        return vkmultitabbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KMultiTabBar_Tr(const char* s) {
     QString _ret = KMultiTabBar::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -165,43 +146,9 @@ void KMultiTabBar_FontChange(KMultiTabBar* self, const QFont* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KMultiTabBar_OnFontChange(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_FontChange_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FontChange_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KMultiTabBar_QBaseFontChange(KMultiTabBar* self, const QFont* param1) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_FontChange_IsBase(true);
-        vkmultitabbar->fontChange(*param1);
-    }
-}
-
 void KMultiTabBar_PaintEvent(KMultiTabBar* self, QPaintEvent* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->paintEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KMultiTabBar_OnPaintEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_PaintEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KMultiTabBar_QBasePaintEvent(KMultiTabBar* self, QPaintEvent* param1) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_PaintEvent_IsBase(true);
         vkmultitabbar->paintEvent(param1);
     }
 }
@@ -250,6 +197,63 @@ int KMultiTabBar_AppendTab2(KMultiTabBar* self, const QIcon* icon, int id) {
 int KMultiTabBar_AppendTab3(KMultiTabBar* self, const QIcon* icon, int id, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->appendTab(*icon, static_cast<int>(id), text_QString);
+}
+
+// Base class handler implementation
+int KMultiTabBar_QBaseMetacall(KMultiTabBar* self, int param1, int param2, void** param3) {
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_Metacall_IsBase(true);
+        return vkmultitabbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KMultiTabBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMultiTabBar_OnMetacall(KMultiTabBar* self, intptr_t slot) {
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_Metacall_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KMultiTabBar_QBaseFontChange(KMultiTabBar* self, const QFont* param1) {
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_FontChange_IsBase(true);
+        vkmultitabbar->fontChange(*param1);
+    } else {
+        ((VirtualKMultiTabBar*)self)->fontChange(*param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMultiTabBar_OnFontChange(KMultiTabBar* self, intptr_t slot) {
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_FontChange_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FontChange_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KMultiTabBar_QBasePaintEvent(KMultiTabBar* self, QPaintEvent* param1) {
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_PaintEvent_IsBase(true);
+        vkmultitabbar->paintEvent(param1);
+    } else {
+        ((VirtualKMultiTabBar*)self)->paintEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMultiTabBar_OnPaintEvent(KMultiTabBar* self, intptr_t slot) {
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_PaintEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_PaintEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

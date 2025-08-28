@@ -65,25 +65,6 @@ int QVideoWidget_Metacall(QVideoWidget* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QVideoWidget_OnMetacall(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Metacall_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QVideoWidget_QBaseMetacall(QVideoWidget* self, int param1, int param2, void** param3) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Metacall_IsBase(true);
-        return vqvideowidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVideoWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QVideoWidget_Tr(const char* s) {
     QString _ret = QVideoWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -108,25 +89,6 @@ QSize* QVideoWidget_SizeHint(const QVideoWidget* self) {
     auto* vqvideowidget = dynamic_cast<const VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQVideoWidget*)self)->sizeHint());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QVideoWidget_OnSizeHint(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_SizeHint_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QVideoWidget_QBaseSizeHint(const QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<const VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_SizeHint_IsBase(true);
-        return new QSize(vqvideowidget->sizeHint());
     } else {
         return new QSize(((VirtualQVideoWidget*)self)->sizeHint());
     }
@@ -172,44 +134,9 @@ bool QVideoWidget_Event(QVideoWidget* self, QEvent* event) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QVideoWidget_OnEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Event_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QVideoWidget_QBaseEvent(QVideoWidget* self, QEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Event_IsBase(true);
-        return vqvideowidget->event(event);
-    }
-    return {};
-}
-
 void QVideoWidget_ShowEvent(QVideoWidget* self, QShowEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->showEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QVideoWidget_OnShowEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ShowEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ShowEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QVideoWidget_QBaseShowEvent(QVideoWidget* self, QShowEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ShowEvent_IsBase(true);
         vqvideowidget->showEvent(event);
     }
 }
@@ -221,23 +148,6 @@ void QVideoWidget_HideEvent(QVideoWidget* self, QHideEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QVideoWidget_OnHideEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_HideEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HideEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QVideoWidget_QBaseHideEvent(QVideoWidget* self, QHideEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_HideEvent_IsBase(true);
-        vqvideowidget->hideEvent(event);
-    }
-}
-
 void QVideoWidget_ResizeEvent(QVideoWidget* self, QResizeEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
@@ -245,43 +155,9 @@ void QVideoWidget_ResizeEvent(QVideoWidget* self, QResizeEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QVideoWidget_OnResizeEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QVideoWidget_QBaseResizeEvent(QVideoWidget* self, QResizeEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ResizeEvent_IsBase(true);
-        vqvideowidget->resizeEvent(event);
-    }
-}
-
 void QVideoWidget_MoveEvent(QVideoWidget* self, QMoveEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->moveEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QVideoWidget_OnMoveEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_MoveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QVideoWidget_QBaseMoveEvent(QVideoWidget* self, QMoveEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_MoveEvent_IsBase(true);
         vqvideowidget->moveEvent(event);
     }
 }
@@ -308,6 +184,139 @@ libqt_string QVideoWidget_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QVideoWidget_QBaseMetacall(QVideoWidget* self, int param1, int param2, void** param3) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_Metacall_IsBase(true);
+        return vqvideowidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QVideoWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnMetacall(QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_Metacall_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QVideoWidget_QBaseSizeHint(const QVideoWidget* self) {
+    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_SizeHint_IsBase(true);
+        return new QSize(vqvideowidget->sizeHint());
+    } else {
+        return new QSize(((VirtualQVideoWidget*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnSizeHint(const QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_SizeHint_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QVideoWidget_QBaseEvent(QVideoWidget* self, QEvent* event) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_Event_IsBase(true);
+        return vqvideowidget->event(event);
+    } else {
+        return ((VirtualQVideoWidget*)self)->event(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnEvent(QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_Event_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QVideoWidget_QBaseShowEvent(QVideoWidget* self, QShowEvent* event) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_ShowEvent_IsBase(true);
+        vqvideowidget->showEvent(event);
+    } else {
+        ((VirtualQVideoWidget*)self)->showEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnShowEvent(QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_ShowEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ShowEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QVideoWidget_QBaseHideEvent(QVideoWidget* self, QHideEvent* event) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_HideEvent_IsBase(true);
+        vqvideowidget->hideEvent(event);
+    } else {
+        ((VirtualQVideoWidget*)self)->hideEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnHideEvent(QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_HideEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HideEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QVideoWidget_QBaseResizeEvent(QVideoWidget* self, QResizeEvent* event) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_ResizeEvent_IsBase(true);
+        vqvideowidget->resizeEvent(event);
+    } else {
+        ((VirtualQVideoWidget*)self)->resizeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnResizeEvent(QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QVideoWidget_QBaseMoveEvent(QVideoWidget* self, QMoveEvent* event) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_MoveEvent_IsBase(true);
+        vqvideowidget->moveEvent(event);
+    } else {
+        ((VirtualQVideoWidget*)self)->moveEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnMoveEvent(QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_MoveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MoveEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

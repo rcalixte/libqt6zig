@@ -38,25 +38,6 @@ int QLogValueAxis_Metacall(QLogValueAxis* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QLogValueAxis_OnMetacall(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Metacall_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QLogValueAxis_QBaseMetacall(QLogValueAxis* self, int param1, int param2, void** param3) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Metacall_IsBase(true);
-        return vqlogvalueaxis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLogValueAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QLogValueAxis_Tr(const char* s) {
     QString _ret = QLogValueAxis::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -73,25 +54,6 @@ int QLogValueAxis_Type(const QLogValueAxis* self) {
     auto* vqlogvalueaxis = dynamic_cast<const VirtualQLogValueAxis*>(self);
     if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
         return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQLogValueAxis*)self)->type());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QLogValueAxis_OnType(const QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Type_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QLogValueAxis_QBaseType(const QLogValueAxis* self) {
-    auto* vqlogvalueaxis = dynamic_cast<const VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Type_IsBase(true);
-        return static_cast<int>(vqlogvalueaxis->type());
     } else {
         return static_cast<int>(((VirtualQLogValueAxis*)self)->type());
     }
@@ -269,6 +231,44 @@ libqt_string QLogValueAxis_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QLogValueAxis_QBaseMetacall(QLogValueAxis* self, int param1, int param2, void** param3) {
+    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        vqlogvalueaxis->setQLogValueAxis_Metacall_IsBase(true);
+        return vqlogvalueaxis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QLogValueAxis::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLogValueAxis_OnMetacall(QLogValueAxis* self, intptr_t slot) {
+    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        vqlogvalueaxis->setQLogValueAxis_Metacall_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QLogValueAxis_QBaseType(const QLogValueAxis* self) {
+    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        vqlogvalueaxis->setQLogValueAxis_Type_IsBase(true);
+        return static_cast<int>(vqlogvalueaxis->type());
+    } else {
+        return static_cast<int>(self->QLogValueAxis::type());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLogValueAxis_OnType(const QLogValueAxis* self, intptr_t slot) {
+    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        vqlogvalueaxis->setQLogValueAxis_Type_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Type_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

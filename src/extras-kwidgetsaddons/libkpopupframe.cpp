@@ -66,25 +66,6 @@ int KPopupFrame_Metacall(KPopupFrame* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPopupFrame_OnMetacall(KPopupFrame* self, intptr_t slot) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        vkpopupframe->setKPopupFrame_Metacall_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KPopupFrame_QBaseMetacall(KPopupFrame* self, int param1, int param2, void** param3) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        vkpopupframe->setKPopupFrame_Metacall_IsBase(true);
-        return vkpopupframe->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPopupFrame*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KPopupFrame_Tr(const char* s) {
     QString _ret = KPopupFrame::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -104,43 +85,9 @@ void KPopupFrame_KeyPressEvent(KPopupFrame* self, QKeyEvent* e) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPopupFrame_OnKeyPressEvent(KPopupFrame* self, intptr_t slot) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        vkpopupframe->setKPopupFrame_KeyPressEvent_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KPopupFrame_QBaseKeyPressEvent(KPopupFrame* self, QKeyEvent* e) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        vkpopupframe->setKPopupFrame_KeyPressEvent_IsBase(true);
-        vkpopupframe->keyPressEvent(e);
-    }
-}
-
 void KPopupFrame_HideEvent(KPopupFrame* self, QHideEvent* e) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        vkpopupframe->hideEvent(e);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KPopupFrame_OnHideEvent(KPopupFrame* self, intptr_t slot) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        vkpopupframe->setKPopupFrame_HideEvent_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_HideEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KPopupFrame_QBaseHideEvent(KPopupFrame* self, QHideEvent* e) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        vkpopupframe->setKPopupFrame_HideEvent_IsBase(true);
         vkpopupframe->hideEvent(e);
     }
 }
@@ -157,25 +104,6 @@ void KPopupFrame_ResizeEvent(KPopupFrame* self, QResizeEvent* resize) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         self->resizeEvent(resize);
-    } else {
-        ((VirtualKPopupFrame*)self)->resizeEvent(resize);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KPopupFrame_OnResizeEvent(KPopupFrame* self, intptr_t slot) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        vkpopupframe->setKPopupFrame_ResizeEvent_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KPopupFrame_QBaseResizeEvent(KPopupFrame* self, QResizeEvent* resize) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        vkpopupframe->setKPopupFrame_ResizeEvent_IsBase(true);
-        vkpopupframe->resizeEvent(resize);
     } else {
         ((VirtualKPopupFrame*)self)->resizeEvent(resize);
     }
@@ -226,6 +154,82 @@ libqt_string KPopupFrame_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KPopupFrame_QBaseMetacall(KPopupFrame* self, int param1, int param2, void** param3) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_Metacall_IsBase(true);
+        return vkpopupframe->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KPopupFrame::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPopupFrame_OnMetacall(KPopupFrame* self, intptr_t slot) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_Metacall_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KPopupFrame_QBaseKeyPressEvent(KPopupFrame* self, QKeyEvent* e) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_KeyPressEvent_IsBase(true);
+        vkpopupframe->keyPressEvent(e);
+    } else {
+        ((VirtualKPopupFrame*)self)->keyPressEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPopupFrame_OnKeyPressEvent(KPopupFrame* self, intptr_t slot) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_KeyPressEvent_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KPopupFrame_QBaseHideEvent(KPopupFrame* self, QHideEvent* e) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_HideEvent_IsBase(true);
+        vkpopupframe->hideEvent(e);
+    } else {
+        ((VirtualKPopupFrame*)self)->hideEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPopupFrame_OnHideEvent(KPopupFrame* self, intptr_t slot) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_HideEvent_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_HideEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KPopupFrame_QBaseResizeEvent(KPopupFrame* self, QResizeEvent* resize) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_ResizeEvent_IsBase(true);
+        vkpopupframe->resizeEvent(resize);
+    } else {
+        self->KPopupFrame::resizeEvent(resize);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPopupFrame_OnResizeEvent(KPopupFrame* self, intptr_t slot) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_ResizeEvent_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_ResizeEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

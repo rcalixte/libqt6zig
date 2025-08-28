@@ -72,25 +72,6 @@ int KContextualHelpButton_Metacall(KContextualHelpButton* self, int param1, int 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KContextualHelpButton_OnMetacall(KContextualHelpButton* self, intptr_t slot) {
-    auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
-        vkcontextualhelpbutton->setKContextualHelpButton_Metacall_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KContextualHelpButton_QBaseMetacall(KContextualHelpButton* self, int param1, int param2, void** param3) {
-    auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
-        vkcontextualhelpbutton->setKContextualHelpButton_Metacall_IsBase(true);
-        return vkcontextualhelpbutton->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKContextualHelpButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KContextualHelpButton_Tr(const char* s) {
     QString _ret = KContextualHelpButton::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -132,25 +113,6 @@ QSize* KContextualHelpButton_SizeHint(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = dynamic_cast<const VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKContextualHelpButton*)self)->sizeHint());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KContextualHelpButton_OnSizeHint(const KContextualHelpButton* self, intptr_t slot) {
-    auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
-        vkcontextualhelpbutton->setKContextualHelpButton_SizeHint_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* KContextualHelpButton_QBaseSizeHint(const KContextualHelpButton* self) {
-    auto* vkcontextualhelpbutton = dynamic_cast<const VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
-        vkcontextualhelpbutton->setKContextualHelpButton_SizeHint_IsBase(true);
-        return new QSize(vkcontextualhelpbutton->sizeHint());
     } else {
         return new QSize(((VirtualKContextualHelpButton*)self)->sizeHint());
     }
@@ -198,6 +160,44 @@ libqt_string KContextualHelpButton_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KContextualHelpButton_QBaseMetacall(KContextualHelpButton* self, int param1, int param2, void** param3) {
+    auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+        vkcontextualhelpbutton->setKContextualHelpButton_Metacall_IsBase(true);
+        return vkcontextualhelpbutton->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KContextualHelpButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KContextualHelpButton_OnMetacall(KContextualHelpButton* self, intptr_t slot) {
+    auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+        vkcontextualhelpbutton->setKContextualHelpButton_Metacall_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* KContextualHelpButton_QBaseSizeHint(const KContextualHelpButton* self) {
+    auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+        vkcontextualhelpbutton->setKContextualHelpButton_SizeHint_IsBase(true);
+        return new QSize(vkcontextualhelpbutton->sizeHint());
+    } else {
+        return new QSize(((VirtualKContextualHelpButton*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KContextualHelpButton_OnSizeHint(const KContextualHelpButton* self, intptr_t slot) {
+    auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+        vkcontextualhelpbutton->setKContextualHelpButton_SizeHint_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_SizeHint_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

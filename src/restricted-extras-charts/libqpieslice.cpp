@@ -52,25 +52,6 @@ int QPieSlice_Metacall(QPieSlice* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPieSlice_OnMetacall(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_Metacall_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPieSlice_QBaseMetacall(QPieSlice* self, int param1, int param2, void** param3) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_Metacall_IsBase(true);
-        return vqpieslice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPieSlice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPieSlice_Tr(const char* s) {
     QString _ret = QPieSlice::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -468,6 +449,25 @@ void QPieSlice_SetLabelVisible1(QPieSlice* self, bool visible) {
 
 void QPieSlice_SetExploded1(QPieSlice* self, bool exploded) {
     self->setExploded(exploded);
+}
+
+// Base class handler implementation
+int QPieSlice_QBaseMetacall(QPieSlice* self, int param1, int param2, void** param3) {
+    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+        vqpieslice->setQPieSlice_Metacall_IsBase(true);
+        return vqpieslice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPieSlice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPieSlice_OnMetacall(QPieSlice* self, intptr_t slot) {
+    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+        vqpieslice->setQPieSlice_Metacall_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

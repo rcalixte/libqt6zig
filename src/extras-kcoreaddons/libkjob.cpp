@@ -39,25 +39,6 @@ int KJob_Metacall(KJob* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJob_OnMetacall(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Metacall_Callback(reinterpret_cast<VirtualKJob::KJob_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KJob_QBaseMetacall(KJob* self, int param1, int param2, void** param3) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Metacall_IsBase(true);
-        return vkjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KJob_Tr(const char* s) {
     QString _ret = KJob::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -95,25 +76,6 @@ void KJob_Start(KJob* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJob_OnStart(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Start_Callback(reinterpret_cast<VirtualKJob::KJob_Start_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KJob_QBaseStart(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Start_IsBase(true);
-        vkjob->start();
-    } else {
-        ((VirtualKJob*)self)->start();
-    }
-}
-
 bool KJob_Kill(KJob* self) {
     return self->kill();
 }
@@ -134,24 +96,6 @@ bool KJob_DoKill(KJob* self) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJob_OnDoKill(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DoKill_Callback(reinterpret_cast<VirtualKJob::KJob_DoKill_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KJob_QBaseDoKill(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DoKill_IsBase(true);
-        return vkjob->doKill();
-    }
-    return {};
-}
-
 bool KJob_DoSuspend(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
@@ -160,45 +104,9 @@ bool KJob_DoSuspend(KJob* self) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KJob_OnDoSuspend(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DoSuspend_Callback(reinterpret_cast<VirtualKJob::KJob_DoSuspend_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KJob_QBaseDoSuspend(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DoSuspend_IsBase(true);
-        return vkjob->doSuspend();
-    }
-    return {};
-}
-
 bool KJob_DoResume(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
-        return vkjob->doResume();
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KJob_OnDoResume(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DoResume_Callback(reinterpret_cast<VirtualKJob::KJob_DoResume_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KJob_QBaseDoResume(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DoResume_IsBase(true);
         return vkjob->doResume();
     }
     return {};
@@ -228,41 +136,6 @@ libqt_string KJob_ErrorString(const KJob* self) {
     auto* vkjob = dynamic_cast<const VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         QString _ret = self->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualKJob*)self)->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KJob_OnErrorString(const KJob* self, intptr_t slot) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_ErrorString_Callback(reinterpret_cast<VirtualKJob::KJob_ErrorString_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_string KJob_QBaseErrorString(const KJob* self) {
-    auto* vkjob = dynamic_cast<const VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_ErrorString_IsBase(true);
-        QString _ret = vkjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -593,6 +466,136 @@ void KJob_Connect_Description4(KJob* self, intptr_t slot) {
         slotFunc(self, sigval1, sigval2, sigval3, sigval4);
         libqt_free(title_str);
     });
+}
+
+// Base class handler implementation
+int KJob_QBaseMetacall(KJob* self, int param1, int param2, void** param3) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_Metacall_IsBase(true);
+        return vkjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJob_OnMetacall(KJob* self, intptr_t slot) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_Metacall_Callback(reinterpret_cast<VirtualKJob::KJob_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KJob_QBaseStart(KJob* self) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_Start_IsBase(true);
+        vkjob->start();
+    } else {
+        ((VirtualKJob*)self)->start();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJob_OnStart(KJob* self, intptr_t slot) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_Start_Callback(reinterpret_cast<VirtualKJob::KJob_Start_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KJob_QBaseDoKill(KJob* self) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_DoKill_IsBase(true);
+        return vkjob->doKill();
+    } else {
+        return ((VirtualKJob*)self)->doKill();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJob_OnDoKill(KJob* self, intptr_t slot) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_DoKill_Callback(reinterpret_cast<VirtualKJob::KJob_DoKill_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KJob_QBaseDoSuspend(KJob* self) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_DoSuspend_IsBase(true);
+        return vkjob->doSuspend();
+    } else {
+        return ((VirtualKJob*)self)->doSuspend();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJob_OnDoSuspend(KJob* self, intptr_t slot) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_DoSuspend_Callback(reinterpret_cast<VirtualKJob::KJob_DoSuspend_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KJob_QBaseDoResume(KJob* self) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_DoResume_IsBase(true);
+        return vkjob->doResume();
+    } else {
+        return ((VirtualKJob*)self)->doResume();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJob_OnDoResume(KJob* self, intptr_t slot) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_DoResume_Callback(reinterpret_cast<VirtualKJob::KJob_DoResume_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_string KJob_QBaseErrorString(const KJob* self) {
+    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_ErrorString_IsBase(true);
+        QString _ret = vkjob->errorString();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = self->KJob::errorString();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJob_OnErrorString(const KJob* self, intptr_t slot) {
+    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_ErrorString_Callback(reinterpret_cast<VirtualKJob::KJob_ErrorString_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

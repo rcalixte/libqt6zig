@@ -42,25 +42,6 @@ int QTcpSocket_Metacall(QTcpSocket* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTcpSocket_OnMetacall(QTcpSocket* self, intptr_t slot) {
-    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
-        vqtcpsocket->setQTcpSocket_Metacall_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTcpSocket_QBaseMetacall(QTcpSocket* self, int param1, int param2, void** param3) {
-    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
-        vqtcpsocket->setQTcpSocket_Metacall_IsBase(true);
-        return vqtcpsocket->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTcpSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QTcpSocket_Tr(const char* s) {
     QString _ret = QTcpSocket::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -107,6 +88,25 @@ bool QTcpSocket_Bind2(QTcpSocket* self, int addr, uint16_t port) {
 
 bool QTcpSocket_Bind3(QTcpSocket* self, int addr, uint16_t port, int mode) {
     return self->bind(static_cast<QHostAddress::SpecialAddress>(addr), static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
+}
+
+// Base class handler implementation
+int QTcpSocket_QBaseMetacall(QTcpSocket* self, int param1, int param2, void** param3) {
+    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+        vqtcpsocket->setQTcpSocket_Metacall_IsBase(true);
+        return vqtcpsocket->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QTcpSocket::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTcpSocket_OnMetacall(QTcpSocket* self, intptr_t slot) {
+    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+        vqtcpsocket->setQTcpSocket_Metacall_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -50,25 +50,6 @@ int QPluginLoader_Metacall(QPluginLoader* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPluginLoader_OnMetacall(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_Metacall_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPluginLoader_QBaseMetacall(QPluginLoader* self, int param1, int param2, void** param3) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_Metacall_IsBase(true);
-        return vqpluginloader->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPluginLoader*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPluginLoader_Tr(const char* s) {
     QString _ret = QPluginLoader::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -186,6 +167,25 @@ libqt_string QPluginLoader_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QPluginLoader_QBaseMetacall(QPluginLoader* self, int param1, int param2, void** param3) {
+    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+        vqpluginloader->setQPluginLoader_Metacall_IsBase(true);
+        return vqpluginloader->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPluginLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPluginLoader_OnMetacall(QPluginLoader* self, intptr_t slot) {
+    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+        vqpluginloader->setQPluginLoader_Metacall_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

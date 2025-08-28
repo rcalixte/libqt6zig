@@ -67,25 +67,6 @@ int KPageWidget_Metacall(KPageWidget* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPageWidget_OnMetacall(KPageWidget* self, intptr_t slot) {
-    auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
-        vkpagewidget->setKPageWidget_Metacall_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KPageWidget_QBaseMetacall(KPageWidget* self, int param1, int param2, void** param3) {
-    auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
-        vkpagewidget->setKPageWidget_Metacall_IsBase(true);
-        return vkpagewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPageWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KPageWidget_Tr(const char* s) {
     QString _ret = KPageWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -197,6 +178,25 @@ libqt_string KPageWidget_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KPageWidget_QBaseMetacall(KPageWidget* self, int param1, int param2, void** param3) {
+    auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+        vkpagewidget->setKPageWidget_Metacall_IsBase(true);
+        return vkpagewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KPageWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageWidget_OnMetacall(KPageWidget* self, intptr_t slot) {
+    auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+        vkpagewidget->setKPageWidget_Metacall_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

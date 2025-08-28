@@ -41,25 +41,6 @@ int QsciLexerFortran_Metacall(QsciLexerFortran* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerFortran_OnMetacall(QsciLexerFortran* self, intptr_t slot) {
-    auto* vqscilexerfortran = dynamic_cast<VirtualQsciLexerFortran*>(self);
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        vqscilexerfortran->setQsciLexerFortran_Metacall_Callback(reinterpret_cast<VirtualQsciLexerFortran::QsciLexerFortran_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerFortran_QBaseMetacall(QsciLexerFortran* self, int param1, int param2, void** param3) {
-    auto* vqscilexerfortran = dynamic_cast<VirtualQsciLexerFortran*>(self);
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        vqscilexerfortran->setQsciLexerFortran_Metacall_IsBase(true);
-        return vqscilexerfortran->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerFortran*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerFortran_Tr(const char* s) {
     QString _ret = QsciLexerFortran::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -106,6 +87,25 @@ libqt_string QsciLexerFortran_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QsciLexerFortran_QBaseMetacall(QsciLexerFortran* self, int param1, int param2, void** param3) {
+    auto* vqscilexerfortran = dynamic_cast<VirtualQsciLexerFortran*>(self);
+    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
+        vqscilexerfortran->setQsciLexerFortran_Metacall_IsBase(true);
+        return vqscilexerfortran->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerFortran*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerFortran_OnMetacall(QsciLexerFortran* self, intptr_t slot) {
+    auto* vqscilexerfortran = dynamic_cast<VirtualQsciLexerFortran*>(self);
+    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
+        vqscilexerfortran->setQsciLexerFortran_Metacall_Callback(reinterpret_cast<VirtualQsciLexerFortran::QsciLexerFortran_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

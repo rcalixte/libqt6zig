@@ -46,25 +46,6 @@ int QGesture_Metacall(QGesture* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGesture_OnMetacall(QGesture* self, intptr_t slot) {
-    auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
-    if (vqgesture && vqgesture->isVirtualQGesture) {
-        vqgesture->setQGesture_Metacall_Callback(reinterpret_cast<VirtualQGesture::QGesture_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGesture_QBaseMetacall(QGesture* self, int param1, int param2, void** param3) {
-    auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
-    if (vqgesture && vqgesture->isVirtualQGesture) {
-        vqgesture->setQGesture_Metacall_IsBase(true);
-        return vqgesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGesture_Tr(const char* s) {
     QString _ret = QGesture::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -131,6 +112,25 @@ libqt_string QGesture_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGesture_QBaseMetacall(QGesture* self, int param1, int param2, void** param3) {
+    auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
+    if (vqgesture && vqgesture->isVirtualQGesture) {
+        vqgesture->setQGesture_Metacall_IsBase(true);
+        return vqgesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGesture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGesture_OnMetacall(QGesture* self, intptr_t slot) {
+    auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
+    if (vqgesture && vqgesture->isVirtualQGesture) {
+        vqgesture->setQGesture_Metacall_Callback(reinterpret_cast<VirtualQGesture::QGesture_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -481,25 +481,6 @@ int QPanGesture_Metacall(QPanGesture* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPanGesture_OnMetacall(QPanGesture* self, intptr_t slot) {
-    auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
-    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
-        vqpangesture->setQPanGesture_Metacall_Callback(reinterpret_cast<VirtualQPanGesture::QPanGesture_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPanGesture_QBaseMetacall(QPanGesture* self, int param1, int param2, void** param3) {
-    auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
-    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
-        vqpangesture->setQPanGesture_Metacall_IsBase(true);
-        return vqpangesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPanGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPanGesture_Tr(const char* s) {
     QString _ret = QPanGesture::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -562,6 +543,25 @@ libqt_string QPanGesture_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QPanGesture_QBaseMetacall(QPanGesture* self, int param1, int param2, void** param3) {
+    auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
+    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
+        vqpangesture->setQPanGesture_Metacall_IsBase(true);
+        return vqpangesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPanGesture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPanGesture_OnMetacall(QPanGesture* self, intptr_t slot) {
+    auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
+    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
+        vqpangesture->setQPanGesture_Metacall_Callback(reinterpret_cast<VirtualQPanGesture::QPanGesture_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -912,25 +912,6 @@ int QPinchGesture_Metacall(QPinchGesture* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPinchGesture_OnMetacall(QPinchGesture* self, intptr_t slot) {
-    auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
-    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
-        vqpinchgesture->setQPinchGesture_Metacall_Callback(reinterpret_cast<VirtualQPinchGesture::QPinchGesture_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPinchGesture_QBaseMetacall(QPinchGesture* self, int param1, int param2, void** param3) {
-    auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
-    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
-        vqpinchgesture->setQPinchGesture_Metacall_IsBase(true);
-        return vqpinchgesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPinchGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPinchGesture_Tr(const char* s) {
     QString _ret = QPinchGesture::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1053,6 +1034,25 @@ libqt_string QPinchGesture_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QPinchGesture_QBaseMetacall(QPinchGesture* self, int param1, int param2, void** param3) {
+    auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
+    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
+        vqpinchgesture->setQPinchGesture_Metacall_IsBase(true);
+        return vqpinchgesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPinchGesture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPinchGesture_OnMetacall(QPinchGesture* self, intptr_t slot) {
+    auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
+    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
+        vqpinchgesture->setQPinchGesture_Metacall_Callback(reinterpret_cast<VirtualQPinchGesture::QPinchGesture_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -1403,25 +1403,6 @@ int QSwipeGesture_Metacall(QSwipeGesture* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSwipeGesture_OnMetacall(QSwipeGesture* self, intptr_t slot) {
-    auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
-    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
-        vqswipegesture->setQSwipeGesture_Metacall_Callback(reinterpret_cast<VirtualQSwipeGesture::QSwipeGesture_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSwipeGesture_QBaseMetacall(QSwipeGesture* self, int param1, int param2, void** param3) {
-    auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
-    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
-        vqswipegesture->setQSwipeGesture_Metacall_IsBase(true);
-        return vqswipegesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSwipeGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QSwipeGesture_Tr(const char* s) {
     QString _ret = QSwipeGesture::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1472,6 +1453,25 @@ libqt_string QSwipeGesture_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QSwipeGesture_QBaseMetacall(QSwipeGesture* self, int param1, int param2, void** param3) {
+    auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
+    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
+        vqswipegesture->setQSwipeGesture_Metacall_IsBase(true);
+        return vqswipegesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QSwipeGesture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSwipeGesture_OnMetacall(QSwipeGesture* self, intptr_t slot) {
+    auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
+    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
+        vqswipegesture->setQSwipeGesture_Metacall_Callback(reinterpret_cast<VirtualQSwipeGesture::QSwipeGesture_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -1822,25 +1822,6 @@ int QTapGesture_Metacall(QTapGesture* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTapGesture_OnMetacall(QTapGesture* self, intptr_t slot) {
-    auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
-    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
-        vqtapgesture->setQTapGesture_Metacall_Callback(reinterpret_cast<VirtualQTapGesture::QTapGesture_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTapGesture_QBaseMetacall(QTapGesture* self, int param1, int param2, void** param3) {
-    auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
-    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
-        vqtapgesture->setQTapGesture_Metacall_IsBase(true);
-        return vqtapgesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTapGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QTapGesture_Tr(const char* s) {
     QString _ret = QTapGesture::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1883,6 +1864,25 @@ libqt_string QTapGesture_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QTapGesture_QBaseMetacall(QTapGesture* self, int param1, int param2, void** param3) {
+    auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
+    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
+        vqtapgesture->setQTapGesture_Metacall_IsBase(true);
+        return vqtapgesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QTapGesture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTapGesture_OnMetacall(QTapGesture* self, intptr_t slot) {
+    auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
+    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
+        vqtapgesture->setQTapGesture_Metacall_Callback(reinterpret_cast<VirtualQTapGesture::QTapGesture_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -2233,25 +2233,6 @@ int QTapAndHoldGesture_Metacall(QTapAndHoldGesture* self, int param1, int param2
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTapAndHoldGesture_OnMetacall(QTapAndHoldGesture* self, intptr_t slot) {
-    auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
-    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
-        vqtapandholdgesture->setQTapAndHoldGesture_Metacall_Callback(reinterpret_cast<VirtualQTapAndHoldGesture::QTapAndHoldGesture_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTapAndHoldGesture_QBaseMetacall(QTapAndHoldGesture* self, int param1, int param2, void** param3) {
-    auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
-    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
-        vqtapandholdgesture->setQTapAndHoldGesture_Metacall_IsBase(true);
-        return vqtapandholdgesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTapAndHoldGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QTapAndHoldGesture_Tr(const char* s) {
     QString _ret = QTapAndHoldGesture::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2302,6 +2283,25 @@ libqt_string QTapAndHoldGesture_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QTapAndHoldGesture_QBaseMetacall(QTapAndHoldGesture* self, int param1, int param2, void** param3) {
+    auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
+    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
+        vqtapandholdgesture->setQTapAndHoldGesture_Metacall_IsBase(true);
+        return vqtapandholdgesture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QTapAndHoldGesture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTapAndHoldGesture_OnMetacall(QTapAndHoldGesture* self, intptr_t slot) {
+    auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
+    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
+        vqtapandholdgesture->setQTapAndHoldGesture_Metacall_Callback(reinterpret_cast<VirtualQTapAndHoldGesture::QTapAndHoldGesture_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

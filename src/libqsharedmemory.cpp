@@ -56,25 +56,6 @@ int QSharedMemory_Metacall(QSharedMemory* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSharedMemory_OnMetacall(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_Metacall_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSharedMemory_QBaseMetacall(QSharedMemory* self, int param1, int param2, void** param3) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_Metacall_IsBase(true);
-        return vqsharedmemory->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSharedMemory*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QSharedMemory_Tr(const char* s) {
     QString _ret = QSharedMemory::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -244,6 +225,25 @@ QNativeIpcKey* QSharedMemory_PlatformSafeKey2(const libqt_string key, uint16_t t
 QNativeIpcKey* QSharedMemory_LegacyNativeKey2(const libqt_string key, uint16_t typeVal) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QNativeIpcKey(QSharedMemory::legacyNativeKey(key_QString, static_cast<QNativeIpcKey::Type>(typeVal)));
+}
+
+// Base class handler implementation
+int QSharedMemory_QBaseMetacall(QSharedMemory* self, int param1, int param2, void** param3) {
+    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+        vqsharedmemory->setQSharedMemory_Metacall_IsBase(true);
+        return vqsharedmemory->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QSharedMemory::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSharedMemory_OnMetacall(QSharedMemory* self, intptr_t slot) {
+    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+        vqsharedmemory->setQSharedMemory_Metacall_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

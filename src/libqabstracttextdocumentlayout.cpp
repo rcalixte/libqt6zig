@@ -50,25 +50,6 @@ int QAbstractTextDocumentLayout_Metacall(QAbstractTextDocumentLayout* self, int 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnMetacall(QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Metacall_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAbstractTextDocumentLayout_QBaseMetacall(QAbstractTextDocumentLayout* self, int param1, int param2, void** param3) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Metacall_IsBase(true);
-        return vqabstracttextdocumentlayout->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractTextDocumentLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QAbstractTextDocumentLayout_Tr(const char* s) {
     QString _ret = QAbstractTextDocumentLayout::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -90,47 +71,9 @@ void QAbstractTextDocumentLayout_Draw(QAbstractTextDocumentLayout* self, QPainte
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnDraw(QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Draw_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_Draw_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAbstractTextDocumentLayout_QBaseDraw(QAbstractTextDocumentLayout* self, QPainter* painter, const QAbstractTextDocumentLayout__PaintContext* context) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Draw_IsBase(true);
-        vqabstracttextdocumentlayout->draw(painter, *context);
-    } else {
-        ((VirtualQAbstractTextDocumentLayout*)self)->draw(painter, *context);
-    }
-}
-
 int QAbstractTextDocumentLayout_HitTest(const QAbstractTextDocumentLayout* self, const QPointF* point, int accuracy) {
     auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
     if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return vqabstracttextdocumentlayout->hitTest(*point, static_cast<Qt::HitTestAccuracy>(accuracy));
-    } else {
-        return ((VirtualQAbstractTextDocumentLayout*)self)->hitTest(*point, static_cast<Qt::HitTestAccuracy>(accuracy));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnHitTest(const QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_HitTest_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_HitTest_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAbstractTextDocumentLayout_QBaseHitTest(const QAbstractTextDocumentLayout* self, const QPointF* point, int accuracy) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_HitTest_IsBase(true);
         return vqabstracttextdocumentlayout->hitTest(*point, static_cast<Qt::HitTestAccuracy>(accuracy));
     } else {
         return ((VirtualQAbstractTextDocumentLayout*)self)->hitTest(*point, static_cast<Qt::HitTestAccuracy>(accuracy));
@@ -178,47 +121,9 @@ int QAbstractTextDocumentLayout_PageCount(const QAbstractTextDocumentLayout* sel
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnPageCount(const QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_PageCount_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_PageCount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAbstractTextDocumentLayout_QBasePageCount(const QAbstractTextDocumentLayout* self) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_PageCount_IsBase(true);
-        return vqabstracttextdocumentlayout->pageCount();
-    } else {
-        return ((VirtualQAbstractTextDocumentLayout*)self)->pageCount();
-    }
-}
-
 QSizeF* QAbstractTextDocumentLayout_DocumentSize(const QAbstractTextDocumentLayout* self) {
     auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
     if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return new QSizeF(vqabstracttextdocumentlayout->documentSize());
-    } else {
-        return new QSizeF(((VirtualQAbstractTextDocumentLayout*)self)->documentSize());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnDocumentSize(const QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DocumentSize_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_DocumentSize_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSizeF* QAbstractTextDocumentLayout_QBaseDocumentSize(const QAbstractTextDocumentLayout* self) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DocumentSize_IsBase(true);
         return new QSizeF(vqabstracttextdocumentlayout->documentSize());
     } else {
         return new QSizeF(((VirtualQAbstractTextDocumentLayout*)self)->documentSize());
@@ -234,47 +139,9 @@ QRectF* QAbstractTextDocumentLayout_FrameBoundingRect(const QAbstractTextDocumen
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnFrameBoundingRect(const QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_FrameBoundingRect_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_FrameBoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QAbstractTextDocumentLayout_QBaseFrameBoundingRect(const QAbstractTextDocumentLayout* self, QTextFrame* frame) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_FrameBoundingRect_IsBase(true);
-        return new QRectF(vqabstracttextdocumentlayout->frameBoundingRect(frame));
-    } else {
-        return new QRectF(((VirtualQAbstractTextDocumentLayout*)self)->frameBoundingRect(frame));
-    }
-}
-
 QRectF* QAbstractTextDocumentLayout_BlockBoundingRect(const QAbstractTextDocumentLayout* self, const QTextBlock* block) {
     auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
     if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return new QRectF(vqabstracttextdocumentlayout->blockBoundingRect(*block));
-    } else {
-        return new QRectF(((VirtualQAbstractTextDocumentLayout*)self)->blockBoundingRect(*block));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnBlockBoundingRect(const QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_BlockBoundingRect_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_BlockBoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QAbstractTextDocumentLayout_QBaseBlockBoundingRect(const QAbstractTextDocumentLayout* self, const QTextBlock* block) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_BlockBoundingRect_IsBase(true);
         return new QRectF(vqabstracttextdocumentlayout->blockBoundingRect(*block));
     } else {
         return new QRectF(((VirtualQAbstractTextDocumentLayout*)self)->blockBoundingRect(*block));
@@ -363,43 +230,9 @@ void QAbstractTextDocumentLayout_DocumentChanged(QAbstractTextDocumentLayout* se
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnDocumentChanged(QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DocumentChanged_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_DocumentChanged_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAbstractTextDocumentLayout_QBaseDocumentChanged(QAbstractTextDocumentLayout* self, int from, int charsRemoved, int charsAdded) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DocumentChanged_IsBase(true);
-        vqabstracttextdocumentlayout->documentChanged(static_cast<int>(from), static_cast<int>(charsRemoved), static_cast<int>(charsAdded));
-    }
-}
-
 void QAbstractTextDocumentLayout_ResizeInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format) {
     auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
     if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->resizeInlineObject(*item, static_cast<int>(posInDocument), *format);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnResizeInlineObject(QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_ResizeInlineObject_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_ResizeInlineObject_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAbstractTextDocumentLayout_QBaseResizeInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_ResizeInlineObject_IsBase(true);
         vqabstracttextdocumentlayout->resizeInlineObject(*item, static_cast<int>(posInDocument), *format);
     }
 }
@@ -411,43 +244,9 @@ void QAbstractTextDocumentLayout_PositionInlineObject(QAbstractTextDocumentLayou
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnPositionInlineObject(QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_PositionInlineObject_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_PositionInlineObject_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAbstractTextDocumentLayout_QBasePositionInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_PositionInlineObject_IsBase(true);
-        vqabstracttextdocumentlayout->positionInlineObject(*item, static_cast<int>(posInDocument), *format);
-    }
-}
-
 void QAbstractTextDocumentLayout_DrawInlineObject(QAbstractTextDocumentLayout* self, QPainter* painter, const QRectF* rect, QTextInlineObject* object, int posInDocument, const QTextFormat* format) {
     auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
     if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->drawInlineObject(painter, *rect, *object, static_cast<int>(posInDocument), *format);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAbstractTextDocumentLayout_OnDrawInlineObject(QAbstractTextDocumentLayout* self, intptr_t slot) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DrawInlineObject_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_DrawInlineObject_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QAbstractTextDocumentLayout_QBaseDrawInlineObject(QAbstractTextDocumentLayout* self, QPainter* painter, const QRectF* rect, QTextInlineObject* object, int posInDocument, const QTextFormat* format) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DrawInlineObject_IsBase(true);
         vqabstracttextdocumentlayout->drawInlineObject(painter, *rect, *object, static_cast<int>(posInDocument), *format);
     }
 }
@@ -492,6 +291,215 @@ void QAbstractTextDocumentLayout_Connect_Update1(QAbstractTextDocumentLayout* se
         QRectF* sigval1 = const_cast<QRectF*>(&param1_ret);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+int QAbstractTextDocumentLayout_QBaseMetacall(QAbstractTextDocumentLayout* self, int param1, int param2, void** param3) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Metacall_IsBase(true);
+        return vqabstracttextdocumentlayout->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QAbstractTextDocumentLayout::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnMetacall(QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Metacall_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAbstractTextDocumentLayout_QBaseDraw(QAbstractTextDocumentLayout* self, QPainter* painter, const QAbstractTextDocumentLayout__PaintContext* context) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Draw_IsBase(true);
+        vqabstracttextdocumentlayout->draw(painter, *context);
+    } else {
+        ((VirtualQAbstractTextDocumentLayout*)self)->draw(painter, *context);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnDraw(QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Draw_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_Draw_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QAbstractTextDocumentLayout_QBaseHitTest(const QAbstractTextDocumentLayout* self, const QPointF* point, int accuracy) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_HitTest_IsBase(true);
+        return vqabstracttextdocumentlayout->hitTest(*point, static_cast<Qt::HitTestAccuracy>(accuracy));
+    } else {
+        return ((VirtualQAbstractTextDocumentLayout*)self)->hitTest(*point, static_cast<Qt::HitTestAccuracy>(accuracy));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnHitTest(const QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_HitTest_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_HitTest_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QAbstractTextDocumentLayout_QBasePageCount(const QAbstractTextDocumentLayout* self) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_PageCount_IsBase(true);
+        return vqabstracttextdocumentlayout->pageCount();
+    } else {
+        return ((VirtualQAbstractTextDocumentLayout*)self)->pageCount();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnPageCount(const QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_PageCount_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_PageCount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSizeF* QAbstractTextDocumentLayout_QBaseDocumentSize(const QAbstractTextDocumentLayout* self) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DocumentSize_IsBase(true);
+        return new QSizeF(vqabstracttextdocumentlayout->documentSize());
+    } else {
+        return new QSizeF(((VirtualQAbstractTextDocumentLayout*)self)->documentSize());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnDocumentSize(const QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DocumentSize_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_DocumentSize_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRectF* QAbstractTextDocumentLayout_QBaseFrameBoundingRect(const QAbstractTextDocumentLayout* self, QTextFrame* frame) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_FrameBoundingRect_IsBase(true);
+        return new QRectF(vqabstracttextdocumentlayout->frameBoundingRect(frame));
+    } else {
+        return new QRectF(((VirtualQAbstractTextDocumentLayout*)self)->frameBoundingRect(frame));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnFrameBoundingRect(const QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_FrameBoundingRect_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_FrameBoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRectF* QAbstractTextDocumentLayout_QBaseBlockBoundingRect(const QAbstractTextDocumentLayout* self, const QTextBlock* block) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_BlockBoundingRect_IsBase(true);
+        return new QRectF(vqabstracttextdocumentlayout->blockBoundingRect(*block));
+    } else {
+        return new QRectF(((VirtualQAbstractTextDocumentLayout*)self)->blockBoundingRect(*block));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnBlockBoundingRect(const QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_BlockBoundingRect_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_BlockBoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAbstractTextDocumentLayout_QBaseDocumentChanged(QAbstractTextDocumentLayout* self, int from, int charsRemoved, int charsAdded) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DocumentChanged_IsBase(true);
+        vqabstracttextdocumentlayout->documentChanged(static_cast<int>(from), static_cast<int>(charsRemoved), static_cast<int>(charsAdded));
+    } else {
+        ((VirtualQAbstractTextDocumentLayout*)self)->documentChanged(static_cast<int>(from), static_cast<int>(charsRemoved), static_cast<int>(charsAdded));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnDocumentChanged(QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DocumentChanged_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_DocumentChanged_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAbstractTextDocumentLayout_QBaseResizeInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_ResizeInlineObject_IsBase(true);
+        vqabstracttextdocumentlayout->resizeInlineObject(*item, static_cast<int>(posInDocument), *format);
+    } else {
+        ((VirtualQAbstractTextDocumentLayout*)self)->resizeInlineObject(*item, static_cast<int>(posInDocument), *format);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnResizeInlineObject(QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_ResizeInlineObject_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_ResizeInlineObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAbstractTextDocumentLayout_QBasePositionInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_PositionInlineObject_IsBase(true);
+        vqabstracttextdocumentlayout->positionInlineObject(*item, static_cast<int>(posInDocument), *format);
+    } else {
+        ((VirtualQAbstractTextDocumentLayout*)self)->positionInlineObject(*item, static_cast<int>(posInDocument), *format);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnPositionInlineObject(QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_PositionInlineObject_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_PositionInlineObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QAbstractTextDocumentLayout_QBaseDrawInlineObject(QAbstractTextDocumentLayout* self, QPainter* painter, const QRectF* rect, QTextInlineObject* object, int posInDocument, const QTextFormat* format) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DrawInlineObject_IsBase(true);
+        vqabstracttextdocumentlayout->drawInlineObject(painter, *rect, *object, static_cast<int>(posInDocument), *format);
+    } else {
+        ((VirtualQAbstractTextDocumentLayout*)self)->drawInlineObject(painter, *rect, *object, static_cast<int>(posInDocument), *format);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnDrawInlineObject(QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_DrawInlineObject_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_DrawInlineObject_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

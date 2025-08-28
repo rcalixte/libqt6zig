@@ -67,25 +67,6 @@ int KActionSelector_Metacall(KActionSelector* self, int param1, int param2, void
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KActionSelector_OnMetacall(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Metacall_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KActionSelector_QBaseMetacall(KActionSelector* self, int param1, int param2, void** param3) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Metacall_IsBase(true);
-        return vkactionselector->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKActionSelector*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KActionSelector_Tr(const char* s) {
     QString _ret = KActionSelector::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -258,44 +239,9 @@ void KActionSelector_KeyPressEvent(KActionSelector* self, QKeyEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KActionSelector_OnKeyPressEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KActionSelector_QBaseKeyPressEvent(KActionSelector* self, QKeyEvent* param1) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_KeyPressEvent_IsBase(true);
-        vkactionselector->keyPressEvent(param1);
-    }
-}
-
 bool KActionSelector_EventFilter(KActionSelector* self, QObject* param1, QEvent* param2) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->eventFilter(param1, param2);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KActionSelector_OnEventFilter(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_EventFilter_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_EventFilter_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KActionSelector_QBaseEventFilter(KActionSelector* self, QObject* param1, QEvent* param2) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_EventFilter_IsBase(true);
         return vkactionselector->eventFilter(param1, param2);
     }
     return {};
@@ -323,6 +269,63 @@ libqt_string KActionSelector_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KActionSelector_QBaseMetacall(KActionSelector* self, int param1, int param2, void** param3) {
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_Metacall_IsBase(true);
+        return vkactionselector->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KActionSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionSelector_OnMetacall(KActionSelector* self, intptr_t slot) {
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_Metacall_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KActionSelector_QBaseKeyPressEvent(KActionSelector* self, QKeyEvent* param1) {
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_KeyPressEvent_IsBase(true);
+        vkactionselector->keyPressEvent(param1);
+    } else {
+        ((VirtualKActionSelector*)self)->keyPressEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionSelector_OnKeyPressEvent(KActionSelector* self, intptr_t slot) {
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KActionSelector_QBaseEventFilter(KActionSelector* self, QObject* param1, QEvent* param2) {
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_EventFilter_IsBase(true);
+        return vkactionselector->eventFilter(param1, param2);
+    } else {
+        return ((VirtualKActionSelector*)self)->eventFilter(param1, param2);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionSelector_OnEventFilter(KActionSelector* self, intptr_t slot) {
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_EventFilter_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_EventFilter_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

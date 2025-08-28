@@ -36,25 +36,6 @@ int QActionGroup_Metacall(QActionGroup* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QActionGroup_OnMetacall(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_Metacall_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QActionGroup_QBaseMetacall(QActionGroup* self, int param1, int param2, void** param3) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_Metacall_IsBase(true);
-        return vqactiongroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQActionGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QActionGroup_Tr(const char* s) {
     QString _ret = QActionGroup::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -184,6 +165,25 @@ libqt_string QActionGroup_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QActionGroup_QBaseMetacall(QActionGroup* self, int param1, int param2, void** param3) {
+    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+        vqactiongroup->setQActionGroup_Metacall_IsBase(true);
+        return vqactiongroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QActionGroup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QActionGroup_OnMetacall(QActionGroup* self, intptr_t slot) {
+    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+        vqactiongroup->setQActionGroup_Metacall_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

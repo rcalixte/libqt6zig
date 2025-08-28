@@ -70,25 +70,6 @@ int KTreeWidgetSearchLineWidget_Metacall(KTreeWidgetSearchLineWidget* self, int 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KTreeWidgetSearchLineWidget_OnMetacall(KTreeWidgetSearchLineWidget* self, intptr_t slot) {
-    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
-    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Metacall_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLineWidget::KTreeWidgetSearchLineWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KTreeWidgetSearchLineWidget_QBaseMetacall(KTreeWidgetSearchLineWidget* self, int param1, int param2, void** param3) {
-    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
-    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Metacall_IsBase(true);
-        return vktreewidgetsearchlinewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTreeWidgetSearchLineWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KTreeWidgetSearchLineWidget_Tr(const char* s) {
     QString _ret = KTreeWidgetSearchLineWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -112,44 +93,9 @@ void KTreeWidgetSearchLineWidget_CreateWidgets(KTreeWidgetSearchLineWidget* self
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KTreeWidgetSearchLineWidget_OnCreateWidgets(KTreeWidgetSearchLineWidget* self, intptr_t slot) {
-    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
-    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateWidgets_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLineWidget::KTreeWidgetSearchLineWidget_CreateWidgets_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseCreateWidgets(KTreeWidgetSearchLineWidget* self) {
-    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
-    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateWidgets_IsBase(true);
-        vktreewidgetsearchlinewidget->createWidgets();
-    }
-}
-
 KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_CreateSearchLine(const KTreeWidgetSearchLineWidget* self, QTreeWidget* treeWidget) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        return vktreewidgetsearchlinewidget->createSearchLine(treeWidget);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KTreeWidgetSearchLineWidget_OnCreateSearchLine(const KTreeWidgetSearchLineWidget* self, intptr_t slot) {
-    auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
-    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateSearchLine_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLineWidget::KTreeWidgetSearchLineWidget_CreateSearchLine_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_QBaseCreateSearchLine(const KTreeWidgetSearchLineWidget* self, QTreeWidget* treeWidget) {
-    auto* vktreewidgetsearchlinewidget = dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self);
-    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateSearchLine_IsBase(true);
         return vktreewidgetsearchlinewidget->createSearchLine(treeWidget);
     }
     return {};
@@ -177,6 +123,63 @@ libqt_string KTreeWidgetSearchLineWidget_Tr3(const char* s, const char* c, int n
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KTreeWidgetSearchLineWidget_QBaseMetacall(KTreeWidgetSearchLineWidget* self, int param1, int param2, void** param3) {
+    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Metacall_IsBase(true);
+        return vktreewidgetsearchlinewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KTreeWidgetSearchLineWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTreeWidgetSearchLineWidget_OnMetacall(KTreeWidgetSearchLineWidget* self, intptr_t slot) {
+    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Metacall_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLineWidget::KTreeWidgetSearchLineWidget_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KTreeWidgetSearchLineWidget_QBaseCreateWidgets(KTreeWidgetSearchLineWidget* self) {
+    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateWidgets_IsBase(true);
+        vktreewidgetsearchlinewidget->createWidgets();
+    } else {
+        ((VirtualKTreeWidgetSearchLineWidget*)self)->createWidgets();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTreeWidgetSearchLineWidget_OnCreateWidgets(KTreeWidgetSearchLineWidget* self, intptr_t slot) {
+    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateWidgets_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLineWidget::KTreeWidgetSearchLineWidget_CreateWidgets_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_QBaseCreateSearchLine(const KTreeWidgetSearchLineWidget* self, QTreeWidget* treeWidget) {
+    auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateSearchLine_IsBase(true);
+        return vktreewidgetsearchlinewidget->createSearchLine(treeWidget);
+    } else {
+        return ((VirtualKTreeWidgetSearchLineWidget*)self)->createSearchLine(treeWidget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTreeWidgetSearchLineWidget_OnCreateSearchLine(const KTreeWidgetSearchLineWidget* self, intptr_t slot) {
+    auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateSearchLine_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLineWidget::KTreeWidgetSearchLineWidget_CreateSearchLine_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

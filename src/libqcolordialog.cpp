@@ -74,25 +74,6 @@ int QColorDialog_Metacall(QColorDialog* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QColorDialog_OnMetacall(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Metacall_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QColorDialog_QBaseMetacall(QColorDialog* self, int param1, int param2, void** param3) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Metacall_IsBase(true);
-        return vqcolordialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQColorDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QColorDialog_Tr(const char* s) {
     QString _ret = QColorDialog::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -137,25 +118,6 @@ void QColorDialog_SetVisible(QColorDialog* self, bool visible) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         self->setVisible(visible);
-    } else {
-        ((VirtualQColorDialog*)self)->setVisible(visible);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QColorDialog_OnSetVisible(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_SetVisible_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SetVisible_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QColorDialog_QBaseSetVisible(QColorDialog* self, bool visible) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_SetVisible_IsBase(true);
-        vqcolordialog->setVisible(visible);
     } else {
         ((VirtualQColorDialog*)self)->setVisible(visible);
     }
@@ -220,43 +182,9 @@ void QColorDialog_ChangeEvent(QColorDialog* self, QEvent* event) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QColorDialog_OnChangeEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QColorDialog_QBaseChangeEvent(QColorDialog* self, QEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_ChangeEvent_IsBase(true);
-        vqcolordialog->changeEvent(event);
-    }
-}
-
 void QColorDialog_Done(QColorDialog* self, int result) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->done(static_cast<int>(result));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QColorDialog_OnDone(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Done_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Done_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QColorDialog_QBaseDone(QColorDialog* self, int result) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Done_IsBase(true);
         vqcolordialog->done(static_cast<int>(result));
     }
 }
@@ -305,6 +233,82 @@ QColor* QColorDialog_GetColor3(const QColor* initial, QWidget* parent, const lib
 QColor* QColorDialog_GetColor4(const QColor* initial, QWidget* parent, const libqt_string title, int options) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return new QColor(QColorDialog::getColor(*initial, parent, title_QString, static_cast<QColorDialog::ColorDialogOptions>(options)));
+}
+
+// Base class handler implementation
+int QColorDialog_QBaseMetacall(QColorDialog* self, int param1, int param2, void** param3) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_Metacall_IsBase(true);
+        return vqcolordialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QColorDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColorDialog_OnMetacall(QColorDialog* self, intptr_t slot) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_Metacall_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QColorDialog_QBaseSetVisible(QColorDialog* self, bool visible) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_SetVisible_IsBase(true);
+        vqcolordialog->setVisible(visible);
+    } else {
+        self->QColorDialog::setVisible(visible);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColorDialog_OnSetVisible(QColorDialog* self, intptr_t slot) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_SetVisible_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SetVisible_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QColorDialog_QBaseChangeEvent(QColorDialog* self, QEvent* event) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_ChangeEvent_IsBase(true);
+        vqcolordialog->changeEvent(event);
+    } else {
+        ((VirtualQColorDialog*)self)->changeEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColorDialog_OnChangeEvent(QColorDialog* self, intptr_t slot) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QColorDialog_QBaseDone(QColorDialog* self, int result) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_Done_IsBase(true);
+        vqcolordialog->done(static_cast<int>(result));
+    } else {
+        ((VirtualQColorDialog*)self)->done(static_cast<int>(result));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColorDialog_OnDone(QColorDialog* self, intptr_t slot) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_Done_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Done_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

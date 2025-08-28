@@ -38,25 +38,6 @@ int QAccessiblePlugin_Metacall(QAccessiblePlugin* self, int param1, int param2, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAccessiblePlugin_OnMetacall(QAccessiblePlugin* self, intptr_t slot) {
-    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
-        vqaccessibleplugin->setQAccessiblePlugin_Metacall_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAccessiblePlugin_QBaseMetacall(QAccessiblePlugin* self, int param1, int param2, void** param3) {
-    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
-        vqaccessibleplugin->setQAccessiblePlugin_Metacall_IsBase(true);
-        return vqaccessibleplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAccessiblePlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QAccessiblePlugin_Tr(const char* s) {
     QString _ret = QAccessiblePlugin::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -73,26 +54,6 @@ QAccessibleInterface* QAccessiblePlugin_Create(QAccessiblePlugin* self, const li
     QString key_QString = QString::fromUtf8(key.data, key.len);
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
-        return vqaccessibleplugin->create(key_QString, object);
-    } else {
-        return ((VirtualQAccessiblePlugin*)self)->create(key_QString, object);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAccessiblePlugin_OnCreate(QAccessiblePlugin* self, intptr_t slot) {
-    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
-        vqaccessibleplugin->setQAccessiblePlugin_Create_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Create_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QAccessibleInterface* QAccessiblePlugin_QBaseCreate(QAccessiblePlugin* self, const libqt_string key, QObject* object) {
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
-        vqaccessibleplugin->setQAccessiblePlugin_Create_IsBase(true);
         return vqaccessibleplugin->create(key_QString, object);
     } else {
         return ((VirtualQAccessiblePlugin*)self)->create(key_QString, object);
@@ -121,6 +82,45 @@ libqt_string QAccessiblePlugin_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QAccessiblePlugin_QBaseMetacall(QAccessiblePlugin* self, int param1, int param2, void** param3) {
+    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        vqaccessibleplugin->setQAccessiblePlugin_Metacall_IsBase(true);
+        return vqaccessibleplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QAccessiblePlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAccessiblePlugin_OnMetacall(QAccessiblePlugin* self, intptr_t slot) {
+    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        vqaccessibleplugin->setQAccessiblePlugin_Metacall_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QAccessibleInterface* QAccessiblePlugin_QBaseCreate(QAccessiblePlugin* self, const libqt_string key, QObject* object) {
+    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        vqaccessibleplugin->setQAccessiblePlugin_Create_IsBase(true);
+        return vqaccessibleplugin->create(key_QString, object);
+    } else {
+        return ((VirtualQAccessiblePlugin*)self)->create(key_QString, object);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAccessiblePlugin_OnCreate(QAccessiblePlugin* self, intptr_t slot) {
+    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        vqaccessibleplugin->setQAccessiblePlugin_Create_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Create_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

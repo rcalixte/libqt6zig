@@ -96,25 +96,6 @@ int QHttpMultiPart_Metacall(QHttpMultiPart* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHttpMultiPart_OnMetacall(QHttpMultiPart* self, intptr_t slot) {
-    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
-    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
-        vqhttpmultipart->setQHttpMultiPart_Metacall_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QHttpMultiPart_QBaseMetacall(QHttpMultiPart* self, int param1, int param2, void** param3) {
-    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
-    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
-        vqhttpmultipart->setQHttpMultiPart_Metacall_IsBase(true);
-        return vqhttpmultipart->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHttpMultiPart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QHttpMultiPart_Tr(const char* s) {
     QString _ret = QHttpMultiPart::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -172,6 +153,25 @@ libqt_string QHttpMultiPart_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QHttpMultiPart_QBaseMetacall(QHttpMultiPart* self, int param1, int param2, void** param3) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
+        vqhttpmultipart->setQHttpMultiPart_Metacall_IsBase(true);
+        return vqhttpmultipart->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QHttpMultiPart::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHttpMultiPart_OnMetacall(QHttpMultiPart* self, intptr_t slot) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
+        vqhttpmultipart->setQHttpMultiPart_Metacall_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

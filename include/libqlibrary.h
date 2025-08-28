@@ -35,8 +35,6 @@ QLibrary* QLibrary_new8(const libqt_string fileName, const libqt_string version,
 QMetaObject* QLibrary_MetaObject(const QLibrary* self);
 void* QLibrary_Metacast(QLibrary* self, const char* param1);
 int QLibrary_Metacall(QLibrary* self, int param1, int param2, void** param3);
-void QLibrary_OnMetacall(QLibrary* self, intptr_t slot);
-int QLibrary_QBaseMetacall(QLibrary* self, int param1, int param2, void** param3);
 libqt_string QLibrary_Tr(const char* s);
 bool QLibrary_Load(QLibrary* self);
 bool QLibrary_Unload(QLibrary* self);
@@ -51,6 +49,8 @@ void QLibrary_SetLoadHints(QLibrary* self, int hints);
 int QLibrary_LoadHints(const QLibrary* self);
 libqt_string QLibrary_Tr2(const char* s, const char* c);
 libqt_string QLibrary_Tr3(const char* s, const char* c, int n);
+void QLibrary_OnMetacall(QLibrary* self, intptr_t slot);
+int QLibrary_QBaseMetacall(QLibrary* self, int param1, int param2, void** param3);
 bool QLibrary_Event(QLibrary* self, QEvent* event);
 void QLibrary_OnEvent(QLibrary* self, intptr_t slot);
 bool QLibrary_QBaseEvent(QLibrary* self, QEvent* event);

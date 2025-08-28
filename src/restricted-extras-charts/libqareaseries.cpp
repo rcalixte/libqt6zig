@@ -52,25 +52,6 @@ int QAreaSeries_Metacall(QAreaSeries* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAreaSeries_OnMetacall(QAreaSeries* self, intptr_t slot) {
-    auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        vqareaseries->setQAreaSeries_Metacall_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAreaSeries_QBaseMetacall(QAreaSeries* self, int param1, int param2, void** param3) {
-    auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        vqareaseries->setQAreaSeries_Metacall_IsBase(true);
-        return vqareaseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAreaSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QAreaSeries_Tr(const char* s) {
     QString _ret = QAreaSeries::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -87,25 +68,6 @@ int QAreaSeries_Type(const QAreaSeries* self) {
     auto* vqareaseries = dynamic_cast<const VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQAreaSeries*)self)->type());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QAreaSeries_OnType(const QAreaSeries* self, intptr_t slot) {
-    auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        vqareaseries->setQAreaSeries_Type_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAreaSeries_QBaseType(const QAreaSeries* self) {
-    auto* vqareaseries = dynamic_cast<const VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        vqareaseries->setQAreaSeries_Type_IsBase(true);
-        return static_cast<int>(vqareaseries->type());
     } else {
         return static_cast<int>(((VirtualQAreaSeries*)self)->type());
     }
@@ -428,6 +390,44 @@ void QAreaSeries_SetPointLabelsVisible1(QAreaSeries* self, bool visible) {
 
 void QAreaSeries_SetPointLabelsClipping1(QAreaSeries* self, bool enabled) {
     self->setPointLabelsClipping(enabled);
+}
+
+// Base class handler implementation
+int QAreaSeries_QBaseMetacall(QAreaSeries* self, int param1, int param2, void** param3) {
+    auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_Metacall_IsBase(true);
+        return vqareaseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QAreaSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAreaSeries_OnMetacall(QAreaSeries* self, intptr_t slot) {
+    auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_Metacall_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QAreaSeries_QBaseType(const QAreaSeries* self) {
+    auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_Type_IsBase(true);
+        return static_cast<int>(vqareaseries->type());
+    } else {
+        return static_cast<int>(self->QAreaSeries::type());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAreaSeries_OnType(const QAreaSeries* self, intptr_t slot) {
+    auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_Type_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Type_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

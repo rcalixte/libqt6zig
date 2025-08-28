@@ -56,25 +56,6 @@ int QGraphicsVideoItem_Metacall(QGraphicsVideoItem* self, int param1, int param2
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsVideoItem_OnMetacall(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacall_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsVideoItem_QBaseMetacall(QGraphicsVideoItem* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacall_IsBase(true);
-        return vqgraphicsvideoitem->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsVideoItem_Tr(const char* s) {
     QString _ret = QGraphicsVideoItem::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -128,25 +109,6 @@ QRectF* QGraphicsVideoItem_BoundingRect(const QGraphicsVideoItem* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsVideoItem_OnBoundingRect(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_BoundingRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRectF* QGraphicsVideoItem_QBaseBoundingRect(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<const VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicsvideoitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsVideoItem*)self)->boundingRect());
-    }
-}
-
 void QGraphicsVideoItem_Paint(QGraphicsVideoItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
@@ -156,48 +118,10 @@ void QGraphicsVideoItem_Paint(QGraphicsVideoItem* self, QPainter* painter, const
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsVideoItem_OnPaint(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Paint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsVideoItem_QBasePaint(QGraphicsVideoItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Paint_IsBase(true);
-        vqgraphicsvideoitem->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->paint(painter, option, widget);
-    }
-}
-
 int QGraphicsVideoItem_Type(const QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = dynamic_cast<const VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         return self->type();
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->type();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsVideoItem_OnType(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Type_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsVideoItem_QBaseType(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<const VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Type_IsBase(true);
-        return vqgraphicsvideoitem->type();
     } else {
         return ((VirtualQGraphicsVideoItem*)self)->type();
     }
@@ -224,44 +148,9 @@ void QGraphicsVideoItem_TimerEvent(QGraphicsVideoItem* self, QTimerEvent* event)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsVideoItem_OnTimerEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_TimerEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsVideoItem_QBaseTimerEvent(QGraphicsVideoItem* self, QTimerEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_TimerEvent_IsBase(true);
-        vqgraphicsvideoitem->timerEvent(event);
-    }
-}
-
 QVariant* QGraphicsVideoItem_ItemChange(QGraphicsVideoItem* self, int change, const QVariant* value) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return new QVariant(vqgraphicsvideoitem->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsVideoItem_OnItemChange(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ItemChange_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ItemChange_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QGraphicsVideoItem_QBaseItemChange(QGraphicsVideoItem* self, int change, const QVariant* value) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ItemChange_IsBase(true);
         return new QVariant(vqgraphicsvideoitem->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
     }
     return {};
@@ -289,6 +178,119 @@ libqt_string QGraphicsVideoItem_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsVideoItem_QBaseMetacall(QGraphicsVideoItem* self, int param1, int param2, void** param3) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacall_IsBase(true);
+        return vqgraphicsvideoitem->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsVideoItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsVideoItem_OnMetacall(QGraphicsVideoItem* self, intptr_t slot) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacall_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRectF* QGraphicsVideoItem_QBaseBoundingRect(const QGraphicsVideoItem* self) {
+    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_BoundingRect_IsBase(true);
+        return new QRectF(vqgraphicsvideoitem->boundingRect());
+    } else {
+        return new QRectF(((VirtualQGraphicsVideoItem*)self)->boundingRect());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsVideoItem_OnBoundingRect(const QGraphicsVideoItem* self, intptr_t slot) {
+    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_BoundingRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsVideoItem_QBasePaint(QGraphicsVideoItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_Paint_IsBase(true);
+        vqgraphicsvideoitem->paint(painter, option, widget);
+    } else {
+        self->QGraphicsVideoItem::paint(painter, option, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsVideoItem_OnPaint(QGraphicsVideoItem* self, intptr_t slot) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Paint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QGraphicsVideoItem_QBaseType(const QGraphicsVideoItem* self) {
+    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_Type_IsBase(true);
+        return vqgraphicsvideoitem->type();
+    } else {
+        return self->QGraphicsVideoItem::type();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsVideoItem_OnType(const QGraphicsVideoItem* self, intptr_t slot) {
+    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_Type_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsVideoItem_QBaseTimerEvent(QGraphicsVideoItem* self, QTimerEvent* event) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_TimerEvent_IsBase(true);
+        vqgraphicsvideoitem->timerEvent(event);
+    } else {
+        ((VirtualQGraphicsVideoItem*)self)->timerEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsVideoItem_OnTimerEvent(QGraphicsVideoItem* self, intptr_t slot) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_TimerEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QGraphicsVideoItem_QBaseItemChange(QGraphicsVideoItem* self, int change, const QVariant* value) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_ItemChange_IsBase(true);
+        return new QVariant(vqgraphicsvideoitem->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsVideoItem_OnItemChange(QGraphicsVideoItem* self, intptr_t slot) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_ItemChange_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ItemChange_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -63,25 +63,6 @@ int QAction_Metacall(QAction* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAction_OnMetacall(QAction* self, intptr_t slot) {
-    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
-        vqaction->setQAction_Metacall_Callback(reinterpret_cast<VirtualQAction::QAction_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QAction_QBaseMetacall(QAction* self, int param1, int param2, void** param3) {
-    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
-        vqaction->setQAction_Metacall_IsBase(true);
-        return vqaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QAction_Tr(const char* s) {
     QString _ret = QAction::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -351,24 +332,6 @@ bool QAction_Event(QAction* self, QEvent* param1) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAction_OnEvent(QAction* self, intptr_t slot) {
-    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
-        vqaction->setQAction_Event_Callback(reinterpret_cast<VirtualQAction::QAction_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QAction_QBaseEvent(QAction* self, QEvent* param1) {
-    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
-        vqaction->setQAction_Event_IsBase(true);
-        return vqaction->event(param1);
-    }
-    return {};
-}
-
 void QAction_Trigger(QAction* self) {
     self->trigger();
 }
@@ -519,6 +482,44 @@ void QAction_Connect_Triggered1(QAction* self, intptr_t slot) {
         bool sigval1 = checked;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+int QAction_QBaseMetacall(QAction* self, int param1, int param2, void** param3) {
+    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
+    if (vqaction && vqaction->isVirtualQAction) {
+        vqaction->setQAction_Metacall_IsBase(true);
+        return vqaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAction_OnMetacall(QAction* self, intptr_t slot) {
+    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
+    if (vqaction && vqaction->isVirtualQAction) {
+        vqaction->setQAction_Metacall_Callback(reinterpret_cast<VirtualQAction::QAction_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QAction_QBaseEvent(QAction* self, QEvent* param1) {
+    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
+    if (vqaction && vqaction->isVirtualQAction) {
+        vqaction->setQAction_Event_IsBase(true);
+        return vqaction->event(param1);
+    } else {
+        return ((VirtualQAction*)self)->event(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAction_OnEvent(QAction* self, intptr_t slot) {
+    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
+    if (vqaction && vqaction->isVirtualQAction) {
+        vqaction->setQAction_Event_Callback(reinterpret_cast<VirtualQAction::QAction_Event_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

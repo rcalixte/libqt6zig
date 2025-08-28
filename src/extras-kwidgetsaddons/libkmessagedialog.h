@@ -59,8 +59,6 @@ KMessageDialog* KMessageDialog_new3(int typeVal, const libqt_string text, QWidge
 QMetaObject* KMessageDialog_MetaObject(const KMessageDialog* self);
 void* KMessageDialog_Metacast(KMessageDialog* self, const char* param1);
 int KMessageDialog_Metacall(KMessageDialog* self, int param1, int param2, void** param3);
-void KMessageDialog_OnMetacall(KMessageDialog* self, intptr_t slot);
-int KMessageDialog_QBaseMetacall(KMessageDialog* self, int param1, int param2, void** param3);
 libqt_string KMessageDialog_Tr(const char* s);
 void KMessageDialog_SetCaption(KMessageDialog* self, const libqt_string caption);
 void KMessageDialog_SetIcon(KMessageDialog* self, const QIcon* icon);
@@ -75,8 +73,6 @@ void KMessageDialog_SetNotifyEnabled(KMessageDialog* self, bool enable);
 void KMessageDialog_SetButtons(KMessageDialog* self);
 void KMessageDialog_Beep(int typeVal);
 void KMessageDialog_ShowEvent(KMessageDialog* self, QShowEvent* event);
-void KMessageDialog_OnShowEvent(KMessageDialog* self, intptr_t slot);
-void KMessageDialog_QBaseShowEvent(KMessageDialog* self, QShowEvent* event);
 libqt_string KMessageDialog_Tr2(const char* s, const char* c);
 libqt_string KMessageDialog_Tr3(const char* s, const char* c, int n);
 void KMessageDialog_SetButtons1(KMessageDialog* self, const KGuiItem* primaryAction);
@@ -84,6 +80,10 @@ void KMessageDialog_SetButtons2(KMessageDialog* self, const KGuiItem* primaryAct
 void KMessageDialog_SetButtons3(KMessageDialog* self, const KGuiItem* primaryAction, const KGuiItem* secondaryAction, const KGuiItem* cancelAction);
 void KMessageDialog_Beep2(int typeVal, const libqt_string text);
 void KMessageDialog_Beep3(int typeVal, const libqt_string text, QWidget* dialog);
+void KMessageDialog_OnMetacall(KMessageDialog* self, intptr_t slot);
+int KMessageDialog_QBaseMetacall(KMessageDialog* self, int param1, int param2, void** param3);
+void KMessageDialog_OnShowEvent(KMessageDialog* self, intptr_t slot);
+void KMessageDialog_QBaseShowEvent(KMessageDialog* self, QShowEvent* event);
 void KMessageDialog_SetVisible(KMessageDialog* self, bool visible);
 void KMessageDialog_OnSetVisible(KMessageDialog* self, intptr_t slot);
 void KMessageDialog_QBaseSetVisible(KMessageDialog* self, bool visible);

@@ -37,25 +37,6 @@ int KToolBarSpacerAction_Metacall(KToolBarSpacerAction* self, int param1, int pa
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KToolBarSpacerAction_OnMetacall(KToolBarSpacerAction* self, intptr_t slot) {
-    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
-        vktoolbarspaceraction->setKToolBarSpacerAction_Metacall_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KToolBarSpacerAction_QBaseMetacall(KToolBarSpacerAction* self, int param1, int param2, void** param3) {
-    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
-        vktoolbarspaceraction->setKToolBarSpacerAction_Metacall_IsBase(true);
-        return vktoolbarspaceraction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKToolBarSpacerAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KToolBarSpacerAction_Tr(const char* s) {
     QString _ret = KToolBarSpacerAction::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -72,25 +53,6 @@ QWidget* KToolBarSpacerAction_CreateWidget(KToolBarSpacerAction* self, QWidget* 
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
     if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
         return self->createWidget(parent);
-    } else {
-        return ((VirtualKToolBarSpacerAction*)self)->createWidget(parent);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KToolBarSpacerAction_OnCreateWidget(KToolBarSpacerAction* self, intptr_t slot) {
-    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
-        vktoolbarspaceraction->setKToolBarSpacerAction_CreateWidget_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_CreateWidget_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QWidget* KToolBarSpacerAction_QBaseCreateWidget(KToolBarSpacerAction* self, QWidget* parent) {
-    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
-        vktoolbarspaceraction->setKToolBarSpacerAction_CreateWidget_IsBase(true);
-        return vktoolbarspaceraction->createWidget(parent);
     } else {
         return ((VirtualKToolBarSpacerAction*)self)->createWidget(parent);
     }
@@ -118,6 +80,44 @@ libqt_string KToolBarSpacerAction_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KToolBarSpacerAction_QBaseMetacall(KToolBarSpacerAction* self, int param1, int param2, void** param3) {
+    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+        vktoolbarspaceraction->setKToolBarSpacerAction_Metacall_IsBase(true);
+        return vktoolbarspaceraction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KToolBarSpacerAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolBarSpacerAction_OnMetacall(KToolBarSpacerAction* self, intptr_t slot) {
+    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+        vktoolbarspaceraction->setKToolBarSpacerAction_Metacall_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QWidget* KToolBarSpacerAction_QBaseCreateWidget(KToolBarSpacerAction* self, QWidget* parent) {
+    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+        vktoolbarspaceraction->setKToolBarSpacerAction_CreateWidget_IsBase(true);
+        return vktoolbarspaceraction->createWidget(parent);
+    } else {
+        return self->KToolBarSpacerAction::createWidget(parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolBarSpacerAction_OnCreateWidget(KToolBarSpacerAction* self, intptr_t slot) {
+    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+        vktoolbarspaceraction->setKToolBarSpacerAction_CreateWidget_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_CreateWidget_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

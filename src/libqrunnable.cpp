@@ -16,15 +16,15 @@ void QRunnable_Run(QRunnable* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QRunnable_OnRun(QRunnable* self, intptr_t slot) {
-    auto* vqrunnable = dynamic_cast<VirtualQRunnable*>(self);
-    if (vqrunnable && vqrunnable->isVirtualQRunnable) {
-        vqrunnable->setQRunnable_Run_Callback(reinterpret_cast<VirtualQRunnable::QRunnable_Run_Callback>(slot));
-    }
+bool QRunnable_AutoDelete(const QRunnable* self) {
+    return self->autoDelete();
 }
 
-// Virtual base class handler implementation
+void QRunnable_SetAutoDelete(QRunnable* self, bool autoDelete) {
+    self->setAutoDelete(autoDelete);
+}
+
+// Base class handler implementation
 void QRunnable_QBaseRun(QRunnable* self) {
     auto* vqrunnable = dynamic_cast<VirtualQRunnable*>(self);
     if (vqrunnable && vqrunnable->isVirtualQRunnable) {
@@ -35,12 +35,12 @@ void QRunnable_QBaseRun(QRunnable* self) {
     }
 }
 
-bool QRunnable_AutoDelete(const QRunnable* self) {
-    return self->autoDelete();
-}
-
-void QRunnable_SetAutoDelete(QRunnable* self, bool autoDelete) {
-    self->setAutoDelete(autoDelete);
+// Auxiliary method to allow providing re-implementation
+void QRunnable_OnRun(QRunnable* self, intptr_t slot) {
+    auto* vqrunnable = dynamic_cast<VirtualQRunnable*>(self);
+    if (vqrunnable && vqrunnable->isVirtualQRunnable) {
+        vqrunnable->setQRunnable_Run_Callback(reinterpret_cast<VirtualQRunnable::QRunnable_Run_Callback>(slot));
+    }
 }
 
 void QRunnable_Delete(QRunnable* self) {

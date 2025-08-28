@@ -75,25 +75,6 @@ int KFontChooser_Metacall(KFontChooser* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KFontChooser_OnMetacall(KFontChooser* self, intptr_t slot) {
-    auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
-        vkfontchooser->setKFontChooser_Metacall_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KFontChooser_QBaseMetacall(KFontChooser* self, int param1, int param2, void** param3) {
-    auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
-        vkfontchooser->setKFontChooser_Metacall_IsBase(true);
-        return vkfontchooser->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFontChooser*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KFontChooser_Tr(const char* s) {
     QString _ret = KFontChooser::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -204,25 +185,6 @@ QSize* KFontChooser_SizeHint(const KFontChooser* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KFontChooser_OnSizeHint(const KFontChooser* self, intptr_t slot) {
-    auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
-        vkfontchooser->setKFontChooser_SizeHint_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* KFontChooser_QBaseSizeHint(const KFontChooser* self) {
-    auto* vkfontchooser = dynamic_cast<const VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
-        vkfontchooser->setKFontChooser_SizeHint_IsBase(true);
-        return new QSize(vkfontchooser->sizeHint());
-    } else {
-        return new QSize(((VirtualKFontChooser*)self)->sizeHint());
-    }
-}
-
 void KFontChooser_FontSelected(KFontChooser* self, const QFont* font) {
     self->fontSelected(*font);
 }
@@ -263,6 +225,44 @@ libqt_string KFontChooser_Tr3(const char* s, const char* c, int n) {
 
 void KFontChooser_SetFont2(KFontChooser* self, const QFont* font, bool onlyFixed) {
     self->setFont(*font, onlyFixed);
+}
+
+// Base class handler implementation
+int KFontChooser_QBaseMetacall(KFontChooser* self, int param1, int param2, void** param3) {
+    auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        vkfontchooser->setKFontChooser_Metacall_IsBase(true);
+        return vkfontchooser->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KFontChooser::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontChooser_OnMetacall(KFontChooser* self, intptr_t slot) {
+    auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        vkfontchooser->setKFontChooser_Metacall_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* KFontChooser_QBaseSizeHint(const KFontChooser* self) {
+    auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        vkfontchooser->setKFontChooser_SizeHint_IsBase(true);
+        return new QSize(vkfontchooser->sizeHint());
+    } else {
+        return new QSize(((VirtualKFontChooser*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontChooser_OnSizeHint(const KFontChooser* self, intptr_t slot) {
+    auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        vkfontchooser->setKFontChooser_SizeHint_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_SizeHint_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

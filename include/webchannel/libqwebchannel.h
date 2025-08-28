@@ -30,8 +30,6 @@ QWebChannel* QWebChannel_new2(QObject* parent);
 QMetaObject* QWebChannel_MetaObject(const QWebChannel* self);
 void* QWebChannel_Metacast(QWebChannel* self, const char* param1);
 int QWebChannel_Metacall(QWebChannel* self, int param1, int param2, void** param3);
-void QWebChannel_OnMetacall(QWebChannel* self, intptr_t slot);
-int QWebChannel_QBaseMetacall(QWebChannel* self, int param1, int param2, void** param3);
 libqt_string QWebChannel_Tr(const char* s);
 void QWebChannel_RegisterObjects(QWebChannel* self, const libqt_map /* of libqt_string to QObject* */ objects);
 libqt_map /* of libqt_string to QObject* */ QWebChannel_RegisteredObjects(const QWebChannel* self);
@@ -47,6 +45,8 @@ void QWebChannel_ConnectTo(QWebChannel* self, QWebChannelAbstractTransport* tran
 void QWebChannel_DisconnectFrom(QWebChannel* self, QWebChannelAbstractTransport* transport);
 libqt_string QWebChannel_Tr2(const char* s, const char* c);
 libqt_string QWebChannel_Tr3(const char* s, const char* c, int n);
+void QWebChannel_OnMetacall(QWebChannel* self, intptr_t slot);
+int QWebChannel_QBaseMetacall(QWebChannel* self, int param1, int param2, void** param3);
 bool QWebChannel_Event(QWebChannel* self, QEvent* event);
 void QWebChannel_OnEvent(QWebChannel* self, intptr_t slot);
 bool QWebChannel_QBaseEvent(QWebChannel* self, QEvent* event);

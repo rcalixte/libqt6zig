@@ -41,25 +41,6 @@ int QsciLexerPerl_Metacall(QsciLexerPerl* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPerl_OnMetacall(QsciLexerPerl* self, intptr_t slot) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        vqscilexerperl->setQsciLexerPerl_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPerl::QsciLexerPerl_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerPerl_QBaseMetacall(QsciLexerPerl* self, int param1, int param2, void** param3) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        vqscilexerperl->setQsciLexerPerl_Metacall_IsBase(true);
-        return vqscilexerperl->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPerl*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerPerl_Tr(const char* s) {
     QString _ret = QsciLexerPerl::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -194,48 +175,10 @@ void QsciLexerPerl_SetFoldComments(QsciLexerPerl* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPerl_OnSetFoldComments(QsciLexerPerl* self, intptr_t slot) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        vqscilexerperl->setQsciLexerPerl_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPerl::QsciLexerPerl_SetFoldComments_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPerl_QBaseSetFoldComments(QsciLexerPerl* self, bool fold) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        vqscilexerperl->setQsciLexerPerl_SetFoldComments_IsBase(true);
-        vqscilexerperl->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerPerl*)self)->setFoldComments(fold);
-    }
-}
-
 void QsciLexerPerl_SetFoldCompact(QsciLexerPerl* self, bool fold) {
     auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
     if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
         self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerPerl*)self)->setFoldCompact(fold);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPerl_OnSetFoldCompact(QsciLexerPerl* self, intptr_t slot) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        vqscilexerperl->setQsciLexerPerl_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPerl::QsciLexerPerl_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPerl_QBaseSetFoldCompact(QsciLexerPerl* self, bool fold) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        vqscilexerperl->setQsciLexerPerl_SetFoldCompact_IsBase(true);
-        vqscilexerperl->setFoldCompact(fold);
     } else {
         ((VirtualQsciLexerPerl*)self)->setFoldCompact(fold);
     }
@@ -271,6 +214,63 @@ const char* QsciLexerPerl_BlockEnd1(const QsciLexerPerl* self, int* style) {
 
 const char* QsciLexerPerl_BlockStart1(const QsciLexerPerl* self, int* style) {
     return (const char*)self->blockStart(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+int QsciLexerPerl_QBaseMetacall(QsciLexerPerl* self, int param1, int param2, void** param3) {
+    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
+    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
+        vqscilexerperl->setQsciLexerPerl_Metacall_IsBase(true);
+        return vqscilexerperl->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerPerl*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPerl_OnMetacall(QsciLexerPerl* self, intptr_t slot) {
+    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
+    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
+        vqscilexerperl->setQsciLexerPerl_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPerl::QsciLexerPerl_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPerl_QBaseSetFoldComments(QsciLexerPerl* self, bool fold) {
+    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
+    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
+        vqscilexerperl->setQsciLexerPerl_SetFoldComments_IsBase(true);
+        vqscilexerperl->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerPerl*)self)->setFoldComments(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPerl_OnSetFoldComments(QsciLexerPerl* self, intptr_t slot) {
+    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
+    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
+        vqscilexerperl->setQsciLexerPerl_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPerl::QsciLexerPerl_SetFoldComments_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPerl_QBaseSetFoldCompact(QsciLexerPerl* self, bool fold) {
+    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
+    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
+        vqscilexerperl->setQsciLexerPerl_SetFoldCompact_IsBase(true);
+        vqscilexerperl->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerPerl*)self)->setFoldCompact(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPerl_OnSetFoldCompact(QsciLexerPerl* self, intptr_t slot) {
+    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
+    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
+        vqscilexerperl->setQsciLexerPerl_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPerl::QsciLexerPerl_SetFoldCompact_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

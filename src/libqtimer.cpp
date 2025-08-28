@@ -37,25 +37,6 @@ int QTimer_Metacall(QTimer* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTimer_OnMetacall(QTimer* self, intptr_t slot) {
-    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
-        vqtimer->setQTimer_Metacall_Callback(reinterpret_cast<VirtualQTimer::QTimer_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTimer_QBaseMetacall(QTimer* self, int param1, int param2, void** param3) {
-    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
-        vqtimer->setQTimer_Metacall_IsBase(true);
-        return vqtimer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTimer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QTimer_Tr(const char* s) {
     QString _ret = QTimer::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -127,23 +108,6 @@ void QTimer_TimerEvent(QTimer* self, QTimerEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTimer_OnTimerEvent(QTimer* self, intptr_t slot) {
-    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
-        vqtimer->setQTimer_TimerEvent_Callback(reinterpret_cast<VirtualQTimer::QTimer_TimerEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTimer_QBaseTimerEvent(QTimer* self, QTimerEvent* param1) {
-    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
-        vqtimer->setQTimer_TimerEvent_IsBase(true);
-        vqtimer->timerEvent(param1);
-    }
-}
-
 libqt_string QTimer_Tr2(const char* s, const char* c) {
     QString _ret = QTimer::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -166,6 +130,44 @@ libqt_string QTimer_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QTimer_QBaseMetacall(QTimer* self, int param1, int param2, void** param3) {
+    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        vqtimer->setQTimer_Metacall_IsBase(true);
+        return vqtimer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QTimer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTimer_OnMetacall(QTimer* self, intptr_t slot) {
+    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        vqtimer->setQTimer_Metacall_Callback(reinterpret_cast<VirtualQTimer::QTimer_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTimer_QBaseTimerEvent(QTimer* self, QTimerEvent* param1) {
+    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        vqtimer->setQTimer_TimerEvent_IsBase(true);
+        vqtimer->timerEvent(param1);
+    } else {
+        ((VirtualQTimer*)self)->timerEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTimer_OnTimerEvent(QTimer* self, intptr_t slot) {
+    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        vqtimer->setQTimer_TimerEvent_Callback(reinterpret_cast<VirtualQTimer::QTimer_TimerEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

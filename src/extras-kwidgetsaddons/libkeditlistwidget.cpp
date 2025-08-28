@@ -86,25 +86,6 @@ int KEditListWidget_Metacall(KEditListWidget* self, int param1, int param2, void
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KEditListWidget_OnMetacall(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Metacall_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KEditListWidget_QBaseMetacall(KEditListWidget* self, int param1, int param2, void** param3) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Metacall_IsBase(true);
-        return vkeditlistwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKEditListWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KEditListWidget_Tr(const char* s) {
     QString _ret = KEditListWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -254,25 +235,6 @@ bool KEditListWidget_EventFilter(KEditListWidget* self, QObject* o, QEvent* e) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KEditListWidget_OnEventFilter(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_EventFilter_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_EventFilter_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KEditListWidget_QBaseEventFilter(KEditListWidget* self, QObject* o, QEvent* e) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_EventFilter_IsBase(true);
-        return vkeditlistwidget->eventFilter(o, e);
-    } else {
-        return ((VirtualKEditListWidget*)self)->eventFilter(o, e);
-    }
-}
-
 void KEditListWidget_Changed(KEditListWidget* self) {
     self->changed();
 }
@@ -362,6 +324,44 @@ void KEditListWidget_InsertStringList2(KEditListWidget* self, const libqt_list /
 void KEditListWidget_InsertItem2(KEditListWidget* self, const libqt_string text, int index) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->insertItem(text_QString, static_cast<int>(index));
+}
+
+// Base class handler implementation
+int KEditListWidget_QBaseMetacall(KEditListWidget* self, int param1, int param2, void** param3) {
+    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        vkeditlistwidget->setKEditListWidget_Metacall_IsBase(true);
+        return vkeditlistwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KEditListWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEditListWidget_OnMetacall(KEditListWidget* self, intptr_t slot) {
+    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        vkeditlistwidget->setKEditListWidget_Metacall_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KEditListWidget_QBaseEventFilter(KEditListWidget* self, QObject* o, QEvent* e) {
+    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        vkeditlistwidget->setKEditListWidget_EventFilter_IsBase(true);
+        return vkeditlistwidget->eventFilter(o, e);
+    } else {
+        return self->KEditListWidget::eventFilter(o, e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEditListWidget_OnEventFilter(KEditListWidget* self, intptr_t slot) {
+    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        vkeditlistwidget->setKEditListWidget_EventFilter_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_EventFilter_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -2023,25 +2023,6 @@ QWidget* KEditListWidget__CustomEditor_RepresentationWidget(const KEditListWidge
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KEditListWidget__CustomEditor_OnRepresentationWidget(const KEditListWidget__CustomEditor* self, intptr_t slot) {
-    auto* vkeditlistwidget__customeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
-    if (vkeditlistwidget__customeditor && vkeditlistwidget__customeditor->isVirtualKEditListWidgetCustomEditor) {
-        vkeditlistwidget__customeditor->setKEditListWidget__CustomEditor_RepresentationWidget_Callback(reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_RepresentationWidget_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QWidget* KEditListWidget__CustomEditor_QBaseRepresentationWidget(const KEditListWidget__CustomEditor* self) {
-    auto* vkeditlistwidget__customeditor = dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self);
-    if (vkeditlistwidget__customeditor && vkeditlistwidget__customeditor->isVirtualKEditListWidgetCustomEditor) {
-        vkeditlistwidget__customeditor->setKEditListWidget__CustomEditor_RepresentationWidget_IsBase(true);
-        return vkeditlistwidget__customeditor->representationWidget();
-    } else {
-        return ((VirtualKEditListWidgetCustomEditor*)self)->representationWidget();
-    }
-}
-
 QLineEdit* KEditListWidget__CustomEditor_LineEdit(const KEditListWidget__CustomEditor* self) {
     auto* vkeditlistwidget__customeditor = dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self);
     if (vkeditlistwidget__customeditor && vkeditlistwidget__customeditor->isVirtualKEditListWidgetCustomEditor) {
@@ -2051,22 +2032,41 @@ QLineEdit* KEditListWidget__CustomEditor_LineEdit(const KEditListWidget__CustomE
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KEditListWidget__CustomEditor_OnLineEdit(const KEditListWidget__CustomEditor* self, intptr_t slot) {
-    auto* vkeditlistwidget__customeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
-    if (vkeditlistwidget__customeditor && vkeditlistwidget__customeditor->isVirtualKEditListWidgetCustomEditor) {
-        vkeditlistwidget__customeditor->setKEditListWidget__CustomEditor_LineEdit_Callback(reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_LineEdit_Callback>(slot));
+// Base class handler implementation
+QWidget* KEditListWidget__CustomEditor_QBaseRepresentationWidget(const KEditListWidget__CustomEditor* self) {
+    auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
+    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
+        vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_RepresentationWidget_IsBase(true);
+        return vkeditlistwidgetcustomeditor->representationWidget();
+    } else {
+        return self->KEditListWidget::CustomEditor::representationWidget();
     }
 }
 
-// Virtual base class handler implementation
+// Auxiliary method to allow providing re-implementation
+void KEditListWidget__CustomEditor_OnRepresentationWidget(const KEditListWidget__CustomEditor* self, intptr_t slot) {
+    auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
+    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
+        vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_RepresentationWidget_Callback(reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_RepresentationWidget_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
 QLineEdit* KEditListWidget__CustomEditor_QBaseLineEdit(const KEditListWidget__CustomEditor* self) {
-    auto* vkeditlistwidget__customeditor = dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self);
-    if (vkeditlistwidget__customeditor && vkeditlistwidget__customeditor->isVirtualKEditListWidgetCustomEditor) {
-        vkeditlistwidget__customeditor->setKEditListWidget__CustomEditor_LineEdit_IsBase(true);
-        return vkeditlistwidget__customeditor->lineEdit();
+    auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
+    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
+        vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_LineEdit_IsBase(true);
+        return vkeditlistwidgetcustomeditor->lineEdit();
     } else {
-        return ((VirtualKEditListWidgetCustomEditor*)self)->lineEdit();
+        return self->KEditListWidget::CustomEditor::lineEdit();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEditListWidget__CustomEditor_OnLineEdit(const KEditListWidget__CustomEditor* self, intptr_t slot) {
+    auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
+    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
+        vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_LineEdit_Callback(reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_LineEdit_Callback>(slot));
     }
 }
 

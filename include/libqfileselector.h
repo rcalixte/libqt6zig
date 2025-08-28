@@ -30,8 +30,6 @@ QFileSelector* QFileSelector_new2(QObject* parent);
 QMetaObject* QFileSelector_MetaObject(const QFileSelector* self);
 void* QFileSelector_Metacast(QFileSelector* self, const char* param1);
 int QFileSelector_Metacall(QFileSelector* self, int param1, int param2, void** param3);
-void QFileSelector_OnMetacall(QFileSelector* self, intptr_t slot);
-int QFileSelector_QBaseMetacall(QFileSelector* self, int param1, int param2, void** param3);
 libqt_string QFileSelector_Tr(const char* s);
 libqt_string QFileSelector_Select(const QFileSelector* self, const libqt_string filePath);
 QUrl* QFileSelector_Select2(const QFileSelector* self, const QUrl* filePath);
@@ -40,6 +38,8 @@ void QFileSelector_SetExtraSelectors(QFileSelector* self, const libqt_list /* of
 libqt_list /* of libqt_string */ QFileSelector_AllSelectors(const QFileSelector* self);
 libqt_string QFileSelector_Tr2(const char* s, const char* c);
 libqt_string QFileSelector_Tr3(const char* s, const char* c, int n);
+void QFileSelector_OnMetacall(QFileSelector* self, intptr_t slot);
+int QFileSelector_QBaseMetacall(QFileSelector* self, int param1, int param2, void** param3);
 bool QFileSelector_Event(QFileSelector* self, QEvent* event);
 void QFileSelector_OnEvent(QFileSelector* self, intptr_t slot);
 bool QFileSelector_QBaseEvent(QFileSelector* self, QEvent* event);

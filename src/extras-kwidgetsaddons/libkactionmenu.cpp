@@ -48,25 +48,6 @@ int KActionMenu_Metacall(KActionMenu* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KActionMenu_OnMetacall(KActionMenu* self, intptr_t slot) {
-    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
-        vkactionmenu->setKActionMenu_Metacall_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KActionMenu_QBaseMetacall(KActionMenu* self, int param1, int param2, void** param3) {
-    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
-        vkactionmenu->setKActionMenu_Metacall_IsBase(true);
-        return vkactionmenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKActionMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KActionMenu_Tr(const char* s) {
     QString _ret = KActionMenu::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -116,25 +97,6 @@ QWidget* KActionMenu_CreateWidget(KActionMenu* self, QWidget* parent) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KActionMenu_OnCreateWidget(KActionMenu* self, intptr_t slot) {
-    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
-        vkactionmenu->setKActionMenu_CreateWidget_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_CreateWidget_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QWidget* KActionMenu_QBaseCreateWidget(KActionMenu* self, QWidget* parent) {
-    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
-        vkactionmenu->setKActionMenu_CreateWidget_IsBase(true);
-        return vkactionmenu->createWidget(parent);
-    } else {
-        return ((VirtualKActionMenu*)self)->createWidget(parent);
-    }
-}
-
 libqt_string KActionMenu_Tr2(const char* s, const char* c) {
     QString _ret = KActionMenu::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -157,6 +119,44 @@ libqt_string KActionMenu_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KActionMenu_QBaseMetacall(KActionMenu* self, int param1, int param2, void** param3) {
+    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        vkactionmenu->setKActionMenu_Metacall_IsBase(true);
+        return vkactionmenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KActionMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionMenu_OnMetacall(KActionMenu* self, intptr_t slot) {
+    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        vkactionmenu->setKActionMenu_Metacall_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QWidget* KActionMenu_QBaseCreateWidget(KActionMenu* self, QWidget* parent) {
+    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        vkactionmenu->setKActionMenu_CreateWidget_IsBase(true);
+        return vkactionmenu->createWidget(parent);
+    } else {
+        return self->KActionMenu::createWidget(parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionMenu_OnCreateWidget(KActionMenu* self, intptr_t slot) {
+    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        vkactionmenu->setKActionMenu_CreateWidget_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_CreateWidget_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

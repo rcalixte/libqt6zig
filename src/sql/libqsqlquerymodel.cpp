@@ -54,25 +54,6 @@ int QSqlQueryModel_Metacall(QSqlQueryModel* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnMetacall(QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_Metacall_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSqlQueryModel_QBaseMetacall(QSqlQueryModel* self, int param1, int param2, void** param3) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_Metacall_IsBase(true);
-        return vqsqlquerymodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QSqlQueryModel_Tr(const char* s) {
     QString _ret = QSqlQueryModel::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -94,48 +75,10 @@ int QSqlQueryModel_RowCount(const QSqlQueryModel* self, const QModelIndex* paren
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnRowCount(const QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_RowCount_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RowCount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSqlQueryModel_QBaseRowCount(const QSqlQueryModel* self, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_RowCount_IsBase(true);
-        return vqsqlquerymodel->rowCount(*parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->rowCount(*parent);
-    }
-}
-
 int QSqlQueryModel_ColumnCount(const QSqlQueryModel* self, const QModelIndex* parent) {
     auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
         return self->columnCount(*parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->columnCount(*parent);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnColumnCount(const QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_ColumnCount_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ColumnCount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSqlQueryModel_QBaseColumnCount(const QSqlQueryModel* self, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_ColumnCount_IsBase(true);
-        return vqsqlquerymodel->columnCount(*parent);
     } else {
         return ((VirtualQSqlQueryModel*)self)->columnCount(*parent);
     }
@@ -158,48 +101,10 @@ QVariant* QSqlQueryModel_Data(const QSqlQueryModel* self, const QModelIndex* ite
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnData(const QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_Data_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Data_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QSqlQueryModel_QBaseData(const QSqlQueryModel* self, const QModelIndex* item, int role) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_Data_IsBase(true);
-        return new QVariant(vqsqlquerymodel->data(*item, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlQueryModel*)self)->data(*item, static_cast<int>(role)));
-    }
-}
-
 QVariant* QSqlQueryModel_HeaderData(const QSqlQueryModel* self, int section, int orientation, int role) {
     auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
         return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlQueryModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnHeaderData(const QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_HeaderData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_HeaderData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QSqlQueryModel_QBaseHeaderData(const QSqlQueryModel* self, int section, int orientation, int role) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_HeaderData_IsBase(true);
-        return new QVariant(vqsqlquerymodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
     } else {
         return new QVariant(((VirtualQSqlQueryModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
     }
@@ -214,25 +119,6 @@ bool QSqlQueryModel_SetHeaderData(QSqlQueryModel* self, int section, int orienta
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnSetHeaderData(QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_SetHeaderData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_SetHeaderData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QSqlQueryModel_QBaseSetHeaderData(QSqlQueryModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_SetHeaderData_IsBase(true);
-        return vqsqlquerymodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
-}
-
 bool QSqlQueryModel_InsertColumns(QSqlQueryModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
@@ -242,48 +128,10 @@ bool QSqlQueryModel_InsertColumns(QSqlQueryModel* self, int column, int count, c
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnInsertColumns(QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_InsertColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_InsertColumns_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QSqlQueryModel_QBaseInsertColumns(QSqlQueryModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_InsertColumns_IsBase(true);
-        return vqsqlquerymodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
 bool QSqlQueryModel_RemoveColumns(QSqlQueryModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
         return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnRemoveColumns(QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_RemoveColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RemoveColumns_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QSqlQueryModel_QBaseRemoveColumns(QSqlQueryModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_RemoveColumns_IsBase(true);
-        return vqsqlquerymodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
     } else {
         return ((VirtualQSqlQueryModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
     }
@@ -313,25 +161,6 @@ void QSqlQueryModel_Clear(QSqlQueryModel* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnClear(QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_Clear_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Clear_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QSqlQueryModel_QBaseClear(QSqlQueryModel* self) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_Clear_IsBase(true);
-        vqsqlquerymodel->clear();
-    } else {
-        ((VirtualQSqlQueryModel*)self)->clear();
-    }
-}
-
 QSqlError* QSqlQueryModel_LastError(const QSqlQueryModel* self) {
     return new QSqlError(self->lastError());
 }
@@ -345,48 +174,10 @@ void QSqlQueryModel_FetchMore(QSqlQueryModel* self, const QModelIndex* parent) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnFetchMore(QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_FetchMore_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_FetchMore_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QSqlQueryModel_QBaseFetchMore(QSqlQueryModel* self, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_FetchMore_IsBase(true);
-        vqsqlquerymodel->fetchMore(*parent);
-    } else {
-        ((VirtualQSqlQueryModel*)self)->fetchMore(*parent);
-    }
-}
-
 bool QSqlQueryModel_CanFetchMore(const QSqlQueryModel* self, const QModelIndex* parent) {
     auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
         return self->canFetchMore(*parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->canFetchMore(*parent);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnCanFetchMore(const QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_CanFetchMore_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_CanFetchMore_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QSqlQueryModel_QBaseCanFetchMore(const QSqlQueryModel* self, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_CanFetchMore_IsBase(true);
-        return vqsqlquerymodel->canFetchMore(*parent);
     } else {
         return ((VirtualQSqlQueryModel*)self)->canFetchMore(*parent);
     }
@@ -441,65 +232,6 @@ libqt_map /* of int to libqt_string */ QSqlQueryModel_RoleNames(const QSqlQueryM
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnRoleNames(const QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_RoleNames_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RoleNames_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_map /* of int to libqt_string */ QSqlQueryModel_QBaseRoleNames(const QSqlQueryModel* self) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_RoleNames_IsBase(true);
-        QHash<int, QByteArray> _ret = vqsqlquerymodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualQSqlQueryModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
 void QSqlQueryModel_QueryChange(QSqlQueryModel* self) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
@@ -507,44 +239,9 @@ void QSqlQueryModel_QueryChange(QSqlQueryModel* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnQueryChange(QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_QueryChange_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_QueryChange_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QSqlQueryModel_QBaseQueryChange(QSqlQueryModel* self) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_QueryChange_IsBase(true);
-        vqsqlquerymodel->queryChange();
-    }
-}
-
 QModelIndex* QSqlQueryModel_IndexInQuery(const QSqlQueryModel* self, const QModelIndex* item) {
     auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return new QModelIndex(vqsqlquerymodel->indexInQuery(*item));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QSqlQueryModel_OnIndexInQuery(const QSqlQueryModel* self, intptr_t slot) {
-    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_IndexInQuery_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_IndexInQuery_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QSqlQueryModel_QBaseIndexInQuery(const QSqlQueryModel* self, const QModelIndex* item) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        vqsqlquerymodel->setQSqlQueryModel_IndexInQuery_IsBase(true);
         return new QModelIndex(vqsqlquerymodel->indexInQuery(*item));
     }
     return {};
@@ -583,6 +280,311 @@ QSqlQuery* QSqlQueryModel_Query1(const QSqlQueryModel* self, Disambiguated_t* pa
     const QSqlQuery& _ret = self->query(*param1);
     // Cast returned reference into pointer
     return const_cast<QSqlQuery*>(&_ret);
+}
+
+// Base class handler implementation
+int QSqlQueryModel_QBaseMetacall(QSqlQueryModel* self, int param1, int param2, void** param3) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_Metacall_IsBase(true);
+        return vqsqlquerymodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QSqlQueryModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnMetacall(QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_Metacall_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QSqlQueryModel_QBaseRowCount(const QSqlQueryModel* self, const QModelIndex* parent) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_RowCount_IsBase(true);
+        return vqsqlquerymodel->rowCount(*parent);
+    } else {
+        return self->QSqlQueryModel::rowCount(*parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnRowCount(const QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_RowCount_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RowCount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QSqlQueryModel_QBaseColumnCount(const QSqlQueryModel* self, const QModelIndex* parent) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_ColumnCount_IsBase(true);
+        return vqsqlquerymodel->columnCount(*parent);
+    } else {
+        return self->QSqlQueryModel::columnCount(*parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnColumnCount(const QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_ColumnCount_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ColumnCount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QSqlQueryModel_QBaseData(const QSqlQueryModel* self, const QModelIndex* item, int role) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_Data_IsBase(true);
+        return new QVariant(vqsqlquerymodel->data(*item, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQSqlQueryModel*)self)->data(*item, static_cast<int>(role)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnData(const QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_Data_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Data_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QSqlQueryModel_QBaseHeaderData(const QSqlQueryModel* self, int section, int orientation, int role) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_HeaderData_IsBase(true);
+        return new QVariant(vqsqlquerymodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQSqlQueryModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnHeaderData(const QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_HeaderData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_HeaderData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QSqlQueryModel_QBaseSetHeaderData(QSqlQueryModel* self, int section, int orientation, const QVariant* value, int role) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_SetHeaderData_IsBase(true);
+        return vqsqlquerymodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
+    } else {
+        return self->QSqlQueryModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnSetHeaderData(QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_SetHeaderData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_SetHeaderData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QSqlQueryModel_QBaseInsertColumns(QSqlQueryModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_InsertColumns_IsBase(true);
+        return vqsqlquerymodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return self->QSqlQueryModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnInsertColumns(QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_InsertColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_InsertColumns_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QSqlQueryModel_QBaseRemoveColumns(QSqlQueryModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_RemoveColumns_IsBase(true);
+        return vqsqlquerymodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return self->QSqlQueryModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnRemoveColumns(QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_RemoveColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RemoveColumns_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QSqlQueryModel_QBaseClear(QSqlQueryModel* self) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_Clear_IsBase(true);
+        vqsqlquerymodel->clear();
+    } else {
+        self->QSqlQueryModel::clear();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnClear(QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_Clear_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Clear_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QSqlQueryModel_QBaseFetchMore(QSqlQueryModel* self, const QModelIndex* parent) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_FetchMore_IsBase(true);
+        vqsqlquerymodel->fetchMore(*parent);
+    } else {
+        self->QSqlQueryModel::fetchMore(*parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnFetchMore(QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_FetchMore_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_FetchMore_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QSqlQueryModel_QBaseCanFetchMore(const QSqlQueryModel* self, const QModelIndex* parent) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_CanFetchMore_IsBase(true);
+        return vqsqlquerymodel->canFetchMore(*parent);
+    } else {
+        return self->QSqlQueryModel::canFetchMore(*parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnCanFetchMore(const QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_CanFetchMore_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_CanFetchMore_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_map /* of int to libqt_string */ QSqlQueryModel_QBaseRoleNames(const QSqlQueryModel* self) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_RoleNames_IsBase(true);
+        QHash<int, QByteArray> _ret = vqsqlquerymodel->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QHash<int, QByteArray> _ret = self->QSqlQueryModel::roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnRoleNames(const QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_RoleNames_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RoleNames_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QSqlQueryModel_QBaseQueryChange(QSqlQueryModel* self) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_QueryChange_IsBase(true);
+        vqsqlquerymodel->queryChange();
+    } else {
+        ((VirtualQSqlQueryModel*)self)->queryChange();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnQueryChange(QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_QueryChange_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_QueryChange_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QSqlQueryModel_QBaseIndexInQuery(const QSqlQueryModel* self, const QModelIndex* item) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_IndexInQuery_IsBase(true);
+        return new QModelIndex(vqsqlquerymodel->indexInQuery(*item));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnIndexInQuery(const QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_IndexInQuery_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_IndexInQuery_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

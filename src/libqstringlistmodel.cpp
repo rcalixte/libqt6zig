@@ -71,25 +71,6 @@ int QStringListModel_Metacall(QStringListModel* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnMetacall(QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Metacall_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QStringListModel_QBaseMetacall(QStringListModel* self, int param1, int param2, void** param3) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Metacall_IsBase(true);
-        return vqstringlistmodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQStringListModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QStringListModel_Tr(const char* s) {
     QString _ret = QStringListModel::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -111,48 +92,10 @@ int QStringListModel_RowCount(const QStringListModel* self, const QModelIndex* p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnRowCount(const QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_RowCount_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_RowCount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QStringListModel_QBaseRowCount(const QStringListModel* self, const QModelIndex* parent) {
-    auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_RowCount_IsBase(true);
-        return vqstringlistmodel->rowCount(*parent);
-    } else {
-        return ((VirtualQStringListModel*)self)->rowCount(*parent);
-    }
-}
-
 QModelIndex* QStringListModel_Sibling(const QStringListModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQStringListModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnSibling(const QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Sibling_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Sibling_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QStringListModel_QBaseSibling(const QStringListModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Sibling_IsBase(true);
-        return new QModelIndex(vqstringlistmodel->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
     } else {
         return new QModelIndex(((VirtualQStringListModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
     }
@@ -167,48 +110,10 @@ QVariant* QStringListModel_Data(const QStringListModel* self, const QModelIndex*
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnData(const QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Data_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Data_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QStringListModel_QBaseData(const QStringListModel* self, const QModelIndex* index, int role) {
-    auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Data_IsBase(true);
-        return new QVariant(vqstringlistmodel->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQStringListModel*)self)->data(*index, static_cast<int>(role)));
-    }
-}
-
 bool QStringListModel_SetData(QStringListModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         return self->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQStringListModel*)self)->setData(*index, *value, static_cast<int>(role));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnSetData(QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_SetData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SetData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QStringListModel_QBaseSetData(QStringListModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_SetData_IsBase(true);
-        return vqstringlistmodel->setData(*index, *value, static_cast<int>(role));
     } else {
         return ((VirtualQStringListModel*)self)->setData(*index, *value, static_cast<int>(role));
     }
@@ -223,48 +128,10 @@ bool QStringListModel_ClearItemData(QStringListModel* self, const QModelIndex* i
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnClearItemData(QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_ClearItemData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ClearItemData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QStringListModel_QBaseClearItemData(QStringListModel* self, const QModelIndex* index) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_ClearItemData_IsBase(true);
-        return vqstringlistmodel->clearItemData(*index);
-    } else {
-        return ((VirtualQStringListModel*)self)->clearItemData(*index);
-    }
-}
-
 int QStringListModel_Flags(const QStringListModel* self, const QModelIndex* index) {
     auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualQStringListModel*)self)->flags(*index));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnFlags(const QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Flags_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Flags_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QStringListModel_QBaseFlags(const QStringListModel* self, const QModelIndex* index) {
-    auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Flags_IsBase(true);
-        return static_cast<int>(vqstringlistmodel->flags(*index));
     } else {
         return static_cast<int>(((VirtualQStringListModel*)self)->flags(*index));
     }
@@ -279,48 +146,10 @@ bool QStringListModel_InsertRows(QStringListModel* self, int row, int count, con
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnInsertRows(QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_InsertRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_InsertRows_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QStringListModel_QBaseInsertRows(QStringListModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_InsertRows_IsBase(true);
-        return vqstringlistmodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQStringListModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
 bool QStringListModel_RemoveRows(QStringListModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQStringListModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnRemoveRows(QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_RemoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_RemoveRows_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QStringListModel_QBaseRemoveRows(QStringListModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_RemoveRows_IsBase(true);
-        return vqstringlistmodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
     } else {
         return ((VirtualQStringListModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
     }
@@ -335,76 +164,10 @@ bool QStringListModel_MoveRows(QStringListModel* self, const QModelIndex* source
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnMoveRows(QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_MoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_MoveRows_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QStringListModel_QBaseMoveRows(QStringListModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_MoveRows_IsBase(true);
-        return vqstringlistmodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return ((VirtualQStringListModel*)self)->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
-}
-
 libqt_map /* of int to QVariant* */ QStringListModel_ItemData(const QStringListModel* self, const QModelIndex* index) {
     auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         QMap<int, QVariant> _ret = self->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = ((VirtualQStringListModel*)self)->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnItemData(const QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_ItemData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ItemData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_map /* of int to QVariant* */ QStringListModel_QBaseItemData(const QStringListModel* self, const QModelIndex* index) {
-    auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_ItemData_IsBase(true);
-        QMap<int, QVariant> _ret = vqstringlistmodel->itemData(*index);
         // Convert QMap<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
@@ -453,54 +216,10 @@ bool QStringListModel_SetItemData(QStringListModel* self, const QModelIndex* ind
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnSetItemData(QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_SetItemData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SetItemData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QStringListModel_QBaseSetItemData(QStringListModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    QMap<int, QVariant> roles_QMap;
-    int* roles_karr = static_cast<int*>(roles.keys);
-    QVariant** roles_varr = static_cast<QVariant**>(roles.values);
-    for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
-    }
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_SetItemData_IsBase(true);
-        return vqstringlistmodel->setItemData(*index, roles_QMap);
-    } else {
-        return ((VirtualQStringListModel*)self)->setItemData(*index, roles_QMap);
-    }
-}
-
 void QStringListModel_Sort(QStringListModel* self, int column, int order) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        ((VirtualQStringListModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnSort(QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Sort_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Sort_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QStringListModel_QBaseSort(QStringListModel* self, int column, int order) {
-    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_Sort_IsBase(true);
-        vqstringlistmodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
     } else {
         ((VirtualQStringListModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
     }
@@ -547,25 +266,6 @@ int QStringListModel_SupportedDropActions(const QStringListModel* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QStringListModel_OnSupportedDropActions(const QStringListModel* self, intptr_t slot) {
-    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SupportedDropActions_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QStringListModel_QBaseSupportedDropActions(const QStringListModel* self) {
-    auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
-        vqstringlistmodel->setQStringListModel_SupportedDropActions_IsBase(true);
-        return static_cast<int>(vqstringlistmodel->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualQStringListModel*)self)->supportedDropActions());
-    }
-}
-
 libqt_string QStringListModel_Tr2(const char* s, const char* c) {
     QString _ret = QStringListModel::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -588,6 +288,306 @@ libqt_string QStringListModel_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QStringListModel_QBaseMetacall(QStringListModel* self, int param1, int param2, void** param3) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Metacall_IsBase(true);
+        return vqstringlistmodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QStringListModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnMetacall(QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Metacall_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QStringListModel_QBaseRowCount(const QStringListModel* self, const QModelIndex* parent) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_RowCount_IsBase(true);
+        return vqstringlistmodel->rowCount(*parent);
+    } else {
+        return self->QStringListModel::rowCount(*parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnRowCount(const QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_RowCount_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_RowCount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QStringListModel_QBaseSibling(const QStringListModel* self, int row, int column, const QModelIndex* idx) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Sibling_IsBase(true);
+        return new QModelIndex(vqstringlistmodel->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
+    } else {
+        return new QModelIndex(((VirtualQStringListModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnSibling(const QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Sibling_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Sibling_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QStringListModel_QBaseData(const QStringListModel* self, const QModelIndex* index, int role) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Data_IsBase(true);
+        return new QVariant(vqstringlistmodel->data(*index, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQStringListModel*)self)->data(*index, static_cast<int>(role)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnData(const QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Data_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Data_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QStringListModel_QBaseSetData(QStringListModel* self, const QModelIndex* index, const QVariant* value, int role) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_SetData_IsBase(true);
+        return vqstringlistmodel->setData(*index, *value, static_cast<int>(role));
+    } else {
+        return self->QStringListModel::setData(*index, *value, static_cast<int>(role));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnSetData(QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_SetData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SetData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QStringListModel_QBaseClearItemData(QStringListModel* self, const QModelIndex* index) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_ClearItemData_IsBase(true);
+        return vqstringlistmodel->clearItemData(*index);
+    } else {
+        return self->QStringListModel::clearItemData(*index);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnClearItemData(QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_ClearItemData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ClearItemData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QStringListModel_QBaseFlags(const QStringListModel* self, const QModelIndex* index) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Flags_IsBase(true);
+        return static_cast<int>(vqstringlistmodel->flags(*index));
+    } else {
+        return static_cast<int>(self->QStringListModel::flags(*index));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnFlags(const QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Flags_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Flags_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QStringListModel_QBaseInsertRows(QStringListModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_InsertRows_IsBase(true);
+        return vqstringlistmodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return self->QStringListModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnInsertRows(QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_InsertRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_InsertRows_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QStringListModel_QBaseRemoveRows(QStringListModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_RemoveRows_IsBase(true);
+        return vqstringlistmodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return self->QStringListModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnRemoveRows(QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_RemoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_RemoveRows_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QStringListModel_QBaseMoveRows(QStringListModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_MoveRows_IsBase(true);
+        return vqstringlistmodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
+    } else {
+        return self->QStringListModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnMoveRows(QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_MoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_MoveRows_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_map /* of int to QVariant* */ QStringListModel_QBaseItemData(const QStringListModel* self, const QModelIndex* index) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_ItemData_IsBase(true);
+        QMap<int, QVariant> _ret = vqstringlistmodel->itemData(*index);
+        // Convert QMap<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            _varr[_ctr] = new QVariant(_itr->second);
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QMap<int, QVariant> _ret = self->QStringListModel::itemData(*index);
+        // Convert QMap<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            _varr[_ctr] = new QVariant(_itr->second);
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnItemData(const QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_ItemData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ItemData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QStringListModel_QBaseSetItemData(QStringListModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    QMap<int, QVariant> roles_QMap;
+    int* roles_karr = static_cast<int*>(roles.keys);
+    QVariant** roles_varr = static_cast<QVariant**>(roles.values);
+    for (size_t i = 0; i < roles.len; ++i) {
+        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+    }
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_SetItemData_IsBase(true);
+        return vqstringlistmodel->setItemData(*index, roles_QMap);
+    } else {
+        return self->QStringListModel::setItemData(*index, roles_QMap);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnSetItemData(QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_SetItemData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SetItemData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QStringListModel_QBaseSort(QStringListModel* self, int column, int order) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Sort_IsBase(true);
+        vqstringlistmodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        self->QStringListModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnSort(QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Sort_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Sort_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QStringListModel_QBaseSupportedDropActions(const QStringListModel* self) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_SupportedDropActions_IsBase(true);
+        return static_cast<int>(vqstringlistmodel->supportedDropActions());
+    } else {
+        return static_cast<int>(self->QStringListModel::supportedDropActions());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnSupportedDropActions(const QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SupportedDropActions_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

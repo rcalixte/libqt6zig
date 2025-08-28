@@ -971,22 +971,22 @@ QAccessibleInterface* QAccessibleEvent_AccessibleInterface(const QAccessibleEven
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QAccessibleEvent_OnAccessibleInterface(const QAccessibleEvent* self, intptr_t slot) {
-    auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self));
-    if (vqaccessibleevent && vqaccessibleevent->isVirtualQAccessibleEvent) {
-        vqaccessibleevent->setQAccessibleEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleEvent::QAccessibleEvent_AccessibleInterface_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
+// Base class handler implementation
 QAccessibleInterface* QAccessibleEvent_QBaseAccessibleInterface(const QAccessibleEvent* self) {
-    auto* vqaccessibleevent = dynamic_cast<const VirtualQAccessibleEvent*>(self);
+    auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self));
     if (vqaccessibleevent && vqaccessibleevent->isVirtualQAccessibleEvent) {
         vqaccessibleevent->setQAccessibleEvent_AccessibleInterface_IsBase(true);
         return vqaccessibleevent->accessibleInterface();
     } else {
-        return ((VirtualQAccessibleEvent*)self)->accessibleInterface();
+        return self->QAccessibleEvent::accessibleInterface();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAccessibleEvent_OnAccessibleInterface(const QAccessibleEvent* self, intptr_t slot) {
+    auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self));
+    if (vqaccessibleevent && vqaccessibleevent->isVirtualQAccessibleEvent) {
+        vqaccessibleevent->setQAccessibleEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleEvent::QAccessibleEvent_AccessibleInterface_Callback>(slot));
     }
 }
 

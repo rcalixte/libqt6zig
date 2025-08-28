@@ -49,25 +49,6 @@ int KPixmapSequenceOverlayPainter_Metacall(KPixmapSequenceOverlayPainter* self, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPixmapSequenceOverlayPainter_OnMetacall(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacall_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KPixmapSequenceOverlayPainter_QBaseMetacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacall_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KPixmapSequenceOverlayPainter_Tr(const char* s) {
     QString _ret = KPixmapSequenceOverlayPainter::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -140,24 +121,6 @@ bool KPixmapSequenceOverlayPainter_EventFilter(KPixmapSequenceOverlayPainter* se
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KPixmapSequenceOverlayPainter_OnEventFilter(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_EventFilter_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_EventFilter_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KPixmapSequenceOverlayPainter_QBaseEventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_EventFilter_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->eventFilter(obj, event);
-    }
-    return {};
-}
-
 libqt_string KPixmapSequenceOverlayPainter_Tr2(const char* s, const char* c) {
     QString _ret = KPixmapSequenceOverlayPainter::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -180,6 +143,44 @@ libqt_string KPixmapSequenceOverlayPainter_Tr3(const char* s, const char* c, int
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KPixmapSequenceOverlayPainter_QBaseMetacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3) {
+    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacall_IsBase(true);
+        return vkpixmapsequenceoverlaypainter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KPixmapSequenceOverlayPainter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapSequenceOverlayPainter_OnMetacall(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
+    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacall_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KPixmapSequenceOverlayPainter_QBaseEventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event) {
+    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_EventFilter_IsBase(true);
+        return vkpixmapsequenceoverlaypainter->eventFilter(obj, event);
+    } else {
+        return ((VirtualKPixmapSequenceOverlayPainter*)self)->eventFilter(obj, event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapSequenceOverlayPainter_OnEventFilter(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
+    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_EventFilter_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_EventFilter_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

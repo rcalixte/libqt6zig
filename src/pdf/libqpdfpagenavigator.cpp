@@ -39,25 +39,6 @@ int QPdfPageNavigator_Metacall(QPdfPageNavigator* self, int param1, int param2, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPdfPageNavigator_OnMetacall(QPdfPageNavigator* self, intptr_t slot) {
-    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
-    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
-        vqpdfpagenavigator->setQPdfPageNavigator_Metacall_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPdfPageNavigator_QBaseMetacall(QPdfPageNavigator* self, int param1, int param2, void** param3) {
-    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
-    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
-        vqpdfpagenavigator->setQPdfPageNavigator_Metacall_IsBase(true);
-        return vqpdfpagenavigator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfPageNavigator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPdfPageNavigator_Tr(const char* s) {
     QString _ret = QPdfPageNavigator::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -212,6 +193,25 @@ libqt_string QPdfPageNavigator_Tr3(const char* s, const char* c, int n) {
 
 void QPdfPageNavigator_Jump3(QPdfPageNavigator* self, int page, const QPointF* location, double zoom) {
     self->jump(static_cast<int>(page), *location, static_cast<qreal>(zoom));
+}
+
+// Base class handler implementation
+int QPdfPageNavigator_QBaseMetacall(QPdfPageNavigator* self, int param1, int param2, void** param3) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
+        vqpdfpagenavigator->setQPdfPageNavigator_Metacall_IsBase(true);
+        return vqpdfpagenavigator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPdfPageNavigator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfPageNavigator_OnMetacall(QPdfPageNavigator* self, intptr_t slot) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
+        vqpdfpagenavigator->setQPdfPageNavigator_Metacall_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

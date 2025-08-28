@@ -40,25 +40,6 @@ int QVBoxPlotModelMapper_Metacall(QVBoxPlotModelMapper* self, int param1, int pa
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QVBoxPlotModelMapper_OnMetacall(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QVBoxPlotModelMapper_QBaseMetacall(QVBoxPlotModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacall_IsBase(true);
-        return vqvboxplotmodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QVBoxPlotModelMapper_Tr(const char* s) {
     QString _ret = QVBoxPlotModelMapper::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -207,6 +188,25 @@ libqt_string QVBoxPlotModelMapper_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QVBoxPlotModelMapper_QBaseMetacall(QVBoxPlotModelMapper* self, int param1, int param2, void** param3) {
+    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
+    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
+        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacall_IsBase(true);
+        return vqvboxplotmodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QVBoxPlotModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVBoxPlotModelMapper_OnMetacall(QVBoxPlotModelMapper* self, intptr_t slot) {
+    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
+    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
+        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

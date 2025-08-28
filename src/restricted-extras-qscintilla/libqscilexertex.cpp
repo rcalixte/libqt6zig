@@ -41,25 +41,6 @@ int QsciLexerTeX_Metacall(QsciLexerTeX* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerTeX_OnMetacall(QsciLexerTeX* self, intptr_t slot) {
-    auto* vqscilexertex = dynamic_cast<VirtualQsciLexerTeX*>(self);
-    if (vqscilexertex && vqscilexertex->isVirtualQsciLexerTeX) {
-        vqscilexertex->setQsciLexerTeX_Metacall_Callback(reinterpret_cast<VirtualQsciLexerTeX::QsciLexerTeX_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerTeX_QBaseMetacall(QsciLexerTeX* self, int param1, int param2, void** param3) {
-    auto* vqscilexertex = dynamic_cast<VirtualQsciLexerTeX*>(self);
-    if (vqscilexertex && vqscilexertex->isVirtualQsciLexerTeX) {
-        vqscilexertex->setQsciLexerTeX_Metacall_IsBase(true);
-        return vqscilexertex->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerTeX*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerTeX_Tr(const char* s) {
     QString _ret = QsciLexerTeX::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -162,6 +143,25 @@ libqt_string QsciLexerTeX_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QsciLexerTeX_QBaseMetacall(QsciLexerTeX* self, int param1, int param2, void** param3) {
+    auto* vqscilexertex = dynamic_cast<VirtualQsciLexerTeX*>(self);
+    if (vqscilexertex && vqscilexertex->isVirtualQsciLexerTeX) {
+        vqscilexertex->setQsciLexerTeX_Metacall_IsBase(true);
+        return vqscilexertex->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerTeX*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerTeX_OnMetacall(QsciLexerTeX* self, intptr_t slot) {
+    auto* vqscilexertex = dynamic_cast<VirtualQsciLexerTeX*>(self);
+    if (vqscilexertex && vqscilexertex->isVirtualQsciLexerTeX) {
+        vqscilexertex->setQsciLexerTeX_Metacall_Callback(reinterpret_cast<VirtualQsciLexerTeX::QsciLexerTeX_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

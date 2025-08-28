@@ -41,25 +41,6 @@ int QsciLexerD_Metacall(QsciLexerD* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerD_OnMetacall(QsciLexerD* self, intptr_t slot) {
-    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
-    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
-        vqscilexerd->setQsciLexerD_Metacall_Callback(reinterpret_cast<VirtualQsciLexerD::QsciLexerD_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerD_QBaseMetacall(QsciLexerD* self, int param1, int param2, void** param3) {
-    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
-    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
-        vqscilexerd->setQsciLexerD_Metacall_IsBase(true);
-        return vqscilexerd->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerD*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerD_Tr(const char* s) {
     QString _ret = QsciLexerD::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -178,25 +159,6 @@ void QsciLexerD_SetFoldAtElse(QsciLexerD* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerD_OnSetFoldAtElse(QsciLexerD* self, intptr_t slot) {
-    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
-    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
-        vqscilexerd->setQsciLexerD_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerD::QsciLexerD_SetFoldAtElse_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerD_QBaseSetFoldAtElse(QsciLexerD* self, bool fold) {
-    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
-    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
-        vqscilexerd->setQsciLexerD_SetFoldAtElse_IsBase(true);
-        vqscilexerd->setFoldAtElse(fold);
-    } else {
-        ((VirtualQsciLexerD*)self)->setFoldAtElse(fold);
-    }
-}
-
 void QsciLexerD_SetFoldComments(QsciLexerD* self, bool fold) {
     auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
     if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
@@ -206,48 +168,10 @@ void QsciLexerD_SetFoldComments(QsciLexerD* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerD_OnSetFoldComments(QsciLexerD* self, intptr_t slot) {
-    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
-    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
-        vqscilexerd->setQsciLexerD_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerD::QsciLexerD_SetFoldComments_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerD_QBaseSetFoldComments(QsciLexerD* self, bool fold) {
-    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
-    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
-        vqscilexerd->setQsciLexerD_SetFoldComments_IsBase(true);
-        vqscilexerd->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerD*)self)->setFoldComments(fold);
-    }
-}
-
 void QsciLexerD_SetFoldCompact(QsciLexerD* self, bool fold) {
     auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
     if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
         self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerD*)self)->setFoldCompact(fold);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerD_OnSetFoldCompact(QsciLexerD* self, intptr_t slot) {
-    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
-    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
-        vqscilexerd->setQsciLexerD_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerD::QsciLexerD_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerD_QBaseSetFoldCompact(QsciLexerD* self, bool fold) {
-    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
-    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
-        vqscilexerd->setQsciLexerD_SetFoldCompact_IsBase(true);
-        vqscilexerd->setFoldCompact(fold);
     } else {
         ((VirtualQsciLexerD*)self)->setFoldCompact(fold);
     }
@@ -287,6 +211,82 @@ const char* QsciLexerD_BlockStart1(const QsciLexerD* self, int* style) {
 
 const char* QsciLexerD_BlockStartKeyword1(const QsciLexerD* self, int* style) {
     return (const char*)self->blockStartKeyword(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+int QsciLexerD_QBaseMetacall(QsciLexerD* self, int param1, int param2, void** param3) {
+    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
+    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
+        vqscilexerd->setQsciLexerD_Metacall_IsBase(true);
+        return vqscilexerd->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerD*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerD_OnMetacall(QsciLexerD* self, intptr_t slot) {
+    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
+    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
+        vqscilexerd->setQsciLexerD_Metacall_Callback(reinterpret_cast<VirtualQsciLexerD::QsciLexerD_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerD_QBaseSetFoldAtElse(QsciLexerD* self, bool fold) {
+    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
+    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
+        vqscilexerd->setQsciLexerD_SetFoldAtElse_IsBase(true);
+        vqscilexerd->setFoldAtElse(fold);
+    } else {
+        ((VirtualQsciLexerD*)self)->setFoldAtElse(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerD_OnSetFoldAtElse(QsciLexerD* self, intptr_t slot) {
+    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
+    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
+        vqscilexerd->setQsciLexerD_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerD::QsciLexerD_SetFoldAtElse_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerD_QBaseSetFoldComments(QsciLexerD* self, bool fold) {
+    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
+    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
+        vqscilexerd->setQsciLexerD_SetFoldComments_IsBase(true);
+        vqscilexerd->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerD*)self)->setFoldComments(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerD_OnSetFoldComments(QsciLexerD* self, intptr_t slot) {
+    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
+    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
+        vqscilexerd->setQsciLexerD_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerD::QsciLexerD_SetFoldComments_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerD_QBaseSetFoldCompact(QsciLexerD* self, bool fold) {
+    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
+    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
+        vqscilexerd->setQsciLexerD_SetFoldCompact_IsBase(true);
+        vqscilexerd->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerD*)self)->setFoldCompact(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerD_OnSetFoldCompact(QsciLexerD* self, intptr_t slot) {
+    auto* vqscilexerd = dynamic_cast<VirtualQsciLexerD*>(self);
+    if (vqscilexerd && vqscilexerd->isVirtualQsciLexerD) {
+        vqscilexerd->setQsciLexerD_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerD::QsciLexerD_SetFoldCompact_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

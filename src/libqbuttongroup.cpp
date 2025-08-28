@@ -39,25 +39,6 @@ int QButtonGroup_Metacall(QButtonGroup* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QButtonGroup_OnMetacall(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_Metacall_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QButtonGroup_QBaseMetacall(QButtonGroup* self, int param1, int param2, void** param3) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_Metacall_IsBase(true);
-        return vqbuttongroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQButtonGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QButtonGroup_Tr(const char* s) {
     QString _ret = QButtonGroup::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -243,6 +224,25 @@ libqt_string QButtonGroup_Tr3(const char* s, const char* c, int n) {
 
 void QButtonGroup_AddButton2(QButtonGroup* self, QAbstractButton* param1, int id) {
     self->addButton(param1, static_cast<int>(id));
+}
+
+// Base class handler implementation
+int QButtonGroup_QBaseMetacall(QButtonGroup* self, int param1, int param2, void** param3) {
+    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
+    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+        vqbuttongroup->setQButtonGroup_Metacall_IsBase(true);
+        return vqbuttongroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QButtonGroup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QButtonGroup_OnMetacall(QButtonGroup* self, intptr_t slot) {
+    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
+    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+        vqbuttongroup->setQButtonGroup_Metacall_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

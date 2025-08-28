@@ -41,25 +41,6 @@ int QsciLexerYAML_Metacall(QsciLexerYAML* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerYAML_OnMetacall(QsciLexerYAML* self, intptr_t slot) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Metacall_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerYAML_QBaseMetacall(QsciLexerYAML* self, int param1, int param2, void** param3) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Metacall_IsBase(true);
-        return vqscilexeryaml->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerYAML*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerYAML_Tr(const char* s) {
     QString _ret = QsciLexerYAML::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -129,25 +110,6 @@ void QsciLexerYAML_SetFoldComments(QsciLexerYAML* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerYAML_OnSetFoldComments(QsciLexerYAML* self, intptr_t slot) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetFoldComments_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerYAML_QBaseSetFoldComments(QsciLexerYAML* self, bool fold) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_SetFoldComments_IsBase(true);
-        vqscilexeryaml->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerYAML*)self)->setFoldComments(fold);
-    }
-}
-
 libqt_string QsciLexerYAML_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerYAML::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -170,6 +132,44 @@ libqt_string QsciLexerYAML_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QsciLexerYAML_QBaseMetacall(QsciLexerYAML* self, int param1, int param2, void** param3) {
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_Metacall_IsBase(true);
+        return vqscilexeryaml->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerYAML*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerYAML_OnMetacall(QsciLexerYAML* self, intptr_t slot) {
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_Metacall_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerYAML_QBaseSetFoldComments(QsciLexerYAML* self, bool fold) {
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_SetFoldComments_IsBase(true);
+        vqscilexeryaml->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerYAML*)self)->setFoldComments(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerYAML_OnSetFoldComments(QsciLexerYAML* self, intptr_t slot) {
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetFoldComments_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

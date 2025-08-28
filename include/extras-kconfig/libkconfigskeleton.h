@@ -31,11 +31,11 @@ KConfigSkeleton* KConfigSkeleton_new3(const libqt_string configname, QObject* pa
 QMetaObject* KConfigSkeleton_MetaObject(const KConfigSkeleton* self);
 void* KConfigSkeleton_Metacast(KConfigSkeleton* self, const char* param1);
 int KConfigSkeleton_Metacall(KConfigSkeleton* self, int param1, int param2, void** param3);
-void KConfigSkeleton_OnMetacall(KConfigSkeleton* self, intptr_t slot);
-int KConfigSkeleton_QBaseMetacall(KConfigSkeleton* self, int param1, int param2, void** param3);
 libqt_string KConfigSkeleton_Tr(const char* s);
 libqt_string KConfigSkeleton_Tr2(const char* s, const char* c);
 libqt_string KConfigSkeleton_Tr3(const char* s, const char* c, int n);
+void KConfigSkeleton_OnMetacall(KConfigSkeleton* self, intptr_t slot);
+int KConfigSkeleton_QBaseMetacall(KConfigSkeleton* self, int param1, int param2, void** param3);
 void KConfigSkeleton_SetDefaults(KConfigSkeleton* self);
 void KConfigSkeleton_OnSetDefaults(KConfigSkeleton* self, intptr_t slot);
 void KConfigSkeleton_QBaseSetDefaults(KConfigSkeleton* self);

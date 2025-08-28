@@ -41,25 +41,6 @@ int QGraphicsTransform_Metacall(QGraphicsTransform* self, int param1, int param2
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTransform_OnMetacall(QGraphicsTransform* self, intptr_t slot) {
-    auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        vqgraphicstransform->setQGraphicsTransform_Metacall_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsTransform_QBaseMetacall(QGraphicsTransform* self, int param1, int param2, void** param3) {
-    auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        vqgraphicstransform->setQGraphicsTransform_Metacall_IsBase(true);
-        return vqgraphicstransform->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsTransform*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsTransform_Tr(const char* s) {
     QString _ret = QGraphicsTransform::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -75,25 +56,6 @@ libqt_string QGraphicsTransform_Tr(const char* s) {
 void QGraphicsTransform_ApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
     auto* vqgraphicstransform = dynamic_cast<const VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        vqgraphicstransform->applyTo(matrix);
-    } else {
-        ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsTransform_OnApplyTo(const QGraphicsTransform* self, intptr_t slot) {
-    auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        vqgraphicstransform->setQGraphicsTransform_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_ApplyTo_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsTransform_QBaseApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
-    auto* vqgraphicstransform = dynamic_cast<const VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        vqgraphicstransform->setQGraphicsTransform_ApplyTo_IsBase(true);
         vqgraphicstransform->applyTo(matrix);
     } else {
         ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
@@ -122,6 +84,44 @@ libqt_string QGraphicsTransform_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsTransform_QBaseMetacall(QGraphicsTransform* self, int param1, int param2, void** param3) {
+    auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_Metacall_IsBase(true);
+        return vqgraphicstransform->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsTransform::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTransform_OnMetacall(QGraphicsTransform* self, intptr_t slot) {
+    auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_Metacall_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsTransform_QBaseApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
+    auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_ApplyTo_IsBase(true);
+        vqgraphicstransform->applyTo(matrix);
+    } else {
+        ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTransform_OnApplyTo(const QGraphicsTransform* self, intptr_t slot) {
+    auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_ApplyTo_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -501,25 +501,6 @@ int QGraphicsScale_Metacall(QGraphicsScale* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsScale_OnMetacall(QGraphicsScale* self, intptr_t slot) {
-    auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        vqgraphicsscale->setQGraphicsScale_Metacall_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsScale_QBaseMetacall(QGraphicsScale* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        vqgraphicsscale->setQGraphicsScale_Metacall_IsBase(true);
-        return vqgraphicsscale->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsScale*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsScale_Tr(const char* s) {
     QString _ret = QGraphicsScale::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -568,25 +549,6 @@ void QGraphicsScale_ApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
     auto* vqgraphicsscale = dynamic_cast<const VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         self->applyTo(matrix);
-    } else {
-        ((VirtualQGraphicsScale*)self)->applyTo(matrix);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsScale_OnApplyTo(const QGraphicsScale* self, intptr_t slot) {
-    auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        vqgraphicsscale->setQGraphicsScale_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_ApplyTo_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsScale_QBaseApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
-    auto* vqgraphicsscale = dynamic_cast<const VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        vqgraphicsscale->setQGraphicsScale_ApplyTo_IsBase(true);
-        vqgraphicsscale->applyTo(matrix);
     } else {
         ((VirtualQGraphicsScale*)self)->applyTo(matrix);
     }
@@ -669,6 +631,44 @@ libqt_string QGraphicsScale_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsScale_QBaseMetacall(QGraphicsScale* self, int param1, int param2, void** param3) {
+    auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_Metacall_IsBase(true);
+        return vqgraphicsscale->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsScale::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsScale_OnMetacall(QGraphicsScale* self, intptr_t slot) {
+    auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_Metacall_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsScale_QBaseApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
+    auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_ApplyTo_IsBase(true);
+        vqgraphicsscale->applyTo(matrix);
+    } else {
+        self->QGraphicsScale::applyTo(matrix);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsScale_OnApplyTo(const QGraphicsScale* self, intptr_t slot) {
+    auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_ApplyTo_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -1048,25 +1048,6 @@ int QGraphicsRotation_Metacall(QGraphicsRotation* self, int param1, int param2, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRotation_OnMetacall(QGraphicsRotation* self, intptr_t slot) {
-    auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        vqgraphicsrotation->setQGraphicsRotation_Metacall_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QGraphicsRotation_QBaseMetacall(QGraphicsRotation* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        vqgraphicsrotation->setQGraphicsRotation_Metacall_IsBase(true);
-        return vqgraphicsrotation->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsRotation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QGraphicsRotation_Tr(const char* s) {
     QString _ret = QGraphicsRotation::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1111,25 +1092,6 @@ void QGraphicsRotation_ApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix
     auto* vqgraphicsrotation = dynamic_cast<const VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         self->applyTo(matrix);
-    } else {
-        ((VirtualQGraphicsRotation*)self)->applyTo(matrix);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QGraphicsRotation_OnApplyTo(const QGraphicsRotation* self, intptr_t slot) {
-    auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        vqgraphicsrotation->setQGraphicsRotation_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_ApplyTo_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QGraphicsRotation_QBaseApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix) {
-    auto* vqgraphicsrotation = dynamic_cast<const VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        vqgraphicsrotation->setQGraphicsRotation_ApplyTo_IsBase(true);
-        vqgraphicsrotation->applyTo(matrix);
     } else {
         ((VirtualQGraphicsRotation*)self)->applyTo(matrix);
     }
@@ -1190,6 +1152,44 @@ libqt_string QGraphicsRotation_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QGraphicsRotation_QBaseMetacall(QGraphicsRotation* self, int param1, int param2, void** param3) {
+    auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_Metacall_IsBase(true);
+        return vqgraphicsrotation->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QGraphicsRotation::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRotation_OnMetacall(QGraphicsRotation* self, intptr_t slot) {
+    auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_Metacall_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsRotation_QBaseApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix) {
+    auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_ApplyTo_IsBase(true);
+        vqgraphicsrotation->applyTo(matrix);
+    } else {
+        self->QGraphicsRotation::applyTo(matrix);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRotation_OnApplyTo(const QGraphicsRotation* self, intptr_t slot) {
+    auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_ApplyTo_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

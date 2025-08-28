@@ -74,25 +74,6 @@ int QLCDNumber_Metacall(QLCDNumber* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QLCDNumber_OnMetacall(QLCDNumber* self, intptr_t slot) {
-    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        vqlcdnumber->setQLCDNumber_Metacall_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QLCDNumber_QBaseMetacall(QLCDNumber* self, int param1, int param2, void** param3) {
-    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        vqlcdnumber->setQLCDNumber_Metacall_IsBase(true);
-        return vqlcdnumber->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLCDNumber*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QLCDNumber_Tr(const char* s) {
     QString _ret = QLCDNumber::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -158,25 +139,6 @@ QSize* QLCDNumber_SizeHint(const QLCDNumber* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QLCDNumber_OnSizeHint(const QLCDNumber* self, intptr_t slot) {
-    auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        vqlcdnumber->setQLCDNumber_SizeHint_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QLCDNumber_QBaseSizeHint(const QLCDNumber* self) {
-    auto* vqlcdnumber = dynamic_cast<const VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        vqlcdnumber->setQLCDNumber_SizeHint_IsBase(true);
-        return new QSize(vqlcdnumber->sizeHint());
-    } else {
-        return new QSize(((VirtualQLCDNumber*)self)->sizeHint());
-    }
-}
-
 void QLCDNumber_Display(QLCDNumber* self, const libqt_string str) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
     self->display(str_QString);
@@ -229,44 +191,9 @@ bool QLCDNumber_Event(QLCDNumber* self, QEvent* e) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QLCDNumber_OnEvent(QLCDNumber* self, intptr_t slot) {
-    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        vqlcdnumber->setQLCDNumber_Event_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QLCDNumber_QBaseEvent(QLCDNumber* self, QEvent* e) {
-    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        vqlcdnumber->setQLCDNumber_Event_IsBase(true);
-        return vqlcdnumber->event(e);
-    }
-    return {};
-}
-
 void QLCDNumber_PaintEvent(QLCDNumber* self, QPaintEvent* param1) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        vqlcdnumber->paintEvent(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QLCDNumber_OnPaintEvent(QLCDNumber* self, intptr_t slot) {
-    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        vqlcdnumber->setQLCDNumber_PaintEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QLCDNumber_QBasePaintEvent(QLCDNumber* self, QPaintEvent* param1) {
-    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        vqlcdnumber->setQLCDNumber_PaintEvent_IsBase(true);
         vqlcdnumber->paintEvent(param1);
     }
 }
@@ -293,6 +220,82 @@ libqt_string QLCDNumber_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QLCDNumber_QBaseMetacall(QLCDNumber* self, int param1, int param2, void** param3) {
+    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_Metacall_IsBase(true);
+        return vqlcdnumber->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QLCDNumber::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLCDNumber_OnMetacall(QLCDNumber* self, intptr_t slot) {
+    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_Metacall_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QLCDNumber_QBaseSizeHint(const QLCDNumber* self) {
+    auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_SizeHint_IsBase(true);
+        return new QSize(vqlcdnumber->sizeHint());
+    } else {
+        return new QSize(((VirtualQLCDNumber*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLCDNumber_OnSizeHint(const QLCDNumber* self, intptr_t slot) {
+    auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_SizeHint_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_SizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QLCDNumber_QBaseEvent(QLCDNumber* self, QEvent* e) {
+    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_Event_IsBase(true);
+        return vqlcdnumber->event(e);
+    } else {
+        return ((VirtualQLCDNumber*)self)->event(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLCDNumber_OnEvent(QLCDNumber* self, intptr_t slot) {
+    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_Event_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QLCDNumber_QBasePaintEvent(QLCDNumber* self, QPaintEvent* param1) {
+    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_PaintEvent_IsBase(true);
+        vqlcdnumber->paintEvent(param1);
+    } else {
+        ((VirtualQLCDNumber*)self)->paintEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLCDNumber_OnPaintEvent(QLCDNumber* self, intptr_t slot) {
+    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_PaintEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_PaintEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

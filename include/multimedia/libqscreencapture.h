@@ -31,8 +31,6 @@ QScreenCapture* QScreenCapture_new2(QObject* parent);
 QMetaObject* QScreenCapture_MetaObject(const QScreenCapture* self);
 void* QScreenCapture_Metacast(QScreenCapture* self, const char* param1);
 int QScreenCapture_Metacall(QScreenCapture* self, int param1, int param2, void** param3);
-void QScreenCapture_OnMetacall(QScreenCapture* self, intptr_t slot);
-int QScreenCapture_QBaseMetacall(QScreenCapture* self, int param1, int param2, void** param3);
 libqt_string QScreenCapture_Tr(const char* s);
 QMediaCaptureSession* QScreenCapture_CaptureSession(const QScreenCapture* self);
 void QScreenCapture_SetScreen(QScreenCapture* self, QScreen* screen);
@@ -53,6 +51,8 @@ void QScreenCapture_ErrorOccurred(QScreenCapture* self, int errorVal, const libq
 void QScreenCapture_Connect_ErrorOccurred(QScreenCapture* self, intptr_t slot);
 libqt_string QScreenCapture_Tr2(const char* s, const char* c);
 libqt_string QScreenCapture_Tr3(const char* s, const char* c, int n);
+void QScreenCapture_OnMetacall(QScreenCapture* self, intptr_t slot);
+int QScreenCapture_QBaseMetacall(QScreenCapture* self, int param1, int param2, void** param3);
 bool QScreenCapture_Event(QScreenCapture* self, QEvent* event);
 void QScreenCapture_OnEvent(QScreenCapture* self, intptr_t slot);
 bool QScreenCapture_QBaseEvent(QScreenCapture* self, QEvent* event);

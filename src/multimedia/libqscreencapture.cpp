@@ -39,25 +39,6 @@ int QScreenCapture_Metacall(QScreenCapture* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QScreenCapture_OnMetacall(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_Metacall_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QScreenCapture_QBaseMetacall(QScreenCapture* self, int param1, int param2, void** param3) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_Metacall_IsBase(true);
-        return vqscreencapture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQScreenCapture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QScreenCapture_Tr(const char* s) {
     QString _ret = QScreenCapture::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -192,6 +173,25 @@ libqt_string QScreenCapture_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QScreenCapture_QBaseMetacall(QScreenCapture* self, int param1, int param2, void** param3) {
+    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+        vqscreencapture->setQScreenCapture_Metacall_IsBase(true);
+        return vqscreencapture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QScreenCapture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScreenCapture_OnMetacall(QScreenCapture* self, intptr_t slot) {
+    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+        vqscreencapture->setQScreenCapture_Metacall_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

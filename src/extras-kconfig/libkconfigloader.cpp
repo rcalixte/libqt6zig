@@ -85,22 +85,23 @@ bool KConfigLoader_UsrSave(KConfigLoader* self) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KConfigLoader_OnUsrSave(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_UsrSave_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSave_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
+// Base class handler implementation
 bool KConfigLoader_QBaseUsrSave(KConfigLoader* self) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_UsrSave_IsBase(true);
         return vkconfigloader->usrSave();
+    } else {
+        return ((VirtualKConfigLoader*)self)->usrSave();
     }
-    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigLoader_OnUsrSave(KConfigLoader* self, intptr_t slot) {
+    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+        vkconfigloader->setKConfigLoader_UsrSave_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSave_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

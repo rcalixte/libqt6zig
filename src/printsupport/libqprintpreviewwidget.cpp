@@ -81,25 +81,6 @@ int QPrintPreviewWidget_Metacall(QPrintPreviewWidget* self, int param1, int para
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPrintPreviewWidget_OnMetacall(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Metacall_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPrintPreviewWidget_QBaseMetacall(QPrintPreviewWidget* self, int param1, int param2, void** param3) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Metacall_IsBase(true);
-        return vqprintpreviewwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPrintPreviewWidget_Tr(const char* s) {
     QString _ret = QPrintPreviewWidget::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -140,25 +121,6 @@ void QPrintPreviewWidget_SetVisible(QPrintPreviewWidget* self, bool visible) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         self->setVisible(visible);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->setVisible(visible);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QPrintPreviewWidget_OnSetVisible(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SetVisible_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QPrintPreviewWidget_QBaseSetVisible(QPrintPreviewWidget* self, bool visible) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_IsBase(true);
-        vqprintpreviewwidget->setVisible(visible);
     } else {
         ((VirtualQPrintPreviewWidget*)self)->setVisible(visible);
     }
@@ -281,6 +243,44 @@ void QPrintPreviewWidget_ZoomIn1(QPrintPreviewWidget* self, double zoom) {
 
 void QPrintPreviewWidget_ZoomOut1(QPrintPreviewWidget* self, double zoom) {
     self->zoomOut(static_cast<qreal>(zoom));
+}
+
+// Base class handler implementation
+int QPrintPreviewWidget_QBaseMetacall(QPrintPreviewWidget* self, int param1, int param2, void** param3) {
+    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        vqprintpreviewwidget->setQPrintPreviewWidget_Metacall_IsBase(true);
+        return vqprintpreviewwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPrintPreviewWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPrintPreviewWidget_OnMetacall(QPrintPreviewWidget* self, intptr_t slot) {
+    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        vqprintpreviewwidget->setQPrintPreviewWidget_Metacall_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QPrintPreviewWidget_QBaseSetVisible(QPrintPreviewWidget* self, bool visible) {
+    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_IsBase(true);
+        vqprintpreviewwidget->setVisible(visible);
+    } else {
+        self->QPrintPreviewWidget::setVisible(visible);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPrintPreviewWidget_OnSetVisible(QPrintPreviewWidget* self, intptr_t slot) {
+    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SetVisible_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

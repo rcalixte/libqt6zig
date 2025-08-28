@@ -38,25 +38,6 @@ int QWebEngineUrlSchemeHandler_Metacall(QWebEngineUrlSchemeHandler* self, int pa
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEngineUrlSchemeHandler_OnMetacall(QWebEngineUrlSchemeHandler* self, intptr_t slot) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Metacall_Callback(reinterpret_cast<VirtualQWebEngineUrlSchemeHandler::QWebEngineUrlSchemeHandler_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QWebEngineUrlSchemeHandler_QBaseMetacall(QWebEngineUrlSchemeHandler* self, int param1, int param2, void** param3) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Metacall_IsBase(true);
-        return vqwebengineurlschemehandler->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWebEngineUrlSchemeHandler*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QWebEngineUrlSchemeHandler_Tr(const char* s) {
     QString _ret = QWebEngineUrlSchemeHandler::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -72,25 +53,6 @@ libqt_string QWebEngineUrlSchemeHandler_Tr(const char* s) {
 void QWebEngineUrlSchemeHandler_RequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        vqwebengineurlschemehandler->requestStarted(param1);
-    } else {
-        ((VirtualQWebEngineUrlSchemeHandler*)self)->requestStarted(param1);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QWebEngineUrlSchemeHandler_OnRequestStarted(QWebEngineUrlSchemeHandler* self, intptr_t slot) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_RequestStarted_Callback(reinterpret_cast<VirtualQWebEngineUrlSchemeHandler::QWebEngineUrlSchemeHandler_RequestStarted_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QWebEngineUrlSchemeHandler_QBaseRequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_RequestStarted_IsBase(true);
         vqwebengineurlschemehandler->requestStarted(param1);
     } else {
         ((VirtualQWebEngineUrlSchemeHandler*)self)->requestStarted(param1);
@@ -119,6 +81,44 @@ libqt_string QWebEngineUrlSchemeHandler_Tr3(const char* s, const char* c, int n)
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QWebEngineUrlSchemeHandler_QBaseMetacall(QWebEngineUrlSchemeHandler* self, int param1, int param2, void** param3) {
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Metacall_IsBase(true);
+        return vqwebengineurlschemehandler->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QWebEngineUrlSchemeHandler::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEngineUrlSchemeHandler_OnMetacall(QWebEngineUrlSchemeHandler* self, intptr_t slot) {
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Metacall_Callback(reinterpret_cast<VirtualQWebEngineUrlSchemeHandler::QWebEngineUrlSchemeHandler_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QWebEngineUrlSchemeHandler_QBaseRequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_RequestStarted_IsBase(true);
+        vqwebengineurlschemehandler->requestStarted(param1);
+    } else {
+        ((VirtualQWebEngineUrlSchemeHandler*)self)->requestStarted(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEngineUrlSchemeHandler_OnRequestStarted(QWebEngineUrlSchemeHandler* self, intptr_t slot) {
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_RequestStarted_Callback(reinterpret_cast<VirtualQWebEngineUrlSchemeHandler::QWebEngineUrlSchemeHandler_RequestStarted_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

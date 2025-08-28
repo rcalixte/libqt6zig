@@ -43,25 +43,6 @@ int QImageCapture_Metacall(QImageCapture* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QImageCapture_OnMetacall(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_Metacall_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QImageCapture_QBaseMetacall(QImageCapture* self, int param1, int param2, void** param3) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_Metacall_IsBase(true);
-        return vqimagecapture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQImageCapture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QImageCapture_Tr(const char* s) {
     QString _ret = QImageCapture::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -381,6 +362,25 @@ libqt_string QImageCapture_Tr3(const char* s, const char* c, int n) {
 int QImageCapture_CaptureToFile1(QImageCapture* self, const libqt_string location) {
     QString location_QString = QString::fromUtf8(location.data, location.len);
     return self->captureToFile(location_QString);
+}
+
+// Base class handler implementation
+int QImageCapture_QBaseMetacall(QImageCapture* self, int param1, int param2, void** param3) {
+    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+        vqimagecapture->setQImageCapture_Metacall_IsBase(true);
+        return vqimagecapture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QImageCapture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QImageCapture_OnMetacall(QImageCapture* self, intptr_t slot) {
+    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+        vqimagecapture->setQImageCapture_Metacall_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

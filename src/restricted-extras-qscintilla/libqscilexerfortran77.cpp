@@ -41,25 +41,6 @@ int QsciLexerFortran77_Metacall(QsciLexerFortran77* self, int param1, int param2
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerFortran77_OnMetacall(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Metacall_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerFortran77_QBaseMetacall(QsciLexerFortran77* self, int param1, int param2, void** param3) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Metacall_IsBase(true);
-        return vqscilexerfortran77->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerFortran77_Tr(const char* s) {
     QString _ret = QsciLexerFortran77::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -133,25 +114,6 @@ void QsciLexerFortran77_SetFoldCompact(QsciLexerFortran77* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerFortran77_OnSetFoldCompact(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerFortran77_QBaseSetFoldCompact(QsciLexerFortran77* self, bool fold) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SetFoldCompact_IsBase(true);
-        vqscilexerfortran77->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setFoldCompact(fold);
-    }
-}
-
 libqt_string QsciLexerFortran77_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerFortran77::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -174,6 +136,44 @@ libqt_string QsciLexerFortran77_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QsciLexerFortran77_QBaseMetacall(QsciLexerFortran77* self, int param1, int param2, void** param3) {
+    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        vqscilexerfortran77->setQsciLexerFortran77_Metacall_IsBase(true);
+        return vqscilexerfortran77->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerFortran77*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerFortran77_OnMetacall(QsciLexerFortran77* self, intptr_t slot) {
+    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        vqscilexerfortran77->setQsciLexerFortran77_Metacall_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerFortran77_QBaseSetFoldCompact(QsciLexerFortran77* self, bool fold) {
+    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        vqscilexerfortran77->setQsciLexerFortran77_SetFoldCompact_IsBase(true);
+        vqscilexerfortran77->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerFortran77*)self)->setFoldCompact(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerFortran77_OnSetFoldCompact(QsciLexerFortran77* self, intptr_t slot) {
+    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        vqscilexerfortran77->setQsciLexerFortran77_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetFoldCompact_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

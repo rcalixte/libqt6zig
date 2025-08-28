@@ -41,8 +41,6 @@ QWebEngineProfile* QWebEngineProfile_new4(const libqt_string name, QObject* pare
 QMetaObject* QWebEngineProfile_MetaObject(const QWebEngineProfile* self);
 void* QWebEngineProfile_Metacast(QWebEngineProfile* self, const char* param1);
 int QWebEngineProfile_Metacall(QWebEngineProfile* self, int param1, int param2, void** param3);
-void QWebEngineProfile_OnMetacall(QWebEngineProfile* self, intptr_t slot);
-int QWebEngineProfile_QBaseMetacall(QWebEngineProfile* self, int param1, int param2, void** param3);
 libqt_string QWebEngineProfile_Tr(const char* s);
 libqt_string QWebEngineProfile_StorageName(const QWebEngineProfile* self);
 bool QWebEngineProfile_IsOffTheRecord(const QWebEngineProfile* self);
@@ -96,6 +94,8 @@ void QWebEngineProfile_ClearHttpCacheCompleted(QWebEngineProfile* self);
 void QWebEngineProfile_Connect_ClearHttpCacheCompleted(QWebEngineProfile* self, intptr_t slot);
 libqt_string QWebEngineProfile_Tr2(const char* s, const char* c);
 libqt_string QWebEngineProfile_Tr3(const char* s, const char* c, int n);
+void QWebEngineProfile_OnMetacall(QWebEngineProfile* self, intptr_t slot);
+int QWebEngineProfile_QBaseMetacall(QWebEngineProfile* self, int param1, int param2, void** param3);
 bool QWebEngineProfile_Event(QWebEngineProfile* self, QEvent* event);
 void QWebEngineProfile_OnEvent(QWebEngineProfile* self, intptr_t slot);
 bool QWebEngineProfile_QBaseEvent(QWebEngineProfile* self, QEvent* event);

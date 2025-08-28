@@ -39,25 +39,6 @@ int QDateTimeAxis_Metacall(QDateTimeAxis* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDateTimeAxis_OnMetacall(QDateTimeAxis* self, intptr_t slot) {
-    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        vqdatetimeaxis->setQDateTimeAxis_Metacall_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDateTimeAxis_QBaseMetacall(QDateTimeAxis* self, int param1, int param2, void** param3) {
-    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        vqdatetimeaxis->setQDateTimeAxis_Metacall_IsBase(true);
-        return vqdatetimeaxis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDateTimeAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QDateTimeAxis_Tr(const char* s) {
     QString _ret = QDateTimeAxis::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -74,25 +55,6 @@ int QDateTimeAxis_Type(const QDateTimeAxis* self) {
     auto* vqdatetimeaxis = dynamic_cast<const VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQDateTimeAxis*)self)->type());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QDateTimeAxis_OnType(const QDateTimeAxis* self, intptr_t slot) {
-    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        vqdatetimeaxis->setQDateTimeAxis_Type_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDateTimeAxis_QBaseType(const QDateTimeAxis* self) {
-    auto* vqdatetimeaxis = dynamic_cast<const VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        vqdatetimeaxis->setQDateTimeAxis_Type_IsBase(true);
-        return static_cast<int>(vqdatetimeaxis->type());
     } else {
         return static_cast<int>(((VirtualQDateTimeAxis*)self)->type());
     }
@@ -234,6 +196,44 @@ libqt_string QDateTimeAxis_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QDateTimeAxis_QBaseMetacall(QDateTimeAxis* self, int param1, int param2, void** param3) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+        vqdatetimeaxis->setQDateTimeAxis_Metacall_IsBase(true);
+        return vqdatetimeaxis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QDateTimeAxis::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDateTimeAxis_OnMetacall(QDateTimeAxis* self, intptr_t slot) {
+    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+        vqdatetimeaxis->setQDateTimeAxis_Metacall_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QDateTimeAxis_QBaseType(const QDateTimeAxis* self) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+        vqdatetimeaxis->setQDateTimeAxis_Type_IsBase(true);
+        return static_cast<int>(vqdatetimeaxis->type());
+    } else {
+        return static_cast<int>(self->QDateTimeAxis::type());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDateTimeAxis_OnType(const QDateTimeAxis* self, intptr_t slot) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+        vqdatetimeaxis->setQDateTimeAxis_Type_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Type_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

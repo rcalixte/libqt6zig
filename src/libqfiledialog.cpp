@@ -93,25 +93,6 @@ int QFileDialog_Metacall(QFileDialog* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QFileDialog_OnMetacall(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Metacall_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QFileDialog_QBaseMetacall(QFileDialog* self, int param1, int param2, void** param3) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Metacall_IsBase(true);
-        return vqfiledialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFileDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QFileDialog_Tr(const char* s) {
     QString _ret = QFileDialog::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -508,25 +489,6 @@ void QFileDialog_SetVisible(QFileDialog* self, bool visible) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QFileDialog_OnSetVisible(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_SetVisible_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SetVisible_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QFileDialog_QBaseSetVisible(QFileDialog* self, bool visible) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_SetVisible_IsBase(true);
-        vqfiledialog->setVisible(visible);
-    } else {
-        ((VirtualQFileDialog*)self)->setVisible(visible);
-    }
-}
-
 void QFileDialog_FileSelected(QFileDialog* self, const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     self->fileSelected(file_QString);
@@ -802,23 +764,6 @@ void QFileDialog_Done(QFileDialog* self, int result) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QFileDialog_OnDone(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Done_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Done_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QFileDialog_QBaseDone(QFileDialog* self, int result) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Done_IsBase(true);
-        vqfiledialog->done(static_cast<int>(result));
-    }
-}
-
 void QFileDialog_Accept(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
@@ -826,43 +771,9 @@ void QFileDialog_Accept(QFileDialog* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QFileDialog_OnAccept(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Accept_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Accept_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QFileDialog_QBaseAccept(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Accept_IsBase(true);
-        vqfiledialog->accept();
-    }
-}
-
 void QFileDialog_ChangeEvent(QFileDialog* self, QEvent* e) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->changeEvent(e);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QFileDialog_OnChangeEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QFileDialog_QBaseChangeEvent(QFileDialog* self, QEvent* e) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_ChangeEvent_IsBase(true);
         vqfiledialog->changeEvent(e);
     }
 }
@@ -1277,6 +1188,101 @@ void QFileDialog_SaveFileContent3(const libqt_string fileContent, const libqt_st
     QByteArray fileContent_QByteArray(fileContent.data, fileContent.len);
     QString fileNameHint_QString = QString::fromUtf8(fileNameHint.data, fileNameHint.len);
     QFileDialog::saveFileContent(fileContent_QByteArray, fileNameHint_QString, parent);
+}
+
+// Base class handler implementation
+int QFileDialog_QBaseMetacall(QFileDialog* self, int param1, int param2, void** param3) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_Metacall_IsBase(true);
+        return vqfiledialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QFileDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileDialog_OnMetacall(QFileDialog* self, intptr_t slot) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_Metacall_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QFileDialog_QBaseSetVisible(QFileDialog* self, bool visible) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_SetVisible_IsBase(true);
+        vqfiledialog->setVisible(visible);
+    } else {
+        self->QFileDialog::setVisible(visible);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileDialog_OnSetVisible(QFileDialog* self, intptr_t slot) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_SetVisible_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SetVisible_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QFileDialog_QBaseDone(QFileDialog* self, int result) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_Done_IsBase(true);
+        vqfiledialog->done(static_cast<int>(result));
+    } else {
+        ((VirtualQFileDialog*)self)->done(static_cast<int>(result));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileDialog_OnDone(QFileDialog* self, intptr_t slot) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_Done_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Done_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QFileDialog_QBaseAccept(QFileDialog* self) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_Accept_IsBase(true);
+        vqfiledialog->accept();
+    } else {
+        ((VirtualQFileDialog*)self)->accept();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileDialog_OnAccept(QFileDialog* self, intptr_t slot) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_Accept_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Accept_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QFileDialog_QBaseChangeEvent(QFileDialog* self, QEvent* e) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_ChangeEvent_IsBase(true);
+        vqfiledialog->changeEvent(e);
+    } else {
+        ((VirtualQFileDialog*)self)->changeEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileDialog_OnChangeEvent(QFileDialog* self, intptr_t slot) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ChangeEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

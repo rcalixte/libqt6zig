@@ -41,25 +41,6 @@ int QsciLexerPascal_Metacall(QsciLexerPascal* self, int param1, int param2, void
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPascal_OnMetacall(QsciLexerPascal* self, intptr_t slot) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        vqscilexerpascal->setQsciLexerPascal_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerPascal_QBaseMetacall(QsciLexerPascal* self, int param1, int param2, void** param3) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        vqscilexerpascal->setQsciLexerPascal_Metacall_IsBase(true);
-        return vqscilexerpascal->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPascal*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerPascal_Tr(const char* s) {
     QString _ret = QsciLexerPascal::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -182,25 +163,6 @@ void QsciLexerPascal_SetFoldComments(QsciLexerPascal* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPascal_OnSetFoldComments(QsciLexerPascal* self, intptr_t slot) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        vqscilexerpascal->setQsciLexerPascal_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFoldComments_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPascal_QBaseSetFoldComments(QsciLexerPascal* self, bool fold) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        vqscilexerpascal->setQsciLexerPascal_SetFoldComments_IsBase(true);
-        vqscilexerpascal->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerPascal*)self)->setFoldComments(fold);
-    }
-}
-
 void QsciLexerPascal_SetFoldCompact(QsciLexerPascal* self, bool fold) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
     if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
@@ -210,48 +172,10 @@ void QsciLexerPascal_SetFoldCompact(QsciLexerPascal* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPascal_OnSetFoldCompact(QsciLexerPascal* self, intptr_t slot) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        vqscilexerpascal->setQsciLexerPascal_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPascal_QBaseSetFoldCompact(QsciLexerPascal* self, bool fold) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        vqscilexerpascal->setQsciLexerPascal_SetFoldCompact_IsBase(true);
-        vqscilexerpascal->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerPascal*)self)->setFoldCompact(fold);
-    }
-}
-
 void QsciLexerPascal_SetFoldPreprocessor(QsciLexerPascal* self, bool fold) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
     if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
         self->setFoldPreprocessor(fold);
-    } else {
-        ((VirtualQsciLexerPascal*)self)->setFoldPreprocessor(fold);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPascal_OnSetFoldPreprocessor(QsciLexerPascal* self, intptr_t slot) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        vqscilexerpascal->setQsciLexerPascal_SetFoldPreprocessor_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFoldPreprocessor_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPascal_QBaseSetFoldPreprocessor(QsciLexerPascal* self, bool fold) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        vqscilexerpascal->setQsciLexerPascal_SetFoldPreprocessor_IsBase(true);
-        vqscilexerpascal->setFoldPreprocessor(fold);
     } else {
         ((VirtualQsciLexerPascal*)self)->setFoldPreprocessor(fold);
     }
@@ -291,6 +215,82 @@ const char* QsciLexerPascal_BlockStart1(const QsciLexerPascal* self, int* style)
 
 const char* QsciLexerPascal_BlockStartKeyword1(const QsciLexerPascal* self, int* style) {
     return (const char*)self->blockStartKeyword(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+int QsciLexerPascal_QBaseMetacall(QsciLexerPascal* self, int param1, int param2, void** param3) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_Metacall_IsBase(true);
+        return vqscilexerpascal->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerPascal*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPascal_OnMetacall(QsciLexerPascal* self, intptr_t slot) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPascal_QBaseSetFoldComments(QsciLexerPascal* self, bool fold) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_SetFoldComments_IsBase(true);
+        vqscilexerpascal->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerPascal*)self)->setFoldComments(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPascal_OnSetFoldComments(QsciLexerPascal* self, intptr_t slot) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFoldComments_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPascal_QBaseSetFoldCompact(QsciLexerPascal* self, bool fold) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_SetFoldCompact_IsBase(true);
+        vqscilexerpascal->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerPascal*)self)->setFoldCompact(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPascal_OnSetFoldCompact(QsciLexerPascal* self, intptr_t slot) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFoldCompact_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPascal_QBaseSetFoldPreprocessor(QsciLexerPascal* self, bool fold) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_SetFoldPreprocessor_IsBase(true);
+        vqscilexerpascal->setFoldPreprocessor(fold);
+    } else {
+        ((VirtualQsciLexerPascal*)self)->setFoldPreprocessor(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPascal_OnSetFoldPreprocessor(QsciLexerPascal* self, intptr_t slot) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_SetFoldPreprocessor_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFoldPreprocessor_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

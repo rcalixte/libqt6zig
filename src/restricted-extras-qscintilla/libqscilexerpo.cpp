@@ -41,25 +41,6 @@ int QsciLexerPO_Metacall(QsciLexerPO* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPO_OnMetacall(QsciLexerPO* self, intptr_t slot) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerPO_QBaseMetacall(QsciLexerPO* self, int param1, int param2, void** param3) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_Metacall_IsBase(true);
-        return vqscilexerpo->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPO*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerPO_Tr(const char* s) {
     QString _ret = QsciLexerPO::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -121,48 +102,10 @@ void QsciLexerPO_SetFoldComments(QsciLexerPO* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPO_OnSetFoldComments(QsciLexerPO* self, intptr_t slot) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_SetFoldComments_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPO_QBaseSetFoldComments(QsciLexerPO* self, bool fold) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_SetFoldComments_IsBase(true);
-        vqscilexerpo->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerPO*)self)->setFoldComments(fold);
-    }
-}
-
 void QsciLexerPO_SetFoldCompact(QsciLexerPO* self, bool fold) {
     auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
         self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerPO*)self)->setFoldCompact(fold);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerPO_OnSetFoldCompact(QsciLexerPO* self, intptr_t slot) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerPO_QBaseSetFoldCompact(QsciLexerPO* self, bool fold) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_SetFoldCompact_IsBase(true);
-        vqscilexerpo->setFoldCompact(fold);
     } else {
         ((VirtualQsciLexerPO*)self)->setFoldCompact(fold);
     }
@@ -190,6 +133,63 @@ libqt_string QsciLexerPO_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QsciLexerPO_QBaseMetacall(QsciLexerPO* self, int param1, int param2, void** param3) {
+    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
+    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
+        vqscilexerpo->setQsciLexerPO_Metacall_IsBase(true);
+        return vqscilexerpo->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerPO*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPO_OnMetacall(QsciLexerPO* self, intptr_t slot) {
+    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
+    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
+        vqscilexerpo->setQsciLexerPO_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPO_QBaseSetFoldComments(QsciLexerPO* self, bool fold) {
+    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
+    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
+        vqscilexerpo->setQsciLexerPO_SetFoldComments_IsBase(true);
+        vqscilexerpo->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerPO*)self)->setFoldComments(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPO_OnSetFoldComments(QsciLexerPO* self, intptr_t slot) {
+    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
+    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
+        vqscilexerpo->setQsciLexerPO_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_SetFoldComments_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerPO_QBaseSetFoldCompact(QsciLexerPO* self, bool fold) {
+    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
+    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
+        vqscilexerpo->setQsciLexerPO_SetFoldCompact_IsBase(true);
+        vqscilexerpo->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerPO*)self)->setFoldCompact(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPO_OnSetFoldCompact(QsciLexerPO* self, intptr_t slot) {
+    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
+    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
+        vqscilexerpo->setQsciLexerPO_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_SetFoldCompact_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

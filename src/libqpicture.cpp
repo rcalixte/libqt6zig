@@ -37,25 +37,6 @@ int QPicture_DevType(const QPicture* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPicture_OnDevType(const QPicture* self, intptr_t slot) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_DevType_Callback(reinterpret_cast<VirtualQPicture::QPicture_DevType_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPicture_QBaseDevType(const QPicture* self) {
-    auto* vqpicture = dynamic_cast<const VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_DevType_IsBase(true);
-        return vqpicture->devType();
-    } else {
-        return ((VirtualQPicture*)self)->devType();
-    }
-}
-
 unsigned int QPicture_Size(const QPicture* self) {
     return static_cast<unsigned int>(self->size());
 }
@@ -68,25 +49,6 @@ void QPicture_SetData(QPicture* self, const char* data, unsigned int size) {
     auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
     if (vqpicture && vqpicture->isVirtualQPicture) {
         self->setData(data, static_cast<uint>(size));
-    } else {
-        ((VirtualQPicture*)self)->setData(data, static_cast<uint>(size));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QPicture_OnSetData(QPicture* self, intptr_t slot) {
-    auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_SetData_Callback(reinterpret_cast<VirtualQPicture::QPicture_SetData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QPicture_QBaseSetData(QPicture* self, const char* data, unsigned int size) {
-    auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_SetData_IsBase(true);
-        vqpicture->setData(data, static_cast<uint>(size));
     } else {
         ((VirtualQPicture*)self)->setData(data, static_cast<uint>(size));
     }
@@ -147,25 +109,6 @@ QPaintEngine* QPicture_PaintEngine(const QPicture* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPicture_OnPaintEngine(const QPicture* self, intptr_t slot) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_PaintEngine_Callback(reinterpret_cast<VirtualQPicture::QPicture_PaintEngine_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QPaintEngine* QPicture_QBasePaintEngine(const QPicture* self) {
-    auto* vqpicture = dynamic_cast<const VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_PaintEngine_IsBase(true);
-        return vqpicture->paintEngine();
-    } else {
-        return ((VirtualQPicture*)self)->paintEngine();
-    }
-}
-
 int QPicture_Metric(const QPicture* self, int m) {
     auto* vqpicture = dynamic_cast<const VirtualQPicture*>(self);
     if (vqpicture && vqpicture->isVirtualQPicture) {
@@ -174,22 +117,80 @@ int QPicture_Metric(const QPicture* self, int m) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
+// Base class handler implementation
+int QPicture_QBaseDevType(const QPicture* self) {
+    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        vqpicture->setQPicture_DevType_IsBase(true);
+        return vqpicture->devType();
+    } else {
+        return self->QPicture::devType();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPicture_OnDevType(const QPicture* self, intptr_t slot) {
+    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        vqpicture->setQPicture_DevType_Callback(reinterpret_cast<VirtualQPicture::QPicture_DevType_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QPicture_QBaseSetData(QPicture* self, const char* data, unsigned int size) {
+    auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        vqpicture->setQPicture_SetData_IsBase(true);
+        vqpicture->setData(data, static_cast<uint>(size));
+    } else {
+        self->QPicture::setData(data, static_cast<uint>(size));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPicture_OnSetData(QPicture* self, intptr_t slot) {
+    auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        vqpicture->setQPicture_SetData_Callback(reinterpret_cast<VirtualQPicture::QPicture_SetData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QPaintEngine* QPicture_QBasePaintEngine(const QPicture* self) {
+    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        vqpicture->setQPicture_PaintEngine_IsBase(true);
+        return vqpicture->paintEngine();
+    } else {
+        return self->QPicture::paintEngine();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPicture_OnPaintEngine(const QPicture* self, intptr_t slot) {
+    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        vqpicture->setQPicture_PaintEngine_Callback(reinterpret_cast<VirtualQPicture::QPicture_PaintEngine_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QPicture_QBaseMetric(const QPicture* self, int m) {
+    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        vqpicture->setQPicture_Metric_IsBase(true);
+        return vqpicture->metric(static_cast<QPaintDevice::PaintDeviceMetric>(m));
+    } else {
+        return ((VirtualQPicture*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(m));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
 void QPicture_OnMetric(const QPicture* self, intptr_t slot) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
     if (vqpicture && vqpicture->isVirtualQPicture) {
         vqpicture->setQPicture_Metric_Callback(reinterpret_cast<VirtualQPicture::QPicture_Metric_Callback>(slot));
     }
-}
-
-// Virtual base class handler implementation
-int QPicture_QBaseMetric(const QPicture* self, int m) {
-    auto* vqpicture = dynamic_cast<const VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_Metric_IsBase(true);
-        return vqpicture->metric(static_cast<QPaintDevice::PaintDeviceMetric>(m));
-    }
-    return {};
 }
 
 // Derived class handler implementation

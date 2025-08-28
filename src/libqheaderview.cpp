@@ -78,25 +78,6 @@ int QHeaderView_Metacall(QHeaderView* self, int param1, int param2, void** param
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnMetacall(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Metacall_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QHeaderView_QBaseMetacall(QHeaderView* self, int param1, int param2, void** param3) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Metacall_IsBase(true);
-        return vqheaderview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHeaderView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QHeaderView_Tr(const char* s) {
     QString _ret = QHeaderView::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -113,25 +94,6 @@ void QHeaderView_SetModel(QHeaderView* self, QAbstractItemModel* model) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         self->setModel(model);
-    } else {
-        ((VirtualQHeaderView*)self)->setModel(model);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnSetModel(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetModel_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetModel_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseSetModel(QHeaderView* self, QAbstractItemModel* model) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetModel_IsBase(true);
-        vqheaderview->setModel(model);
     } else {
         ((VirtualQHeaderView*)self)->setModel(model);
     }
@@ -158,48 +120,10 @@ QSize* QHeaderView_SizeHint(const QHeaderView* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnSizeHint(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SizeHint_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHint_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QHeaderView_QBaseSizeHint(const QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SizeHint_IsBase(true);
-        return new QSize(vqheaderview->sizeHint());
-    } else {
-        return new QSize(((VirtualQHeaderView*)self)->sizeHint());
-    }
-}
-
 void QHeaderView_SetVisible(QHeaderView* self, bool v) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         self->setVisible(v);
-    } else {
-        ((VirtualQHeaderView*)self)->setVisible(v);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnSetVisible(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetVisible_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetVisible_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseSetVisible(QHeaderView* self, bool v) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetVisible_IsBase(true);
-        vqheaderview->setVisible(v);
     } else {
         ((VirtualQHeaderView*)self)->setVisible(v);
     }
@@ -430,25 +354,6 @@ void QHeaderView_DoItemsLayout(QHeaderView* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnDoItemsLayout(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DoItemsLayout_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DoItemsLayout_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseDoItemsLayout(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DoItemsLayout_IsBase(true);
-        vqheaderview->doItemsLayout();
-    } else {
-        ((VirtualQHeaderView*)self)->doItemsLayout();
-    }
-}
-
 bool QHeaderView_SectionsMoved(const QHeaderView* self) {
     return self->sectionsMoved();
 }
@@ -476,25 +381,6 @@ void QHeaderView_Reset(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         self->reset();
-    } else {
-        ((VirtualQHeaderView*)self)->reset();
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnReset(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Reset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Reset_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseReset(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Reset_IsBase(true);
-        vqheaderview->reset();
     } else {
         ((VirtualQHeaderView*)self)->reset();
     }
@@ -660,44 +546,9 @@ void QHeaderView_CurrentChanged(QHeaderView* self, const QModelIndex* current, c
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnCurrentChanged(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_CurrentChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CurrentChanged_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseCurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_CurrentChanged_IsBase(true);
-        vqheaderview->currentChanged(*current, *old);
-    }
-}
-
 bool QHeaderView_Event(QHeaderView* self, QEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->event(e);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Event_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QHeaderView_QBaseEvent(QHeaderView* self, QEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Event_IsBase(true);
         return vqheaderview->event(e);
     }
     return {};
@@ -710,43 +561,9 @@ void QHeaderView_PaintEvent(QHeaderView* self, QPaintEvent* e) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnPaintEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_PaintEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBasePaintEvent(QHeaderView* self, QPaintEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_PaintEvent_IsBase(true);
-        vqheaderview->paintEvent(e);
-    }
-}
-
 void QHeaderView_MousePressEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->mousePressEvent(e);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnMousePressEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MousePressEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseMousePressEvent(QHeaderView* self, QMouseEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MousePressEvent_IsBase(true);
         vqheaderview->mousePressEvent(e);
     }
 }
@@ -758,23 +575,6 @@ void QHeaderView_MouseMoveEvent(QHeaderView* self, QMouseEvent* e) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnMouseMoveEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseMouseMoveEvent(QHeaderView* self, QMouseEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MouseMoveEvent_IsBase(true);
-        vqheaderview->mouseMoveEvent(e);
-    }
-}
-
 void QHeaderView_MouseReleaseEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
@@ -782,43 +582,9 @@ void QHeaderView_MouseReleaseEvent(QHeaderView* self, QMouseEvent* e) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnMouseReleaseEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseMouseReleaseEvent(QHeaderView* self, QMouseEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MouseReleaseEvent_IsBase(true);
-        vqheaderview->mouseReleaseEvent(e);
-    }
-}
-
 void QHeaderView_MouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->mouseDoubleClickEvent(e);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnMouseDoubleClickEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseDoubleClickEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseMouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MouseDoubleClickEvent_IsBase(true);
         vqheaderview->mouseDoubleClickEvent(e);
     }
 }
@@ -831,24 +597,6 @@ bool QHeaderView_ViewportEvent(QHeaderView* self, QEvent* e) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnViewportEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ViewportEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QHeaderView_QBaseViewportEvent(QHeaderView* self, QEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ViewportEvent_IsBase(true);
-        return vqheaderview->viewportEvent(e);
-    }
-    return {};
-}
-
 void QHeaderView_PaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
@@ -856,44 +604,9 @@ void QHeaderView_PaintSection(const QHeaderView* self, QPainter* painter, const 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnPaintSection(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_PaintSection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintSection_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBasePaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_PaintSection_IsBase(true);
-        vqheaderview->paintSection(painter, *rect, static_cast<int>(logicalIndex));
-    }
-}
-
 QSize* QHeaderView_SectionSizeFromContents(const QHeaderView* self, int logicalIndex) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return new QSize(vqheaderview->sectionSizeFromContents(static_cast<int>(logicalIndex)));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnSectionSizeFromContents(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SectionSizeFromContents_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SectionSizeFromContents_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QHeaderView_QBaseSectionSizeFromContents(const QHeaderView* self, int logicalIndex) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SectionSizeFromContents_IsBase(true);
         return new QSize(vqheaderview->sectionSizeFromContents(static_cast<int>(logicalIndex)));
     }
     return {};
@@ -907,45 +620,9 @@ int QHeaderView_HorizontalOffset(const QHeaderView* self) {
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnHorizontalOffset(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_HorizontalOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalOffset_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QHeaderView_QBaseHorizontalOffset(const QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_HorizontalOffset_IsBase(true);
-        return vqheaderview->horizontalOffset();
-    }
-    return {};
-}
-
 int QHeaderView_VerticalOffset(const QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->verticalOffset();
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnVerticalOffset(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VerticalOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalOffset_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QHeaderView_QBaseVerticalOffset(const QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VerticalOffset_IsBase(true);
         return vqheaderview->verticalOffset();
     }
     return {};
@@ -958,43 +635,9 @@ void QHeaderView_UpdateGeometries(QHeaderView* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnUpdateGeometries(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_UpdateGeometries_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateGeometries_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseUpdateGeometries(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_UpdateGeometries_IsBase(true);
-        vqheaderview->updateGeometries();
-    }
-}
-
 void QHeaderView_ScrollContentsBy(QHeaderView* self, int dx, int dy) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnScrollContentsBy(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollContentsBy_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseScrollContentsBy(QHeaderView* self, int dx, int dy) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ScrollContentsBy_IsBase(true);
         vqheaderview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     }
 }
@@ -1012,49 +655,9 @@ void QHeaderView_DataChanged(QHeaderView* self, const QModelIndex* topLeft, cons
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnDataChanged(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DataChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DataChanged_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseDataChanged(QHeaderView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    QList<int> roles_QList;
-    roles_QList.reserve(roles.len);
-    int* roles_arr = static_cast<int*>(roles.data);
-    for (size_t i = 0; i < roles.len; ++i) {
-        roles_QList.push_back(static_cast<int>(roles_arr[i]));
-    }
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DataChanged_IsBase(true);
-        vqheaderview->dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
-}
-
 void QHeaderView_RowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnRowsInserted(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_RowsInserted_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_RowsInserted_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseRowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_RowsInserted_IsBase(true);
         vqheaderview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
     }
 }
@@ -1067,24 +670,6 @@ QRect* QHeaderView_VisualRect(const QHeaderView* self, const QModelIndex* index)
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnVisualRect(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VisualRect_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRect_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRect* QHeaderView_QBaseVisualRect(const QHeaderView* self, const QModelIndex* index) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VisualRect_IsBase(true);
-        return new QRect(vqheaderview->visualRect(*index));
-    }
-    return {};
-}
-
 void QHeaderView_ScrollTo(QHeaderView* self, const QModelIndex* index, int hint) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
@@ -1092,44 +677,9 @@ void QHeaderView_ScrollTo(QHeaderView* self, const QModelIndex* index, int hint)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnScrollTo(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ScrollTo_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollTo_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseScrollTo(QHeaderView* self, const QModelIndex* index, int hint) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ScrollTo_IsBase(true);
-        vqheaderview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
-}
-
 QModelIndex* QHeaderView_IndexAt(const QHeaderView* self, const QPoint* p) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return new QModelIndex(vqheaderview->indexAt(*p));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnIndexAt(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_IndexAt_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IndexAt_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QHeaderView_QBaseIndexAt(const QHeaderView* self, const QPoint* p) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_IndexAt_IsBase(true);
         return new QModelIndex(vqheaderview->indexAt(*p));
     }
     return {};
@@ -1143,45 +693,9 @@ bool QHeaderView_IsIndexHidden(const QHeaderView* self, const QModelIndex* index
     return {};
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnIsIndexHidden(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_IsIndexHidden_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IsIndexHidden_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QHeaderView_QBaseIsIndexHidden(const QHeaderView* self, const QModelIndex* index) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_IsIndexHidden_IsBase(true);
-        return vqheaderview->isIndexHidden(*index);
-    }
-    return {};
-}
-
 QModelIndex* QHeaderView_MoveCursor(QHeaderView* self, int param1, int param2) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return new QModelIndex(vqheaderview->moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<QFlags<Qt::KeyboardModifier>>(param2)));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnMoveCursor(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MoveCursor_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MoveCursor_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QHeaderView_QBaseMoveCursor(QHeaderView* self, int param1, int param2) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MoveCursor_IsBase(true);
         return new QModelIndex(vqheaderview->moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<QFlags<Qt::KeyboardModifier>>(param2)));
     }
     return {};
@@ -1194,44 +708,9 @@ void QHeaderView_SetSelection(QHeaderView* self, const QRect* rect, int flags) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnSetSelection(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetSelection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetSelection_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseSetSelection(QHeaderView* self, const QRect* rect, int flags) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetSelection_IsBase(true);
-        vqheaderview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
-    }
-}
-
 QRegion* QHeaderView_VisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return new QRegion(vqheaderview->visualRegionForSelection(*selection));
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnVisualRegionForSelection(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRegionForSelection_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QRegion* QHeaderView_QBaseVisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VisualRegionForSelection_IsBase(true);
         return new QRegion(vqheaderview->visualRegionForSelection(*selection));
     }
     return {};
@@ -1244,43 +723,9 @@ void QHeaderView_InitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHe
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnInitStyleOptionForIndex(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitStyleOptionForIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOptionForIndex_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseInitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitStyleOptionForIndex_IsBase(true);
-        vqheaderview->initStyleOptionForIndex(option, static_cast<int>(logicalIndex));
-    }
-}
-
 void QHeaderView_InitStyleOption(const QHeaderView* self, QStyleOptionHeader* option) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->initStyleOption(option);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QHeaderView_OnInitStyleOption(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitStyleOption_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOption_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QHeaderView_QBaseInitStyleOption(const QHeaderView* self, QStyleOptionHeader* option) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitStyleOption_IsBase(true);
         vqheaderview->initStyleOption(option);
     }
 }
@@ -1307,6 +752,596 @@ libqt_string QHeaderView_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QHeaderView_QBaseMetacall(QHeaderView* self, int param1, int param2, void** param3) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_Metacall_IsBase(true);
+        return vqheaderview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QHeaderView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnMetacall(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_Metacall_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseSetModel(QHeaderView* self, QAbstractItemModel* model) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SetModel_IsBase(true);
+        vqheaderview->setModel(model);
+    } else {
+        self->QHeaderView::setModel(model);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnSetModel(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SetModel_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetModel_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QHeaderView_QBaseSizeHint(const QHeaderView* self) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SizeHint_IsBase(true);
+        return new QSize(vqheaderview->sizeHint());
+    } else {
+        return new QSize(((VirtualQHeaderView*)self)->sizeHint());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnSizeHint(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SizeHint_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHint_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseSetVisible(QHeaderView* self, bool v) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SetVisible_IsBase(true);
+        vqheaderview->setVisible(v);
+    } else {
+        self->QHeaderView::setVisible(v);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnSetVisible(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SetVisible_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetVisible_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseDoItemsLayout(QHeaderView* self) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_DoItemsLayout_IsBase(true);
+        vqheaderview->doItemsLayout();
+    } else {
+        self->QHeaderView::doItemsLayout();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnDoItemsLayout(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_DoItemsLayout_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DoItemsLayout_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseReset(QHeaderView* self) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_Reset_IsBase(true);
+        vqheaderview->reset();
+    } else {
+        self->QHeaderView::reset();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnReset(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_Reset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Reset_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseCurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_CurrentChanged_IsBase(true);
+        vqheaderview->currentChanged(*current, *old);
+    } else {
+        ((VirtualQHeaderView*)self)->currentChanged(*current, *old);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnCurrentChanged(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_CurrentChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CurrentChanged_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QHeaderView_QBaseEvent(QHeaderView* self, QEvent* e) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_Event_IsBase(true);
+        return vqheaderview->event(e);
+    } else {
+        return ((VirtualQHeaderView*)self)->event(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnEvent(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_Event_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Event_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBasePaintEvent(QHeaderView* self, QPaintEvent* e) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_PaintEvent_IsBase(true);
+        vqheaderview->paintEvent(e);
+    } else {
+        ((VirtualQHeaderView*)self)->paintEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnPaintEvent(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_PaintEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseMousePressEvent(QHeaderView* self, QMouseEvent* e) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MousePressEvent_IsBase(true);
+        vqheaderview->mousePressEvent(e);
+    } else {
+        ((VirtualQHeaderView*)self)->mousePressEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnMousePressEvent(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MousePressEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseMouseMoveEvent(QHeaderView* self, QMouseEvent* e) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MouseMoveEvent_IsBase(true);
+        vqheaderview->mouseMoveEvent(e);
+    } else {
+        ((VirtualQHeaderView*)self)->mouseMoveEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnMouseMoveEvent(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseMouseReleaseEvent(QHeaderView* self, QMouseEvent* e) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MouseReleaseEvent_IsBase(true);
+        vqheaderview->mouseReleaseEvent(e);
+    } else {
+        ((VirtualQHeaderView*)self)->mouseReleaseEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnMouseReleaseEvent(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseMouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MouseDoubleClickEvent_IsBase(true);
+        vqheaderview->mouseDoubleClickEvent(e);
+    } else {
+        ((VirtualQHeaderView*)self)->mouseDoubleClickEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnMouseDoubleClickEvent(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseDoubleClickEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QHeaderView_QBaseViewportEvent(QHeaderView* self, QEvent* e) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_ViewportEvent_IsBase(true);
+        return vqheaderview->viewportEvent(e);
+    } else {
+        return ((VirtualQHeaderView*)self)->viewportEvent(e);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnViewportEvent(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_ViewportEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBasePaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_PaintSection_IsBase(true);
+        vqheaderview->paintSection(painter, *rect, static_cast<int>(logicalIndex));
+    } else {
+        ((VirtualQHeaderView*)self)->paintSection(painter, *rect, static_cast<int>(logicalIndex));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnPaintSection(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_PaintSection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintSection_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QHeaderView_QBaseSectionSizeFromContents(const QHeaderView* self, int logicalIndex) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SectionSizeFromContents_IsBase(true);
+        return new QSize(vqheaderview->sectionSizeFromContents(static_cast<int>(logicalIndex)));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnSectionSizeFromContents(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SectionSizeFromContents_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SectionSizeFromContents_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QHeaderView_QBaseHorizontalOffset(const QHeaderView* self) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_HorizontalOffset_IsBase(true);
+        return vqheaderview->horizontalOffset();
+    } else {
+        return ((VirtualQHeaderView*)self)->horizontalOffset();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnHorizontalOffset(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_HorizontalOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalOffset_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QHeaderView_QBaseVerticalOffset(const QHeaderView* self) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_VerticalOffset_IsBase(true);
+        return vqheaderview->verticalOffset();
+    } else {
+        return ((VirtualQHeaderView*)self)->verticalOffset();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnVerticalOffset(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_VerticalOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalOffset_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseUpdateGeometries(QHeaderView* self) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_UpdateGeometries_IsBase(true);
+        vqheaderview->updateGeometries();
+    } else {
+        ((VirtualQHeaderView*)self)->updateGeometries();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnUpdateGeometries(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_UpdateGeometries_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateGeometries_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseScrollContentsBy(QHeaderView* self, int dx, int dy) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_ScrollContentsBy_IsBase(true);
+        vqheaderview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else {
+        ((VirtualQHeaderView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnScrollContentsBy(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollContentsBy_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseDataChanged(QHeaderView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    QList<int> roles_QList;
+    roles_QList.reserve(roles.len);
+    int* roles_arr = static_cast<int*>(roles.data);
+    for (size_t i = 0; i < roles.len; ++i) {
+        roles_QList.push_back(static_cast<int>(roles_arr[i]));
+    }
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_DataChanged_IsBase(true);
+        vqheaderview->dataChanged(*topLeft, *bottomRight, roles_QList);
+    } else {
+        ((VirtualQHeaderView*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnDataChanged(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_DataChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DataChanged_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseRowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_RowsInserted_IsBase(true);
+        vqheaderview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else {
+        ((VirtualQHeaderView*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnRowsInserted(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_RowsInserted_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_RowsInserted_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRect* QHeaderView_QBaseVisualRect(const QHeaderView* self, const QModelIndex* index) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_VisualRect_IsBase(true);
+        return new QRect(vqheaderview->visualRect(*index));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnVisualRect(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_VisualRect_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRect_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseScrollTo(QHeaderView* self, const QModelIndex* index, int hint) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_ScrollTo_IsBase(true);
+        vqheaderview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
+    } else {
+        ((VirtualQHeaderView*)self)->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnScrollTo(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_ScrollTo_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollTo_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QHeaderView_QBaseIndexAt(const QHeaderView* self, const QPoint* p) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_IndexAt_IsBase(true);
+        return new QModelIndex(vqheaderview->indexAt(*p));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnIndexAt(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_IndexAt_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IndexAt_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QHeaderView_QBaseIsIndexHidden(const QHeaderView* self, const QModelIndex* index) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_IsIndexHidden_IsBase(true);
+        return vqheaderview->isIndexHidden(*index);
+    } else {
+        return ((VirtualQHeaderView*)self)->isIndexHidden(*index);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnIsIndexHidden(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_IsIndexHidden_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IsIndexHidden_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QHeaderView_QBaseMoveCursor(QHeaderView* self, int param1, int param2) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MoveCursor_IsBase(true);
+        return new QModelIndex(vqheaderview->moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<QFlags<Qt::KeyboardModifier>>(param2)));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnMoveCursor(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MoveCursor_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MoveCursor_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseSetSelection(QHeaderView* self, const QRect* rect, int flags) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SetSelection_IsBase(true);
+        vqheaderview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
+    } else {
+        ((VirtualQHeaderView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnSetSelection(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_SetSelection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetSelection_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QRegion* QHeaderView_QBaseVisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_VisualRegionForSelection_IsBase(true);
+        return new QRegion(vqheaderview->visualRegionForSelection(*selection));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnVisualRegionForSelection(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRegionForSelection_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseInitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_InitStyleOptionForIndex_IsBase(true);
+        vqheaderview->initStyleOptionForIndex(option, static_cast<int>(logicalIndex));
+    } else {
+        ((VirtualQHeaderView*)self)->initStyleOptionForIndex(option, static_cast<int>(logicalIndex));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnInitStyleOptionForIndex(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_InitStyleOptionForIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOptionForIndex_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QHeaderView_QBaseInitStyleOption(const QHeaderView* self, QStyleOptionHeader* option) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_InitStyleOption_IsBase(true);
+        vqheaderview->initStyleOption(option);
+    } else {
+        ((VirtualQHeaderView*)self)->initStyleOption(option);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnInitStyleOption(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_InitStyleOption_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOption_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

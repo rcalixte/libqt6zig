@@ -405,25 +405,6 @@ int QDnsLookup_Metacall(QDnsLookup* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDnsLookup_OnMetacall(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_Metacall_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDnsLookup_QBaseMetacall(QDnsLookup* self, int param1, int param2, void** param3) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_Metacall_IsBase(true);
-        return vqdnslookup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDnsLookup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QDnsLookup_Tr(const char* s) {
     QString _ret = QDnsLookup::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -752,6 +733,25 @@ libqt_string QDnsLookup_Tr3(const char* s, const char* c, int n) {
 
 void QDnsLookup_SetNameserver32(QDnsLookup* self, uint8_t protocol, const QHostAddress* nameserver, uint16_t port) {
     self->setNameserver(static_cast<QDnsLookup::Protocol>(protocol), *nameserver, static_cast<quint16>(port));
+}
+
+// Base class handler implementation
+int QDnsLookup_QBaseMetacall(QDnsLookup* self, int param1, int param2, void** param3) {
+    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
+    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+        vqdnslookup->setQDnsLookup_Metacall_IsBase(true);
+        return vqdnslookup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QDnsLookup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDnsLookup_OnMetacall(QDnsLookup* self, intptr_t slot) {
+    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
+    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+        vqdnslookup->setQDnsLookup_Metacall_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -37,25 +37,6 @@ int QChronoTimer_Metacall(QChronoTimer* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QChronoTimer_OnMetacall(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_Metacall_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QChronoTimer_QBaseMetacall(QChronoTimer* self, int param1, int param2, void** param3) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_Metacall_IsBase(true);
-        return vqchronotimer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQChronoTimer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QChronoTimer_Tr(const char* s) {
     QString _ret = QChronoTimer::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -103,23 +84,6 @@ void QChronoTimer_TimerEvent(QChronoTimer* self, QTimerEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QChronoTimer_OnTimerEvent(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_TimerEvent_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_TimerEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QChronoTimer_QBaseTimerEvent(QChronoTimer* self, QTimerEvent* param1) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_TimerEvent_IsBase(true);
-        vqchronotimer->timerEvent(param1);
-    }
-}
-
 libqt_string QChronoTimer_Tr2(const char* s, const char* c) {
     QString _ret = QChronoTimer::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -142,6 +106,44 @@ libqt_string QChronoTimer_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QChronoTimer_QBaseMetacall(QChronoTimer* self, int param1, int param2, void** param3) {
+    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        vqchronotimer->setQChronoTimer_Metacall_IsBase(true);
+        return vqchronotimer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QChronoTimer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChronoTimer_OnMetacall(QChronoTimer* self, intptr_t slot) {
+    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        vqchronotimer->setQChronoTimer_Metacall_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QChronoTimer_QBaseTimerEvent(QChronoTimer* self, QTimerEvent* param1) {
+    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        vqchronotimer->setQChronoTimer_TimerEvent_IsBase(true);
+        vqchronotimer->timerEvent(param1);
+    } else {
+        ((VirtualQChronoTimer*)self)->timerEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChronoTimer_OnTimerEvent(QChronoTimer* self, intptr_t slot) {
+    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        vqchronotimer->setQChronoTimer_TimerEvent_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_TimerEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

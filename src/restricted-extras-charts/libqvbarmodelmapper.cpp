@@ -40,25 +40,6 @@ int QVBarModelMapper_Metacall(QVBarModelMapper* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QVBarModelMapper_OnMetacall(QVBarModelMapper* self, intptr_t slot) {
-    auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
-        vqvbarmodelmapper->setQVBarModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QVBarModelMapper_QBaseMetacall(QVBarModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
-        vqvbarmodelmapper->setQVBarModelMapper_Metacall_IsBase(true);
-        return vqvbarmodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVBarModelMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QVBarModelMapper_Tr(const char* s) {
     QString _ret = QVBarModelMapper::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -207,6 +188,25 @@ libqt_string QVBarModelMapper_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QVBarModelMapper_QBaseMetacall(QVBarModelMapper* self, int param1, int param2, void** param3) {
+    auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+        vqvbarmodelmapper->setQVBarModelMapper_Metacall_IsBase(true);
+        return vqvbarmodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QVBarModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVBarModelMapper_OnMetacall(QVBarModelMapper* self, intptr_t slot) {
+    auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+        vqvbarmodelmapper->setQVBarModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

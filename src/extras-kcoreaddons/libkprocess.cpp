@@ -41,25 +41,6 @@ int KProcess_Metacall(KProcess* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KProcess_OnMetacall(KProcess* self, intptr_t slot) {
-    auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
-        vkprocess->setKProcess_Metacall_Callback(reinterpret_cast<VirtualKProcess::KProcess_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KProcess_QBaseMetacall(KProcess* self, int param1, int param2, void** param3) {
-    auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
-        vkprocess->setKProcess_Metacall_IsBase(true);
-        return vkprocess->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKProcess*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KProcess_Tr(const char* s) {
     QString _ret = KProcess::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -300,6 +281,25 @@ int KProcess_StartDetached22(const libqt_string exe, const libqt_list /* of libq
         args_QList.push_back(args_arr_i_QString);
     }
     return KProcess::startDetached(exe_QString, args_QList);
+}
+
+// Base class handler implementation
+int KProcess_QBaseMetacall(KProcess* self, int param1, int param2, void** param3) {
+    auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
+    if (vkprocess && vkprocess->isVirtualKProcess) {
+        vkprocess->setKProcess_Metacall_IsBase(true);
+        return vkprocess->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KProcess::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KProcess_OnMetacall(KProcess* self, intptr_t slot) {
+    auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
+    if (vkprocess && vkprocess->isVirtualKProcess) {
+        vkprocess->setKProcess_Metacall_Callback(reinterpret_cast<VirtualKProcess::KProcess_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

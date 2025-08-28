@@ -34,8 +34,6 @@ QsciLexerMarkdown* QsciLexerMarkdown_new2(QObject* parent);
 QMetaObject* QsciLexerMarkdown_MetaObject(const QsciLexerMarkdown* self);
 void* QsciLexerMarkdown_Metacast(QsciLexerMarkdown* self, const char* param1);
 int QsciLexerMarkdown_Metacall(QsciLexerMarkdown* self, int param1, int param2, void** param3);
-void QsciLexerMarkdown_OnMetacall(QsciLexerMarkdown* self, intptr_t slot);
-int QsciLexerMarkdown_QBaseMetacall(QsciLexerMarkdown* self, int param1, int param2, void** param3);
 libqt_string QsciLexerMarkdown_Tr(const char* s);
 const char* QsciLexerMarkdown_Language(const QsciLexerMarkdown* self);
 const char* QsciLexerMarkdown_Lexer(const QsciLexerMarkdown* self);
@@ -45,6 +43,8 @@ QColor* QsciLexerMarkdown_DefaultPaper(const QsciLexerMarkdown* self, int style)
 libqt_string QsciLexerMarkdown_Description(const QsciLexerMarkdown* self, int style);
 libqt_string QsciLexerMarkdown_Tr2(const char* s, const char* c);
 libqt_string QsciLexerMarkdown_Tr3(const char* s, const char* c, int n);
+void QsciLexerMarkdown_OnMetacall(QsciLexerMarkdown* self, intptr_t slot);
+int QsciLexerMarkdown_QBaseMetacall(QsciLexerMarkdown* self, int param1, int param2, void** param3);
 int QsciLexerMarkdown_LexerId(const QsciLexerMarkdown* self);
 void QsciLexerMarkdown_OnLexerId(const QsciLexerMarkdown* self, intptr_t slot);
 int QsciLexerMarkdown_QBaseLexerId(const QsciLexerMarkdown* self);

@@ -42,25 +42,6 @@ int QScatterSeries_Metacall(QScatterSeries* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QScatterSeries_OnMetacall(QScatterSeries* self, intptr_t slot) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_Metacall_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QScatterSeries_QBaseMetacall(QScatterSeries* self, int param1, int param2, void** param3) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_Metacall_IsBase(true);
-        return vqscatterseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQScatterSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QScatterSeries_Tr(const char* s) {
     QString _ret = QScatterSeries::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -82,25 +63,6 @@ int QScatterSeries_Type(const QScatterSeries* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QScatterSeries_OnType(const QScatterSeries* self, intptr_t slot) {
-    auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_Type_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Type_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QScatterSeries_QBaseType(const QScatterSeries* self) {
-    auto* vqscatterseries = dynamic_cast<const VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_Type_IsBase(true);
-        return static_cast<int>(vqscatterseries->type());
-    } else {
-        return static_cast<int>(((VirtualQScatterSeries*)self)->type());
-    }
-}
-
 void QScatterSeries_SetPen(QScatterSeries* self, const QPen* pen) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
@@ -110,48 +72,10 @@ void QScatterSeries_SetPen(QScatterSeries* self, const QPen* pen) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QScatterSeries_OnSetPen(QScatterSeries* self, intptr_t slot) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_SetPen_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SetPen_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QScatterSeries_QBaseSetPen(QScatterSeries* self, const QPen* pen) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_SetPen_IsBase(true);
-        vqscatterseries->setPen(*pen);
-    } else {
-        ((VirtualQScatterSeries*)self)->setPen(*pen);
-    }
-}
-
 void QScatterSeries_SetBrush(QScatterSeries* self, const QBrush* brush) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         self->setBrush(*brush);
-    } else {
-        ((VirtualQScatterSeries*)self)->setBrush(*brush);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QScatterSeries_OnSetBrush(QScatterSeries* self, intptr_t slot) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_SetBrush_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SetBrush_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QScatterSeries_QBaseSetBrush(QScatterSeries* self, const QBrush* brush) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_SetBrush_IsBase(true);
-        vqscatterseries->setBrush(*brush);
     } else {
         ((VirtualQScatterSeries*)self)->setBrush(*brush);
     }
@@ -170,48 +94,10 @@ void QScatterSeries_SetColor(QScatterSeries* self, const QColor* color) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QScatterSeries_OnSetColor(QScatterSeries* self, intptr_t slot) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_SetColor_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SetColor_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QScatterSeries_QBaseSetColor(QScatterSeries* self, const QColor* color) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_SetColor_IsBase(true);
-        vqscatterseries->setColor(*color);
-    } else {
-        ((VirtualQScatterSeries*)self)->setColor(*color);
-    }
-}
-
 QColor* QScatterSeries_Color(const QScatterSeries* self) {
     auto* vqscatterseries = dynamic_cast<const VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         return new QColor(self->color());
-    } else {
-        return new QColor(((VirtualQScatterSeries*)self)->color());
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QScatterSeries_OnColor(const QScatterSeries* self, intptr_t slot) {
-    auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_Color_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Color_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QColor* QScatterSeries_QBaseColor(const QScatterSeries* self) {
-    auto* vqscatterseries = dynamic_cast<const VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        vqscatterseries->setQScatterSeries_Color_IsBase(true);
-        return new QColor(vqscatterseries->color());
     } else {
         return new QColor(((VirtualQScatterSeries*)self)->color());
     }
@@ -311,6 +197,120 @@ libqt_string QScatterSeries_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QScatterSeries_QBaseMetacall(QScatterSeries* self, int param1, int param2, void** param3) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_Metacall_IsBase(true);
+        return vqscatterseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QScatterSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScatterSeries_OnMetacall(QScatterSeries* self, intptr_t slot) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_Metacall_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QScatterSeries_QBaseType(const QScatterSeries* self) {
+    auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_Type_IsBase(true);
+        return static_cast<int>(vqscatterseries->type());
+    } else {
+        return static_cast<int>(self->QScatterSeries::type());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScatterSeries_OnType(const QScatterSeries* self, intptr_t slot) {
+    auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_Type_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Type_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QScatterSeries_QBaseSetPen(QScatterSeries* self, const QPen* pen) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_SetPen_IsBase(true);
+        vqscatterseries->setPen(*pen);
+    } else {
+        self->QScatterSeries::setPen(*pen);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScatterSeries_OnSetPen(QScatterSeries* self, intptr_t slot) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_SetPen_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SetPen_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QScatterSeries_QBaseSetBrush(QScatterSeries* self, const QBrush* brush) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_SetBrush_IsBase(true);
+        vqscatterseries->setBrush(*brush);
+    } else {
+        self->QScatterSeries::setBrush(*brush);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScatterSeries_OnSetBrush(QScatterSeries* self, intptr_t slot) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_SetBrush_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SetBrush_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QScatterSeries_QBaseSetColor(QScatterSeries* self, const QColor* color) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_SetColor_IsBase(true);
+        vqscatterseries->setColor(*color);
+    } else {
+        self->QScatterSeries::setColor(*color);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScatterSeries_OnSetColor(QScatterSeries* self, intptr_t slot) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_SetColor_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SetColor_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QColor* QScatterSeries_QBaseColor(const QScatterSeries* self) {
+    auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_Color_IsBase(true);
+        return new QColor(vqscatterseries->color());
+    } else {
+        return new QColor(((VirtualQScatterSeries*)self)->color());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScatterSeries_OnColor(const QScatterSeries* self, intptr_t slot) {
+    auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_Color_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Color_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

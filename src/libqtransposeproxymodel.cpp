@@ -50,25 +50,6 @@ int QTransposeProxyModel_Metacall(QTransposeProxyModel* self, int param1, int pa
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnMetacall(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Metacall_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTransposeProxyModel_QBaseMetacall(QTransposeProxyModel* self, int param1, int param2, void** param3) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Metacall_IsBase(true);
-        return vqtransposeproxymodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QTransposeProxyModel_Tr(const char* s) {
     QString _ret = QTransposeProxyModel::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -90,48 +71,10 @@ void QTransposeProxyModel_SetSourceModel(QTransposeProxyModel* self, QAbstractIt
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnSetSourceModel(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetSourceModel_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTransposeProxyModel_QBaseSetSourceModel(QTransposeProxyModel* self, QAbstractItemModel* newSourceModel) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_SetSourceModel_IsBase(true);
-        vqtransposeproxymodel->setSourceModel(newSourceModel);
-    } else {
-        ((VirtualQTransposeProxyModel*)self)->setSourceModel(newSourceModel);
-    }
-}
-
 int QTransposeProxyModel_RowCount(const QTransposeProxyModel* self, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         return self->rowCount(*parent);
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->rowCount(*parent);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnRowCount(const QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_RowCount_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RowCount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTransposeProxyModel_QBaseRowCount(const QTransposeProxyModel* self, const QModelIndex* parent) {
-    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_RowCount_IsBase(true);
-        return vqtransposeproxymodel->rowCount(*parent);
     } else {
         return ((VirtualQTransposeProxyModel*)self)->rowCount(*parent);
     }
@@ -146,25 +89,6 @@ int QTransposeProxyModel_ColumnCount(const QTransposeProxyModel* self, const QMo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnColumnCount(const QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ColumnCount_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QTransposeProxyModel_QBaseColumnCount(const QTransposeProxyModel* self, const QModelIndex* parent) {
-    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_ColumnCount_IsBase(true);
-        return vqtransposeproxymodel->columnCount(*parent);
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->columnCount(*parent);
-    }
-}
-
 QVariant* QTransposeProxyModel_HeaderData(const QTransposeProxyModel* self, int section, int orientation, int role) {
     auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
@@ -174,48 +98,10 @@ QVariant* QTransposeProxyModel_HeaderData(const QTransposeProxyModel* self, int 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnHeaderData(const QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_HeaderData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_HeaderData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QVariant* QTransposeProxyModel_QBaseHeaderData(const QTransposeProxyModel* self, int section, int orientation, int role) {
-    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_HeaderData_IsBase(true);
-        return new QVariant(vqtransposeproxymodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQTransposeProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
-}
-
 bool QTransposeProxyModel_SetHeaderData(QTransposeProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnSetHeaderData(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetHeaderData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QTransposeProxyModel_QBaseSetHeaderData(QTransposeProxyModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_SetHeaderData_IsBase(true);
-        return vqtransposeproxymodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
     } else {
         return ((VirtualQTransposeProxyModel*)self)->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
     }
@@ -236,54 +122,10 @@ bool QTransposeProxyModel_SetItemData(QTransposeProxyModel* self, const QModelIn
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnSetItemData(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_SetItemData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetItemData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QTransposeProxyModel_QBaseSetItemData(QTransposeProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    QMap<int, QVariant> roles_QMap;
-    int* roles_karr = static_cast<int*>(roles.keys);
-    QVariant** roles_varr = static_cast<QVariant**>(roles.values);
-    for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
-    }
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_SetItemData_IsBase(true);
-        return vqtransposeproxymodel->setItemData(*index, roles_QMap);
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->setItemData(*index, roles_QMap);
-    }
-}
-
 QSize* QTransposeProxyModel_Span(const QTransposeProxyModel* self, const QModelIndex* index) {
     auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         return new QSize(self->span(*index));
-    } else {
-        return new QSize(((VirtualQTransposeProxyModel*)self)->span(*index));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnSpan(const QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Span_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Span_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QSize* QTransposeProxyModel_QBaseSpan(const QTransposeProxyModel* self, const QModelIndex* index) {
-    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Span_IsBase(true);
-        return new QSize(vqtransposeproxymodel->span(*index));
     } else {
         return new QSize(((VirtualQTransposeProxyModel*)self)->span(*index));
     }
@@ -326,76 +168,10 @@ libqt_map /* of int to QVariant* */ QTransposeProxyModel_ItemData(const QTranspo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnItemData(const QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_ItemData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ItemData_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-libqt_map /* of int to QVariant* */ QTransposeProxyModel_QBaseItemData(const QTransposeProxyModel* self, const QModelIndex* index) {
-    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_ItemData_IsBase(true);
-        QMap<int, QVariant> _ret = vqtransposeproxymodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = ((VirtualQTransposeProxyModel*)self)->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
 QModelIndex* QTransposeProxyModel_MapFromSource(const QTransposeProxyModel* self, const QModelIndex* sourceIndex) {
     auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         return new QModelIndex(self->mapFromSource(*sourceIndex));
-    } else {
-        return new QModelIndex(((VirtualQTransposeProxyModel*)self)->mapFromSource(*sourceIndex));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnMapFromSource(const QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MapFromSource_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseMapFromSource(const QTransposeProxyModel* self, const QModelIndex* sourceIndex) {
-    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_MapFromSource_IsBase(true);
-        return new QModelIndex(vqtransposeproxymodel->mapFromSource(*sourceIndex));
     } else {
         return new QModelIndex(((VirtualQTransposeProxyModel*)self)->mapFromSource(*sourceIndex));
     }
@@ -410,48 +186,10 @@ QModelIndex* QTransposeProxyModel_MapToSource(const QTransposeProxyModel* self, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnMapToSource(const QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_MapToSource_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MapToSource_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseMapToSource(const QTransposeProxyModel* self, const QModelIndex* proxyIndex) {
-    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_MapToSource_IsBase(true);
-        return new QModelIndex(vqtransposeproxymodel->mapToSource(*proxyIndex));
-    } else {
-        return new QModelIndex(((VirtualQTransposeProxyModel*)self)->mapToSource(*proxyIndex));
-    }
-}
-
 QModelIndex* QTransposeProxyModel_Parent(const QTransposeProxyModel* self, const QModelIndex* index) {
     auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         return new QModelIndex(self->parent(*index));
-    } else {
-        return new QModelIndex(((VirtualQTransposeProxyModel*)self)->parent(*index));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnParent(const QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Parent_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Parent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseParent(const QTransposeProxyModel* self, const QModelIndex* index) {
-    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Parent_IsBase(true);
-        return new QModelIndex(vqtransposeproxymodel->parent(*index));
     } else {
         return new QModelIndex(((VirtualQTransposeProxyModel*)self)->parent(*index));
     }
@@ -466,48 +204,10 @@ QModelIndex* QTransposeProxyModel_Index(const QTransposeProxyModel* self, int ro
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnIndex(const QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Index_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Index_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseIndex(const QTransposeProxyModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Index_IsBase(true);
-        return new QModelIndex(vqtransposeproxymodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQTransposeProxyModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
-}
-
 bool QTransposeProxyModel_InsertRows(QTransposeProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnInsertRows(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_InsertRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_InsertRows_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QTransposeProxyModel_QBaseInsertRows(QTransposeProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_InsertRows_IsBase(true);
-        return vqtransposeproxymodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
     } else {
         return ((VirtualQTransposeProxyModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
     }
@@ -522,48 +222,10 @@ bool QTransposeProxyModel_RemoveRows(QTransposeProxyModel* self, int row, int co
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnRemoveRows(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RemoveRows_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QTransposeProxyModel_QBaseRemoveRows(QTransposeProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_RemoveRows_IsBase(true);
-        return vqtransposeproxymodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
 bool QTransposeProxyModel_MoveRows(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         return self->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnMoveRows(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_MoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MoveRows_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QTransposeProxyModel_QBaseMoveRows(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_MoveRows_IsBase(true);
-        return vqtransposeproxymodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
     } else {
         return ((VirtualQTransposeProxyModel*)self)->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
     }
@@ -578,48 +240,10 @@ bool QTransposeProxyModel_InsertColumns(QTransposeProxyModel* self, int column, 
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnInsertColumns(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_InsertColumns_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QTransposeProxyModel_QBaseInsertColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_InsertColumns_IsBase(true);
-        return vqtransposeproxymodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
 bool QTransposeProxyModel_RemoveColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnRemoveColumns(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RemoveColumns_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QTransposeProxyModel_QBaseRemoveColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_RemoveColumns_IsBase(true);
-        return vqtransposeproxymodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
     } else {
         return ((VirtualQTransposeProxyModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
     }
@@ -634,48 +258,10 @@ bool QTransposeProxyModel_MoveColumns(QTransposeProxyModel* self, const QModelIn
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnMoveColumns(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MoveColumns_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool QTransposeProxyModel_QBaseMoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_MoveColumns_IsBase(true);
-        return vqtransposeproxymodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return ((VirtualQTransposeProxyModel*)self)->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
-}
-
 void QTransposeProxyModel_Sort(QTransposeProxyModel* self, int column, int order) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        ((VirtualQTransposeProxyModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QTransposeProxyModel_OnSort(QTransposeProxyModel* self, intptr_t slot) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Sort_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Sort_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QTransposeProxyModel_QBaseSort(QTransposeProxyModel* self, int column, int order) {
-    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
-        vqtransposeproxymodel->setQTransposeProxyModel_Sort_IsBase(true);
-        vqtransposeproxymodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
     } else {
         ((VirtualQTransposeProxyModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
     }
@@ -703,6 +289,420 @@ libqt_string QTransposeProxyModel_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QTransposeProxyModel_QBaseMetacall(QTransposeProxyModel* self, int param1, int param2, void** param3) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Metacall_IsBase(true);
+        return vqtransposeproxymodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QTransposeProxyModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnMetacall(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Metacall_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTransposeProxyModel_QBaseSetSourceModel(QTransposeProxyModel* self, QAbstractItemModel* newSourceModel) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_SetSourceModel_IsBase(true);
+        vqtransposeproxymodel->setSourceModel(newSourceModel);
+    } else {
+        self->QTransposeProxyModel::setSourceModel(newSourceModel);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnSetSourceModel(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetSourceModel_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QTransposeProxyModel_QBaseRowCount(const QTransposeProxyModel* self, const QModelIndex* parent) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_RowCount_IsBase(true);
+        return vqtransposeproxymodel->rowCount(*parent);
+    } else {
+        return self->QTransposeProxyModel::rowCount(*parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnRowCount(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_RowCount_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RowCount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QTransposeProxyModel_QBaseColumnCount(const QTransposeProxyModel* self, const QModelIndex* parent) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_ColumnCount_IsBase(true);
+        return vqtransposeproxymodel->columnCount(*parent);
+    } else {
+        return self->QTransposeProxyModel::columnCount(*parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnColumnCount(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ColumnCount_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* QTransposeProxyModel_QBaseHeaderData(const QTransposeProxyModel* self, int section, int orientation, int role) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_HeaderData_IsBase(true);
+        return new QVariant(vqtransposeproxymodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQTransposeProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnHeaderData(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_HeaderData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_HeaderData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QTransposeProxyModel_QBaseSetHeaderData(QTransposeProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_SetHeaderData_IsBase(true);
+        return vqtransposeproxymodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
+    } else {
+        return self->QTransposeProxyModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnSetHeaderData(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetHeaderData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QTransposeProxyModel_QBaseSetItemData(QTransposeProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    QMap<int, QVariant> roles_QMap;
+    int* roles_karr = static_cast<int*>(roles.keys);
+    QVariant** roles_varr = static_cast<QVariant**>(roles.values);
+    for (size_t i = 0; i < roles.len; ++i) {
+        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+    }
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_SetItemData_IsBase(true);
+        return vqtransposeproxymodel->setItemData(*index, roles_QMap);
+    } else {
+        return self->QTransposeProxyModel::setItemData(*index, roles_QMap);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnSetItemData(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_SetItemData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetItemData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QSize* QTransposeProxyModel_QBaseSpan(const QTransposeProxyModel* self, const QModelIndex* index) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Span_IsBase(true);
+        return new QSize(vqtransposeproxymodel->span(*index));
+    } else {
+        return new QSize(((VirtualQTransposeProxyModel*)self)->span(*index));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnSpan(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Span_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Span_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+libqt_map /* of int to QVariant* */ QTransposeProxyModel_QBaseItemData(const QTransposeProxyModel* self, const QModelIndex* index) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_ItemData_IsBase(true);
+        QMap<int, QVariant> _ret = vqtransposeproxymodel->itemData(*index);
+        // Convert QMap<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            _varr[_ctr] = new QVariant(_itr->second);
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QMap<int, QVariant> _ret = self->QTransposeProxyModel::itemData(*index);
+        // Convert QMap<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            _varr[_ctr] = new QVariant(_itr->second);
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnItemData(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_ItemData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ItemData_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QTransposeProxyModel_QBaseMapFromSource(const QTransposeProxyModel* self, const QModelIndex* sourceIndex) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MapFromSource_IsBase(true);
+        return new QModelIndex(vqtransposeproxymodel->mapFromSource(*sourceIndex));
+    } else {
+        return new QModelIndex(((VirtualQTransposeProxyModel*)self)->mapFromSource(*sourceIndex));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnMapFromSource(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MapFromSource_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QTransposeProxyModel_QBaseMapToSource(const QTransposeProxyModel* self, const QModelIndex* proxyIndex) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MapToSource_IsBase(true);
+        return new QModelIndex(vqtransposeproxymodel->mapToSource(*proxyIndex));
+    } else {
+        return new QModelIndex(((VirtualQTransposeProxyModel*)self)->mapToSource(*proxyIndex));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnMapToSource(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MapToSource_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MapToSource_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QTransposeProxyModel_QBaseParent(const QTransposeProxyModel* self, const QModelIndex* index) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Parent_IsBase(true);
+        return new QModelIndex(vqtransposeproxymodel->parent(*index));
+    } else {
+        return new QModelIndex(((VirtualQTransposeProxyModel*)self)->parent(*index));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnParent(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Parent_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Parent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QModelIndex* QTransposeProxyModel_QBaseIndex(const QTransposeProxyModel* self, int row, int column, const QModelIndex* parent) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Index_IsBase(true);
+        return new QModelIndex(vqtransposeproxymodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
+    } else {
+        return new QModelIndex(((VirtualQTransposeProxyModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnIndex(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Index_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Index_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QTransposeProxyModel_QBaseInsertRows(QTransposeProxyModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_InsertRows_IsBase(true);
+        return vqtransposeproxymodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return self->QTransposeProxyModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnInsertRows(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_InsertRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_InsertRows_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QTransposeProxyModel_QBaseRemoveRows(QTransposeProxyModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_RemoveRows_IsBase(true);
+        return vqtransposeproxymodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return self->QTransposeProxyModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnRemoveRows(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RemoveRows_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QTransposeProxyModel_QBaseMoveRows(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MoveRows_IsBase(true);
+        return vqtransposeproxymodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
+    } else {
+        return self->QTransposeProxyModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnMoveRows(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MoveRows_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QTransposeProxyModel_QBaseInsertColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_InsertColumns_IsBase(true);
+        return vqtransposeproxymodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return self->QTransposeProxyModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnInsertColumns(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_InsertColumns_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QTransposeProxyModel_QBaseRemoveColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_RemoveColumns_IsBase(true);
+        return vqtransposeproxymodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return self->QTransposeProxyModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnRemoveColumns(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RemoveColumns_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool QTransposeProxyModel_QBaseMoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MoveColumns_IsBase(true);
+        return vqtransposeproxymodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
+    } else {
+        return self->QTransposeProxyModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnMoveColumns(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MoveColumns_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QTransposeProxyModel_QBaseSort(QTransposeProxyModel* self, int column, int order) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Sort_IsBase(true);
+        vqtransposeproxymodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        self->QTransposeProxyModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnSort(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Sort_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Sort_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -79,25 +79,6 @@ int KRecentFilesMenu_Metacall(KRecentFilesMenu* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KRecentFilesMenu_OnMetacall(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Metacall_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KRecentFilesMenu_QBaseMetacall(KRecentFilesMenu* self, int param1, int param2, void** param3) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Metacall_IsBase(true);
-        return vkrecentfilesmenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KRecentFilesMenu_Tr(const char* s) {
     QString _ret = KRecentFilesMenu::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -212,6 +193,25 @@ libqt_string KRecentFilesMenu_Tr3(const char* s, const char* c, int n) {
 void KRecentFilesMenu_AddUrl2(KRecentFilesMenu* self, const QUrl* url, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->addUrl(*url, name_QString);
+}
+
+// Base class handler implementation
+int KRecentFilesMenu_QBaseMetacall(KRecentFilesMenu* self, int param1, int param2, void** param3) {
+    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+        vkrecentfilesmenu->setKRecentFilesMenu_Metacall_IsBase(true);
+        return vkrecentfilesmenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KRecentFilesMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRecentFilesMenu_OnMetacall(KRecentFilesMenu* self, intptr_t slot) {
+    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+        vkrecentfilesmenu->setKRecentFilesMenu_Metacall_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

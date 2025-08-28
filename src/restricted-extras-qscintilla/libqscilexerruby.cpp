@@ -41,25 +41,6 @@ int QsciLexerRuby_Metacall(QsciLexerRuby* self, int param1, int param2, void** p
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerRuby_OnMetacall(QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Metacall_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerRuby_QBaseMetacall(QsciLexerRuby* self, int param1, int param2, void** param3) {
-    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Metacall_IsBase(true);
-        return vqscilexerruby->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerRuby*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerRuby_Tr(const char* s) {
     QString _ret = QsciLexerRuby::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -182,6 +163,25 @@ const char* QsciLexerRuby_BlockStart1(const QsciLexerRuby* self, int* style) {
 
 const char* QsciLexerRuby_BlockStartKeyword1(const QsciLexerRuby* self, int* style) {
     return (const char*)self->blockStartKeyword(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+int QsciLexerRuby_QBaseMetacall(QsciLexerRuby* self, int param1, int param2, void** param3) {
+    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+        vqscilexerruby->setQsciLexerRuby_Metacall_IsBase(true);
+        return vqscilexerruby->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerRuby*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerRuby_OnMetacall(QsciLexerRuby* self, intptr_t slot) {
+    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+        vqscilexerruby->setQsciLexerRuby_Metacall_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

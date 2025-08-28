@@ -45,25 +45,6 @@ int QUdpSocket_Metacall(QUdpSocket* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QUdpSocket_OnMetacall(QUdpSocket* self, intptr_t slot) {
-    auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
-    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
-        vqudpsocket->setQUdpSocket_Metacall_Callback(reinterpret_cast<VirtualQUdpSocket::QUdpSocket_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QUdpSocket_QBaseMetacall(QUdpSocket* self, int param1, int param2, void** param3) {
-    auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
-    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
-        vqudpsocket->setQUdpSocket_Metacall_IsBase(true);
-        return vqudpsocket->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQUdpSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QUdpSocket_Tr(const char* s) {
     QString _ret = QUdpSocket::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -175,6 +156,25 @@ long long QUdpSocket_ReadDatagram3(QUdpSocket* self, char* data, long long maxle
 
 long long QUdpSocket_ReadDatagram4(QUdpSocket* self, char* data, long long maxlen, QHostAddress* host, uint16_t* port) {
     return static_cast<long long>(self->readDatagram(data, static_cast<qint64>(maxlen), host, static_cast<quint16*>(port)));
+}
+
+// Base class handler implementation
+int QUdpSocket_QBaseMetacall(QUdpSocket* self, int param1, int param2, void** param3) {
+    auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
+    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
+        vqudpsocket->setQUdpSocket_Metacall_IsBase(true);
+        return vqudpsocket->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QUdpSocket::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QUdpSocket_OnMetacall(QUdpSocket* self, intptr_t slot) {
+    auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
+    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
+        vqudpsocket->setQUdpSocket_Metacall_Callback(reinterpret_cast<VirtualQUdpSocket::QUdpSocket_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

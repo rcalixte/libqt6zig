@@ -41,25 +41,6 @@ int QsciLexerCMake_Metacall(QsciLexerCMake* self, int param1, int param2, void**
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerCMake_OnMetacall(QsciLexerCMake* self, intptr_t slot) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Metacall_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerCMake_QBaseMetacall(QsciLexerCMake* self, int param1, int param2, void** param3) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Metacall_IsBase(true);
-        return vqscilexercmake->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerCMake*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerCMake_Tr(const char* s) {
     QString _ret = QsciLexerCMake::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -125,25 +106,6 @@ void QsciLexerCMake_SetFoldAtElse(QsciLexerCMake* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerCMake_OnSetFoldAtElse(QsciLexerCMake* self, intptr_t slot) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetFoldAtElse_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerCMake_QBaseSetFoldAtElse(QsciLexerCMake* self, bool fold) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_IsBase(true);
-        vqscilexercmake->setFoldAtElse(fold);
-    } else {
-        ((VirtualQsciLexerCMake*)self)->setFoldAtElse(fold);
-    }
-}
-
 libqt_string QsciLexerCMake_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerCMake::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -166,6 +128,44 @@ libqt_string QsciLexerCMake_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QsciLexerCMake_QBaseMetacall(QsciLexerCMake* self, int param1, int param2, void** param3) {
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_Metacall_IsBase(true);
+        return vqscilexercmake->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerCMake*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerCMake_OnMetacall(QsciLexerCMake* self, intptr_t slot) {
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_Metacall_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerCMake_QBaseSetFoldAtElse(QsciLexerCMake* self, bool fold) {
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_IsBase(true);
+        vqscilexercmake->setFoldAtElse(fold);
+    } else {
+        ((VirtualQsciLexerCMake*)self)->setFoldAtElse(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerCMake_OnSetFoldAtElse(QsciLexerCMake* self, intptr_t slot) {
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetFoldAtElse_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

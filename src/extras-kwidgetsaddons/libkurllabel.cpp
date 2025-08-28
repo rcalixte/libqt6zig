@@ -88,25 +88,6 @@ int KUrlLabel_Metacall(KUrlLabel* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KUrlLabel_OnMetacall(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Metacall_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KUrlLabel_QBaseMetacall(KUrlLabel* self, int param1, int param2, void** param3) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Metacall_IsBase(true);
-        return vkurllabel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKUrlLabel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KUrlLabel_Tr(const char* s) {
     QString _ret = KUrlLabel::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -176,25 +157,6 @@ void KUrlLabel_SetFont(KUrlLabel* self, const QFont* font) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         self->setFont(*font);
-    } else {
-        ((VirtualKUrlLabel*)self)->setFont(*font);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KUrlLabel_OnSetFont(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_SetFont_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SetFont_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KUrlLabel_QBaseSetFont(KUrlLabel* self, const QFont* font) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_SetFont_IsBase(true);
-        vkurllabel->setFont(*font);
     } else {
         ((VirtualKUrlLabel*)self)->setFont(*font);
     }
@@ -305,43 +267,9 @@ void KUrlLabel_MouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KUrlLabel_OnMouseReleaseEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KUrlLabel_QBaseMouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_MouseReleaseEvent_IsBase(true);
-        vkurllabel->mouseReleaseEvent(param1);
-    }
-}
-
 void KUrlLabel_EnterEvent(KUrlLabel* self, QEnterEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->enterEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KUrlLabel_OnEnterEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_EnterEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_EnterEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KUrlLabel_QBaseEnterEvent(KUrlLabel* self, QEnterEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_EnterEvent_IsBase(true);
         vkurllabel->enterEvent(event);
     }
 }
@@ -353,44 +281,9 @@ void KUrlLabel_LeaveEvent(KUrlLabel* self, QEvent* param1) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KUrlLabel_OnLeaveEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_LeaveEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KUrlLabel_QBaseLeaveEvent(KUrlLabel* self, QEvent* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_LeaveEvent_IsBase(true);
-        vkurllabel->leaveEvent(param1);
-    }
-}
-
 bool KUrlLabel_Event(KUrlLabel* self, QEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->event(param1);
-    }
-    return {};
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KUrlLabel_OnEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Event_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Event_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-bool KUrlLabel_QBaseEvent(KUrlLabel* self, QEvent* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Event_IsBase(true);
         return vkurllabel->event(param1);
     }
     return {};
@@ -438,6 +331,120 @@ void KUrlLabel_SetGlowEnabled1(KUrlLabel* self, bool glow) {
 
 void KUrlLabel_SetFloatEnabled1(KUrlLabel* self, bool do_float) {
     self->setFloatEnabled(do_float);
+}
+
+// Base class handler implementation
+int KUrlLabel_QBaseMetacall(KUrlLabel* self, int param1, int param2, void** param3) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_Metacall_IsBase(true);
+        return vkurllabel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KUrlLabel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlLabel_OnMetacall(KUrlLabel* self, intptr_t slot) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_Metacall_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KUrlLabel_QBaseSetFont(KUrlLabel* self, const QFont* font) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_SetFont_IsBase(true);
+        vkurllabel->setFont(*font);
+    } else {
+        self->KUrlLabel::setFont(*font);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlLabel_OnSetFont(KUrlLabel* self, intptr_t slot) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_SetFont_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SetFont_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KUrlLabel_QBaseMouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_MouseReleaseEvent_IsBase(true);
+        vkurllabel->mouseReleaseEvent(param1);
+    } else {
+        ((VirtualKUrlLabel*)self)->mouseReleaseEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlLabel_OnMouseReleaseEvent(KUrlLabel* self, intptr_t slot) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KUrlLabel_QBaseEnterEvent(KUrlLabel* self, QEnterEvent* event) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_EnterEvent_IsBase(true);
+        vkurllabel->enterEvent(event);
+    } else {
+        ((VirtualKUrlLabel*)self)->enterEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlLabel_OnEnterEvent(KUrlLabel* self, intptr_t slot) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_EnterEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_EnterEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KUrlLabel_QBaseLeaveEvent(KUrlLabel* self, QEvent* param1) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_LeaveEvent_IsBase(true);
+        vkurllabel->leaveEvent(param1);
+    } else {
+        ((VirtualKUrlLabel*)self)->leaveEvent(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlLabel_OnLeaveEvent(KUrlLabel* self, intptr_t slot) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_LeaveEvent_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KUrlLabel_QBaseEvent(KUrlLabel* self, QEvent* param1) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_Event_IsBase(true);
+        return vkurllabel->event(param1);
+    } else {
+        return ((VirtualKUrlLabel*)self)->event(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlLabel_OnEvent(KUrlLabel* self, intptr_t slot) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_Event_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Event_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

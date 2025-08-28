@@ -44,25 +44,6 @@ int QSslServer_Metacall(QSslServer* self, int param1, int param2, void** param3)
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSslServer_OnMetacall(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_Metacall_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QSslServer_QBaseMetacall(QSslServer* self, int param1, int param2, void** param3) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_Metacall_IsBase(true);
-        return vqsslserver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSslServer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QSslServer_Tr(const char* s) {
     QString _ret = QSslServer::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -240,23 +221,6 @@ void QSslServer_IncomingConnection(QSslServer* self, intptr_t socket) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QSslServer_OnIncomingConnection(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_IncomingConnection_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_IncomingConnection_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QSslServer_QBaseIncomingConnection(QSslServer* self, intptr_t socket) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_IncomingConnection_IsBase(true);
-        vqsslserver->incomingConnection((qintptr)(socket));
-    }
-}
-
 libqt_string QSslServer_Tr2(const char* s, const char* c) {
     QString _ret = QSslServer::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -279,6 +243,44 @@ libqt_string QSslServer_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QSslServer_QBaseMetacall(QSslServer* self, int param1, int param2, void** param3) {
+    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        vqsslserver->setQSslServer_Metacall_IsBase(true);
+        return vqsslserver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QSslServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSslServer_OnMetacall(QSslServer* self, intptr_t slot) {
+    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        vqsslserver->setQSslServer_Metacall_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QSslServer_QBaseIncomingConnection(QSslServer* self, intptr_t socket) {
+    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        vqsslserver->setQSslServer_IncomingConnection_IsBase(true);
+        vqsslserver->incomingConnection((qintptr)(socket));
+    } else {
+        ((VirtualQSslServer*)self)->incomingConnection((qintptr)(socket));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSslServer_OnIncomingConnection(QSslServer* self, intptr_t slot) {
+    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        vqsslserver->setQSslServer_IncomingConnection_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_IncomingConnection_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

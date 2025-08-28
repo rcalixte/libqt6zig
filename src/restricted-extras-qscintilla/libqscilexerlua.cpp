@@ -41,25 +41,6 @@ int QsciLexerLua_Metacall(QsciLexerLua* self, int param1, int param2, void** par
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerLua_OnMetacall(QsciLexerLua* self, intptr_t slot) {
-    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
-    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
-        vqscilexerlua->setQsciLexerLua_Metacall_Callback(reinterpret_cast<VirtualQsciLexerLua::QsciLexerLua_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerLua_QBaseMetacall(QsciLexerLua* self, int param1, int param2, void** param3) {
-    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
-    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
-        vqscilexerlua->setQsciLexerLua_Metacall_IsBase(true);
-        return vqscilexerlua->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerLua*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerLua_Tr(const char* s) {
     QString _ret = QsciLexerLua::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -158,25 +139,6 @@ void QsciLexerLua_SetFoldCompact(QsciLexerLua* self, bool fold) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerLua_OnSetFoldCompact(QsciLexerLua* self, intptr_t slot) {
-    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
-    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
-        vqscilexerlua->setQsciLexerLua_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerLua::QsciLexerLua_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QsciLexerLua_QBaseSetFoldCompact(QsciLexerLua* self, bool fold) {
-    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
-    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
-        vqscilexerlua->setQsciLexerLua_SetFoldCompact_IsBase(true);
-        vqscilexerlua->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerLua*)self)->setFoldCompact(fold);
-    }
-}
-
 libqt_string QsciLexerLua_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerLua::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -203,6 +165,44 @@ libqt_string QsciLexerLua_Tr3(const char* s, const char* c, int n) {
 
 const char* QsciLexerLua_BlockStart1(const QsciLexerLua* self, int* style) {
     return (const char*)self->blockStart(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+int QsciLexerLua_QBaseMetacall(QsciLexerLua* self, int param1, int param2, void** param3) {
+    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        vqscilexerlua->setQsciLexerLua_Metacall_IsBase(true);
+        return vqscilexerlua->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerLua*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerLua_OnMetacall(QsciLexerLua* self, intptr_t slot) {
+    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        vqscilexerlua->setQsciLexerLua_Metacall_Callback(reinterpret_cast<VirtualQsciLexerLua::QsciLexerLua_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QsciLexerLua_QBaseSetFoldCompact(QsciLexerLua* self, bool fold) {
+    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        vqscilexerlua->setQsciLexerLua_SetFoldCompact_IsBase(true);
+        vqscilexerlua->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerLua*)self)->setFoldCompact(fold);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerLua_OnSetFoldCompact(QsciLexerLua* self, intptr_t slot) {
+    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        vqscilexerlua->setQsciLexerLua_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerLua::QsciLexerLua_SetFoldCompact_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

@@ -36,25 +36,6 @@ int QDrag_Metacall(QDrag* self, int param1, int param2, void** param3) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QDrag_OnMetacall(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_Metacall_Callback(reinterpret_cast<VirtualQDrag::QDrag_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QDrag_QBaseMetacall(QDrag* self, int param1, int param2, void** param3) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_Metacall_IsBase(true);
-        return vqdrag->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDrag*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QDrag_Tr(const char* s) {
     QString _ret = QDrag::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -177,6 +158,25 @@ libqt_string QDrag_Tr3(const char* s, const char* c, int n) {
 
 int QDrag_Exec1(QDrag* self, int supportedActions) {
     return static_cast<int>(self->exec(static_cast<Qt::DropActions>(supportedActions)));
+}
+
+// Base class handler implementation
+int QDrag_QBaseMetacall(QDrag* self, int param1, int param2, void** param3) {
+    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
+    if (vqdrag && vqdrag->isVirtualQDrag) {
+        vqdrag->setQDrag_Metacall_IsBase(true);
+        return vqdrag->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QDrag::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDrag_OnMetacall(QDrag* self, intptr_t slot) {
+    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
+    if (vqdrag && vqdrag->isVirtualQDrag) {
+        vqdrag->setQDrag_Metacall_Callback(reinterpret_cast<VirtualQDrag::QDrag_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

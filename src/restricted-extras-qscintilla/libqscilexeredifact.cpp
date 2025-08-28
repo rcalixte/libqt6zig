@@ -41,25 +41,6 @@ int QsciLexerEDIFACT_Metacall(QsciLexerEDIFACT* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QsciLexerEDIFACT_OnMetacall(QsciLexerEDIFACT* self, intptr_t slot) {
-    auto* vqscilexeredifact = dynamic_cast<VirtualQsciLexerEDIFACT*>(self);
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_Metacall_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QsciLexerEDIFACT_QBaseMetacall(QsciLexerEDIFACT* self, int param1, int param2, void** param3) {
-    auto* vqscilexeredifact = dynamic_cast<VirtualQsciLexerEDIFACT*>(self);
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_Metacall_IsBase(true);
-        return vqscilexeredifact->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerEDIFACT*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QsciLexerEDIFACT_Tr(const char* s) {
     QString _ret = QsciLexerEDIFACT::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -118,6 +99,25 @@ libqt_string QsciLexerEDIFACT_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QsciLexerEDIFACT_QBaseMetacall(QsciLexerEDIFACT* self, int param1, int param2, void** param3) {
+    auto* vqscilexeredifact = dynamic_cast<VirtualQsciLexerEDIFACT*>(self);
+    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
+        vqscilexeredifact->setQsciLexerEDIFACT_Metacall_IsBase(true);
+        return vqscilexeredifact->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return ((VirtualQsciLexerEDIFACT*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerEDIFACT_OnMetacall(QsciLexerEDIFACT* self, intptr_t slot) {
+    auto* vqscilexeredifact = dynamic_cast<VirtualQsciLexerEDIFACT*>(self);
+    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
+        vqscilexeredifact->setQsciLexerEDIFACT_Metacall_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_Metacall_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

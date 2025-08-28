@@ -31,8 +31,6 @@ QFileSystemWatcher* QFileSystemWatcher_new4(const libqt_list /* of libqt_string 
 QMetaObject* QFileSystemWatcher_MetaObject(const QFileSystemWatcher* self);
 void* QFileSystemWatcher_Metacast(QFileSystemWatcher* self, const char* param1);
 int QFileSystemWatcher_Metacall(QFileSystemWatcher* self, int param1, int param2, void** param3);
-void QFileSystemWatcher_OnMetacall(QFileSystemWatcher* self, intptr_t slot);
-int QFileSystemWatcher_QBaseMetacall(QFileSystemWatcher* self, int param1, int param2, void** param3);
 libqt_string QFileSystemWatcher_Tr(const char* s);
 bool QFileSystemWatcher_AddPath(QFileSystemWatcher* self, const libqt_string file);
 libqt_list /* of libqt_string */ QFileSystemWatcher_AddPaths(QFileSystemWatcher* self, const libqt_list /* of libqt_string */ files);
@@ -42,6 +40,8 @@ libqt_list /* of libqt_string */ QFileSystemWatcher_Files(const QFileSystemWatch
 libqt_list /* of libqt_string */ QFileSystemWatcher_Directories(const QFileSystemWatcher* self);
 libqt_string QFileSystemWatcher_Tr2(const char* s, const char* c);
 libqt_string QFileSystemWatcher_Tr3(const char* s, const char* c, int n);
+void QFileSystemWatcher_OnMetacall(QFileSystemWatcher* self, intptr_t slot);
+int QFileSystemWatcher_QBaseMetacall(QFileSystemWatcher* self, int param1, int param2, void** param3);
 bool QFileSystemWatcher_Event(QFileSystemWatcher* self, QEvent* event);
 void QFileSystemWatcher_OnEvent(QFileSystemWatcher* self, intptr_t slot);
 bool QFileSystemWatcher_QBaseEvent(QFileSystemWatcher* self, QEvent* event);

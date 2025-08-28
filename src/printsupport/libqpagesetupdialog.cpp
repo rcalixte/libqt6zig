@@ -74,25 +74,6 @@ int QPageSetupDialog_Metacall(QPageSetupDialog* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPageSetupDialog_OnMetacall(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Metacall_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPageSetupDialog_QBaseMetacall(QPageSetupDialog* self, int param1, int param2, void** param3) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Metacall_IsBase(true);
-        return vqpagesetupdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string QPageSetupDialog_Tr(const char* s) {
     QString _ret = QPageSetupDialog::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -114,48 +95,10 @@ int QPageSetupDialog_Exec(QPageSetupDialog* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void QPageSetupDialog_OnExec(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Exec_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Exec_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int QPageSetupDialog_QBaseExec(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Exec_IsBase(true);
-        return vqpagesetupdialog->exec();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->exec();
-    }
-}
-
 void QPageSetupDialog_Done(QPageSetupDialog* self, int result) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         self->done(static_cast<int>(result));
-    } else {
-        ((VirtualQPageSetupDialog*)self)->done(static_cast<int>(result));
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void QPageSetupDialog_OnDone(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Done_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Done_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void QPageSetupDialog_QBaseDone(QPageSetupDialog* self, int result) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Done_IsBase(true);
-        vqpagesetupdialog->done(static_cast<int>(result));
     } else {
         ((VirtualQPageSetupDialog*)self)->done(static_cast<int>(result));
     }
@@ -187,6 +130,63 @@ libqt_string QPageSetupDialog_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int QPageSetupDialog_QBaseMetacall(QPageSetupDialog* self, int param1, int param2, void** param3) {
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_Metacall_IsBase(true);
+        return vqpagesetupdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->QPageSetupDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPageSetupDialog_OnMetacall(QPageSetupDialog* self, intptr_t slot) {
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_Metacall_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+int QPageSetupDialog_QBaseExec(QPageSetupDialog* self) {
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_Exec_IsBase(true);
+        return vqpagesetupdialog->exec();
+    } else {
+        return self->QPageSetupDialog::exec();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPageSetupDialog_OnExec(QPageSetupDialog* self, intptr_t slot) {
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_Exec_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Exec_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QPageSetupDialog_QBaseDone(QPageSetupDialog* self, int result) {
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_Done_IsBase(true);
+        vqpagesetupdialog->done(static_cast<int>(result));
+    } else {
+        self->QPageSetupDialog::done(static_cast<int>(result));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPageSetupDialog_OnDone(QPageSetupDialog* self, intptr_t slot) {
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_Done_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Done_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

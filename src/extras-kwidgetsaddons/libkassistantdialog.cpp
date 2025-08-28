@@ -74,25 +74,6 @@ int KAssistantDialog_Metacall(KAssistantDialog* self, int param1, int param2, vo
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KAssistantDialog_OnMetacall(KAssistantDialog* self, intptr_t slot) {
-    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
-        vkassistantdialog->setKAssistantDialog_Metacall_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Metacall_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-int KAssistantDialog_QBaseMetacall(KAssistantDialog* self, int param1, int param2, void** param3) {
-    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
-        vkassistantdialog->setKAssistantDialog_Metacall_IsBase(true);
-        return vkassistantdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKAssistantDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
-}
-
 libqt_string KAssistantDialog_Tr(const char* s) {
     QString _ret = KAssistantDialog::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -142,25 +123,6 @@ void KAssistantDialog_Back(KAssistantDialog* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KAssistantDialog_OnBack(KAssistantDialog* self, intptr_t slot) {
-    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
-        vkassistantdialog->setKAssistantDialog_Back_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Back_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KAssistantDialog_QBaseBack(KAssistantDialog* self) {
-    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
-        vkassistantdialog->setKAssistantDialog_Back_IsBase(true);
-        vkassistantdialog->back();
-    } else {
-        ((VirtualKAssistantDialog*)self)->back();
-    }
-}
-
 void KAssistantDialog_Next(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
@@ -170,45 +132,9 @@ void KAssistantDialog_Next(KAssistantDialog* self) {
     }
 }
 
-// Subclass method to allow providing a virtual method re-implementation
-void KAssistantDialog_OnNext(KAssistantDialog* self, intptr_t slot) {
-    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
-        vkassistantdialog->setKAssistantDialog_Next_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Next_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KAssistantDialog_QBaseNext(KAssistantDialog* self) {
-    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
-        vkassistantdialog->setKAssistantDialog_Next_IsBase(true);
-        vkassistantdialog->next();
-    } else {
-        ((VirtualKAssistantDialog*)self)->next();
-    }
-}
-
 void KAssistantDialog_ShowEvent(KAssistantDialog* self, QShowEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
-        vkassistantdialog->showEvent(event);
-    }
-}
-
-// Subclass method to allow providing a virtual method re-implementation
-void KAssistantDialog_OnShowEvent(KAssistantDialog* self, intptr_t slot) {
-    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
-        vkassistantdialog->setKAssistantDialog_ShowEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ShowEvent_Callback>(slot));
-    }
-}
-
-// Virtual base class handler implementation
-void KAssistantDialog_QBaseShowEvent(KAssistantDialog* self, QShowEvent* event) {
-    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
-        vkassistantdialog->setKAssistantDialog_ShowEvent_IsBase(true);
         vkassistantdialog->showEvent(event);
     }
 }
@@ -235,6 +161,82 @@ libqt_string KAssistantDialog_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+int KAssistantDialog_QBaseMetacall(KAssistantDialog* self, int param1, int param2, void** param3) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_Metacall_IsBase(true);
+        return vkassistantdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    } else {
+        return self->KAssistantDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAssistantDialog_OnMetacall(KAssistantDialog* self, intptr_t slot) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_Metacall_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Metacall_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KAssistantDialog_QBaseBack(KAssistantDialog* self) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_Back_IsBase(true);
+        vkassistantdialog->back();
+    } else {
+        self->KAssistantDialog::back();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAssistantDialog_OnBack(KAssistantDialog* self, intptr_t slot) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_Back_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Back_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KAssistantDialog_QBaseNext(KAssistantDialog* self) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_Next_IsBase(true);
+        vkassistantdialog->next();
+    } else {
+        self->KAssistantDialog::next();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAssistantDialog_OnNext(KAssistantDialog* self, intptr_t slot) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_Next_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Next_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KAssistantDialog_QBaseShowEvent(KAssistantDialog* self, QShowEvent* event) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_ShowEvent_IsBase(true);
+        vkassistantdialog->showEvent(event);
+    } else {
+        ((VirtualKAssistantDialog*)self)->showEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAssistantDialog_OnShowEvent(KAssistantDialog* self, intptr_t slot) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_ShowEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ShowEvent_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
