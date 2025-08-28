@@ -182,6 +182,128 @@ void QKeySequenceEdit_Connect_KeySequenceChanged(QKeySequenceEdit* self, intptr_
     });
 }
 
+bool QKeySequenceEdit_Event(QKeySequenceEdit* self, QEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        return vqkeysequenceedit->event(param1);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QKeySequenceEdit_OnEvent(QKeySequenceEdit* self, intptr_t slot) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_Event_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QKeySequenceEdit_QBaseEvent(QKeySequenceEdit* self, QEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_Event_IsBase(true);
+        return vqkeysequenceedit->event(param1);
+    }
+    return {};
+}
+
+void QKeySequenceEdit_KeyPressEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->keyPressEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QKeySequenceEdit_OnKeyPressEvent(QKeySequenceEdit* self, intptr_t slot) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QKeySequenceEdit_QBaseKeyPressEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_KeyPressEvent_IsBase(true);
+        vqkeysequenceedit->keyPressEvent(param1);
+    }
+}
+
+void QKeySequenceEdit_KeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->keyReleaseEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QKeySequenceEdit_OnKeyReleaseEvent(QKeySequenceEdit* self, intptr_t slot) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QKeySequenceEdit_QBaseKeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_KeyReleaseEvent_IsBase(true);
+        vqkeysequenceedit->keyReleaseEvent(param1);
+    }
+}
+
+void QKeySequenceEdit_TimerEvent(QKeySequenceEdit* self, QTimerEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->timerEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QKeySequenceEdit_OnTimerEvent(QKeySequenceEdit* self, intptr_t slot) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_TimerEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_TimerEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QKeySequenceEdit_QBaseTimerEvent(QKeySequenceEdit* self, QTimerEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_TimerEvent_IsBase(true);
+        vqkeysequenceedit->timerEvent(param1);
+    }
+}
+
+void QKeySequenceEdit_FocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->focusOutEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QKeySequenceEdit_OnFocusOutEvent(QKeySequenceEdit* self, intptr_t slot) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QKeySequenceEdit_QBaseFocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_FocusOutEvent_IsBase(true);
+        vqkeysequenceedit->focusOutEvent(param1);
+    }
+}
+
 libqt_string QKeySequenceEdit_Tr2(const char* s, const char* c) {
     QString _ret = QKeySequenceEdit::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -204,151 +326,6 @@ libqt_string QKeySequenceEdit_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool QKeySequenceEdit_Event(QKeySequenceEdit* self, QEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->event(param1);
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->event(param1);
-    }
-}
-
-// Base class handler implementation
-bool QKeySequenceEdit_QBaseEvent(QKeySequenceEdit* self, QEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Event_IsBase(true);
-        return vqkeysequenceedit->event(param1);
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->event(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Event_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QKeySequenceEdit_KeyPressEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->keyPressEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->keyPressEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QKeySequenceEdit_QBaseKeyPressEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_KeyPressEvent_IsBase(true);
-        vqkeysequenceedit->keyPressEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->keyPressEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnKeyPressEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QKeySequenceEdit_KeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->keyReleaseEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->keyReleaseEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QKeySequenceEdit_QBaseKeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_KeyReleaseEvent_IsBase(true);
-        vqkeysequenceedit->keyReleaseEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->keyReleaseEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnKeyReleaseEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QKeySequenceEdit_TimerEvent(QKeySequenceEdit* self, QTimerEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->timerEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->timerEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QKeySequenceEdit_QBaseTimerEvent(QKeySequenceEdit* self, QTimerEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_TimerEvent_IsBase(true);
-        vqkeysequenceedit->timerEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->timerEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnTimerEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_TimerEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_TimerEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QKeySequenceEdit_FocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->focusOutEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->focusOutEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QKeySequenceEdit_QBaseFocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_FocusOutEvent_IsBase(true);
-        vqkeysequenceedit->focusOutEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->focusOutEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnFocusOutEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -82,6 +82,32 @@ void KColumnResizer_RemoveWidget(KColumnResizer* self, QWidget* widget) {
     self->removeWidget(widget);
 }
 
+bool KColumnResizer_EventFilter(KColumnResizer* self, QObject* param1, QEvent* event) {
+    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
+    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
+        return vkcolumnresizer->eventFilter(param1, event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KColumnResizer_OnEventFilter(KColumnResizer* self, intptr_t slot) {
+    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
+    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
+        vkcolumnresizer->setKColumnResizer_EventFilter_Callback(reinterpret_cast<VirtualKColumnResizer::KColumnResizer_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KColumnResizer_QBaseEventFilter(KColumnResizer* self, QObject* param1, QEvent* event) {
+    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
+    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
+        vkcolumnresizer->setKColumnResizer_EventFilter_IsBase(true);
+        return vkcolumnresizer->eventFilter(param1, event);
+    }
+    return {};
+}
+
 libqt_string KColumnResizer_Tr2(const char* s, const char* c) {
     QString _ret = KColumnResizer::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -108,35 +134,6 @@ libqt_string KColumnResizer_Tr3(const char* s, const char* c, int n) {
 
 void KColumnResizer_AddWidgetsFromLayout2(KColumnResizer* self, QLayout* layout, int column) {
     self->addWidgetsFromLayout(layout, static_cast<int>(column));
-}
-
-// Derived class handler implementation
-bool KColumnResizer_EventFilter(KColumnResizer* self, QObject* param1, QEvent* event) {
-    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
-    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
-        return vkcolumnresizer->eventFilter(param1, event);
-    } else {
-        return ((VirtualKColumnResizer*)self)->eventFilter(param1, event);
-    }
-}
-
-// Base class handler implementation
-bool KColumnResizer_QBaseEventFilter(KColumnResizer* self, QObject* param1, QEvent* event) {
-    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
-    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
-        vkcolumnresizer->setKColumnResizer_EventFilter_IsBase(true);
-        return vkcolumnresizer->eventFilter(param1, event);
-    } else {
-        return ((VirtualKColumnResizer*)self)->eventFilter(param1, event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColumnResizer_OnEventFilter(KColumnResizer* self, intptr_t slot) {
-    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
-    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
-        vkcolumnresizer->setKColumnResizer_EventFilter_Callback(reinterpret_cast<VirtualKColumnResizer::KColumnResizer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -69,6 +69,34 @@ libqt_string QWebEngineUrlRequestInterceptor_Tr(const char* s) {
     return _str;
 }
 
+void QWebEngineUrlRequestInterceptor_InterceptRequest(QWebEngineUrlRequestInterceptor* self, QWebEngineUrlRequestInfo* info) {
+    auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+        vqwebengineurlrequestinterceptor->interceptRequest(*info);
+    } else {
+        ((VirtualQWebEngineUrlRequestInterceptor*)self)->interceptRequest(*info);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWebEngineUrlRequestInterceptor_OnInterceptRequest(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
+    auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+        vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_InterceptRequest_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_InterceptRequest_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWebEngineUrlRequestInterceptor_QBaseInterceptRequest(QWebEngineUrlRequestInterceptor* self, QWebEngineUrlRequestInfo* info) {
+    auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+        vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_InterceptRequest_IsBase(true);
+        vqwebengineurlrequestinterceptor->interceptRequest(*info);
+    } else {
+        ((VirtualQWebEngineUrlRequestInterceptor*)self)->interceptRequest(*info);
+    }
+}
+
 libqt_string QWebEngineUrlRequestInterceptor_Tr2(const char* s, const char* c) {
     QString _ret = QWebEngineUrlRequestInterceptor::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -91,35 +119,6 @@ libqt_string QWebEngineUrlRequestInterceptor_Tr3(const char* s, const char* c, i
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QWebEngineUrlRequestInterceptor_InterceptRequest(QWebEngineUrlRequestInterceptor* self, QWebEngineUrlRequestInfo* info) {
-    auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
-        vqwebengineurlrequestinterceptor->interceptRequest(*info);
-    } else {
-        ((VirtualQWebEngineUrlRequestInterceptor*)self)->interceptRequest(*info);
-    }
-}
-
-// Base class handler implementation
-void QWebEngineUrlRequestInterceptor_QBaseInterceptRequest(QWebEngineUrlRequestInterceptor* self, QWebEngineUrlRequestInfo* info) {
-    auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
-        vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_InterceptRequest_IsBase(true);
-        vqwebengineurlrequestinterceptor->interceptRequest(*info);
-    } else {
-        ((VirtualQWebEngineUrlRequestInterceptor*)self)->interceptRequest(*info);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebEngineUrlRequestInterceptor_OnInterceptRequest(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
-    auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
-        vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_InterceptRequest_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_InterceptRequest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

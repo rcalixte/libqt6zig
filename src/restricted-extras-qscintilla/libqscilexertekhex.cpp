@@ -72,6 +72,26 @@ libqt_string QsciLexerTekHex_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerTekHex_Language(const QsciLexerTekHex* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerTekHex_Lexer(const QsciLexerTekHex* self) {
+    return (const char*)self->lexer();
+}
+
+libqt_string QsciLexerTekHex_Description(const QsciLexerTekHex* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 libqt_string QsciLexerTekHex_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerTekHex::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -94,64 +114,6 @@ libqt_string QsciLexerTekHex_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-const char* QsciLexerTekHex_Language(const QsciLexerTekHex* self) {
-    auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        return (const char*)vqscilexertekhex->language();
-    } else {
-        return (const char*)((VirtualQsciLexerTekHex*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerTekHex_QBaseLanguage(const QsciLexerTekHex* self) {
-    auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_Language_IsBase(true);
-        return (const char*)vqscilexertekhex->language();
-    } else {
-        return (const char*)((VirtualQsciLexerTekHex*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerTekHex_OnLanguage(const QsciLexerTekHex* self, intptr_t slot) {
-    auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_Language_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerTekHex_Lexer(const QsciLexerTekHex* self) {
-    auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        return (const char*)vqscilexertekhex->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerTekHex*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerTekHex_QBaseLexer(const QsciLexerTekHex* self) {
-    auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_Lexer_IsBase(true);
-        return (const char*)vqscilexertekhex->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerTekHex*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerTekHex_OnLexer(const QsciLexerTekHex* self, intptr_t slot) {
-    auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_Lexer_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,67 +616,6 @@ void QsciLexerTekHex_OnDefaultStyle(const QsciLexerTekHex* self, intptr_t slot) 
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
         vqscilexertekhex->setQsciLexerTekHex_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerTekHex_Description(const QsciLexerTekHex* self, int style) {
-    auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        QString _ret = vqscilexertekhex->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerTekHex*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerTekHex_QBaseDescription(const QsciLexerTekHex* self, int style) {
-    auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_Description_IsBase(true);
-        QString _ret = vqscilexertekhex->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerTekHex*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerTekHex_OnDescription(const QsciLexerTekHex* self, intptr_t slot) {
-    auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_Description_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Description_Callback>(slot));
     }
 }
 

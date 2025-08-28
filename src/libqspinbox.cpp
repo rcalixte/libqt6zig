@@ -193,6 +193,156 @@ void QSpinBox_SetDisplayIntegerBase(QSpinBox* self, int base) {
     self->setDisplayIntegerBase(static_cast<int>(base));
 }
 
+bool QSpinBox_Event(QSpinBox* self, QEvent* event) {
+    auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        return vqspinbox->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpinBox_OnEvent(QSpinBox* self, intptr_t slot) {
+    auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_Event_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSpinBox_QBaseEvent(QSpinBox* self, QEvent* event) {
+    auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_Event_IsBase(true);
+        return vqspinbox->event(event);
+    }
+    return {};
+}
+
+int QSpinBox_Validate(const QSpinBox* self, libqt_string input, int* pos) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        return static_cast<int>(vqspinbox->validate(input_QString, static_cast<int&>(*pos)));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpinBox_OnValidate(const QSpinBox* self, intptr_t slot) {
+    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_Validate_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Validate_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QSpinBox_QBaseValidate(const QSpinBox* self, libqt_string input, int* pos) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_Validate_IsBase(true);
+        return static_cast<int>(vqspinbox->validate(input_QString, static_cast<int&>(*pos)));
+    }
+    return {};
+}
+
+int QSpinBox_ValueFromText(const QSpinBox* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        return vqspinbox->valueFromText(text_QString);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpinBox_OnValueFromText(const QSpinBox* self, intptr_t slot) {
+    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_ValueFromText_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ValueFromText_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QSpinBox_QBaseValueFromText(const QSpinBox* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_ValueFromText_IsBase(true);
+        return vqspinbox->valueFromText(text_QString);
+    }
+    return {};
+}
+
+libqt_string QSpinBox_TextFromValue(const QSpinBox* self, int val) {
+    auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        QString _ret = vqspinbox->textFromValue(static_cast<int>(val));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpinBox_OnTextFromValue(const QSpinBox* self, intptr_t slot) {
+    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_TextFromValue_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_TextFromValue_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QSpinBox_QBaseTextFromValue(const QSpinBox* self, int val) {
+    auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_TextFromValue_IsBase(true);
+        QString _ret = vqspinbox->textFromValue(static_cast<int>(val));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+void QSpinBox_Fixup(const QSpinBox* self, libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->fixup(str_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpinBox_OnFixup(const QSpinBox* self, intptr_t slot) {
+    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_Fixup_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Fixup_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSpinBox_QBaseFixup(const QSpinBox* self, libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_Fixup_IsBase(true);
+        vqspinbox->fixup(str_QString);
+    }
+}
+
 void QSpinBox_SetValue(QSpinBox* self, int val) {
     self->setValue(static_cast<int>(val));
 }
@@ -251,189 +401,6 @@ libqt_string QSpinBox_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool QSpinBox_Event(QSpinBox* self, QEvent* event) {
-    auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        return vqspinbox->event(event);
-    } else {
-        return ((VirtualQSpinBox*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool QSpinBox_QBaseEvent(QSpinBox* self, QEvent* event) {
-    auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_Event_IsBase(true);
-        return vqspinbox->event(event);
-    } else {
-        return ((VirtualQSpinBox*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpinBox_OnEvent(QSpinBox* self, intptr_t slot) {
-    auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_Event_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QSpinBox_Validate(const QSpinBox* self, libqt_string input, int* pos) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        return static_cast<int>(vqspinbox->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQSpinBox*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
-}
-
-// Base class handler implementation
-int QSpinBox_QBaseValidate(const QSpinBox* self, libqt_string input, int* pos) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_Validate_IsBase(true);
-        return static_cast<int>(vqspinbox->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQSpinBox*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpinBox_OnValidate(const QSpinBox* self, intptr_t slot) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_Validate_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Validate_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QSpinBox_ValueFromText(const QSpinBox* self, const libqt_string text) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        return vqspinbox->valueFromText(text_QString);
-    } else {
-        return ((VirtualQSpinBox*)self)->valueFromText(text_QString);
-    }
-}
-
-// Base class handler implementation
-int QSpinBox_QBaseValueFromText(const QSpinBox* self, const libqt_string text) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_ValueFromText_IsBase(true);
-        return vqspinbox->valueFromText(text_QString);
-    } else {
-        return ((VirtualQSpinBox*)self)->valueFromText(text_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpinBox_OnValueFromText(const QSpinBox* self, intptr_t slot) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_ValueFromText_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ValueFromText_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QSpinBox_TextFromValue(const QSpinBox* self, int val) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        QString _ret = vqspinbox->textFromValue(static_cast<int>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSpinBox*)self)->textFromValue(static_cast<int>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QSpinBox_QBaseTextFromValue(const QSpinBox* self, int val) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_TextFromValue_IsBase(true);
-        QString _ret = vqspinbox->textFromValue(static_cast<int>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSpinBox*)self)->textFromValue(static_cast<int>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpinBox_OnTextFromValue(const QSpinBox* self, intptr_t slot) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_TextFromValue_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_TextFromValue_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSpinBox_Fixup(const QSpinBox* self, libqt_string str) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    QString str_QString = QString::fromUtf8(str.data, str.len);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->fixup(str_QString);
-    } else {
-        ((VirtualQSpinBox*)self)->fixup(str_QString);
-    }
-}
-
-// Base class handler implementation
-void QSpinBox_QBaseFixup(const QSpinBox* self, libqt_string str) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    QString str_QString = QString::fromUtf8(str.data, str.len);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_Fixup_IsBase(true);
-        vqspinbox->fixup(str_QString);
-    } else {
-        ((VirtualQSpinBox*)self)->fixup(str_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpinBox_OnFixup(const QSpinBox* self, intptr_t slot) {
-    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        vqspinbox->setQSpinBox_Fixup_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Fixup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2390,6 +2357,156 @@ void QDoubleSpinBox_SetDecimals(QDoubleSpinBox* self, int prec) {
     self->setDecimals(static_cast<int>(prec));
 }
 
+int QDoubleSpinBox_Validate(const QDoubleSpinBox* self, libqt_string input, int* pos) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        return static_cast<int>(self->validate(input_QString, static_cast<int&>(*pos)));
+    } else {
+        return static_cast<int>(((VirtualQDoubleSpinBox*)self)->validate(input_QString, static_cast<int&>(*pos)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDoubleSpinBox_OnValidate(const QDoubleSpinBox* self, intptr_t slot) {
+    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_Validate_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Validate_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QDoubleSpinBox_QBaseValidate(const QDoubleSpinBox* self, libqt_string input, int* pos) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_Validate_IsBase(true);
+        return static_cast<int>(vqdoublespinbox->validate(input_QString, static_cast<int&>(*pos)));
+    } else {
+        return static_cast<int>(((VirtualQDoubleSpinBox*)self)->validate(input_QString, static_cast<int&>(*pos)));
+    }
+}
+
+double QDoubleSpinBox_ValueFromText(const QDoubleSpinBox* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        return self->valueFromText(text_QString);
+    } else {
+        return ((VirtualQDoubleSpinBox*)self)->valueFromText(text_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDoubleSpinBox_OnValueFromText(const QDoubleSpinBox* self, intptr_t slot) {
+    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_ValueFromText_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ValueFromText_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+double QDoubleSpinBox_QBaseValueFromText(const QDoubleSpinBox* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_ValueFromText_IsBase(true);
+        return vqdoublespinbox->valueFromText(text_QString);
+    } else {
+        return ((VirtualQDoubleSpinBox*)self)->valueFromText(text_QString);
+    }
+}
+
+libqt_string QDoubleSpinBox_TextFromValue(const QDoubleSpinBox* self, double val) {
+    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        QString _ret = self->textFromValue(static_cast<double>(val));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = ((VirtualQDoubleSpinBox*)self)->textFromValue(static_cast<double>(val));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDoubleSpinBox_OnTextFromValue(const QDoubleSpinBox* self, intptr_t slot) {
+    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_TextFromValue_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_TextFromValue_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QDoubleSpinBox_QBaseTextFromValue(const QDoubleSpinBox* self, double val) {
+    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_TextFromValue_IsBase(true);
+        QString _ret = vqdoublespinbox->textFromValue(static_cast<double>(val));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = ((VirtualQDoubleSpinBox*)self)->textFromValue(static_cast<double>(val));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+void QDoubleSpinBox_Fixup(const QDoubleSpinBox* self, libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        self->fixup(str_QString);
+    } else {
+        ((VirtualQDoubleSpinBox*)self)->fixup(str_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDoubleSpinBox_OnFixup(const QDoubleSpinBox* self, intptr_t slot) {
+    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_Fixup_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Fixup_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDoubleSpinBox_QBaseFixup(const QDoubleSpinBox* self, libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_Fixup_IsBase(true);
+        vqdoublespinbox->fixup(str_QString);
+    } else {
+        ((VirtualQDoubleSpinBox*)self)->fixup(str_QString);
+    }
+}
+
 void QDoubleSpinBox_SetValue(QDoubleSpinBox* self, double val) {
     self->setValue(static_cast<double>(val));
 }
@@ -2448,160 +2565,6 @@ libqt_string QDoubleSpinBox_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QDoubleSpinBox_Validate(const QDoubleSpinBox* self, libqt_string input, int* pos) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        return static_cast<int>(vqdoublespinbox->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(self->QDoubleSpinBox::validate(input_QString, static_cast<int&>(*pos)));
-    }
-}
-
-// Base class handler implementation
-int QDoubleSpinBox_QBaseValidate(const QDoubleSpinBox* self, libqt_string input, int* pos) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        vqdoublespinbox->setQDoubleSpinBox_Validate_IsBase(true);
-        return static_cast<int>(vqdoublespinbox->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(self->QDoubleSpinBox::validate(input_QString, static_cast<int&>(*pos)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDoubleSpinBox_OnValidate(const QDoubleSpinBox* self, intptr_t slot) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        vqdoublespinbox->setQDoubleSpinBox_Validate_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Validate_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-double QDoubleSpinBox_ValueFromText(const QDoubleSpinBox* self, const libqt_string text) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        return vqdoublespinbox->valueFromText(text_QString);
-    } else {
-        return self->QDoubleSpinBox::valueFromText(text_QString);
-    }
-}
-
-// Base class handler implementation
-double QDoubleSpinBox_QBaseValueFromText(const QDoubleSpinBox* self, const libqt_string text) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        vqdoublespinbox->setQDoubleSpinBox_ValueFromText_IsBase(true);
-        return vqdoublespinbox->valueFromText(text_QString);
-    } else {
-        return self->QDoubleSpinBox::valueFromText(text_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDoubleSpinBox_OnValueFromText(const QDoubleSpinBox* self, intptr_t slot) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        vqdoublespinbox->setQDoubleSpinBox_ValueFromText_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ValueFromText_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QDoubleSpinBox_TextFromValue(const QDoubleSpinBox* self, double val) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        QString _ret = vqdoublespinbox->textFromValue(static_cast<double>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = self->QDoubleSpinBox::textFromValue(static_cast<double>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QDoubleSpinBox_QBaseTextFromValue(const QDoubleSpinBox* self, double val) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        vqdoublespinbox->setQDoubleSpinBox_TextFromValue_IsBase(true);
-        QString _ret = vqdoublespinbox->textFromValue(static_cast<double>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = self->QDoubleSpinBox::textFromValue(static_cast<double>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDoubleSpinBox_OnTextFromValue(const QDoubleSpinBox* self, intptr_t slot) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        vqdoublespinbox->setQDoubleSpinBox_TextFromValue_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_TextFromValue_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDoubleSpinBox_Fixup(const QDoubleSpinBox* self, libqt_string str) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    QString str_QString = QString::fromUtf8(str.data, str.len);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        vqdoublespinbox->fixup(str_QString);
-    } else {
-        self->QDoubleSpinBox::fixup(str_QString);
-    }
-}
-
-// Base class handler implementation
-void QDoubleSpinBox_QBaseFixup(const QDoubleSpinBox* self, libqt_string str) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    QString str_QString = QString::fromUtf8(str.data, str.len);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        vqdoublespinbox->setQDoubleSpinBox_Fixup_IsBase(true);
-        vqdoublespinbox->fixup(str_QString);
-    } else {
-        self->QDoubleSpinBox::fixup(str_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDoubleSpinBox_OnFixup(const QDoubleSpinBox* self, intptr_t slot) {
-    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        vqdoublespinbox->setQDoubleSpinBox_Fixup_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Fixup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

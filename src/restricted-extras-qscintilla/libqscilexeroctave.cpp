@@ -72,6 +72,18 @@ libqt_string QsciLexerOctave_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerOctave_Language(const QsciLexerOctave* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerOctave_Lexer(const QsciLexerOctave* self) {
+    return (const char*)self->lexer();
+}
+
+const char* QsciLexerOctave_Keywords(const QsciLexerOctave* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
 libqt_string QsciLexerOctave_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerOctave::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -94,64 +106,6 @@ libqt_string QsciLexerOctave_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-const char* QsciLexerOctave_Language(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return (const char*)vqscilexeroctave->language();
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerOctave_QBaseLanguage(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Language_IsBase(true);
-        return (const char*)vqscilexeroctave->language();
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnLanguage(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Language_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerOctave_Lexer(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return (const char*)vqscilexeroctave->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerOctave_QBaseLexer(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Lexer_IsBase(true);
-        return (const char*)vqscilexeroctave->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnLexer(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Lexer_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,35 +550,6 @@ void QsciLexerOctave_OnIndentationGuideView(const QsciLexerOctave* self, intptr_
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_IndentationGuideView_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerOctave_Keywords(const QsciLexerOctave* self, int set) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return (const char*)vqscilexeroctave->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerOctave_QBaseKeywords(const QsciLexerOctave* self, int set) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Keywords_IsBase(true);
-        return (const char*)vqscilexeroctave->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnKeywords(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Keywords_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Keywords_Callback>(slot));
     }
 }
 

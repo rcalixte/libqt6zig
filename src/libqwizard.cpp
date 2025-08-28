@@ -166,6 +166,62 @@ int QWizard_CurrentId(const QWizard* self) {
     return self->currentId();
 }
 
+bool QWizard_ValidateCurrentPage(QWizard* self) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        return self->validateCurrentPage();
+    } else {
+        return ((VirtualQWizard*)self)->validateCurrentPage();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnValidateCurrentPage(QWizard* self, intptr_t slot) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_ValidateCurrentPage_Callback(reinterpret_cast<VirtualQWizard::QWizard_ValidateCurrentPage_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QWizard_QBaseValidateCurrentPage(QWizard* self) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_ValidateCurrentPage_IsBase(true);
+        return vqwizard->validateCurrentPage();
+    } else {
+        return ((VirtualQWizard*)self)->validateCurrentPage();
+    }
+}
+
+int QWizard_NextId(const QWizard* self) {
+    auto* vqwizard = dynamic_cast<const VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        return self->nextId();
+    } else {
+        return ((VirtualQWizard*)self)->nextId();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnNextId(const QWizard* self, intptr_t slot) {
+    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_NextId_Callback(reinterpret_cast<VirtualQWizard::QWizard_NextId_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QWizard_QBaseNextId(const QWizard* self) {
+    auto* vqwizard = dynamic_cast<const VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_NextId_IsBase(true);
+        return vqwizard->nextId();
+    } else {
+        return ((VirtualQWizard*)self)->nextId();
+    }
+}
+
 void QWizard_SetField(QWizard* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->setField(name_QString, *value);
@@ -271,6 +327,62 @@ void QWizard_SetDefaultProperty(QWizard* self, const char* className, const char
     self->setDefaultProperty(className, property, changedSignal);
 }
 
+void QWizard_SetVisible(QWizard* self, bool visible) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        self->setVisible(visible);
+    } else {
+        ((VirtualQWizard*)self)->setVisible(visible);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnSetVisible(QWizard* self, intptr_t slot) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_SetVisible_Callback(reinterpret_cast<VirtualQWizard::QWizard_SetVisible_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWizard_QBaseSetVisible(QWizard* self, bool visible) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_SetVisible_IsBase(true);
+        vqwizard->setVisible(visible);
+    } else {
+        ((VirtualQWizard*)self)->setVisible(visible);
+    }
+}
+
+QSize* QWizard_SizeHint(const QWizard* self) {
+    auto* vqwizard = dynamic_cast<const VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQWizard*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnSizeHint(const QWizard* self, intptr_t slot) {
+    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_SizeHint_Callback(reinterpret_cast<VirtualQWizard::QWizard_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QWizard_QBaseSizeHint(const QWizard* self) {
+    auto* vqwizard = dynamic_cast<const VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_SizeHint_IsBase(true);
+        return new QSize(vqwizard->sizeHint());
+    } else {
+        return new QSize(((VirtualQWizard*)self)->sizeHint());
+    }
+}
+
 void QWizard_CurrentIdChanged(QWizard* self, int id) {
     self->currentIdChanged(static_cast<int>(id));
 }
@@ -346,6 +458,152 @@ void QWizard_Restart(QWizard* self) {
     self->restart();
 }
 
+bool QWizard_Event(QWizard* self, QEvent* event) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        return vqwizard->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnEvent(QWizard* self, intptr_t slot) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_Event_Callback(reinterpret_cast<VirtualQWizard::QWizard_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QWizard_QBaseEvent(QWizard* self, QEvent* event) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_Event_IsBase(true);
+        return vqwizard->event(event);
+    }
+    return {};
+}
+
+void QWizard_ResizeEvent(QWizard* self, QResizeEvent* event) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->resizeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnResizeEvent(QWizard* self, intptr_t slot) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_ResizeEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWizard_QBaseResizeEvent(QWizard* self, QResizeEvent* event) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_ResizeEvent_IsBase(true);
+        vqwizard->resizeEvent(event);
+    }
+}
+
+void QWizard_PaintEvent(QWizard* self, QPaintEvent* event) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->paintEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnPaintEvent(QWizard* self, intptr_t slot) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_PaintEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWizard_QBasePaintEvent(QWizard* self, QPaintEvent* event) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_PaintEvent_IsBase(true);
+        vqwizard->paintEvent(event);
+    }
+}
+
+void QWizard_Done(QWizard* self, int result) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->done(static_cast<int>(result));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnDone(QWizard* self, intptr_t slot) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_Done_Callback(reinterpret_cast<VirtualQWizard::QWizard_Done_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWizard_QBaseDone(QWizard* self, int result) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_Done_IsBase(true);
+        vqwizard->done(static_cast<int>(result));
+    }
+}
+
+void QWizard_InitializePage(QWizard* self, int id) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->initializePage(static_cast<int>(id));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnInitializePage(QWizard* self, intptr_t slot) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_InitializePage_Callback(reinterpret_cast<VirtualQWizard::QWizard_InitializePage_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWizard_QBaseInitializePage(QWizard* self, int id) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_InitializePage_IsBase(true);
+        vqwizard->initializePage(static_cast<int>(id));
+    }
+}
+
+void QWizard_CleanupPage(QWizard* self, int id) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->cleanupPage(static_cast<int>(id));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizard_OnCleanupPage(QWizard* self, intptr_t slot) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_CleanupPage_Callback(reinterpret_cast<VirtualQWizard::QWizard_CleanupPage_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWizard_QBaseCleanupPage(QWizard* self, int id) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_CleanupPage_IsBase(true);
+        vqwizard->cleanupPage(static_cast<int>(id));
+    }
+}
+
 libqt_string QWizard_Tr2(const char* s, const char* c) {
     QString _ret = QWizard::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -372,296 +630,6 @@ libqt_string QWizard_Tr3(const char* s, const char* c, int n) {
 
 void QWizard_SetOption2(QWizard* self, int option, bool on) {
     self->setOption(static_cast<QWizard::WizardOption>(option), on);
-}
-
-// Derived class handler implementation
-bool QWizard_ValidateCurrentPage(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->validateCurrentPage();
-    } else {
-        return self->QWizard::validateCurrentPage();
-    }
-}
-
-// Base class handler implementation
-bool QWizard_QBaseValidateCurrentPage(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ValidateCurrentPage_IsBase(true);
-        return vqwizard->validateCurrentPage();
-    } else {
-        return self->QWizard::validateCurrentPage();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnValidateCurrentPage(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ValidateCurrentPage_Callback(reinterpret_cast<VirtualQWizard::QWizard_ValidateCurrentPage_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QWizard_NextId(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->nextId();
-    } else {
-        return self->QWizard::nextId();
-    }
-}
-
-// Base class handler implementation
-int QWizard_QBaseNextId(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_NextId_IsBase(true);
-        return vqwizard->nextId();
-    } else {
-        return self->QWizard::nextId();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnNextId(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_NextId_Callback(reinterpret_cast<VirtualQWizard::QWizard_NextId_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QWizard_SetVisible(QWizard* self, bool visible) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setVisible(visible);
-    } else {
-        self->QWizard::setVisible(visible);
-    }
-}
-
-// Base class handler implementation
-void QWizard_QBaseSetVisible(QWizard* self, bool visible) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_SetVisible_IsBase(true);
-        vqwizard->setVisible(visible);
-    } else {
-        self->QWizard::setVisible(visible);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnSetVisible(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_SetVisible_Callback(reinterpret_cast<VirtualQWizard::QWizard_SetVisible_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QWizard_SizeHint(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return new QSize(vqwizard->sizeHint());
-    } else {
-        return new QSize(((VirtualQWizard*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QWizard_QBaseSizeHint(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_SizeHint_IsBase(true);
-        return new QSize(vqwizard->sizeHint());
-    } else {
-        return new QSize(((VirtualQWizard*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnSizeHint(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_SizeHint_Callback(reinterpret_cast<VirtualQWizard::QWizard_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QWizard_Event(QWizard* self, QEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->event(event);
-    } else {
-        return ((VirtualQWizard*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool QWizard_QBaseEvent(QWizard* self, QEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Event_IsBase(true);
-        return vqwizard->event(event);
-    } else {
-        return ((VirtualQWizard*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Event_Callback(reinterpret_cast<VirtualQWizard::QWizard_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QWizard_ResizeEvent(QWizard* self, QResizeEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->resizeEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->resizeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QWizard_QBaseResizeEvent(QWizard* self, QResizeEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ResizeEvent_IsBase(true);
-        vqwizard->resizeEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->resizeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnResizeEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ResizeEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QWizard_PaintEvent(QWizard* self, QPaintEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->paintEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->paintEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QWizard_QBasePaintEvent(QWizard* self, QPaintEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_PaintEvent_IsBase(true);
-        vqwizard->paintEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->paintEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnPaintEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_PaintEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QWizard_Done(QWizard* self, int result) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->done(static_cast<int>(result));
-    } else {
-        ((VirtualQWizard*)self)->done(static_cast<int>(result));
-    }
-}
-
-// Base class handler implementation
-void QWizard_QBaseDone(QWizard* self, int result) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Done_IsBase(true);
-        vqwizard->done(static_cast<int>(result));
-    } else {
-        ((VirtualQWizard*)self)->done(static_cast<int>(result));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnDone(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Done_Callback(reinterpret_cast<VirtualQWizard::QWizard_Done_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QWizard_InitializePage(QWizard* self, int id) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->initializePage(static_cast<int>(id));
-    } else {
-        ((VirtualQWizard*)self)->initializePage(static_cast<int>(id));
-    }
-}
-
-// Base class handler implementation
-void QWizard_QBaseInitializePage(QWizard* self, int id) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_InitializePage_IsBase(true);
-        vqwizard->initializePage(static_cast<int>(id));
-    } else {
-        ((VirtualQWizard*)self)->initializePage(static_cast<int>(id));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnInitializePage(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_InitializePage_Callback(reinterpret_cast<VirtualQWizard::QWizard_InitializePage_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QWizard_CleanupPage(QWizard* self, int id) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->cleanupPage(static_cast<int>(id));
-    } else {
-        ((VirtualQWizard*)self)->cleanupPage(static_cast<int>(id));
-    }
-}
-
-// Base class handler implementation
-void QWizard_QBaseCleanupPage(QWizard* self, int id) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_CleanupPage_IsBase(true);
-        vqwizard->cleanupPage(static_cast<int>(id));
-    } else {
-        ((VirtualQWizard*)self)->cleanupPage(static_cast<int>(id));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnCleanupPage(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_CleanupPage_Callback(reinterpret_cast<VirtualQWizard::QWizard_CleanupPage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2454,6 +2422,146 @@ libqt_string QWizardPage_ButtonText(const QWizardPage* self, int which) {
     return _str;
 }
 
+void QWizardPage_InitializePage(QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        self->initializePage();
+    } else {
+        ((VirtualQWizardPage*)self)->initializePage();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizardPage_OnInitializePage(QWizardPage* self, intptr_t slot) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_InitializePage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InitializePage_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWizardPage_QBaseInitializePage(QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_InitializePage_IsBase(true);
+        vqwizardpage->initializePage();
+    } else {
+        ((VirtualQWizardPage*)self)->initializePage();
+    }
+}
+
+void QWizardPage_CleanupPage(QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        self->cleanupPage();
+    } else {
+        ((VirtualQWizardPage*)self)->cleanupPage();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizardPage_OnCleanupPage(QWizardPage* self, intptr_t slot) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_CleanupPage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_CleanupPage_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWizardPage_QBaseCleanupPage(QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_CleanupPage_IsBase(true);
+        vqwizardpage->cleanupPage();
+    } else {
+        ((VirtualQWizardPage*)self)->cleanupPage();
+    }
+}
+
+bool QWizardPage_ValidatePage(QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        return self->validatePage();
+    } else {
+        return ((VirtualQWizardPage*)self)->validatePage();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizardPage_OnValidatePage(QWizardPage* self, intptr_t slot) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_ValidatePage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ValidatePage_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QWizardPage_QBaseValidatePage(QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_ValidatePage_IsBase(true);
+        return vqwizardpage->validatePage();
+    } else {
+        return ((VirtualQWizardPage*)self)->validatePage();
+    }
+}
+
+bool QWizardPage_IsComplete(const QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<const VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        return self->isComplete();
+    } else {
+        return ((VirtualQWizardPage*)self)->isComplete();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizardPage_OnIsComplete(const QWizardPage* self, intptr_t slot) {
+    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_IsComplete_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_IsComplete_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QWizardPage_QBaseIsComplete(const QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<const VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_IsComplete_IsBase(true);
+        return vqwizardpage->isComplete();
+    } else {
+        return ((VirtualQWizardPage*)self)->isComplete();
+    }
+}
+
+int QWizardPage_NextId(const QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<const VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        return self->nextId();
+    } else {
+        return ((VirtualQWizardPage*)self)->nextId();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWizardPage_OnNextId(const QWizardPage* self, intptr_t slot) {
+    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_NextId_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_NextId_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QWizardPage_QBaseNextId(const QWizardPage* self) {
+    auto* vqwizardpage = dynamic_cast<const VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_NextId_IsBase(true);
+        return vqwizardpage->nextId();
+    } else {
+        return ((VirtualQWizardPage*)self)->nextId();
+    }
+}
+
 void QWizardPage_CompleteChanged(QWizardPage* self) {
     self->completeChanged();
 }
@@ -2487,151 +2595,6 @@ libqt_string QWizardPage_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QWizardPage_InitializePage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->initializePage();
-    } else {
-        self->QWizardPage::initializePage();
-    }
-}
-
-// Base class handler implementation
-void QWizardPage_QBaseInitializePage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_InitializePage_IsBase(true);
-        vqwizardpage->initializePage();
-    } else {
-        self->QWizardPage::initializePage();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnInitializePage(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_InitializePage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InitializePage_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QWizardPage_CleanupPage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->cleanupPage();
-    } else {
-        self->QWizardPage::cleanupPage();
-    }
-}
-
-// Base class handler implementation
-void QWizardPage_QBaseCleanupPage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_CleanupPage_IsBase(true);
-        vqwizardpage->cleanupPage();
-    } else {
-        self->QWizardPage::cleanupPage();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnCleanupPage(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_CleanupPage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_CleanupPage_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QWizardPage_ValidatePage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->validatePage();
-    } else {
-        return self->QWizardPage::validatePage();
-    }
-}
-
-// Base class handler implementation
-bool QWizardPage_QBaseValidatePage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ValidatePage_IsBase(true);
-        return vqwizardpage->validatePage();
-    } else {
-        return self->QWizardPage::validatePage();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnValidatePage(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ValidatePage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ValidatePage_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QWizardPage_IsComplete(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->isComplete();
-    } else {
-        return self->QWizardPage::isComplete();
-    }
-}
-
-// Base class handler implementation
-bool QWizardPage_QBaseIsComplete(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_IsComplete_IsBase(true);
-        return vqwizardpage->isComplete();
-    } else {
-        return self->QWizardPage::isComplete();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnIsComplete(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_IsComplete_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_IsComplete_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QWizardPage_NextId(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->nextId();
-    } else {
-        return self->QWizardPage::nextId();
-    }
-}
-
-// Base class handler implementation
-int QWizardPage_QBaseNextId(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_NextId_IsBase(true);
-        return vqwizardpage->nextId();
-    } else {
-        return self->QWizardPage::nextId();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnNextId(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_NextId_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_NextId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

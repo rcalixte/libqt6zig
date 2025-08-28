@@ -71,6 +71,62 @@ libqt_string QBoxPlotLegendMarker_Tr(const char* s) {
     return _str;
 }
 
+int QBoxPlotLegendMarker_Type(QBoxPlotLegendMarker* self) {
+    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQBoxPlotLegendMarker*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QBoxPlotLegendMarker_OnType(QBoxPlotLegendMarker* self, intptr_t slot) {
+    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Type_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QBoxPlotLegendMarker_QBaseType(QBoxPlotLegendMarker* self) {
+    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Type_IsBase(true);
+        return static_cast<int>(vqboxplotlegendmarker->type());
+    } else {
+        return static_cast<int>(((VirtualQBoxPlotLegendMarker*)self)->type());
+    }
+}
+
+QBoxPlotSeries* QBoxPlotLegendMarker_Series(QBoxPlotLegendMarker* self) {
+    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        return self->series();
+    } else {
+        return ((VirtualQBoxPlotLegendMarker*)self)->series();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QBoxPlotLegendMarker_OnSeries(QBoxPlotLegendMarker* self, intptr_t slot) {
+    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Series_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Series_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QBoxPlotSeries* QBoxPlotLegendMarker_QBaseSeries(QBoxPlotLegendMarker* self) {
+    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Series_IsBase(true);
+        return vqboxplotlegendmarker->series();
+    } else {
+        return ((VirtualQBoxPlotLegendMarker*)self)->series();
+    }
+}
+
 libqt_string QBoxPlotLegendMarker_Tr2(const char* s, const char* c) {
     QString _ret = QBoxPlotLegendMarker::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -93,64 +149,6 @@ libqt_string QBoxPlotLegendMarker_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QBoxPlotLegendMarker_Type(QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        return static_cast<int>(vqboxplotlegendmarker->type());
-    } else {
-        return static_cast<int>(self->QBoxPlotLegendMarker::type());
-    }
-}
-
-// Base class handler implementation
-int QBoxPlotLegendMarker_QBaseType(QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Type_IsBase(true);
-        return static_cast<int>(vqboxplotlegendmarker->type());
-    } else {
-        return static_cast<int>(self->QBoxPlotLegendMarker::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotLegendMarker_OnType(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Type_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Type_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QBoxPlotSeries* QBoxPlotLegendMarker_Series(QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        return vqboxplotlegendmarker->series();
-    } else {
-        return self->QBoxPlotLegendMarker::series();
-    }
-}
-
-// Base class handler implementation
-QBoxPlotSeries* QBoxPlotLegendMarker_QBaseSeries(QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Series_IsBase(true);
-        return vqboxplotlegendmarker->series();
-    } else {
-        return self->QBoxPlotLegendMarker::series();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotLegendMarker_OnSeries(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Series_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Series_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

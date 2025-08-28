@@ -129,6 +129,174 @@ int KSelector_ArrowDirection(const KSelector* self) {
     return static_cast<int>(self->arrowDirection());
 }
 
+void KSelector_DrawContents(KSelector* self, QPainter* param1) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->drawContents(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KSelector_OnDrawContents(KSelector* self, intptr_t slot) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_DrawContents_Callback(reinterpret_cast<VirtualKSelector::KSelector_DrawContents_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KSelector_QBaseDrawContents(KSelector* self, QPainter* param1) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_DrawContents_IsBase(true);
+        vkselector->drawContents(param1);
+    }
+}
+
+void KSelector_DrawArrow(KSelector* self, QPainter* painter, const QPoint* pos) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->drawArrow(painter, *pos);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KSelector_OnDrawArrow(KSelector* self, intptr_t slot) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_DrawArrow_Callback(reinterpret_cast<VirtualKSelector::KSelector_DrawArrow_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KSelector_QBaseDrawArrow(KSelector* self, QPainter* painter, const QPoint* pos) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_DrawArrow_IsBase(true);
+        vkselector->drawArrow(painter, *pos);
+    }
+}
+
+void KSelector_PaintEvent(KSelector* self, QPaintEvent* param1) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KSelector_OnPaintEvent(KSelector* self, intptr_t slot) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_PaintEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KSelector_QBasePaintEvent(KSelector* self, QPaintEvent* param1) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_PaintEvent_IsBase(true);
+        vkselector->paintEvent(param1);
+    }
+}
+
+void KSelector_MousePressEvent(KSelector* self, QMouseEvent* e) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->mousePressEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KSelector_OnMousePressEvent(KSelector* self, intptr_t slot) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KSelector_QBaseMousePressEvent(KSelector* self, QMouseEvent* e) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_MousePressEvent_IsBase(true);
+        vkselector->mousePressEvent(e);
+    }
+}
+
+void KSelector_MouseMoveEvent(KSelector* self, QMouseEvent* e) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->mouseMoveEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KSelector_OnMouseMoveEvent(KSelector* self, intptr_t slot) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KSelector_QBaseMouseMoveEvent(KSelector* self, QMouseEvent* e) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_MouseMoveEvent_IsBase(true);
+        vkselector->mouseMoveEvent(e);
+    }
+}
+
+void KSelector_MouseReleaseEvent(KSelector* self, QMouseEvent* e) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->mouseReleaseEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KSelector_OnMouseReleaseEvent(KSelector* self, intptr_t slot) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KSelector_QBaseMouseReleaseEvent(KSelector* self, QMouseEvent* e) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_MouseReleaseEvent_IsBase(true);
+        vkselector->mouseReleaseEvent(e);
+    }
+}
+
+void KSelector_WheelEvent(KSelector* self, QWheelEvent* param1) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->wheelEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KSelector_OnWheelEvent(KSelector* self, intptr_t slot) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_WheelEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_WheelEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KSelector_QBaseWheelEvent(KSelector* self, QWheelEvent* param1) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_WheelEvent_IsBase(true);
+        vkselector->wheelEvent(param1);
+    }
+}
+
 libqt_string KSelector_Tr2(const char* s, const char* c) {
     QString _ret = KSelector::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -151,209 +319,6 @@ libqt_string KSelector_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KSelector_DrawContents(KSelector* self, QPainter* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->drawContents(param1);
-    } else {
-        ((VirtualKSelector*)self)->drawContents(param1);
-    }
-}
-
-// Base class handler implementation
-void KSelector_QBaseDrawContents(KSelector* self, QPainter* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DrawContents_IsBase(true);
-        vkselector->drawContents(param1);
-    } else {
-        ((VirtualKSelector*)self)->drawContents(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnDrawContents(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DrawContents_Callback(reinterpret_cast<VirtualKSelector::KSelector_DrawContents_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KSelector_DrawArrow(KSelector* self, QPainter* painter, const QPoint* pos) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->drawArrow(painter, *pos);
-    } else {
-        ((VirtualKSelector*)self)->drawArrow(painter, *pos);
-    }
-}
-
-// Base class handler implementation
-void KSelector_QBaseDrawArrow(KSelector* self, QPainter* painter, const QPoint* pos) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DrawArrow_IsBase(true);
-        vkselector->drawArrow(painter, *pos);
-    } else {
-        ((VirtualKSelector*)self)->drawArrow(painter, *pos);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnDrawArrow(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DrawArrow_Callback(reinterpret_cast<VirtualKSelector::KSelector_DrawArrow_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KSelector_PaintEvent(KSelector* self, QPaintEvent* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->paintEvent(param1);
-    } else {
-        ((VirtualKSelector*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KSelector_QBasePaintEvent(KSelector* self, QPaintEvent* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_PaintEvent_IsBase(true);
-        vkselector->paintEvent(param1);
-    } else {
-        ((VirtualKSelector*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnPaintEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_PaintEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KSelector_MousePressEvent(KSelector* self, QMouseEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->mousePressEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->mousePressEvent(e);
-    }
-}
-
-// Base class handler implementation
-void KSelector_QBaseMousePressEvent(KSelector* self, QMouseEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MousePressEvent_IsBase(true);
-        vkselector->mousePressEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->mousePressEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnMousePressEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KSelector_MouseMoveEvent(KSelector* self, QMouseEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->mouseMoveEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->mouseMoveEvent(e);
-    }
-}
-
-// Base class handler implementation
-void KSelector_QBaseMouseMoveEvent(KSelector* self, QMouseEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MouseMoveEvent_IsBase(true);
-        vkselector->mouseMoveEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->mouseMoveEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnMouseMoveEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KSelector_MouseReleaseEvent(KSelector* self, QMouseEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->mouseReleaseEvent(e);
-    }
-}
-
-// Base class handler implementation
-void KSelector_QBaseMouseReleaseEvent(KSelector* self, QMouseEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MouseReleaseEvent_IsBase(true);
-        vkselector->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->mouseReleaseEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnMouseReleaseEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KSelector_WheelEvent(KSelector* self, QWheelEvent* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->wheelEvent(param1);
-    } else {
-        ((VirtualKSelector*)self)->wheelEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KSelector_QBaseWheelEvent(KSelector* self, QWheelEvent* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_WheelEvent_IsBase(true);
-        vkselector->wheelEvent(param1);
-    } else {
-        ((VirtualKSelector*)self)->wheelEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnWheelEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_WheelEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2118,6 +2083,56 @@ libqt_string KGradientSelector_SecondText(const KGradientSelector* self) {
     return _str;
 }
 
+void KGradientSelector_DrawContents(KGradientSelector* self, QPainter* param1) {
+    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        vkgradientselector->drawContents(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KGradientSelector_OnDrawContents(KGradientSelector* self, intptr_t slot) {
+    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        vkgradientselector->setKGradientSelector_DrawContents_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DrawContents_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KGradientSelector_QBaseDrawContents(KGradientSelector* self, QPainter* param1) {
+    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        vkgradientselector->setKGradientSelector_DrawContents_IsBase(true);
+        vkgradientselector->drawContents(param1);
+    }
+}
+
+QSize* KGradientSelector_MinimumSize(const KGradientSelector* self) {
+    auto* vkgradientselector = dynamic_cast<const VirtualKGradientSelector*>(self);
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        return new QSize(vkgradientselector->minimumSize());
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KGradientSelector_OnMinimumSize(const KGradientSelector* self, intptr_t slot) {
+    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        vkgradientselector->setKGradientSelector_MinimumSize_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MinimumSize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KGradientSelector_QBaseMinimumSize(const KGradientSelector* self) {
+    auto* vkgradientselector = dynamic_cast<const VirtualKGradientSelector*>(self);
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        vkgradientselector->setKGradientSelector_MinimumSize_IsBase(true);
+        return new QSize(vkgradientselector->minimumSize());
+    }
+    return {};
+}
+
 libqt_string KGradientSelector_Tr2(const char* s, const char* c) {
     QString _ret = KGradientSelector::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2140,62 +2155,6 @@ libqt_string KGradientSelector_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KGradientSelector_DrawContents(KGradientSelector* self, QPainter* param1) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->drawContents(param1);
-    } else {
-        ((VirtualKGradientSelector*)self)->drawContents(param1);
-    }
-}
-
-// Base class handler implementation
-void KGradientSelector_QBaseDrawContents(KGradientSelector* self, QPainter* param1) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DrawContents_IsBase(true);
-        vkgradientselector->drawContents(param1);
-    } else {
-        ((VirtualKGradientSelector*)self)->drawContents(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnDrawContents(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DrawContents_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DrawContents_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* KGradientSelector_MinimumSize(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return new QSize(vkgradientselector->minimumSize());
-    }
-    return {};
-}
-
-// Base class handler implementation
-QSize* KGradientSelector_QBaseMinimumSize(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MinimumSize_IsBase(true);
-        return new QSize(vkgradientselector->minimumSize());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnMinimumSize(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MinimumSize_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MinimumSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

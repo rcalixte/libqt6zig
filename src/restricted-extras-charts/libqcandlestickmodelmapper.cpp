@@ -86,6 +86,34 @@ QCandlestickSeries* QCandlestickModelMapper_Series(const QCandlestickModelMapper
     return self->series();
 }
 
+int QCandlestickModelMapper_Orientation(const QCandlestickModelMapper* self) {
+    auto* vqcandlestickmodelmapper = dynamic_cast<const VirtualQCandlestickModelMapper*>(self);
+    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
+        return static_cast<int>(vqcandlestickmodelmapper->orientation());
+    } else {
+        return static_cast<int>(((VirtualQCandlestickModelMapper*)self)->orientation());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QCandlestickModelMapper_OnOrientation(const QCandlestickModelMapper* self, intptr_t slot) {
+    auto* vqcandlestickmodelmapper = const_cast<VirtualQCandlestickModelMapper*>(dynamic_cast<const VirtualQCandlestickModelMapper*>(self));
+    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
+        vqcandlestickmodelmapper->setQCandlestickModelMapper_Orientation_Callback(reinterpret_cast<VirtualQCandlestickModelMapper::QCandlestickModelMapper_Orientation_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QCandlestickModelMapper_QBaseOrientation(const QCandlestickModelMapper* self) {
+    auto* vqcandlestickmodelmapper = dynamic_cast<const VirtualQCandlestickModelMapper*>(self);
+    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
+        vqcandlestickmodelmapper->setQCandlestickModelMapper_Orientation_IsBase(true);
+        return static_cast<int>(vqcandlestickmodelmapper->orientation());
+    } else {
+        return static_cast<int>(((VirtualQCandlestickModelMapper*)self)->orientation());
+    }
+}
+
 void QCandlestickModelMapper_ModelReplaced(QCandlestickModelMapper* self) {
     self->modelReplaced();
 }
@@ -130,35 +158,6 @@ libqt_string QCandlestickModelMapper_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QCandlestickModelMapper_Orientation(const QCandlestickModelMapper* self) {
-    auto* vqcandlestickmodelmapper = const_cast<VirtualQCandlestickModelMapper*>(dynamic_cast<const VirtualQCandlestickModelMapper*>(self));
-    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
-        return static_cast<int>(vqcandlestickmodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQCandlestickModelMapper*)self)->orientation());
-    }
-}
-
-// Base class handler implementation
-int QCandlestickModelMapper_QBaseOrientation(const QCandlestickModelMapper* self) {
-    auto* vqcandlestickmodelmapper = const_cast<VirtualQCandlestickModelMapper*>(dynamic_cast<const VirtualQCandlestickModelMapper*>(self));
-    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
-        vqcandlestickmodelmapper->setQCandlestickModelMapper_Orientation_IsBase(true);
-        return static_cast<int>(vqcandlestickmodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQCandlestickModelMapper*)self)->orientation());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCandlestickModelMapper_OnOrientation(const QCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqcandlestickmodelmapper = const_cast<VirtualQCandlestickModelMapper*>(dynamic_cast<const VirtualQCandlestickModelMapper*>(self));
-    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
-        vqcandlestickmodelmapper->setQCandlestickModelMapper_Orientation_Callback(reinterpret_cast<VirtualQCandlestickModelMapper::QCandlestickModelMapper_Orientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -70,6 +70,34 @@ libqt_string QBarSeries_Tr(const char* s) {
     return _str;
 }
 
+int QBarSeries_Type(const QBarSeries* self) {
+    auto* vqbarseries = dynamic_cast<const VirtualQBarSeries*>(self);
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQBarSeries*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QBarSeries_OnType(const QBarSeries* self, intptr_t slot) {
+    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+        vqbarseries->setQBarSeries_Type_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QBarSeries_QBaseType(const QBarSeries* self) {
+    auto* vqbarseries = dynamic_cast<const VirtualQBarSeries*>(self);
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+        vqbarseries->setQBarSeries_Type_IsBase(true);
+        return static_cast<int>(vqbarseries->type());
+    } else {
+        return static_cast<int>(((VirtualQBarSeries*)self)->type());
+    }
+}
+
 libqt_string QBarSeries_Tr2(const char* s, const char* c) {
     QString _ret = QBarSeries::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -92,35 +120,6 @@ libqt_string QBarSeries_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QBarSeries_Type(const QBarSeries* self) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        return static_cast<int>(vqbarseries->type());
-    } else {
-        return static_cast<int>(self->QBarSeries::type());
-    }
-}
-
-// Base class handler implementation
-int QBarSeries_QBaseType(const QBarSeries* self) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_Type_IsBase(true);
-        return static_cast<int>(vqbarseries->type());
-    } else {
-        return static_cast<int>(self->QBarSeries::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBarSeries_OnType(const QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_Type_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

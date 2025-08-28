@@ -249,6 +249,118 @@ void QTabWidget_SetTabShape(QTabWidget* self, int s) {
     self->setTabShape(static_cast<QTabWidget::TabShape>(s));
 }
 
+QSize* QTabWidget_SizeHint(const QTabWidget* self) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQTabWidget*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnSizeHint(const QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_SizeHint_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QTabWidget_QBaseSizeHint(const QTabWidget* self) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_SizeHint_IsBase(true);
+        return new QSize(vqtabwidget->sizeHint());
+    } else {
+        return new QSize(((VirtualQTabWidget*)self)->sizeHint());
+    }
+}
+
+QSize* QTabWidget_MinimumSizeHint(const QTabWidget* self) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQTabWidget*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnMinimumSizeHint(const QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QTabWidget_QBaseMinimumSizeHint(const QTabWidget* self) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_MinimumSizeHint_IsBase(true);
+        return new QSize(vqtabwidget->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQTabWidget*)self)->minimumSizeHint());
+    }
+}
+
+int QTabWidget_HeightForWidth(const QTabWidget* self, int width) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        return self->heightForWidth(static_cast<int>(width));
+    } else {
+        return ((VirtualQTabWidget*)self)->heightForWidth(static_cast<int>(width));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnHeightForWidth(const QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_HeightForWidth_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QTabWidget_QBaseHeightForWidth(const QTabWidget* self, int width) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_HeightForWidth_IsBase(true);
+        return vqtabwidget->heightForWidth(static_cast<int>(width));
+    } else {
+        return ((VirtualQTabWidget*)self)->heightForWidth(static_cast<int>(width));
+    }
+}
+
+bool QTabWidget_HasHeightForWidth(const QTabWidget* self) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        return self->hasHeightForWidth();
+    } else {
+        return ((VirtualQTabWidget*)self)->hasHeightForWidth();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnHasHeightForWidth(const QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_HasHeightForWidth_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTabWidget_QBaseHasHeightForWidth(const QTabWidget* self) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_HasHeightForWidth_IsBase(true);
+        return vqtabwidget->hasHeightForWidth();
+    } else {
+        return ((VirtualQTabWidget*)self)->hasHeightForWidth();
+    }
+}
+
 void QTabWidget_SetCornerWidget(QTabWidget* self, QWidget* w) {
     self->setCornerWidget(w);
 }
@@ -361,6 +473,224 @@ void QTabWidget_Connect_TabBarDoubleClicked(QTabWidget* self, intptr_t slot) {
     });
 }
 
+void QTabWidget_TabInserted(QTabWidget* self, int index) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->tabInserted(static_cast<int>(index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnTabInserted(QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_TabInserted_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_TabInserted_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTabWidget_QBaseTabInserted(QTabWidget* self, int index) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_TabInserted_IsBase(true);
+        vqtabwidget->tabInserted(static_cast<int>(index));
+    }
+}
+
+void QTabWidget_TabRemoved(QTabWidget* self, int index) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->tabRemoved(static_cast<int>(index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnTabRemoved(QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_TabRemoved_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_TabRemoved_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTabWidget_QBaseTabRemoved(QTabWidget* self, int index) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_TabRemoved_IsBase(true);
+        vqtabwidget->tabRemoved(static_cast<int>(index));
+    }
+}
+
+void QTabWidget_ShowEvent(QTabWidget* self, QShowEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->showEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnShowEvent(QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_ShowEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_ShowEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTabWidget_QBaseShowEvent(QTabWidget* self, QShowEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_ShowEvent_IsBase(true);
+        vqtabwidget->showEvent(param1);
+    }
+}
+
+void QTabWidget_ResizeEvent(QTabWidget* self, QResizeEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->resizeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnResizeEvent(QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTabWidget_QBaseResizeEvent(QTabWidget* self, QResizeEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_ResizeEvent_IsBase(true);
+        vqtabwidget->resizeEvent(param1);
+    }
+}
+
+void QTabWidget_KeyPressEvent(QTabWidget* self, QKeyEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->keyPressEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnKeyPressEvent(QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTabWidget_QBaseKeyPressEvent(QTabWidget* self, QKeyEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_KeyPressEvent_IsBase(true);
+        vqtabwidget->keyPressEvent(param1);
+    }
+}
+
+void QTabWidget_PaintEvent(QTabWidget* self, QPaintEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnPaintEvent(QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_PaintEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTabWidget_QBasePaintEvent(QTabWidget* self, QPaintEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_PaintEvent_IsBase(true);
+        vqtabwidget->paintEvent(param1);
+    }
+}
+
+void QTabWidget_ChangeEvent(QTabWidget* self, QEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->changeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnChangeEvent(QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTabWidget_QBaseChangeEvent(QTabWidget* self, QEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_ChangeEvent_IsBase(true);
+        vqtabwidget->changeEvent(param1);
+    }
+}
+
+bool QTabWidget_Event(QTabWidget* self, QEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        return vqtabwidget->event(param1);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnEvent(QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_Event_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTabWidget_QBaseEvent(QTabWidget* self, QEvent* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_Event_IsBase(true);
+        return vqtabwidget->event(param1);
+    }
+    return {};
+}
+
+void QTabWidget_InitStyleOption(const QTabWidget* self, QStyleOptionTabWidgetFrame* option) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->initStyleOption(option);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabWidget_OnInitStyleOption(const QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTabWidget_QBaseInitStyleOption(const QTabWidget* self, QStyleOptionTabWidgetFrame* option) {
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_InitStyleOption_IsBase(true);
+        vqtabwidget->initStyleOption(option);
+    }
+}
+
 libqt_string QTabWidget_Tr2(const char* s, const char* c) {
     QString _ret = QTabWidget::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -391,383 +721,6 @@ void QTabWidget_SetCornerWidget2(QTabWidget* self, QWidget* w, int corner) {
 
 QWidget* QTabWidget_CornerWidget1(const QTabWidget* self, int corner) {
     return self->cornerWidget(static_cast<Qt::Corner>(corner));
-}
-
-// Derived class handler implementation
-QSize* QTabWidget_SizeHint(const QTabWidget* self) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return new QSize(vqtabwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQTabWidget*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QTabWidget_QBaseSizeHint(const QTabWidget* self) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_SizeHint_IsBase(true);
-        return new QSize(vqtabwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQTabWidget*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnSizeHint(const QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_SizeHint_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QTabWidget_MinimumSizeHint(const QTabWidget* self) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return new QSize(vqtabwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTabWidget*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QTabWidget_QBaseMinimumSizeHint(const QTabWidget* self) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vqtabwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTabWidget*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnMinimumSizeHint(const QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QTabWidget_HeightForWidth(const QTabWidget* self, int width) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return vqtabwidget->heightForWidth(static_cast<int>(width));
-    } else {
-        return self->QTabWidget::heightForWidth(static_cast<int>(width));
-    }
-}
-
-// Base class handler implementation
-int QTabWidget_QBaseHeightForWidth(const QTabWidget* self, int width) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_HeightForWidth_IsBase(true);
-        return vqtabwidget->heightForWidth(static_cast<int>(width));
-    } else {
-        return self->QTabWidget::heightForWidth(static_cast<int>(width));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnHeightForWidth(const QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_HeightForWidth_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTabWidget_HasHeightForWidth(const QTabWidget* self) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return vqtabwidget->hasHeightForWidth();
-    } else {
-        return self->QTabWidget::hasHeightForWidth();
-    }
-}
-
-// Base class handler implementation
-bool QTabWidget_QBaseHasHeightForWidth(const QTabWidget* self) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_HasHeightForWidth_IsBase(true);
-        return vqtabwidget->hasHeightForWidth();
-    } else {
-        return self->QTabWidget::hasHeightForWidth();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnHasHeightForWidth(const QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_HasHeightForWidth_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTabWidget_TabInserted(QTabWidget* self, int index) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->tabInserted(static_cast<int>(index));
-    } else {
-        ((VirtualQTabWidget*)self)->tabInserted(static_cast<int>(index));
-    }
-}
-
-// Base class handler implementation
-void QTabWidget_QBaseTabInserted(QTabWidget* self, int index) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_TabInserted_IsBase(true);
-        vqtabwidget->tabInserted(static_cast<int>(index));
-    } else {
-        ((VirtualQTabWidget*)self)->tabInserted(static_cast<int>(index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnTabInserted(QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_TabInserted_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_TabInserted_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTabWidget_TabRemoved(QTabWidget* self, int index) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->tabRemoved(static_cast<int>(index));
-    } else {
-        ((VirtualQTabWidget*)self)->tabRemoved(static_cast<int>(index));
-    }
-}
-
-// Base class handler implementation
-void QTabWidget_QBaseTabRemoved(QTabWidget* self, int index) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_TabRemoved_IsBase(true);
-        vqtabwidget->tabRemoved(static_cast<int>(index));
-    } else {
-        ((VirtualQTabWidget*)self)->tabRemoved(static_cast<int>(index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnTabRemoved(QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_TabRemoved_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_TabRemoved_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTabWidget_ShowEvent(QTabWidget* self, QShowEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->showEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->showEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QTabWidget_QBaseShowEvent(QTabWidget* self, QShowEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_ShowEvent_IsBase(true);
-        vqtabwidget->showEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->showEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnShowEvent(QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_ShowEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_ShowEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTabWidget_ResizeEvent(QTabWidget* self, QResizeEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->resizeEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->resizeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QTabWidget_QBaseResizeEvent(QTabWidget* self, QResizeEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_ResizeEvent_IsBase(true);
-        vqtabwidget->resizeEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->resizeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnResizeEvent(QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTabWidget_KeyPressEvent(QTabWidget* self, QKeyEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->keyPressEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->keyPressEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QTabWidget_QBaseKeyPressEvent(QTabWidget* self, QKeyEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_KeyPressEvent_IsBase(true);
-        vqtabwidget->keyPressEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->keyPressEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnKeyPressEvent(QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTabWidget_PaintEvent(QTabWidget* self, QPaintEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->paintEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QTabWidget_QBasePaintEvent(QTabWidget* self, QPaintEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_PaintEvent_IsBase(true);
-        vqtabwidget->paintEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnPaintEvent(QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_PaintEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTabWidget_ChangeEvent(QTabWidget* self, QEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->changeEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->changeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QTabWidget_QBaseChangeEvent(QTabWidget* self, QEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_ChangeEvent_IsBase(true);
-        vqtabwidget->changeEvent(param1);
-    } else {
-        ((VirtualQTabWidget*)self)->changeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnChangeEvent(QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTabWidget_Event(QTabWidget* self, QEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return vqtabwidget->event(param1);
-    } else {
-        return ((VirtualQTabWidget*)self)->event(param1);
-    }
-}
-
-// Base class handler implementation
-bool QTabWidget_QBaseEvent(QTabWidget* self, QEvent* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_Event_IsBase(true);
-        return vqtabwidget->event(param1);
-    } else {
-        return ((VirtualQTabWidget*)self)->event(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnEvent(QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_Event_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTabWidget_InitStyleOption(const QTabWidget* self, QStyleOptionTabWidgetFrame* option) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->initStyleOption(option);
-    } else {
-        ((VirtualQTabWidget*)self)->initStyleOption(option);
-    }
-}
-
-// Base class handler implementation
-void QTabWidget_QBaseInitStyleOption(const QTabWidget* self, QStyleOptionTabWidgetFrame* option) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_InitStyleOption_IsBase(true);
-        vqtabwidget->initStyleOption(option);
-    } else {
-        ((VirtualQTabWidget*)self)->initStyleOption(option);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabWidget_OnInitStyleOption(const QTabWidget* self, intptr_t slot) {
-    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        vqtabwidget->setQTabWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

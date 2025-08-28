@@ -216,6 +216,128 @@ void QToolBox_Connect_CurrentChanged(QToolBox* self, intptr_t slot) {
     });
 }
 
+bool QToolBox_Event(QToolBox* self, QEvent* e) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        return vqtoolbox->event(e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBox_OnEvent(QToolBox* self, intptr_t slot) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_Event_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QToolBox_QBaseEvent(QToolBox* self, QEvent* e) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_Event_IsBase(true);
+        return vqtoolbox->event(e);
+    }
+    return {};
+}
+
+void QToolBox_ItemInserted(QToolBox* self, int index) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->itemInserted(static_cast<int>(index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBox_OnItemInserted(QToolBox* self, intptr_t slot) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_ItemInserted_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ItemInserted_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QToolBox_QBaseItemInserted(QToolBox* self, int index) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_ItemInserted_IsBase(true);
+        vqtoolbox->itemInserted(static_cast<int>(index));
+    }
+}
+
+void QToolBox_ItemRemoved(QToolBox* self, int index) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->itemRemoved(static_cast<int>(index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBox_OnItemRemoved(QToolBox* self, intptr_t slot) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_ItemRemoved_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ItemRemoved_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QToolBox_QBaseItemRemoved(QToolBox* self, int index) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_ItemRemoved_IsBase(true);
+        vqtoolbox->itemRemoved(static_cast<int>(index));
+    }
+}
+
+void QToolBox_ShowEvent(QToolBox* self, QShowEvent* e) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->showEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBox_OnShowEvent(QToolBox* self, intptr_t slot) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_ShowEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ShowEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QToolBox_QBaseShowEvent(QToolBox* self, QShowEvent* e) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_ShowEvent_IsBase(true);
+        vqtoolbox->showEvent(e);
+    }
+}
+
+void QToolBox_ChangeEvent(QToolBox* self, QEvent* param1) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->changeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBox_OnChangeEvent(QToolBox* self, intptr_t slot) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_ChangeEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QToolBox_QBaseChangeEvent(QToolBox* self, QEvent* param1) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_ChangeEvent_IsBase(true);
+        vqtoolbox->changeEvent(param1);
+    }
+}
+
 libqt_string QToolBox_Tr2(const char* s, const char* c) {
     QString _ret = QToolBox::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -238,151 +360,6 @@ libqt_string QToolBox_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool QToolBox_Event(QToolBox* self, QEvent* e) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        return vqtoolbox->event(e);
-    } else {
-        return ((VirtualQToolBox*)self)->event(e);
-    }
-}
-
-// Base class handler implementation
-bool QToolBox_QBaseEvent(QToolBox* self, QEvent* e) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_Event_IsBase(true);
-        return vqtoolbox->event(e);
-    } else {
-        return ((VirtualQToolBox*)self)->event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBox_OnEvent(QToolBox* self, intptr_t slot) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_Event_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QToolBox_ItemInserted(QToolBox* self, int index) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->itemInserted(static_cast<int>(index));
-    } else {
-        ((VirtualQToolBox*)self)->itemInserted(static_cast<int>(index));
-    }
-}
-
-// Base class handler implementation
-void QToolBox_QBaseItemInserted(QToolBox* self, int index) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_ItemInserted_IsBase(true);
-        vqtoolbox->itemInserted(static_cast<int>(index));
-    } else {
-        ((VirtualQToolBox*)self)->itemInserted(static_cast<int>(index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBox_OnItemInserted(QToolBox* self, intptr_t slot) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_ItemInserted_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ItemInserted_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QToolBox_ItemRemoved(QToolBox* self, int index) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->itemRemoved(static_cast<int>(index));
-    } else {
-        ((VirtualQToolBox*)self)->itemRemoved(static_cast<int>(index));
-    }
-}
-
-// Base class handler implementation
-void QToolBox_QBaseItemRemoved(QToolBox* self, int index) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_ItemRemoved_IsBase(true);
-        vqtoolbox->itemRemoved(static_cast<int>(index));
-    } else {
-        ((VirtualQToolBox*)self)->itemRemoved(static_cast<int>(index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBox_OnItemRemoved(QToolBox* self, intptr_t slot) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_ItemRemoved_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ItemRemoved_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QToolBox_ShowEvent(QToolBox* self, QShowEvent* e) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->showEvent(e);
-    } else {
-        ((VirtualQToolBox*)self)->showEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QToolBox_QBaseShowEvent(QToolBox* self, QShowEvent* e) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_ShowEvent_IsBase(true);
-        vqtoolbox->showEvent(e);
-    } else {
-        ((VirtualQToolBox*)self)->showEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBox_OnShowEvent(QToolBox* self, intptr_t slot) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_ShowEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ShowEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QToolBox_ChangeEvent(QToolBox* self, QEvent* param1) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->changeEvent(param1);
-    } else {
-        ((VirtualQToolBox*)self)->changeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QToolBox_QBaseChangeEvent(QToolBox* self, QEvent* param1) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_ChangeEvent_IsBase(true);
-        vqtoolbox->changeEvent(param1);
-    } else {
-        ((VirtualQToolBox*)self)->changeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBox_OnChangeEvent(QToolBox* self, intptr_t slot) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        vqtoolbox->setQToolBox_ChangeEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

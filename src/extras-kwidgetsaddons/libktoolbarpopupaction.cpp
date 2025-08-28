@@ -83,6 +83,34 @@ void KToolBarPopupAction_SetPopupMode(KToolBarPopupAction* self, int popupMode) 
     self->setPopupMode(static_cast<KToolBarPopupAction::PopupMode>(popupMode));
 }
 
+QWidget* KToolBarPopupAction_CreateWidget(KToolBarPopupAction* self, QWidget* parent) {
+    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+        return self->createWidget(parent);
+    } else {
+        return ((VirtualKToolBarPopupAction*)self)->createWidget(parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KToolBarPopupAction_OnCreateWidget(KToolBarPopupAction* self, intptr_t slot) {
+    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+        vktoolbarpopupaction->setKToolBarPopupAction_CreateWidget_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_CreateWidget_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QWidget* KToolBarPopupAction_QBaseCreateWidget(KToolBarPopupAction* self, QWidget* parent) {
+    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+        vktoolbarpopupaction->setKToolBarPopupAction_CreateWidget_IsBase(true);
+        return vktoolbarpopupaction->createWidget(parent);
+    } else {
+        return ((VirtualKToolBarPopupAction*)self)->createWidget(parent);
+    }
+}
+
 libqt_string KToolBarPopupAction_Tr2(const char* s, const char* c) {
     QString _ret = KToolBarPopupAction::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -105,35 +133,6 @@ libqt_string KToolBarPopupAction_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QWidget* KToolBarPopupAction_CreateWidget(KToolBarPopupAction* self, QWidget* parent) {
-    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
-        return vktoolbarpopupaction->createWidget(parent);
-    } else {
-        return self->KToolBarPopupAction::createWidget(parent);
-    }
-}
-
-// Base class handler implementation
-QWidget* KToolBarPopupAction_QBaseCreateWidget(KToolBarPopupAction* self, QWidget* parent) {
-    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
-        vktoolbarpopupaction->setKToolBarPopupAction_CreateWidget_IsBase(true);
-        return vktoolbarpopupaction->createWidget(parent);
-    } else {
-        return self->KToolBarPopupAction::createWidget(parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBarPopupAction_OnCreateWidget(KToolBarPopupAction* self, intptr_t slot) {
-    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
-        vktoolbarpopupaction->setKToolBarPopupAction_CreateWidget_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

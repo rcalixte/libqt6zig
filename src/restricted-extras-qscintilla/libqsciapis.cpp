@@ -115,6 +115,242 @@ bool QsciAPIs_SavePrepared(const QsciAPIs* self) {
     return self->savePrepared();
 }
 
+void QsciAPIs_UpdateAutoCompletionList(QsciAPIs* self, const libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
+    QList<QString> context_QList;
+    context_QList.reserve(context.len);
+    libqt_string* context_arr = static_cast<libqt_string*>(context.data);
+    for (size_t i = 0; i < context.len; ++i) {
+        QString context_arr_i_QString = QString::fromUtf8(context_arr[i].data, context_arr[i].len);
+        context_QList.push_back(context_arr_i_QString);
+    }
+    QList<QString> list_QList;
+    list_QList.reserve(list.len);
+    libqt_string* list_arr = static_cast<libqt_string*>(list.data);
+    for (size_t i = 0; i < list.len; ++i) {
+        QString list_arr_i_QString = QString::fromUtf8(list_arr[i].data, list_arr[i].len);
+        list_QList.push_back(list_arr_i_QString);
+    }
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        self->updateAutoCompletionList(context_QList, list_QList);
+    } else {
+        ((VirtualQsciAPIs*)self)->updateAutoCompletionList(context_QList, list_QList);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciAPIs_OnUpdateAutoCompletionList(QsciAPIs* self, intptr_t slot) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_UpdateAutoCompletionList_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_UpdateAutoCompletionList_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciAPIs_QBaseUpdateAutoCompletionList(QsciAPIs* self, const libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
+    QList<QString> context_QList;
+    context_QList.reserve(context.len);
+    libqt_string* context_arr = static_cast<libqt_string*>(context.data);
+    for (size_t i = 0; i < context.len; ++i) {
+        QString context_arr_i_QString = QString::fromUtf8(context_arr[i].data, context_arr[i].len);
+        context_QList.push_back(context_arr_i_QString);
+    }
+    QList<QString> list_QList;
+    list_QList.reserve(list.len);
+    libqt_string* list_arr = static_cast<libqt_string*>(list.data);
+    for (size_t i = 0; i < list.len; ++i) {
+        QString list_arr_i_QString = QString::fromUtf8(list_arr[i].data, list_arr[i].len);
+        list_QList.push_back(list_arr_i_QString);
+    }
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_UpdateAutoCompletionList_IsBase(true);
+        vqsciapis->updateAutoCompletionList(context_QList, list_QList);
+    } else {
+        ((VirtualQsciAPIs*)self)->updateAutoCompletionList(context_QList, list_QList);
+    }
+}
+
+void QsciAPIs_AutoCompletionSelected(QsciAPIs* self, const libqt_string sel) {
+    QString sel_QString = QString::fromUtf8(sel.data, sel.len);
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        self->autoCompletionSelected(sel_QString);
+    } else {
+        ((VirtualQsciAPIs*)self)->autoCompletionSelected(sel_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciAPIs_OnAutoCompletionSelected(QsciAPIs* self, intptr_t slot) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_AutoCompletionSelected_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_AutoCompletionSelected_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciAPIs_QBaseAutoCompletionSelected(QsciAPIs* self, const libqt_string sel) {
+    QString sel_QString = QString::fromUtf8(sel.data, sel.len);
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_AutoCompletionSelected_IsBase(true);
+        vqsciapis->autoCompletionSelected(sel_QString);
+    } else {
+        ((VirtualQsciAPIs*)self)->autoCompletionSelected(sel_QString);
+    }
+}
+
+libqt_list /* of libqt_string */ QsciAPIs_CallTips(QsciAPIs* self, const libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
+    QList<QString> context_QList;
+    context_QList.reserve(context.len);
+    libqt_string* context_arr = static_cast<libqt_string*>(context.data);
+    for (size_t i = 0; i < context.len; ++i) {
+        QString context_arr_i_QString = QString::fromUtf8(context_arr[i].data, context_arr[i].len);
+        context_QList.push_back(context_arr_i_QString);
+    }
+    QList<int> shifts_QList;
+    shifts_QList.reserve(shifts.len);
+    int* shifts_arr = static_cast<int*>(shifts.data);
+    for (size_t i = 0; i < shifts.len; ++i) {
+        shifts_QList.push_back(static_cast<int>(shifts_arr[i]));
+    }
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        QList<QString> _ret = self->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    } else {
+        QList<QString> _ret = ((VirtualQsciAPIs*)self)->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciAPIs_OnCallTips(QsciAPIs* self, intptr_t slot) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_CallTips_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_CallTips_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_list /* of libqt_string */ QsciAPIs_QBaseCallTips(QsciAPIs* self, const libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
+    QList<QString> context_QList;
+    context_QList.reserve(context.len);
+    libqt_string* context_arr = static_cast<libqt_string*>(context.data);
+    for (size_t i = 0; i < context.len; ++i) {
+        QString context_arr_i_QString = QString::fromUtf8(context_arr[i].data, context_arr[i].len);
+        context_QList.push_back(context_arr_i_QString);
+    }
+    QList<int> shifts_QList;
+    shifts_QList.reserve(shifts.len);
+    int* shifts_arr = static_cast<int*>(shifts.data);
+    for (size_t i = 0; i < shifts.len; ++i) {
+        shifts_QList.push_back(static_cast<int>(shifts_arr[i]));
+    }
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_CallTips_IsBase(true);
+        QList<QString> _ret = vqsciapis->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    } else {
+        QList<QString> _ret = ((VirtualQsciAPIs*)self)->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    }
+}
+
+bool QsciAPIs_Event(QsciAPIs* self, QEvent* e) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        return self->event(e);
+    } else {
+        return ((VirtualQsciAPIs*)self)->event(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciAPIs_OnEvent(QsciAPIs* self, intptr_t slot) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_Event_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QsciAPIs_QBaseEvent(QsciAPIs* self, QEvent* e) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_Event_IsBase(true);
+        return vqsciapis->event(e);
+    } else {
+        return ((VirtualQsciAPIs*)self)->event(e);
+    }
+}
+
 libqt_list /* of libqt_string */ QsciAPIs_InstalledAPIFiles(const QsciAPIs* self) {
     QList<QString> _ret = self->installedAPIFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -206,246 +442,6 @@ bool QsciAPIs_LoadPrepared1(QsciAPIs* self, const libqt_string filename) {
 bool QsciAPIs_SavePrepared1(const QsciAPIs* self, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return self->savePrepared(filename_QString);
-}
-
-// Derived class handler implementation
-void QsciAPIs_UpdateAutoCompletionList(QsciAPIs* self, const libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    QList<QString> context_QList;
-    context_QList.reserve(context.len);
-    libqt_string* context_arr = static_cast<libqt_string*>(context.data);
-    for (size_t i = 0; i < context.len; ++i) {
-        QString context_arr_i_QString = QString::fromUtf8(context_arr[i].data, context_arr[i].len);
-        context_QList.push_back(context_arr_i_QString);
-    }
-    QList<QString> list_QList;
-    list_QList.reserve(list.len);
-    libqt_string* list_arr = static_cast<libqt_string*>(list.data);
-    for (size_t i = 0; i < list.len; ++i) {
-        QString list_arr_i_QString = QString::fromUtf8(list_arr[i].data, list_arr[i].len);
-        list_QList.push_back(list_arr_i_QString);
-    }
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->updateAutoCompletionList(context_QList, list_QList);
-    } else {
-        self->QsciAPIs::updateAutoCompletionList(context_QList, list_QList);
-    }
-}
-
-// Base class handler implementation
-void QsciAPIs_QBaseUpdateAutoCompletionList(QsciAPIs* self, const libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    QList<QString> context_QList;
-    context_QList.reserve(context.len);
-    libqt_string* context_arr = static_cast<libqt_string*>(context.data);
-    for (size_t i = 0; i < context.len; ++i) {
-        QString context_arr_i_QString = QString::fromUtf8(context_arr[i].data, context_arr[i].len);
-        context_QList.push_back(context_arr_i_QString);
-    }
-    QList<QString> list_QList;
-    list_QList.reserve(list.len);
-    libqt_string* list_arr = static_cast<libqt_string*>(list.data);
-    for (size_t i = 0; i < list.len; ++i) {
-        QString list_arr_i_QString = QString::fromUtf8(list_arr[i].data, list_arr[i].len);
-        list_QList.push_back(list_arr_i_QString);
-    }
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_UpdateAutoCompletionList_IsBase(true);
-        vqsciapis->updateAutoCompletionList(context_QList, list_QList);
-    } else {
-        self->QsciAPIs::updateAutoCompletionList(context_QList, list_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciAPIs_OnUpdateAutoCompletionList(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_UpdateAutoCompletionList_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_UpdateAutoCompletionList_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciAPIs_AutoCompletionSelected(QsciAPIs* self, const libqt_string sel) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    QString sel_QString = QString::fromUtf8(sel.data, sel.len);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->autoCompletionSelected(sel_QString);
-    } else {
-        self->QsciAPIs::autoCompletionSelected(sel_QString);
-    }
-}
-
-// Base class handler implementation
-void QsciAPIs_QBaseAutoCompletionSelected(QsciAPIs* self, const libqt_string sel) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    QString sel_QString = QString::fromUtf8(sel.data, sel.len);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_AutoCompletionSelected_IsBase(true);
-        vqsciapis->autoCompletionSelected(sel_QString);
-    } else {
-        self->QsciAPIs::autoCompletionSelected(sel_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciAPIs_OnAutoCompletionSelected(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_AutoCompletionSelected_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_AutoCompletionSelected_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_list /* of libqt_string */ QsciAPIs_CallTips(QsciAPIs* self, const libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    QList<QString> context_QList;
-    context_QList.reserve(context.len);
-    libqt_string* context_arr = static_cast<libqt_string*>(context.data);
-    for (size_t i = 0; i < context.len; ++i) {
-        QString context_arr_i_QString = QString::fromUtf8(context_arr[i].data, context_arr[i].len);
-        context_QList.push_back(context_arr_i_QString);
-    }
-    QList<int> shifts_QList;
-    shifts_QList.reserve(shifts.len);
-    int* shifts_arr = static_cast<int*>(shifts.data);
-    for (size_t i = 0; i < shifts.len; ++i) {
-        shifts_QList.push_back(static_cast<int>(shifts_arr[i]));
-    }
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        QList<QString> _ret = vqsciapis->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QsciAPIs::callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Base class handler implementation
-libqt_list /* of libqt_string */ QsciAPIs_QBaseCallTips(QsciAPIs* self, const libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    QList<QString> context_QList;
-    context_QList.reserve(context.len);
-    libqt_string* context_arr = static_cast<libqt_string*>(context.data);
-    for (size_t i = 0; i < context.len; ++i) {
-        QString context_arr_i_QString = QString::fromUtf8(context_arr[i].data, context_arr[i].len);
-        context_QList.push_back(context_arr_i_QString);
-    }
-    QList<int> shifts_QList;
-    shifts_QList.reserve(shifts.len);
-    int* shifts_arr = static_cast<int*>(shifts.data);
-    for (size_t i = 0; i < shifts.len; ++i) {
-        shifts_QList.push_back(static_cast<int>(shifts_arr[i]));
-    }
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_CallTips_IsBase(true);
-        QList<QString> _ret = vqsciapis->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QsciAPIs::callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciAPIs_OnCallTips(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_CallTips_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_CallTips_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QsciAPIs_Event(QsciAPIs* self, QEvent* e) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        return vqsciapis->event(e);
-    } else {
-        return self->QsciAPIs::event(e);
-    }
-}
-
-// Base class handler implementation
-bool QsciAPIs_QBaseEvent(QsciAPIs* self, QEvent* e) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_Event_IsBase(true);
-        return vqsciapis->event(e);
-    } else {
-        return self->QsciAPIs::event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciAPIs_OnEvent(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_Event_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

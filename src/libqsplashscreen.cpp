@@ -171,6 +171,80 @@ void QSplashScreen_Connect_MessageChanged(QSplashScreen* self, intptr_t slot) {
     });
 }
 
+bool QSplashScreen_Event(QSplashScreen* self, QEvent* e) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        return vqsplashscreen->event(e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSplashScreen_OnEvent(QSplashScreen* self, intptr_t slot) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_Event_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSplashScreen_QBaseEvent(QSplashScreen* self, QEvent* e) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_Event_IsBase(true);
+        return vqsplashscreen->event(e);
+    }
+    return {};
+}
+
+void QSplashScreen_DrawContents(QSplashScreen* self, QPainter* painter) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->drawContents(painter);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSplashScreen_OnDrawContents(QSplashScreen* self, intptr_t slot) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_DrawContents_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DrawContents_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSplashScreen_QBaseDrawContents(QSplashScreen* self, QPainter* painter) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_DrawContents_IsBase(true);
+        vqsplashscreen->drawContents(painter);
+    }
+}
+
+void QSplashScreen_MousePressEvent(QSplashScreen* self, QMouseEvent* param1) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->mousePressEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSplashScreen_OnMousePressEvent(QSplashScreen* self, intptr_t slot) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_MousePressEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSplashScreen_QBaseMousePressEvent(QSplashScreen* self, QMouseEvent* param1) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_MousePressEvent_IsBase(true);
+        vqsplashscreen->mousePressEvent(param1);
+    }
+}
+
 libqt_string QSplashScreen_Tr2(const char* s, const char* c) {
     QString _ret = QSplashScreen::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -203,93 +277,6 @@ void QSplashScreen_ShowMessage2(QSplashScreen* self, const libqt_string message,
 void QSplashScreen_ShowMessage3(QSplashScreen* self, const libqt_string message, int alignment, const QColor* color) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     self->showMessage(message_QString, static_cast<int>(alignment), *color);
-}
-
-// Derived class handler implementation
-bool QSplashScreen_Event(QSplashScreen* self, QEvent* e) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->event(e);
-    } else {
-        return ((VirtualQSplashScreen*)self)->event(e);
-    }
-}
-
-// Base class handler implementation
-bool QSplashScreen_QBaseEvent(QSplashScreen* self, QEvent* e) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Event_IsBase(true);
-        return vqsplashscreen->event(e);
-    } else {
-        return ((VirtualQSplashScreen*)self)->event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Event_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSplashScreen_DrawContents(QSplashScreen* self, QPainter* painter) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->drawContents(painter);
-    } else {
-        ((VirtualQSplashScreen*)self)->drawContents(painter);
-    }
-}
-
-// Base class handler implementation
-void QSplashScreen_QBaseDrawContents(QSplashScreen* self, QPainter* painter) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_DrawContents_IsBase(true);
-        vqsplashscreen->drawContents(painter);
-    } else {
-        ((VirtualQSplashScreen*)self)->drawContents(painter);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnDrawContents(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_DrawContents_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DrawContents_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSplashScreen_MousePressEvent(QSplashScreen* self, QMouseEvent* param1) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->mousePressEvent(param1);
-    } else {
-        ((VirtualQSplashScreen*)self)->mousePressEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QSplashScreen_QBaseMousePressEvent(QSplashScreen* self, QMouseEvent* param1) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_MousePressEvent_IsBase(true);
-        vqsplashscreen->mousePressEvent(param1);
-    } else {
-        ((VirtualQSplashScreen*)self)->mousePressEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnMousePressEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_MousePressEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

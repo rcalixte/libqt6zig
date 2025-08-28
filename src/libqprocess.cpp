@@ -221,6 +221,34 @@ bool QProcess_StartDetached(QProcess* self) {
     return self->startDetached();
 }
 
+bool QProcess_Open(QProcess* self, int mode) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        return self->open(static_cast<QProcess::OpenMode>(mode));
+    } else {
+        return ((VirtualQProcess*)self)->open(static_cast<QProcess::OpenMode>(mode));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QProcess_OnOpen(QProcess* self, intptr_t slot) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_Open_Callback(reinterpret_cast<VirtualQProcess::QProcess_Open_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QProcess_QBaseOpen(QProcess* self, int mode) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_Open_IsBase(true);
+        return vqprocess->open(static_cast<QProcess::OpenMode>(mode));
+    } else {
+        return ((VirtualQProcess*)self)->open(static_cast<QProcess::OpenMode>(mode));
+    }
+}
+
 libqt_string QProcess_Program(const QProcess* self) {
     QString _ret = self->program();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -410,6 +438,62 @@ bool QProcess_WaitForStarted(QProcess* self) {
     return self->waitForStarted();
 }
 
+bool QProcess_WaitForReadyRead(QProcess* self, int msecs) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        return self->waitForReadyRead(static_cast<int>(msecs));
+    } else {
+        return ((VirtualQProcess*)self)->waitForReadyRead(static_cast<int>(msecs));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QProcess_OnWaitForReadyRead(QProcess* self, intptr_t slot) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_WaitForReadyRead_Callback(reinterpret_cast<VirtualQProcess::QProcess_WaitForReadyRead_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QProcess_QBaseWaitForReadyRead(QProcess* self, int msecs) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_WaitForReadyRead_IsBase(true);
+        return vqprocess->waitForReadyRead(static_cast<int>(msecs));
+    } else {
+        return ((VirtualQProcess*)self)->waitForReadyRead(static_cast<int>(msecs));
+    }
+}
+
+bool QProcess_WaitForBytesWritten(QProcess* self, int msecs) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        return self->waitForBytesWritten(static_cast<int>(msecs));
+    } else {
+        return ((VirtualQProcess*)self)->waitForBytesWritten(static_cast<int>(msecs));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QProcess_OnWaitForBytesWritten(QProcess* self, intptr_t slot) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQProcess::QProcess_WaitForBytesWritten_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QProcess_QBaseWaitForBytesWritten(QProcess* self, int msecs) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_WaitForBytesWritten_IsBase(true);
+        return vqprocess->waitForBytesWritten(static_cast<int>(msecs));
+    } else {
+        return ((VirtualQProcess*)self)->waitForBytesWritten(static_cast<int>(msecs));
+    }
+}
+
 bool QProcess_WaitForFinished(QProcess* self) {
     return self->waitForFinished();
 }
@@ -440,6 +524,90 @@ int QProcess_ExitCode(const QProcess* self) {
 
 int QProcess_ExitStatus(const QProcess* self) {
     return static_cast<int>(self->exitStatus());
+}
+
+long long QProcess_BytesToWrite(const QProcess* self) {
+    auto* vqprocess = dynamic_cast<const VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        return static_cast<long long>(self->bytesToWrite());
+    } else {
+        return static_cast<long long>(((VirtualQProcess*)self)->bytesToWrite());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QProcess_OnBytesToWrite(const QProcess* self, intptr_t slot) {
+    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_BytesToWrite_Callback(reinterpret_cast<VirtualQProcess::QProcess_BytesToWrite_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+long long QProcess_QBaseBytesToWrite(const QProcess* self) {
+    auto* vqprocess = dynamic_cast<const VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_BytesToWrite_IsBase(true);
+        return static_cast<long long>(vqprocess->bytesToWrite());
+    } else {
+        return static_cast<long long>(((VirtualQProcess*)self)->bytesToWrite());
+    }
+}
+
+bool QProcess_IsSequential(const QProcess* self) {
+    auto* vqprocess = dynamic_cast<const VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        return self->isSequential();
+    } else {
+        return ((VirtualQProcess*)self)->isSequential();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QProcess_OnIsSequential(const QProcess* self, intptr_t slot) {
+    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_IsSequential_Callback(reinterpret_cast<VirtualQProcess::QProcess_IsSequential_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QProcess_QBaseIsSequential(const QProcess* self) {
+    auto* vqprocess = dynamic_cast<const VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_IsSequential_IsBase(true);
+        return vqprocess->isSequential();
+    } else {
+        return ((VirtualQProcess*)self)->isSequential();
+    }
+}
+
+void QProcess_Close(QProcess* self) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        self->close();
+    } else {
+        ((VirtualQProcess*)self)->close();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QProcess_OnClose(QProcess* self, intptr_t slot) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_Close_Callback(reinterpret_cast<VirtualQProcess::QProcess_Close_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QProcess_QBaseClose(QProcess* self) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_Close_IsBase(true);
+        vqprocess->close();
+    } else {
+        ((VirtualQProcess*)self)->close();
+    }
 }
 
 int QProcess_Execute(const libqt_string program) {
@@ -515,6 +683,58 @@ void QProcess_Connect_ErrorOccurred(QProcess* self, intptr_t slot) {
         int sigval1 = static_cast<int>(errorVal);
         slotFunc(self, sigval1);
     });
+}
+
+long long QProcess_ReadData(QProcess* self, char* data, long long maxlen) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        return static_cast<long long>(vqprocess->readData(data, static_cast<qint64>(maxlen)));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QProcess_OnReadData(QProcess* self, intptr_t slot) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_ReadData_Callback(reinterpret_cast<VirtualQProcess::QProcess_ReadData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+long long QProcess_QBaseReadData(QProcess* self, char* data, long long maxlen) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_ReadData_IsBase(true);
+        return static_cast<long long>(vqprocess->readData(data, static_cast<qint64>(maxlen)));
+    }
+    return {};
+}
+
+long long QProcess_WriteData(QProcess* self, const char* data, long long lenVal) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        return static_cast<long long>(vqprocess->writeData(data, static_cast<qint64>(lenVal)));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QProcess_OnWriteData(QProcess* self, intptr_t slot) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_WriteData_Callback(reinterpret_cast<VirtualQProcess::QProcess_WriteData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+long long QProcess_QBaseWriteData(QProcess* self, const char* data, long long lenVal) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_WriteData_IsBase(true);
+        return static_cast<long long>(vqprocess->writeData(data, static_cast<qint64>(lenVal)));
+    }
+    return {};
 }
 
 libqt_string QProcess_Tr2(const char* s, const char* c) {
@@ -661,238 +881,6 @@ void QProcess_Connect_Finished2(QProcess* self, intptr_t slot) {
         int sigval2 = static_cast<int>(exitStatus);
         slotFunc(self, sigval1, sigval2);
     });
-}
-
-// Derived class handler implementation
-bool QProcess_Open(QProcess* self, int mode) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return vqprocess->open(static_cast<QProcess::OpenMode>(mode));
-    } else {
-        return self->QProcess::open(static_cast<QProcess::OpenMode>(mode));
-    }
-}
-
-// Base class handler implementation
-bool QProcess_QBaseOpen(QProcess* self, int mode) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_Open_IsBase(true);
-        return vqprocess->open(static_cast<QProcess::OpenMode>(mode));
-    } else {
-        return self->QProcess::open(static_cast<QProcess::OpenMode>(mode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProcess_OnOpen(QProcess* self, intptr_t slot) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_Open_Callback(reinterpret_cast<VirtualQProcess::QProcess_Open_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QProcess_WaitForReadyRead(QProcess* self, int msecs) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return vqprocess->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return self->QProcess::waitForReadyRead(static_cast<int>(msecs));
-    }
-}
-
-// Base class handler implementation
-bool QProcess_QBaseWaitForReadyRead(QProcess* self, int msecs) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_WaitForReadyRead_IsBase(true);
-        return vqprocess->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return self->QProcess::waitForReadyRead(static_cast<int>(msecs));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProcess_OnWaitForReadyRead(QProcess* self, intptr_t slot) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_WaitForReadyRead_Callback(reinterpret_cast<VirtualQProcess::QProcess_WaitForReadyRead_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QProcess_WaitForBytesWritten(QProcess* self, int msecs) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return vqprocess->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return self->QProcess::waitForBytesWritten(static_cast<int>(msecs));
-    }
-}
-
-// Base class handler implementation
-bool QProcess_QBaseWaitForBytesWritten(QProcess* self, int msecs) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_WaitForBytesWritten_IsBase(true);
-        return vqprocess->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return self->QProcess::waitForBytesWritten(static_cast<int>(msecs));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProcess_OnWaitForBytesWritten(QProcess* self, intptr_t slot) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQProcess::QProcess_WaitForBytesWritten_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-long long QProcess_BytesToWrite(const QProcess* self) {
-    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return static_cast<long long>(vqprocess->bytesToWrite());
-    } else {
-        return static_cast<long long>(self->QProcess::bytesToWrite());
-    }
-}
-
-// Base class handler implementation
-long long QProcess_QBaseBytesToWrite(const QProcess* self) {
-    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_BytesToWrite_IsBase(true);
-        return static_cast<long long>(vqprocess->bytesToWrite());
-    } else {
-        return static_cast<long long>(self->QProcess::bytesToWrite());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProcess_OnBytesToWrite(const QProcess* self, intptr_t slot) {
-    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_BytesToWrite_Callback(reinterpret_cast<VirtualQProcess::QProcess_BytesToWrite_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QProcess_IsSequential(const QProcess* self) {
-    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return vqprocess->isSequential();
-    } else {
-        return self->QProcess::isSequential();
-    }
-}
-
-// Base class handler implementation
-bool QProcess_QBaseIsSequential(const QProcess* self) {
-    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_IsSequential_IsBase(true);
-        return vqprocess->isSequential();
-    } else {
-        return self->QProcess::isSequential();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProcess_OnIsSequential(const QProcess* self, intptr_t slot) {
-    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_IsSequential_Callback(reinterpret_cast<VirtualQProcess::QProcess_IsSequential_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QProcess_Close(QProcess* self) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->close();
-    } else {
-        self->QProcess::close();
-    }
-}
-
-// Base class handler implementation
-void QProcess_QBaseClose(QProcess* self) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_Close_IsBase(true);
-        vqprocess->close();
-    } else {
-        self->QProcess::close();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProcess_OnClose(QProcess* self, intptr_t slot) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_Close_Callback(reinterpret_cast<VirtualQProcess::QProcess_Close_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-long long QProcess_ReadData(QProcess* self, char* data, long long maxlen) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return static_cast<long long>(vqprocess->readData(data, static_cast<qint64>(maxlen)));
-    } else {
-        return static_cast<long long>(((VirtualQProcess*)self)->readData(data, static_cast<qint64>(maxlen)));
-    }
-}
-
-// Base class handler implementation
-long long QProcess_QBaseReadData(QProcess* self, char* data, long long maxlen) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_ReadData_IsBase(true);
-        return static_cast<long long>(vqprocess->readData(data, static_cast<qint64>(maxlen)));
-    } else {
-        return static_cast<long long>(((VirtualQProcess*)self)->readData(data, static_cast<qint64>(maxlen)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProcess_OnReadData(QProcess* self, intptr_t slot) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_ReadData_Callback(reinterpret_cast<VirtualQProcess::QProcess_ReadData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-long long QProcess_WriteData(QProcess* self, const char* data, long long lenVal) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return static_cast<long long>(vqprocess->writeData(data, static_cast<qint64>(lenVal)));
-    } else {
-        return static_cast<long long>(((VirtualQProcess*)self)->writeData(data, static_cast<qint64>(lenVal)));
-    }
-}
-
-// Base class handler implementation
-long long QProcess_QBaseWriteData(QProcess* self, const char* data, long long lenVal) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_WriteData_IsBase(true);
-        return static_cast<long long>(vqprocess->writeData(data, static_cast<qint64>(lenVal)));
-    } else {
-        return static_cast<long long>(((VirtualQProcess*)self)->writeData(data, static_cast<qint64>(lenVal)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProcess_OnWriteData(QProcess* self, intptr_t slot) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        vqprocess->setQProcess_WriteData_Callback(reinterpret_cast<VirtualQProcess::QProcess_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

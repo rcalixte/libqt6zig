@@ -70,6 +70,34 @@ libqt_string QColorAxis_Tr(const char* s) {
     return _str;
 }
 
+int QColorAxis_Type(const QColorAxis* self) {
+    auto* vqcoloraxis = dynamic_cast<const VirtualQColorAxis*>(self);
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQColorAxis*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QColorAxis_OnType(const QColorAxis* self, intptr_t slot) {
+    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+        vqcoloraxis->setQColorAxis_Type_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QColorAxis_QBaseType(const QColorAxis* self) {
+    auto* vqcoloraxis = dynamic_cast<const VirtualQColorAxis*>(self);
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+        vqcoloraxis->setQColorAxis_Type_IsBase(true);
+        return static_cast<int>(vqcoloraxis->type());
+    } else {
+        return static_cast<int>(((VirtualQColorAxis*)self)->type());
+    }
+}
+
 void QColorAxis_SetMin(QColorAxis* self, double min) {
     self->setMin(static_cast<qreal>(min));
 }
@@ -231,35 +259,6 @@ libqt_string QColorAxis_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QColorAxis_Type(const QColorAxis* self) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return static_cast<int>(vqcoloraxis->type());
-    } else {
-        return static_cast<int>(self->QColorAxis::type());
-    }
-}
-
-// Base class handler implementation
-int QColorAxis_QBaseType(const QColorAxis* self) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_Type_IsBase(true);
-        return static_cast<int>(vqcoloraxis->type());
-    } else {
-        return static_cast<int>(self->QColorAxis::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorAxis_OnType(const QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_Type_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

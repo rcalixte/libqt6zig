@@ -155,6 +155,30 @@ void QMediaDevices_Connect_VideoInputsChanged(QMediaDevices* self, intptr_t slot
     });
 }
 
+void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->connectNotify(*signal);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMediaDevices_OnConnectNotify(QMediaDevices* self, intptr_t slot) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->setQMediaDevices_ConnectNotify_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_ConnectNotify_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->setQMediaDevices_ConnectNotify_IsBase(true);
+        vqmediadevices->connectNotify(*signal);
+    }
+}
+
 libqt_string QMediaDevices_Tr2(const char* s, const char* c) {
     QString _ret = QMediaDevices::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -177,35 +201,6 @@ libqt_string QMediaDevices_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
-    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
-        vqmediadevices->connectNotify(*signal);
-    } else {
-        ((VirtualQMediaDevices*)self)->connectNotify(*signal);
-    }
-}
-
-// Base class handler implementation
-void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
-    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
-        vqmediadevices->setQMediaDevices_ConnectNotify_IsBase(true);
-        vqmediadevices->connectNotify(*signal);
-    } else {
-        ((VirtualQMediaDevices*)self)->connectNotify(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMediaDevices_OnConnectNotify(QMediaDevices* self, intptr_t slot) {
-    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
-        vqmediadevices->setQMediaDevices_ConnectNotify_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

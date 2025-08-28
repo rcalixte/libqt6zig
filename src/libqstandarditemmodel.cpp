@@ -49,6 +49,90 @@ QStandardItem* QStandardItem_new5(int rows, int columns) {
     return new VirtualQStandardItem(static_cast<int>(rows), static_cast<int>(columns));
 }
 
+QVariant* QStandardItem_Data(const QStandardItem* self, int role) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        return new QVariant(self->data(static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQStandardItem*)self)->data(static_cast<int>(role)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItem_OnData(const QStandardItem* self, intptr_t slot) {
+    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Data_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Data_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QStandardItem_QBaseData(const QStandardItem* self, int role) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Data_IsBase(true);
+        return new QVariant(vqstandarditem->data(static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQStandardItem*)self)->data(static_cast<int>(role)));
+    }
+}
+
+void QStandardItem_MultiData(const QStandardItem* self, QModelRoleDataSpan* roleDataSpan) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        self->multiData(*roleDataSpan);
+    } else {
+        ((VirtualQStandardItem*)self)->multiData(*roleDataSpan);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItem_OnMultiData(const QStandardItem* self, intptr_t slot) {
+    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_MultiData_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_MultiData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStandardItem_QBaseMultiData(const QStandardItem* self, QModelRoleDataSpan* roleDataSpan) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_MultiData_IsBase(true);
+        vqstandarditem->multiData(*roleDataSpan);
+    } else {
+        ((VirtualQStandardItem*)self)->multiData(*roleDataSpan);
+    }
+}
+
+void QStandardItem_SetData(QStandardItem* self, const QVariant* value, int role) {
+    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        self->setData(*value, static_cast<int>(role));
+    } else {
+        ((VirtualQStandardItem*)self)->setData(*value, static_cast<int>(role));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItem_OnSetData(QStandardItem* self, intptr_t slot) {
+    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_SetData_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_SetData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStandardItem_QBaseSetData(QStandardItem* self, const QVariant* value, int role) {
+    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_SetData_IsBase(true);
+        vqstandarditem->setData(*value, static_cast<int>(role));
+    } else {
+        ((VirtualQStandardItem*)self)->setData(*value, static_cast<int>(role));
+    }
+}
+
 void QStandardItem_ClearData(QStandardItem* self) {
     self->clearData();
 }
@@ -461,6 +545,146 @@ void QStandardItem_SortChildren(QStandardItem* self, int column) {
     self->sortChildren(static_cast<int>(column));
 }
 
+QStandardItem* QStandardItem_Clone(const QStandardItem* self) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        return self->clone();
+    } else {
+        return ((VirtualQStandardItem*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItem_OnClone(const QStandardItem* self, intptr_t slot) {
+    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Clone_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QStandardItem* QStandardItem_QBaseClone(const QStandardItem* self) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Clone_IsBase(true);
+        return vqstandarditem->clone();
+    } else {
+        return ((VirtualQStandardItem*)self)->clone();
+    }
+}
+
+int QStandardItem_Type(const QStandardItem* self) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        return self->type();
+    } else {
+        return ((VirtualQStandardItem*)self)->type();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItem_OnType(const QStandardItem* self, intptr_t slot) {
+    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Type_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QStandardItem_QBaseType(const QStandardItem* self) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Type_IsBase(true);
+        return vqstandarditem->type();
+    } else {
+        return ((VirtualQStandardItem*)self)->type();
+    }
+}
+
+void QStandardItem_Read(QStandardItem* self, QDataStream* in) {
+    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        self->read(*in);
+    } else {
+        ((VirtualQStandardItem*)self)->read(*in);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItem_OnRead(QStandardItem* self, intptr_t slot) {
+    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Read_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Read_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStandardItem_QBaseRead(QStandardItem* self, QDataStream* in) {
+    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Read_IsBase(true);
+        vqstandarditem->read(*in);
+    } else {
+        ((VirtualQStandardItem*)self)->read(*in);
+    }
+}
+
+void QStandardItem_Write(const QStandardItem* self, QDataStream* out) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        self->write(*out);
+    } else {
+        ((VirtualQStandardItem*)self)->write(*out);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItem_OnWrite(const QStandardItem* self, intptr_t slot) {
+    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Write_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Write_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStandardItem_QBaseWrite(const QStandardItem* self, QDataStream* out) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_Write_IsBase(true);
+        vqstandarditem->write(*out);
+    } else {
+        ((VirtualQStandardItem*)self)->write(*out);
+    }
+}
+
+bool QStandardItem_OperatorLesser(const QStandardItem* self, const QStandardItem* other) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        return (*self < *other);
+    } else {
+        return ((VirtualQStandardItem*)self)->operator<(*other);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItem_OnOperatorLesser(const QStandardItem* self, intptr_t slot) {
+    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_OperatorLesser_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_OperatorLesser_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItem_QBaseOperatorLesser(const QStandardItem* self, const QStandardItem* other) {
+    auto* vqstandarditem = dynamic_cast<const VirtualQStandardItem*>(self);
+    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
+        vqstandarditem->setQStandardItem_OperatorLesser_IsBase(true);
+        return vqstandarditem->operator<(*other);
+    } else {
+        return ((VirtualQStandardItem*)self)->operator<(*other);
+    }
+}
+
 QStandardItem* QStandardItem_Child2(const QStandardItem* self, int row, int column) {
     return self->child(static_cast<int>(row), static_cast<int>(column));
 }
@@ -471,238 +695,6 @@ QStandardItem* QStandardItem_TakeChild2(QStandardItem* self, int row, int column
 
 void QStandardItem_SortChildren2(QStandardItem* self, int column, int order) {
     self->sortChildren(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-}
-
-// Derived class handler implementation
-QVariant* QStandardItem_Data(const QStandardItem* self, int role) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        return new QVariant(vqstandarditem->data(static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQStandardItem*)self)->data(static_cast<int>(role)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QStandardItem_QBaseData(const QStandardItem* self, int role) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Data_IsBase(true);
-        return new QVariant(vqstandarditem->data(static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQStandardItem*)self)->data(static_cast<int>(role)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItem_OnData(const QStandardItem* self, intptr_t slot) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Data_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Data_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStandardItem_MultiData(const QStandardItem* self, QModelRoleDataSpan* roleDataSpan) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->multiData(*roleDataSpan);
-    } else {
-        self->QStandardItem::multiData(*roleDataSpan);
-    }
-}
-
-// Base class handler implementation
-void QStandardItem_QBaseMultiData(const QStandardItem* self, QModelRoleDataSpan* roleDataSpan) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_MultiData_IsBase(true);
-        vqstandarditem->multiData(*roleDataSpan);
-    } else {
-        self->QStandardItem::multiData(*roleDataSpan);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItem_OnMultiData(const QStandardItem* self, intptr_t slot) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_MultiData_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_MultiData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStandardItem_SetData(QStandardItem* self, const QVariant* value, int role) {
-    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setData(*value, static_cast<int>(role));
-    } else {
-        self->QStandardItem::setData(*value, static_cast<int>(role));
-    }
-}
-
-// Base class handler implementation
-void QStandardItem_QBaseSetData(QStandardItem* self, const QVariant* value, int role) {
-    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_SetData_IsBase(true);
-        vqstandarditem->setData(*value, static_cast<int>(role));
-    } else {
-        self->QStandardItem::setData(*value, static_cast<int>(role));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItem_OnSetData(QStandardItem* self, intptr_t slot) {
-    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_SetData_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_SetData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QStandardItem* QStandardItem_Clone(const QStandardItem* self) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        return vqstandarditem->clone();
-    } else {
-        return self->QStandardItem::clone();
-    }
-}
-
-// Base class handler implementation
-QStandardItem* QStandardItem_QBaseClone(const QStandardItem* self) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Clone_IsBase(true);
-        return vqstandarditem->clone();
-    } else {
-        return self->QStandardItem::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItem_OnClone(const QStandardItem* self, intptr_t slot) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Clone_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Clone_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QStandardItem_Type(const QStandardItem* self) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        return vqstandarditem->type();
-    } else {
-        return self->QStandardItem::type();
-    }
-}
-
-// Base class handler implementation
-int QStandardItem_QBaseType(const QStandardItem* self) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Type_IsBase(true);
-        return vqstandarditem->type();
-    } else {
-        return self->QStandardItem::type();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItem_OnType(const QStandardItem* self, intptr_t slot) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Type_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Type_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStandardItem_Read(QStandardItem* self, QDataStream* in) {
-    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->read(*in);
-    } else {
-        self->QStandardItem::read(*in);
-    }
-}
-
-// Base class handler implementation
-void QStandardItem_QBaseRead(QStandardItem* self, QDataStream* in) {
-    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Read_IsBase(true);
-        vqstandarditem->read(*in);
-    } else {
-        self->QStandardItem::read(*in);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItem_OnRead(QStandardItem* self, intptr_t slot) {
-    auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Read_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Read_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStandardItem_Write(const QStandardItem* self, QDataStream* out) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->write(*out);
-    } else {
-        self->QStandardItem::write(*out);
-    }
-}
-
-// Base class handler implementation
-void QStandardItem_QBaseWrite(const QStandardItem* self, QDataStream* out) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Write_IsBase(true);
-        vqstandarditem->write(*out);
-    } else {
-        self->QStandardItem::write(*out);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItem_OnWrite(const QStandardItem* self, intptr_t slot) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_Write_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_Write_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItem_OperatorLesser(const QStandardItem* self, const QStandardItem* other) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        return vqstandarditem->operator<(*other);
-    } else {
-        return self->QStandardItem::operator<(*other);
-    }
-}
-
-// Base class handler implementation
-bool QStandardItem_QBaseOperatorLesser(const QStandardItem* self, const QStandardItem* other) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_OperatorLesser_IsBase(true);
-        return vqstandarditem->operator<(*other);
-    } else {
-        return self->QStandardItem::operator<(*other);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItem_OnOperatorLesser(const QStandardItem* self, intptr_t slot) {
-    auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
-    if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
-        vqstandarditem->setQStandardItem_OperatorLesser_Callback(reinterpret_cast<VirtualQStandardItem::QStandardItem_OperatorLesser_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,8 +835,744 @@ void QStandardItemModel_SetItemRoleNames(QStandardItemModel* self, const libqt_m
     self->setItemRoleNames(roleNames_QMap);
 }
 
+libqt_map /* of int to libqt_string */ QStandardItemModel_RoleNames(const QStandardItemModel* self) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        QHash<int, QByteArray> _ret = self->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QHash<int, QByteArray> _ret = ((VirtualQStandardItemModel*)self)->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnRoleNames(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_RoleNames_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_RoleNames_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_map /* of int to libqt_string */ QStandardItemModel_QBaseRoleNames(const QStandardItemModel* self) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_RoleNames_IsBase(true);
+        QHash<int, QByteArray> _ret = vqstandarditemmodel->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QHash<int, QByteArray> _ret = ((VirtualQStandardItemModel*)self)->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+QModelIndex* QStandardItemModel_Index(const QStandardItemModel* self, int row, int column, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
+    } else {
+        return new QModelIndex(((VirtualQStandardItemModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnIndex(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Index_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Index_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QModelIndex* QStandardItemModel_QBaseIndex(const QStandardItemModel* self, int row, int column, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Index_IsBase(true);
+        return new QModelIndex(vqstandarditemmodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
+    } else {
+        return new QModelIndex(((VirtualQStandardItemModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
+    }
+}
+
+QModelIndex* QStandardItemModel_Parent(const QStandardItemModel* self, const QModelIndex* child) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return new QModelIndex(self->parent(*child));
+    } else {
+        return new QModelIndex(((VirtualQStandardItemModel*)self)->parent(*child));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnParent(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Parent_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Parent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QModelIndex* QStandardItemModel_QBaseParent(const QStandardItemModel* self, const QModelIndex* child) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Parent_IsBase(true);
+        return new QModelIndex(vqstandarditemmodel->parent(*child));
+    } else {
+        return new QModelIndex(((VirtualQStandardItemModel*)self)->parent(*child));
+    }
+}
+
+int QStandardItemModel_RowCount(const QStandardItemModel* self, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->rowCount(*parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->rowCount(*parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnRowCount(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_RowCount_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_RowCount_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QStandardItemModel_QBaseRowCount(const QStandardItemModel* self, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_RowCount_IsBase(true);
+        return vqstandarditemmodel->rowCount(*parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->rowCount(*parent);
+    }
+}
+
+int QStandardItemModel_ColumnCount(const QStandardItemModel* self, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->columnCount(*parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->columnCount(*parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnColumnCount(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_ColumnCount_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_ColumnCount_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QStandardItemModel_QBaseColumnCount(const QStandardItemModel* self, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_ColumnCount_IsBase(true);
+        return vqstandarditemmodel->columnCount(*parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->columnCount(*parent);
+    }
+}
+
+bool QStandardItemModel_HasChildren(const QStandardItemModel* self, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->hasChildren(*parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->hasChildren(*parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnHasChildren(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_HasChildren_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_HasChildren_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseHasChildren(const QStandardItemModel* self, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_HasChildren_IsBase(true);
+        return vqstandarditemmodel->hasChildren(*parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->hasChildren(*parent);
+    }
+}
+
+QVariant* QStandardItemModel_Data(const QStandardItemModel* self, const QModelIndex* index, int role) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return new QVariant(self->data(*index, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQStandardItemModel*)self)->data(*index, static_cast<int>(role)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnData(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Data_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Data_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QStandardItemModel_QBaseData(const QStandardItemModel* self, const QModelIndex* index, int role) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Data_IsBase(true);
+        return new QVariant(vqstandarditemmodel->data(*index, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQStandardItemModel*)self)->data(*index, static_cast<int>(role)));
+    }
+}
+
+void QStandardItemModel_MultiData(const QStandardItemModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        self->multiData(*index, *roleDataSpan);
+    } else {
+        ((VirtualQStandardItemModel*)self)->multiData(*index, *roleDataSpan);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnMultiData(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_MultiData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_MultiData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStandardItemModel_QBaseMultiData(const QStandardItemModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_MultiData_IsBase(true);
+        vqstandarditemmodel->multiData(*index, *roleDataSpan);
+    } else {
+        ((VirtualQStandardItemModel*)self)->multiData(*index, *roleDataSpan);
+    }
+}
+
+bool QStandardItemModel_SetData(QStandardItemModel* self, const QModelIndex* index, const QVariant* value, int role) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->setData(*index, *value, static_cast<int>(role));
+    } else {
+        return ((VirtualQStandardItemModel*)self)->setData(*index, *value, static_cast<int>(role));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnSetData(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_SetData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_SetData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseSetData(QStandardItemModel* self, const QModelIndex* index, const QVariant* value, int role) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_SetData_IsBase(true);
+        return vqstandarditemmodel->setData(*index, *value, static_cast<int>(role));
+    } else {
+        return ((VirtualQStandardItemModel*)self)->setData(*index, *value, static_cast<int>(role));
+    }
+}
+
+bool QStandardItemModel_ClearItemData(QStandardItemModel* self, const QModelIndex* index) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->clearItemData(*index);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->clearItemData(*index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnClearItemData(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_ClearItemData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_ClearItemData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseClearItemData(QStandardItemModel* self, const QModelIndex* index) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_ClearItemData_IsBase(true);
+        return vqstandarditemmodel->clearItemData(*index);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->clearItemData(*index);
+    }
+}
+
+QVariant* QStandardItemModel_HeaderData(const QStandardItemModel* self, int section, int orientation, int role) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQStandardItemModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnHeaderData(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_HeaderData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_HeaderData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QStandardItemModel_QBaseHeaderData(const QStandardItemModel* self, int section, int orientation, int role) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_HeaderData_IsBase(true);
+        return new QVariant(vqstandarditemmodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQStandardItemModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    }
+}
+
+bool QStandardItemModel_SetHeaderData(QStandardItemModel* self, int section, int orientation, const QVariant* value, int role) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
+    } else {
+        return ((VirtualQStandardItemModel*)self)->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnSetHeaderData(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_SetHeaderData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_SetHeaderData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseSetHeaderData(QStandardItemModel* self, int section, int orientation, const QVariant* value, int role) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_SetHeaderData_IsBase(true);
+        return vqstandarditemmodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
+    } else {
+        return ((VirtualQStandardItemModel*)self)->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
+    }
+}
+
+bool QStandardItemModel_InsertRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnInsertRows(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_InsertRows_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_InsertRows_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseInsertRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_InsertRows_IsBase(true);
+        return vqstandarditemmodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+bool QStandardItemModel_InsertColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnInsertColumns(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_InsertColumns_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_InsertColumns_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseInsertColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_InsertColumns_IsBase(true);
+        return vqstandarditemmodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+bool QStandardItemModel_RemoveRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnRemoveRows(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_RemoveRows_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_RemoveRows_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseRemoveRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_RemoveRows_IsBase(true);
+        return vqstandarditemmodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+bool QStandardItemModel_RemoveColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnRemoveColumns(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_RemoveColumns_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_RemoveColumns_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseRemoveColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_RemoveColumns_IsBase(true);
+        return vqstandarditemmodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+int QStandardItemModel_Flags(const QStandardItemModel* self, const QModelIndex* index) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return static_cast<int>(self->flags(*index));
+    } else {
+        return static_cast<int>(((VirtualQStandardItemModel*)self)->flags(*index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnFlags(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Flags_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Flags_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QStandardItemModel_QBaseFlags(const QStandardItemModel* self, const QModelIndex* index) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Flags_IsBase(true);
+        return static_cast<int>(vqstandarditemmodel->flags(*index));
+    } else {
+        return static_cast<int>(((VirtualQStandardItemModel*)self)->flags(*index));
+    }
+}
+
+int QStandardItemModel_SupportedDropActions(const QStandardItemModel* self) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return static_cast<int>(self->supportedDropActions());
+    } else {
+        return static_cast<int>(((VirtualQStandardItemModel*)self)->supportedDropActions());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnSupportedDropActions(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_SupportedDropActions_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QStandardItemModel_QBaseSupportedDropActions(const QStandardItemModel* self) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_SupportedDropActions_IsBase(true);
+        return static_cast<int>(vqstandarditemmodel->supportedDropActions());
+    } else {
+        return static_cast<int>(((VirtualQStandardItemModel*)self)->supportedDropActions());
+    }
+}
+
+libqt_map /* of int to QVariant* */ QStandardItemModel_ItemData(const QStandardItemModel* self, const QModelIndex* index) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        QMap<int, QVariant> _ret = self->itemData(*index);
+        // Convert QMap<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            _varr[_ctr] = new QVariant(_itr->second);
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QMap<int, QVariant> _ret = ((VirtualQStandardItemModel*)self)->itemData(*index);
+        // Convert QMap<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            _varr[_ctr] = new QVariant(_itr->second);
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnItemData(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_ItemData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_ItemData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_map /* of int to QVariant* */ QStandardItemModel_QBaseItemData(const QStandardItemModel* self, const QModelIndex* index) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_ItemData_IsBase(true);
+        QMap<int, QVariant> _ret = vqstandarditemmodel->itemData(*index);
+        // Convert QMap<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            _varr[_ctr] = new QVariant(_itr->second);
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QMap<int, QVariant> _ret = ((VirtualQStandardItemModel*)self)->itemData(*index);
+        // Convert QMap<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            _varr[_ctr] = new QVariant(_itr->second);
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+bool QStandardItemModel_SetItemData(QStandardItemModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+    QMap<int, QVariant> roles_QMap;
+    int* roles_karr = static_cast<int*>(roles.keys);
+    QVariant** roles_varr = static_cast<QVariant**>(roles.values);
+    for (size_t i = 0; i < roles.len; ++i) {
+        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+    }
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->setItemData(*index, roles_QMap);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->setItemData(*index, roles_QMap);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnSetItemData(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_SetItemData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_SetItemData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseSetItemData(QStandardItemModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+    QMap<int, QVariant> roles_QMap;
+    int* roles_karr = static_cast<int*>(roles.keys);
+    QVariant** roles_varr = static_cast<QVariant**>(roles.values);
+    for (size_t i = 0; i < roles.len; ++i) {
+        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+    }
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_SetItemData_IsBase(true);
+        return vqstandarditemmodel->setItemData(*index, roles_QMap);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->setItemData(*index, roles_QMap);
+    }
+}
+
 void QStandardItemModel_Clear(QStandardItemModel* self) {
     self->clear();
+}
+
+void QStandardItemModel_Sort(QStandardItemModel* self, int column, int order) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        ((VirtualQStandardItemModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnSort(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Sort_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Sort_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStandardItemModel_QBaseSort(QStandardItemModel* self, int column, int order) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Sort_IsBase(true);
+        vqstandarditemmodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        ((VirtualQStandardItemModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
 }
 
 QStandardItem* QStandardItemModel_ItemFromIndex(const QStandardItemModel* self, const QModelIndex* index) {
@@ -1041,6 +1769,170 @@ void QStandardItemModel_SetSortRole(QStandardItemModel* self, int role) {
     self->setSortRole(static_cast<int>(role));
 }
 
+libqt_list /* of libqt_string */ QStandardItemModel_MimeTypes(const QStandardItemModel* self) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        QList<QString> _ret = self->mimeTypes();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    } else {
+        QList<QString> _ret = ((VirtualQStandardItemModel*)self)->mimeTypes();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnMimeTypes(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_MimeTypes_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_MimeTypes_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_list /* of libqt_string */ QStandardItemModel_QBaseMimeTypes(const QStandardItemModel* self) {
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_MimeTypes_IsBase(true);
+        QList<QString> _ret = vqstandarditemmodel->mimeTypes();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    } else {
+        QList<QString> _ret = ((VirtualQStandardItemModel*)self)->mimeTypes();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    }
+}
+
+QMimeData* QStandardItemModel_MimeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+    QList<QModelIndex> indexes_QList;
+    indexes_QList.reserve(indexes.len);
+    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
+    for (size_t i = 0; i < indexes.len; ++i) {
+        indexes_QList.push_back(*(indexes_arr[i]));
+    }
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->mimeData(indexes_QList);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->mimeData(indexes_QList);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnMimeData(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_MimeData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_MimeData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QMimeData* QStandardItemModel_QBaseMimeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+    QList<QModelIndex> indexes_QList;
+    indexes_QList.reserve(indexes.len);
+    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
+    for (size_t i = 0; i < indexes.len; ++i) {
+        indexes_QList.push_back(*(indexes_arr[i]));
+    }
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_MimeData_IsBase(true);
+        return vqstandarditemmodel->mimeData(indexes_QList);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->mimeData(indexes_QList);
+    }
+}
+
+bool QStandardItemModel_DropMimeData(QStandardItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStandardItemModel_OnDropMimeData(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_DropMimeData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_DropMimeData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStandardItemModel_QBaseDropMimeData(QStandardItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_DropMimeData_IsBase(true);
+        return vqstandarditemmodel->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
+    }
+}
+
 void QStandardItemModel_ItemChanged(QStandardItemModel* self, QStandardItem* item) {
     self->itemChanged(item);
 }
@@ -1119,930 +2011,6 @@ libqt_list /* of QStandardItem* */ QStandardItemModel_FindItems3(const QStandard
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-// Derived class handler implementation
-libqt_map /* of int to libqt_string */ QStandardItemModel_RoleNames(const QStandardItemModel* self) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        QHash<int, QByteArray> _ret = vqstandarditemmodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = self->QStandardItemModel::roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Base class handler implementation
-libqt_map /* of int to libqt_string */ QStandardItemModel_QBaseRoleNames(const QStandardItemModel* self) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_RoleNames_IsBase(true);
-        QHash<int, QByteArray> _ret = vqstandarditemmodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = self->QStandardItemModel::roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnRoleNames(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_RoleNames_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_RoleNames_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QModelIndex* QStandardItemModel_Index(const QStandardItemModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return new QModelIndex(vqstandarditemmodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQStandardItemModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
-}
-
-// Base class handler implementation
-QModelIndex* QStandardItemModel_QBaseIndex(const QStandardItemModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Index_IsBase(true);
-        return new QModelIndex(vqstandarditemmodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQStandardItemModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnIndex(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Index_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Index_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QModelIndex* QStandardItemModel_Parent(const QStandardItemModel* self, const QModelIndex* child) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return new QModelIndex(vqstandarditemmodel->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualQStandardItemModel*)self)->parent(*child));
-    }
-}
-
-// Base class handler implementation
-QModelIndex* QStandardItemModel_QBaseParent(const QStandardItemModel* self, const QModelIndex* child) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Parent_IsBase(true);
-        return new QModelIndex(vqstandarditemmodel->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualQStandardItemModel*)self)->parent(*child));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnParent(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Parent_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Parent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QStandardItemModel_RowCount(const QStandardItemModel* self, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->rowCount(*parent);
-    } else {
-        return self->QStandardItemModel::rowCount(*parent);
-    }
-}
-
-// Base class handler implementation
-int QStandardItemModel_QBaseRowCount(const QStandardItemModel* self, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_RowCount_IsBase(true);
-        return vqstandarditemmodel->rowCount(*parent);
-    } else {
-        return self->QStandardItemModel::rowCount(*parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnRowCount(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_RowCount_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_RowCount_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QStandardItemModel_ColumnCount(const QStandardItemModel* self, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->columnCount(*parent);
-    } else {
-        return self->QStandardItemModel::columnCount(*parent);
-    }
-}
-
-// Base class handler implementation
-int QStandardItemModel_QBaseColumnCount(const QStandardItemModel* self, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_ColumnCount_IsBase(true);
-        return vqstandarditemmodel->columnCount(*parent);
-    } else {
-        return self->QStandardItemModel::columnCount(*parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnColumnCount(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_ColumnCount_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_ColumnCount_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_HasChildren(const QStandardItemModel* self, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->hasChildren(*parent);
-    } else {
-        return self->QStandardItemModel::hasChildren(*parent);
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseHasChildren(const QStandardItemModel* self, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_HasChildren_IsBase(true);
-        return vqstandarditemmodel->hasChildren(*parent);
-    } else {
-        return self->QStandardItemModel::hasChildren(*parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnHasChildren(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_HasChildren_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_HasChildren_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QStandardItemModel_Data(const QStandardItemModel* self, const QModelIndex* index, int role) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return new QVariant(vqstandarditemmodel->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQStandardItemModel*)self)->data(*index, static_cast<int>(role)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QStandardItemModel_QBaseData(const QStandardItemModel* self, const QModelIndex* index, int role) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Data_IsBase(true);
-        return new QVariant(vqstandarditemmodel->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQStandardItemModel*)self)->data(*index, static_cast<int>(role)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnData(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Data_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Data_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStandardItemModel_MultiData(const QStandardItemModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->QStandardItemModel::multiData(*index, *roleDataSpan);
-    }
-}
-
-// Base class handler implementation
-void QStandardItemModel_QBaseMultiData(const QStandardItemModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_MultiData_IsBase(true);
-        vqstandarditemmodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->QStandardItemModel::multiData(*index, *roleDataSpan);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnMultiData(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_MultiData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_MultiData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_SetData(QStandardItemModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->QStandardItemModel::setData(*index, *value, static_cast<int>(role));
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseSetData(QStandardItemModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_SetData_IsBase(true);
-        return vqstandarditemmodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->QStandardItemModel::setData(*index, *value, static_cast<int>(role));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnSetData(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_SetData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_SetData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_ClearItemData(QStandardItemModel* self, const QModelIndex* index) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->clearItemData(*index);
-    } else {
-        return self->QStandardItemModel::clearItemData(*index);
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseClearItemData(QStandardItemModel* self, const QModelIndex* index) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_ClearItemData_IsBase(true);
-        return vqstandarditemmodel->clearItemData(*index);
-    } else {
-        return self->QStandardItemModel::clearItemData(*index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnClearItemData(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_ClearItemData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_ClearItemData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QStandardItemModel_HeaderData(const QStandardItemModel* self, int section, int orientation, int role) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return new QVariant(vqstandarditemmodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQStandardItemModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QStandardItemModel_QBaseHeaderData(const QStandardItemModel* self, int section, int orientation, int role) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_HeaderData_IsBase(true);
-        return new QVariant(vqstandarditemmodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQStandardItemModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnHeaderData(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_HeaderData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_HeaderData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_SetHeaderData(QStandardItemModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return self->QStandardItemModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseSetHeaderData(QStandardItemModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_SetHeaderData_IsBase(true);
-        return vqstandarditemmodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return self->QStandardItemModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnSetHeaderData(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_SetHeaderData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_SetHeaderData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_InsertRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QStandardItemModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseInsertRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_InsertRows_IsBase(true);
-        return vqstandarditemmodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QStandardItemModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnInsertRows(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_InsertRows_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_InsertRows_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_InsertColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QStandardItemModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseInsertColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_InsertColumns_IsBase(true);
-        return vqstandarditemmodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QStandardItemModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnInsertColumns(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_InsertColumns_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_InsertColumns_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_RemoveRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QStandardItemModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseRemoveRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_RemoveRows_IsBase(true);
-        return vqstandarditemmodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QStandardItemModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnRemoveRows(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_RemoveRows_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_RemoveRows_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_RemoveColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QStandardItemModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseRemoveColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_RemoveColumns_IsBase(true);
-        return vqstandarditemmodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QStandardItemModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnRemoveColumns(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_RemoveColumns_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_RemoveColumns_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QStandardItemModel_Flags(const QStandardItemModel* self, const QModelIndex* index) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return static_cast<int>(vqstandarditemmodel->flags(*index));
-    } else {
-        return static_cast<int>(self->QStandardItemModel::flags(*index));
-    }
-}
-
-// Base class handler implementation
-int QStandardItemModel_QBaseFlags(const QStandardItemModel* self, const QModelIndex* index) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Flags_IsBase(true);
-        return static_cast<int>(vqstandarditemmodel->flags(*index));
-    } else {
-        return static_cast<int>(self->QStandardItemModel::flags(*index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnFlags(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Flags_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Flags_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QStandardItemModel_SupportedDropActions(const QStandardItemModel* self) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return static_cast<int>(vqstandarditemmodel->supportedDropActions());
-    } else {
-        return static_cast<int>(self->QStandardItemModel::supportedDropActions());
-    }
-}
-
-// Base class handler implementation
-int QStandardItemModel_QBaseSupportedDropActions(const QStandardItemModel* self) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_SupportedDropActions_IsBase(true);
-        return static_cast<int>(vqstandarditemmodel->supportedDropActions());
-    } else {
-        return static_cast<int>(self->QStandardItemModel::supportedDropActions());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnSupportedDropActions(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_SupportedDropActions_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_map /* of int to QVariant* */ QStandardItemModel_ItemData(const QStandardItemModel* self, const QModelIndex* index) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        QMap<int, QVariant> _ret = vqstandarditemmodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = self->QStandardItemModel::itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Base class handler implementation
-libqt_map /* of int to QVariant* */ QStandardItemModel_QBaseItemData(const QStandardItemModel* self, const QModelIndex* index) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_ItemData_IsBase(true);
-        QMap<int, QVariant> _ret = vqstandarditemmodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = self->QStandardItemModel::itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnItemData(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_ItemData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_ItemData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_SetItemData(QStandardItemModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    QMap<int, QVariant> roles_QMap;
-    int* roles_karr = static_cast<int*>(roles.keys);
-    QVariant** roles_varr = static_cast<QVariant**>(roles.values);
-    for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
-    }
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->setItemData(*index, roles_QMap);
-    } else {
-        return self->QStandardItemModel::setItemData(*index, roles_QMap);
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseSetItemData(QStandardItemModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    QMap<int, QVariant> roles_QMap;
-    int* roles_karr = static_cast<int*>(roles.keys);
-    QVariant** roles_varr = static_cast<QVariant**>(roles.values);
-    for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
-    }
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_SetItemData_IsBase(true);
-        return vqstandarditemmodel->setItemData(*index, roles_QMap);
-    } else {
-        return self->QStandardItemModel::setItemData(*index, roles_QMap);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnSetItemData(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_SetItemData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_SetItemData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStandardItemModel_Sort(QStandardItemModel* self, int column, int order) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->QStandardItemModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Base class handler implementation
-void QStandardItemModel_QBaseSort(QStandardItemModel* self, int column, int order) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Sort_IsBase(true);
-        vqstandarditemmodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->QStandardItemModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnSort(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_Sort_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Sort_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_list /* of libqt_string */ QStandardItemModel_MimeTypes(const QStandardItemModel* self) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        QList<QString> _ret = vqstandarditemmodel->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QStandardItemModel::mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Base class handler implementation
-libqt_list /* of libqt_string */ QStandardItemModel_QBaseMimeTypes(const QStandardItemModel* self) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_MimeTypes_IsBase(true);
-        QList<QString> _ret = vqstandarditemmodel->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QStandardItemModel::mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnMimeTypes(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_MimeTypes_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_MimeTypes_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QMimeData* QStandardItemModel_MimeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->mimeData(indexes_QList);
-    } else {
-        return self->QStandardItemModel::mimeData(indexes_QList);
-    }
-}
-
-// Base class handler implementation
-QMimeData* QStandardItemModel_QBaseMimeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_MimeData_IsBase(true);
-        return vqstandarditemmodel->mimeData(indexes_QList);
-    } else {
-        return self->QStandardItemModel::mimeData(indexes_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnMimeData(const QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_MimeData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_MimeData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStandardItemModel_DropMimeData(QStandardItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        return vqstandarditemmodel->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->QStandardItemModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
-}
-
-// Base class handler implementation
-bool QStandardItemModel_QBaseDropMimeData(QStandardItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_DropMimeData_IsBase(true);
-        return vqstandarditemmodel->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->QStandardItemModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStandardItemModel_OnDropMimeData(QStandardItemModel* self, intptr_t slot) {
-    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
-    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
-        vqstandarditemmodel->setQStandardItemModel_DropMimeData_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

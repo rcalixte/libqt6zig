@@ -68,6 +68,38 @@ libqt_string QGenericPlugin_Tr(const char* s) {
     return _str;
 }
 
+QObject* QGenericPlugin_Create(QGenericPlugin* self, const libqt_string name, const libqt_string spec) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString spec_QString = QString::fromUtf8(spec.data, spec.len);
+    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+        return vqgenericplugin->create(name_QString, spec_QString);
+    } else {
+        return ((VirtualQGenericPlugin*)self)->create(name_QString, spec_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGenericPlugin_OnCreate(QGenericPlugin* self, intptr_t slot) {
+    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+        vqgenericplugin->setQGenericPlugin_Create_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_Create_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QObject* QGenericPlugin_QBaseCreate(QGenericPlugin* self, const libqt_string name, const libqt_string spec) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString spec_QString = QString::fromUtf8(spec.data, spec.len);
+    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+        vqgenericplugin->setQGenericPlugin_Create_IsBase(true);
+        return vqgenericplugin->create(name_QString, spec_QString);
+    } else {
+        return ((VirtualQGenericPlugin*)self)->create(name_QString, spec_QString);
+    }
+}
+
 libqt_string QGenericPlugin_Tr2(const char* s, const char* c) {
     QString _ret = QGenericPlugin::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -90,39 +122,6 @@ libqt_string QGenericPlugin_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QObject* QGenericPlugin_Create(QGenericPlugin* self, const libqt_string name, const libqt_string spec) {
-    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString spec_QString = QString::fromUtf8(spec.data, spec.len);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
-        return vqgenericplugin->create(name_QString, spec_QString);
-    } else {
-        return ((VirtualQGenericPlugin*)self)->create(name_QString, spec_QString);
-    }
-}
-
-// Base class handler implementation
-QObject* QGenericPlugin_QBaseCreate(QGenericPlugin* self, const libqt_string name, const libqt_string spec) {
-    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString spec_QString = QString::fromUtf8(spec.data, spec.len);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
-        vqgenericplugin->setQGenericPlugin_Create_IsBase(true);
-        return vqgenericplugin->create(name_QString, spec_QString);
-    } else {
-        return ((VirtualQGenericPlugin*)self)->create(name_QString, spec_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGenericPlugin_OnCreate(QGenericPlugin* self, intptr_t slot) {
-    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
-        vqgenericplugin->setQGenericPlugin_Create_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -106,6 +106,34 @@ libqt_string KCharSelect_Tr(const char* s) {
     return _str;
 }
 
+QSize* KCharSelect_SizeHint(const KCharSelect* self) {
+    auto* vkcharselect = dynamic_cast<const VirtualKCharSelect*>(self);
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualKCharSelect*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCharSelect_OnSizeHint(const KCharSelect* self, intptr_t slot) {
+    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+        vkcharselect->setKCharSelect_SizeHint_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KCharSelect_QBaseSizeHint(const KCharSelect* self) {
+    auto* vkcharselect = dynamic_cast<const VirtualKCharSelect*>(self);
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+        vkcharselect->setKCharSelect_SizeHint_IsBase(true);
+        return new QSize(vkcharselect->sizeHint());
+    } else {
+        return new QSize(((VirtualKCharSelect*)self)->sizeHint());
+    }
+}
+
 void KCharSelect_SetAllPlanesEnabled(KCharSelect* self, bool all) {
     self->setAllPlanesEnabled(all);
 }
@@ -263,35 +291,6 @@ libqt_string KCharSelect_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* KCharSelect_SizeHint(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return new QSize(vkcharselect->sizeHint());
-    } else {
-        return new QSize(((VirtualKCharSelect*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KCharSelect_QBaseSizeHint(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_SizeHint_IsBase(true);
-        return new QSize(vkcharselect->sizeHint());
-    } else {
-        return new QSize(((VirtualKCharSelect*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnSizeHint(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_SizeHint_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

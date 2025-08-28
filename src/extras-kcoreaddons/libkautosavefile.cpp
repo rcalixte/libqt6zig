@@ -90,6 +90,62 @@ void KAutoSaveFile_SetManagedFile(KAutoSaveFile* self, const QUrl* filename) {
     self->setManagedFile(*filename);
 }
 
+void KAutoSaveFile_ReleaseLock(KAutoSaveFile* self) {
+    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        self->releaseLock();
+    } else {
+        ((VirtualKAutoSaveFile*)self)->releaseLock();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KAutoSaveFile_OnReleaseLock(KAutoSaveFile* self, intptr_t slot) {
+    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        vkautosavefile->setKAutoSaveFile_ReleaseLock_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReleaseLock_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KAutoSaveFile_QBaseReleaseLock(KAutoSaveFile* self) {
+    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        vkautosavefile->setKAutoSaveFile_ReleaseLock_IsBase(true);
+        vkautosavefile->releaseLock();
+    } else {
+        ((VirtualKAutoSaveFile*)self)->releaseLock();
+    }
+}
+
+bool KAutoSaveFile_Open(KAutoSaveFile* self, int openmode) {
+    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
+    } else {
+        return ((VirtualKAutoSaveFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KAutoSaveFile_OnOpen(KAutoSaveFile* self, intptr_t slot) {
+    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        vkautosavefile->setKAutoSaveFile_Open_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Open_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KAutoSaveFile_QBaseOpen(KAutoSaveFile* self, int openmode) {
+    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        vkautosavefile->setKAutoSaveFile_Open_IsBase(true);
+        return vkautosavefile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
+    } else {
+        return ((VirtualKAutoSaveFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
+    }
+}
+
 libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_StaleFiles(const QUrl* url) {
     QList<KAutoSaveFile*> _ret = KAutoSaveFile::staleFiles(*url);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -166,64 +222,6 @@ libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_AllStaleFiles1(const libqt_stri
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-// Derived class handler implementation
-void KAutoSaveFile_ReleaseLock(KAutoSaveFile* self) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->releaseLock();
-    } else {
-        self->KAutoSaveFile::releaseLock();
-    }
-}
-
-// Base class handler implementation
-void KAutoSaveFile_QBaseReleaseLock(KAutoSaveFile* self) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_ReleaseLock_IsBase(true);
-        vkautosavefile->releaseLock();
-    } else {
-        self->KAutoSaveFile::releaseLock();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnReleaseLock(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_ReleaseLock_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReleaseLock_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KAutoSaveFile_Open(KAutoSaveFile* self, int openmode) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
-    } else {
-        return self->KAutoSaveFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
-    }
-}
-
-// Base class handler implementation
-bool KAutoSaveFile_QBaseOpen(KAutoSaveFile* self, int openmode) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Open_IsBase(true);
-        return vkautosavefile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
-    } else {
-        return self->KAutoSaveFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnOpen(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Open_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

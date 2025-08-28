@@ -69,6 +69,94 @@ libqt_string QTranslator_Tr(const char* s) {
     return _str;
 }
 
+libqt_string QTranslator_Translate(const QTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
+    auto* vqtranslator = dynamic_cast<const VirtualQTranslator*>(self);
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        QString _ret = self->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = ((VirtualQTranslator*)self)->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTranslator_OnTranslate(const QTranslator* self, intptr_t slot) {
+    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        vqtranslator->setQTranslator_Translate_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_Translate_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QTranslator_QBaseTranslate(const QTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
+    auto* vqtranslator = dynamic_cast<const VirtualQTranslator*>(self);
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        vqtranslator->setQTranslator_Translate_IsBase(true);
+        QString _ret = vqtranslator->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = ((VirtualQTranslator*)self)->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+bool QTranslator_IsEmpty(const QTranslator* self) {
+    auto* vqtranslator = dynamic_cast<const VirtualQTranslator*>(self);
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        return self->isEmpty();
+    } else {
+        return ((VirtualQTranslator*)self)->isEmpty();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTranslator_OnIsEmpty(const QTranslator* self, intptr_t slot) {
+    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        vqtranslator->setQTranslator_IsEmpty_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_IsEmpty_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTranslator_QBaseIsEmpty(const QTranslator* self) {
+    auto* vqtranslator = dynamic_cast<const VirtualQTranslator*>(self);
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        vqtranslator->setQTranslator_IsEmpty_IsBase(true);
+        return vqtranslator->isEmpty();
+    } else {
+        return ((VirtualQTranslator*)self)->isEmpty();
+    }
+}
+
 libqt_string QTranslator_Language(const QTranslator* self) {
     QString _ret = self->language();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -176,96 +264,6 @@ bool QTranslator_Load5(QTranslator* self, const QLocale* locale, const libqt_str
 bool QTranslator_Load34(QTranslator* self, const unsigned char* data, int lenVal, const libqt_string directory) {
     QString directory_QString = QString::fromUtf8(directory.data, directory.len);
     return self->load(static_cast<const uchar*>(data), static_cast<int>(lenVal), directory_QString);
-}
-
-// Derived class handler implementation
-libqt_string QTranslator_Translate(const QTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
-    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        QString _ret = vqtranslator->translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = self->QTranslator::translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QTranslator_QBaseTranslate(const QTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
-    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        vqtranslator->setQTranslator_Translate_IsBase(true);
-        QString _ret = vqtranslator->translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = self->QTranslator::translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTranslator_OnTranslate(const QTranslator* self, intptr_t slot) {
-    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        vqtranslator->setQTranslator_Translate_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_Translate_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTranslator_IsEmpty(const QTranslator* self) {
-    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        return vqtranslator->isEmpty();
-    } else {
-        return self->QTranslator::isEmpty();
-    }
-}
-
-// Base class handler implementation
-bool QTranslator_QBaseIsEmpty(const QTranslator* self) {
-    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        vqtranslator->setQTranslator_IsEmpty_IsBase(true);
-        return vqtranslator->isEmpty();
-    } else {
-        return self->QTranslator::isEmpty();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTranslator_OnIsEmpty(const QTranslator* self, intptr_t slot) {
-    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        vqtranslator->setQTranslator_IsEmpty_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_IsEmpty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

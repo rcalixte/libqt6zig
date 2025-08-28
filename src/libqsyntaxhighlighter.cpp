@@ -90,6 +90,32 @@ void QSyntaxHighlighter_RehighlightBlock(QSyntaxHighlighter* self, const QTextBl
     self->rehighlightBlock(*block);
 }
 
+void QSyntaxHighlighter_HighlightBlock(QSyntaxHighlighter* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+        vqsyntaxhighlighter->highlightBlock(text_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSyntaxHighlighter_OnHighlightBlock(QSyntaxHighlighter* self, intptr_t slot) {
+    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+        vqsyntaxhighlighter->setQSyntaxHighlighter_HighlightBlock_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_HighlightBlock_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSyntaxHighlighter_QBaseHighlightBlock(QSyntaxHighlighter* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+        vqsyntaxhighlighter->setQSyntaxHighlighter_HighlightBlock_IsBase(true);
+        vqsyntaxhighlighter->highlightBlock(text_QString);
+    }
+}
+
 libqt_string QSyntaxHighlighter_Tr2(const char* s, const char* c) {
     QString _ret = QSyntaxHighlighter::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -112,37 +138,6 @@ libqt_string QSyntaxHighlighter_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QSyntaxHighlighter_HighlightBlock(QSyntaxHighlighter* self, const libqt_string text) {
-    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
-        vqsyntaxhighlighter->highlightBlock(text_QString);
-    } else {
-        ((VirtualQSyntaxHighlighter*)self)->highlightBlock(text_QString);
-    }
-}
-
-// Base class handler implementation
-void QSyntaxHighlighter_QBaseHighlightBlock(QSyntaxHighlighter* self, const libqt_string text) {
-    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
-        vqsyntaxhighlighter->setQSyntaxHighlighter_HighlightBlock_IsBase(true);
-        vqsyntaxhighlighter->highlightBlock(text_QString);
-    } else {
-        ((VirtualQSyntaxHighlighter*)self)->highlightBlock(text_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSyntaxHighlighter_OnHighlightBlock(QSyntaxHighlighter* self, intptr_t slot) {
-    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
-        vqsyntaxhighlighter->setQSyntaxHighlighter_HighlightBlock_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_HighlightBlock_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

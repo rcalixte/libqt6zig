@@ -152,6 +152,62 @@ void KLed_SetDarkFactor(KLed* self, int darkFactor) {
     self->setDarkFactor(static_cast<int>(darkFactor));
 }
 
+QSize* KLed_SizeHint(const KLed* self) {
+    auto* vkled = dynamic_cast<const VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualKLed*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KLed_OnSizeHint(const KLed* self, intptr_t slot) {
+    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_SizeHint_Callback(reinterpret_cast<VirtualKLed::KLed_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KLed_QBaseSizeHint(const KLed* self) {
+    auto* vkled = dynamic_cast<const VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_SizeHint_IsBase(true);
+        return new QSize(vkled->sizeHint());
+    } else {
+        return new QSize(((VirtualKLed*)self)->sizeHint());
+    }
+}
+
+QSize* KLed_MinimumSizeHint(const KLed* self) {
+    auto* vkled = dynamic_cast<const VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKLed*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KLed_OnMinimumSizeHint(const KLed* self, intptr_t slot) {
+    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_MinimumSizeHint_Callback(reinterpret_cast<VirtualKLed::KLed_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KLed_QBaseMinimumSizeHint(const KLed* self) {
+    auto* vkled = dynamic_cast<const VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_MinimumSizeHint_IsBase(true);
+        return new QSize(vkled->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKLed*)self)->minimumSizeHint());
+    }
+}
+
 void KLed_Toggle(KLed* self) {
     self->toggle();
 }
@@ -162,6 +218,54 @@ void KLed_On(KLed* self) {
 
 void KLed_Off(KLed* self) {
     self->off();
+}
+
+void KLed_PaintEvent(KLed* self, QPaintEvent* param1) {
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KLed_OnPaintEvent(KLed* self, intptr_t slot) {
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_PaintEvent_Callback(reinterpret_cast<VirtualKLed::KLed_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KLed_QBasePaintEvent(KLed* self, QPaintEvent* param1) {
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_PaintEvent_IsBase(true);
+        vkled->paintEvent(param1);
+    }
+}
+
+void KLed_ResizeEvent(KLed* self, QResizeEvent* param1) {
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->resizeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KLed_OnResizeEvent(KLed* self, intptr_t slot) {
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_ResizeEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KLed_QBaseResizeEvent(KLed* self, QResizeEvent* param1) {
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_ResizeEvent_IsBase(true);
+        vkled->resizeEvent(param1);
+    }
 }
 
 libqt_string KLed_Tr2(const char* s, const char* c) {
@@ -186,122 +290,6 @@ libqt_string KLed_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* KLed_SizeHint(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return new QSize(vkled->sizeHint());
-    } else {
-        return new QSize(((VirtualKLed*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KLed_QBaseSizeHint(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_SizeHint_IsBase(true);
-        return new QSize(vkled->sizeHint());
-    } else {
-        return new QSize(((VirtualKLed*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnSizeHint(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_SizeHint_Callback(reinterpret_cast<VirtualKLed::KLed_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* KLed_MinimumSizeHint(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return new QSize(vkled->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKLed*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KLed_QBaseMinimumSizeHint(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_MinimumSizeHint_IsBase(true);
-        return new QSize(vkled->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKLed*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnMinimumSizeHint(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_MinimumSizeHint_Callback(reinterpret_cast<VirtualKLed::KLed_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KLed_PaintEvent(KLed* self, QPaintEvent* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->paintEvent(param1);
-    } else {
-        ((VirtualKLed*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KLed_QBasePaintEvent(KLed* self, QPaintEvent* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_PaintEvent_IsBase(true);
-        vkled->paintEvent(param1);
-    } else {
-        ((VirtualKLed*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnPaintEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_PaintEvent_Callback(reinterpret_cast<VirtualKLed::KLed_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KLed_ResizeEvent(KLed* self, QResizeEvent* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->resizeEvent(param1);
-    } else {
-        ((VirtualKLed*)self)->resizeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KLed_QBaseResizeEvent(KLed* self, QResizeEvent* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_ResizeEvent_IsBase(true);
-        vkled->resizeEvent(param1);
-    } else {
-        ((VirtualKLed*)self)->resizeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnResizeEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_ResizeEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

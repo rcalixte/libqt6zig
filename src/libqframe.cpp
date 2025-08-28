@@ -113,6 +113,34 @@ int QFrame_FrameWidth(const QFrame* self) {
     return self->frameWidth();
 }
 
+QSize* QFrame_SizeHint(const QFrame* self) {
+    auto* vqframe = dynamic_cast<const VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQFrame*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFrame_OnSizeHint(const QFrame* self, intptr_t slot) {
+    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_SizeHint_Callback(reinterpret_cast<VirtualQFrame::QFrame_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QFrame_QBaseSizeHint(const QFrame* self) {
+    auto* vqframe = dynamic_cast<const VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_SizeHint_IsBase(true);
+        return new QSize(vqframe->sizeHint());
+    } else {
+        return new QSize(((VirtualQFrame*)self)->sizeHint());
+    }
+}
+
 int QFrame_FrameShape(const QFrame* self) {
     return static_cast<int>(self->frameShape());
 }
@@ -153,6 +181,104 @@ void QFrame_SetFrameRect(QFrame* self, const QRect* frameRect) {
     self->setFrameRect(*frameRect);
 }
 
+bool QFrame_Event(QFrame* self, QEvent* e) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        return vqframe->event(e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFrame_OnEvent(QFrame* self, intptr_t slot) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_Event_Callback(reinterpret_cast<VirtualQFrame::QFrame_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QFrame_QBaseEvent(QFrame* self, QEvent* e) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_Event_IsBase(true);
+        return vqframe->event(e);
+    }
+    return {};
+}
+
+void QFrame_PaintEvent(QFrame* self, QPaintEvent* param1) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFrame_OnPaintEvent(QFrame* self, intptr_t slot) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_PaintEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QFrame_QBasePaintEvent(QFrame* self, QPaintEvent* param1) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_PaintEvent_IsBase(true);
+        vqframe->paintEvent(param1);
+    }
+}
+
+void QFrame_ChangeEvent(QFrame* self, QEvent* param1) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->changeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFrame_OnChangeEvent(QFrame* self, intptr_t slot) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_ChangeEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QFrame_QBaseChangeEvent(QFrame* self, QEvent* param1) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_ChangeEvent_IsBase(true);
+        vqframe->changeEvent(param1);
+    }
+}
+
+void QFrame_InitStyleOption(const QFrame* self, QStyleOptionFrame* option) {
+    auto* vqframe = dynamic_cast<const VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->initStyleOption(option);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFrame_OnInitStyleOption(const QFrame* self, intptr_t slot) {
+    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_InitStyleOption_Callback(reinterpret_cast<VirtualQFrame::QFrame_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QFrame_QBaseInitStyleOption(const QFrame* self, QStyleOptionFrame* option) {
+    auto* vqframe = dynamic_cast<const VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_InitStyleOption_IsBase(true);
+        vqframe->initStyleOption(option);
+    }
+}
+
 libqt_string QFrame_Tr2(const char* s, const char* c) {
     QString _ret = QFrame::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -175,151 +301,6 @@ libqt_string QFrame_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* QFrame_SizeHint(const QFrame* self) {
-    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
-        return new QSize(vqframe->sizeHint());
-    } else {
-        return new QSize(((VirtualQFrame*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QFrame_QBaseSizeHint(const QFrame* self) {
-    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_SizeHint_IsBase(true);
-        return new QSize(vqframe->sizeHint());
-    } else {
-        return new QSize(((VirtualQFrame*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFrame_OnSizeHint(const QFrame* self, intptr_t slot) {
-    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_SizeHint_Callback(reinterpret_cast<VirtualQFrame::QFrame_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QFrame_Event(QFrame* self, QEvent* e) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        return vqframe->event(e);
-    } else {
-        return ((VirtualQFrame*)self)->event(e);
-    }
-}
-
-// Base class handler implementation
-bool QFrame_QBaseEvent(QFrame* self, QEvent* e) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_Event_IsBase(true);
-        return vqframe->event(e);
-    } else {
-        return ((VirtualQFrame*)self)->event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFrame_OnEvent(QFrame* self, intptr_t slot) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_Event_Callback(reinterpret_cast<VirtualQFrame::QFrame_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QFrame_PaintEvent(QFrame* self, QPaintEvent* param1) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->paintEvent(param1);
-    } else {
-        ((VirtualQFrame*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QFrame_QBasePaintEvent(QFrame* self, QPaintEvent* param1) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_PaintEvent_IsBase(true);
-        vqframe->paintEvent(param1);
-    } else {
-        ((VirtualQFrame*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFrame_OnPaintEvent(QFrame* self, intptr_t slot) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_PaintEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QFrame_ChangeEvent(QFrame* self, QEvent* param1) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->changeEvent(param1);
-    } else {
-        ((VirtualQFrame*)self)->changeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QFrame_QBaseChangeEvent(QFrame* self, QEvent* param1) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_ChangeEvent_IsBase(true);
-        vqframe->changeEvent(param1);
-    } else {
-        ((VirtualQFrame*)self)->changeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFrame_OnChangeEvent(QFrame* self, intptr_t slot) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_ChangeEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QFrame_InitStyleOption(const QFrame* self, QStyleOptionFrame* option) {
-    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->initStyleOption(option);
-    } else {
-        ((VirtualQFrame*)self)->initStyleOption(option);
-    }
-}
-
-// Base class handler implementation
-void QFrame_QBaseInitStyleOption(const QFrame* self, QStyleOptionFrame* option) {
-    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_InitStyleOption_IsBase(true);
-        vqframe->initStyleOption(option);
-    } else {
-        ((VirtualQFrame*)self)->initStyleOption(option);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFrame_OnInitStyleOption(const QFrame* self, intptr_t slot) {
-    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
-        vqframe->setQFrame_InitStyleOption_Callback(reinterpret_cast<VirtualQFrame::QFrame_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

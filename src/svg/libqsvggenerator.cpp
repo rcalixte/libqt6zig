@@ -117,28 +117,15 @@ int QSvgGenerator_SvgVersion(const QSvgGenerator* self) {
     return static_cast<int>(self->svgVersion());
 }
 
-// Derived class handler implementation
 QPaintEngine* QSvgGenerator_PaintEngine(const QSvgGenerator* self) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
+    auto* vqsvggenerator = dynamic_cast<const VirtualQSvgGenerator*>(self);
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         return vqsvggenerator->paintEngine();
-    } else {
-        return ((VirtualQSvgGenerator*)self)->paintEngine();
     }
+    return {};
 }
 
-// Base class handler implementation
-QPaintEngine* QSvgGenerator_QBasePaintEngine(const QSvgGenerator* self) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        vqsvggenerator->setQSvgGenerator_PaintEngine_IsBase(true);
-        return vqsvggenerator->paintEngine();
-    } else {
-        return ((VirtualQSvgGenerator*)self)->paintEngine();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QSvgGenerator_OnPaintEngine(const QSvgGenerator* self, intptr_t slot) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
@@ -146,33 +133,40 @@ void QSvgGenerator_OnPaintEngine(const QSvgGenerator* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+QPaintEngine* QSvgGenerator_QBasePaintEngine(const QSvgGenerator* self) {
+    auto* vqsvggenerator = dynamic_cast<const VirtualQSvgGenerator*>(self);
+    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
+        vqsvggenerator->setQSvgGenerator_PaintEngine_IsBase(true);
+        return vqsvggenerator->paintEngine();
+    }
+    return {};
+}
+
 int QSvgGenerator_Metric(const QSvgGenerator* self, int metric) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
+    auto* vqsvggenerator = dynamic_cast<const VirtualQSvgGenerator*>(self);
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         return vqsvggenerator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    } else {
-        return ((VirtualQSvgGenerator*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
     }
+    return {};
 }
 
-// Base class handler implementation
-int QSvgGenerator_QBaseMetric(const QSvgGenerator* self, int metric) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        vqsvggenerator->setQSvgGenerator_Metric_IsBase(true);
-        return vqsvggenerator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    } else {
-        return ((VirtualQSvgGenerator*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QSvgGenerator_OnMetric(const QSvgGenerator* self, intptr_t slot) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         vqsvggenerator->setQSvgGenerator_Metric_Callback(reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_Metric_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+int QSvgGenerator_QBaseMetric(const QSvgGenerator* self, int metric) {
+    auto* vqsvggenerator = dynamic_cast<const VirtualQSvgGenerator*>(self);
+    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
+        vqsvggenerator->setQSvgGenerator_Metric_IsBase(true);
+        return vqsvggenerator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
+    }
+    return {};
 }
 
 // Derived class handler implementation

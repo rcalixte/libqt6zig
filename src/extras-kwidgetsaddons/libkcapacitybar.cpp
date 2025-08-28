@@ -177,6 +177,82 @@ void KCapacityBar_DrawCapacityBar2(const KCapacityBar* self, QPainter* p, const 
     self->drawCapacityBar(p, *rect, static_cast<QStyle::State>(state));
 }
 
+QSize* KCapacityBar_MinimumSizeHint(const KCapacityBar* self) {
+    auto* vkcapacitybar = dynamic_cast<const VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKCapacityBar*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCapacityBar_OnMinimumSizeHint(const KCapacityBar* self, intptr_t slot) {
+    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KCapacityBar_QBaseMinimumSizeHint(const KCapacityBar* self) {
+    auto* vkcapacitybar = dynamic_cast<const VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_MinimumSizeHint_IsBase(true);
+        return new QSize(vkcapacitybar->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKCapacityBar*)self)->minimumSizeHint());
+    }
+}
+
+void KCapacityBar_PaintEvent(KCapacityBar* self, QPaintEvent* event) {
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->paintEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCapacityBar_OnPaintEvent(KCapacityBar* self, intptr_t slot) {
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_PaintEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCapacityBar_QBasePaintEvent(KCapacityBar* self, QPaintEvent* event) {
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_PaintEvent_IsBase(true);
+        vkcapacitybar->paintEvent(event);
+    }
+}
+
+void KCapacityBar_ChangeEvent(KCapacityBar* self, QEvent* event) {
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->changeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCapacityBar_OnChangeEvent(KCapacityBar* self, intptr_t slot) {
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_ChangeEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCapacityBar_QBaseChangeEvent(KCapacityBar* self, QEvent* event) {
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_ChangeEvent_IsBase(true);
+        vkcapacitybar->changeEvent(event);
+    }
+}
+
 libqt_string KCapacityBar_Tr2(const char* s, const char* c) {
     QString _ret = KCapacityBar::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -199,93 +275,6 @@ libqt_string KCapacityBar_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* KCapacityBar_MinimumSizeHint(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return new QSize(vkcapacitybar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCapacityBar*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KCapacityBar_QBaseMinimumSizeHint(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vkcapacitybar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCapacityBar*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnMinimumSizeHint(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCapacityBar_PaintEvent(KCapacityBar* self, QPaintEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->paintEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->paintEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCapacityBar_QBasePaintEvent(KCapacityBar* self, QPaintEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_PaintEvent_IsBase(true);
-        vkcapacitybar->paintEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->paintEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnPaintEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_PaintEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCapacityBar_ChangeEvent(KCapacityBar* self, QEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->changeEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->changeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCapacityBar_QBaseChangeEvent(KCapacityBar* self, QEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_ChangeEvent_IsBase(true);
-        vkcapacitybar->changeEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->changeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnChangeEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_ChangeEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

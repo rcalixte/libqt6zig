@@ -72,6 +72,18 @@ libqt_string QsciLexerFortran_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerFortran_Language(const QsciLexerFortran* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerFortran_Lexer(const QsciLexerFortran* self) {
+    return (const char*)self->lexer();
+}
+
+const char* QsciLexerFortran_Keywords(const QsciLexerFortran* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
 libqt_string QsciLexerFortran_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerFortran::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -122,64 +134,6 @@ void QsciLexerFortran_OnSetFoldCompact(QsciLexerFortran* self, intptr_t slot) {
     auto* vqscilexerfortran = dynamic_cast<VirtualQsciLexerFortran*>(self);
     if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
         vqscilexerfortran->setQsciLexerFortran_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerFortran::QsciLexerFortran_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerFortran_Language(const QsciLexerFortran* self) {
-    auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        return (const char*)vqscilexerfortran->language();
-    } else {
-        return (const char*)((VirtualQsciLexerFortran*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerFortran_QBaseLanguage(const QsciLexerFortran* self) {
-    auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        vqscilexerfortran->setQsciLexerFortran_Language_IsBase(true);
-        return (const char*)vqscilexerfortran->language();
-    } else {
-        return (const char*)((VirtualQsciLexerFortran*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerFortran_OnLanguage(const QsciLexerFortran* self, intptr_t slot) {
-    auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        vqscilexerfortran->setQsciLexerFortran_Language_Callback(reinterpret_cast<VirtualQsciLexerFortran::QsciLexerFortran_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerFortran_Lexer(const QsciLexerFortran* self) {
-    auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        return (const char*)vqscilexerfortran->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerFortran*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerFortran_QBaseLexer(const QsciLexerFortran* self) {
-    auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        vqscilexerfortran->setQsciLexerFortran_Lexer_IsBase(true);
-        return (const char*)vqscilexerfortran->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerFortran*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerFortran_OnLexer(const QsciLexerFortran* self, intptr_t slot) {
-    auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        vqscilexerfortran->setQsciLexerFortran_Lexer_Callback(reinterpret_cast<VirtualQsciLexerFortran::QsciLexerFortran_Lexer_Callback>(slot));
     }
 }
 
@@ -625,35 +579,6 @@ void QsciLexerFortran_OnIndentationGuideView(const QsciLexerFortran* self, intpt
     auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
     if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
         vqscilexerfortran->setQsciLexerFortran_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerFortran::QsciLexerFortran_IndentationGuideView_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerFortran_Keywords(const QsciLexerFortran* self, int set) {
-    auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        return (const char*)vqscilexerfortran->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerFortran*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerFortran_QBaseKeywords(const QsciLexerFortran* self, int set) {
-    auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        vqscilexerfortran->setQsciLexerFortran_Keywords_IsBase(true);
-        return (const char*)vqscilexerfortran->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerFortran*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerFortran_OnKeywords(const QsciLexerFortran* self, intptr_t slot) {
-    auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
-    if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        vqscilexerfortran->setQsciLexerFortran_Keywords_Callback(reinterpret_cast<VirtualQsciLexerFortran::QsciLexerFortran_Keywords_Callback>(slot));
     }
 }
 

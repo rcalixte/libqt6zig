@@ -142,6 +142,94 @@ QPushButton* KFontRequester_Button(const KFontRequester* self) {
     return self->button();
 }
 
+void KFontRequester_SetFont(KFontRequester* self, const QFont* font, bool onlyFixed) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        self->setFont(*font, onlyFixed);
+    } else {
+        ((VirtualKFontRequester*)self)->setFont(*font, onlyFixed);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KFontRequester_OnSetFont(KFontRequester* self, intptr_t slot) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_SetFont_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetFont_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KFontRequester_QBaseSetFont(KFontRequester* self, const QFont* font, bool onlyFixed) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_SetFont_IsBase(true);
+        vkfontrequester->setFont(*font, onlyFixed);
+    } else {
+        ((VirtualKFontRequester*)self)->setFont(*font, onlyFixed);
+    }
+}
+
+void KFontRequester_SetSampleText(KFontRequester* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        self->setSampleText(text_QString);
+    } else {
+        ((VirtualKFontRequester*)self)->setSampleText(text_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KFontRequester_OnSetSampleText(KFontRequester* self, intptr_t slot) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_SetSampleText_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetSampleText_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KFontRequester_QBaseSetSampleText(KFontRequester* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_SetSampleText_IsBase(true);
+        vkfontrequester->setSampleText(text_QString);
+    } else {
+        ((VirtualKFontRequester*)self)->setSampleText(text_QString);
+    }
+}
+
+void KFontRequester_SetTitle(KFontRequester* self, const libqt_string title) {
+    QString title_QString = QString::fromUtf8(title.data, title.len);
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        self->setTitle(title_QString);
+    } else {
+        ((VirtualKFontRequester*)self)->setTitle(title_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KFontRequester_OnSetTitle(KFontRequester* self, intptr_t slot) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_SetTitle_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetTitle_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KFontRequester_QBaseSetTitle(KFontRequester* self, const libqt_string title) {
+    QString title_QString = QString::fromUtf8(title.data, title.len);
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_SetTitle_IsBase(true);
+        vkfontrequester->setTitle(title_QString);
+    } else {
+        ((VirtualKFontRequester*)self)->setTitle(title_QString);
+    }
+}
+
 void KFontRequester_FontSelected(KFontRequester* self, const QFont* font) {
     self->fontSelected(*font);
 }
@@ -154,6 +242,32 @@ void KFontRequester_Connect_FontSelected(KFontRequester* self, intptr_t slot) {
         QFont* sigval1 = const_cast<QFont*>(&font_ret);
         slotFunc(self, sigval1);
     });
+}
+
+bool KFontRequester_EventFilter(KFontRequester* self, QObject* watched, QEvent* event) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        return vkfontrequester->eventFilter(watched, event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KFontRequester_OnEventFilter(KFontRequester* self, intptr_t slot) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_EventFilter_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KFontRequester_QBaseEventFilter(KFontRequester* self, QObject* watched, QEvent* event) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_EventFilter_IsBase(true);
+        return vkfontrequester->eventFilter(watched, event);
+    }
+    return {};
 }
 
 libqt_string KFontRequester_Tr2(const char* s, const char* c) {
@@ -178,126 +292,6 @@ libqt_string KFontRequester_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KFontRequester_SetFont(KFontRequester* self, const QFont* font, bool onlyFixed) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setFont(*font, onlyFixed);
-    } else {
-        self->KFontRequester::setFont(*font, onlyFixed);
-    }
-}
-
-// Base class handler implementation
-void KFontRequester_QBaseSetFont(KFontRequester* self, const QFont* font, bool onlyFixed) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetFont_IsBase(true);
-        vkfontrequester->setFont(*font, onlyFixed);
-    } else {
-        self->KFontRequester::setFont(*font, onlyFixed);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnSetFont(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetFont_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetFont_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KFontRequester_SetSampleText(KFontRequester* self, const libqt_string text) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setSampleText(text_QString);
-    } else {
-        self->KFontRequester::setSampleText(text_QString);
-    }
-}
-
-// Base class handler implementation
-void KFontRequester_QBaseSetSampleText(KFontRequester* self, const libqt_string text) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetSampleText_IsBase(true);
-        vkfontrequester->setSampleText(text_QString);
-    } else {
-        self->KFontRequester::setSampleText(text_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnSetSampleText(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetSampleText_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetSampleText_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KFontRequester_SetTitle(KFontRequester* self, const libqt_string title) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    QString title_QString = QString::fromUtf8(title.data, title.len);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setTitle(title_QString);
-    } else {
-        self->KFontRequester::setTitle(title_QString);
-    }
-}
-
-// Base class handler implementation
-void KFontRequester_QBaseSetTitle(KFontRequester* self, const libqt_string title) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    QString title_QString = QString::fromUtf8(title.data, title.len);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetTitle_IsBase(true);
-        vkfontrequester->setTitle(title_QString);
-    } else {
-        self->KFontRequester::setTitle(title_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnSetTitle(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetTitle_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetTitle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KFontRequester_EventFilter(KFontRequester* self, QObject* watched, QEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->eventFilter(watched, event);
-    } else {
-        return ((VirtualKFontRequester*)self)->eventFilter(watched, event);
-    }
-}
-
-// Base class handler implementation
-bool KFontRequester_QBaseEventFilter(KFontRequester* self, QObject* watched, QEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_EventFilter_IsBase(true);
-        return vkfontrequester->eventFilter(watched, event);
-    } else {
-        return ((VirtualKFontRequester*)self)->eventFilter(watched, event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnEventFilter(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_EventFilter_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

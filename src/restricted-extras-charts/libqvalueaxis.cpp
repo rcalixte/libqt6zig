@@ -69,6 +69,34 @@ libqt_string QValueAxis_Tr(const char* s) {
     return _str;
 }
 
+int QValueAxis_Type(const QValueAxis* self) {
+    auto* vqvalueaxis = dynamic_cast<const VirtualQValueAxis*>(self);
+    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQValueAxis*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QValueAxis_OnType(const QValueAxis* self, intptr_t slot) {
+    auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
+    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
+        vqvalueaxis->setQValueAxis_Type_Callback(reinterpret_cast<VirtualQValueAxis::QValueAxis_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QValueAxis_QBaseType(const QValueAxis* self) {
+    auto* vqvalueaxis = dynamic_cast<const VirtualQValueAxis*>(self);
+    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
+        vqvalueaxis->setQValueAxis_Type_IsBase(true);
+        return static_cast<int>(vqvalueaxis->type());
+    } else {
+        return static_cast<int>(((VirtualQValueAxis*)self)->type());
+    }
+}
+
 void QValueAxis_SetMin(QValueAxis* self, double min) {
     self->setMin(static_cast<qreal>(min));
 }
@@ -289,35 +317,6 @@ libqt_string QValueAxis_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QValueAxis_Type(const QValueAxis* self) {
-    auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
-    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
-        return static_cast<int>(vqvalueaxis->type());
-    } else {
-        return static_cast<int>(self->QValueAxis::type());
-    }
-}
-
-// Base class handler implementation
-int QValueAxis_QBaseType(const QValueAxis* self) {
-    auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
-    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
-        vqvalueaxis->setQValueAxis_Type_IsBase(true);
-        return static_cast<int>(vqvalueaxis->type());
-    } else {
-        return static_cast<int>(self->QValueAxis::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QValueAxis_OnType(const QValueAxis* self, intptr_t slot) {
-    auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
-    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
-        vqvalueaxis->setQValueAxis_Type_Callback(reinterpret_cast<VirtualQValueAxis::QValueAxis_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

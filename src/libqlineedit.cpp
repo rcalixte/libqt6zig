@@ -210,6 +210,62 @@ QCompleter* QLineEdit_Completer(const QLineEdit* self) {
     return self->completer();
 }
 
+QSize* QLineEdit_SizeHint(const QLineEdit* self) {
+    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQLineEdit*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnSizeHint(const QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_SizeHint_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QLineEdit_QBaseSizeHint(const QLineEdit* self) {
+    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_SizeHint_IsBase(true);
+        return new QSize(vqlineedit->sizeHint());
+    } else {
+        return new QSize(((VirtualQLineEdit*)self)->sizeHint());
+    }
+}
+
+QSize* QLineEdit_MinimumSizeHint(const QLineEdit* self) {
+    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQLineEdit*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnMinimumSizeHint(const QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QLineEdit_QBaseMinimumSizeHint(const QLineEdit* self) {
+    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MinimumSizeHint_IsBase(true);
+        return new QSize(vqlineedit->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQLineEdit*)self)->minimumSizeHint());
+    }
+}
+
 int QLineEdit_CursorPosition(const QLineEdit* self) {
     return self->cursorPosition();
 }
@@ -510,8 +566,500 @@ void QLineEdit_Connect_InputRejected(QLineEdit* self, intptr_t slot) {
     });
 }
 
+void QLineEdit_MousePressEvent(QLineEdit* self, QMouseEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->mousePressEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnMousePressEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseMousePressEvent(QLineEdit* self, QMouseEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MousePressEvent_IsBase(true);
+        vqlineedit->mousePressEvent(param1);
+    }
+}
+
+void QLineEdit_MouseMoveEvent(QLineEdit* self, QMouseEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->mouseMoveEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnMouseMoveEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseMouseMoveEvent(QLineEdit* self, QMouseEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MouseMoveEvent_IsBase(true);
+        vqlineedit->mouseMoveEvent(param1);
+    }
+}
+
+void QLineEdit_MouseReleaseEvent(QLineEdit* self, QMouseEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->mouseReleaseEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnMouseReleaseEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseMouseReleaseEvent(QLineEdit* self, QMouseEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MouseReleaseEvent_IsBase(true);
+        vqlineedit->mouseReleaseEvent(param1);
+    }
+}
+
+void QLineEdit_MouseDoubleClickEvent(QLineEdit* self, QMouseEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->mouseDoubleClickEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnMouseDoubleClickEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MouseDoubleClickEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseMouseDoubleClickEvent(QLineEdit* self, QMouseEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MouseDoubleClickEvent_IsBase(true);
+        vqlineedit->mouseDoubleClickEvent(param1);
+    }
+}
+
+void QLineEdit_KeyPressEvent(QLineEdit* self, QKeyEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->keyPressEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnKeyPressEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseKeyPressEvent(QLineEdit* self, QKeyEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_KeyPressEvent_IsBase(true);
+        vqlineedit->keyPressEvent(param1);
+    }
+}
+
+void QLineEdit_KeyReleaseEvent(QLineEdit* self, QKeyEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->keyReleaseEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnKeyReleaseEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_KeyReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseKeyReleaseEvent(QLineEdit* self, QKeyEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_KeyReleaseEvent_IsBase(true);
+        vqlineedit->keyReleaseEvent(param1);
+    }
+}
+
+void QLineEdit_FocusInEvent(QLineEdit* self, QFocusEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->focusInEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnFocusInEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseFocusInEvent(QLineEdit* self, QFocusEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_FocusInEvent_IsBase(true);
+        vqlineedit->focusInEvent(param1);
+    }
+}
+
+void QLineEdit_FocusOutEvent(QLineEdit* self, QFocusEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->focusOutEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnFocusOutEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseFocusOutEvent(QLineEdit* self, QFocusEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_FocusOutEvent_IsBase(true);
+        vqlineedit->focusOutEvent(param1);
+    }
+}
+
+void QLineEdit_PaintEvent(QLineEdit* self, QPaintEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnPaintEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_PaintEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBasePaintEvent(QLineEdit* self, QPaintEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_PaintEvent_IsBase(true);
+        vqlineedit->paintEvent(param1);
+    }
+}
+
+void QLineEdit_DragEnterEvent(QLineEdit* self, QDragEnterEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->dragEnterEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnDragEnterEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_DragEnterEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseDragEnterEvent(QLineEdit* self, QDragEnterEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_DragEnterEvent_IsBase(true);
+        vqlineedit->dragEnterEvent(param1);
+    }
+}
+
+void QLineEdit_DragMoveEvent(QLineEdit* self, QDragMoveEvent* e) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->dragMoveEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnDragMoveEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_DragMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseDragMoveEvent(QLineEdit* self, QDragMoveEvent* e) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_DragMoveEvent_IsBase(true);
+        vqlineedit->dragMoveEvent(e);
+    }
+}
+
+void QLineEdit_DragLeaveEvent(QLineEdit* self, QDragLeaveEvent* e) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->dragLeaveEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnDragLeaveEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_DragLeaveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseDragLeaveEvent(QLineEdit* self, QDragLeaveEvent* e) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_DragLeaveEvent_IsBase(true);
+        vqlineedit->dragLeaveEvent(e);
+    }
+}
+
+void QLineEdit_DropEvent(QLineEdit* self, QDropEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->dropEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnDropEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_DropEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_DropEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseDropEvent(QLineEdit* self, QDropEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_DropEvent_IsBase(true);
+        vqlineedit->dropEvent(param1);
+    }
+}
+
+void QLineEdit_ChangeEvent(QLineEdit* self, QEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->changeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnChangeEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseChangeEvent(QLineEdit* self, QEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_ChangeEvent_IsBase(true);
+        vqlineedit->changeEvent(param1);
+    }
+}
+
+void QLineEdit_ContextMenuEvent(QLineEdit* self, QContextMenuEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->contextMenuEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnContextMenuEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseContextMenuEvent(QLineEdit* self, QContextMenuEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_ContextMenuEvent_IsBase(true);
+        vqlineedit->contextMenuEvent(param1);
+    }
+}
+
+void QLineEdit_InputMethodEvent(QLineEdit* self, QInputMethodEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->inputMethodEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnInputMethodEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_InputMethodEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseInputMethodEvent(QLineEdit* self, QInputMethodEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_InputMethodEvent_IsBase(true);
+        vqlineedit->inputMethodEvent(param1);
+    }
+}
+
+void QLineEdit_InitStyleOption(const QLineEdit* self, QStyleOptionFrame* option) {
+    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->initStyleOption(option);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnInitStyleOption(const QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseInitStyleOption(const QLineEdit* self, QStyleOptionFrame* option) {
+    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_InitStyleOption_IsBase(true);
+        vqlineedit->initStyleOption(option);
+    }
+}
+
+QVariant* QLineEdit_InputMethodQuery(const QLineEdit* self, int param1) {
+    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    } else {
+        return new QVariant(((VirtualQLineEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnInputMethodQuery(const QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_InputMethodQuery_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QLineEdit_QBaseInputMethodQuery(const QLineEdit* self, int param1) {
+    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_InputMethodQuery_IsBase(true);
+        return new QVariant(vqlineedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    } else {
+        return new QVariant(((VirtualQLineEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    }
+}
+
 QVariant* QLineEdit_InputMethodQuery2(const QLineEdit* self, int property, QVariant* argument) {
     return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property), *argument));
+}
+
+void QLineEdit_TimerEvent(QLineEdit* self, QTimerEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        self->timerEvent(param1);
+    } else {
+        ((VirtualQLineEdit*)self)->timerEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnTimerEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_TimerEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_TimerEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLineEdit_QBaseTimerEvent(QLineEdit* self, QTimerEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_TimerEvent_IsBase(true);
+        vqlineedit->timerEvent(param1);
+    } else {
+        ((VirtualQLineEdit*)self)->timerEvent(param1);
+    }
+}
+
+bool QLineEdit_Event(QLineEdit* self, QEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        return self->event(param1);
+    } else {
+        return ((VirtualQLineEdit*)self)->event(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineEdit_OnEvent(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_Event_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QLineEdit_QBaseEvent(QLineEdit* self, QEvent* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_Event_IsBase(true);
+        return vqlineedit->event(param1);
+    } else {
+        return ((VirtualQLineEdit*)self)->event(param1);
+    }
 }
 
 libqt_string QLineEdit_Tr2(const char* s, const char* c) {
@@ -544,644 +1092,6 @@ void QLineEdit_CursorForward2(QLineEdit* self, bool mark, int steps) {
 
 void QLineEdit_CursorBackward2(QLineEdit* self, bool mark, int steps) {
     self->cursorBackward(mark, static_cast<int>(steps));
-}
-
-// Derived class handler implementation
-QSize* QLineEdit_SizeHint(const QLineEdit* self) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return new QSize(vqlineedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQLineEdit*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QLineEdit_QBaseSizeHint(const QLineEdit* self) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_SizeHint_IsBase(true);
-        return new QSize(vqlineedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQLineEdit*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnSizeHint(const QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_SizeHint_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QLineEdit_MinimumSizeHint(const QLineEdit* self) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return new QSize(vqlineedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQLineEdit*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QLineEdit_QBaseMinimumSizeHint(const QLineEdit* self) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vqlineedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQLineEdit*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnMinimumSizeHint(const QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_MousePressEvent(QLineEdit* self, QMouseEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->mousePressEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->mousePressEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseMousePressEvent(QLineEdit* self, QMouseEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MousePressEvent_IsBase(true);
-        vqlineedit->mousePressEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->mousePressEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnMousePressEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_MouseMoveEvent(QLineEdit* self, QMouseEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->mouseMoveEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseMouseMoveEvent(QLineEdit* self, QMouseEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MouseMoveEvent_IsBase(true);
-        vqlineedit->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->mouseMoveEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnMouseMoveEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_MouseReleaseEvent(QLineEdit* self, QMouseEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->mouseReleaseEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseMouseReleaseEvent(QLineEdit* self, QMouseEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MouseReleaseEvent_IsBase(true);
-        vqlineedit->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->mouseReleaseEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnMouseReleaseEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_MouseDoubleClickEvent(QLineEdit* self, QMouseEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->mouseDoubleClickEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->mouseDoubleClickEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseMouseDoubleClickEvent(QLineEdit* self, QMouseEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MouseDoubleClickEvent_IsBase(true);
-        vqlineedit->mouseDoubleClickEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->mouseDoubleClickEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnMouseDoubleClickEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_KeyPressEvent(QLineEdit* self, QKeyEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->keyPressEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->keyPressEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseKeyPressEvent(QLineEdit* self, QKeyEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_KeyPressEvent_IsBase(true);
-        vqlineedit->keyPressEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->keyPressEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnKeyPressEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_KeyReleaseEvent(QLineEdit* self, QKeyEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->keyReleaseEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->keyReleaseEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseKeyReleaseEvent(QLineEdit* self, QKeyEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_KeyReleaseEvent_IsBase(true);
-        vqlineedit->keyReleaseEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->keyReleaseEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnKeyReleaseEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_KeyReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_FocusInEvent(QLineEdit* self, QFocusEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->focusInEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->focusInEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseFocusInEvent(QLineEdit* self, QFocusEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_FocusInEvent_IsBase(true);
-        vqlineedit->focusInEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->focusInEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnFocusInEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_FocusOutEvent(QLineEdit* self, QFocusEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->focusOutEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->focusOutEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseFocusOutEvent(QLineEdit* self, QFocusEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_FocusOutEvent_IsBase(true);
-        vqlineedit->focusOutEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->focusOutEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnFocusOutEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_FocusOutEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_PaintEvent(QLineEdit* self, QPaintEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->paintEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBasePaintEvent(QLineEdit* self, QPaintEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_PaintEvent_IsBase(true);
-        vqlineedit->paintEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnPaintEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_PaintEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_DragEnterEvent(QLineEdit* self, QDragEnterEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->dragEnterEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->dragEnterEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseDragEnterEvent(QLineEdit* self, QDragEnterEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_DragEnterEvent_IsBase(true);
-        vqlineedit->dragEnterEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->dragEnterEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnDragEnterEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_DragEnterEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_DragMoveEvent(QLineEdit* self, QDragMoveEvent* e) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->dragMoveEvent(e);
-    } else {
-        ((VirtualQLineEdit*)self)->dragMoveEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseDragMoveEvent(QLineEdit* self, QDragMoveEvent* e) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_DragMoveEvent_IsBase(true);
-        vqlineedit->dragMoveEvent(e);
-    } else {
-        ((VirtualQLineEdit*)self)->dragMoveEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnDragMoveEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_DragMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_DragLeaveEvent(QLineEdit* self, QDragLeaveEvent* e) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->dragLeaveEvent(e);
-    } else {
-        ((VirtualQLineEdit*)self)->dragLeaveEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseDragLeaveEvent(QLineEdit* self, QDragLeaveEvent* e) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_DragLeaveEvent_IsBase(true);
-        vqlineedit->dragLeaveEvent(e);
-    } else {
-        ((VirtualQLineEdit*)self)->dragLeaveEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnDragLeaveEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_DragLeaveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_DropEvent(QLineEdit* self, QDropEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->dropEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->dropEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseDropEvent(QLineEdit* self, QDropEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_DropEvent_IsBase(true);
-        vqlineedit->dropEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->dropEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnDropEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_DropEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_DropEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_ChangeEvent(QLineEdit* self, QEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->changeEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->changeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseChangeEvent(QLineEdit* self, QEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_ChangeEvent_IsBase(true);
-        vqlineedit->changeEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->changeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnChangeEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_ContextMenuEvent(QLineEdit* self, QContextMenuEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->contextMenuEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->contextMenuEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseContextMenuEvent(QLineEdit* self, QContextMenuEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_ContextMenuEvent_IsBase(true);
-        vqlineedit->contextMenuEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->contextMenuEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnContextMenuEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_InputMethodEvent(QLineEdit* self, QInputMethodEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->inputMethodEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseInputMethodEvent(QLineEdit* self, QInputMethodEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_InputMethodEvent_IsBase(true);
-        vqlineedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->inputMethodEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnInputMethodEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_InputMethodEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_InitStyleOption(const QLineEdit* self, QStyleOptionFrame* option) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->initStyleOption(option);
-    } else {
-        ((VirtualQLineEdit*)self)->initStyleOption(option);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseInitStyleOption(const QLineEdit* self, QStyleOptionFrame* option) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_InitStyleOption_IsBase(true);
-        vqlineedit->initStyleOption(option);
-    } else {
-        ((VirtualQLineEdit*)self)->initStyleOption(option);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnInitStyleOption(const QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_InitStyleOption_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QLineEdit_InputMethodQuery(const QLineEdit* self, int param1) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return new QVariant(vqlineedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQLineEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QLineEdit_QBaseInputMethodQuery(const QLineEdit* self, int param1) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vqlineedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQLineEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnInputMethodQuery(const QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_InputMethodQuery_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLineEdit_TimerEvent(QLineEdit* self, QTimerEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->timerEvent(param1);
-    } else {
-        self->QLineEdit::timerEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QLineEdit_QBaseTimerEvent(QLineEdit* self, QTimerEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_TimerEvent_IsBase(true);
-        vqlineedit->timerEvent(param1);
-    } else {
-        self->QLineEdit::timerEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnTimerEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_TimerEvent_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_TimerEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QLineEdit_Event(QLineEdit* self, QEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return vqlineedit->event(param1);
-    } else {
-        return self->QLineEdit::event(param1);
-    }
-}
-
-// Base class handler implementation
-bool QLineEdit_QBaseEvent(QLineEdit* self, QEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_Event_IsBase(true);
-        return vqlineedit->event(param1);
-    } else {
-        return self->QLineEdit::event(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineEdit_OnEvent(QLineEdit* self, intptr_t slot) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        vqlineedit->setQLineEdit_Event_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

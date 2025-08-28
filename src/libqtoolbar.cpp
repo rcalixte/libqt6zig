@@ -302,6 +302,128 @@ void QToolBar_Connect_VisibilityChanged(QToolBar* self, intptr_t slot) {
     });
 }
 
+void QToolBar_ActionEvent(QToolBar* self, QActionEvent* event) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->actionEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBar_OnActionEvent(QToolBar* self, intptr_t slot) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_ActionEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ActionEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QToolBar_QBaseActionEvent(QToolBar* self, QActionEvent* event) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_ActionEvent_IsBase(true);
+        vqtoolbar->actionEvent(event);
+    }
+}
+
+void QToolBar_ChangeEvent(QToolBar* self, QEvent* event) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->changeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBar_OnChangeEvent(QToolBar* self, intptr_t slot) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_ChangeEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QToolBar_QBaseChangeEvent(QToolBar* self, QEvent* event) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_ChangeEvent_IsBase(true);
+        vqtoolbar->changeEvent(event);
+    }
+}
+
+void QToolBar_PaintEvent(QToolBar* self, QPaintEvent* event) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->paintEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBar_OnPaintEvent(QToolBar* self, intptr_t slot) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_PaintEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QToolBar_QBasePaintEvent(QToolBar* self, QPaintEvent* event) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_PaintEvent_IsBase(true);
+        vqtoolbar->paintEvent(event);
+    }
+}
+
+bool QToolBar_Event(QToolBar* self, QEvent* event) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        return vqtoolbar->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBar_OnEvent(QToolBar* self, intptr_t slot) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_Event_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QToolBar_QBaseEvent(QToolBar* self, QEvent* event) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_Event_IsBase(true);
+        return vqtoolbar->event(event);
+    }
+    return {};
+}
+
+void QToolBar_InitStyleOption(const QToolBar* self, QStyleOptionToolBar* option) {
+    auto* vqtoolbar = dynamic_cast<const VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->initStyleOption(option);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QToolBar_OnInitStyleOption(const QToolBar* self, intptr_t slot) {
+    auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_InitStyleOption_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QToolBar_QBaseInitStyleOption(const QToolBar* self, QStyleOptionToolBar* option) {
+    auto* vqtoolbar = dynamic_cast<const VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_InitStyleOption_IsBase(true);
+        vqtoolbar->initStyleOption(option);
+    }
+}
+
 libqt_string QToolBar_Tr2(const char* s, const char* c) {
     QString _ret = QToolBar::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -324,151 +446,6 @@ libqt_string QToolBar_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QToolBar_ActionEvent(QToolBar* self, QActionEvent* event) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->actionEvent(event);
-    } else {
-        ((VirtualQToolBar*)self)->actionEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QToolBar_QBaseActionEvent(QToolBar* self, QActionEvent* event) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_ActionEvent_IsBase(true);
-        vqtoolbar->actionEvent(event);
-    } else {
-        ((VirtualQToolBar*)self)->actionEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBar_OnActionEvent(QToolBar* self, intptr_t slot) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_ActionEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ActionEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QToolBar_ChangeEvent(QToolBar* self, QEvent* event) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->changeEvent(event);
-    } else {
-        ((VirtualQToolBar*)self)->changeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QToolBar_QBaseChangeEvent(QToolBar* self, QEvent* event) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_ChangeEvent_IsBase(true);
-        vqtoolbar->changeEvent(event);
-    } else {
-        ((VirtualQToolBar*)self)->changeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBar_OnChangeEvent(QToolBar* self, intptr_t slot) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_ChangeEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QToolBar_PaintEvent(QToolBar* self, QPaintEvent* event) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->paintEvent(event);
-    } else {
-        ((VirtualQToolBar*)self)->paintEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QToolBar_QBasePaintEvent(QToolBar* self, QPaintEvent* event) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_PaintEvent_IsBase(true);
-        vqtoolbar->paintEvent(event);
-    } else {
-        ((VirtualQToolBar*)self)->paintEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBar_OnPaintEvent(QToolBar* self, intptr_t slot) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_PaintEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QToolBar_Event(QToolBar* self, QEvent* event) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        return vqtoolbar->event(event);
-    } else {
-        return ((VirtualQToolBar*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool QToolBar_QBaseEvent(QToolBar* self, QEvent* event) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_Event_IsBase(true);
-        return vqtoolbar->event(event);
-    } else {
-        return ((VirtualQToolBar*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBar_OnEvent(QToolBar* self, intptr_t slot) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_Event_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QToolBar_InitStyleOption(const QToolBar* self, QStyleOptionToolBar* option) {
-    auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->initStyleOption(option);
-    } else {
-        ((VirtualQToolBar*)self)->initStyleOption(option);
-    }
-}
-
-// Base class handler implementation
-void QToolBar_QBaseInitStyleOption(const QToolBar* self, QStyleOptionToolBar* option) {
-    auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_InitStyleOption_IsBase(true);
-        vqtoolbar->initStyleOption(option);
-    } else {
-        ((VirtualQToolBar*)self)->initStyleOption(option);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolBar_OnInitStyleOption(const QToolBar* self, intptr_t slot) {
-    auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        vqtoolbar->setQToolBar_InitStyleOption_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

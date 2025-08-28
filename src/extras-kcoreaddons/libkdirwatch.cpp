@@ -133,6 +133,34 @@ bool KDirWatch_Exists() {
     return KDirWatch::exists();
 }
 
+bool KDirWatch_Event(KDirWatch* self, QEvent* event) {
+    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+        return self->event(event);
+    } else {
+        return ((VirtualKDirWatch*)self)->event(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KDirWatch_OnEvent(KDirWatch* self, intptr_t slot) {
+    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+        vkdirwatch->setKDirWatch_Event_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KDirWatch_QBaseEvent(KDirWatch* self, QEvent* event) {
+    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+        vkdirwatch->setKDirWatch_Event_IsBase(true);
+        return vkdirwatch->event(event);
+    } else {
+        return ((VirtualKDirWatch*)self)->event(event);
+    }
+}
+
 void KDirWatch_SetCreated(KDirWatch* self, const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     self->setCreated(path_QString);
@@ -243,35 +271,6 @@ void KDirWatch_StartScan1(KDirWatch* self, bool notify) {
 
 void KDirWatch_StartScan2(KDirWatch* self, bool notify, bool skippedToo) {
     self->startScan(notify, skippedToo);
-}
-
-// Derived class handler implementation
-bool KDirWatch_Event(KDirWatch* self, QEvent* event) {
-    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
-        return vkdirwatch->event(event);
-    } else {
-        return self->KDirWatch::event(event);
-    }
-}
-
-// Base class handler implementation
-bool KDirWatch_QBaseEvent(KDirWatch* self, QEvent* event) {
-    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
-        vkdirwatch->setKDirWatch_Event_IsBase(true);
-        return vkdirwatch->event(event);
-    } else {
-        return self->KDirWatch::event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirWatch_OnEvent(KDirWatch* self, intptr_t slot) {
-    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
-        vkdirwatch->setKDirWatch_Event_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

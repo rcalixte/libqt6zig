@@ -104,6 +104,106 @@ QWidget* QFocusFrame_Widget(const QFocusFrame* self) {
     return self->widget();
 }
 
+bool QFocusFrame_Event(QFocusFrame* self, QEvent* e) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        return vqfocusframe->event(e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFocusFrame_OnEvent(QFocusFrame* self, intptr_t slot) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_Event_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QFocusFrame_QBaseEvent(QFocusFrame* self, QEvent* e) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_Event_IsBase(true);
+        return vqfocusframe->event(e);
+    }
+    return {};
+}
+
+bool QFocusFrame_EventFilter(QFocusFrame* self, QObject* param1, QEvent* param2) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        return vqfocusframe->eventFilter(param1, param2);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFocusFrame_OnEventFilter(QFocusFrame* self, intptr_t slot) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_EventFilter_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QFocusFrame_QBaseEventFilter(QFocusFrame* self, QObject* param1, QEvent* param2) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_EventFilter_IsBase(true);
+        return vqfocusframe->eventFilter(param1, param2);
+    }
+    return {};
+}
+
+void QFocusFrame_PaintEvent(QFocusFrame* self, QPaintEvent* param1) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFocusFrame_OnPaintEvent(QFocusFrame* self, intptr_t slot) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_PaintEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QFocusFrame_QBasePaintEvent(QFocusFrame* self, QPaintEvent* param1) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_PaintEvent_IsBase(true);
+        vqfocusframe->paintEvent(param1);
+    }
+}
+
+void QFocusFrame_InitStyleOption(const QFocusFrame* self, QStyleOption* option) {
+    auto* vqfocusframe = dynamic_cast<const VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->initStyleOption(option);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFocusFrame_OnInitStyleOption(const QFocusFrame* self, intptr_t slot) {
+    auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_InitStyleOption_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QFocusFrame_QBaseInitStyleOption(const QFocusFrame* self, QStyleOption* option) {
+    auto* vqfocusframe = dynamic_cast<const VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_InitStyleOption_IsBase(true);
+        vqfocusframe->initStyleOption(option);
+    }
+}
+
 libqt_string QFocusFrame_Tr2(const char* s, const char* c) {
     QString _ret = QFocusFrame::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -126,122 +226,6 @@ libqt_string QFocusFrame_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool QFocusFrame_Event(QFocusFrame* self, QEvent* e) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        return vqfocusframe->event(e);
-    } else {
-        return ((VirtualQFocusFrame*)self)->event(e);
-    }
-}
-
-// Base class handler implementation
-bool QFocusFrame_QBaseEvent(QFocusFrame* self, QEvent* e) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->setQFocusFrame_Event_IsBase(true);
-        return vqfocusframe->event(e);
-    } else {
-        return ((VirtualQFocusFrame*)self)->event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFocusFrame_OnEvent(QFocusFrame* self, intptr_t slot) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->setQFocusFrame_Event_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QFocusFrame_EventFilter(QFocusFrame* self, QObject* param1, QEvent* param2) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        return vqfocusframe->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQFocusFrame*)self)->eventFilter(param1, param2);
-    }
-}
-
-// Base class handler implementation
-bool QFocusFrame_QBaseEventFilter(QFocusFrame* self, QObject* param1, QEvent* param2) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->setQFocusFrame_EventFilter_IsBase(true);
-        return vqfocusframe->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQFocusFrame*)self)->eventFilter(param1, param2);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFocusFrame_OnEventFilter(QFocusFrame* self, intptr_t slot) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->setQFocusFrame_EventFilter_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_EventFilter_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QFocusFrame_PaintEvent(QFocusFrame* self, QPaintEvent* param1) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->paintEvent(param1);
-    } else {
-        ((VirtualQFocusFrame*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QFocusFrame_QBasePaintEvent(QFocusFrame* self, QPaintEvent* param1) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->setQFocusFrame_PaintEvent_IsBase(true);
-        vqfocusframe->paintEvent(param1);
-    } else {
-        ((VirtualQFocusFrame*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFocusFrame_OnPaintEvent(QFocusFrame* self, intptr_t slot) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->setQFocusFrame_PaintEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QFocusFrame_InitStyleOption(const QFocusFrame* self, QStyleOption* option) {
-    auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->initStyleOption(option);
-    } else {
-        ((VirtualQFocusFrame*)self)->initStyleOption(option);
-    }
-}
-
-// Base class handler implementation
-void QFocusFrame_QBaseInitStyleOption(const QFocusFrame* self, QStyleOption* option) {
-    auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->setQFocusFrame_InitStyleOption_IsBase(true);
-        vqfocusframe->initStyleOption(option);
-    } else {
-        ((VirtualQFocusFrame*)self)->initStyleOption(option);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFocusFrame_OnInitStyleOption(const QFocusFrame* self, intptr_t slot) {
-    auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        vqfocusframe->setQFocusFrame_InitStyleOption_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

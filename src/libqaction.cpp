@@ -343,6 +343,32 @@ bool QAction_ShowStatusText(QAction* self) {
     return self->showStatusText();
 }
 
+bool QAction_Event(QAction* self, QEvent* param1) {
+    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
+    if (vqaction && vqaction->isVirtualQAction) {
+        return vqaction->event(param1);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAction_OnEvent(QAction* self, intptr_t slot) {
+    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
+    if (vqaction && vqaction->isVirtualQAction) {
+        vqaction->setQAction_Event_Callback(reinterpret_cast<VirtualQAction::QAction_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QAction_QBaseEvent(QAction* self, QEvent* param1) {
+    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
+    if (vqaction && vqaction->isVirtualQAction) {
+        vqaction->setQAction_Event_IsBase(true);
+        return vqaction->event(param1);
+    }
+    return {};
+}
+
 void QAction_Trigger(QAction* self) {
     self->trigger();
 }
@@ -493,35 +519,6 @@ void QAction_Connect_Triggered1(QAction* self, intptr_t slot) {
         bool sigval1 = checked;
         slotFunc(self, sigval1);
     });
-}
-
-// Derived class handler implementation
-bool QAction_Event(QAction* self, QEvent* param1) {
-    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
-        return vqaction->event(param1);
-    } else {
-        return ((VirtualQAction*)self)->event(param1);
-    }
-}
-
-// Base class handler implementation
-bool QAction_QBaseEvent(QAction* self, QEvent* param1) {
-    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
-        vqaction->setQAction_Event_IsBase(true);
-        return vqaction->event(param1);
-    } else {
-        return ((VirtualQAction*)self)->event(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAction_OnEvent(QAction* self, intptr_t slot) {
-    auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
-        vqaction->setQAction_Event_Callback(reinterpret_cast<VirtualQAction::QAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

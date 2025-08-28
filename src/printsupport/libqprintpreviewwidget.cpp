@@ -136,6 +136,34 @@ int QPrintPreviewWidget_PageCount(const QPrintPreviewWidget* self) {
     return self->pageCount();
 }
 
+void QPrintPreviewWidget_SetVisible(QPrintPreviewWidget* self, bool visible) {
+    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        self->setVisible(visible);
+    } else {
+        ((VirtualQPrintPreviewWidget*)self)->setVisible(visible);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrintPreviewWidget_OnSetVisible(QPrintPreviewWidget* self, intptr_t slot) {
+    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SetVisible_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPrintPreviewWidget_QBaseSetVisible(QPrintPreviewWidget* self, bool visible) {
+    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_IsBase(true);
+        vqprintpreviewwidget->setVisible(visible);
+    } else {
+        ((VirtualQPrintPreviewWidget*)self)->setVisible(visible);
+    }
+}
+
 void QPrintPreviewWidget_Print(QPrintPreviewWidget* self) {
     self->print();
 }
@@ -253,35 +281,6 @@ void QPrintPreviewWidget_ZoomIn1(QPrintPreviewWidget* self, double zoom) {
 
 void QPrintPreviewWidget_ZoomOut1(QPrintPreviewWidget* self, double zoom) {
     self->zoomOut(static_cast<qreal>(zoom));
-}
-
-// Derived class handler implementation
-void QPrintPreviewWidget_SetVisible(QPrintPreviewWidget* self, bool visible) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setVisible(visible);
-    } else {
-        self->QPrintPreviewWidget::setVisible(visible);
-    }
-}
-
-// Base class handler implementation
-void QPrintPreviewWidget_QBaseSetVisible(QPrintPreviewWidget* self, bool visible) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_IsBase(true);
-        vqprintpreviewwidget->setVisible(visible);
-    } else {
-        self->QPrintPreviewWidget::setVisible(visible);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnSetVisible(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

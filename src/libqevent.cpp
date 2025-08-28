@@ -77,6 +77,34 @@ QInputEvent* QInputEvent_new2(int typeVal, const QInputDevice* m_dev, int modifi
     return new VirtualQInputEvent(static_cast<QEvent::Type>(typeVal), m_dev, static_cast<Qt::KeyboardModifiers>(modifiers));
 }
 
+QInputEvent* QInputEvent_Clone(const QInputEvent* self) {
+    auto* vqinputevent = dynamic_cast<const VirtualQInputEvent*>(self);
+    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQInputEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QInputEvent_OnClone(const QInputEvent* self, intptr_t slot) {
+    auto* vqinputevent = const_cast<VirtualQInputEvent*>(dynamic_cast<const VirtualQInputEvent*>(self));
+    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
+        vqinputevent->setQInputEvent_Clone_Callback(reinterpret_cast<VirtualQInputEvent::QInputEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QInputEvent* QInputEvent_QBaseClone(const QInputEvent* self) {
+    auto* vqinputevent = dynamic_cast<const VirtualQInputEvent*>(self);
+    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
+        vqinputevent->setQInputEvent_Clone_IsBase(true);
+        return vqinputevent->clone();
+    } else {
+        return ((VirtualQInputEvent*)self)->clone();
+    }
+}
+
 QInputDevice* QInputEvent_Device(const QInputEvent* self) {
     return (QInputDevice*)self->device();
 }
@@ -97,61 +125,31 @@ unsigned long long QInputEvent_Timestamp(const QInputEvent* self) {
     return static_cast<unsigned long long>(self->timestamp());
 }
 
-// Derived class handler implementation
-QInputEvent* QInputEvent_Clone(const QInputEvent* self) {
-    auto* vqinputevent = const_cast<VirtualQInputEvent*>(dynamic_cast<const VirtualQInputEvent*>(self));
-    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
-        return vqinputevent->clone();
-    } else {
-        return self->QInputEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QInputEvent* QInputEvent_QBaseClone(const QInputEvent* self) {
-    auto* vqinputevent = const_cast<VirtualQInputEvent*>(dynamic_cast<const VirtualQInputEvent*>(self));
-    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
-        vqinputevent->setQInputEvent_Clone_IsBase(true);
-        return vqinputevent->clone();
-    } else {
-        return self->QInputEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputEvent_OnClone(const QInputEvent* self, intptr_t slot) {
-    auto* vqinputevent = const_cast<VirtualQInputEvent*>(dynamic_cast<const VirtualQInputEvent*>(self));
-    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
-        vqinputevent->setQInputEvent_Clone_Callback(reinterpret_cast<VirtualQInputEvent::QInputEvent_Clone_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 void QInputEvent_SetTimestamp(QInputEvent* self, unsigned long long timestamp) {
     auto* vqinputevent = dynamic_cast<VirtualQInputEvent*>(self);
     if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
-        vqinputevent->setTimestamp(static_cast<quint64>(timestamp));
+        self->setTimestamp(static_cast<quint64>(timestamp));
     } else {
-        self->QInputEvent::setTimestamp(static_cast<quint64>(timestamp));
+        ((VirtualQInputEvent*)self)->setTimestamp(static_cast<quint64>(timestamp));
     }
 }
 
-// Base class handler implementation
+// Subclass method to allow providing a virtual method re-implementation
+void QInputEvent_OnSetTimestamp(QInputEvent* self, intptr_t slot) {
+    auto* vqinputevent = dynamic_cast<VirtualQInputEvent*>(self);
+    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
+        vqinputevent->setQInputEvent_SetTimestamp_Callback(reinterpret_cast<VirtualQInputEvent::QInputEvent_SetTimestamp_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
 void QInputEvent_QBaseSetTimestamp(QInputEvent* self, unsigned long long timestamp) {
     auto* vqinputevent = dynamic_cast<VirtualQInputEvent*>(self);
     if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
         vqinputevent->setQInputEvent_SetTimestamp_IsBase(true);
         vqinputevent->setTimestamp(static_cast<quint64>(timestamp));
     } else {
-        self->QInputEvent::setTimestamp(static_cast<quint64>(timestamp));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputEvent_OnSetTimestamp(QInputEvent* self, intptr_t slot) {
-    auto* vqinputevent = dynamic_cast<VirtualQInputEvent*>(self);
-    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
-        vqinputevent->setQInputEvent_SetTimestamp_Callback(reinterpret_cast<VirtualQInputEvent::QInputEvent_SetTimestamp_Callback>(slot));
+        ((VirtualQInputEvent*)self)->setTimestamp(static_cast<quint64>(timestamp));
     }
 }
 
@@ -206,12 +204,68 @@ QPointerEvent* QPointerEvent_new3(int typeVal, const QPointingDevice* dev, int m
     return new VirtualQPointerEvent(static_cast<QEvent::Type>(typeVal), dev, static_cast<Qt::KeyboardModifiers>(modifiers), points_QList);
 }
 
+QPointerEvent* QPointerEvent_Clone(const QPointerEvent* self) {
+    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQPointerEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPointerEvent_OnClone(const QPointerEvent* self, intptr_t slot) {
+    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_Clone_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QPointerEvent* QPointerEvent_QBaseClone(const QPointerEvent* self) {
+    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_Clone_IsBase(true);
+        return vqpointerevent->clone();
+    } else {
+        return ((VirtualQPointerEvent*)self)->clone();
+    }
+}
+
 QPointingDevice* QPointerEvent_PointingDevice(const QPointerEvent* self) {
     return (QPointingDevice*)self->pointingDevice();
 }
 
 int QPointerEvent_PointerType(const QPointerEvent* self) {
     return static_cast<int>(self->pointerType());
+}
+
+void QPointerEvent_SetTimestamp(QPointerEvent* self, unsigned long long timestamp) {
+    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        self->setTimestamp(static_cast<quint64>(timestamp));
+    } else {
+        ((VirtualQPointerEvent*)self)->setTimestamp(static_cast<quint64>(timestamp));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPointerEvent_OnSetTimestamp(QPointerEvent* self, intptr_t slot) {
+    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_SetTimestamp_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_SetTimestamp_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPointerEvent_QBaseSetTimestamp(QPointerEvent* self, unsigned long long timestamp) {
+    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_SetTimestamp_IsBase(true);
+        vqpointerevent->setTimestamp(static_cast<quint64>(timestamp));
+    } else {
+        ((VirtualQPointerEvent*)self)->setTimestamp(static_cast<quint64>(timestamp));
+    }
 }
 
 ptrdiff_t QPointerEvent_PointCount(const QPointerEvent* self) {
@@ -245,8 +299,120 @@ bool QPointerEvent_AllPointsGrabbed(const QPointerEvent* self) {
     return self->allPointsGrabbed();
 }
 
+bool QPointerEvent_IsBeginEvent(const QPointerEvent* self) {
+    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        return self->isBeginEvent();
+    } else {
+        return ((VirtualQPointerEvent*)self)->isBeginEvent();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPointerEvent_OnIsBeginEvent(const QPointerEvent* self, intptr_t slot) {
+    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_IsBeginEvent_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_IsBeginEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QPointerEvent_QBaseIsBeginEvent(const QPointerEvent* self) {
+    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_IsBeginEvent_IsBase(true);
+        return vqpointerevent->isBeginEvent();
+    } else {
+        return ((VirtualQPointerEvent*)self)->isBeginEvent();
+    }
+}
+
+bool QPointerEvent_IsUpdateEvent(const QPointerEvent* self) {
+    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        return self->isUpdateEvent();
+    } else {
+        return ((VirtualQPointerEvent*)self)->isUpdateEvent();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPointerEvent_OnIsUpdateEvent(const QPointerEvent* self, intptr_t slot) {
+    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_IsUpdateEvent_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_IsUpdateEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QPointerEvent_QBaseIsUpdateEvent(const QPointerEvent* self) {
+    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_IsUpdateEvent_IsBase(true);
+        return vqpointerevent->isUpdateEvent();
+    } else {
+        return ((VirtualQPointerEvent*)self)->isUpdateEvent();
+    }
+}
+
+bool QPointerEvent_IsEndEvent(const QPointerEvent* self) {
+    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        return self->isEndEvent();
+    } else {
+        return ((VirtualQPointerEvent*)self)->isEndEvent();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPointerEvent_OnIsEndEvent(const QPointerEvent* self, intptr_t slot) {
+    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_IsEndEvent_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_IsEndEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QPointerEvent_QBaseIsEndEvent(const QPointerEvent* self) {
+    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_IsEndEvent_IsBase(true);
+        return vqpointerevent->isEndEvent();
+    } else {
+        return ((VirtualQPointerEvent*)self)->isEndEvent();
+    }
+}
+
 bool QPointerEvent_AllPointsAccepted(const QPointerEvent* self) {
     return self->allPointsAccepted();
+}
+
+void QPointerEvent_SetAccepted(QPointerEvent* self, bool accepted) {
+    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        self->setAccepted(accepted);
+    } else {
+        ((VirtualQPointerEvent*)self)->setAccepted(accepted);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPointerEvent_OnSetAccepted(QPointerEvent* self, intptr_t slot) {
+    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_SetAccepted_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_SetAccepted_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPointerEvent_QBaseSetAccepted(QPointerEvent* self, bool accepted) {
+    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
+    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
+        vqpointerevent->setQPointerEvent_SetAccepted_IsBase(true);
+        vqpointerevent->setAccepted(accepted);
+    } else {
+        ((VirtualQPointerEvent*)self)->setAccepted(accepted);
+    }
 }
 
 QObject* QPointerEvent_ExclusiveGrabber(const QPointerEvent* self, const QEventPoint* point) {
@@ -267,180 +433,6 @@ bool QPointerEvent_AddPassiveGrabber(QPointerEvent* self, const QEventPoint* poi
 
 bool QPointerEvent_RemovePassiveGrabber(QPointerEvent* self, const QEventPoint* point, QObject* grabber) {
     return self->removePassiveGrabber(*point, grabber);
-}
-
-// Derived class handler implementation
-QPointerEvent* QPointerEvent_Clone(const QPointerEvent* self) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        return vqpointerevent->clone();
-    } else {
-        return self->QPointerEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QPointerEvent* QPointerEvent_QBaseClone(const QPointerEvent* self) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_Clone_IsBase(true);
-        return vqpointerevent->clone();
-    } else {
-        return self->QPointerEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointerEvent_OnClone(const QPointerEvent* self, intptr_t slot) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_Clone_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_Clone_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QPointerEvent_SetTimestamp(QPointerEvent* self, unsigned long long timestamp) {
-    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setTimestamp(static_cast<quint64>(timestamp));
-    } else {
-        self->QPointerEvent::setTimestamp(static_cast<quint64>(timestamp));
-    }
-}
-
-// Base class handler implementation
-void QPointerEvent_QBaseSetTimestamp(QPointerEvent* self, unsigned long long timestamp) {
-    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_SetTimestamp_IsBase(true);
-        vqpointerevent->setTimestamp(static_cast<quint64>(timestamp));
-    } else {
-        self->QPointerEvent::setTimestamp(static_cast<quint64>(timestamp));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointerEvent_OnSetTimestamp(QPointerEvent* self, intptr_t slot) {
-    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_SetTimestamp_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_SetTimestamp_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QPointerEvent_IsBeginEvent(const QPointerEvent* self) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        return vqpointerevent->isBeginEvent();
-    } else {
-        return self->QPointerEvent::isBeginEvent();
-    }
-}
-
-// Base class handler implementation
-bool QPointerEvent_QBaseIsBeginEvent(const QPointerEvent* self) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_IsBeginEvent_IsBase(true);
-        return vqpointerevent->isBeginEvent();
-    } else {
-        return self->QPointerEvent::isBeginEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointerEvent_OnIsBeginEvent(const QPointerEvent* self, intptr_t slot) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_IsBeginEvent_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_IsBeginEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QPointerEvent_IsUpdateEvent(const QPointerEvent* self) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        return vqpointerevent->isUpdateEvent();
-    } else {
-        return self->QPointerEvent::isUpdateEvent();
-    }
-}
-
-// Base class handler implementation
-bool QPointerEvent_QBaseIsUpdateEvent(const QPointerEvent* self) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_IsUpdateEvent_IsBase(true);
-        return vqpointerevent->isUpdateEvent();
-    } else {
-        return self->QPointerEvent::isUpdateEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointerEvent_OnIsUpdateEvent(const QPointerEvent* self, intptr_t slot) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_IsUpdateEvent_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_IsUpdateEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QPointerEvent_IsEndEvent(const QPointerEvent* self) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        return vqpointerevent->isEndEvent();
-    } else {
-        return self->QPointerEvent::isEndEvent();
-    }
-}
-
-// Base class handler implementation
-bool QPointerEvent_QBaseIsEndEvent(const QPointerEvent* self) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_IsEndEvent_IsBase(true);
-        return vqpointerevent->isEndEvent();
-    } else {
-        return self->QPointerEvent::isEndEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointerEvent_OnIsEndEvent(const QPointerEvent* self, intptr_t slot) {
-    auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_IsEndEvent_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_IsEndEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QPointerEvent_SetAccepted(QPointerEvent* self, bool accepted) {
-    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setAccepted(accepted);
-    } else {
-        self->QPointerEvent::setAccepted(accepted);
-    }
-}
-
-// Base class handler implementation
-void QPointerEvent_QBaseSetAccepted(QPointerEvent* self, bool accepted) {
-    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_SetAccepted_IsBase(true);
-        vqpointerevent->setAccepted(accepted);
-    } else {
-        self->QPointerEvent::setAccepted(accepted);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointerEvent_OnSetAccepted(QPointerEvent* self, intptr_t slot) {
-    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        vqpointerevent->setQPointerEvent_SetAccepted_Callback(reinterpret_cast<VirtualQPointerEvent::QPointerEvent_SetAccepted_Callback>(slot));
-    }
 }
 
 void QPointerEvent_Delete(QPointerEvent* self) {
@@ -503,6 +495,34 @@ QEnterEvent* QEnterEvent_new2(const QPointF* localPos, const QPointF* scenePos, 
     return new VirtualQEnterEvent(*localPos, *scenePos, *globalPos, device);
 }
 
+QEnterEvent* QEnterEvent_Clone(const QEnterEvent* self) {
+    auto* vqenterevent = dynamic_cast<const VirtualQEnterEvent*>(self);
+    if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQEnterEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QEnterEvent_OnClone(const QEnterEvent* self, intptr_t slot) {
+    auto* vqenterevent = const_cast<VirtualQEnterEvent*>(dynamic_cast<const VirtualQEnterEvent*>(self));
+    if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
+        vqenterevent->setQEnterEvent_Clone_Callback(reinterpret_cast<VirtualQEnterEvent::QEnterEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QEnterEvent* QEnterEvent_QBaseClone(const QEnterEvent* self) {
+    auto* vqenterevent = dynamic_cast<const VirtualQEnterEvent*>(self);
+    if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
+        vqenterevent->setQEnterEvent_Clone_IsBase(true);
+        return vqenterevent->clone();
+    } else {
+        return ((VirtualQEnterEvent*)self)->clone();
+    }
+}
+
 QPoint* QEnterEvent_Pos(const QEnterEvent* self) {
     return new QPoint(self->pos());
 }
@@ -537,35 +557,6 @@ QPointF* QEnterEvent_WindowPos(const QEnterEvent* self) {
 
 QPointF* QEnterEvent_ScreenPos(const QEnterEvent* self) {
     return new QPointF(self->screenPos());
-}
-
-// Derived class handler implementation
-QEnterEvent* QEnterEvent_Clone(const QEnterEvent* self) {
-    auto* vqenterevent = const_cast<VirtualQEnterEvent*>(dynamic_cast<const VirtualQEnterEvent*>(self));
-    if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
-        return vqenterevent->clone();
-    } else {
-        return self->QEnterEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QEnterEvent* QEnterEvent_QBaseClone(const QEnterEvent* self) {
-    auto* vqenterevent = const_cast<VirtualQEnterEvent*>(dynamic_cast<const VirtualQEnterEvent*>(self));
-    if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
-        vqenterevent->setQEnterEvent_Clone_IsBase(true);
-        return vqenterevent->clone();
-    } else {
-        return self->QEnterEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QEnterEvent_OnClone(const QEnterEvent* self, intptr_t slot) {
-    auto* vqenterevent = const_cast<VirtualQEnterEvent*>(dynamic_cast<const VirtualQEnterEvent*>(self));
-    if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
-        vqenterevent->setQEnterEvent_Clone_Callback(reinterpret_cast<VirtualQEnterEvent::QEnterEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,6 +740,34 @@ QMouseEvent* QMouseEvent_new8(int typeVal, const QPointF* localPos, const QPoint
     return new VirtualQMouseEvent(static_cast<QEvent::Type>(typeVal), *localPos, *scenePos, *globalPos, static_cast<Qt::MouseButton>(button), static_cast<Qt::MouseButtons>(buttons), static_cast<Qt::KeyboardModifiers>(modifiers), static_cast<Qt::MouseEventSource>(source), device);
 }
 
+QMouseEvent* QMouseEvent_Clone(const QMouseEvent* self) {
+    auto* vqmouseevent = dynamic_cast<const VirtualQMouseEvent*>(self);
+    if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQMouseEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMouseEvent_OnClone(const QMouseEvent* self, intptr_t slot) {
+    auto* vqmouseevent = const_cast<VirtualQMouseEvent*>(dynamic_cast<const VirtualQMouseEvent*>(self));
+    if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
+        vqmouseevent->setQMouseEvent_Clone_Callback(reinterpret_cast<VirtualQMouseEvent::QMouseEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QMouseEvent* QMouseEvent_QBaseClone(const QMouseEvent* self) {
+    auto* vqmouseevent = dynamic_cast<const VirtualQMouseEvent*>(self);
+    if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
+        vqmouseevent->setQMouseEvent_Clone_IsBase(true);
+        return vqmouseevent->clone();
+    } else {
+        return ((VirtualQMouseEvent*)self)->clone();
+    }
+}
+
 QPoint* QMouseEvent_Pos(const QMouseEvent* self) {
     return new QPoint(self->pos());
 }
@@ -791,35 +810,6 @@ int QMouseEvent_Source(const QMouseEvent* self) {
 
 int QMouseEvent_Flags(const QMouseEvent* self) {
     return static_cast<int>(self->flags());
-}
-
-// Derived class handler implementation
-QMouseEvent* QMouseEvent_Clone(const QMouseEvent* self) {
-    auto* vqmouseevent = const_cast<VirtualQMouseEvent*>(dynamic_cast<const VirtualQMouseEvent*>(self));
-    if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
-        return vqmouseevent->clone();
-    } else {
-        return self->QMouseEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QMouseEvent* QMouseEvent_QBaseClone(const QMouseEvent* self) {
-    auto* vqmouseevent = const_cast<VirtualQMouseEvent*>(dynamic_cast<const VirtualQMouseEvent*>(self));
-    if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
-        vqmouseevent->setQMouseEvent_Clone_IsBase(true);
-        return vqmouseevent->clone();
-    } else {
-        return self->QMouseEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMouseEvent_OnClone(const QMouseEvent* self, intptr_t slot) {
-    auto* vqmouseevent = const_cast<VirtualQMouseEvent*>(dynamic_cast<const VirtualQMouseEvent*>(self));
-    if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
-        vqmouseevent->setQMouseEvent_Clone_Callback(reinterpret_cast<VirtualQMouseEvent::QMouseEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -995,6 +985,34 @@ QHoverEvent* QHoverEvent_new6(int typeVal, const QPointF* pos, const QPointF* ol
     return new VirtualQHoverEvent(static_cast<QEvent::Type>(typeVal), *pos, *oldPos, static_cast<Qt::KeyboardModifiers>(modifiers), device);
 }
 
+QHoverEvent* QHoverEvent_Clone(const QHoverEvent* self) {
+    auto* vqhoverevent = dynamic_cast<const VirtualQHoverEvent*>(self);
+    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQHoverEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QHoverEvent_OnClone(const QHoverEvent* self, intptr_t slot) {
+    auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
+    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
+        vqhoverevent->setQHoverEvent_Clone_Callback(reinterpret_cast<VirtualQHoverEvent::QHoverEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QHoverEvent* QHoverEvent_QBaseClone(const QHoverEvent* self) {
+    auto* vqhoverevent = dynamic_cast<const VirtualQHoverEvent*>(self);
+    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
+        vqhoverevent->setQHoverEvent_Clone_IsBase(true);
+        return vqhoverevent->clone();
+    } else {
+        return ((VirtualQHoverEvent*)self)->clone();
+    }
+}
+
 QPoint* QHoverEvent_Pos(const QHoverEvent* self) {
     return new QPoint(self->pos());
 }
@@ -1003,70 +1021,40 @@ QPointF* QHoverEvent_PosF(const QHoverEvent* self) {
     return new QPointF(self->posF());
 }
 
+bool QHoverEvent_IsUpdateEvent(const QHoverEvent* self) {
+    auto* vqhoverevent = dynamic_cast<const VirtualQHoverEvent*>(self);
+    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
+        return self->isUpdateEvent();
+    } else {
+        return ((VirtualQHoverEvent*)self)->isUpdateEvent();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QHoverEvent_OnIsUpdateEvent(const QHoverEvent* self, intptr_t slot) {
+    auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
+    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
+        vqhoverevent->setQHoverEvent_IsUpdateEvent_Callback(reinterpret_cast<VirtualQHoverEvent::QHoverEvent_IsUpdateEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QHoverEvent_QBaseIsUpdateEvent(const QHoverEvent* self) {
+    auto* vqhoverevent = dynamic_cast<const VirtualQHoverEvent*>(self);
+    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
+        vqhoverevent->setQHoverEvent_IsUpdateEvent_IsBase(true);
+        return vqhoverevent->isUpdateEvent();
+    } else {
+        return ((VirtualQHoverEvent*)self)->isUpdateEvent();
+    }
+}
+
 QPoint* QHoverEvent_OldPos(const QHoverEvent* self) {
     return new QPoint(self->oldPos());
 }
 
 QPointF* QHoverEvent_OldPosF(const QHoverEvent* self) {
     return new QPointF(self->oldPosF());
-}
-
-// Derived class handler implementation
-QHoverEvent* QHoverEvent_Clone(const QHoverEvent* self) {
-    auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
-    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
-        return vqhoverevent->clone();
-    } else {
-        return self->QHoverEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QHoverEvent* QHoverEvent_QBaseClone(const QHoverEvent* self) {
-    auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
-    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
-        vqhoverevent->setQHoverEvent_Clone_IsBase(true);
-        return vqhoverevent->clone();
-    } else {
-        return self->QHoverEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHoverEvent_OnClone(const QHoverEvent* self, intptr_t slot) {
-    auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
-    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
-        vqhoverevent->setQHoverEvent_Clone_Callback(reinterpret_cast<VirtualQHoverEvent::QHoverEvent_Clone_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QHoverEvent_IsUpdateEvent(const QHoverEvent* self) {
-    auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
-    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
-        return vqhoverevent->isUpdateEvent();
-    } else {
-        return self->QHoverEvent::isUpdateEvent();
-    }
-}
-
-// Base class handler implementation
-bool QHoverEvent_QBaseIsUpdateEvent(const QHoverEvent* self) {
-    auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
-    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
-        vqhoverevent->setQHoverEvent_IsUpdateEvent_IsBase(true);
-        return vqhoverevent->isUpdateEvent();
-    } else {
-        return self->QHoverEvent::isUpdateEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHoverEvent_OnIsUpdateEvent(const QHoverEvent* self, intptr_t slot) {
-    auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
-    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
-        vqhoverevent->setQHoverEvent_IsUpdateEvent_Callback(reinterpret_cast<VirtualQHoverEvent::QHoverEvent_IsUpdateEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,6 +1189,34 @@ QWheelEvent* QWheelEvent_new3(const QPointF* pos, const QPointF* globalPos, QPoi
     return new VirtualQWheelEvent(*pos, *globalPos, *pixelDelta, *angleDelta, static_cast<Qt::MouseButtons>(buttons), static_cast<Qt::KeyboardModifiers>(modifiers), static_cast<Qt::ScrollPhase>(phase), inverted, static_cast<Qt::MouseEventSource>(source), device);
 }
 
+QWheelEvent* QWheelEvent_Clone(const QWheelEvent* self) {
+    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
+    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQWheelEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWheelEvent_OnClone(const QWheelEvent* self, intptr_t slot) {
+    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
+    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
+        vqwheelevent->setQWheelEvent_Clone_Callback(reinterpret_cast<VirtualQWheelEvent::QWheelEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QWheelEvent* QWheelEvent_QBaseClone(const QWheelEvent* self) {
+    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
+    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
+        vqwheelevent->setQWheelEvent_Clone_IsBase(true);
+        return vqwheelevent->clone();
+    } else {
+        return ((VirtualQWheelEvent*)self)->clone();
+    }
+}
+
 QPoint* QWheelEvent_PixelDelta(const QWheelEvent* self) {
     return new QPoint(self->pixelDelta());
 }
@@ -1225,61 +1241,16 @@ bool QWheelEvent_HasPixelDelta(const QWheelEvent* self) {
     return self->hasPixelDelta();
 }
 
-int QWheelEvent_Source(const QWheelEvent* self) {
-    return static_cast<int>(self->source());
-}
-
-// Derived class handler implementation
-QWheelEvent* QWheelEvent_Clone(const QWheelEvent* self) {
-    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        return vqwheelevent->clone();
-    } else {
-        return self->QWheelEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QWheelEvent* QWheelEvent_QBaseClone(const QWheelEvent* self) {
-    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        vqwheelevent->setQWheelEvent_Clone_IsBase(true);
-        return vqwheelevent->clone();
-    } else {
-        return self->QWheelEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWheelEvent_OnClone(const QWheelEvent* self, intptr_t slot) {
-    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        vqwheelevent->setQWheelEvent_Clone_Callback(reinterpret_cast<VirtualQWheelEvent::QWheelEvent_Clone_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 bool QWheelEvent_IsBeginEvent(const QWheelEvent* self) {
-    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
+    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        return vqwheelevent->isBeginEvent();
+        return self->isBeginEvent();
     } else {
-        return self->QWheelEvent::isBeginEvent();
+        return ((VirtualQWheelEvent*)self)->isBeginEvent();
     }
 }
 
-// Base class handler implementation
-bool QWheelEvent_QBaseIsBeginEvent(const QWheelEvent* self) {
-    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        vqwheelevent->setQWheelEvent_IsBeginEvent_IsBase(true);
-        return vqwheelevent->isBeginEvent();
-    } else {
-        return self->QWheelEvent::isBeginEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWheelEvent_OnIsBeginEvent(const QWheelEvent* self, intptr_t slot) {
     auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
@@ -1287,28 +1258,27 @@ void QWheelEvent_OnIsBeginEvent(const QWheelEvent* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+bool QWheelEvent_QBaseIsBeginEvent(const QWheelEvent* self) {
+    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
+    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
+        vqwheelevent->setQWheelEvent_IsBeginEvent_IsBase(true);
+        return vqwheelevent->isBeginEvent();
+    } else {
+        return ((VirtualQWheelEvent*)self)->isBeginEvent();
+    }
+}
+
 bool QWheelEvent_IsUpdateEvent(const QWheelEvent* self) {
-    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
+    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        return vqwheelevent->isUpdateEvent();
+        return self->isUpdateEvent();
     } else {
-        return self->QWheelEvent::isUpdateEvent();
+        return ((VirtualQWheelEvent*)self)->isUpdateEvent();
     }
 }
 
-// Base class handler implementation
-bool QWheelEvent_QBaseIsUpdateEvent(const QWheelEvent* self) {
-    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        vqwheelevent->setQWheelEvent_IsUpdateEvent_IsBase(true);
-        return vqwheelevent->isUpdateEvent();
-    } else {
-        return self->QWheelEvent::isUpdateEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWheelEvent_OnIsUpdateEvent(const QWheelEvent* self, intptr_t slot) {
     auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
@@ -1316,33 +1286,47 @@ void QWheelEvent_OnIsUpdateEvent(const QWheelEvent* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+bool QWheelEvent_QBaseIsUpdateEvent(const QWheelEvent* self) {
+    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
+    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
+        vqwheelevent->setQWheelEvent_IsUpdateEvent_IsBase(true);
+        return vqwheelevent->isUpdateEvent();
+    } else {
+        return ((VirtualQWheelEvent*)self)->isUpdateEvent();
+    }
+}
+
 bool QWheelEvent_IsEndEvent(const QWheelEvent* self) {
-    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
+    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        return vqwheelevent->isEndEvent();
+        return self->isEndEvent();
     } else {
-        return self->QWheelEvent::isEndEvent();
+        return ((VirtualQWheelEvent*)self)->isEndEvent();
     }
 }
 
-// Base class handler implementation
-bool QWheelEvent_QBaseIsEndEvent(const QWheelEvent* self) {
-    auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        vqwheelevent->setQWheelEvent_IsEndEvent_IsBase(true);
-        return vqwheelevent->isEndEvent();
-    } else {
-        return self->QWheelEvent::isEndEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWheelEvent_OnIsEndEvent(const QWheelEvent* self, intptr_t slot) {
     auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
         vqwheelevent->setQWheelEvent_IsEndEvent_Callback(reinterpret_cast<VirtualQWheelEvent::QWheelEvent_IsEndEvent_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+bool QWheelEvent_QBaseIsEndEvent(const QWheelEvent* self) {
+    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
+    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
+        vqwheelevent->setQWheelEvent_IsEndEvent_IsBase(true);
+        return vqwheelevent->isEndEvent();
+    } else {
+        return ((VirtualQWheelEvent*)self)->isEndEvent();
+    }
+}
+
+int QWheelEvent_Source(const QWheelEvent* self) {
+    return static_cast<int>(self->source());
 }
 
 // Derived class handler implementation
@@ -1411,6 +1395,34 @@ QTabletEvent* QTabletEvent_new(int t, const QPointingDevice* device, const QPoin
     return new VirtualQTabletEvent(static_cast<QEvent::Type>(t), device, *pos, *globalPos, static_cast<qreal>(pressure), static_cast<float>(xTilt), static_cast<float>(yTilt), static_cast<float>(tangentialPressure), static_cast<qreal>(rotation), static_cast<float>(z), static_cast<Qt::KeyboardModifiers>(keyState), static_cast<Qt::MouseButton>(button), static_cast<Qt::MouseButtons>(buttons));
 }
 
+QTabletEvent* QTabletEvent_Clone(const QTabletEvent* self) {
+    auto* vqtabletevent = dynamic_cast<const VirtualQTabletEvent*>(self);
+    if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQTabletEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTabletEvent_OnClone(const QTabletEvent* self, intptr_t slot) {
+    auto* vqtabletevent = const_cast<VirtualQTabletEvent*>(dynamic_cast<const VirtualQTabletEvent*>(self));
+    if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
+        vqtabletevent->setQTabletEvent_Clone_Callback(reinterpret_cast<VirtualQTabletEvent::QTabletEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QTabletEvent* QTabletEvent_QBaseClone(const QTabletEvent* self) {
+    auto* vqtabletevent = dynamic_cast<const VirtualQTabletEvent*>(self);
+    if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
+        vqtabletevent->setQTabletEvent_Clone_IsBase(true);
+        return vqtabletevent->clone();
+    } else {
+        return ((VirtualQTabletEvent*)self)->clone();
+    }
+}
+
 QPoint* QTabletEvent_Pos(const QTabletEvent* self) {
     return new QPoint(self->pos());
 }
@@ -1477,35 +1489,6 @@ double QTabletEvent_XTilt(const QTabletEvent* self) {
 
 double QTabletEvent_YTilt(const QTabletEvent* self) {
     return static_cast<double>(self->yTilt());
-}
-
-// Derived class handler implementation
-QTabletEvent* QTabletEvent_Clone(const QTabletEvent* self) {
-    auto* vqtabletevent = const_cast<VirtualQTabletEvent*>(dynamic_cast<const VirtualQTabletEvent*>(self));
-    if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
-        return vqtabletevent->clone();
-    } else {
-        return self->QTabletEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QTabletEvent* QTabletEvent_QBaseClone(const QTabletEvent* self) {
-    auto* vqtabletevent = const_cast<VirtualQTabletEvent*>(dynamic_cast<const VirtualQTabletEvent*>(self));
-    if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
-        vqtabletevent->setQTabletEvent_Clone_IsBase(true);
-        return vqtabletevent->clone();
-    } else {
-        return self->QTabletEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabletEvent_OnClone(const QTabletEvent* self, intptr_t slot) {
-    auto* vqtabletevent = const_cast<VirtualQTabletEvent*>(dynamic_cast<const VirtualQTabletEvent*>(self));
-    if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
-        vqtabletevent->setQTabletEvent_Clone_Callback(reinterpret_cast<VirtualQTabletEvent::QTabletEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,6 +1652,34 @@ QNativeGestureEvent* QNativeGestureEvent_new3(int typeVal, const QPointingDevice
     return new VirtualQNativeGestureEvent(static_cast<Qt::NativeGestureType>(typeVal), dev, static_cast<int>(fingerCount), *localPos, *scenePos, *globalPos, static_cast<qreal>(value), *delta, static_cast<quint64>(sequenceId));
 }
 
+QNativeGestureEvent* QNativeGestureEvent_Clone(const QNativeGestureEvent* self) {
+    auto* vqnativegestureevent = dynamic_cast<const VirtualQNativeGestureEvent*>(self);
+    if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQNativeGestureEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QNativeGestureEvent_OnClone(const QNativeGestureEvent* self, intptr_t slot) {
+    auto* vqnativegestureevent = const_cast<VirtualQNativeGestureEvent*>(dynamic_cast<const VirtualQNativeGestureEvent*>(self));
+    if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
+        vqnativegestureevent->setQNativeGestureEvent_Clone_Callback(reinterpret_cast<VirtualQNativeGestureEvent::QNativeGestureEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QNativeGestureEvent* QNativeGestureEvent_QBaseClone(const QNativeGestureEvent* self) {
+    auto* vqnativegestureevent = dynamic_cast<const VirtualQNativeGestureEvent*>(self);
+    if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
+        vqnativegestureevent->setQNativeGestureEvent_Clone_IsBase(true);
+        return vqnativegestureevent->clone();
+    } else {
+        return ((VirtualQNativeGestureEvent*)self)->clone();
+    }
+}
+
 int QNativeGestureEvent_GestureType(const QNativeGestureEvent* self) {
     return static_cast<int>(self->gestureType());
 }
@@ -1703,35 +1714,6 @@ QPointF* QNativeGestureEvent_WindowPos(const QNativeGestureEvent* self) {
 
 QPointF* QNativeGestureEvent_ScreenPos(const QNativeGestureEvent* self) {
     return new QPointF(self->screenPos());
-}
-
-// Derived class handler implementation
-QNativeGestureEvent* QNativeGestureEvent_Clone(const QNativeGestureEvent* self) {
-    auto* vqnativegestureevent = const_cast<VirtualQNativeGestureEvent*>(dynamic_cast<const VirtualQNativeGestureEvent*>(self));
-    if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
-        return vqnativegestureevent->clone();
-    } else {
-        return self->QNativeGestureEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QNativeGestureEvent* QNativeGestureEvent_QBaseClone(const QNativeGestureEvent* self) {
-    auto* vqnativegestureevent = const_cast<VirtualQNativeGestureEvent*>(dynamic_cast<const VirtualQNativeGestureEvent*>(self));
-    if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
-        vqnativegestureevent->setQNativeGestureEvent_Clone_IsBase(true);
-        return vqnativegestureevent->clone();
-    } else {
-        return self->QNativeGestureEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QNativeGestureEvent_OnClone(const QNativeGestureEvent* self, intptr_t slot) {
-    auto* vqnativegestureevent = const_cast<VirtualQNativeGestureEvent*>(dynamic_cast<const VirtualQNativeGestureEvent*>(self));
-    if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
-        vqnativegestureevent->setQNativeGestureEvent_Clone_Callback(reinterpret_cast<VirtualQNativeGestureEvent::QNativeGestureEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,6 +1908,34 @@ QKeyEvent* QKeyEvent_new9(int typeVal, int key, int modifiers, unsigned int nati
     return new VirtualQKeyEvent(static_cast<QEvent::Type>(typeVal), static_cast<int>(key), static_cast<Qt::KeyboardModifiers>(modifiers), static_cast<quint32>(nativeScanCode), static_cast<quint32>(nativeVirtualKey), static_cast<quint32>(nativeModifiers), text_QString, autorep, static_cast<quint16>(count), device);
 }
 
+QKeyEvent* QKeyEvent_Clone(const QKeyEvent* self) {
+    auto* vqkeyevent = dynamic_cast<const VirtualQKeyEvent*>(self);
+    if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQKeyEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QKeyEvent_OnClone(const QKeyEvent* self, intptr_t slot) {
+    auto* vqkeyevent = const_cast<VirtualQKeyEvent*>(dynamic_cast<const VirtualQKeyEvent*>(self));
+    if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
+        vqkeyevent->setQKeyEvent_Clone_Callback(reinterpret_cast<VirtualQKeyEvent::QKeyEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QKeyEvent* QKeyEvent_QBaseClone(const QKeyEvent* self) {
+    auto* vqkeyevent = dynamic_cast<const VirtualQKeyEvent*>(self);
+    if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
+        vqkeyevent->setQKeyEvent_Clone_IsBase(true);
+        return vqkeyevent->clone();
+    } else {
+        return ((VirtualQKeyEvent*)self)->clone();
+    }
+}
+
 int QKeyEvent_Key(const QKeyEvent* self) {
     return self->key();
 }
@@ -1972,35 +1982,6 @@ unsigned int QKeyEvent_NativeVirtualKey(const QKeyEvent* self) {
 
 unsigned int QKeyEvent_NativeModifiers(const QKeyEvent* self) {
     return static_cast<unsigned int>(self->nativeModifiers());
-}
-
-// Derived class handler implementation
-QKeyEvent* QKeyEvent_Clone(const QKeyEvent* self) {
-    auto* vqkeyevent = const_cast<VirtualQKeyEvent*>(dynamic_cast<const VirtualQKeyEvent*>(self));
-    if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
-        return vqkeyevent->clone();
-    } else {
-        return self->QKeyEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QKeyEvent* QKeyEvent_QBaseClone(const QKeyEvent* self) {
-    auto* vqkeyevent = const_cast<VirtualQKeyEvent*>(dynamic_cast<const VirtualQKeyEvent*>(self));
-    if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
-        vqkeyevent->setQKeyEvent_Clone_IsBase(true);
-        return vqkeyevent->clone();
-    } else {
-        return self->QKeyEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeyEvent_OnClone(const QKeyEvent* self, intptr_t slot) {
-    auto* vqkeyevent = const_cast<VirtualQKeyEvent*>(dynamic_cast<const VirtualQKeyEvent*>(self));
-    if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
-        vqkeyevent->setQKeyEvent_Clone_Callback(reinterpret_cast<VirtualQKeyEvent::QKeyEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2073,6 +2054,34 @@ QFocusEvent* QFocusEvent_new2(int typeVal, int reason) {
     return new VirtualQFocusEvent(static_cast<QEvent::Type>(typeVal), static_cast<Qt::FocusReason>(reason));
 }
 
+QFocusEvent* QFocusEvent_Clone(const QFocusEvent* self) {
+    auto* vqfocusevent = dynamic_cast<const VirtualQFocusEvent*>(self);
+    if (vqfocusevent && vqfocusevent->isVirtualQFocusEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQFocusEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFocusEvent_OnClone(const QFocusEvent* self, intptr_t slot) {
+    auto* vqfocusevent = const_cast<VirtualQFocusEvent*>(dynamic_cast<const VirtualQFocusEvent*>(self));
+    if (vqfocusevent && vqfocusevent->isVirtualQFocusEvent) {
+        vqfocusevent->setQFocusEvent_Clone_Callback(reinterpret_cast<VirtualQFocusEvent::QFocusEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QFocusEvent* QFocusEvent_QBaseClone(const QFocusEvent* self) {
+    auto* vqfocusevent = dynamic_cast<const VirtualQFocusEvent*>(self);
+    if (vqfocusevent && vqfocusevent->isVirtualQFocusEvent) {
+        vqfocusevent->setQFocusEvent_Clone_IsBase(true);
+        return vqfocusevent->clone();
+    } else {
+        return ((VirtualQFocusEvent*)self)->clone();
+    }
+}
+
 bool QFocusEvent_GotFocus(const QFocusEvent* self) {
     return self->gotFocus();
 }
@@ -2083,35 +2092,6 @@ bool QFocusEvent_LostFocus(const QFocusEvent* self) {
 
 int QFocusEvent_Reason(const QFocusEvent* self) {
     return static_cast<int>(self->reason());
-}
-
-// Derived class handler implementation
-QFocusEvent* QFocusEvent_Clone(const QFocusEvent* self) {
-    auto* vqfocusevent = const_cast<VirtualQFocusEvent*>(dynamic_cast<const VirtualQFocusEvent*>(self));
-    if (vqfocusevent && vqfocusevent->isVirtualQFocusEvent) {
-        return vqfocusevent->clone();
-    } else {
-        return self->QFocusEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QFocusEvent* QFocusEvent_QBaseClone(const QFocusEvent* self) {
-    auto* vqfocusevent = const_cast<VirtualQFocusEvent*>(dynamic_cast<const VirtualQFocusEvent*>(self));
-    if (vqfocusevent && vqfocusevent->isVirtualQFocusEvent) {
-        vqfocusevent->setQFocusEvent_Clone_IsBase(true);
-        return vqfocusevent->clone();
-    } else {
-        return self->QFocusEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFocusEvent_OnClone(const QFocusEvent* self, intptr_t slot) {
-    auto* vqfocusevent = const_cast<VirtualQFocusEvent*>(dynamic_cast<const VirtualQFocusEvent*>(self));
-    if (vqfocusevent && vqfocusevent->isVirtualQFocusEvent) {
-        vqfocusevent->setQFocusEvent_Clone_Callback(reinterpret_cast<VirtualQFocusEvent::QFocusEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2155,6 +2135,34 @@ QPaintEvent* QPaintEvent_new2(const QRect* paintRect) {
     return new VirtualQPaintEvent(*paintRect);
 }
 
+QPaintEvent* QPaintEvent_Clone(const QPaintEvent* self) {
+    auto* vqpaintevent = dynamic_cast<const VirtualQPaintEvent*>(self);
+    if (vqpaintevent && vqpaintevent->isVirtualQPaintEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQPaintEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPaintEvent_OnClone(const QPaintEvent* self, intptr_t slot) {
+    auto* vqpaintevent = const_cast<VirtualQPaintEvent*>(dynamic_cast<const VirtualQPaintEvent*>(self));
+    if (vqpaintevent && vqpaintevent->isVirtualQPaintEvent) {
+        vqpaintevent->setQPaintEvent_Clone_Callback(reinterpret_cast<VirtualQPaintEvent::QPaintEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QPaintEvent* QPaintEvent_QBaseClone(const QPaintEvent* self) {
+    auto* vqpaintevent = dynamic_cast<const VirtualQPaintEvent*>(self);
+    if (vqpaintevent && vqpaintevent->isVirtualQPaintEvent) {
+        vqpaintevent->setQPaintEvent_Clone_IsBase(true);
+        return vqpaintevent->clone();
+    } else {
+        return ((VirtualQPaintEvent*)self)->clone();
+    }
+}
+
 QRect* QPaintEvent_Rect(const QPaintEvent* self) {
     const QRect& _ret = self->rect();
     // Cast returned reference into pointer
@@ -2165,35 +2173,6 @@ QRegion* QPaintEvent_Region(const QPaintEvent* self) {
     const QRegion& _ret = self->region();
     // Cast returned reference into pointer
     return const_cast<QRegion*>(&_ret);
-}
-
-// Derived class handler implementation
-QPaintEvent* QPaintEvent_Clone(const QPaintEvent* self) {
-    auto* vqpaintevent = const_cast<VirtualQPaintEvent*>(dynamic_cast<const VirtualQPaintEvent*>(self));
-    if (vqpaintevent && vqpaintevent->isVirtualQPaintEvent) {
-        return vqpaintevent->clone();
-    } else {
-        return self->QPaintEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QPaintEvent* QPaintEvent_QBaseClone(const QPaintEvent* self) {
-    auto* vqpaintevent = const_cast<VirtualQPaintEvent*>(dynamic_cast<const VirtualQPaintEvent*>(self));
-    if (vqpaintevent && vqpaintevent->isVirtualQPaintEvent) {
-        vqpaintevent->setQPaintEvent_Clone_IsBase(true);
-        return vqpaintevent->clone();
-    } else {
-        return self->QPaintEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPaintEvent_OnClone(const QPaintEvent* self, intptr_t slot) {
-    auto* vqpaintevent = const_cast<VirtualQPaintEvent*>(dynamic_cast<const VirtualQPaintEvent*>(self));
-    if (vqpaintevent && vqpaintevent->isVirtualQPaintEvent) {
-        vqpaintevent->setQPaintEvent_Clone_Callback(reinterpret_cast<VirtualQPaintEvent::QPaintEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2233,6 +2212,34 @@ QMoveEvent* QMoveEvent_new(const QPoint* pos, const QPoint* oldPos) {
     return new VirtualQMoveEvent(*pos, *oldPos);
 }
 
+QMoveEvent* QMoveEvent_Clone(const QMoveEvent* self) {
+    auto* vqmoveevent = dynamic_cast<const VirtualQMoveEvent*>(self);
+    if (vqmoveevent && vqmoveevent->isVirtualQMoveEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQMoveEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMoveEvent_OnClone(const QMoveEvent* self, intptr_t slot) {
+    auto* vqmoveevent = const_cast<VirtualQMoveEvent*>(dynamic_cast<const VirtualQMoveEvent*>(self));
+    if (vqmoveevent && vqmoveevent->isVirtualQMoveEvent) {
+        vqmoveevent->setQMoveEvent_Clone_Callback(reinterpret_cast<VirtualQMoveEvent::QMoveEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QMoveEvent* QMoveEvent_QBaseClone(const QMoveEvent* self) {
+    auto* vqmoveevent = dynamic_cast<const VirtualQMoveEvent*>(self);
+    if (vqmoveevent && vqmoveevent->isVirtualQMoveEvent) {
+        vqmoveevent->setQMoveEvent_Clone_IsBase(true);
+        return vqmoveevent->clone();
+    } else {
+        return ((VirtualQMoveEvent*)self)->clone();
+    }
+}
+
 QPoint* QMoveEvent_Pos(const QMoveEvent* self) {
     const QPoint& _ret = self->pos();
     // Cast returned reference into pointer
@@ -2243,35 +2250,6 @@ QPoint* QMoveEvent_OldPos(const QMoveEvent* self) {
     const QPoint& _ret = self->oldPos();
     // Cast returned reference into pointer
     return const_cast<QPoint*>(&_ret);
-}
-
-// Derived class handler implementation
-QMoveEvent* QMoveEvent_Clone(const QMoveEvent* self) {
-    auto* vqmoveevent = const_cast<VirtualQMoveEvent*>(dynamic_cast<const VirtualQMoveEvent*>(self));
-    if (vqmoveevent && vqmoveevent->isVirtualQMoveEvent) {
-        return vqmoveevent->clone();
-    } else {
-        return self->QMoveEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QMoveEvent* QMoveEvent_QBaseClone(const QMoveEvent* self) {
-    auto* vqmoveevent = const_cast<VirtualQMoveEvent*>(dynamic_cast<const VirtualQMoveEvent*>(self));
-    if (vqmoveevent && vqmoveevent->isVirtualQMoveEvent) {
-        vqmoveevent->setQMoveEvent_Clone_IsBase(true);
-        return vqmoveevent->clone();
-    } else {
-        return self->QMoveEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMoveEvent_OnClone(const QMoveEvent* self, intptr_t slot) {
-    auto* vqmoveevent = const_cast<VirtualQMoveEvent*>(dynamic_cast<const VirtualQMoveEvent*>(self));
-    if (vqmoveevent && vqmoveevent->isVirtualQMoveEvent) {
-        vqmoveevent->setQMoveEvent_Clone_Callback(reinterpret_cast<VirtualQMoveEvent::QMoveEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2311,39 +2289,38 @@ QExposeEvent* QExposeEvent_new(const QRegion* m_region) {
     return new VirtualQExposeEvent(*m_region);
 }
 
-QRegion* QExposeEvent_Region(const QExposeEvent* self) {
-    const QRegion& _ret = self->region();
-    // Cast returned reference into pointer
-    return const_cast<QRegion*>(&_ret);
-}
-
-// Derived class handler implementation
 QExposeEvent* QExposeEvent_Clone(const QExposeEvent* self) {
-    auto* vqexposeevent = const_cast<VirtualQExposeEvent*>(dynamic_cast<const VirtualQExposeEvent*>(self));
+    auto* vqexposeevent = dynamic_cast<const VirtualQExposeEvent*>(self);
     if (vqexposeevent && vqexposeevent->isVirtualQExposeEvent) {
-        return vqexposeevent->clone();
+        return self->clone();
     } else {
-        return self->QExposeEvent::clone();
+        return ((VirtualQExposeEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QExposeEvent* QExposeEvent_QBaseClone(const QExposeEvent* self) {
-    auto* vqexposeevent = const_cast<VirtualQExposeEvent*>(dynamic_cast<const VirtualQExposeEvent*>(self));
-    if (vqexposeevent && vqexposeevent->isVirtualQExposeEvent) {
-        vqexposeevent->setQExposeEvent_Clone_IsBase(true);
-        return vqexposeevent->clone();
-    } else {
-        return self->QExposeEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QExposeEvent_OnClone(const QExposeEvent* self, intptr_t slot) {
     auto* vqexposeevent = const_cast<VirtualQExposeEvent*>(dynamic_cast<const VirtualQExposeEvent*>(self));
     if (vqexposeevent && vqexposeevent->isVirtualQExposeEvent) {
         vqexposeevent->setQExposeEvent_Clone_Callback(reinterpret_cast<VirtualQExposeEvent::QExposeEvent_Clone_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+QExposeEvent* QExposeEvent_QBaseClone(const QExposeEvent* self) {
+    auto* vqexposeevent = dynamic_cast<const VirtualQExposeEvent*>(self);
+    if (vqexposeevent && vqexposeevent->isVirtualQExposeEvent) {
+        vqexposeevent->setQExposeEvent_Clone_IsBase(true);
+        return vqexposeevent->clone();
+    } else {
+        return ((VirtualQExposeEvent*)self)->clone();
+    }
+}
+
+QRegion* QExposeEvent_Region(const QExposeEvent* self) {
+    const QRegion& _ret = self->region();
+    // Cast returned reference into pointer
+    return const_cast<QRegion*>(&_ret);
 }
 
 // Derived class handler implementation
@@ -2383,37 +2360,36 @@ QPlatformSurfaceEvent* QPlatformSurfaceEvent_new(int surfaceEventType) {
     return new VirtualQPlatformSurfaceEvent(static_cast<QPlatformSurfaceEvent::SurfaceEventType>(surfaceEventType));
 }
 
-int QPlatformSurfaceEvent_SurfaceEventType(const QPlatformSurfaceEvent* self) {
-    return static_cast<int>(self->surfaceEventType());
-}
-
-// Derived class handler implementation
 QPlatformSurfaceEvent* QPlatformSurfaceEvent_Clone(const QPlatformSurfaceEvent* self) {
-    auto* vqplatformsurfaceevent = const_cast<VirtualQPlatformSurfaceEvent*>(dynamic_cast<const VirtualQPlatformSurfaceEvent*>(self));
+    auto* vqplatformsurfaceevent = dynamic_cast<const VirtualQPlatformSurfaceEvent*>(self);
     if (vqplatformsurfaceevent && vqplatformsurfaceevent->isVirtualQPlatformSurfaceEvent) {
-        return vqplatformsurfaceevent->clone();
+        return self->clone();
     } else {
-        return self->QPlatformSurfaceEvent::clone();
+        return ((VirtualQPlatformSurfaceEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QPlatformSurfaceEvent* QPlatformSurfaceEvent_QBaseClone(const QPlatformSurfaceEvent* self) {
-    auto* vqplatformsurfaceevent = const_cast<VirtualQPlatformSurfaceEvent*>(dynamic_cast<const VirtualQPlatformSurfaceEvent*>(self));
-    if (vqplatformsurfaceevent && vqplatformsurfaceevent->isVirtualQPlatformSurfaceEvent) {
-        vqplatformsurfaceevent->setQPlatformSurfaceEvent_Clone_IsBase(true);
-        return vqplatformsurfaceevent->clone();
-    } else {
-        return self->QPlatformSurfaceEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QPlatformSurfaceEvent_OnClone(const QPlatformSurfaceEvent* self, intptr_t slot) {
     auto* vqplatformsurfaceevent = const_cast<VirtualQPlatformSurfaceEvent*>(dynamic_cast<const VirtualQPlatformSurfaceEvent*>(self));
     if (vqplatformsurfaceevent && vqplatformsurfaceevent->isVirtualQPlatformSurfaceEvent) {
         vqplatformsurfaceevent->setQPlatformSurfaceEvent_Clone_Callback(reinterpret_cast<VirtualQPlatformSurfaceEvent::QPlatformSurfaceEvent_Clone_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+QPlatformSurfaceEvent* QPlatformSurfaceEvent_QBaseClone(const QPlatformSurfaceEvent* self) {
+    auto* vqplatformsurfaceevent = dynamic_cast<const VirtualQPlatformSurfaceEvent*>(self);
+    if (vqplatformsurfaceevent && vqplatformsurfaceevent->isVirtualQPlatformSurfaceEvent) {
+        vqplatformsurfaceevent->setQPlatformSurfaceEvent_Clone_IsBase(true);
+        return vqplatformsurfaceevent->clone();
+    } else {
+        return ((VirtualQPlatformSurfaceEvent*)self)->clone();
+    }
+}
+
+int QPlatformSurfaceEvent_SurfaceEventType(const QPlatformSurfaceEvent* self) {
+    return static_cast<int>(self->surfaceEventType());
 }
 
 // Derived class handler implementation
@@ -2453,6 +2429,34 @@ QResizeEvent* QResizeEvent_new(const QSize* size, const QSize* oldSize) {
     return new VirtualQResizeEvent(*size, *oldSize);
 }
 
+QResizeEvent* QResizeEvent_Clone(const QResizeEvent* self) {
+    auto* vqresizeevent = dynamic_cast<const VirtualQResizeEvent*>(self);
+    if (vqresizeevent && vqresizeevent->isVirtualQResizeEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQResizeEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QResizeEvent_OnClone(const QResizeEvent* self, intptr_t slot) {
+    auto* vqresizeevent = const_cast<VirtualQResizeEvent*>(dynamic_cast<const VirtualQResizeEvent*>(self));
+    if (vqresizeevent && vqresizeevent->isVirtualQResizeEvent) {
+        vqresizeevent->setQResizeEvent_Clone_Callback(reinterpret_cast<VirtualQResizeEvent::QResizeEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QResizeEvent* QResizeEvent_QBaseClone(const QResizeEvent* self) {
+    auto* vqresizeevent = dynamic_cast<const VirtualQResizeEvent*>(self);
+    if (vqresizeevent && vqresizeevent->isVirtualQResizeEvent) {
+        vqresizeevent->setQResizeEvent_Clone_IsBase(true);
+        return vqresizeevent->clone();
+    } else {
+        return ((VirtualQResizeEvent*)self)->clone();
+    }
+}
+
 QSize* QResizeEvent_Size(const QResizeEvent* self) {
     const QSize& _ret = self->size();
     // Cast returned reference into pointer
@@ -2463,35 +2467,6 @@ QSize* QResizeEvent_OldSize(const QResizeEvent* self) {
     const QSize& _ret = self->oldSize();
     // Cast returned reference into pointer
     return const_cast<QSize*>(&_ret);
-}
-
-// Derived class handler implementation
-QResizeEvent* QResizeEvent_Clone(const QResizeEvent* self) {
-    auto* vqresizeevent = const_cast<VirtualQResizeEvent*>(dynamic_cast<const VirtualQResizeEvent*>(self));
-    if (vqresizeevent && vqresizeevent->isVirtualQResizeEvent) {
-        return vqresizeevent->clone();
-    } else {
-        return self->QResizeEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QResizeEvent* QResizeEvent_QBaseClone(const QResizeEvent* self) {
-    auto* vqresizeevent = const_cast<VirtualQResizeEvent*>(dynamic_cast<const VirtualQResizeEvent*>(self));
-    if (vqresizeevent && vqresizeevent->isVirtualQResizeEvent) {
-        vqresizeevent->setQResizeEvent_Clone_IsBase(true);
-        return vqresizeevent->clone();
-    } else {
-        return self->QResizeEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QResizeEvent_OnClone(const QResizeEvent* self, intptr_t slot) {
-    auto* vqresizeevent = const_cast<VirtualQResizeEvent*>(dynamic_cast<const VirtualQResizeEvent*>(self));
-    if (vqresizeevent && vqresizeevent->isVirtualQResizeEvent) {
-        vqresizeevent->setQResizeEvent_Clone_Callback(reinterpret_cast<VirtualQResizeEvent::QResizeEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2531,32 +2506,31 @@ QCloseEvent* QCloseEvent_new() {
     return new VirtualQCloseEvent();
 }
 
-// Derived class handler implementation
 QCloseEvent* QCloseEvent_Clone(const QCloseEvent* self) {
-    auto* vqcloseevent = const_cast<VirtualQCloseEvent*>(dynamic_cast<const VirtualQCloseEvent*>(self));
+    auto* vqcloseevent = dynamic_cast<const VirtualQCloseEvent*>(self);
     if (vqcloseevent && vqcloseevent->isVirtualQCloseEvent) {
-        return vqcloseevent->clone();
+        return self->clone();
     } else {
-        return self->QCloseEvent::clone();
+        return ((VirtualQCloseEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QCloseEvent* QCloseEvent_QBaseClone(const QCloseEvent* self) {
-    auto* vqcloseevent = const_cast<VirtualQCloseEvent*>(dynamic_cast<const VirtualQCloseEvent*>(self));
-    if (vqcloseevent && vqcloseevent->isVirtualQCloseEvent) {
-        vqcloseevent->setQCloseEvent_Clone_IsBase(true);
-        return vqcloseevent->clone();
-    } else {
-        return self->QCloseEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QCloseEvent_OnClone(const QCloseEvent* self, intptr_t slot) {
     auto* vqcloseevent = const_cast<VirtualQCloseEvent*>(dynamic_cast<const VirtualQCloseEvent*>(self));
     if (vqcloseevent && vqcloseevent->isVirtualQCloseEvent) {
         vqcloseevent->setQCloseEvent_Clone_Callback(reinterpret_cast<VirtualQCloseEvent::QCloseEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QCloseEvent* QCloseEvent_QBaseClone(const QCloseEvent* self) {
+    auto* vqcloseevent = dynamic_cast<const VirtualQCloseEvent*>(self);
+    if (vqcloseevent && vqcloseevent->isVirtualQCloseEvent) {
+        vqcloseevent->setQCloseEvent_Clone_IsBase(true);
+        return vqcloseevent->clone();
+    } else {
+        return ((VirtualQCloseEvent*)self)->clone();
     }
 }
 
@@ -2597,32 +2571,31 @@ QIconDragEvent* QIconDragEvent_new() {
     return new VirtualQIconDragEvent();
 }
 
-// Derived class handler implementation
 QIconDragEvent* QIconDragEvent_Clone(const QIconDragEvent* self) {
-    auto* vqicondragevent = const_cast<VirtualQIconDragEvent*>(dynamic_cast<const VirtualQIconDragEvent*>(self));
+    auto* vqicondragevent = dynamic_cast<const VirtualQIconDragEvent*>(self);
     if (vqicondragevent && vqicondragevent->isVirtualQIconDragEvent) {
-        return vqicondragevent->clone();
+        return self->clone();
     } else {
-        return self->QIconDragEvent::clone();
+        return ((VirtualQIconDragEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QIconDragEvent* QIconDragEvent_QBaseClone(const QIconDragEvent* self) {
-    auto* vqicondragevent = const_cast<VirtualQIconDragEvent*>(dynamic_cast<const VirtualQIconDragEvent*>(self));
-    if (vqicondragevent && vqicondragevent->isVirtualQIconDragEvent) {
-        vqicondragevent->setQIconDragEvent_Clone_IsBase(true);
-        return vqicondragevent->clone();
-    } else {
-        return self->QIconDragEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QIconDragEvent_OnClone(const QIconDragEvent* self, intptr_t slot) {
     auto* vqicondragevent = const_cast<VirtualQIconDragEvent*>(dynamic_cast<const VirtualQIconDragEvent*>(self));
     if (vqicondragevent && vqicondragevent->isVirtualQIconDragEvent) {
         vqicondragevent->setQIconDragEvent_Clone_Callback(reinterpret_cast<VirtualQIconDragEvent::QIconDragEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QIconDragEvent* QIconDragEvent_QBaseClone(const QIconDragEvent* self) {
+    auto* vqicondragevent = dynamic_cast<const VirtualQIconDragEvent*>(self);
+    if (vqicondragevent && vqicondragevent->isVirtualQIconDragEvent) {
+        vqicondragevent->setQIconDragEvent_Clone_IsBase(true);
+        return vqicondragevent->clone();
+    } else {
+        return ((VirtualQIconDragEvent*)self)->clone();
     }
 }
 
@@ -2663,32 +2636,31 @@ QShowEvent* QShowEvent_new() {
     return new VirtualQShowEvent();
 }
 
-// Derived class handler implementation
 QShowEvent* QShowEvent_Clone(const QShowEvent* self) {
-    auto* vqshowevent = const_cast<VirtualQShowEvent*>(dynamic_cast<const VirtualQShowEvent*>(self));
+    auto* vqshowevent = dynamic_cast<const VirtualQShowEvent*>(self);
     if (vqshowevent && vqshowevent->isVirtualQShowEvent) {
-        return vqshowevent->clone();
+        return self->clone();
     } else {
-        return self->QShowEvent::clone();
+        return ((VirtualQShowEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QShowEvent* QShowEvent_QBaseClone(const QShowEvent* self) {
-    auto* vqshowevent = const_cast<VirtualQShowEvent*>(dynamic_cast<const VirtualQShowEvent*>(self));
-    if (vqshowevent && vqshowevent->isVirtualQShowEvent) {
-        vqshowevent->setQShowEvent_Clone_IsBase(true);
-        return vqshowevent->clone();
-    } else {
-        return self->QShowEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QShowEvent_OnClone(const QShowEvent* self, intptr_t slot) {
     auto* vqshowevent = const_cast<VirtualQShowEvent*>(dynamic_cast<const VirtualQShowEvent*>(self));
     if (vqshowevent && vqshowevent->isVirtualQShowEvent) {
         vqshowevent->setQShowEvent_Clone_Callback(reinterpret_cast<VirtualQShowEvent::QShowEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QShowEvent* QShowEvent_QBaseClone(const QShowEvent* self) {
+    auto* vqshowevent = dynamic_cast<const VirtualQShowEvent*>(self);
+    if (vqshowevent && vqshowevent->isVirtualQShowEvent) {
+        vqshowevent->setQShowEvent_Clone_IsBase(true);
+        return vqshowevent->clone();
+    } else {
+        return ((VirtualQShowEvent*)self)->clone();
     }
 }
 
@@ -2729,32 +2701,31 @@ QHideEvent* QHideEvent_new() {
     return new VirtualQHideEvent();
 }
 
-// Derived class handler implementation
 QHideEvent* QHideEvent_Clone(const QHideEvent* self) {
-    auto* vqhideevent = const_cast<VirtualQHideEvent*>(dynamic_cast<const VirtualQHideEvent*>(self));
+    auto* vqhideevent = dynamic_cast<const VirtualQHideEvent*>(self);
     if (vqhideevent && vqhideevent->isVirtualQHideEvent) {
-        return vqhideevent->clone();
+        return self->clone();
     } else {
-        return self->QHideEvent::clone();
+        return ((VirtualQHideEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QHideEvent* QHideEvent_QBaseClone(const QHideEvent* self) {
-    auto* vqhideevent = const_cast<VirtualQHideEvent*>(dynamic_cast<const VirtualQHideEvent*>(self));
-    if (vqhideevent && vqhideevent->isVirtualQHideEvent) {
-        vqhideevent->setQHideEvent_Clone_IsBase(true);
-        return vqhideevent->clone();
-    } else {
-        return self->QHideEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QHideEvent_OnClone(const QHideEvent* self, intptr_t slot) {
     auto* vqhideevent = const_cast<VirtualQHideEvent*>(dynamic_cast<const VirtualQHideEvent*>(self));
     if (vqhideevent && vqhideevent->isVirtualQHideEvent) {
         vqhideevent->setQHideEvent_Clone_Callback(reinterpret_cast<VirtualQHideEvent::QHideEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QHideEvent* QHideEvent_QBaseClone(const QHideEvent* self) {
+    auto* vqhideevent = dynamic_cast<const VirtualQHideEvent*>(self);
+    if (vqhideevent && vqhideevent->isVirtualQHideEvent) {
+        vqhideevent->setQHideEvent_Clone_IsBase(true);
+        return vqhideevent->clone();
+    } else {
+        return ((VirtualQHideEvent*)self)->clone();
     }
 }
 
@@ -2803,6 +2774,34 @@ QContextMenuEvent* QContextMenuEvent_new3(int reason, const QPoint* pos, const Q
     return new VirtualQContextMenuEvent(static_cast<QContextMenuEvent::Reason>(reason), *pos, *globalPos, static_cast<Qt::KeyboardModifiers>(modifiers));
 }
 
+QContextMenuEvent* QContextMenuEvent_Clone(const QContextMenuEvent* self) {
+    auto* vqcontextmenuevent = dynamic_cast<const VirtualQContextMenuEvent*>(self);
+    if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQContextMenuEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QContextMenuEvent_OnClone(const QContextMenuEvent* self, intptr_t slot) {
+    auto* vqcontextmenuevent = const_cast<VirtualQContextMenuEvent*>(dynamic_cast<const VirtualQContextMenuEvent*>(self));
+    if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
+        vqcontextmenuevent->setQContextMenuEvent_Clone_Callback(reinterpret_cast<VirtualQContextMenuEvent::QContextMenuEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QContextMenuEvent* QContextMenuEvent_QBaseClone(const QContextMenuEvent* self) {
+    auto* vqcontextmenuevent = dynamic_cast<const VirtualQContextMenuEvent*>(self);
+    if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
+        vqcontextmenuevent->setQContextMenuEvent_Clone_IsBase(true);
+        return vqcontextmenuevent->clone();
+    } else {
+        return ((VirtualQContextMenuEvent*)self)->clone();
+    }
+}
+
 int QContextMenuEvent_X(const QContextMenuEvent* self) {
     return self->x();
 }
@@ -2833,35 +2832,6 @@ QPoint* QContextMenuEvent_GlobalPos(const QContextMenuEvent* self) {
 
 int QContextMenuEvent_Reason(const QContextMenuEvent* self) {
     return static_cast<int>(self->reason());
-}
-
-// Derived class handler implementation
-QContextMenuEvent* QContextMenuEvent_Clone(const QContextMenuEvent* self) {
-    auto* vqcontextmenuevent = const_cast<VirtualQContextMenuEvent*>(dynamic_cast<const VirtualQContextMenuEvent*>(self));
-    if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
-        return vqcontextmenuevent->clone();
-    } else {
-        return self->QContextMenuEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QContextMenuEvent* QContextMenuEvent_QBaseClone(const QContextMenuEvent* self) {
-    auto* vqcontextmenuevent = const_cast<VirtualQContextMenuEvent*>(dynamic_cast<const VirtualQContextMenuEvent*>(self));
-    if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
-        vqcontextmenuevent->setQContextMenuEvent_Clone_IsBase(true);
-        return vqcontextmenuevent->clone();
-    } else {
-        return self->QContextMenuEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QContextMenuEvent_OnClone(const QContextMenuEvent* self, intptr_t slot) {
-    auto* vqcontextmenuevent = const_cast<VirtualQContextMenuEvent*>(dynamic_cast<const VirtualQContextMenuEvent*>(self));
-    if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
-        vqcontextmenuevent->setQContextMenuEvent_Clone_Callback(reinterpret_cast<VirtualQContextMenuEvent::QContextMenuEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2941,6 +2911,34 @@ QInputMethodEvent* QInputMethodEvent_new2(const libqt_string preeditText, const 
     return new VirtualQInputMethodEvent(preeditText_QString, attributes_QList);
 }
 
+QInputMethodEvent* QInputMethodEvent_Clone(const QInputMethodEvent* self) {
+    auto* vqinputmethodevent = dynamic_cast<const VirtualQInputMethodEvent*>(self);
+    if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQInputMethodEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QInputMethodEvent_OnClone(const QInputMethodEvent* self, intptr_t slot) {
+    auto* vqinputmethodevent = const_cast<VirtualQInputMethodEvent*>(dynamic_cast<const VirtualQInputMethodEvent*>(self));
+    if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
+        vqinputmethodevent->setQInputMethodEvent_Clone_Callback(reinterpret_cast<VirtualQInputMethodEvent::QInputMethodEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QInputMethodEvent* QInputMethodEvent_QBaseClone(const QInputMethodEvent* self) {
+    auto* vqinputmethodevent = dynamic_cast<const VirtualQInputMethodEvent*>(self);
+    if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
+        vqinputmethodevent->setQInputMethodEvent_Clone_IsBase(true);
+        return vqinputmethodevent->clone();
+    } else {
+        return ((VirtualQInputMethodEvent*)self)->clone();
+    }
+}
+
 void QInputMethodEvent_SetCommitString(QInputMethodEvent* self, const libqt_string commitString) {
     QString commitString_QString = QString::fromUtf8(commitString.data, commitString.len);
     self->setCommitString(commitString_QString);
@@ -3002,35 +3000,6 @@ void QInputMethodEvent_SetCommitString3(QInputMethodEvent* self, const libqt_str
 }
 
 // Derived class handler implementation
-QInputMethodEvent* QInputMethodEvent_Clone(const QInputMethodEvent* self) {
-    auto* vqinputmethodevent = const_cast<VirtualQInputMethodEvent*>(dynamic_cast<const VirtualQInputMethodEvent*>(self));
-    if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
-        return vqinputmethodevent->clone();
-    } else {
-        return self->QInputMethodEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QInputMethodEvent* QInputMethodEvent_QBaseClone(const QInputMethodEvent* self) {
-    auto* vqinputmethodevent = const_cast<VirtualQInputMethodEvent*>(dynamic_cast<const VirtualQInputMethodEvent*>(self));
-    if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
-        vqinputmethodevent->setQInputMethodEvent_Clone_IsBase(true);
-        return vqinputmethodevent->clone();
-    } else {
-        return self->QInputMethodEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputMethodEvent_OnClone(const QInputMethodEvent* self, intptr_t slot) {
-    auto* vqinputmethodevent = const_cast<VirtualQInputMethodEvent*>(dynamic_cast<const VirtualQInputMethodEvent*>(self));
-    if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
-        vqinputmethodevent->setQInputMethodEvent_Clone_Callback(reinterpret_cast<VirtualQInputMethodEvent::QInputMethodEvent_Clone_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 void QInputMethodEvent_SetAccepted(QInputMethodEvent* self, bool accepted) {
     auto* vqinputmethodevent = dynamic_cast<VirtualQInputMethodEvent*>(self);
     if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
@@ -3067,6 +3036,34 @@ QInputMethodQueryEvent* QInputMethodQueryEvent_new(int queries) {
     return new VirtualQInputMethodQueryEvent(static_cast<Qt::InputMethodQueries>(queries));
 }
 
+QInputMethodQueryEvent* QInputMethodQueryEvent_Clone(const QInputMethodQueryEvent* self) {
+    auto* vqinputmethodqueryevent = dynamic_cast<const VirtualQInputMethodQueryEvent*>(self);
+    if (vqinputmethodqueryevent && vqinputmethodqueryevent->isVirtualQInputMethodQueryEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQInputMethodQueryEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QInputMethodQueryEvent_OnClone(const QInputMethodQueryEvent* self, intptr_t slot) {
+    auto* vqinputmethodqueryevent = const_cast<VirtualQInputMethodQueryEvent*>(dynamic_cast<const VirtualQInputMethodQueryEvent*>(self));
+    if (vqinputmethodqueryevent && vqinputmethodqueryevent->isVirtualQInputMethodQueryEvent) {
+        vqinputmethodqueryevent->setQInputMethodQueryEvent_Clone_Callback(reinterpret_cast<VirtualQInputMethodQueryEvent::QInputMethodQueryEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QInputMethodQueryEvent* QInputMethodQueryEvent_QBaseClone(const QInputMethodQueryEvent* self) {
+    auto* vqinputmethodqueryevent = dynamic_cast<const VirtualQInputMethodQueryEvent*>(self);
+    if (vqinputmethodqueryevent && vqinputmethodqueryevent->isVirtualQInputMethodQueryEvent) {
+        vqinputmethodqueryevent->setQInputMethodQueryEvent_Clone_IsBase(true);
+        return vqinputmethodqueryevent->clone();
+    } else {
+        return ((VirtualQInputMethodQueryEvent*)self)->clone();
+    }
+}
+
 int QInputMethodQueryEvent_Queries(const QInputMethodQueryEvent* self) {
     return static_cast<int>(self->queries());
 }
@@ -3077,35 +3074,6 @@ void QInputMethodQueryEvent_SetValue(QInputMethodQueryEvent* self, int query, co
 
 QVariant* QInputMethodQueryEvent_Value(const QInputMethodQueryEvent* self, int query) {
     return new QVariant(self->value(static_cast<Qt::InputMethodQuery>(query)));
-}
-
-// Derived class handler implementation
-QInputMethodQueryEvent* QInputMethodQueryEvent_Clone(const QInputMethodQueryEvent* self) {
-    auto* vqinputmethodqueryevent = const_cast<VirtualQInputMethodQueryEvent*>(dynamic_cast<const VirtualQInputMethodQueryEvent*>(self));
-    if (vqinputmethodqueryevent && vqinputmethodqueryevent->isVirtualQInputMethodQueryEvent) {
-        return vqinputmethodqueryevent->clone();
-    } else {
-        return self->QInputMethodQueryEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QInputMethodQueryEvent* QInputMethodQueryEvent_QBaseClone(const QInputMethodQueryEvent* self) {
-    auto* vqinputmethodqueryevent = const_cast<VirtualQInputMethodQueryEvent*>(dynamic_cast<const VirtualQInputMethodQueryEvent*>(self));
-    if (vqinputmethodqueryevent && vqinputmethodqueryevent->isVirtualQInputMethodQueryEvent) {
-        vqinputmethodqueryevent->setQInputMethodQueryEvent_Clone_IsBase(true);
-        return vqinputmethodqueryevent->clone();
-    } else {
-        return self->QInputMethodQueryEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputMethodQueryEvent_OnClone(const QInputMethodQueryEvent* self, intptr_t slot) {
-    auto* vqinputmethodqueryevent = const_cast<VirtualQInputMethodQueryEvent*>(dynamic_cast<const VirtualQInputMethodQueryEvent*>(self));
-    if (vqinputmethodqueryevent && vqinputmethodqueryevent->isVirtualQInputMethodQueryEvent) {
-        vqinputmethodqueryevent->setQInputMethodQueryEvent_Clone_Callback(reinterpret_cast<VirtualQInputMethodQueryEvent::QInputMethodQueryEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3147,6 +3115,34 @@ QDropEvent* QDropEvent_new(const QPointF* pos, int actions, const QMimeData* dat
 
 QDropEvent* QDropEvent_new2(const QPointF* pos, int actions, const QMimeData* data, int buttons, int modifiers, int typeVal) {
     return new VirtualQDropEvent(*pos, static_cast<Qt::DropActions>(actions), data, static_cast<Qt::MouseButtons>(buttons), static_cast<Qt::KeyboardModifiers>(modifiers), static_cast<QEvent::Type>(typeVal));
+}
+
+QDropEvent* QDropEvent_Clone(const QDropEvent* self) {
+    auto* vqdropevent = dynamic_cast<const VirtualQDropEvent*>(self);
+    if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQDropEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDropEvent_OnClone(const QDropEvent* self, intptr_t slot) {
+    auto* vqdropevent = const_cast<VirtualQDropEvent*>(dynamic_cast<const VirtualQDropEvent*>(self));
+    if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
+        vqdropevent->setQDropEvent_Clone_Callback(reinterpret_cast<VirtualQDropEvent::QDropEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QDropEvent* QDropEvent_QBaseClone(const QDropEvent* self) {
+    auto* vqdropevent = dynamic_cast<const VirtualQDropEvent*>(self);
+    if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
+        vqdropevent->setQDropEvent_Clone_IsBase(true);
+        return vqdropevent->clone();
+    } else {
+        return ((VirtualQDropEvent*)self)->clone();
+    }
 }
 
 QPoint* QDropEvent_Pos(const QDropEvent* self) {
@@ -3206,35 +3202,6 @@ QMimeData* QDropEvent_MimeData(const QDropEvent* self) {
 }
 
 // Derived class handler implementation
-QDropEvent* QDropEvent_Clone(const QDropEvent* self) {
-    auto* vqdropevent = const_cast<VirtualQDropEvent*>(dynamic_cast<const VirtualQDropEvent*>(self));
-    if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
-        return vqdropevent->clone();
-    } else {
-        return self->QDropEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QDropEvent* QDropEvent_QBaseClone(const QDropEvent* self) {
-    auto* vqdropevent = const_cast<VirtualQDropEvent*>(dynamic_cast<const VirtualQDropEvent*>(self));
-    if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
-        vqdropevent->setQDropEvent_Clone_IsBase(true);
-        return vqdropevent->clone();
-    } else {
-        return self->QDropEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDropEvent_OnClone(const QDropEvent* self, intptr_t slot) {
-    auto* vqdropevent = const_cast<VirtualQDropEvent*>(dynamic_cast<const VirtualQDropEvent*>(self));
-    if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
-        vqdropevent->setQDropEvent_Clone_Callback(reinterpret_cast<VirtualQDropEvent::QDropEvent_Clone_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 void QDropEvent_SetAccepted(QDropEvent* self, bool accepted) {
     auto* vqdropevent = dynamic_cast<VirtualQDropEvent*>(self);
     if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
@@ -3275,6 +3242,34 @@ QDragMoveEvent* QDragMoveEvent_new2(const QPoint* pos, int actions, const QMimeD
     return new VirtualQDragMoveEvent(*pos, static_cast<Qt::DropActions>(actions), data, static_cast<Qt::MouseButtons>(buttons), static_cast<Qt::KeyboardModifiers>(modifiers), static_cast<QEvent::Type>(typeVal));
 }
 
+QDragMoveEvent* QDragMoveEvent_Clone(const QDragMoveEvent* self) {
+    auto* vqdragmoveevent = dynamic_cast<const VirtualQDragMoveEvent*>(self);
+    if (vqdragmoveevent && vqdragmoveevent->isVirtualQDragMoveEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQDragMoveEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDragMoveEvent_OnClone(const QDragMoveEvent* self, intptr_t slot) {
+    auto* vqdragmoveevent = const_cast<VirtualQDragMoveEvent*>(dynamic_cast<const VirtualQDragMoveEvent*>(self));
+    if (vqdragmoveevent && vqdragmoveevent->isVirtualQDragMoveEvent) {
+        vqdragmoveevent->setQDragMoveEvent_Clone_Callback(reinterpret_cast<VirtualQDragMoveEvent::QDragMoveEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QDragMoveEvent* QDragMoveEvent_QBaseClone(const QDragMoveEvent* self) {
+    auto* vqdragmoveevent = dynamic_cast<const VirtualQDragMoveEvent*>(self);
+    if (vqdragmoveevent && vqdragmoveevent->isVirtualQDragMoveEvent) {
+        vqdragmoveevent->setQDragMoveEvent_Clone_IsBase(true);
+        return vqdragmoveevent->clone();
+    } else {
+        return ((VirtualQDragMoveEvent*)self)->clone();
+    }
+}
+
 QRect* QDragMoveEvent_AnswerRect(const QDragMoveEvent* self) {
     return new QRect(self->answerRect());
 }
@@ -3293,35 +3288,6 @@ void QDragMoveEvent_Accept2(QDragMoveEvent* self, const QRect* r) {
 
 void QDragMoveEvent_Ignore2(QDragMoveEvent* self, const QRect* r) {
     self->ignore(*r);
-}
-
-// Derived class handler implementation
-QDragMoveEvent* QDragMoveEvent_Clone(const QDragMoveEvent* self) {
-    auto* vqdragmoveevent = const_cast<VirtualQDragMoveEvent*>(dynamic_cast<const VirtualQDragMoveEvent*>(self));
-    if (vqdragmoveevent && vqdragmoveevent->isVirtualQDragMoveEvent) {
-        return vqdragmoveevent->clone();
-    } else {
-        return self->QDragMoveEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QDragMoveEvent* QDragMoveEvent_QBaseClone(const QDragMoveEvent* self) {
-    auto* vqdragmoveevent = const_cast<VirtualQDragMoveEvent*>(dynamic_cast<const VirtualQDragMoveEvent*>(self));
-    if (vqdragmoveevent && vqdragmoveevent->isVirtualQDragMoveEvent) {
-        vqdragmoveevent->setQDragMoveEvent_Clone_IsBase(true);
-        return vqdragmoveevent->clone();
-    } else {
-        return self->QDragMoveEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDragMoveEvent_OnClone(const QDragMoveEvent* self, intptr_t slot) {
-    auto* vqdragmoveevent = const_cast<VirtualQDragMoveEvent*>(dynamic_cast<const VirtualQDragMoveEvent*>(self));
-    if (vqdragmoveevent && vqdragmoveevent->isVirtualQDragMoveEvent) {
-        vqdragmoveevent->setQDragMoveEvent_Clone_Callback(reinterpret_cast<VirtualQDragMoveEvent::QDragMoveEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3361,32 +3327,31 @@ QDragEnterEvent* QDragEnterEvent_new(const QPoint* pos, int actions, const QMime
     return new VirtualQDragEnterEvent(*pos, static_cast<Qt::DropActions>(actions), data, static_cast<Qt::MouseButtons>(buttons), static_cast<Qt::KeyboardModifiers>(modifiers));
 }
 
-// Derived class handler implementation
 QDragEnterEvent* QDragEnterEvent_Clone(const QDragEnterEvent* self) {
-    auto* vqdragenterevent = const_cast<VirtualQDragEnterEvent*>(dynamic_cast<const VirtualQDragEnterEvent*>(self));
+    auto* vqdragenterevent = dynamic_cast<const VirtualQDragEnterEvent*>(self);
     if (vqdragenterevent && vqdragenterevent->isVirtualQDragEnterEvent) {
-        return vqdragenterevent->clone();
+        return self->clone();
     } else {
-        return self->QDragEnterEvent::clone();
+        return ((VirtualQDragEnterEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QDragEnterEvent* QDragEnterEvent_QBaseClone(const QDragEnterEvent* self) {
-    auto* vqdragenterevent = const_cast<VirtualQDragEnterEvent*>(dynamic_cast<const VirtualQDragEnterEvent*>(self));
-    if (vqdragenterevent && vqdragenterevent->isVirtualQDragEnterEvent) {
-        vqdragenterevent->setQDragEnterEvent_Clone_IsBase(true);
-        return vqdragenterevent->clone();
-    } else {
-        return self->QDragEnterEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QDragEnterEvent_OnClone(const QDragEnterEvent* self, intptr_t slot) {
     auto* vqdragenterevent = const_cast<VirtualQDragEnterEvent*>(dynamic_cast<const VirtualQDragEnterEvent*>(self));
     if (vqdragenterevent && vqdragenterevent->isVirtualQDragEnterEvent) {
         vqdragenterevent->setQDragEnterEvent_Clone_Callback(reinterpret_cast<VirtualQDragEnterEvent::QDragEnterEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QDragEnterEvent* QDragEnterEvent_QBaseClone(const QDragEnterEvent* self) {
+    auto* vqdragenterevent = dynamic_cast<const VirtualQDragEnterEvent*>(self);
+    if (vqdragenterevent && vqdragenterevent->isVirtualQDragEnterEvent) {
+        vqdragenterevent->setQDragEnterEvent_Clone_IsBase(true);
+        return vqdragenterevent->clone();
+    } else {
+        return ((VirtualQDragEnterEvent*)self)->clone();
     }
 }
 
@@ -3427,32 +3392,31 @@ QDragLeaveEvent* QDragLeaveEvent_new() {
     return new VirtualQDragLeaveEvent();
 }
 
-// Derived class handler implementation
 QDragLeaveEvent* QDragLeaveEvent_Clone(const QDragLeaveEvent* self) {
-    auto* vqdragleaveevent = const_cast<VirtualQDragLeaveEvent*>(dynamic_cast<const VirtualQDragLeaveEvent*>(self));
+    auto* vqdragleaveevent = dynamic_cast<const VirtualQDragLeaveEvent*>(self);
     if (vqdragleaveevent && vqdragleaveevent->isVirtualQDragLeaveEvent) {
-        return vqdragleaveevent->clone();
+        return self->clone();
     } else {
-        return self->QDragLeaveEvent::clone();
+        return ((VirtualQDragLeaveEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QDragLeaveEvent* QDragLeaveEvent_QBaseClone(const QDragLeaveEvent* self) {
-    auto* vqdragleaveevent = const_cast<VirtualQDragLeaveEvent*>(dynamic_cast<const VirtualQDragLeaveEvent*>(self));
-    if (vqdragleaveevent && vqdragleaveevent->isVirtualQDragLeaveEvent) {
-        vqdragleaveevent->setQDragLeaveEvent_Clone_IsBase(true);
-        return vqdragleaveevent->clone();
-    } else {
-        return self->QDragLeaveEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QDragLeaveEvent_OnClone(const QDragLeaveEvent* self, intptr_t slot) {
     auto* vqdragleaveevent = const_cast<VirtualQDragLeaveEvent*>(dynamic_cast<const VirtualQDragLeaveEvent*>(self));
     if (vqdragleaveevent && vqdragleaveevent->isVirtualQDragLeaveEvent) {
         vqdragleaveevent->setQDragLeaveEvent_Clone_Callback(reinterpret_cast<VirtualQDragLeaveEvent::QDragLeaveEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QDragLeaveEvent* QDragLeaveEvent_QBaseClone(const QDragLeaveEvent* self) {
+    auto* vqdragleaveevent = dynamic_cast<const VirtualQDragLeaveEvent*>(self);
+    if (vqdragleaveevent && vqdragleaveevent->isVirtualQDragLeaveEvent) {
+        vqdragleaveevent->setQDragLeaveEvent_Clone_IsBase(true);
+        return vqdragleaveevent->clone();
+    } else {
+        return ((VirtualQDragLeaveEvent*)self)->clone();
     }
 }
 
@@ -3493,6 +3457,34 @@ QHelpEvent* QHelpEvent_new(int typeVal, const QPoint* pos, const QPoint* globalP
     return new VirtualQHelpEvent(static_cast<QEvent::Type>(typeVal), *pos, *globalPos);
 }
 
+QHelpEvent* QHelpEvent_Clone(const QHelpEvent* self) {
+    auto* vqhelpevent = dynamic_cast<const VirtualQHelpEvent*>(self);
+    if (vqhelpevent && vqhelpevent->isVirtualQHelpEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQHelpEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QHelpEvent_OnClone(const QHelpEvent* self, intptr_t slot) {
+    auto* vqhelpevent = const_cast<VirtualQHelpEvent*>(dynamic_cast<const VirtualQHelpEvent*>(self));
+    if (vqhelpevent && vqhelpevent->isVirtualQHelpEvent) {
+        vqhelpevent->setQHelpEvent_Clone_Callback(reinterpret_cast<VirtualQHelpEvent::QHelpEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QHelpEvent* QHelpEvent_QBaseClone(const QHelpEvent* self) {
+    auto* vqhelpevent = dynamic_cast<const VirtualQHelpEvent*>(self);
+    if (vqhelpevent && vqhelpevent->isVirtualQHelpEvent) {
+        vqhelpevent->setQHelpEvent_Clone_IsBase(true);
+        return vqhelpevent->clone();
+    } else {
+        return ((VirtualQHelpEvent*)self)->clone();
+    }
+}
+
 int QHelpEvent_X(const QHelpEvent* self) {
     return self->x();
 }
@@ -3519,35 +3511,6 @@ QPoint* QHelpEvent_GlobalPos(const QHelpEvent* self) {
     const QPoint& _ret = self->globalPos();
     // Cast returned reference into pointer
     return const_cast<QPoint*>(&_ret);
-}
-
-// Derived class handler implementation
-QHelpEvent* QHelpEvent_Clone(const QHelpEvent* self) {
-    auto* vqhelpevent = const_cast<VirtualQHelpEvent*>(dynamic_cast<const VirtualQHelpEvent*>(self));
-    if (vqhelpevent && vqhelpevent->isVirtualQHelpEvent) {
-        return vqhelpevent->clone();
-    } else {
-        return self->QHelpEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QHelpEvent* QHelpEvent_QBaseClone(const QHelpEvent* self) {
-    auto* vqhelpevent = const_cast<VirtualQHelpEvent*>(dynamic_cast<const VirtualQHelpEvent*>(self));
-    if (vqhelpevent && vqhelpevent->isVirtualQHelpEvent) {
-        vqhelpevent->setQHelpEvent_Clone_IsBase(true);
-        return vqhelpevent->clone();
-    } else {
-        return self->QHelpEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHelpEvent_OnClone(const QHelpEvent* self, intptr_t slot) {
-    auto* vqhelpevent = const_cast<VirtualQHelpEvent*>(dynamic_cast<const VirtualQHelpEvent*>(self));
-    if (vqhelpevent && vqhelpevent->isVirtualQHelpEvent) {
-        vqhelpevent->setQHelpEvent_Clone_Callback(reinterpret_cast<VirtualQHelpEvent::QHelpEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3588,6 +3551,34 @@ QStatusTipEvent* QStatusTipEvent_new(const libqt_string tip) {
     return new VirtualQStatusTipEvent(tip_QString);
 }
 
+QStatusTipEvent* QStatusTipEvent_Clone(const QStatusTipEvent* self) {
+    auto* vqstatustipevent = dynamic_cast<const VirtualQStatusTipEvent*>(self);
+    if (vqstatustipevent && vqstatustipevent->isVirtualQStatusTipEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQStatusTipEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStatusTipEvent_OnClone(const QStatusTipEvent* self, intptr_t slot) {
+    auto* vqstatustipevent = const_cast<VirtualQStatusTipEvent*>(dynamic_cast<const VirtualQStatusTipEvent*>(self));
+    if (vqstatustipevent && vqstatustipevent->isVirtualQStatusTipEvent) {
+        vqstatustipevent->setQStatusTipEvent_Clone_Callback(reinterpret_cast<VirtualQStatusTipEvent::QStatusTipEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QStatusTipEvent* QStatusTipEvent_QBaseClone(const QStatusTipEvent* self) {
+    auto* vqstatustipevent = dynamic_cast<const VirtualQStatusTipEvent*>(self);
+    if (vqstatustipevent && vqstatustipevent->isVirtualQStatusTipEvent) {
+        vqstatustipevent->setQStatusTipEvent_Clone_IsBase(true);
+        return vqstatustipevent->clone();
+    } else {
+        return ((VirtualQStatusTipEvent*)self)->clone();
+    }
+}
+
 libqt_string QStatusTipEvent_Tip(const QStatusTipEvent* self) {
     QString _ret = self->tip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -3598,35 +3589,6 @@ libqt_string QStatusTipEvent_Tip(const QStatusTipEvent* self) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QStatusTipEvent* QStatusTipEvent_Clone(const QStatusTipEvent* self) {
-    auto* vqstatustipevent = const_cast<VirtualQStatusTipEvent*>(dynamic_cast<const VirtualQStatusTipEvent*>(self));
-    if (vqstatustipevent && vqstatustipevent->isVirtualQStatusTipEvent) {
-        return vqstatustipevent->clone();
-    } else {
-        return self->QStatusTipEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QStatusTipEvent* QStatusTipEvent_QBaseClone(const QStatusTipEvent* self) {
-    auto* vqstatustipevent = const_cast<VirtualQStatusTipEvent*>(dynamic_cast<const VirtualQStatusTipEvent*>(self));
-    if (vqstatustipevent && vqstatustipevent->isVirtualQStatusTipEvent) {
-        vqstatustipevent->setQStatusTipEvent_Clone_IsBase(true);
-        return vqstatustipevent->clone();
-    } else {
-        return self->QStatusTipEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusTipEvent_OnClone(const QStatusTipEvent* self, intptr_t slot) {
-    auto* vqstatustipevent = const_cast<VirtualQStatusTipEvent*>(dynamic_cast<const VirtualQStatusTipEvent*>(self));
-    if (vqstatustipevent && vqstatustipevent->isVirtualQStatusTipEvent) {
-        vqstatustipevent->setQStatusTipEvent_Clone_Callback(reinterpret_cast<VirtualQStatusTipEvent::QStatusTipEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3667,6 +3629,34 @@ QWhatsThisClickedEvent* QWhatsThisClickedEvent_new(const libqt_string href) {
     return new VirtualQWhatsThisClickedEvent(href_QString);
 }
 
+QWhatsThisClickedEvent* QWhatsThisClickedEvent_Clone(const QWhatsThisClickedEvent* self) {
+    auto* vqwhatsthisclickedevent = dynamic_cast<const VirtualQWhatsThisClickedEvent*>(self);
+    if (vqwhatsthisclickedevent && vqwhatsthisclickedevent->isVirtualQWhatsThisClickedEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQWhatsThisClickedEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWhatsThisClickedEvent_OnClone(const QWhatsThisClickedEvent* self, intptr_t slot) {
+    auto* vqwhatsthisclickedevent = const_cast<VirtualQWhatsThisClickedEvent*>(dynamic_cast<const VirtualQWhatsThisClickedEvent*>(self));
+    if (vqwhatsthisclickedevent && vqwhatsthisclickedevent->isVirtualQWhatsThisClickedEvent) {
+        vqwhatsthisclickedevent->setQWhatsThisClickedEvent_Clone_Callback(reinterpret_cast<VirtualQWhatsThisClickedEvent::QWhatsThisClickedEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QWhatsThisClickedEvent* QWhatsThisClickedEvent_QBaseClone(const QWhatsThisClickedEvent* self) {
+    auto* vqwhatsthisclickedevent = dynamic_cast<const VirtualQWhatsThisClickedEvent*>(self);
+    if (vqwhatsthisclickedevent && vqwhatsthisclickedevent->isVirtualQWhatsThisClickedEvent) {
+        vqwhatsthisclickedevent->setQWhatsThisClickedEvent_Clone_IsBase(true);
+        return vqwhatsthisclickedevent->clone();
+    } else {
+        return ((VirtualQWhatsThisClickedEvent*)self)->clone();
+    }
+}
+
 libqt_string QWhatsThisClickedEvent_Href(const QWhatsThisClickedEvent* self) {
     QString _ret = self->href();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -3677,35 +3667,6 @@ libqt_string QWhatsThisClickedEvent_Href(const QWhatsThisClickedEvent* self) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QWhatsThisClickedEvent* QWhatsThisClickedEvent_Clone(const QWhatsThisClickedEvent* self) {
-    auto* vqwhatsthisclickedevent = const_cast<VirtualQWhatsThisClickedEvent*>(dynamic_cast<const VirtualQWhatsThisClickedEvent*>(self));
-    if (vqwhatsthisclickedevent && vqwhatsthisclickedevent->isVirtualQWhatsThisClickedEvent) {
-        return vqwhatsthisclickedevent->clone();
-    } else {
-        return self->QWhatsThisClickedEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QWhatsThisClickedEvent* QWhatsThisClickedEvent_QBaseClone(const QWhatsThisClickedEvent* self) {
-    auto* vqwhatsthisclickedevent = const_cast<VirtualQWhatsThisClickedEvent*>(dynamic_cast<const VirtualQWhatsThisClickedEvent*>(self));
-    if (vqwhatsthisclickedevent && vqwhatsthisclickedevent->isVirtualQWhatsThisClickedEvent) {
-        vqwhatsthisclickedevent->setQWhatsThisClickedEvent_Clone_IsBase(true);
-        return vqwhatsthisclickedevent->clone();
-    } else {
-        return self->QWhatsThisClickedEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWhatsThisClickedEvent_OnClone(const QWhatsThisClickedEvent* self, intptr_t slot) {
-    auto* vqwhatsthisclickedevent = const_cast<VirtualQWhatsThisClickedEvent*>(dynamic_cast<const VirtualQWhatsThisClickedEvent*>(self));
-    if (vqwhatsthisclickedevent && vqwhatsthisclickedevent->isVirtualQWhatsThisClickedEvent) {
-        vqwhatsthisclickedevent->setQWhatsThisClickedEvent_Clone_Callback(reinterpret_cast<VirtualQWhatsThisClickedEvent::QWhatsThisClickedEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3749,41 +3710,40 @@ QActionEvent* QActionEvent_new2(int typeVal, QAction* action, QAction* before) {
     return new VirtualQActionEvent(static_cast<int>(typeVal), action, before);
 }
 
+QActionEvent* QActionEvent_Clone(const QActionEvent* self) {
+    auto* vqactionevent = dynamic_cast<const VirtualQActionEvent*>(self);
+    if (vqactionevent && vqactionevent->isVirtualQActionEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQActionEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QActionEvent_OnClone(const QActionEvent* self, intptr_t slot) {
+    auto* vqactionevent = const_cast<VirtualQActionEvent*>(dynamic_cast<const VirtualQActionEvent*>(self));
+    if (vqactionevent && vqactionevent->isVirtualQActionEvent) {
+        vqactionevent->setQActionEvent_Clone_Callback(reinterpret_cast<VirtualQActionEvent::QActionEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QActionEvent* QActionEvent_QBaseClone(const QActionEvent* self) {
+    auto* vqactionevent = dynamic_cast<const VirtualQActionEvent*>(self);
+    if (vqactionevent && vqactionevent->isVirtualQActionEvent) {
+        vqactionevent->setQActionEvent_Clone_IsBase(true);
+        return vqactionevent->clone();
+    } else {
+        return ((VirtualQActionEvent*)self)->clone();
+    }
+}
+
 QAction* QActionEvent_Action(const QActionEvent* self) {
     return self->action();
 }
 
 QAction* QActionEvent_Before(const QActionEvent* self) {
     return self->before();
-}
-
-// Derived class handler implementation
-QActionEvent* QActionEvent_Clone(const QActionEvent* self) {
-    auto* vqactionevent = const_cast<VirtualQActionEvent*>(dynamic_cast<const VirtualQActionEvent*>(self));
-    if (vqactionevent && vqactionevent->isVirtualQActionEvent) {
-        return vqactionevent->clone();
-    } else {
-        return self->QActionEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QActionEvent* QActionEvent_QBaseClone(const QActionEvent* self) {
-    auto* vqactionevent = const_cast<VirtualQActionEvent*>(dynamic_cast<const VirtualQActionEvent*>(self));
-    if (vqactionevent && vqactionevent->isVirtualQActionEvent) {
-        vqactionevent->setQActionEvent_Clone_IsBase(true);
-        return vqactionevent->clone();
-    } else {
-        return self->QActionEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QActionEvent_OnClone(const QActionEvent* self, intptr_t slot) {
-    auto* vqactionevent = const_cast<VirtualQActionEvent*>(dynamic_cast<const VirtualQActionEvent*>(self));
-    if (vqactionevent && vqactionevent->isVirtualQActionEvent) {
-        vqactionevent->setQActionEvent_Clone_Callback(reinterpret_cast<VirtualQActionEvent::QActionEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3828,6 +3788,34 @@ QFileOpenEvent* QFileOpenEvent_new2(const QUrl* url) {
     return new VirtualQFileOpenEvent(*url);
 }
 
+QFileOpenEvent* QFileOpenEvent_Clone(const QFileOpenEvent* self) {
+    auto* vqfileopenevent = dynamic_cast<const VirtualQFileOpenEvent*>(self);
+    if (vqfileopenevent && vqfileopenevent->isVirtualQFileOpenEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQFileOpenEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFileOpenEvent_OnClone(const QFileOpenEvent* self, intptr_t slot) {
+    auto* vqfileopenevent = const_cast<VirtualQFileOpenEvent*>(dynamic_cast<const VirtualQFileOpenEvent*>(self));
+    if (vqfileopenevent && vqfileopenevent->isVirtualQFileOpenEvent) {
+        vqfileopenevent->setQFileOpenEvent_Clone_Callback(reinterpret_cast<VirtualQFileOpenEvent::QFileOpenEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QFileOpenEvent* QFileOpenEvent_QBaseClone(const QFileOpenEvent* self) {
+    auto* vqfileopenevent = dynamic_cast<const VirtualQFileOpenEvent*>(self);
+    if (vqfileopenevent && vqfileopenevent->isVirtualQFileOpenEvent) {
+        vqfileopenevent->setQFileOpenEvent_Clone_IsBase(true);
+        return vqfileopenevent->clone();
+    } else {
+        return ((VirtualQFileOpenEvent*)self)->clone();
+    }
+}
+
 libqt_string QFileOpenEvent_File(const QFileOpenEvent* self) {
     QString _ret = self->file();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -3846,35 +3834,6 @@ QUrl* QFileOpenEvent_Url(const QFileOpenEvent* self) {
 
 bool QFileOpenEvent_OpenFile(const QFileOpenEvent* self, QFile* file, int flags) {
     return self->openFile(*file, static_cast<QIODevice::OpenMode>(flags));
-}
-
-// Derived class handler implementation
-QFileOpenEvent* QFileOpenEvent_Clone(const QFileOpenEvent* self) {
-    auto* vqfileopenevent = const_cast<VirtualQFileOpenEvent*>(dynamic_cast<const VirtualQFileOpenEvent*>(self));
-    if (vqfileopenevent && vqfileopenevent->isVirtualQFileOpenEvent) {
-        return vqfileopenevent->clone();
-    } else {
-        return self->QFileOpenEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QFileOpenEvent* QFileOpenEvent_QBaseClone(const QFileOpenEvent* self) {
-    auto* vqfileopenevent = const_cast<VirtualQFileOpenEvent*>(dynamic_cast<const VirtualQFileOpenEvent*>(self));
-    if (vqfileopenevent && vqfileopenevent->isVirtualQFileOpenEvent) {
-        vqfileopenevent->setQFileOpenEvent_Clone_IsBase(true);
-        return vqfileopenevent->clone();
-    } else {
-        return self->QFileOpenEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileOpenEvent_OnClone(const QFileOpenEvent* self, intptr_t slot) {
-    auto* vqfileopenevent = const_cast<VirtualQFileOpenEvent*>(dynamic_cast<const VirtualQFileOpenEvent*>(self));
-    if (vqfileopenevent && vqfileopenevent->isVirtualQFileOpenEvent) {
-        vqfileopenevent->setQFileOpenEvent_Clone_Callback(reinterpret_cast<VirtualQFileOpenEvent::QFileOpenEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3914,37 +3873,36 @@ QToolBarChangeEvent* QToolBarChangeEvent_new(bool t) {
     return new VirtualQToolBarChangeEvent(t);
 }
 
-bool QToolBarChangeEvent_Toggle(const QToolBarChangeEvent* self) {
-    return self->toggle();
-}
-
-// Derived class handler implementation
 QToolBarChangeEvent* QToolBarChangeEvent_Clone(const QToolBarChangeEvent* self) {
-    auto* vqtoolbarchangeevent = const_cast<VirtualQToolBarChangeEvent*>(dynamic_cast<const VirtualQToolBarChangeEvent*>(self));
+    auto* vqtoolbarchangeevent = dynamic_cast<const VirtualQToolBarChangeEvent*>(self);
     if (vqtoolbarchangeevent && vqtoolbarchangeevent->isVirtualQToolBarChangeEvent) {
-        return vqtoolbarchangeevent->clone();
+        return self->clone();
     } else {
-        return self->QToolBarChangeEvent::clone();
+        return ((VirtualQToolBarChangeEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QToolBarChangeEvent* QToolBarChangeEvent_QBaseClone(const QToolBarChangeEvent* self) {
-    auto* vqtoolbarchangeevent = const_cast<VirtualQToolBarChangeEvent*>(dynamic_cast<const VirtualQToolBarChangeEvent*>(self));
-    if (vqtoolbarchangeevent && vqtoolbarchangeevent->isVirtualQToolBarChangeEvent) {
-        vqtoolbarchangeevent->setQToolBarChangeEvent_Clone_IsBase(true);
-        return vqtoolbarchangeevent->clone();
-    } else {
-        return self->QToolBarChangeEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QToolBarChangeEvent_OnClone(const QToolBarChangeEvent* self, intptr_t slot) {
     auto* vqtoolbarchangeevent = const_cast<VirtualQToolBarChangeEvent*>(dynamic_cast<const VirtualQToolBarChangeEvent*>(self));
     if (vqtoolbarchangeevent && vqtoolbarchangeevent->isVirtualQToolBarChangeEvent) {
         vqtoolbarchangeevent->setQToolBarChangeEvent_Clone_Callback(reinterpret_cast<VirtualQToolBarChangeEvent::QToolBarChangeEvent_Clone_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+QToolBarChangeEvent* QToolBarChangeEvent_QBaseClone(const QToolBarChangeEvent* self) {
+    auto* vqtoolbarchangeevent = dynamic_cast<const VirtualQToolBarChangeEvent*>(self);
+    if (vqtoolbarchangeevent && vqtoolbarchangeevent->isVirtualQToolBarChangeEvent) {
+        vqtoolbarchangeevent->setQToolBarChangeEvent_Clone_IsBase(true);
+        return vqtoolbarchangeevent->clone();
+    } else {
+        return ((VirtualQToolBarChangeEvent*)self)->clone();
+    }
+}
+
+bool QToolBarChangeEvent_Toggle(const QToolBarChangeEvent* self) {
+    return self->toggle();
 }
 
 // Derived class handler implementation
@@ -4000,6 +3958,34 @@ QShortcutEvent* QShortcutEvent_new5(const QKeySequence* key, const QShortcut* sh
     return new VirtualQShortcutEvent(*key, shortcut, ambiguous);
 }
 
+QShortcutEvent* QShortcutEvent_Clone(const QShortcutEvent* self) {
+    auto* vqshortcutevent = dynamic_cast<const VirtualQShortcutEvent*>(self);
+    if (vqshortcutevent && vqshortcutevent->isVirtualQShortcutEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQShortcutEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QShortcutEvent_OnClone(const QShortcutEvent* self, intptr_t slot) {
+    auto* vqshortcutevent = const_cast<VirtualQShortcutEvent*>(dynamic_cast<const VirtualQShortcutEvent*>(self));
+    if (vqshortcutevent && vqshortcutevent->isVirtualQShortcutEvent) {
+        vqshortcutevent->setQShortcutEvent_Clone_Callback(reinterpret_cast<VirtualQShortcutEvent::QShortcutEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QShortcutEvent* QShortcutEvent_QBaseClone(const QShortcutEvent* self) {
+    auto* vqshortcutevent = dynamic_cast<const VirtualQShortcutEvent*>(self);
+    if (vqshortcutevent && vqshortcutevent->isVirtualQShortcutEvent) {
+        vqshortcutevent->setQShortcutEvent_Clone_IsBase(true);
+        return vqshortcutevent->clone();
+    } else {
+        return ((VirtualQShortcutEvent*)self)->clone();
+    }
+}
+
 QKeySequence* QShortcutEvent_Key(const QShortcutEvent* self) {
     const QKeySequence& _ret = self->key();
     // Cast returned reference into pointer
@@ -4012,35 +3998,6 @@ int QShortcutEvent_ShortcutId(const QShortcutEvent* self) {
 
 bool QShortcutEvent_IsAmbiguous(const QShortcutEvent* self) {
     return self->isAmbiguous();
-}
-
-// Derived class handler implementation
-QShortcutEvent* QShortcutEvent_Clone(const QShortcutEvent* self) {
-    auto* vqshortcutevent = const_cast<VirtualQShortcutEvent*>(dynamic_cast<const VirtualQShortcutEvent*>(self));
-    if (vqshortcutevent && vqshortcutevent->isVirtualQShortcutEvent) {
-        return vqshortcutevent->clone();
-    } else {
-        return self->QShortcutEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QShortcutEvent* QShortcutEvent_QBaseClone(const QShortcutEvent* self) {
-    auto* vqshortcutevent = const_cast<VirtualQShortcutEvent*>(dynamic_cast<const VirtualQShortcutEvent*>(self));
-    if (vqshortcutevent && vqshortcutevent->isVirtualQShortcutEvent) {
-        vqshortcutevent->setQShortcutEvent_Clone_IsBase(true);
-        return vqshortcutevent->clone();
-    } else {
-        return self->QShortcutEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QShortcutEvent_OnClone(const QShortcutEvent* self, intptr_t slot) {
-    auto* vqshortcutevent = const_cast<VirtualQShortcutEvent*>(dynamic_cast<const VirtualQShortcutEvent*>(self));
-    if (vqshortcutevent && vqshortcutevent->isVirtualQShortcutEvent) {
-        vqshortcutevent->setQShortcutEvent_Clone_Callback(reinterpret_cast<VirtualQShortcutEvent::QShortcutEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4084,41 +4041,40 @@ QWindowStateChangeEvent* QWindowStateChangeEvent_new2(int oldState, bool isOverr
     return new VirtualQWindowStateChangeEvent(static_cast<Qt::WindowStates>(oldState), isOverride);
 }
 
+QWindowStateChangeEvent* QWindowStateChangeEvent_Clone(const QWindowStateChangeEvent* self) {
+    auto* vqwindowstatechangeevent = dynamic_cast<const VirtualQWindowStateChangeEvent*>(self);
+    if (vqwindowstatechangeevent && vqwindowstatechangeevent->isVirtualQWindowStateChangeEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQWindowStateChangeEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWindowStateChangeEvent_OnClone(const QWindowStateChangeEvent* self, intptr_t slot) {
+    auto* vqwindowstatechangeevent = const_cast<VirtualQWindowStateChangeEvent*>(dynamic_cast<const VirtualQWindowStateChangeEvent*>(self));
+    if (vqwindowstatechangeevent && vqwindowstatechangeevent->isVirtualQWindowStateChangeEvent) {
+        vqwindowstatechangeevent->setQWindowStateChangeEvent_Clone_Callback(reinterpret_cast<VirtualQWindowStateChangeEvent::QWindowStateChangeEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QWindowStateChangeEvent* QWindowStateChangeEvent_QBaseClone(const QWindowStateChangeEvent* self) {
+    auto* vqwindowstatechangeevent = dynamic_cast<const VirtualQWindowStateChangeEvent*>(self);
+    if (vqwindowstatechangeevent && vqwindowstatechangeevent->isVirtualQWindowStateChangeEvent) {
+        vqwindowstatechangeevent->setQWindowStateChangeEvent_Clone_IsBase(true);
+        return vqwindowstatechangeevent->clone();
+    } else {
+        return ((VirtualQWindowStateChangeEvent*)self)->clone();
+    }
+}
+
 int QWindowStateChangeEvent_OldState(const QWindowStateChangeEvent* self) {
     return static_cast<int>(self->oldState());
 }
 
 bool QWindowStateChangeEvent_IsOverride(const QWindowStateChangeEvent* self) {
     return self->isOverride();
-}
-
-// Derived class handler implementation
-QWindowStateChangeEvent* QWindowStateChangeEvent_Clone(const QWindowStateChangeEvent* self) {
-    auto* vqwindowstatechangeevent = const_cast<VirtualQWindowStateChangeEvent*>(dynamic_cast<const VirtualQWindowStateChangeEvent*>(self));
-    if (vqwindowstatechangeevent && vqwindowstatechangeevent->isVirtualQWindowStateChangeEvent) {
-        return vqwindowstatechangeevent->clone();
-    } else {
-        return self->QWindowStateChangeEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QWindowStateChangeEvent* QWindowStateChangeEvent_QBaseClone(const QWindowStateChangeEvent* self) {
-    auto* vqwindowstatechangeevent = const_cast<VirtualQWindowStateChangeEvent*>(dynamic_cast<const VirtualQWindowStateChangeEvent*>(self));
-    if (vqwindowstatechangeevent && vqwindowstatechangeevent->isVirtualQWindowStateChangeEvent) {
-        vqwindowstatechangeevent->setQWindowStateChangeEvent_Clone_IsBase(true);
-        return vqwindowstatechangeevent->clone();
-    } else {
-        return self->QWindowStateChangeEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindowStateChangeEvent_OnClone(const QWindowStateChangeEvent* self, intptr_t slot) {
-    auto* vqwindowstatechangeevent = const_cast<VirtualQWindowStateChangeEvent*>(dynamic_cast<const VirtualQWindowStateChangeEvent*>(self));
-    if (vqwindowstatechangeevent && vqwindowstatechangeevent->isVirtualQWindowStateChangeEvent) {
-        vqwindowstatechangeevent->setQWindowStateChangeEvent_Clone_Callback(reinterpret_cast<VirtualQWindowStateChangeEvent::QWindowStateChangeEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4190,6 +4146,34 @@ QTouchEvent* QTouchEvent_new6(int eventType, const QPointingDevice* device, int 
     return new VirtualQTouchEvent(static_cast<QEvent::Type>(eventType), device, static_cast<Qt::KeyboardModifiers>(modifiers), static_cast<QEventPoint::States>(touchPointStates), touchPoints_QList);
 }
 
+QTouchEvent* QTouchEvent_Clone(const QTouchEvent* self) {
+    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
+    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQTouchEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTouchEvent_OnClone(const QTouchEvent* self, intptr_t slot) {
+    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
+    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
+        vqtouchevent->setQTouchEvent_Clone_Callback(reinterpret_cast<VirtualQTouchEvent::QTouchEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QTouchEvent* QTouchEvent_QBaseClone(const QTouchEvent* self) {
+    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
+    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
+        vqtouchevent->setQTouchEvent_Clone_IsBase(true);
+        return vqtouchevent->clone();
+    } else {
+        return ((VirtualQTouchEvent*)self)->clone();
+    }
+}
+
 QObject* QTouchEvent_Target(const QTouchEvent* self) {
     return self->target();
 }
@@ -4211,57 +4195,16 @@ libqt_list /* of QEventPoint* */ QTouchEvent_TouchPoints(const QTouchEvent* self
     return _out;
 }
 
-// Derived class handler implementation
-QTouchEvent* QTouchEvent_Clone(const QTouchEvent* self) {
-    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        return vqtouchevent->clone();
-    } else {
-        return self->QTouchEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QTouchEvent* QTouchEvent_QBaseClone(const QTouchEvent* self) {
-    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        vqtouchevent->setQTouchEvent_Clone_IsBase(true);
-        return vqtouchevent->clone();
-    } else {
-        return self->QTouchEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTouchEvent_OnClone(const QTouchEvent* self, intptr_t slot) {
-    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        vqtouchevent->setQTouchEvent_Clone_Callback(reinterpret_cast<VirtualQTouchEvent::QTouchEvent_Clone_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 bool QTouchEvent_IsBeginEvent(const QTouchEvent* self) {
-    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
+    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        return vqtouchevent->isBeginEvent();
+        return self->isBeginEvent();
     } else {
-        return self->QTouchEvent::isBeginEvent();
+        return ((VirtualQTouchEvent*)self)->isBeginEvent();
     }
 }
 
-// Base class handler implementation
-bool QTouchEvent_QBaseIsBeginEvent(const QTouchEvent* self) {
-    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        vqtouchevent->setQTouchEvent_IsBeginEvent_IsBase(true);
-        return vqtouchevent->isBeginEvent();
-    } else {
-        return self->QTouchEvent::isBeginEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QTouchEvent_OnIsBeginEvent(const QTouchEvent* self, intptr_t slot) {
     auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
@@ -4269,28 +4212,27 @@ void QTouchEvent_OnIsBeginEvent(const QTouchEvent* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+bool QTouchEvent_QBaseIsBeginEvent(const QTouchEvent* self) {
+    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
+    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
+        vqtouchevent->setQTouchEvent_IsBeginEvent_IsBase(true);
+        return vqtouchevent->isBeginEvent();
+    } else {
+        return ((VirtualQTouchEvent*)self)->isBeginEvent();
+    }
+}
+
 bool QTouchEvent_IsUpdateEvent(const QTouchEvent* self) {
-    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
+    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        return vqtouchevent->isUpdateEvent();
+        return self->isUpdateEvent();
     } else {
-        return self->QTouchEvent::isUpdateEvent();
+        return ((VirtualQTouchEvent*)self)->isUpdateEvent();
     }
 }
 
-// Base class handler implementation
-bool QTouchEvent_QBaseIsUpdateEvent(const QTouchEvent* self) {
-    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        vqtouchevent->setQTouchEvent_IsUpdateEvent_IsBase(true);
-        return vqtouchevent->isUpdateEvent();
-    } else {
-        return self->QTouchEvent::isUpdateEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QTouchEvent_OnIsUpdateEvent(const QTouchEvent* self, intptr_t slot) {
     auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
@@ -4298,32 +4240,42 @@ void QTouchEvent_OnIsUpdateEvent(const QTouchEvent* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+bool QTouchEvent_QBaseIsUpdateEvent(const QTouchEvent* self) {
+    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
+    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
+        vqtouchevent->setQTouchEvent_IsUpdateEvent_IsBase(true);
+        return vqtouchevent->isUpdateEvent();
+    } else {
+        return ((VirtualQTouchEvent*)self)->isUpdateEvent();
+    }
+}
+
 bool QTouchEvent_IsEndEvent(const QTouchEvent* self) {
-    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
+    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        return vqtouchevent->isEndEvent();
+        return self->isEndEvent();
     } else {
-        return self->QTouchEvent::isEndEvent();
+        return ((VirtualQTouchEvent*)self)->isEndEvent();
     }
 }
 
-// Base class handler implementation
-bool QTouchEvent_QBaseIsEndEvent(const QTouchEvent* self) {
-    auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        vqtouchevent->setQTouchEvent_IsEndEvent_IsBase(true);
-        return vqtouchevent->isEndEvent();
-    } else {
-        return self->QTouchEvent::isEndEvent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QTouchEvent_OnIsEndEvent(const QTouchEvent* self, intptr_t slot) {
     auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
         vqtouchevent->setQTouchEvent_IsEndEvent_Callback(reinterpret_cast<VirtualQTouchEvent::QTouchEvent_IsEndEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTouchEvent_QBaseIsEndEvent(const QTouchEvent* self) {
+    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
+    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
+        vqtouchevent->setQTouchEvent_IsEndEvent_IsBase(true);
+        return vqtouchevent->isEndEvent();
+    } else {
+        return ((VirtualQTouchEvent*)self)->isEndEvent();
     }
 }
 
@@ -4393,6 +4345,34 @@ QScrollPrepareEvent* QScrollPrepareEvent_new(const QPointF* startPos) {
     return new VirtualQScrollPrepareEvent(*startPos);
 }
 
+QScrollPrepareEvent* QScrollPrepareEvent_Clone(const QScrollPrepareEvent* self) {
+    auto* vqscrollprepareevent = dynamic_cast<const VirtualQScrollPrepareEvent*>(self);
+    if (vqscrollprepareevent && vqscrollprepareevent->isVirtualQScrollPrepareEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQScrollPrepareEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QScrollPrepareEvent_OnClone(const QScrollPrepareEvent* self, intptr_t slot) {
+    auto* vqscrollprepareevent = const_cast<VirtualQScrollPrepareEvent*>(dynamic_cast<const VirtualQScrollPrepareEvent*>(self));
+    if (vqscrollprepareevent && vqscrollprepareevent->isVirtualQScrollPrepareEvent) {
+        vqscrollprepareevent->setQScrollPrepareEvent_Clone_Callback(reinterpret_cast<VirtualQScrollPrepareEvent::QScrollPrepareEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QScrollPrepareEvent* QScrollPrepareEvent_QBaseClone(const QScrollPrepareEvent* self) {
+    auto* vqscrollprepareevent = dynamic_cast<const VirtualQScrollPrepareEvent*>(self);
+    if (vqscrollprepareevent && vqscrollprepareevent->isVirtualQScrollPrepareEvent) {
+        vqscrollprepareevent->setQScrollPrepareEvent_Clone_IsBase(true);
+        return vqscrollprepareevent->clone();
+    } else {
+        return ((VirtualQScrollPrepareEvent*)self)->clone();
+    }
+}
+
 QPointF* QScrollPrepareEvent_StartPos(const QScrollPrepareEvent* self) {
     return new QPointF(self->startPos());
 }
@@ -4419,35 +4399,6 @@ void QScrollPrepareEvent_SetContentPosRange(QScrollPrepareEvent* self, const QRe
 
 void QScrollPrepareEvent_SetContentPos(QScrollPrepareEvent* self, const QPointF* pos) {
     self->setContentPos(*pos);
-}
-
-// Derived class handler implementation
-QScrollPrepareEvent* QScrollPrepareEvent_Clone(const QScrollPrepareEvent* self) {
-    auto* vqscrollprepareevent = const_cast<VirtualQScrollPrepareEvent*>(dynamic_cast<const VirtualQScrollPrepareEvent*>(self));
-    if (vqscrollprepareevent && vqscrollprepareevent->isVirtualQScrollPrepareEvent) {
-        return vqscrollprepareevent->clone();
-    } else {
-        return self->QScrollPrepareEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QScrollPrepareEvent* QScrollPrepareEvent_QBaseClone(const QScrollPrepareEvent* self) {
-    auto* vqscrollprepareevent = const_cast<VirtualQScrollPrepareEvent*>(dynamic_cast<const VirtualQScrollPrepareEvent*>(self));
-    if (vqscrollprepareevent && vqscrollprepareevent->isVirtualQScrollPrepareEvent) {
-        vqscrollprepareevent->setQScrollPrepareEvent_Clone_IsBase(true);
-        return vqscrollprepareevent->clone();
-    } else {
-        return self->QScrollPrepareEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QScrollPrepareEvent_OnClone(const QScrollPrepareEvent* self, intptr_t slot) {
-    auto* vqscrollprepareevent = const_cast<VirtualQScrollPrepareEvent*>(dynamic_cast<const VirtualQScrollPrepareEvent*>(self));
-    if (vqscrollprepareevent && vqscrollprepareevent->isVirtualQScrollPrepareEvent) {
-        vqscrollprepareevent->setQScrollPrepareEvent_Clone_Callback(reinterpret_cast<VirtualQScrollPrepareEvent::QScrollPrepareEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4487,6 +4438,34 @@ QScrollEvent* QScrollEvent_new(const QPointF* contentPos, const QPointF* oversho
     return new VirtualQScrollEvent(*contentPos, *overshoot, static_cast<QScrollEvent::ScrollState>(scrollState));
 }
 
+QScrollEvent* QScrollEvent_Clone(const QScrollEvent* self) {
+    auto* vqscrollevent = dynamic_cast<const VirtualQScrollEvent*>(self);
+    if (vqscrollevent && vqscrollevent->isVirtualQScrollEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQScrollEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QScrollEvent_OnClone(const QScrollEvent* self, intptr_t slot) {
+    auto* vqscrollevent = const_cast<VirtualQScrollEvent*>(dynamic_cast<const VirtualQScrollEvent*>(self));
+    if (vqscrollevent && vqscrollevent->isVirtualQScrollEvent) {
+        vqscrollevent->setQScrollEvent_Clone_Callback(reinterpret_cast<VirtualQScrollEvent::QScrollEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QScrollEvent* QScrollEvent_QBaseClone(const QScrollEvent* self) {
+    auto* vqscrollevent = dynamic_cast<const VirtualQScrollEvent*>(self);
+    if (vqscrollevent && vqscrollevent->isVirtualQScrollEvent) {
+        vqscrollevent->setQScrollEvent_Clone_IsBase(true);
+        return vqscrollevent->clone();
+    } else {
+        return ((VirtualQScrollEvent*)self)->clone();
+    }
+}
+
 QPointF* QScrollEvent_ContentPos(const QScrollEvent* self) {
     return new QPointF(self->contentPos());
 }
@@ -4497,35 +4476,6 @@ QPointF* QScrollEvent_OvershootDistance(const QScrollEvent* self) {
 
 int QScrollEvent_ScrollState(const QScrollEvent* self) {
     return static_cast<int>(self->scrollState());
-}
-
-// Derived class handler implementation
-QScrollEvent* QScrollEvent_Clone(const QScrollEvent* self) {
-    auto* vqscrollevent = const_cast<VirtualQScrollEvent*>(dynamic_cast<const VirtualQScrollEvent*>(self));
-    if (vqscrollevent && vqscrollevent->isVirtualQScrollEvent) {
-        return vqscrollevent->clone();
-    } else {
-        return self->QScrollEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QScrollEvent* QScrollEvent_QBaseClone(const QScrollEvent* self) {
-    auto* vqscrollevent = const_cast<VirtualQScrollEvent*>(dynamic_cast<const VirtualQScrollEvent*>(self));
-    if (vqscrollevent && vqscrollevent->isVirtualQScrollEvent) {
-        vqscrollevent->setQScrollEvent_Clone_IsBase(true);
-        return vqscrollevent->clone();
-    } else {
-        return self->QScrollEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QScrollEvent_OnClone(const QScrollEvent* self, intptr_t slot) {
-    auto* vqscrollevent = const_cast<VirtualQScrollEvent*>(dynamic_cast<const VirtualQScrollEvent*>(self));
-    if (vqscrollevent && vqscrollevent->isVirtualQScrollEvent) {
-        vqscrollevent->setQScrollEvent_Clone_Callback(reinterpret_cast<VirtualQScrollEvent::QScrollEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4565,41 +4515,40 @@ QScreenOrientationChangeEvent* QScreenOrientationChangeEvent_new(QScreen* screen
     return new VirtualQScreenOrientationChangeEvent(screen, static_cast<Qt::ScreenOrientation>(orientation));
 }
 
+QScreenOrientationChangeEvent* QScreenOrientationChangeEvent_Clone(const QScreenOrientationChangeEvent* self) {
+    auto* vqscreenorientationchangeevent = dynamic_cast<const VirtualQScreenOrientationChangeEvent*>(self);
+    if (vqscreenorientationchangeevent && vqscreenorientationchangeevent->isVirtualQScreenOrientationChangeEvent) {
+        return self->clone();
+    } else {
+        return ((VirtualQScreenOrientationChangeEvent*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QScreenOrientationChangeEvent_OnClone(const QScreenOrientationChangeEvent* self, intptr_t slot) {
+    auto* vqscreenorientationchangeevent = const_cast<VirtualQScreenOrientationChangeEvent*>(dynamic_cast<const VirtualQScreenOrientationChangeEvent*>(self));
+    if (vqscreenorientationchangeevent && vqscreenorientationchangeevent->isVirtualQScreenOrientationChangeEvent) {
+        vqscreenorientationchangeevent->setQScreenOrientationChangeEvent_Clone_Callback(reinterpret_cast<VirtualQScreenOrientationChangeEvent::QScreenOrientationChangeEvent_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QScreenOrientationChangeEvent* QScreenOrientationChangeEvent_QBaseClone(const QScreenOrientationChangeEvent* self) {
+    auto* vqscreenorientationchangeevent = dynamic_cast<const VirtualQScreenOrientationChangeEvent*>(self);
+    if (vqscreenorientationchangeevent && vqscreenorientationchangeevent->isVirtualQScreenOrientationChangeEvent) {
+        vqscreenorientationchangeevent->setQScreenOrientationChangeEvent_Clone_IsBase(true);
+        return vqscreenorientationchangeevent->clone();
+    } else {
+        return ((VirtualQScreenOrientationChangeEvent*)self)->clone();
+    }
+}
+
 QScreen* QScreenOrientationChangeEvent_Screen(const QScreenOrientationChangeEvent* self) {
     return self->screen();
 }
 
 int QScreenOrientationChangeEvent_Orientation(const QScreenOrientationChangeEvent* self) {
     return static_cast<int>(self->orientation());
-}
-
-// Derived class handler implementation
-QScreenOrientationChangeEvent* QScreenOrientationChangeEvent_Clone(const QScreenOrientationChangeEvent* self) {
-    auto* vqscreenorientationchangeevent = const_cast<VirtualQScreenOrientationChangeEvent*>(dynamic_cast<const VirtualQScreenOrientationChangeEvent*>(self));
-    if (vqscreenorientationchangeevent && vqscreenorientationchangeevent->isVirtualQScreenOrientationChangeEvent) {
-        return vqscreenorientationchangeevent->clone();
-    } else {
-        return self->QScreenOrientationChangeEvent::clone();
-    }
-}
-
-// Base class handler implementation
-QScreenOrientationChangeEvent* QScreenOrientationChangeEvent_QBaseClone(const QScreenOrientationChangeEvent* self) {
-    auto* vqscreenorientationchangeevent = const_cast<VirtualQScreenOrientationChangeEvent*>(dynamic_cast<const VirtualQScreenOrientationChangeEvent*>(self));
-    if (vqscreenorientationchangeevent && vqscreenorientationchangeevent->isVirtualQScreenOrientationChangeEvent) {
-        vqscreenorientationchangeevent->setQScreenOrientationChangeEvent_Clone_IsBase(true);
-        return vqscreenorientationchangeevent->clone();
-    } else {
-        return self->QScreenOrientationChangeEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QScreenOrientationChangeEvent_OnClone(const QScreenOrientationChangeEvent* self, intptr_t slot) {
-    auto* vqscreenorientationchangeevent = const_cast<VirtualQScreenOrientationChangeEvent*>(dynamic_cast<const VirtualQScreenOrientationChangeEvent*>(self));
-    if (vqscreenorientationchangeevent && vqscreenorientationchangeevent->isVirtualQScreenOrientationChangeEvent) {
-        vqscreenorientationchangeevent->setQScreenOrientationChangeEvent_Clone_Callback(reinterpret_cast<VirtualQScreenOrientationChangeEvent::QScreenOrientationChangeEvent_Clone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4639,37 +4588,36 @@ QApplicationStateChangeEvent* QApplicationStateChangeEvent_new(int state) {
     return new VirtualQApplicationStateChangeEvent(static_cast<Qt::ApplicationState>(state));
 }
 
-int QApplicationStateChangeEvent_ApplicationState(const QApplicationStateChangeEvent* self) {
-    return static_cast<int>(self->applicationState());
-}
-
-// Derived class handler implementation
 QApplicationStateChangeEvent* QApplicationStateChangeEvent_Clone(const QApplicationStateChangeEvent* self) {
-    auto* vqapplicationstatechangeevent = const_cast<VirtualQApplicationStateChangeEvent*>(dynamic_cast<const VirtualQApplicationStateChangeEvent*>(self));
+    auto* vqapplicationstatechangeevent = dynamic_cast<const VirtualQApplicationStateChangeEvent*>(self);
     if (vqapplicationstatechangeevent && vqapplicationstatechangeevent->isVirtualQApplicationStateChangeEvent) {
-        return vqapplicationstatechangeevent->clone();
+        return self->clone();
     } else {
-        return self->QApplicationStateChangeEvent::clone();
+        return ((VirtualQApplicationStateChangeEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QApplicationStateChangeEvent* QApplicationStateChangeEvent_QBaseClone(const QApplicationStateChangeEvent* self) {
-    auto* vqapplicationstatechangeevent = const_cast<VirtualQApplicationStateChangeEvent*>(dynamic_cast<const VirtualQApplicationStateChangeEvent*>(self));
-    if (vqapplicationstatechangeevent && vqapplicationstatechangeevent->isVirtualQApplicationStateChangeEvent) {
-        vqapplicationstatechangeevent->setQApplicationStateChangeEvent_Clone_IsBase(true);
-        return vqapplicationstatechangeevent->clone();
-    } else {
-        return self->QApplicationStateChangeEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QApplicationStateChangeEvent_OnClone(const QApplicationStateChangeEvent* self, intptr_t slot) {
     auto* vqapplicationstatechangeevent = const_cast<VirtualQApplicationStateChangeEvent*>(dynamic_cast<const VirtualQApplicationStateChangeEvent*>(self));
     if (vqapplicationstatechangeevent && vqapplicationstatechangeevent->isVirtualQApplicationStateChangeEvent) {
         vqapplicationstatechangeevent->setQApplicationStateChangeEvent_Clone_Callback(reinterpret_cast<VirtualQApplicationStateChangeEvent::QApplicationStateChangeEvent_Clone_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+QApplicationStateChangeEvent* QApplicationStateChangeEvent_QBaseClone(const QApplicationStateChangeEvent* self) {
+    auto* vqapplicationstatechangeevent = dynamic_cast<const VirtualQApplicationStateChangeEvent*>(self);
+    if (vqapplicationstatechangeevent && vqapplicationstatechangeevent->isVirtualQApplicationStateChangeEvent) {
+        vqapplicationstatechangeevent->setQApplicationStateChangeEvent_Clone_IsBase(true);
+        return vqapplicationstatechangeevent->clone();
+    } else {
+        return ((VirtualQApplicationStateChangeEvent*)self)->clone();
+    }
+}
+
+int QApplicationStateChangeEvent_ApplicationState(const QApplicationStateChangeEvent* self) {
+    return static_cast<int>(self->applicationState());
 }
 
 // Derived class handler implementation
@@ -4709,37 +4657,36 @@ QChildWindowEvent* QChildWindowEvent_new(int typeVal, QWindow* childWindow) {
     return new VirtualQChildWindowEvent(static_cast<QEvent::Type>(typeVal), childWindow);
 }
 
-QWindow* QChildWindowEvent_Child(const QChildWindowEvent* self) {
-    return self->child();
-}
-
-// Derived class handler implementation
 QChildWindowEvent* QChildWindowEvent_Clone(const QChildWindowEvent* self) {
-    auto* vqchildwindowevent = const_cast<VirtualQChildWindowEvent*>(dynamic_cast<const VirtualQChildWindowEvent*>(self));
+    auto* vqchildwindowevent = dynamic_cast<const VirtualQChildWindowEvent*>(self);
     if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
-        return vqchildwindowevent->clone();
+        return self->clone();
     } else {
-        return self->QChildWindowEvent::clone();
+        return ((VirtualQChildWindowEvent*)self)->clone();
     }
 }
 
-// Base class handler implementation
-QChildWindowEvent* QChildWindowEvent_QBaseClone(const QChildWindowEvent* self) {
-    auto* vqchildwindowevent = const_cast<VirtualQChildWindowEvent*>(dynamic_cast<const VirtualQChildWindowEvent*>(self));
-    if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
-        vqchildwindowevent->setQChildWindowEvent_Clone_IsBase(true);
-        return vqchildwindowevent->clone();
-    } else {
-        return self->QChildWindowEvent::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QChildWindowEvent_OnClone(const QChildWindowEvent* self, intptr_t slot) {
     auto* vqchildwindowevent = const_cast<VirtualQChildWindowEvent*>(dynamic_cast<const VirtualQChildWindowEvent*>(self));
     if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
         vqchildwindowevent->setQChildWindowEvent_Clone_Callback(reinterpret_cast<VirtualQChildWindowEvent::QChildWindowEvent_Clone_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+QChildWindowEvent* QChildWindowEvent_QBaseClone(const QChildWindowEvent* self) {
+    auto* vqchildwindowevent = dynamic_cast<const VirtualQChildWindowEvent*>(self);
+    if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
+        vqchildwindowevent->setQChildWindowEvent_Clone_IsBase(true);
+        return vqchildwindowevent->clone();
+    } else {
+        return ((VirtualQChildWindowEvent*)self)->clone();
+    }
+}
+
+QWindow* QChildWindowEvent_Child(const QChildWindowEvent* self) {
+    return self->child();
 }
 
 // Derived class handler implementation

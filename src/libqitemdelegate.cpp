@@ -91,12 +91,330 @@ void QItemDelegate_SetClipping(QItemDelegate* self, bool clip) {
     self->setClipping(clip);
 }
 
+void QItemDelegate_Paint(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        self->paint(painter, *option, *index);
+    } else {
+        ((VirtualQItemDelegate*)self)->paint(painter, *option, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnPaint(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_Paint_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Paint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemDelegate_QBasePaint(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_Paint_IsBase(true);
+        vqitemdelegate->paint(painter, *option, *index);
+    } else {
+        ((VirtualQItemDelegate*)self)->paint(painter, *option, *index);
+    }
+}
+
+QSize* QItemDelegate_SizeHint(const QItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        return new QSize(self->sizeHint(*option, *index));
+    } else {
+        return new QSize(((VirtualQItemDelegate*)self)->sizeHint(*option, *index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnSizeHint(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QItemDelegate_QBaseSizeHint(const QItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_SizeHint_IsBase(true);
+        return new QSize(vqitemdelegate->sizeHint(*option, *index));
+    } else {
+        return new QSize(((VirtualQItemDelegate*)self)->sizeHint(*option, *index));
+    }
+}
+
+QWidget* QItemDelegate_CreateEditor(const QItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        return self->createEditor(parent, *option, *index);
+    } else {
+        return ((VirtualQItemDelegate*)self)->createEditor(parent, *option, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnCreateEditor(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_CreateEditor_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QWidget* QItemDelegate_QBaseCreateEditor(const QItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_CreateEditor_IsBase(true);
+        return vqitemdelegate->createEditor(parent, *option, *index);
+    } else {
+        return ((VirtualQItemDelegate*)self)->createEditor(parent, *option, *index);
+    }
+}
+
+void QItemDelegate_SetEditorData(const QItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        self->setEditorData(editor, *index);
+    } else {
+        ((VirtualQItemDelegate*)self)->setEditorData(editor, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnSetEditorData(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SetEditorData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemDelegate_QBaseSetEditorData(const QItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_SetEditorData_IsBase(true);
+        vqitemdelegate->setEditorData(editor, *index);
+    } else {
+        ((VirtualQItemDelegate*)self)->setEditorData(editor, *index);
+    }
+}
+
+void QItemDelegate_SetModelData(const QItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        self->setModelData(editor, model, *index);
+    } else {
+        ((VirtualQItemDelegate*)self)->setModelData(editor, model, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnSetModelData(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SetModelData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemDelegate_QBaseSetModelData(const QItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_SetModelData_IsBase(true);
+        vqitemdelegate->setModelData(editor, model, *index);
+    } else {
+        ((VirtualQItemDelegate*)self)->setModelData(editor, model, *index);
+    }
+}
+
+void QItemDelegate_UpdateEditorGeometry(const QItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        self->updateEditorGeometry(editor, *option, *index);
+    } else {
+        ((VirtualQItemDelegate*)self)->updateEditorGeometry(editor, *option, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnUpdateEditorGeometry(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_UpdateEditorGeometry_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemDelegate_QBaseUpdateEditorGeometry(const QItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_UpdateEditorGeometry_IsBase(true);
+        vqitemdelegate->updateEditorGeometry(editor, *option, *index);
+    } else {
+        ((VirtualQItemDelegate*)self)->updateEditorGeometry(editor, *option, *index);
+    }
+}
+
 QItemEditorFactory* QItemDelegate_ItemEditorFactory(const QItemDelegate* self) {
     return self->itemEditorFactory();
 }
 
 void QItemDelegate_SetItemEditorFactory(QItemDelegate* self, QItemEditorFactory* factory) {
     self->setItemEditorFactory(factory);
+}
+
+void QItemDelegate_DrawDisplay(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->drawDisplay(painter, *option, *rect, text_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnDrawDisplay(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_DrawDisplay_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawDisplay_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemDelegate_QBaseDrawDisplay(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_DrawDisplay_IsBase(true);
+        vqitemdelegate->drawDisplay(painter, *option, *rect, text_QString);
+    }
+}
+
+void QItemDelegate_DrawDecoration(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, const QPixmap* pixmap) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->drawDecoration(painter, *option, *rect, *pixmap);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnDrawDecoration(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_DrawDecoration_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawDecoration_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemDelegate_QBaseDrawDecoration(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, const QPixmap* pixmap) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_DrawDecoration_IsBase(true);
+        vqitemdelegate->drawDecoration(painter, *option, *rect, *pixmap);
+    }
+}
+
+void QItemDelegate_DrawFocus(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->drawFocus(painter, *option, *rect);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnDrawFocus(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_DrawFocus_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawFocus_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemDelegate_QBaseDrawFocus(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_DrawFocus_IsBase(true);
+        vqitemdelegate->drawFocus(painter, *option, *rect);
+    }
+}
+
+void QItemDelegate_DrawCheck(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, int state) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->drawCheck(painter, *option, *rect, static_cast<Qt::CheckState>(state));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnDrawCheck(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_DrawCheck_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawCheck_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemDelegate_QBaseDrawCheck(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, int state) {
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_DrawCheck_IsBase(true);
+        vqitemdelegate->drawCheck(painter, *option, *rect, static_cast<Qt::CheckState>(state));
+    }
+}
+
+bool QItemDelegate_EventFilter(QItemDelegate* self, QObject* object, QEvent* event) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        return vqitemdelegate->eventFilter(object, event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnEventFilter(QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QItemDelegate_QBaseEventFilter(QItemDelegate* self, QObject* object, QEvent* event) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_EventFilter_IsBase(true);
+        return vqitemdelegate->eventFilter(object, event);
+    }
+    return {};
+}
+
+bool QItemDelegate_EditorEvent(QItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        return vqitemdelegate->editorEvent(event, model, *option, *index);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemDelegate_OnEditorEvent(QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_EditorEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QItemDelegate_QBaseEditorEvent(QItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_EditorEvent_IsBase(true);
+        return vqitemdelegate->editorEvent(event, model, *option, *index);
+    }
+    return {};
 }
 
 libqt_string QItemDelegate_Tr2(const char* s, const char* c) {
@@ -121,356 +439,6 @@ libqt_string QItemDelegate_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QItemDelegate_Paint(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->paint(painter, *option, *index);
-    } else {
-        self->QItemDelegate::paint(painter, *option, *index);
-    }
-}
-
-// Base class handler implementation
-void QItemDelegate_QBasePaint(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_Paint_IsBase(true);
-        vqitemdelegate->paint(painter, *option, *index);
-    } else {
-        self->QItemDelegate::paint(painter, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnPaint(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_Paint_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Paint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QItemDelegate_SizeHint(const QItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        return new QSize(vqitemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualQItemDelegate*)self)->sizeHint(*option, *index));
-    }
-}
-
-// Base class handler implementation
-QSize* QItemDelegate_QBaseSizeHint(const QItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_SizeHint_IsBase(true);
-        return new QSize(vqitemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualQItemDelegate*)self)->sizeHint(*option, *index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnSizeHint(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QWidget* QItemDelegate_CreateEditor(const QItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        return vqitemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->QItemDelegate::createEditor(parent, *option, *index);
-    }
-}
-
-// Base class handler implementation
-QWidget* QItemDelegate_QBaseCreateEditor(const QItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_CreateEditor_IsBase(true);
-        return vqitemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->QItemDelegate::createEditor(parent, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnCreateEditor(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_CreateEditor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemDelegate_SetEditorData(const QItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setEditorData(editor, *index);
-    } else {
-        self->QItemDelegate::setEditorData(editor, *index);
-    }
-}
-
-// Base class handler implementation
-void QItemDelegate_QBaseSetEditorData(const QItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_SetEditorData_IsBase(true);
-        vqitemdelegate->setEditorData(editor, *index);
-    } else {
-        self->QItemDelegate::setEditorData(editor, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnSetEditorData(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SetEditorData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemDelegate_SetModelData(const QItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->QItemDelegate::setModelData(editor, model, *index);
-    }
-}
-
-// Base class handler implementation
-void QItemDelegate_QBaseSetModelData(const QItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_SetModelData_IsBase(true);
-        vqitemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->QItemDelegate::setModelData(editor, model, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnSetModelData(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SetModelData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemDelegate_UpdateEditorGeometry(const QItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->QItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
-}
-
-// Base class handler implementation
-void QItemDelegate_QBaseUpdateEditorGeometry(const QItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_UpdateEditorGeometry_IsBase(true);
-        vqitemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->QItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnUpdateEditorGeometry(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_UpdateEditorGeometry_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemDelegate_DrawDisplay(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, const libqt_string text) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->drawDisplay(painter, *option, *rect, text_QString);
-    } else {
-        ((VirtualQItemDelegate*)self)->drawDisplay(painter, *option, *rect, text_QString);
-    }
-}
-
-// Base class handler implementation
-void QItemDelegate_QBaseDrawDisplay(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, const libqt_string text) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_DrawDisplay_IsBase(true);
-        vqitemdelegate->drawDisplay(painter, *option, *rect, text_QString);
-    } else {
-        ((VirtualQItemDelegate*)self)->drawDisplay(painter, *option, *rect, text_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnDrawDisplay(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_DrawDisplay_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawDisplay_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemDelegate_DrawDecoration(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, const QPixmap* pixmap) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->drawDecoration(painter, *option, *rect, *pixmap);
-    } else {
-        ((VirtualQItemDelegate*)self)->drawDecoration(painter, *option, *rect, *pixmap);
-    }
-}
-
-// Base class handler implementation
-void QItemDelegate_QBaseDrawDecoration(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, const QPixmap* pixmap) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_DrawDecoration_IsBase(true);
-        vqitemdelegate->drawDecoration(painter, *option, *rect, *pixmap);
-    } else {
-        ((VirtualQItemDelegate*)self)->drawDecoration(painter, *option, *rect, *pixmap);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnDrawDecoration(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_DrawDecoration_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawDecoration_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemDelegate_DrawFocus(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->drawFocus(painter, *option, *rect);
-    } else {
-        ((VirtualQItemDelegate*)self)->drawFocus(painter, *option, *rect);
-    }
-}
-
-// Base class handler implementation
-void QItemDelegate_QBaseDrawFocus(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_DrawFocus_IsBase(true);
-        vqitemdelegate->drawFocus(painter, *option, *rect);
-    } else {
-        ((VirtualQItemDelegate*)self)->drawFocus(painter, *option, *rect);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnDrawFocus(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_DrawFocus_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawFocus_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemDelegate_DrawCheck(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, int state) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->drawCheck(painter, *option, *rect, static_cast<Qt::CheckState>(state));
-    } else {
-        ((VirtualQItemDelegate*)self)->drawCheck(painter, *option, *rect, static_cast<Qt::CheckState>(state));
-    }
-}
-
-// Base class handler implementation
-void QItemDelegate_QBaseDrawCheck(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, int state) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_DrawCheck_IsBase(true);
-        vqitemdelegate->drawCheck(painter, *option, *rect, static_cast<Qt::CheckState>(state));
-    } else {
-        ((VirtualQItemDelegate*)self)->drawCheck(painter, *option, *rect, static_cast<Qt::CheckState>(state));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnDrawCheck(const QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_DrawCheck_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawCheck_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QItemDelegate_EventFilter(QItemDelegate* self, QObject* object, QEvent* event) {
-    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        return vqitemdelegate->eventFilter(object, event);
-    } else {
-        return ((VirtualQItemDelegate*)self)->eventFilter(object, event);
-    }
-}
-
-// Base class handler implementation
-bool QItemDelegate_QBaseEventFilter(QItemDelegate* self, QObject* object, QEvent* event) {
-    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_EventFilter_IsBase(true);
-        return vqitemdelegate->eventFilter(object, event);
-    } else {
-        return ((VirtualQItemDelegate*)self)->eventFilter(object, event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnEventFilter(QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_EventFilter_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QItemDelegate_EditorEvent(QItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        return vqitemdelegate->editorEvent(event, model, *option, *index);
-    } else {
-        return ((VirtualQItemDelegate*)self)->editorEvent(event, model, *option, *index);
-    }
-}
-
-// Base class handler implementation
-bool QItemDelegate_QBaseEditorEvent(QItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_EditorEvent_IsBase(true);
-        return vqitemdelegate->editorEvent(event, model, *option, *index);
-    } else {
-        return ((VirtualQItemDelegate*)self)->editorEvent(event, model, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemDelegate_OnEditorEvent(QItemDelegate* self, intptr_t slot) {
-    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        vqitemdelegate->setQItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_EditorEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

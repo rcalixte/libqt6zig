@@ -144,6 +144,34 @@ QTableWidgetItem* QTableWidgetItem_new7(const QIcon* icon, const libqt_string te
     return new VirtualQTableWidgetItem(*icon, text_QString, static_cast<int>(typeVal));
 }
 
+QTableWidgetItem* QTableWidgetItem_Clone(const QTableWidgetItem* self) {
+    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+        return self->clone();
+    } else {
+        return ((VirtualQTableWidgetItem*)self)->clone();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTableWidgetItem_OnClone(const QTableWidgetItem* self, intptr_t slot) {
+    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+        vqtablewidgetitem->setQTableWidgetItem_Clone_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Clone_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QTableWidgetItem* QTableWidgetItem_QBaseClone(const QTableWidgetItem* self) {
+    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+        vqtablewidgetitem->setQTableWidgetItem_Clone_IsBase(true);
+        return vqtablewidgetitem->clone();
+    } else {
+        return ((VirtualQTableWidgetItem*)self)->clone();
+    }
+}
+
 QTableWidget* QTableWidgetItem_TableWidget(const QTableWidgetItem* self) {
     return self->tableWidget();
 }
@@ -304,56 +332,26 @@ void QTableWidgetItem_SetSizeHint(QTableWidgetItem* self, const QSize* size) {
     self->setSizeHint(*size);
 }
 
-void QTableWidgetItem_OperatorAssign(QTableWidgetItem* self, const QTableWidgetItem* other) {
-    self->operator=(*other);
-}
-
-int QTableWidgetItem_Type(const QTableWidgetItem* self) {
-    return self->type();
-}
-
-// Derived class handler implementation
-QTableWidgetItem* QTableWidgetItem_Clone(const QTableWidgetItem* self) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        return vqtablewidgetitem->clone();
-    } else {
-        return self->QTableWidgetItem::clone();
-    }
-}
-
-// Base class handler implementation
-QTableWidgetItem* QTableWidgetItem_QBaseClone(const QTableWidgetItem* self) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_Clone_IsBase(true);
-        return vqtablewidgetitem->clone();
-    } else {
-        return self->QTableWidgetItem::clone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidgetItem_OnClone(const QTableWidgetItem* self, intptr_t slot) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_Clone_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Clone_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QVariant* QTableWidgetItem_Data(const QTableWidgetItem* self, int role) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
+    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        return new QVariant(vqtablewidgetitem->data(static_cast<int>(role)));
+        return new QVariant(self->data(static_cast<int>(role)));
     } else {
         return new QVariant(((VirtualQTableWidgetItem*)self)->data(static_cast<int>(role)));
     }
 }
 
-// Base class handler implementation
-QVariant* QTableWidgetItem_QBaseData(const QTableWidgetItem* self, int role) {
+// Subclass method to allow providing a virtual method re-implementation
+void QTableWidgetItem_OnData(const QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+        vqtablewidgetitem->setQTableWidgetItem_Data_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Data_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QTableWidgetItem_QBaseData(const QTableWidgetItem* self, int role) {
+    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
         vqtablewidgetitem->setQTableWidgetItem_Data_IsBase(true);
         return new QVariant(vqtablewidgetitem->data(static_cast<int>(role)));
@@ -362,36 +360,16 @@ QVariant* QTableWidgetItem_QBaseData(const QTableWidgetItem* self, int role) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QTableWidgetItem_OnData(const QTableWidgetItem* self, intptr_t slot) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_Data_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Data_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 void QTableWidgetItem_SetData(QTableWidgetItem* self, int role, const QVariant* value) {
     auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setData(static_cast<int>(role), *value);
+        self->setData(static_cast<int>(role), *value);
     } else {
-        self->QTableWidgetItem::setData(static_cast<int>(role), *value);
+        ((VirtualQTableWidgetItem*)self)->setData(static_cast<int>(role), *value);
     }
 }
 
-// Base class handler implementation
-void QTableWidgetItem_QBaseSetData(QTableWidgetItem* self, int role, const QVariant* value) {
-    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_SetData_IsBase(true);
-        vqtablewidgetitem->setData(static_cast<int>(role), *value);
-    } else {
-        self->QTableWidgetItem::setData(static_cast<int>(role), *value);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QTableWidgetItem_OnSetData(QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
@@ -399,28 +377,27 @@ void QTableWidgetItem_OnSetData(QTableWidgetItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QTableWidgetItem_QBaseSetData(QTableWidgetItem* self, int role, const QVariant* value) {
+    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+        vqtablewidgetitem->setQTableWidgetItem_SetData_IsBase(true);
+        vqtablewidgetitem->setData(static_cast<int>(role), *value);
+    } else {
+        ((VirtualQTableWidgetItem*)self)->setData(static_cast<int>(role), *value);
+    }
+}
+
 bool QTableWidgetItem_OperatorLesser(const QTableWidgetItem* self, const QTableWidgetItem* other) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
+    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        return vqtablewidgetitem->operator<(*other);
+        return (*self < *other);
     } else {
-        return self->QTableWidgetItem::operator<(*other);
+        return ((VirtualQTableWidgetItem*)self)->operator<(*other);
     }
 }
 
-// Base class handler implementation
-bool QTableWidgetItem_QBaseOperatorLesser(const QTableWidgetItem* self, const QTableWidgetItem* other) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_OperatorLesser_IsBase(true);
-        return vqtablewidgetitem->operator<(*other);
-    } else {
-        return self->QTableWidgetItem::operator<(*other);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QTableWidgetItem_OnOperatorLesser(const QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
@@ -428,28 +405,27 @@ void QTableWidgetItem_OnOperatorLesser(const QTableWidgetItem* self, intptr_t sl
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+bool QTableWidgetItem_QBaseOperatorLesser(const QTableWidgetItem* self, const QTableWidgetItem* other) {
+    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+        vqtablewidgetitem->setQTableWidgetItem_OperatorLesser_IsBase(true);
+        return vqtablewidgetitem->operator<(*other);
+    } else {
+        return ((VirtualQTableWidgetItem*)self)->operator<(*other);
+    }
+}
+
 void QTableWidgetItem_Read(QTableWidgetItem* self, QDataStream* in) {
     auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->read(*in);
+        self->read(*in);
     } else {
-        self->QTableWidgetItem::read(*in);
+        ((VirtualQTableWidgetItem*)self)->read(*in);
     }
 }
 
-// Base class handler implementation
-void QTableWidgetItem_QBaseRead(QTableWidgetItem* self, QDataStream* in) {
-    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_Read_IsBase(true);
-        vqtablewidgetitem->read(*in);
-    } else {
-        self->QTableWidgetItem::read(*in);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QTableWidgetItem_OnRead(QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
@@ -457,33 +433,51 @@ void QTableWidgetItem_OnRead(QTableWidgetItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QTableWidgetItem_QBaseRead(QTableWidgetItem* self, QDataStream* in) {
+    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+        vqtablewidgetitem->setQTableWidgetItem_Read_IsBase(true);
+        vqtablewidgetitem->read(*in);
+    } else {
+        ((VirtualQTableWidgetItem*)self)->read(*in);
+    }
+}
+
 void QTableWidgetItem_Write(const QTableWidgetItem* self, QDataStream* out) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
+    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->write(*out);
+        self->write(*out);
     } else {
-        self->QTableWidgetItem::write(*out);
+        ((VirtualQTableWidgetItem*)self)->write(*out);
     }
 }
 
-// Base class handler implementation
-void QTableWidgetItem_QBaseWrite(const QTableWidgetItem* self, QDataStream* out) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_Write_IsBase(true);
-        vqtablewidgetitem->write(*out);
-    } else {
-        self->QTableWidgetItem::write(*out);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QTableWidgetItem_OnWrite(const QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
         vqtablewidgetitem->setQTableWidgetItem_Write_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Write_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+void QTableWidgetItem_QBaseWrite(const QTableWidgetItem* self, QDataStream* out) {
+    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+        vqtablewidgetitem->setQTableWidgetItem_Write_IsBase(true);
+        vqtablewidgetitem->write(*out);
+    } else {
+        ((VirtualQTableWidgetItem*)self)->write(*out);
+    }
+}
+
+void QTableWidgetItem_OperatorAssign(QTableWidgetItem* self, const QTableWidgetItem* other) {
+    self->operator=(*other);
+}
+
+int QTableWidgetItem_Type(const QTableWidgetItem* self) {
+    return self->type();
 }
 
 void QTableWidgetItem_Delete(QTableWidgetItem* self) {
@@ -1014,6 +1008,206 @@ void QTableWidget_Connect_CurrentCellChanged(QTableWidget* self, intptr_t slot) 
     });
 }
 
+bool QTableWidget_Event(QTableWidget* self, QEvent* e) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        return vqtablewidget->event(e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTableWidget_OnEvent(QTableWidget* self, intptr_t slot) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_Event_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTableWidget_QBaseEvent(QTableWidget* self, QEvent* e) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_Event_IsBase(true);
+        return vqtablewidget->event(e);
+    }
+    return {};
+}
+
+libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self) {
+    auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        QList<QString> _ret = vqtablewidget->mimeTypes();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTableWidget_OnMimeTypes(const QTableWidget* self, intptr_t slot) {
+    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_MimeTypes_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeTypes_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_list /* of libqt_string */ QTableWidget_QBaseMimeTypes(const QTableWidget* self) {
+    auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_MimeTypes_IsBase(true);
+        QList<QString> _ret = vqtablewidget->mimeTypes();
+        // Convert QList<> from C++ memory to manually-managed C memory
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
+            QString _lv_ret = _ret[i];
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray _lv_b = _lv_ret.toUtf8();
+            libqt_string _lv_str;
+            _lv_str.len = _lv_b.length();
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
+            _arr[i] = _lv_str;
+        }
+        libqt_list _out;
+        _out.len = _ret.size();
+        _out.data = static_cast<void*>(_arr);
+        return _out;
+    }
+    return {};
+}
+
+QMimeData* QTableWidget_MimeData(const QTableWidget* self, const libqt_list /* of QTableWidgetItem* */ items) {
+    QList<QTableWidgetItem*> items_QList;
+    items_QList.reserve(items.len);
+    QTableWidgetItem** items_arr = static_cast<QTableWidgetItem**>(items.data);
+    for (size_t i = 0; i < items.len; ++i) {
+        items_QList.push_back(items_arr[i]);
+    }
+    auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        return vqtablewidget->mimeData(items_QList);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTableWidget_OnMimeData(const QTableWidget* self, intptr_t slot) {
+    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_MimeData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QMimeData* QTableWidget_QBaseMimeData(const QTableWidget* self, const libqt_list /* of QTableWidgetItem* */ items) {
+    QList<QTableWidgetItem*> items_QList;
+    items_QList.reserve(items.len);
+    QTableWidgetItem** items_arr = static_cast<QTableWidgetItem**>(items.data);
+    for (size_t i = 0; i < items.len; ++i) {
+        items_QList.push_back(items_arr[i]);
+    }
+    auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_MimeData_IsBase(true);
+        return vqtablewidget->mimeData(items_QList);
+    }
+    return {};
+}
+
+bool QTableWidget_DropMimeData(QTableWidget* self, int row, int column, const QMimeData* data, int action) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        return vqtablewidget->dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTableWidget_OnDropMimeData(QTableWidget* self, intptr_t slot) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_DropMimeData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropMimeData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTableWidget_QBaseDropMimeData(QTableWidget* self, int row, int column, const QMimeData* data, int action) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_DropMimeData_IsBase(true);
+        return vqtablewidget->dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
+    }
+    return {};
+}
+
+int QTableWidget_SupportedDropActions(const QTableWidget* self) {
+    auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        return static_cast<int>(vqtablewidget->supportedDropActions());
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTableWidget_OnSupportedDropActions(const QTableWidget* self, intptr_t slot) {
+    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_SupportedDropActions_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SupportedDropActions_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QTableWidget_QBaseSupportedDropActions(const QTableWidget* self) {
+    auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_SupportedDropActions_IsBase(true);
+        return static_cast<int>(vqtablewidget->supportedDropActions());
+    }
+    return {};
+}
+
+void QTableWidget_DropEvent(QTableWidget* self, QDropEvent* event) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->dropEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTableWidget_OnDropEvent(QTableWidget* self, intptr_t slot) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_DropEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTableWidget_QBaseDropEvent(QTableWidget* self, QDropEvent* event) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_DropEvent_IsBase(true);
+        vqtablewidget->dropEvent(event);
+    }
+}
+
 libqt_string QTableWidget_Tr2(const char* s, const char* c) {
     QString _ret = QTableWidget::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1044,260 +1238,6 @@ void QTableWidget_SortItems2(QTableWidget* self, int column, int order) {
 
 void QTableWidget_ScrollToItem2(QTableWidget* self, const QTableWidgetItem* item, int hint) {
     self->scrollToItem(item, static_cast<QAbstractItemView::ScrollHint>(hint));
-}
-
-// Derived class handler implementation
-bool QTableWidget_Event(QTableWidget* self, QEvent* e) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->event(e);
-    } else {
-        return ((VirtualQTableWidget*)self)->event(e);
-    }
-}
-
-// Base class handler implementation
-bool QTableWidget_QBaseEvent(QTableWidget* self, QEvent* e) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Event_IsBase(true);
-        return vqtablewidget->event(e);
-    } else {
-        return ((VirtualQTableWidget*)self)->event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Event_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        QList<QString> _ret = vqtablewidget->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQTableWidget*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Base class handler implementation
-libqt_list /* of libqt_string */ QTableWidget_QBaseMimeTypes(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MimeTypes_IsBase(true);
-        QList<QString> _ret = vqtablewidget->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQTableWidget*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnMimeTypes(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MimeTypes_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeTypes_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QMimeData* QTableWidget_MimeData(const QTableWidget* self, const libqt_list /* of QTableWidgetItem* */ items) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    QList<QTableWidgetItem*> items_QList;
-    items_QList.reserve(items.len);
-    QTableWidgetItem** items_arr = static_cast<QTableWidgetItem**>(items.data);
-    for (size_t i = 0; i < items.len; ++i) {
-        items_QList.push_back(items_arr[i]);
-    }
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->mimeData(items_QList);
-    } else {
-        return ((VirtualQTableWidget*)self)->mimeData(items_QList);
-    }
-}
-
-// Base class handler implementation
-QMimeData* QTableWidget_QBaseMimeData(const QTableWidget* self, const libqt_list /* of QTableWidgetItem* */ items) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    QList<QTableWidgetItem*> items_QList;
-    items_QList.reserve(items.len);
-    QTableWidgetItem** items_arr = static_cast<QTableWidgetItem**>(items.data);
-    for (size_t i = 0; i < items.len; ++i) {
-        items_QList.push_back(items_arr[i]);
-    }
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MimeData_IsBase(true);
-        return vqtablewidget->mimeData(items_QList);
-    } else {
-        return ((VirtualQTableWidget*)self)->mimeData(items_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnMimeData(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MimeData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTableWidget_DropMimeData(QTableWidget* self, int row, int column, const QMimeData* data, int action) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
-    } else {
-        return ((VirtualQTableWidget*)self)->dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
-    }
-}
-
-// Base class handler implementation
-bool QTableWidget_QBaseDropMimeData(QTableWidget* self, int row, int column, const QMimeData* data, int action) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DropMimeData_IsBase(true);
-        return vqtablewidget->dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
-    } else {
-        return ((VirtualQTableWidget*)self)->dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnDropMimeData(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DropMimeData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropMimeData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QTableWidget_SupportedDropActions(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return static_cast<int>(vqtablewidget->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualQTableWidget*)self)->supportedDropActions());
-    }
-}
-
-// Base class handler implementation
-int QTableWidget_QBaseSupportedDropActions(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SupportedDropActions_IsBase(true);
-        return static_cast<int>(vqtablewidget->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualQTableWidget*)self)->supportedDropActions());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSupportedDropActions(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SupportedDropActions_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SupportedDropActions_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTableWidget_DropEvent(QTableWidget* self, QDropEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->dropEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->dropEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QTableWidget_QBaseDropEvent(QTableWidget* self, QDropEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DropEvent_IsBase(true);
-        vqtablewidget->dropEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->dropEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnDropEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DropEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

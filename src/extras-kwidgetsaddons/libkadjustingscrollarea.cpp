@@ -100,6 +100,90 @@ libqt_string KAdjustingScrollArea_Tr(const char* s) {
     return _str;
 }
 
+QSize* KAdjustingScrollArea_MinimumSizeHint(const KAdjustingScrollArea* self) {
+    auto* vkadjustingscrollarea = dynamic_cast<const VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKAdjustingScrollArea*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KAdjustingScrollArea_OnMinimumSizeHint(const KAdjustingScrollArea* self, intptr_t slot) {
+    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_MinimumSizeHint_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KAdjustingScrollArea_QBaseMinimumSizeHint(const KAdjustingScrollArea* self) {
+    auto* vkadjustingscrollarea = dynamic_cast<const VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_MinimumSizeHint_IsBase(true);
+        return new QSize(vkadjustingscrollarea->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKAdjustingScrollArea*)self)->minimumSizeHint());
+    }
+}
+
+QSize* KAdjustingScrollArea_SizeHint(const KAdjustingScrollArea* self) {
+    auto* vkadjustingscrollarea = dynamic_cast<const VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualKAdjustingScrollArea*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KAdjustingScrollArea_OnSizeHint(const KAdjustingScrollArea* self, intptr_t slot) {
+    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_SizeHint_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KAdjustingScrollArea_QBaseSizeHint(const KAdjustingScrollArea* self) {
+    auto* vkadjustingscrollarea = dynamic_cast<const VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_SizeHint_IsBase(true);
+        return new QSize(vkadjustingscrollarea->sizeHint());
+    } else {
+        return new QSize(((VirtualKAdjustingScrollArea*)self)->sizeHint());
+    }
+}
+
+bool KAdjustingScrollArea_Event(KAdjustingScrollArea* self, QEvent* event) {
+    auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        return self->event(event);
+    } else {
+        return ((VirtualKAdjustingScrollArea*)self)->event(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KAdjustingScrollArea_OnEvent(KAdjustingScrollArea* self, intptr_t slot) {
+    auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_Event_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KAdjustingScrollArea_QBaseEvent(KAdjustingScrollArea* self, QEvent* event) {
+    auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_Event_IsBase(true);
+        return vkadjustingscrollarea->event(event);
+    } else {
+        return ((VirtualKAdjustingScrollArea*)self)->event(event);
+    }
+}
+
 libqt_string KAdjustingScrollArea_Tr2(const char* s, const char* c) {
     QString _ret = KAdjustingScrollArea::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -122,93 +206,6 @@ libqt_string KAdjustingScrollArea_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* KAdjustingScrollArea_MinimumSizeHint(const KAdjustingScrollArea* self) {
-    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
-        return new QSize(vkadjustingscrollarea->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKAdjustingScrollArea*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KAdjustingScrollArea_QBaseMinimumSizeHint(const KAdjustingScrollArea* self) {
-    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
-        vkadjustingscrollarea->setKAdjustingScrollArea_MinimumSizeHint_IsBase(true);
-        return new QSize(vkadjustingscrollarea->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKAdjustingScrollArea*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAdjustingScrollArea_OnMinimumSizeHint(const KAdjustingScrollArea* self, intptr_t slot) {
-    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
-        vkadjustingscrollarea->setKAdjustingScrollArea_MinimumSizeHint_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* KAdjustingScrollArea_SizeHint(const KAdjustingScrollArea* self) {
-    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
-        return new QSize(vkadjustingscrollarea->sizeHint());
-    } else {
-        return new QSize(((VirtualKAdjustingScrollArea*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KAdjustingScrollArea_QBaseSizeHint(const KAdjustingScrollArea* self) {
-    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
-        vkadjustingscrollarea->setKAdjustingScrollArea_SizeHint_IsBase(true);
-        return new QSize(vkadjustingscrollarea->sizeHint());
-    } else {
-        return new QSize(((VirtualKAdjustingScrollArea*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAdjustingScrollArea_OnSizeHint(const KAdjustingScrollArea* self, intptr_t slot) {
-    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
-        vkadjustingscrollarea->setKAdjustingScrollArea_SizeHint_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KAdjustingScrollArea_Event(KAdjustingScrollArea* self, QEvent* event) {
-    auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
-        return vkadjustingscrollarea->event(event);
-    } else {
-        return self->KAdjustingScrollArea::event(event);
-    }
-}
-
-// Base class handler implementation
-bool KAdjustingScrollArea_QBaseEvent(KAdjustingScrollArea* self, QEvent* event) {
-    auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
-        vkadjustingscrollarea->setKAdjustingScrollArea_Event_IsBase(true);
-        return vkadjustingscrollarea->event(event);
-    } else {
-        return self->KAdjustingScrollArea::event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAdjustingScrollArea_OnEvent(KAdjustingScrollArea* self, intptr_t slot) {
-    auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
-        vkadjustingscrollarea->setKAdjustingScrollArea_Event_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

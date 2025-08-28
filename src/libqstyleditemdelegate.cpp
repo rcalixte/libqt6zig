@@ -81,12 +81,316 @@ libqt_string QStyledItemDelegate_Tr(const char* s) {
     return _str;
 }
 
+void QStyledItemDelegate_Paint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        self->paint(painter, *option, *index);
+    } else {
+        ((VirtualQStyledItemDelegate*)self)->paint(painter, *option, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnPaint(const QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_Paint_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Paint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStyledItemDelegate_QBasePaint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_Paint_IsBase(true);
+        vqstyleditemdelegate->paint(painter, *option, *index);
+    } else {
+        ((VirtualQStyledItemDelegate*)self)->paint(painter, *option, *index);
+    }
+}
+
+QSize* QStyledItemDelegate_SizeHint(const QStyledItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        return new QSize(self->sizeHint(*option, *index));
+    } else {
+        return new QSize(((VirtualQStyledItemDelegate*)self)->sizeHint(*option, *index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnSizeHint(const QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QStyledItemDelegate_QBaseSizeHint(const QStyledItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_SizeHint_IsBase(true);
+        return new QSize(vqstyleditemdelegate->sizeHint(*option, *index));
+    } else {
+        return new QSize(((VirtualQStyledItemDelegate*)self)->sizeHint(*option, *index));
+    }
+}
+
+QWidget* QStyledItemDelegate_CreateEditor(const QStyledItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        return self->createEditor(parent, *option, *index);
+    } else {
+        return ((VirtualQStyledItemDelegate*)self)->createEditor(parent, *option, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnCreateEditor(const QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_CreateEditor_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QWidget* QStyledItemDelegate_QBaseCreateEditor(const QStyledItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_CreateEditor_IsBase(true);
+        return vqstyleditemdelegate->createEditor(parent, *option, *index);
+    } else {
+        return ((VirtualQStyledItemDelegate*)self)->createEditor(parent, *option, *index);
+    }
+}
+
+void QStyledItemDelegate_SetEditorData(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        self->setEditorData(editor, *index);
+    } else {
+        ((VirtualQStyledItemDelegate*)self)->setEditorData(editor, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnSetEditorData(const QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetEditorData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStyledItemDelegate_QBaseSetEditorData(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_SetEditorData_IsBase(true);
+        vqstyleditemdelegate->setEditorData(editor, *index);
+    } else {
+        ((VirtualQStyledItemDelegate*)self)->setEditorData(editor, *index);
+    }
+}
+
+void QStyledItemDelegate_SetModelData(const QStyledItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        self->setModelData(editor, model, *index);
+    } else {
+        ((VirtualQStyledItemDelegate*)self)->setModelData(editor, model, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnSetModelData(const QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetModelData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStyledItemDelegate_QBaseSetModelData(const QStyledItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_SetModelData_IsBase(true);
+        vqstyleditemdelegate->setModelData(editor, model, *index);
+    } else {
+        ((VirtualQStyledItemDelegate*)self)->setModelData(editor, model, *index);
+    }
+}
+
+void QStyledItemDelegate_UpdateEditorGeometry(const QStyledItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        self->updateEditorGeometry(editor, *option, *index);
+    } else {
+        ((VirtualQStyledItemDelegate*)self)->updateEditorGeometry(editor, *option, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnUpdateEditorGeometry(const QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_UpdateEditorGeometry_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStyledItemDelegate_QBaseUpdateEditorGeometry(const QStyledItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_UpdateEditorGeometry_IsBase(true);
+        vqstyleditemdelegate->updateEditorGeometry(editor, *option, *index);
+    } else {
+        ((VirtualQStyledItemDelegate*)self)->updateEditorGeometry(editor, *option, *index);
+    }
+}
+
 QItemEditorFactory* QStyledItemDelegate_ItemEditorFactory(const QStyledItemDelegate* self) {
     return self->itemEditorFactory();
 }
 
 void QStyledItemDelegate_SetItemEditorFactory(QStyledItemDelegate* self, QItemEditorFactory* factory) {
     self->setItemEditorFactory(factory);
+}
+
+libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, const QVariant* value, const QLocale* locale) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        QString _ret = self->displayText(*value, *locale);
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = ((VirtualQStyledItemDelegate*)self)->displayText(*value, *locale);
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnDisplayText(const QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_DisplayText_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DisplayText_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QStyledItemDelegate_QBaseDisplayText(const QStyledItemDelegate* self, const QVariant* value, const QLocale* locale) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_DisplayText_IsBase(true);
+        QString _ret = vqstyleditemdelegate->displayText(*value, *locale);
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = ((VirtualQStyledItemDelegate*)self)->displayText(*value, *locale);
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+void QStyledItemDelegate_InitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->initStyleOption(option, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnInitStyleOption(const QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_InitStyleOption_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStyledItemDelegate_QBaseInitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_InitStyleOption_IsBase(true);
+        vqstyleditemdelegate->initStyleOption(option, *index);
+    }
+}
+
+bool QStyledItemDelegate_EventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event) {
+    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        return vqstyleditemdelegate->eventFilter(object, event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnEventFilter(QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStyledItemDelegate_QBaseEventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event) {
+    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_EventFilter_IsBase(true);
+        return vqstyleditemdelegate->eventFilter(object, event);
+    }
+    return {};
+}
+
+bool QStyledItemDelegate_EditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        return vqstyleditemdelegate->editorEvent(event, model, *option, *index);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStyledItemDelegate_OnEditorEvent(QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EditorEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStyledItemDelegate_QBaseEditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_EditorEvent_IsBase(true);
+        return vqstyleditemdelegate->editorEvent(event, model, *option, *index);
+    }
+    return {};
 }
 
 libqt_string QStyledItemDelegate_Tr2(const char* s, const char* c) {
@@ -111,328 +415,6 @@ libqt_string QStyledItemDelegate_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QStyledItemDelegate_Paint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->paint(painter, *option, *index);
-    } else {
-        self->QStyledItemDelegate::paint(painter, *option, *index);
-    }
-}
-
-// Base class handler implementation
-void QStyledItemDelegate_QBasePaint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_Paint_IsBase(true);
-        vqstyleditemdelegate->paint(painter, *option, *index);
-    } else {
-        self->QStyledItemDelegate::paint(painter, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnPaint(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_Paint_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Paint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QStyledItemDelegate_SizeHint(const QStyledItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return new QSize(vqstyleditemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualQStyledItemDelegate*)self)->sizeHint(*option, *index));
-    }
-}
-
-// Base class handler implementation
-QSize* QStyledItemDelegate_QBaseSizeHint(const QStyledItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SizeHint_IsBase(true);
-        return new QSize(vqstyleditemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualQStyledItemDelegate*)self)->sizeHint(*option, *index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnSizeHint(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QWidget* QStyledItemDelegate_CreateEditor(const QStyledItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return vqstyleditemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->QStyledItemDelegate::createEditor(parent, *option, *index);
-    }
-}
-
-// Base class handler implementation
-QWidget* QStyledItemDelegate_QBaseCreateEditor(const QStyledItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_CreateEditor_IsBase(true);
-        return vqstyleditemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->QStyledItemDelegate::createEditor(parent, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnCreateEditor(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_CreateEditor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStyledItemDelegate_SetEditorData(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setEditorData(editor, *index);
-    } else {
-        self->QStyledItemDelegate::setEditorData(editor, *index);
-    }
-}
-
-// Base class handler implementation
-void QStyledItemDelegate_QBaseSetEditorData(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SetEditorData_IsBase(true);
-        vqstyleditemdelegate->setEditorData(editor, *index);
-    } else {
-        self->QStyledItemDelegate::setEditorData(editor, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnSetEditorData(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetEditorData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStyledItemDelegate_SetModelData(const QStyledItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->QStyledItemDelegate::setModelData(editor, model, *index);
-    }
-}
-
-// Base class handler implementation
-void QStyledItemDelegate_QBaseSetModelData(const QStyledItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SetModelData_IsBase(true);
-        vqstyleditemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->QStyledItemDelegate::setModelData(editor, model, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnSetModelData(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetModelData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStyledItemDelegate_UpdateEditorGeometry(const QStyledItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->QStyledItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
-}
-
-// Base class handler implementation
-void QStyledItemDelegate_QBaseUpdateEditorGeometry(const QStyledItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_UpdateEditorGeometry_IsBase(true);
-        vqstyleditemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->QStyledItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnUpdateEditorGeometry(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_UpdateEditorGeometry_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, const QVariant* value, const QLocale* locale) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        QString _ret = vqstyleditemdelegate->displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = self->QStyledItemDelegate::displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QStyledItemDelegate_QBaseDisplayText(const QStyledItemDelegate* self, const QVariant* value, const QLocale* locale) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_DisplayText_IsBase(true);
-        QString _ret = vqstyleditemdelegate->displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = self->QStyledItemDelegate::displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnDisplayText(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_DisplayText_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DisplayText_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStyledItemDelegate_InitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->initStyleOption(option, *index);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->initStyleOption(option, *index);
-    }
-}
-
-// Base class handler implementation
-void QStyledItemDelegate_QBaseInitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_InitStyleOption_IsBase(true);
-        vqstyleditemdelegate->initStyleOption(option, *index);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->initStyleOption(option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnInitStyleOption(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_InitStyleOption_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_InitStyleOption_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStyledItemDelegate_EventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return vqstyleditemdelegate->eventFilter(object, event);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->eventFilter(object, event);
-    }
-}
-
-// Base class handler implementation
-bool QStyledItemDelegate_QBaseEventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_EventFilter_IsBase(true);
-        return vqstyleditemdelegate->eventFilter(object, event);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->eventFilter(object, event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnEventFilter(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EventFilter_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStyledItemDelegate_EditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return vqstyleditemdelegate->editorEvent(event, model, *option, *index);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->editorEvent(event, model, *option, *index);
-    }
-}
-
-// Base class handler implementation
-bool QStyledItemDelegate_QBaseEditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_EditorEvent_IsBase(true);
-        return vqstyleditemdelegate->editorEvent(event, model, *option, *index);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->editorEvent(event, model, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnEditorEvent(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EditorEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

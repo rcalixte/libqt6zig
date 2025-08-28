@@ -72,6 +72,34 @@ libqt_string QGraphicsTransform_Tr(const char* s) {
     return _str;
 }
 
+void QGraphicsTransform_ApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
+    auto* vqgraphicstransform = dynamic_cast<const VirtualQGraphicsTransform*>(self);
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->applyTo(matrix);
+    } else {
+        ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsTransform_OnApplyTo(const QGraphicsTransform* self, intptr_t slot) {
+    auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_ApplyTo_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsTransform_QBaseApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
+    auto* vqgraphicstransform = dynamic_cast<const VirtualQGraphicsTransform*>(self);
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_ApplyTo_IsBase(true);
+        vqgraphicstransform->applyTo(matrix);
+    } else {
+        ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
+    }
+}
+
 libqt_string QGraphicsTransform_Tr2(const char* s, const char* c) {
     QString _ret = QGraphicsTransform::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -94,35 +122,6 @@ libqt_string QGraphicsTransform_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QGraphicsTransform_ApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
-    auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        vqgraphicstransform->applyTo(matrix);
-    } else {
-        ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsTransform_QBaseApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
-    auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        vqgraphicstransform->setQGraphicsTransform_ApplyTo_IsBase(true);
-        vqgraphicstransform->applyTo(matrix);
-    } else {
-        ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsTransform_OnApplyTo(const QGraphicsTransform* self, intptr_t slot) {
-    auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        vqgraphicstransform->setQGraphicsTransform_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_ApplyTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,6 +564,34 @@ void QGraphicsScale_SetZScale(QGraphicsScale* self, double zScale) {
     self->setZScale(static_cast<double>(zScale));
 }
 
+void QGraphicsScale_ApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
+    auto* vqgraphicsscale = dynamic_cast<const VirtualQGraphicsScale*>(self);
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        self->applyTo(matrix);
+    } else {
+        ((VirtualQGraphicsScale*)self)->applyTo(matrix);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScale_OnApplyTo(const QGraphicsScale* self, intptr_t slot) {
+    auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_ApplyTo_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScale_QBaseApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
+    auto* vqgraphicsscale = dynamic_cast<const VirtualQGraphicsScale*>(self);
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_ApplyTo_IsBase(true);
+        vqgraphicsscale->applyTo(matrix);
+    } else {
+        ((VirtualQGraphicsScale*)self)->applyTo(matrix);
+    }
+}
+
 void QGraphicsScale_OriginChanged(QGraphicsScale* self) {
     self->originChanged();
 }
@@ -642,35 +669,6 @@ libqt_string QGraphicsScale_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QGraphicsScale_ApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
-    auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        vqgraphicsscale->applyTo(matrix);
-    } else {
-        self->QGraphicsScale::applyTo(matrix);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScale_QBaseApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
-    auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        vqgraphicsscale->setQGraphicsScale_ApplyTo_IsBase(true);
-        vqgraphicsscale->applyTo(matrix);
-    } else {
-        self->QGraphicsScale::applyTo(matrix);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScale_OnApplyTo(const QGraphicsScale* self, intptr_t slot) {
-    auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        vqgraphicsscale->setQGraphicsScale_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_ApplyTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1109,6 +1107,34 @@ void QGraphicsRotation_SetAxis2(QGraphicsRotation* self, int axis) {
     self->setAxis(static_cast<Qt::Axis>(axis));
 }
 
+void QGraphicsRotation_ApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix) {
+    auto* vqgraphicsrotation = dynamic_cast<const VirtualQGraphicsRotation*>(self);
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        self->applyTo(matrix);
+    } else {
+        ((VirtualQGraphicsRotation*)self)->applyTo(matrix);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsRotation_OnApplyTo(const QGraphicsRotation* self, intptr_t slot) {
+    auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_ApplyTo_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsRotation_QBaseApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix) {
+    auto* vqgraphicsrotation = dynamic_cast<const VirtualQGraphicsRotation*>(self);
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_ApplyTo_IsBase(true);
+        vqgraphicsrotation->applyTo(matrix);
+    } else {
+        ((VirtualQGraphicsRotation*)self)->applyTo(matrix);
+    }
+}
+
 void QGraphicsRotation_OriginChanged(QGraphicsRotation* self) {
     self->originChanged();
 }
@@ -1164,35 +1190,6 @@ libqt_string QGraphicsRotation_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QGraphicsRotation_ApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix) {
-    auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        vqgraphicsrotation->applyTo(matrix);
-    } else {
-        self->QGraphicsRotation::applyTo(matrix);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsRotation_QBaseApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix) {
-    auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        vqgraphicsrotation->setQGraphicsRotation_ApplyTo_IsBase(true);
-        vqgraphicsrotation->applyTo(matrix);
-    } else {
-        self->QGraphicsRotation::applyTo(matrix);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsRotation_OnApplyTo(const QGraphicsRotation* self, intptr_t slot) {
-    auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        vqgraphicsrotation->setQGraphicsRotation_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_ApplyTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

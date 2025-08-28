@@ -94,6 +94,66 @@ bool QTemporaryFile_Open(QTemporaryFile* self) {
     return self->open();
 }
 
+libqt_string QTemporaryFile_FileName(const QTemporaryFile* self) {
+    auto* vqtemporaryfile = dynamic_cast<const VirtualQTemporaryFile*>(self);
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        QString _ret = self->fileName();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = ((VirtualQTemporaryFile*)self)->fileName();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTemporaryFile_OnFileName(const QTemporaryFile* self, intptr_t slot) {
+    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        vqtemporaryfile->setQTemporaryFile_FileName_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_FileName_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QTemporaryFile_QBaseFileName(const QTemporaryFile* self) {
+    auto* vqtemporaryfile = dynamic_cast<const VirtualQTemporaryFile*>(self);
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        vqtemporaryfile->setQTemporaryFile_FileName_IsBase(true);
+        QString _ret = vqtemporaryfile->fileName();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        QString _ret = ((VirtualQTemporaryFile*)self)->fileName();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
 libqt_string QTemporaryFile_FileTemplate(const QTemporaryFile* self) {
     QString _ret = self->fileTemplate();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -125,6 +185,32 @@ QTemporaryFile* QTemporaryFile_CreateNativeFile2(QFile* file) {
     return QTemporaryFile::createNativeFile(*file);
 }
 
+bool QTemporaryFile_Open2(QTemporaryFile* self, int flags) {
+    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTemporaryFile_OnOpen2(QTemporaryFile* self, intptr_t slot) {
+    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        vqtemporaryfile->setQTemporaryFile_Open2_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Open2_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTemporaryFile_QBaseOpen2(QTemporaryFile* self, int flags) {
+    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        vqtemporaryfile->setQTemporaryFile_Open2_IsBase(true);
+        return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
+    }
+    return {};
+}
+
 libqt_string QTemporaryFile_Tr2(const char* s, const char* c) {
     QString _ret = QTemporaryFile::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -147,96 +233,6 @@ libqt_string QTemporaryFile_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-libqt_string QTemporaryFile_FileName(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        QString _ret = vqtemporaryfile->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = self->QTemporaryFile::fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QTemporaryFile_QBaseFileName(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_FileName_IsBase(true);
-        QString _ret = vqtemporaryfile->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = self->QTemporaryFile::fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnFileName(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_FileName_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_FileName_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTemporaryFile_Open2(QTemporaryFile* self, int flags) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    } else {
-        return ((VirtualQTemporaryFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    }
-}
-
-// Base class handler implementation
-bool QTemporaryFile_QBaseOpen2(QTemporaryFile* self, int flags) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Open2_IsBase(true);
-        return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    } else {
-        return ((VirtualQTemporaryFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnOpen2(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Open2_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Open2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

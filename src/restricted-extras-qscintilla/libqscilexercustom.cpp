@@ -84,6 +84,90 @@ void QsciLexerCustom_StartStyling(QsciLexerCustom* self, int pos) {
     self->startStyling(static_cast<int>(pos));
 }
 
+void QsciLexerCustom_StyleText(QsciLexerCustom* self, int start, int end) {
+    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
+    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
+        vqscilexercustom->styleText(static_cast<int>(start), static_cast<int>(end));
+    } else {
+        ((VirtualQsciLexerCustom*)self)->styleText(static_cast<int>(start), static_cast<int>(end));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciLexerCustom_OnStyleText(QsciLexerCustom* self, intptr_t slot) {
+    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
+    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
+        vqscilexercustom->setQsciLexerCustom_StyleText_Callback(reinterpret_cast<VirtualQsciLexerCustom::QsciLexerCustom_StyleText_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciLexerCustom_QBaseStyleText(QsciLexerCustom* self, int start, int end) {
+    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
+    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
+        vqscilexercustom->setQsciLexerCustom_StyleText_IsBase(true);
+        vqscilexercustom->styleText(static_cast<int>(start), static_cast<int>(end));
+    } else {
+        ((VirtualQsciLexerCustom*)self)->styleText(static_cast<int>(start), static_cast<int>(end));
+    }
+}
+
+void QsciLexerCustom_SetEditor(QsciLexerCustom* self, QsciScintilla* editor) {
+    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
+    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
+        self->setEditor(editor);
+    } else {
+        ((VirtualQsciLexerCustom*)self)->setEditor(editor);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciLexerCustom_OnSetEditor(QsciLexerCustom* self, intptr_t slot) {
+    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
+    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
+        vqscilexercustom->setQsciLexerCustom_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerCustom::QsciLexerCustom_SetEditor_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciLexerCustom_QBaseSetEditor(QsciLexerCustom* self, QsciScintilla* editor) {
+    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
+    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
+        vqscilexercustom->setQsciLexerCustom_SetEditor_IsBase(true);
+        vqscilexercustom->setEditor(editor);
+    } else {
+        ((VirtualQsciLexerCustom*)self)->setEditor(editor);
+    }
+}
+
+int QsciLexerCustom_StyleBitsNeeded(const QsciLexerCustom* self) {
+    auto* vqscilexercustom = dynamic_cast<const VirtualQsciLexerCustom*>(self);
+    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
+        return self->styleBitsNeeded();
+    } else {
+        return ((VirtualQsciLexerCustom*)self)->styleBitsNeeded();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciLexerCustom_OnStyleBitsNeeded(const QsciLexerCustom* self, intptr_t slot) {
+    auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
+    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
+        vqscilexercustom->setQsciLexerCustom_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerCustom::QsciLexerCustom_StyleBitsNeeded_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QsciLexerCustom_QBaseStyleBitsNeeded(const QsciLexerCustom* self) {
+    auto* vqscilexercustom = dynamic_cast<const VirtualQsciLexerCustom*>(self);
+    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
+        vqscilexercustom->setQsciLexerCustom_StyleBitsNeeded_IsBase(true);
+        return vqscilexercustom->styleBitsNeeded();
+    } else {
+        return ((VirtualQsciLexerCustom*)self)->styleBitsNeeded();
+    }
+}
+
 libqt_string QsciLexerCustom_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerCustom::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -110,93 +194,6 @@ libqt_string QsciLexerCustom_Tr3(const char* s, const char* c, int n) {
 
 void QsciLexerCustom_StartStyling2(QsciLexerCustom* self, int pos, int styleBits) {
     self->startStyling(static_cast<int>(pos), static_cast<int>(styleBits));
-}
-
-// Derived class handler implementation
-void QsciLexerCustom_StyleText(QsciLexerCustom* self, int start, int end) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        vqscilexercustom->styleText(static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQsciLexerCustom*)self)->styleText(static_cast<int>(start), static_cast<int>(end));
-    }
-}
-
-// Base class handler implementation
-void QsciLexerCustom_QBaseStyleText(QsciLexerCustom* self, int start, int end) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        vqscilexercustom->setQsciLexerCustom_StyleText_IsBase(true);
-        vqscilexercustom->styleText(static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQsciLexerCustom*)self)->styleText(static_cast<int>(start), static_cast<int>(end));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerCustom_OnStyleText(QsciLexerCustom* self, intptr_t slot) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        vqscilexercustom->setQsciLexerCustom_StyleText_Callback(reinterpret_cast<VirtualQsciLexerCustom::QsciLexerCustom_StyleText_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciLexerCustom_SetEditor(QsciLexerCustom* self, QsciScintilla* editor) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        vqscilexercustom->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerCustom*)self)->setEditor(editor);
-    }
-}
-
-// Base class handler implementation
-void QsciLexerCustom_QBaseSetEditor(QsciLexerCustom* self, QsciScintilla* editor) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        vqscilexercustom->setQsciLexerCustom_SetEditor_IsBase(true);
-        vqscilexercustom->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerCustom*)self)->setEditor(editor);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerCustom_OnSetEditor(QsciLexerCustom* self, intptr_t slot) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        vqscilexercustom->setQsciLexerCustom_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerCustom::QsciLexerCustom_SetEditor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QsciLexerCustom_StyleBitsNeeded(const QsciLexerCustom* self) {
-    auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        return vqscilexercustom->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerCustom*)self)->styleBitsNeeded();
-    }
-}
-
-// Base class handler implementation
-int QsciLexerCustom_QBaseStyleBitsNeeded(const QsciLexerCustom* self) {
-    auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        vqscilexercustom->setQsciLexerCustom_StyleBitsNeeded_IsBase(true);
-        return vqscilexercustom->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerCustom*)self)->styleBitsNeeded();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerCustom_OnStyleBitsNeeded(const QsciLexerCustom* self, intptr_t slot) {
-    auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        vqscilexercustom->setQsciLexerCustom_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerCustom::QsciLexerCustom_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

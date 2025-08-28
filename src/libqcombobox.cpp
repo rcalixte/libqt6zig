@@ -243,6 +243,34 @@ QAbstractItemModel* QComboBox_Model(const QComboBox* self) {
     return self->model();
 }
 
+void QComboBox_SetModel(QComboBox* self, QAbstractItemModel* model) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        self->setModel(model);
+    } else {
+        ((VirtualQComboBox*)self)->setModel(model);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnSetModel(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_SetModel_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_SetModel_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseSetModel(QComboBox* self, QAbstractItemModel* model) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_SetModel_IsBase(true);
+        vqcombobox->setModel(model);
+    } else {
+        ((VirtualQComboBox*)self)->setModel(model);
+    }
+}
+
 QModelIndex* QComboBox_RootModelIndex(const QComboBox* self) {
     return new QModelIndex(self->rootModelIndex());
 }
@@ -368,6 +396,174 @@ QAbstractItemView* QComboBox_View(const QComboBox* self) {
 
 void QComboBox_SetView(QComboBox* self, QAbstractItemView* itemView) {
     self->setView(itemView);
+}
+
+QSize* QComboBox_SizeHint(const QComboBox* self) {
+    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQComboBox*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnSizeHint(const QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_SizeHint_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QComboBox_QBaseSizeHint(const QComboBox* self) {
+    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_SizeHint_IsBase(true);
+        return new QSize(vqcombobox->sizeHint());
+    } else {
+        return new QSize(((VirtualQComboBox*)self)->sizeHint());
+    }
+}
+
+QSize* QComboBox_MinimumSizeHint(const QComboBox* self) {
+    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQComboBox*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnMinimumSizeHint(const QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QComboBox_QBaseMinimumSizeHint(const QComboBox* self) {
+    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_MinimumSizeHint_IsBase(true);
+        return new QSize(vqcombobox->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQComboBox*)self)->minimumSizeHint());
+    }
+}
+
+void QComboBox_ShowPopup(QComboBox* self) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        self->showPopup();
+    } else {
+        ((VirtualQComboBox*)self)->showPopup();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnShowPopup(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ShowPopup_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ShowPopup_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseShowPopup(QComboBox* self) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ShowPopup_IsBase(true);
+        vqcombobox->showPopup();
+    } else {
+        ((VirtualQComboBox*)self)->showPopup();
+    }
+}
+
+void QComboBox_HidePopup(QComboBox* self) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        self->hidePopup();
+    } else {
+        ((VirtualQComboBox*)self)->hidePopup();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnHidePopup(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_HidePopup_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_HidePopup_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseHidePopup(QComboBox* self) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_HidePopup_IsBase(true);
+        vqcombobox->hidePopup();
+    } else {
+        ((VirtualQComboBox*)self)->hidePopup();
+    }
+}
+
+bool QComboBox_Event(QComboBox* self, QEvent* event) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        return self->event(event);
+    } else {
+        return ((VirtualQComboBox*)self)->event(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_Event_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QComboBox_QBaseEvent(QComboBox* self, QEvent* event) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_Event_IsBase(true);
+        return vqcombobox->event(event);
+    } else {
+        return ((VirtualQComboBox*)self)->event(event);
+    }
+}
+
+QVariant* QComboBox_InputMethodQuery(const QComboBox* self, int param1) {
+    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    } else {
+        return new QVariant(((VirtualQComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnInputMethodQuery(const QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_InputMethodQuery_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QComboBox_QBaseInputMethodQuery(const QComboBox* self, int param1) {
+    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_InputMethodQuery_IsBase(true);
+        return new QVariant(vqcombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    } else {
+        return new QVariant(((VirtualQComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    }
 }
 
 QVariant* QComboBox_InputMethodQuery2(const QComboBox* self, int query, const QVariant* argument) {
@@ -512,6 +708,366 @@ void QComboBox_Connect_CurrentTextChanged(QComboBox* self, intptr_t slot) {
     });
 }
 
+void QComboBox_FocusInEvent(QComboBox* self, QFocusEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->focusInEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnFocusInEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseFocusInEvent(QComboBox* self, QFocusEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_FocusInEvent_IsBase(true);
+        vqcombobox->focusInEvent(e);
+    }
+}
+
+void QComboBox_FocusOutEvent(QComboBox* self, QFocusEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->focusOutEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnFocusOutEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseFocusOutEvent(QComboBox* self, QFocusEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_FocusOutEvent_IsBase(true);
+        vqcombobox->focusOutEvent(e);
+    }
+}
+
+void QComboBox_ChangeEvent(QComboBox* self, QEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->changeEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnChangeEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseChangeEvent(QComboBox* self, QEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ChangeEvent_IsBase(true);
+        vqcombobox->changeEvent(e);
+    }
+}
+
+void QComboBox_ResizeEvent(QComboBox* self, QResizeEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->resizeEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnResizeEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseResizeEvent(QComboBox* self, QResizeEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ResizeEvent_IsBase(true);
+        vqcombobox->resizeEvent(e);
+    }
+}
+
+void QComboBox_PaintEvent(QComboBox* self, QPaintEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->paintEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnPaintEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_PaintEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBasePaintEvent(QComboBox* self, QPaintEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_PaintEvent_IsBase(true);
+        vqcombobox->paintEvent(e);
+    }
+}
+
+void QComboBox_ShowEvent(QComboBox* self, QShowEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->showEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnShowEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ShowEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ShowEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseShowEvent(QComboBox* self, QShowEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ShowEvent_IsBase(true);
+        vqcombobox->showEvent(e);
+    }
+}
+
+void QComboBox_HideEvent(QComboBox* self, QHideEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->hideEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnHideEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_HideEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_HideEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseHideEvent(QComboBox* self, QHideEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_HideEvent_IsBase(true);
+        vqcombobox->hideEvent(e);
+    }
+}
+
+void QComboBox_MousePressEvent(QComboBox* self, QMouseEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->mousePressEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnMousePressEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseMousePressEvent(QComboBox* self, QMouseEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_MousePressEvent_IsBase(true);
+        vqcombobox->mousePressEvent(e);
+    }
+}
+
+void QComboBox_MouseReleaseEvent(QComboBox* self, QMouseEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->mouseReleaseEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnMouseReleaseEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseMouseReleaseEvent(QComboBox* self, QMouseEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_MouseReleaseEvent_IsBase(true);
+        vqcombobox->mouseReleaseEvent(e);
+    }
+}
+
+void QComboBox_KeyPressEvent(QComboBox* self, QKeyEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->keyPressEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnKeyPressEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseKeyPressEvent(QComboBox* self, QKeyEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_KeyPressEvent_IsBase(true);
+        vqcombobox->keyPressEvent(e);
+    }
+}
+
+void QComboBox_KeyReleaseEvent(QComboBox* self, QKeyEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->keyReleaseEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnKeyReleaseEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_KeyReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseKeyReleaseEvent(QComboBox* self, QKeyEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_KeyReleaseEvent_IsBase(true);
+        vqcombobox->keyReleaseEvent(e);
+    }
+}
+
+void QComboBox_WheelEvent(QComboBox* self, QWheelEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->wheelEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnWheelEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_WheelEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_WheelEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseWheelEvent(QComboBox* self, QWheelEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_WheelEvent_IsBase(true);
+        vqcombobox->wheelEvent(e);
+    }
+}
+
+void QComboBox_ContextMenuEvent(QComboBox* self, QContextMenuEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->contextMenuEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnContextMenuEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseContextMenuEvent(QComboBox* self, QContextMenuEvent* e) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_ContextMenuEvent_IsBase(true);
+        vqcombobox->contextMenuEvent(e);
+    }
+}
+
+void QComboBox_InputMethodEvent(QComboBox* self, QInputMethodEvent* param1) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->inputMethodEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnInputMethodEvent(QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_InputMethodEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseInputMethodEvent(QComboBox* self, QInputMethodEvent* param1) {
+    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_InputMethodEvent_IsBase(true);
+        vqcombobox->inputMethodEvent(param1);
+    }
+}
+
+void QComboBox_InitStyleOption(const QComboBox* self, QStyleOptionComboBox* option) {
+    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->initStyleOption(option);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QComboBox_OnInitStyleOption(const QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QComboBox_QBaseInitStyleOption(const QComboBox* self, QStyleOptionComboBox* option) {
+    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_InitStyleOption_IsBase(true);
+        vqcombobox->initStyleOption(option);
+    }
+}
+
 libqt_string QComboBox_Tr2(const char* s, const char* c) {
     QString _ret = QComboBox::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -579,644 +1135,6 @@ void QComboBox_InsertItem4(QComboBox* self, int index, const QIcon* icon, const 
 
 void QComboBox_SetItemData3(QComboBox* self, int index, const QVariant* value, int role) {
     self->setItemData(static_cast<int>(index), *value, static_cast<int>(role));
-}
-
-// Derived class handler implementation
-void QComboBox_SetModel(QComboBox* self, QAbstractItemModel* model) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setModel(model);
-    } else {
-        self->QComboBox::setModel(model);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseSetModel(QComboBox* self, QAbstractItemModel* model) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_SetModel_IsBase(true);
-        vqcombobox->setModel(model);
-    } else {
-        self->QComboBox::setModel(model);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnSetModel(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_SetModel_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_SetModel_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QComboBox_SizeHint(const QComboBox* self) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return new QSize(vqcombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualQComboBox*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QComboBox_QBaseSizeHint(const QComboBox* self) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_SizeHint_IsBase(true);
-        return new QSize(vqcombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualQComboBox*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnSizeHint(const QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_SizeHint_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QComboBox_MinimumSizeHint(const QComboBox* self) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return new QSize(vqcombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQComboBox*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QComboBox_QBaseMinimumSizeHint(const QComboBox* self) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vqcombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQComboBox*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnMinimumSizeHint(const QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_ShowPopup(QComboBox* self) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->showPopup();
-    } else {
-        self->QComboBox::showPopup();
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseShowPopup(QComboBox* self) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ShowPopup_IsBase(true);
-        vqcombobox->showPopup();
-    } else {
-        self->QComboBox::showPopup();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnShowPopup(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ShowPopup_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ShowPopup_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_HidePopup(QComboBox* self) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->hidePopup();
-    } else {
-        self->QComboBox::hidePopup();
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseHidePopup(QComboBox* self) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_HidePopup_IsBase(true);
-        vqcombobox->hidePopup();
-    } else {
-        self->QComboBox::hidePopup();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnHidePopup(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_HidePopup_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_HidePopup_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QComboBox_Event(QComboBox* self, QEvent* event) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return vqcombobox->event(event);
-    } else {
-        return self->QComboBox::event(event);
-    }
-}
-
-// Base class handler implementation
-bool QComboBox_QBaseEvent(QComboBox* self, QEvent* event) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_Event_IsBase(true);
-        return vqcombobox->event(event);
-    } else {
-        return self->QComboBox::event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_Event_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QComboBox_InputMethodQuery(const QComboBox* self, int param1) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return new QVariant(vqcombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QComboBox_QBaseInputMethodQuery(const QComboBox* self, int param1) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vqcombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnInputMethodQuery(const QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_InputMethodQuery_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_FocusInEvent(QComboBox* self, QFocusEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->focusInEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->focusInEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseFocusInEvent(QComboBox* self, QFocusEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_FocusInEvent_IsBase(true);
-        vqcombobox->focusInEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->focusInEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnFocusInEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_FocusOutEvent(QComboBox* self, QFocusEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->focusOutEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->focusOutEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseFocusOutEvent(QComboBox* self, QFocusEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_FocusOutEvent_IsBase(true);
-        vqcombobox->focusOutEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->focusOutEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnFocusOutEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_FocusOutEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_ChangeEvent(QComboBox* self, QEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->changeEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->changeEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseChangeEvent(QComboBox* self, QEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ChangeEvent_IsBase(true);
-        vqcombobox->changeEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->changeEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnChangeEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_ResizeEvent(QComboBox* self, QResizeEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->resizeEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->resizeEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseResizeEvent(QComboBox* self, QResizeEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ResizeEvent_IsBase(true);
-        vqcombobox->resizeEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->resizeEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnResizeEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_PaintEvent(QComboBox* self, QPaintEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->paintEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->paintEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBasePaintEvent(QComboBox* self, QPaintEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_PaintEvent_IsBase(true);
-        vqcombobox->paintEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->paintEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnPaintEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_PaintEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_ShowEvent(QComboBox* self, QShowEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->showEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->showEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseShowEvent(QComboBox* self, QShowEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ShowEvent_IsBase(true);
-        vqcombobox->showEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->showEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnShowEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ShowEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ShowEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_HideEvent(QComboBox* self, QHideEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->hideEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->hideEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseHideEvent(QComboBox* self, QHideEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_HideEvent_IsBase(true);
-        vqcombobox->hideEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->hideEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnHideEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_HideEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_HideEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_MousePressEvent(QComboBox* self, QMouseEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->mousePressEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->mousePressEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseMousePressEvent(QComboBox* self, QMouseEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_MousePressEvent_IsBase(true);
-        vqcombobox->mousePressEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->mousePressEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnMousePressEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_MouseReleaseEvent(QComboBox* self, QMouseEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->mouseReleaseEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->mouseReleaseEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseMouseReleaseEvent(QComboBox* self, QMouseEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_MouseReleaseEvent_IsBase(true);
-        vqcombobox->mouseReleaseEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->mouseReleaseEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnMouseReleaseEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_KeyPressEvent(QComboBox* self, QKeyEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->keyPressEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->keyPressEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseKeyPressEvent(QComboBox* self, QKeyEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_KeyPressEvent_IsBase(true);
-        vqcombobox->keyPressEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->keyPressEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnKeyPressEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_KeyReleaseEvent(QComboBox* self, QKeyEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->keyReleaseEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->keyReleaseEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseKeyReleaseEvent(QComboBox* self, QKeyEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_KeyReleaseEvent_IsBase(true);
-        vqcombobox->keyReleaseEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->keyReleaseEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnKeyReleaseEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_KeyReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_WheelEvent(QComboBox* self, QWheelEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->wheelEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->wheelEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseWheelEvent(QComboBox* self, QWheelEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_WheelEvent_IsBase(true);
-        vqcombobox->wheelEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->wheelEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnWheelEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_WheelEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_WheelEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_ContextMenuEvent(QComboBox* self, QContextMenuEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->contextMenuEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->contextMenuEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseContextMenuEvent(QComboBox* self, QContextMenuEvent* e) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ContextMenuEvent_IsBase(true);
-        vqcombobox->contextMenuEvent(e);
-    } else {
-        ((VirtualQComboBox*)self)->contextMenuEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnContextMenuEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_InputMethodEvent(QComboBox* self, QInputMethodEvent* param1) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->inputMethodEvent(param1);
-    } else {
-        ((VirtualQComboBox*)self)->inputMethodEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseInputMethodEvent(QComboBox* self, QInputMethodEvent* param1) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_InputMethodEvent_IsBase(true);
-        vqcombobox->inputMethodEvent(param1);
-    } else {
-        ((VirtualQComboBox*)self)->inputMethodEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnInputMethodEvent(QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_InputMethodEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QComboBox_InitStyleOption(const QComboBox* self, QStyleOptionComboBox* option) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->initStyleOption(option);
-    } else {
-        ((VirtualQComboBox*)self)->initStyleOption(option);
-    }
-}
-
-// Base class handler implementation
-void QComboBox_QBaseInitStyleOption(const QComboBox* self, QStyleOptionComboBox* option) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_InitStyleOption_IsBase(true);
-        vqcombobox->initStyleOption(option);
-    } else {
-        ((VirtualQComboBox*)self)->initStyleOption(option);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QComboBox_OnInitStyleOption(const QComboBox* self, intptr_t slot) {
-    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        vqcombobox->setQComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

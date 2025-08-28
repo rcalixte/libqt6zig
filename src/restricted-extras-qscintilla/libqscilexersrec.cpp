@@ -72,6 +72,26 @@ libqt_string QsciLexerSRec_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerSRec_Language(const QsciLexerSRec* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerSRec_Lexer(const QsciLexerSRec* self) {
+    return (const char*)self->lexer();
+}
+
+libqt_string QsciLexerSRec_Description(const QsciLexerSRec* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 libqt_string QsciLexerSRec_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerSRec::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -94,64 +114,6 @@ libqt_string QsciLexerSRec_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-const char* QsciLexerSRec_Language(const QsciLexerSRec* self) {
-    auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
-    if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
-        return (const char*)vqscilexersrec->language();
-    } else {
-        return (const char*)((VirtualQsciLexerSRec*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerSRec_QBaseLanguage(const QsciLexerSRec* self) {
-    auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
-    if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
-        vqscilexersrec->setQsciLexerSRec_Language_IsBase(true);
-        return (const char*)vqscilexersrec->language();
-    } else {
-        return (const char*)((VirtualQsciLexerSRec*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerSRec_OnLanguage(const QsciLexerSRec* self, intptr_t slot) {
-    auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
-    if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
-        vqscilexersrec->setQsciLexerSRec_Language_Callback(reinterpret_cast<VirtualQsciLexerSRec::QsciLexerSRec_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerSRec_Lexer(const QsciLexerSRec* self) {
-    auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
-    if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
-        return (const char*)vqscilexersrec->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerSRec*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerSRec_QBaseLexer(const QsciLexerSRec* self) {
-    auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
-    if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
-        vqscilexersrec->setQsciLexerSRec_Lexer_IsBase(true);
-        return (const char*)vqscilexersrec->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerSRec*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerSRec_OnLexer(const QsciLexerSRec* self, intptr_t slot) {
-    auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
-    if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
-        vqscilexersrec->setQsciLexerSRec_Lexer_Callback(reinterpret_cast<VirtualQsciLexerSRec::QsciLexerSRec_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,67 +616,6 @@ void QsciLexerSRec_OnDefaultStyle(const QsciLexerSRec* self, intptr_t slot) {
     auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
     if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
         vqscilexersrec->setQsciLexerSRec_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerSRec::QsciLexerSRec_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerSRec_Description(const QsciLexerSRec* self, int style) {
-    auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
-    if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
-        QString _ret = vqscilexersrec->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerSRec*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerSRec_QBaseDescription(const QsciLexerSRec* self, int style) {
-    auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
-    if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
-        vqscilexersrec->setQsciLexerSRec_Description_IsBase(true);
-        QString _ret = vqscilexersrec->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerSRec*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerSRec_OnDescription(const QsciLexerSRec* self, intptr_t slot) {
-    auto* vqscilexersrec = const_cast<VirtualQsciLexerSRec*>(dynamic_cast<const VirtualQsciLexerSRec*>(self));
-    if (vqscilexersrec && vqscilexersrec->isVirtualQsciLexerSRec) {
-        vqscilexersrec->setQsciLexerSRec_Description_Callback(reinterpret_cast<VirtualQsciLexerSRec::QsciLexerSRec_Description_Callback>(slot));
     }
 }
 

@@ -72,8 +72,32 @@ libqt_string QsciLexerDiff_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerDiff_Language(const QsciLexerDiff* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerDiff_Lexer(const QsciLexerDiff* self) {
+    return (const char*)self->lexer();
+}
+
+const char* QsciLexerDiff_WordCharacters(const QsciLexerDiff* self) {
+    return (const char*)self->wordCharacters();
+}
+
 QColor* QsciLexerDiff_DefaultColor(const QsciLexerDiff* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+libqt_string QsciLexerDiff_Description(const QsciLexerDiff* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QsciLexerDiff_Tr2(const char* s, const char* c) {
@@ -98,64 +122,6 @@ libqt_string QsciLexerDiff_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-const char* QsciLexerDiff_Language(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return (const char*)vqscilexerdiff->language();
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerDiff_QBaseLanguage(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Language_IsBase(true);
-        return (const char*)vqscilexerdiff->language();
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnLanguage(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Language_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerDiff_Lexer(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return (const char*)vqscilexerdiff->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerDiff_QBaseLexer(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Lexer_IsBase(true);
-        return (const char*)vqscilexerdiff->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnLexer(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Lexer_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,67 +628,6 @@ void QsciLexerDiff_OnDefaultStyle(const QsciLexerDiff* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-libqt_string QsciLexerDiff_Description(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        QString _ret = vqscilexerdiff->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerDiff*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerDiff_QBaseDescription(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Description_IsBase(true);
-        QString _ret = vqscilexerdiff->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerDiff*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnDescription(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Description_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Description_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QColor* QsciLexerDiff_Paper(const QsciLexerDiff* self, int style) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
@@ -951,35 +856,6 @@ void QsciLexerDiff_OnStyleBitsNeeded(const QsciLexerDiff* self, intptr_t slot) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
         vqscilexerdiff->setQsciLexerDiff_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_StyleBitsNeeded_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerDiff_WordCharacters(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return (const char*)vqscilexerdiff->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->wordCharacters();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerDiff_QBaseWordCharacters(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_WordCharacters_IsBase(true);
-        return (const char*)vqscilexerdiff->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->wordCharacters();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnWordCharacters(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_WordCharacters_Callback>(slot));
     }
 }
 

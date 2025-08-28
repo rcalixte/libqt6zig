@@ -29,6 +29,70 @@ QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Release(QTest
     return &_ret;
 }
 
+QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Stationary(QTest__QTouchEventWidgetSequence* self, int touchId) {
+    auto* vqtest__qtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
+    if (vqtest__qtoucheventwidgetsequence && vqtest__qtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+        QTest::QTouchEventWidgetSequence& _ret = self->stationary(static_cast<int>(touchId));
+        // Cast returned reference into pointer
+        return &_ret;
+    } else {
+        QTest::QTouchEventWidgetSequence& _ret = ((VirtualQTestQTouchEventWidgetSequence*)self)->stationary(static_cast<int>(touchId));
+        // Cast returned reference into pointer
+        return &_ret;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTest__QTouchEventWidgetSequence_OnStationary(QTest__QTouchEventWidgetSequence* self, intptr_t slot) {
+    auto* vqtest__qtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
+    if (vqtest__qtoucheventwidgetsequence && vqtest__qtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+        vqtest__qtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Stationary_Callback(reinterpret_cast<VirtualQTestQTouchEventWidgetSequence::QTest__QTouchEventWidgetSequence_Stationary_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_QBaseStationary(QTest__QTouchEventWidgetSequence* self, int touchId) {
+    auto* vqtest__qtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
+    if (vqtest__qtoucheventwidgetsequence && vqtest__qtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+        vqtest__qtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Stationary_IsBase(true);
+        QTest::QTouchEventWidgetSequence& _ret = vqtest__qtoucheventwidgetsequence->stationary(static_cast<int>(touchId));
+        // Cast returned reference into pointer
+        return &_ret;
+    } else {
+        QTest::QTouchEventWidgetSequence& _ret = ((VirtualQTestQTouchEventWidgetSequence*)self)->stationary(static_cast<int>(touchId));
+        // Cast returned reference into pointer
+        return &_ret;
+    }
+}
+
+bool QTest__QTouchEventWidgetSequence_Commit(QTest__QTouchEventWidgetSequence* self, bool processEvents) {
+    auto* vqtest__qtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
+    if (vqtest__qtoucheventwidgetsequence && vqtest__qtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+        return self->commit(processEvents);
+    } else {
+        return ((VirtualQTestQTouchEventWidgetSequence*)self)->commit(processEvents);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTest__QTouchEventWidgetSequence_OnCommit(QTest__QTouchEventWidgetSequence* self, intptr_t slot) {
+    auto* vqtest__qtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
+    if (vqtest__qtoucheventwidgetsequence && vqtest__qtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+        vqtest__qtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Commit_Callback(reinterpret_cast<VirtualQTestQTouchEventWidgetSequence::QTest__QTouchEventWidgetSequence_Commit_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTest__QTouchEventWidgetSequence_QBaseCommit(QTest__QTouchEventWidgetSequence* self, bool processEvents) {
+    auto* vqtest__qtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
+    if (vqtest__qtoucheventwidgetsequence && vqtest__qtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+        vqtest__qtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Commit_IsBase(true);
+        return vqtest__qtoucheventwidgetsequence->commit(processEvents);
+    } else {
+        return ((VirtualQTestQTouchEventWidgetSequence*)self)->commit(processEvents);
+    }
+}
+
 QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Press3(QTest__QTouchEventWidgetSequence* self, int touchId, const QPoint* pt, QWidget* widget) {
     QTest::QTouchEventWidgetSequence& _ret = self->press(static_cast<int>(touchId), *pt, widget);
     // Cast returned reference into pointer
@@ -45,64 +109,6 @@ QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Release3(QTes
     QTest::QTouchEventWidgetSequence& _ret = self->release(static_cast<int>(touchId), *pt, widget);
     // Cast returned reference into pointer
     return &_ret;
-}
-
-// Derived class handler implementation
-QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Stationary(QTest__QTouchEventWidgetSequence* self, int touchId) {
-    auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
-        return new QTest::QTouchEventWidgetSequence(vqtestqtoucheventwidgetsequence->stationary(static_cast<int>(touchId)));
-    } else {
-        return new QTest::QTouchEventWidgetSequence(((VirtualQTestQTouchEventWidgetSequence*)self)->stationary(static_cast<int>(touchId)));
-    }
-}
-
-// Base class handler implementation
-QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_QBaseStationary(QTest__QTouchEventWidgetSequence* self, int touchId) {
-    auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
-        vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Stationary_IsBase(true);
-        return new QTest::QTouchEventWidgetSequence(vqtestqtoucheventwidgetsequence->stationary(static_cast<int>(touchId)));
-    } else {
-        return new QTest::QTouchEventWidgetSequence(((VirtualQTestQTouchEventWidgetSequence*)self)->stationary(static_cast<int>(touchId)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTest__QTouchEventWidgetSequence_OnStationary(QTest__QTouchEventWidgetSequence* self, intptr_t slot) {
-    auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
-        vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Stationary_Callback(reinterpret_cast<VirtualQTestQTouchEventWidgetSequence::QTest__QTouchEventWidgetSequence_Stationary_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTest__QTouchEventWidgetSequence_Commit(QTest__QTouchEventWidgetSequence* self, bool processEvents) {
-    auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
-        return vqtestqtoucheventwidgetsequence->commit(processEvents);
-    } else {
-        return self->QTest::QTouchEventWidgetSequence::commit(processEvents);
-    }
-}
-
-// Base class handler implementation
-bool QTest__QTouchEventWidgetSequence_QBaseCommit(QTest__QTouchEventWidgetSequence* self, bool processEvents) {
-    auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
-        vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Commit_IsBase(true);
-        return vqtestqtoucheventwidgetsequence->commit(processEvents);
-    } else {
-        return self->QTest::QTouchEventWidgetSequence::commit(processEvents);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTest__QTouchEventWidgetSequence_OnCommit(QTest__QTouchEventWidgetSequence* self, intptr_t slot) {
-    auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
-        vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Commit_Callback(reinterpret_cast<VirtualQTestQTouchEventWidgetSequence::QTest__QTouchEventWidgetSequence_Commit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

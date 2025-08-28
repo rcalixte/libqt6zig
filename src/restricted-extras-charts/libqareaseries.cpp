@@ -83,6 +83,34 @@ libqt_string QAreaSeries_Tr(const char* s) {
     return _str;
 }
 
+int QAreaSeries_Type(const QAreaSeries* self) {
+    auto* vqareaseries = dynamic_cast<const VirtualQAreaSeries*>(self);
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQAreaSeries*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAreaSeries_OnType(const QAreaSeries* self, intptr_t slot) {
+    auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_Type_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QAreaSeries_QBaseType(const QAreaSeries* self) {
+    auto* vqareaseries = dynamic_cast<const VirtualQAreaSeries*>(self);
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_Type_IsBase(true);
+        return static_cast<int>(vqareaseries->type());
+    } else {
+        return static_cast<int>(((VirtualQAreaSeries*)self)->type());
+    }
+}
+
 void QAreaSeries_SetUpperSeries(QAreaSeries* self, QLineSeries* series) {
     self->setUpperSeries(series);
 }
@@ -400,35 +428,6 @@ void QAreaSeries_SetPointLabelsVisible1(QAreaSeries* self, bool visible) {
 
 void QAreaSeries_SetPointLabelsClipping1(QAreaSeries* self, bool enabled) {
     self->setPointLabelsClipping(enabled);
-}
-
-// Derived class handler implementation
-int QAreaSeries_Type(const QAreaSeries* self) {
-    auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        return static_cast<int>(vqareaseries->type());
-    } else {
-        return static_cast<int>(self->QAreaSeries::type());
-    }
-}
-
-// Base class handler implementation
-int QAreaSeries_QBaseType(const QAreaSeries* self) {
-    auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        vqareaseries->setQAreaSeries_Type_IsBase(true);
-        return static_cast<int>(vqareaseries->type());
-    } else {
-        return static_cast<int>(self->QAreaSeries::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAreaSeries_OnType(const QAreaSeries* self, intptr_t slot) {
-    auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        vqareaseries->setQAreaSeries_Type_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

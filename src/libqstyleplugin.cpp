@@ -69,6 +69,36 @@ libqt_string QStylePlugin_Tr(const char* s) {
     return _str;
 }
 
+QStyle* QStylePlugin_Create(QStylePlugin* self, const libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
+    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
+        return vqstyleplugin->create(key_QString);
+    } else {
+        return ((VirtualQStylePlugin*)self)->create(key_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStylePlugin_OnCreate(QStylePlugin* self, intptr_t slot) {
+    auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
+    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
+        vqstyleplugin->setQStylePlugin_Create_Callback(reinterpret_cast<VirtualQStylePlugin::QStylePlugin_Create_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QStyle* QStylePlugin_QBaseCreate(QStylePlugin* self, const libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
+    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
+        vqstyleplugin->setQStylePlugin_Create_IsBase(true);
+        return vqstyleplugin->create(key_QString);
+    } else {
+        return ((VirtualQStylePlugin*)self)->create(key_QString);
+    }
+}
+
 libqt_string QStylePlugin_Tr2(const char* s, const char* c) {
     QString _ret = QStylePlugin::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -91,37 +121,6 @@ libqt_string QStylePlugin_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QStyle* QStylePlugin_Create(QStylePlugin* self, const libqt_string key) {
-    auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
-        return vqstyleplugin->create(key_QString);
-    } else {
-        return ((VirtualQStylePlugin*)self)->create(key_QString);
-    }
-}
-
-// Base class handler implementation
-QStyle* QStylePlugin_QBaseCreate(QStylePlugin* self, const libqt_string key) {
-    auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
-        vqstyleplugin->setQStylePlugin_Create_IsBase(true);
-        return vqstyleplugin->create(key_QString);
-    } else {
-        return ((VirtualQStylePlugin*)self)->create(key_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStylePlugin_OnCreate(QStylePlugin* self, intptr_t slot) {
-    auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
-    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
-        vqstyleplugin->setQStylePlugin_Create_Callback(reinterpret_cast<VirtualQStylePlugin::QStylePlugin_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

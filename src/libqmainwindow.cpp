@@ -326,6 +326,34 @@ bool QMainWindow_RestoreState(QMainWindow* self, const libqt_string state) {
     return self->restoreState(state_QByteArray);
 }
 
+QMenu* QMainWindow_CreatePopupMenu(QMainWindow* self) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        return self->createPopupMenu();
+    } else {
+        return ((VirtualQMainWindow*)self)->createPopupMenu();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMainWindow_OnCreatePopupMenu(QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_CreatePopupMenu_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_CreatePopupMenu_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QMenu* QMainWindow_QBaseCreatePopupMenu(QMainWindow* self) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_CreatePopupMenu_IsBase(true);
+        return vqmainwindow->createPopupMenu();
+    } else {
+        return ((VirtualQMainWindow*)self)->createPopupMenu();
+    }
+}
+
 void QMainWindow_SetAnimated(QMainWindow* self, bool enabled) {
     self->setAnimated(enabled);
 }
@@ -376,6 +404,56 @@ void QMainWindow_Connect_TabifiedDockWidgetActivated(QMainWindow* self, intptr_t
     });
 }
 
+void QMainWindow_ContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->contextMenuEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMainWindow_OnContextMenuEvent(QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMainWindow_QBaseContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_ContextMenuEvent_IsBase(true);
+        vqmainwindow->contextMenuEvent(event);
+    }
+}
+
+bool QMainWindow_Event(QMainWindow* self, QEvent* event) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        return vqmainwindow->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMainWindow_OnEvent(QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_Event_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QMainWindow_QBaseEvent(QMainWindow* self, QEvent* event) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_Event_IsBase(true);
+        return vqmainwindow->event(event);
+    }
+    return {};
+}
+
 libqt_string QMainWindow_Tr2(const char* s, const char* c) {
     QString _ret = QMainWindow::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -417,93 +495,6 @@ libqt_string QMainWindow_SaveState1(const QMainWindow* self, int version) {
 bool QMainWindow_RestoreState2(QMainWindow* self, const libqt_string state, int version) {
     QByteArray state_QByteArray(state.data, state.len);
     return self->restoreState(state_QByteArray, static_cast<int>(version));
-}
-
-// Derived class handler implementation
-QMenu* QMainWindow_CreatePopupMenu(QMainWindow* self) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        return vqmainwindow->createPopupMenu();
-    } else {
-        return self->QMainWindow::createPopupMenu();
-    }
-}
-
-// Base class handler implementation
-QMenu* QMainWindow_QBaseCreatePopupMenu(QMainWindow* self) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_CreatePopupMenu_IsBase(true);
-        return vqmainwindow->createPopupMenu();
-    } else {
-        return self->QMainWindow::createPopupMenu();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMainWindow_OnCreatePopupMenu(QMainWindow* self, intptr_t slot) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_CreatePopupMenu_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_CreatePopupMenu_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMainWindow_ContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->contextMenuEvent(event);
-    } else {
-        ((VirtualQMainWindow*)self)->contextMenuEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QMainWindow_QBaseContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_ContextMenuEvent_IsBase(true);
-        vqmainwindow->contextMenuEvent(event);
-    } else {
-        ((VirtualQMainWindow*)self)->contextMenuEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMainWindow_OnContextMenuEvent(QMainWindow* self, intptr_t slot) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QMainWindow_Event(QMainWindow* self, QEvent* event) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        return vqmainwindow->event(event);
-    } else {
-        return ((VirtualQMainWindow*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool QMainWindow_QBaseEvent(QMainWindow* self, QEvent* event) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_Event_IsBase(true);
-        return vqmainwindow->event(event);
-    } else {
-        return ((VirtualQMainWindow*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMainWindow_OnEvent(QMainWindow* self, intptr_t slot) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        vqmainwindow->setQMainWindow_Event_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

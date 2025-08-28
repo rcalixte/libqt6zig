@@ -79,6 +79,62 @@ libqt_string KExtendableItemDelegate_Tr(const char* s) {
     return _str;
 }
 
+QSize* KExtendableItemDelegate_SizeHint(const KExtendableItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        return new QSize(self->sizeHint(*option, *index));
+    } else {
+        return new QSize(((VirtualKExtendableItemDelegate*)self)->sizeHint(*option, *index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KExtendableItemDelegate_OnSizeHint(const KExtendableItemDelegate* self, intptr_t slot) {
+    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KExtendableItemDelegate_QBaseSizeHint(const KExtendableItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_SizeHint_IsBase(true);
+        return new QSize(vkextendableitemdelegate->sizeHint(*option, *index));
+    } else {
+        return new QSize(((VirtualKExtendableItemDelegate*)self)->sizeHint(*option, *index));
+    }
+}
+
+void KExtendableItemDelegate_Paint(const KExtendableItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        self->paint(painter, *option, *index);
+    } else {
+        ((VirtualKExtendableItemDelegate*)self)->paint(painter, *option, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KExtendableItemDelegate_OnPaint(const KExtendableItemDelegate* self, intptr_t slot) {
+    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_Paint_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Paint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KExtendableItemDelegate_QBasePaint(const KExtendableItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_Paint_IsBase(true);
+        vkextendableitemdelegate->paint(painter, *option, *index);
+    } else {
+        ((VirtualKExtendableItemDelegate*)self)->paint(painter, *option, *index);
+    }
+}
+
 void KExtendableItemDelegate_ExtendItem(KExtendableItemDelegate* self, QWidget* extender, const QModelIndex* index) {
     self->extendItem(extender, *index);
 }
@@ -93,6 +149,34 @@ void KExtendableItemDelegate_ContractAll(KExtendableItemDelegate* self) {
 
 bool KExtendableItemDelegate_IsExtended(const KExtendableItemDelegate* self, const QModelIndex* index) {
     return self->isExtended(*index);
+}
+
+void KExtendableItemDelegate_UpdateExtenderGeometry(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        self->updateExtenderGeometry(extender, *option, *index);
+    } else {
+        ((VirtualKExtendableItemDelegate*)self)->updateExtenderGeometry(extender, *option, *index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KExtendableItemDelegate_OnUpdateExtenderGeometry(const KExtendableItemDelegate* self, intptr_t slot) {
+    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_UpdateExtenderGeometry_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_UpdateExtenderGeometry_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KExtendableItemDelegate_QBaseUpdateExtenderGeometry(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index) {
+    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_UpdateExtenderGeometry_IsBase(true);
+        vkextendableitemdelegate->updateExtenderGeometry(extender, *option, *index);
+    } else {
+        ((VirtualKExtendableItemDelegate*)self)->updateExtenderGeometry(extender, *option, *index);
+    }
 }
 
 void KExtendableItemDelegate_ExtenderCreated(KExtendableItemDelegate* self, QWidget* extender, const QModelIndex* index) {
@@ -147,93 +231,6 @@ libqt_string KExtendableItemDelegate_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* KExtendableItemDelegate_SizeHint(const KExtendableItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return new QSize(vkextendableitemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualKExtendableItemDelegate*)self)->sizeHint(*option, *index));
-    }
-}
-
-// Base class handler implementation
-QSize* KExtendableItemDelegate_QBaseSizeHint(const KExtendableItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_SizeHint_IsBase(true);
-        return new QSize(vkextendableitemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualKExtendableItemDelegate*)self)->sizeHint(*option, *index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnSizeHint(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KExtendableItemDelegate_Paint(const KExtendableItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->paint(painter, *option, *index);
-    } else {
-        self->KExtendableItemDelegate::paint(painter, *option, *index);
-    }
-}
-
-// Base class handler implementation
-void KExtendableItemDelegate_QBasePaint(const KExtendableItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_Paint_IsBase(true);
-        vkextendableitemdelegate->paint(painter, *option, *index);
-    } else {
-        self->KExtendableItemDelegate::paint(painter, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnPaint(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_Paint_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Paint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KExtendableItemDelegate_UpdateExtenderGeometry(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->updateExtenderGeometry(extender, *option, *index);
-    } else {
-        self->KExtendableItemDelegate::updateExtenderGeometry(extender, *option, *index);
-    }
-}
-
-// Base class handler implementation
-void KExtendableItemDelegate_QBaseUpdateExtenderGeometry(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_UpdateExtenderGeometry_IsBase(true);
-        vkextendableitemdelegate->updateExtenderGeometry(extender, *option, *index);
-    } else {
-        self->KExtendableItemDelegate::updateExtenderGeometry(extender, *option, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnUpdateExtenderGeometry(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_UpdateExtenderGeometry_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_UpdateExtenderGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

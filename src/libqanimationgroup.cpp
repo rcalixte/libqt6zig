@@ -101,6 +101,32 @@ void QAnimationGroup_Clear(QAnimationGroup* self) {
     self->clear();
 }
 
+bool QAnimationGroup_Event(QAnimationGroup* self, QEvent* event) {
+    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+        return vqanimationgroup->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAnimationGroup_OnEvent(QAnimationGroup* self, intptr_t slot) {
+    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+        vqanimationgroup->setQAnimationGroup_Event_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QAnimationGroup_QBaseEvent(QAnimationGroup* self, QEvent* event) {
+    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+        vqanimationgroup->setQAnimationGroup_Event_IsBase(true);
+        return vqanimationgroup->event(event);
+    }
+    return {};
+}
+
 libqt_string QAnimationGroup_Tr2(const char* s, const char* c) {
     QString _ret = QAnimationGroup::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -123,35 +149,6 @@ libqt_string QAnimationGroup_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool QAnimationGroup_Event(QAnimationGroup* self, QEvent* event) {
-    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
-        return vqanimationgroup->event(event);
-    } else {
-        return ((VirtualQAnimationGroup*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool QAnimationGroup_QBaseEvent(QAnimationGroup* self, QEvent* event) {
-    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
-        vqanimationgroup->setQAnimationGroup_Event_IsBase(true);
-        return vqanimationgroup->event(event);
-    } else {
-        return ((VirtualQAnimationGroup*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAnimationGroup_OnEvent(QAnimationGroup* self, intptr_t slot) {
-    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
-        vqanimationgroup->setQAnimationGroup_Event_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

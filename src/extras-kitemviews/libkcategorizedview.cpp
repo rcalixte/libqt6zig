@@ -111,12 +111,68 @@ libqt_string KCategorizedView_Tr(const char* s) {
     return _str;
 }
 
+void KCategorizedView_SetModel(KCategorizedView* self, QAbstractItemModel* model) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        self->setModel(model);
+    } else {
+        ((VirtualKCategorizedView*)self)->setModel(model);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnSetModel(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_SetModel_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetModel_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseSetModel(KCategorizedView* self, QAbstractItemModel* model) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_SetModel_IsBase(true);
+        vkcategorizedview->setModel(model);
+    } else {
+        ((VirtualKCategorizedView*)self)->setModel(model);
+    }
+}
+
 void KCategorizedView_SetGridSize(KCategorizedView* self, const QSize* size) {
     self->setGridSize(*size);
 }
 
 void KCategorizedView_SetGridSizeOwn(KCategorizedView* self, const QSize* size) {
     self->setGridSizeOwn(*size);
+}
+
+QRect* KCategorizedView_VisualRect(const KCategorizedView* self, const QModelIndex* index) {
+    auto* vkcategorizedview = dynamic_cast<const VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        return new QRect(self->visualRect(*index));
+    } else {
+        return new QRect(((VirtualKCategorizedView*)self)->visualRect(*index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnVisualRect(const KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_VisualRect_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_VisualRect_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QRect* KCategorizedView_QBaseVisualRect(const KCategorizedView* self, const QModelIndex* index) {
+    auto* vkcategorizedview = dynamic_cast<const VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_VisualRect_IsBase(true);
+        return new QRect(vkcategorizedview->visualRect(*index));
+    } else {
+        return new QRect(((VirtualKCategorizedView*)self)->visualRect(*index));
+    }
 }
 
 KCategoryDrawer* KCategorizedView_CategoryDrawer(const KCategorizedView* self) {
@@ -178,6 +234,62 @@ libqt_list /* of QModelIndex* */ KCategorizedView_Block2(KCategorizedView* self,
     return _out;
 }
 
+QModelIndex* KCategorizedView_IndexAt(const KCategorizedView* self, const QPoint* point) {
+    auto* vkcategorizedview = dynamic_cast<const VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        return new QModelIndex(self->indexAt(*point));
+    } else {
+        return new QModelIndex(((VirtualKCategorizedView*)self)->indexAt(*point));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnIndexAt(const KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_IndexAt_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_IndexAt_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QModelIndex* KCategorizedView_QBaseIndexAt(const KCategorizedView* self, const QPoint* point) {
+    auto* vkcategorizedview = dynamic_cast<const VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_IndexAt_IsBase(true);
+        return new QModelIndex(vkcategorizedview->indexAt(*point));
+    } else {
+        return new QModelIndex(((VirtualKCategorizedView*)self)->indexAt(*point));
+    }
+}
+
+void KCategorizedView_Reset(KCategorizedView* self) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        self->reset();
+    } else {
+        ((VirtualKCategorizedView*)self)->reset();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnReset(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_Reset_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Reset_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseReset(KCategorizedView* self) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_Reset_IsBase(true);
+        vkcategorizedview->reset();
+    } else {
+        ((VirtualKCategorizedView*)self)->reset();
+    }
+}
+
 void KCategorizedView_CategorySpacingChanged(KCategorizedView* self, int spacing) {
     self->categorySpacingChanged(static_cast<int>(spacing));
 }
@@ -214,6 +326,476 @@ void KCategorizedView_Connect_CollapsibleBlocksChanged(KCategorizedView* self, i
     });
 }
 
+void KCategorizedView_PaintEvent(KCategorizedView* self, QPaintEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->paintEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnPaintEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_PaintEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBasePaintEvent(KCategorizedView* self, QPaintEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_PaintEvent_IsBase(true);
+        vkcategorizedview->paintEvent(event);
+    }
+}
+
+void KCategorizedView_ResizeEvent(KCategorizedView* self, QResizeEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->resizeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnResizeEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_ResizeEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseResizeEvent(KCategorizedView* self, QResizeEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_ResizeEvent_IsBase(true);
+        vkcategorizedview->resizeEvent(event);
+    }
+}
+
+void KCategorizedView_SetSelection(KCategorizedView* self, const QRect* rect, int flags) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnSetSelection(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_SetSelection_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetSelection_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseSetSelection(KCategorizedView* self, const QRect* rect, int flags) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_SetSelection_IsBase(true);
+        vkcategorizedview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
+    }
+}
+
+void KCategorizedView_MouseMoveEvent(KCategorizedView* self, QMouseEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->mouseMoveEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnMouseMoveEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseMouseMoveEvent(KCategorizedView* self, QMouseEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MouseMoveEvent_IsBase(true);
+        vkcategorizedview->mouseMoveEvent(event);
+    }
+}
+
+void KCategorizedView_MousePressEvent(KCategorizedView* self, QMouseEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->mousePressEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnMousePressEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MousePressEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseMousePressEvent(KCategorizedView* self, QMouseEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MousePressEvent_IsBase(true);
+        vkcategorizedview->mousePressEvent(event);
+    }
+}
+
+void KCategorizedView_MouseReleaseEvent(KCategorizedView* self, QMouseEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->mouseReleaseEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnMouseReleaseEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseMouseReleaseEvent(KCategorizedView* self, QMouseEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MouseReleaseEvent_IsBase(true);
+        vkcategorizedview->mouseReleaseEvent(event);
+    }
+}
+
+void KCategorizedView_LeaveEvent(KCategorizedView* self, QEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->leaveEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnLeaveEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_LeaveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_LeaveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseLeaveEvent(KCategorizedView* self, QEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_LeaveEvent_IsBase(true);
+        vkcategorizedview->leaveEvent(event);
+    }
+}
+
+void KCategorizedView_StartDrag(KCategorizedView* self, int supportedActions) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->startDrag(static_cast<Qt::DropActions>(supportedActions));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnStartDrag(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_StartDrag_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_StartDrag_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseStartDrag(KCategorizedView* self, int supportedActions) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_StartDrag_IsBase(true);
+        vkcategorizedview->startDrag(static_cast<Qt::DropActions>(supportedActions));
+    }
+}
+
+void KCategorizedView_DragMoveEvent(KCategorizedView* self, QDragMoveEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->dragMoveEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnDragMoveEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DragMoveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DragMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseDragMoveEvent(KCategorizedView* self, QDragMoveEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DragMoveEvent_IsBase(true);
+        vkcategorizedview->dragMoveEvent(event);
+    }
+}
+
+void KCategorizedView_DragEnterEvent(KCategorizedView* self, QDragEnterEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->dragEnterEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnDragEnterEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DragEnterEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DragEnterEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseDragEnterEvent(KCategorizedView* self, QDragEnterEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DragEnterEvent_IsBase(true);
+        vkcategorizedview->dragEnterEvent(event);
+    }
+}
+
+void KCategorizedView_DragLeaveEvent(KCategorizedView* self, QDragLeaveEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->dragLeaveEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnDragLeaveEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DragLeaveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseDragLeaveEvent(KCategorizedView* self, QDragLeaveEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DragLeaveEvent_IsBase(true);
+        vkcategorizedview->dragLeaveEvent(event);
+    }
+}
+
+void KCategorizedView_DropEvent(KCategorizedView* self, QDropEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->dropEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnDropEvent(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DropEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DropEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseDropEvent(KCategorizedView* self, QDropEvent* event) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DropEvent_IsBase(true);
+        vkcategorizedview->dropEvent(event);
+    }
+}
+
+QModelIndex* KCategorizedView_MoveCursor(KCategorizedView* self, int cursorAction, int modifiers) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        return new QModelIndex(vkcategorizedview->moveCursor(static_cast<VirtualKCategorizedView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnMoveCursor(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MoveCursor_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MoveCursor_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QModelIndex* KCategorizedView_QBaseMoveCursor(KCategorizedView* self, int cursorAction, int modifiers) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MoveCursor_IsBase(true);
+        return new QModelIndex(vkcategorizedview->moveCursor(static_cast<VirtualKCategorizedView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
+    }
+    return {};
+}
+
+void KCategorizedView_RowsAboutToBeRemoved(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnRowsAboutToBeRemoved(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_RowsAboutToBeRemoved_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseRowsAboutToBeRemoved(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_RowsAboutToBeRemoved_IsBase(true);
+        vkcategorizedview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+    }
+}
+
+void KCategorizedView_UpdateGeometries(KCategorizedView* self) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->updateGeometries();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnUpdateGeometries(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_UpdateGeometries_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_UpdateGeometries_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseUpdateGeometries(KCategorizedView* self) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_UpdateGeometries_IsBase(true);
+        vkcategorizedview->updateGeometries();
+    }
+}
+
+void KCategorizedView_CurrentChanged(KCategorizedView* self, const QModelIndex* current, const QModelIndex* previous) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->currentChanged(*current, *previous);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnCurrentChanged(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_CurrentChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_CurrentChanged_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseCurrentChanged(KCategorizedView* self, const QModelIndex* current, const QModelIndex* previous) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_CurrentChanged_IsBase(true);
+        vkcategorizedview->currentChanged(*current, *previous);
+    }
+}
+
+void KCategorizedView_DataChanged(KCategorizedView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+    QList<int> roles_QList;
+    roles_QList.reserve(roles.len);
+    int* roles_arr = static_cast<int*>(roles.data);
+    for (size_t i = 0; i < roles.len; ++i) {
+        roles_QList.push_back(static_cast<int>(roles_arr[i]));
+    }
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->dataChanged(*topLeft, *bottomRight, roles_QList);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnDataChanged(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DataChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DataChanged_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseDataChanged(KCategorizedView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+    QList<int> roles_QList;
+    roles_QList.reserve(roles.len);
+    int* roles_arr = static_cast<int*>(roles.data);
+    for (size_t i = 0; i < roles.len; ++i) {
+        roles_QList.push_back(static_cast<int>(roles_arr[i]));
+    }
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_DataChanged_IsBase(true);
+        vkcategorizedview->dataChanged(*topLeft, *bottomRight, roles_QList);
+    }
+}
+
+void KCategorizedView_RowsInserted(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnRowsInserted(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_RowsInserted_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_RowsInserted_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseRowsInserted(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_RowsInserted_IsBase(true);
+        vkcategorizedview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    }
+}
+
+void KCategorizedView_SlotLayoutChanged(KCategorizedView* self) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->slotLayoutChanged();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedView_OnSlotLayoutChanged(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_SlotLayoutChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SlotLayoutChanged_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedView_QBaseSlotLayoutChanged(KCategorizedView* self) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_SlotLayoutChanged_IsBase(true);
+        vkcategorizedview->slotLayoutChanged();
+    }
+}
+
 libqt_string KCategorizedView_Tr2(const char* s, const char* c) {
     QString _ret = KCategorizedView::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -236,683 +818,6 @@ libqt_string KCategorizedView_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KCategorizedView_SetModel(KCategorizedView* self, QAbstractItemModel* model) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setModel(model);
-    } else {
-        self->KCategorizedView::setModel(model);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseSetModel(KCategorizedView* self, QAbstractItemModel* model) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_SetModel_IsBase(true);
-        vkcategorizedview->setModel(model);
-    } else {
-        self->KCategorizedView::setModel(model);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnSetModel(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_SetModel_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetModel_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QRect* KCategorizedView_VisualRect(const KCategorizedView* self, const QModelIndex* index) {
-    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        return new QRect(vkcategorizedview->visualRect(*index));
-    } else {
-        return new QRect(((VirtualKCategorizedView*)self)->visualRect(*index));
-    }
-}
-
-// Base class handler implementation
-QRect* KCategorizedView_QBaseVisualRect(const KCategorizedView* self, const QModelIndex* index) {
-    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_VisualRect_IsBase(true);
-        return new QRect(vkcategorizedview->visualRect(*index));
-    } else {
-        return new QRect(((VirtualKCategorizedView*)self)->visualRect(*index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnVisualRect(const KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_VisualRect_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_VisualRect_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QModelIndex* KCategorizedView_IndexAt(const KCategorizedView* self, const QPoint* point) {
-    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        return new QModelIndex(vkcategorizedview->indexAt(*point));
-    } else {
-        return new QModelIndex(((VirtualKCategorizedView*)self)->indexAt(*point));
-    }
-}
-
-// Base class handler implementation
-QModelIndex* KCategorizedView_QBaseIndexAt(const KCategorizedView* self, const QPoint* point) {
-    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_IndexAt_IsBase(true);
-        return new QModelIndex(vkcategorizedview->indexAt(*point));
-    } else {
-        return new QModelIndex(((VirtualKCategorizedView*)self)->indexAt(*point));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnIndexAt(const KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_IndexAt_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_IndexAt_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_Reset(KCategorizedView* self) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->reset();
-    } else {
-        self->KCategorizedView::reset();
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseReset(KCategorizedView* self) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_Reset_IsBase(true);
-        vkcategorizedview->reset();
-    } else {
-        self->KCategorizedView::reset();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnReset(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_Reset_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Reset_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_PaintEvent(KCategorizedView* self, QPaintEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->paintEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->paintEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBasePaintEvent(KCategorizedView* self, QPaintEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_PaintEvent_IsBase(true);
-        vkcategorizedview->paintEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->paintEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnPaintEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_PaintEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_ResizeEvent(KCategorizedView* self, QResizeEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->resizeEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->resizeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseResizeEvent(KCategorizedView* self, QResizeEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_ResizeEvent_IsBase(true);
-        vkcategorizedview->resizeEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->resizeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnResizeEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_ResizeEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_SetSelection(KCategorizedView* self, const QRect* rect, int flags) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
-    } else {
-        ((VirtualKCategorizedView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseSetSelection(KCategorizedView* self, const QRect* rect, int flags) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_SetSelection_IsBase(true);
-        vkcategorizedview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
-    } else {
-        ((VirtualKCategorizedView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnSetSelection(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_SetSelection_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetSelection_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_MouseMoveEvent(KCategorizedView* self, QMouseEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->mouseMoveEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->mouseMoveEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseMouseMoveEvent(KCategorizedView* self, QMouseEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_MouseMoveEvent_IsBase(true);
-        vkcategorizedview->mouseMoveEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->mouseMoveEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnMouseMoveEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_MousePressEvent(KCategorizedView* self, QMouseEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->mousePressEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->mousePressEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseMousePressEvent(KCategorizedView* self, QMouseEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_MousePressEvent_IsBase(true);
-        vkcategorizedview->mousePressEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->mousePressEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnMousePressEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_MousePressEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_MouseReleaseEvent(KCategorizedView* self, QMouseEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->mouseReleaseEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseMouseReleaseEvent(KCategorizedView* self, QMouseEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_MouseReleaseEvent_IsBase(true);
-        vkcategorizedview->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->mouseReleaseEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnMouseReleaseEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_LeaveEvent(KCategorizedView* self, QEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->leaveEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->leaveEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseLeaveEvent(KCategorizedView* self, QEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_LeaveEvent_IsBase(true);
-        vkcategorizedview->leaveEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->leaveEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnLeaveEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_LeaveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_LeaveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_StartDrag(KCategorizedView* self, int supportedActions) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    } else {
-        ((VirtualKCategorizedView*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseStartDrag(KCategorizedView* self, int supportedActions) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_StartDrag_IsBase(true);
-        vkcategorizedview->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    } else {
-        ((VirtualKCategorizedView*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnStartDrag(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_StartDrag_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_StartDrag_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_DragMoveEvent(KCategorizedView* self, QDragMoveEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->dragMoveEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->dragMoveEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseDragMoveEvent(KCategorizedView* self, QDragMoveEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DragMoveEvent_IsBase(true);
-        vkcategorizedview->dragMoveEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->dragMoveEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnDragMoveEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DragMoveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DragMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_DragEnterEvent(KCategorizedView* self, QDragEnterEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->dragEnterEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->dragEnterEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseDragEnterEvent(KCategorizedView* self, QDragEnterEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DragEnterEvent_IsBase(true);
-        vkcategorizedview->dragEnterEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->dragEnterEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnDragEnterEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DragEnterEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DragEnterEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_DragLeaveEvent(KCategorizedView* self, QDragLeaveEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->dragLeaveEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->dragLeaveEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseDragLeaveEvent(KCategorizedView* self, QDragLeaveEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DragLeaveEvent_IsBase(true);
-        vkcategorizedview->dragLeaveEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->dragLeaveEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnDragLeaveEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DragLeaveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_DropEvent(KCategorizedView* self, QDropEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->dropEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->dropEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseDropEvent(KCategorizedView* self, QDropEvent* event) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DropEvent_IsBase(true);
-        vkcategorizedview->dropEvent(event);
-    } else {
-        ((VirtualKCategorizedView*)self)->dropEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnDropEvent(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DropEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DropEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QModelIndex* KCategorizedView_MoveCursor(KCategorizedView* self, int cursorAction, int modifiers) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        return new QModelIndex(vkcategorizedview->moveCursor(static_cast<VirtualKCategorizedView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QModelIndex* KCategorizedView_QBaseMoveCursor(KCategorizedView* self, int cursorAction, int modifiers) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_MoveCursor_IsBase(true);
-        return new QModelIndex(vkcategorizedview->moveCursor(static_cast<VirtualKCategorizedView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnMoveCursor(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_MoveCursor_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MoveCursor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_RowsAboutToBeRemoved(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualKCategorizedView*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseRowsAboutToBeRemoved(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_RowsAboutToBeRemoved_IsBase(true);
-        vkcategorizedview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualKCategorizedView*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnRowsAboutToBeRemoved(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_RowsAboutToBeRemoved_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_UpdateGeometries(KCategorizedView* self) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->updateGeometries();
-    } else {
-        ((VirtualKCategorizedView*)self)->updateGeometries();
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseUpdateGeometries(KCategorizedView* self) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_UpdateGeometries_IsBase(true);
-        vkcategorizedview->updateGeometries();
-    } else {
-        ((VirtualKCategorizedView*)self)->updateGeometries();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnUpdateGeometries(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_UpdateGeometries_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_UpdateGeometries_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_CurrentChanged(KCategorizedView* self, const QModelIndex* current, const QModelIndex* previous) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->currentChanged(*current, *previous);
-    } else {
-        ((VirtualKCategorizedView*)self)->currentChanged(*current, *previous);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseCurrentChanged(KCategorizedView* self, const QModelIndex* current, const QModelIndex* previous) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_CurrentChanged_IsBase(true);
-        vkcategorizedview->currentChanged(*current, *previous);
-    } else {
-        ((VirtualKCategorizedView*)self)->currentChanged(*current, *previous);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnCurrentChanged(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_CurrentChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_CurrentChanged_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_DataChanged(KCategorizedView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    QList<int> roles_QList;
-    roles_QList.reserve(roles.len);
-    int* roles_arr = static_cast<int*>(roles.data);
-    for (size_t i = 0; i < roles.len; ++i) {
-        roles_QList.push_back(static_cast<int>(roles_arr[i]));
-    }
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->dataChanged(*topLeft, *bottomRight, roles_QList);
-    } else {
-        ((VirtualKCategorizedView*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseDataChanged(KCategorizedView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    QList<int> roles_QList;
-    roles_QList.reserve(roles.len);
-    int* roles_arr = static_cast<int*>(roles.data);
-    for (size_t i = 0; i < roles.len; ++i) {
-        roles_QList.push_back(static_cast<int>(roles_arr[i]));
-    }
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DataChanged_IsBase(true);
-        vkcategorizedview->dataChanged(*topLeft, *bottomRight, roles_QList);
-    } else {
-        ((VirtualKCategorizedView*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnDataChanged(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_DataChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DataChanged_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_RowsInserted(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualKCategorizedView*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseRowsInserted(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_RowsInserted_IsBase(true);
-        vkcategorizedview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualKCategorizedView*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnRowsInserted(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_RowsInserted_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_RowsInserted_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCategorizedView_SlotLayoutChanged(KCategorizedView* self) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->slotLayoutChanged();
-    } else {
-        ((VirtualKCategorizedView*)self)->slotLayoutChanged();
-    }
-}
-
-// Base class handler implementation
-void KCategorizedView_QBaseSlotLayoutChanged(KCategorizedView* self) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_SlotLayoutChanged_IsBase(true);
-        vkcategorizedview->slotLayoutChanged();
-    } else {
-        ((VirtualKCategorizedView*)self)->slotLayoutChanged();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedView_OnSlotLayoutChanged(KCategorizedView* self, intptr_t slot) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        vkcategorizedview->setKCategorizedView_SlotLayoutChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SlotLayoutChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

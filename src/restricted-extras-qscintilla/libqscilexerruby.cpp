@@ -72,8 +72,36 @@ libqt_string QsciLexerRuby_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerRuby_Language(const QsciLexerRuby* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerRuby_Lexer(const QsciLexerRuby* self) {
+    return (const char*)self->lexer();
+}
+
+const char* QsciLexerRuby_BlockEnd(const QsciLexerRuby* self) {
+    return (const char*)self->blockEnd();
+}
+
+const char* QsciLexerRuby_BlockStart(const QsciLexerRuby* self) {
+    return (const char*)self->blockStart();
+}
+
+const char* QsciLexerRuby_BlockStartKeyword(const QsciLexerRuby* self) {
+    return (const char*)self->blockStartKeyword();
+}
+
+int QsciLexerRuby_BraceStyle(const QsciLexerRuby* self) {
+    return self->braceStyle();
+}
+
 QColor* QsciLexerRuby_DefaultColor(const QsciLexerRuby* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+bool QsciLexerRuby_DefaultEolFill(const QsciLexerRuby* self, int style) {
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 QFont* QsciLexerRuby_DefaultFont(const QsciLexerRuby* self, int style) {
@@ -82,6 +110,26 @@ QFont* QsciLexerRuby_DefaultFont(const QsciLexerRuby* self, int style) {
 
 QColor* QsciLexerRuby_DefaultPaper(const QsciLexerRuby* self, int style) {
     return new QColor(self->defaultPaper(static_cast<int>(style)));
+}
+
+const char* QsciLexerRuby_Keywords(const QsciLexerRuby* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
+libqt_string QsciLexerRuby_Description(const QsciLexerRuby* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+void QsciLexerRuby_RefreshProperties(QsciLexerRuby* self) {
+    self->refreshProperties();
 }
 
 void QsciLexerRuby_SetFoldComments(QsciLexerRuby* self, bool fold) {
@@ -134,64 +182,6 @@ const char* QsciLexerRuby_BlockStart1(const QsciLexerRuby* self, int* style) {
 
 const char* QsciLexerRuby_BlockStartKeyword1(const QsciLexerRuby* self, int* style) {
     return (const char*)self->blockStartKeyword(static_cast<int*>(style));
-}
-
-// Derived class handler implementation
-const char* QsciLexerRuby_Language(const QsciLexerRuby* self) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        return (const char*)vqscilexerruby->language();
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerRuby_QBaseLanguage(const QsciLexerRuby* self) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Language_IsBase(true);
-        return (const char*)vqscilexerruby->language();
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnLanguage(const QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Language_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerRuby_Lexer(const QsciLexerRuby* self) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        return (const char*)vqscilexerruby->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerRuby_QBaseLexer(const QsciLexerRuby* self) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Lexer_IsBase(true);
-        return (const char*)vqscilexerruby->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnLexer(const QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Lexer_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,35 +340,6 @@ void QsciLexerRuby_OnAutoCompletionWordSeparators(const QsciLexerRuby* self, int
 }
 
 // Derived class handler implementation
-const char* QsciLexerRuby_BlockEnd(const QsciLexerRuby* self, int* style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        return (const char*)vqscilexerruby->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->blockEnd(static_cast<int*>(style));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerRuby_QBaseBlockEnd(const QsciLexerRuby* self, int* style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_BlockEnd_IsBase(true);
-        return (const char*)vqscilexerruby->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->blockEnd(static_cast<int*>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnBlockEnd(const QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_BlockEnd_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerRuby_BlockLookback(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
@@ -404,93 +365,6 @@ void QsciLexerRuby_OnBlockLookback(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_BlockLookback_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerRuby_BlockStart(const QsciLexerRuby* self, int* style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        return (const char*)vqscilexerruby->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->blockStart(static_cast<int*>(style));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerRuby_QBaseBlockStart(const QsciLexerRuby* self, int* style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_BlockStart_IsBase(true);
-        return (const char*)vqscilexerruby->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->blockStart(static_cast<int*>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnBlockStart(const QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_BlockStart_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerRuby_BlockStartKeyword(const QsciLexerRuby* self, int* style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        return (const char*)vqscilexerruby->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerRuby_QBaseBlockStartKeyword(const QsciLexerRuby* self, int* style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_BlockStartKeyword_IsBase(true);
-        return (const char*)vqscilexerruby->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnBlockStartKeyword(const QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_BlockStartKeyword_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QsciLexerRuby_BraceStyle(const QsciLexerRuby* self) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        return vqscilexerruby->braceStyle();
-    } else {
-        return ((VirtualQsciLexerRuby*)self)->braceStyle();
-    }
-}
-
-// Base class handler implementation
-int QsciLexerRuby_QBaseBraceStyle(const QsciLexerRuby* self) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_BraceStyle_IsBase(true);
-        return vqscilexerruby->braceStyle();
-    } else {
-        return ((VirtualQsciLexerRuby*)self)->braceStyle();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnBraceStyle(const QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_BraceStyle_Callback>(slot));
     }
 }
 
@@ -640,35 +514,6 @@ void QsciLexerRuby_OnIndentationGuideView(const QsciLexerRuby* self, intptr_t sl
 }
 
 // Derived class handler implementation
-const char* QsciLexerRuby_Keywords(const QsciLexerRuby* self, int set) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        return (const char*)vqscilexerruby->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerRuby_QBaseKeywords(const QsciLexerRuby* self, int set) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Keywords_IsBase(true);
-        return (const char*)vqscilexerruby->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerRuby*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnKeywords(const QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Keywords_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Keywords_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerRuby_DefaultStyle(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
@@ -694,67 +539,6 @@ void QsciLexerRuby_OnDefaultStyle(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerRuby_Description(const QsciLexerRuby* self, int style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        QString _ret = vqscilexerruby->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerRuby*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerRuby_QBaseDescription(const QsciLexerRuby* self, int style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Description_IsBase(true);
-        QString _ret = vqscilexerruby->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerRuby*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnDescription(const QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_Description_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Description_Callback>(slot));
     }
 }
 
@@ -813,35 +597,6 @@ void QsciLexerRuby_OnDefaultColor2(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultColor2_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QsciLexerRuby_DefaultEolFill(const QsciLexerRuby* self, int style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        return vqscilexerruby->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerRuby*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerRuby_QBaseDefaultEolFill(const QsciLexerRuby* self, int style) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_DefaultEolFill_IsBase(true);
-        return vqscilexerruby->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerRuby*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnDefaultEolFill(const QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultEolFill_Callback>(slot));
     }
 }
 
@@ -929,35 +684,6 @@ void QsciLexerRuby_OnSetEditor(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_SetEditor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciLexerRuby_RefreshProperties(QsciLexerRuby* self) {
-    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->refreshProperties();
-    } else {
-        ((VirtualQsciLexerRuby*)self)->refreshProperties();
-    }
-}
-
-// Base class handler implementation
-void QsciLexerRuby_QBaseRefreshProperties(QsciLexerRuby* self) {
-    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_RefreshProperties_IsBase(true);
-        vqscilexerruby->refreshProperties();
-    } else {
-        ((VirtualQsciLexerRuby*)self)->refreshProperties();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnRefreshProperties(QsciLexerRuby* self, intptr_t slot) {
-    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_RefreshProperties_Callback>(slot));
     }
 }
 

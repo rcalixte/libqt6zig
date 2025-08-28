@@ -68,6 +68,32 @@ libqt_string KLineEditUrlDropEventFilter_Tr(const char* s) {
     return _str;
 }
 
+bool KLineEditUrlDropEventFilter_EventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event) {
+    auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+        return vklineediturldropeventfilter->eventFilter(object, event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KLineEditUrlDropEventFilter_OnEventFilter(KLineEditUrlDropEventFilter* self, intptr_t slot) {
+    auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+        vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_EventFilter_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KLineEditUrlDropEventFilter_QBaseEventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event) {
+    auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+        vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_EventFilter_IsBase(true);
+        return vklineediturldropeventfilter->eventFilter(object, event);
+    }
+    return {};
+}
+
 libqt_string KLineEditUrlDropEventFilter_Tr2(const char* s, const char* c) {
     QString _ret = KLineEditUrlDropEventFilter::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -90,35 +116,6 @@ libqt_string KLineEditUrlDropEventFilter_Tr3(const char* s, const char* c, int n
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool KLineEditUrlDropEventFilter_EventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event) {
-    auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
-        return vklineediturldropeventfilter->eventFilter(object, event);
-    } else {
-        return ((VirtualKLineEditUrlDropEventFilter*)self)->eventFilter(object, event);
-    }
-}
-
-// Base class handler implementation
-bool KLineEditUrlDropEventFilter_QBaseEventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event) {
-    auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
-        vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_EventFilter_IsBase(true);
-        return vklineediturldropeventfilter->eventFilter(object, event);
-    } else {
-        return ((VirtualKLineEditUrlDropEventFilter*)self)->eventFilter(object, event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEditUrlDropEventFilter_OnEventFilter(KLineEditUrlDropEventFilter* self, intptr_t slot) {
-    auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
-        vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_EventFilter_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

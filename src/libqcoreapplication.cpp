@@ -223,6 +223,34 @@ void QCoreApplication_SetEventDispatcher(QAbstractEventDispatcher* eventDispatch
     QCoreApplication::setEventDispatcher(eventDispatcher);
 }
 
+bool QCoreApplication_Notify(QCoreApplication* self, QObject* param1, QEvent* param2) {
+    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        return self->notify(param1, param2);
+    } else {
+        return ((VirtualQCoreApplication*)self)->notify(param1, param2);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QCoreApplication_OnNotify(QCoreApplication* self, intptr_t slot) {
+    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        vqcoreapplication->setQCoreApplication_Notify_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Notify_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QCoreApplication_QBaseNotify(QCoreApplication* self, QObject* param1, QEvent* param2) {
+    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        vqcoreapplication->setQCoreApplication_Notify_IsBase(true);
+        return vqcoreapplication->notify(param1, param2);
+    } else {
+        return ((VirtualQCoreApplication*)self)->notify(param1, param2);
+    }
+}
+
 bool QCoreApplication_StartingUp() {
     return QCoreApplication::startingUp();
 }
@@ -409,6 +437,32 @@ void QCoreApplication_Connect_ApplicationVersionChanged(QCoreApplication* self, 
     });
 }
 
+bool QCoreApplication_Event(QCoreApplication* self, QEvent* param1) {
+    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        return vqcoreapplication->event(param1);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QCoreApplication_OnEvent(QCoreApplication* self, intptr_t slot) {
+    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        vqcoreapplication->setQCoreApplication_Event_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QCoreApplication_QBaseEvent(QCoreApplication* self, QEvent* param1) {
+    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        vqcoreapplication->setQCoreApplication_Event_IsBase(true);
+        return vqcoreapplication->event(param1);
+    }
+    return {};
+}
+
 libqt_string QCoreApplication_Tr2(const char* s, const char* c) {
     QString _ret = QCoreApplication::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -483,64 +537,6 @@ libqt_string QCoreApplication_Translate4(const char* context, const char* key, c
 
 void QCoreApplication_Exit1(int retcode) {
     QCoreApplication::exit(static_cast<int>(retcode));
-}
-
-// Derived class handler implementation
-bool QCoreApplication_Notify(QCoreApplication* self, QObject* param1, QEvent* param2) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return vqcoreapplication->notify(param1, param2);
-    } else {
-        return self->QCoreApplication::notify(param1, param2);
-    }
-}
-
-// Base class handler implementation
-bool QCoreApplication_QBaseNotify(QCoreApplication* self, QObject* param1, QEvent* param2) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Notify_IsBase(true);
-        return vqcoreapplication->notify(param1, param2);
-    } else {
-        return self->QCoreApplication::notify(param1, param2);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCoreApplication_OnNotify(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Notify_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Notify_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QCoreApplication_Event(QCoreApplication* self, QEvent* param1) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return vqcoreapplication->event(param1);
-    } else {
-        return ((VirtualQCoreApplication*)self)->event(param1);
-    }
-}
-
-// Base class handler implementation
-bool QCoreApplication_QBaseEvent(QCoreApplication* self, QEvent* param1) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Event_IsBase(true);
-        return vqcoreapplication->event(param1);
-    } else {
-        return ((VirtualQCoreApplication*)self)->event(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCoreApplication_OnEvent(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Event_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

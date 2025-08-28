@@ -164,6 +164,104 @@ void QStatusBar_Connect_MessageChanged(QStatusBar* self, intptr_t slot) {
     });
 }
 
+void QStatusBar_ShowEvent(QStatusBar* self, QShowEvent* param1) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->showEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStatusBar_OnShowEvent(QStatusBar* self, intptr_t slot) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_ShowEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ShowEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStatusBar_QBaseShowEvent(QStatusBar* self, QShowEvent* param1) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_ShowEvent_IsBase(true);
+        vqstatusbar->showEvent(param1);
+    }
+}
+
+void QStatusBar_PaintEvent(QStatusBar* self, QPaintEvent* param1) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStatusBar_OnPaintEvent(QStatusBar* self, intptr_t slot) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_PaintEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStatusBar_QBasePaintEvent(QStatusBar* self, QPaintEvent* param1) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_PaintEvent_IsBase(true);
+        vqstatusbar->paintEvent(param1);
+    }
+}
+
+void QStatusBar_ResizeEvent(QStatusBar* self, QResizeEvent* param1) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->resizeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStatusBar_OnResizeEvent(QStatusBar* self, intptr_t slot) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_ResizeEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QStatusBar_QBaseResizeEvent(QStatusBar* self, QResizeEvent* param1) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_ResizeEvent_IsBase(true);
+        vqstatusbar->resizeEvent(param1);
+    }
+}
+
+bool QStatusBar_Event(QStatusBar* self, QEvent* param1) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        return vqstatusbar->event(param1);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QStatusBar_OnEvent(QStatusBar* self, intptr_t slot) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_Event_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QStatusBar_QBaseEvent(QStatusBar* self, QEvent* param1) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_Event_IsBase(true);
+        return vqstatusbar->event(param1);
+    }
+    return {};
+}
+
 libqt_string QStatusBar_Tr2(const char* s, const char* c) {
     QString _ret = QStatusBar::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -207,122 +305,6 @@ int QStatusBar_InsertPermanentWidget3(QStatusBar* self, int index, QWidget* widg
 void QStatusBar_ShowMessage2(QStatusBar* self, const libqt_string text, int timeout) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->showMessage(text_QString, static_cast<int>(timeout));
-}
-
-// Derived class handler implementation
-void QStatusBar_ShowEvent(QStatusBar* self, QShowEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->showEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->showEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QStatusBar_QBaseShowEvent(QStatusBar* self, QShowEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ShowEvent_IsBase(true);
-        vqstatusbar->showEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->showEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnShowEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ShowEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ShowEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStatusBar_PaintEvent(QStatusBar* self, QPaintEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->paintEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QStatusBar_QBasePaintEvent(QStatusBar* self, QPaintEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_PaintEvent_IsBase(true);
-        vqstatusbar->paintEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnPaintEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_PaintEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QStatusBar_ResizeEvent(QStatusBar* self, QResizeEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->resizeEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->resizeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QStatusBar_QBaseResizeEvent(QStatusBar* self, QResizeEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ResizeEvent_IsBase(true);
-        vqstatusbar->resizeEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->resizeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnResizeEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ResizeEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QStatusBar_Event(QStatusBar* self, QEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->event(param1);
-    } else {
-        return ((VirtualQStatusBar*)self)->event(param1);
-    }
-}
-
-// Base class handler implementation
-bool QStatusBar_QBaseEvent(QStatusBar* self, QEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Event_IsBase(true);
-        return vqstatusbar->event(param1);
-    } else {
-        return ((VirtualQStatusBar*)self)->event(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Event_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

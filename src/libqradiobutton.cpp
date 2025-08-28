@@ -107,6 +107,186 @@ libqt_string QRadioButton_Tr(const char* s) {
     return _str;
 }
 
+QSize* QRadioButton_SizeHint(const QRadioButton* self) {
+    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQRadioButton*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QRadioButton_OnSizeHint(const QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_SizeHint_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QRadioButton_QBaseSizeHint(const QRadioButton* self) {
+    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_SizeHint_IsBase(true);
+        return new QSize(vqradiobutton->sizeHint());
+    } else {
+        return new QSize(((VirtualQRadioButton*)self)->sizeHint());
+    }
+}
+
+QSize* QRadioButton_MinimumSizeHint(const QRadioButton* self) {
+    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQRadioButton*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QRadioButton_OnMinimumSizeHint(const QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QRadioButton_QBaseMinimumSizeHint(const QRadioButton* self) {
+    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_MinimumSizeHint_IsBase(true);
+        return new QSize(vqradiobutton->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQRadioButton*)self)->minimumSizeHint());
+    }
+}
+
+bool QRadioButton_Event(QRadioButton* self, QEvent* e) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        return vqradiobutton->event(e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QRadioButton_OnEvent(QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_Event_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QRadioButton_QBaseEvent(QRadioButton* self, QEvent* e) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_Event_IsBase(true);
+        return vqradiobutton->event(e);
+    }
+    return {};
+}
+
+bool QRadioButton_HitButton(const QRadioButton* self, const QPoint* param1) {
+    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        return vqradiobutton->hitButton(*param1);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QRadioButton_OnHitButton(const QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_HitButton_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_HitButton_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QRadioButton_QBaseHitButton(const QRadioButton* self, const QPoint* param1) {
+    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_HitButton_IsBase(true);
+        return vqradiobutton->hitButton(*param1);
+    }
+    return {};
+}
+
+void QRadioButton_PaintEvent(QRadioButton* self, QPaintEvent* param1) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QRadioButton_OnPaintEvent(QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_PaintEvent_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QRadioButton_QBasePaintEvent(QRadioButton* self, QPaintEvent* param1) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_PaintEvent_IsBase(true);
+        vqradiobutton->paintEvent(param1);
+    }
+}
+
+void QRadioButton_MouseMoveEvent(QRadioButton* self, QMouseEvent* param1) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->mouseMoveEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QRadioButton_OnMouseMoveEvent(QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QRadioButton_QBaseMouseMoveEvent(QRadioButton* self, QMouseEvent* param1) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_MouseMoveEvent_IsBase(true);
+        vqradiobutton->mouseMoveEvent(param1);
+    }
+}
+
+void QRadioButton_InitStyleOption(const QRadioButton* self, QStyleOptionButton* button) {
+    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->initStyleOption(button);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QRadioButton_OnInitStyleOption(const QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_InitStyleOption_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QRadioButton_QBaseInitStyleOption(const QRadioButton* self, QStyleOptionButton* button) {
+    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_InitStyleOption_IsBase(true);
+        vqradiobutton->initStyleOption(button);
+    }
+}
+
 libqt_string QRadioButton_Tr2(const char* s, const char* c) {
     QString _ret = QRadioButton::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -129,209 +309,6 @@ libqt_string QRadioButton_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* QRadioButton_SizeHint(const QRadioButton* self) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        return new QSize(vqradiobutton->sizeHint());
-    } else {
-        return new QSize(((VirtualQRadioButton*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QRadioButton_QBaseSizeHint(const QRadioButton* self) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_SizeHint_IsBase(true);
-        return new QSize(vqradiobutton->sizeHint());
-    } else {
-        return new QSize(((VirtualQRadioButton*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRadioButton_OnSizeHint(const QRadioButton* self, intptr_t slot) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_SizeHint_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QRadioButton_MinimumSizeHint(const QRadioButton* self) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        return new QSize(vqradiobutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQRadioButton*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QRadioButton_QBaseMinimumSizeHint(const QRadioButton* self) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_MinimumSizeHint_IsBase(true);
-        return new QSize(vqradiobutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQRadioButton*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRadioButton_OnMinimumSizeHint(const QRadioButton* self, intptr_t slot) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QRadioButton_Event(QRadioButton* self, QEvent* e) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        return vqradiobutton->event(e);
-    } else {
-        return ((VirtualQRadioButton*)self)->event(e);
-    }
-}
-
-// Base class handler implementation
-bool QRadioButton_QBaseEvent(QRadioButton* self, QEvent* e) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_Event_IsBase(true);
-        return vqradiobutton->event(e);
-    } else {
-        return ((VirtualQRadioButton*)self)->event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRadioButton_OnEvent(QRadioButton* self, intptr_t slot) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_Event_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QRadioButton_HitButton(const QRadioButton* self, const QPoint* param1) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        return vqradiobutton->hitButton(*param1);
-    } else {
-        return ((VirtualQRadioButton*)self)->hitButton(*param1);
-    }
-}
-
-// Base class handler implementation
-bool QRadioButton_QBaseHitButton(const QRadioButton* self, const QPoint* param1) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_HitButton_IsBase(true);
-        return vqradiobutton->hitButton(*param1);
-    } else {
-        return ((VirtualQRadioButton*)self)->hitButton(*param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRadioButton_OnHitButton(const QRadioButton* self, intptr_t slot) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_HitButton_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_HitButton_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QRadioButton_PaintEvent(QRadioButton* self, QPaintEvent* param1) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->paintEvent(param1);
-    } else {
-        ((VirtualQRadioButton*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QRadioButton_QBasePaintEvent(QRadioButton* self, QPaintEvent* param1) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_PaintEvent_IsBase(true);
-        vqradiobutton->paintEvent(param1);
-    } else {
-        ((VirtualQRadioButton*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRadioButton_OnPaintEvent(QRadioButton* self, intptr_t slot) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_PaintEvent_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QRadioButton_MouseMoveEvent(QRadioButton* self, QMouseEvent* param1) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQRadioButton*)self)->mouseMoveEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QRadioButton_QBaseMouseMoveEvent(QRadioButton* self, QMouseEvent* param1) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_MouseMoveEvent_IsBase(true);
-        vqradiobutton->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQRadioButton*)self)->mouseMoveEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRadioButton_OnMouseMoveEvent(QRadioButton* self, intptr_t slot) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QRadioButton_InitStyleOption(const QRadioButton* self, QStyleOptionButton* button) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->initStyleOption(button);
-    } else {
-        ((VirtualQRadioButton*)self)->initStyleOption(button);
-    }
-}
-
-// Base class handler implementation
-void QRadioButton_QBaseInitStyleOption(const QRadioButton* self, QStyleOptionButton* button) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_InitStyleOption_IsBase(true);
-        vqradiobutton->initStyleOption(button);
-    } else {
-        ((VirtualQRadioButton*)self)->initStyleOption(button);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRadioButton_OnInitStyleOption(const QRadioButton* self, intptr_t slot) {
-    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        vqradiobutton->setQRadioButton_InitStyleOption_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

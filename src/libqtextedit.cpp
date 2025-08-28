@@ -341,6 +341,34 @@ void QTextEdit_EnsureCursorVisible(QTextEdit* self) {
     self->ensureCursorVisible();
 }
 
+QVariant* QTextEdit_LoadResource(QTextEdit* self, int typeVal, const QUrl* name) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
+    } else {
+        return new QVariant(((VirtualQTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnLoadResource(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_LoadResource_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_LoadResource_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QTextEdit_QBaseLoadResource(QTextEdit* self, int typeVal, const QUrl* name) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_LoadResource_IsBase(true);
+        return new QVariant(vqtextedit->loadResource(static_cast<int>(typeVal), *name));
+    } else {
+        return new QVariant(((VirtualQTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
+    }
+}
+
 QMenu* QTextEdit_CreateStandardContextMenu(QTextEdit* self) {
     return self->createStandardContextMenu();
 }
@@ -438,6 +466,34 @@ bool QTextEdit_CanPaste(const QTextEdit* self) {
 
 void QTextEdit_Print(const QTextEdit* self, QPagedPaintDevice* printer) {
     self->print(printer);
+}
+
+QVariant* QTextEdit_InputMethodQuery(const QTextEdit* self, int property) {
+    auto* vqtextedit = dynamic_cast<const VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
+    } else {
+        return new QVariant(((VirtualQTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnInputMethodQuery(const QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_InputMethodQuery_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QTextEdit_QBaseInputMethodQuery(const QTextEdit* self, int property) {
+    auto* vqtextedit = dynamic_cast<const VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_InputMethodQuery_IsBase(true);
+        return new QVariant(vqtextedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
+    } else {
+        return new QVariant(((VirtualQTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
+    }
 }
 
 QVariant* QTextEdit_InputMethodQuery2(const QTextEdit* self, int query, QVariant* argument) {
@@ -640,6 +696,662 @@ void QTextEdit_Connect_CursorPositionChanged(QTextEdit* self, intptr_t slot) {
     });
 }
 
+bool QTextEdit_Event(QTextEdit* self, QEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        return vqtextedit->event(e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_Event_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTextEdit_QBaseEvent(QTextEdit* self, QEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_Event_IsBase(true);
+        return vqtextedit->event(e);
+    }
+    return {};
+}
+
+void QTextEdit_TimerEvent(QTextEdit* self, QTimerEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->timerEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnTimerEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_TimerEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_TimerEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseTimerEvent(QTextEdit* self, QTimerEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_TimerEvent_IsBase(true);
+        vqtextedit->timerEvent(e);
+    }
+}
+
+void QTextEdit_KeyPressEvent(QTextEdit* self, QKeyEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->keyPressEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnKeyPressEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseKeyPressEvent(QTextEdit* self, QKeyEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_KeyPressEvent_IsBase(true);
+        vqtextedit->keyPressEvent(e);
+    }
+}
+
+void QTextEdit_KeyReleaseEvent(QTextEdit* self, QKeyEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->keyReleaseEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnKeyReleaseEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_KeyReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseKeyReleaseEvent(QTextEdit* self, QKeyEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_KeyReleaseEvent_IsBase(true);
+        vqtextedit->keyReleaseEvent(e);
+    }
+}
+
+void QTextEdit_ResizeEvent(QTextEdit* self, QResizeEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->resizeEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnResizeEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseResizeEvent(QTextEdit* self, QResizeEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ResizeEvent_IsBase(true);
+        vqtextedit->resizeEvent(e);
+    }
+}
+
+void QTextEdit_PaintEvent(QTextEdit* self, QPaintEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->paintEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnPaintEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_PaintEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBasePaintEvent(QTextEdit* self, QPaintEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_PaintEvent_IsBase(true);
+        vqtextedit->paintEvent(e);
+    }
+}
+
+void QTextEdit_MousePressEvent(QTextEdit* self, QMouseEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->mousePressEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnMousePressEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseMousePressEvent(QTextEdit* self, QMouseEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MousePressEvent_IsBase(true);
+        vqtextedit->mousePressEvent(e);
+    }
+}
+
+void QTextEdit_MouseMoveEvent(QTextEdit* self, QMouseEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->mouseMoveEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnMouseMoveEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseMouseMoveEvent(QTextEdit* self, QMouseEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MouseMoveEvent_IsBase(true);
+        vqtextedit->mouseMoveEvent(e);
+    }
+}
+
+void QTextEdit_MouseReleaseEvent(QTextEdit* self, QMouseEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->mouseReleaseEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnMouseReleaseEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseMouseReleaseEvent(QTextEdit* self, QMouseEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MouseReleaseEvent_IsBase(true);
+        vqtextedit->mouseReleaseEvent(e);
+    }
+}
+
+void QTextEdit_MouseDoubleClickEvent(QTextEdit* self, QMouseEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->mouseDoubleClickEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnMouseDoubleClickEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_MouseDoubleClickEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseMouseDoubleClickEvent(QTextEdit* self, QMouseEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MouseDoubleClickEvent_IsBase(true);
+        vqtextedit->mouseDoubleClickEvent(e);
+    }
+}
+
+bool QTextEdit_FocusNextPrevChild(QTextEdit* self, bool next) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        return vqtextedit->focusNextPrevChild(next);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnFocusNextPrevChild(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_FocusNextPrevChild_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTextEdit_QBaseFocusNextPrevChild(QTextEdit* self, bool next) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_FocusNextPrevChild_IsBase(true);
+        return vqtextedit->focusNextPrevChild(next);
+    }
+    return {};
+}
+
+void QTextEdit_ContextMenuEvent(QTextEdit* self, QContextMenuEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->contextMenuEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnContextMenuEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseContextMenuEvent(QTextEdit* self, QContextMenuEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ContextMenuEvent_IsBase(true);
+        vqtextedit->contextMenuEvent(e);
+    }
+}
+
+void QTextEdit_DragEnterEvent(QTextEdit* self, QDragEnterEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->dragEnterEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnDragEnterEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DragEnterEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseDragEnterEvent(QTextEdit* self, QDragEnterEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DragEnterEvent_IsBase(true);
+        vqtextedit->dragEnterEvent(e);
+    }
+}
+
+void QTextEdit_DragLeaveEvent(QTextEdit* self, QDragLeaveEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->dragLeaveEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnDragLeaveEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DragLeaveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseDragLeaveEvent(QTextEdit* self, QDragLeaveEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DragLeaveEvent_IsBase(true);
+        vqtextedit->dragLeaveEvent(e);
+    }
+}
+
+void QTextEdit_DragMoveEvent(QTextEdit* self, QDragMoveEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->dragMoveEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnDragMoveEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DragMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseDragMoveEvent(QTextEdit* self, QDragMoveEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DragMoveEvent_IsBase(true);
+        vqtextedit->dragMoveEvent(e);
+    }
+}
+
+void QTextEdit_DropEvent(QTextEdit* self, QDropEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->dropEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnDropEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DropEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DropEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseDropEvent(QTextEdit* self, QDropEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DropEvent_IsBase(true);
+        vqtextedit->dropEvent(e);
+    }
+}
+
+void QTextEdit_FocusInEvent(QTextEdit* self, QFocusEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->focusInEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnFocusInEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseFocusInEvent(QTextEdit* self, QFocusEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_FocusInEvent_IsBase(true);
+        vqtextedit->focusInEvent(e);
+    }
+}
+
+void QTextEdit_FocusOutEvent(QTextEdit* self, QFocusEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->focusOutEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnFocusOutEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseFocusOutEvent(QTextEdit* self, QFocusEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_FocusOutEvent_IsBase(true);
+        vqtextedit->focusOutEvent(e);
+    }
+}
+
+void QTextEdit_ShowEvent(QTextEdit* self, QShowEvent* param1) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->showEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnShowEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ShowEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ShowEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseShowEvent(QTextEdit* self, QShowEvent* param1) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ShowEvent_IsBase(true);
+        vqtextedit->showEvent(param1);
+    }
+}
+
+void QTextEdit_ChangeEvent(QTextEdit* self, QEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->changeEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnChangeEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseChangeEvent(QTextEdit* self, QEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ChangeEvent_IsBase(true);
+        vqtextedit->changeEvent(e);
+    }
+}
+
+void QTextEdit_WheelEvent(QTextEdit* self, QWheelEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->wheelEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnWheelEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_WheelEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_WheelEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseWheelEvent(QTextEdit* self, QWheelEvent* e) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_WheelEvent_IsBase(true);
+        vqtextedit->wheelEvent(e);
+    }
+}
+
+QMimeData* QTextEdit_CreateMimeDataFromSelection(const QTextEdit* self) {
+    auto* vqtextedit = dynamic_cast<const VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        return vqtextedit->createMimeDataFromSelection();
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnCreateMimeDataFromSelection(const QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_CreateMimeDataFromSelection_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QMimeData* QTextEdit_QBaseCreateMimeDataFromSelection(const QTextEdit* self) {
+    auto* vqtextedit = dynamic_cast<const VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_CreateMimeDataFromSelection_IsBase(true);
+        return vqtextedit->createMimeDataFromSelection();
+    }
+    return {};
+}
+
+bool QTextEdit_CanInsertFromMimeData(const QTextEdit* self, const QMimeData* source) {
+    auto* vqtextedit = dynamic_cast<const VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        return vqtextedit->canInsertFromMimeData(source);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnCanInsertFromMimeData(const QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_CanInsertFromMimeData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QTextEdit_QBaseCanInsertFromMimeData(const QTextEdit* self, const QMimeData* source) {
+    auto* vqtextedit = dynamic_cast<const VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_CanInsertFromMimeData_IsBase(true);
+        return vqtextedit->canInsertFromMimeData(source);
+    }
+    return {};
+}
+
+void QTextEdit_InsertFromMimeData(QTextEdit* self, const QMimeData* source) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->insertFromMimeData(source);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnInsertFromMimeData(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_InsertFromMimeData_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_InsertFromMimeData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseInsertFromMimeData(QTextEdit* self, const QMimeData* source) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_InsertFromMimeData_IsBase(true);
+        vqtextedit->insertFromMimeData(source);
+    }
+}
+
+void QTextEdit_InputMethodEvent(QTextEdit* self, QInputMethodEvent* param1) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->inputMethodEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnInputMethodEvent(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_InputMethodEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseInputMethodEvent(QTextEdit* self, QInputMethodEvent* param1) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_InputMethodEvent_IsBase(true);
+        vqtextedit->inputMethodEvent(param1);
+    }
+}
+
+void QTextEdit_ScrollContentsBy(QTextEdit* self, int dx, int dy) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnScrollContentsBy(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ScrollContentsBy_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ScrollContentsBy_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseScrollContentsBy(QTextEdit* self, int dx, int dy) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_ScrollContentsBy_IsBase(true);
+        vqtextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    }
+}
+
+void QTextEdit_DoSetTextCursor(QTextEdit* self, const QTextCursor* cursor) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->doSetTextCursor(*cursor);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTextEdit_OnDoSetTextCursor(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DoSetTextCursor_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DoSetTextCursor_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTextEdit_QBaseDoSetTextCursor(QTextEdit* self, const QTextCursor* cursor) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_DoSetTextCursor_IsBase(true);
+        vqtextedit->doSetTextCursor(*cursor);
+    }
+}
+
 libqt_string QTextEdit_Tr2(const char* s, const char* c) {
     QString _ret = QTextEdit::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -695,847 +1407,6 @@ void QTextEdit_ZoomIn1(QTextEdit* self, int range) {
 
 void QTextEdit_ZoomOut1(QTextEdit* self, int range) {
     self->zoomOut(static_cast<int>(range));
-}
-
-// Derived class handler implementation
-QVariant* QTextEdit_LoadResource(QTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return new QVariant(vqtextedit->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualQTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
-}
-
-// Base class handler implementation
-QVariant* QTextEdit_QBaseLoadResource(QTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_LoadResource_IsBase(true);
-        return new QVariant(vqtextedit->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualQTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnLoadResource(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_LoadResource_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_LoadResource_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QTextEdit_InputMethodQuery(const QTextEdit* self, int property) {
-    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return new QVariant(vqtextedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualQTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QTextEdit_QBaseInputMethodQuery(const QTextEdit* self, int property) {
-    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vqtextedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualQTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnInputMethodQuery(const QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_InputMethodQuery_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTextEdit_Event(QTextEdit* self, QEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return vqtextedit->event(e);
-    } else {
-        return ((VirtualQTextEdit*)self)->event(e);
-    }
-}
-
-// Base class handler implementation
-bool QTextEdit_QBaseEvent(QTextEdit* self, QEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_Event_IsBase(true);
-        return vqtextedit->event(e);
-    } else {
-        return ((VirtualQTextEdit*)self)->event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_Event_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_TimerEvent(QTextEdit* self, QTimerEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->timerEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->timerEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseTimerEvent(QTextEdit* self, QTimerEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_TimerEvent_IsBase(true);
-        vqtextedit->timerEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->timerEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnTimerEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_TimerEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_TimerEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_KeyPressEvent(QTextEdit* self, QKeyEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->keyPressEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->keyPressEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseKeyPressEvent(QTextEdit* self, QKeyEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_KeyPressEvent_IsBase(true);
-        vqtextedit->keyPressEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->keyPressEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnKeyPressEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_KeyReleaseEvent(QTextEdit* self, QKeyEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->keyReleaseEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->keyReleaseEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseKeyReleaseEvent(QTextEdit* self, QKeyEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_KeyReleaseEvent_IsBase(true);
-        vqtextedit->keyReleaseEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->keyReleaseEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnKeyReleaseEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_KeyReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_ResizeEvent(QTextEdit* self, QResizeEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->resizeEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->resizeEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseResizeEvent(QTextEdit* self, QResizeEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ResizeEvent_IsBase(true);
-        vqtextedit->resizeEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->resizeEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnResizeEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_PaintEvent(QTextEdit* self, QPaintEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->paintEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->paintEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBasePaintEvent(QTextEdit* self, QPaintEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_PaintEvent_IsBase(true);
-        vqtextedit->paintEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->paintEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnPaintEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_PaintEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_MousePressEvent(QTextEdit* self, QMouseEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->mousePressEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->mousePressEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseMousePressEvent(QTextEdit* self, QMouseEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_MousePressEvent_IsBase(true);
-        vqtextedit->mousePressEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->mousePressEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnMousePressEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_MouseMoveEvent(QTextEdit* self, QMouseEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->mouseMoveEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->mouseMoveEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseMouseMoveEvent(QTextEdit* self, QMouseEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_MouseMoveEvent_IsBase(true);
-        vqtextedit->mouseMoveEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->mouseMoveEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnMouseMoveEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_MouseReleaseEvent(QTextEdit* self, QMouseEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->mouseReleaseEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->mouseReleaseEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseMouseReleaseEvent(QTextEdit* self, QMouseEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_MouseReleaseEvent_IsBase(true);
-        vqtextedit->mouseReleaseEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->mouseReleaseEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnMouseReleaseEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_MouseDoubleClickEvent(QTextEdit* self, QMouseEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->mouseDoubleClickEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->mouseDoubleClickEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseMouseDoubleClickEvent(QTextEdit* self, QMouseEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_MouseDoubleClickEvent_IsBase(true);
-        vqtextedit->mouseDoubleClickEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->mouseDoubleClickEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnMouseDoubleClickEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTextEdit_FocusNextPrevChild(QTextEdit* self, bool next) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return vqtextedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQTextEdit*)self)->focusNextPrevChild(next);
-    }
-}
-
-// Base class handler implementation
-bool QTextEdit_QBaseFocusNextPrevChild(QTextEdit* self, bool next) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_FocusNextPrevChild_IsBase(true);
-        return vqtextedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQTextEdit*)self)->focusNextPrevChild(next);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnFocusNextPrevChild(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_FocusNextPrevChild_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_ContextMenuEvent(QTextEdit* self, QContextMenuEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->contextMenuEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->contextMenuEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseContextMenuEvent(QTextEdit* self, QContextMenuEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ContextMenuEvent_IsBase(true);
-        vqtextedit->contextMenuEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->contextMenuEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnContextMenuEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_DragEnterEvent(QTextEdit* self, QDragEnterEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->dragEnterEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->dragEnterEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseDragEnterEvent(QTextEdit* self, QDragEnterEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DragEnterEvent_IsBase(true);
-        vqtextedit->dragEnterEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->dragEnterEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnDragEnterEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DragEnterEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_DragLeaveEvent(QTextEdit* self, QDragLeaveEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->dragLeaveEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->dragLeaveEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseDragLeaveEvent(QTextEdit* self, QDragLeaveEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DragLeaveEvent_IsBase(true);
-        vqtextedit->dragLeaveEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->dragLeaveEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnDragLeaveEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DragLeaveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_DragMoveEvent(QTextEdit* self, QDragMoveEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->dragMoveEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->dragMoveEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseDragMoveEvent(QTextEdit* self, QDragMoveEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DragMoveEvent_IsBase(true);
-        vqtextedit->dragMoveEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->dragMoveEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnDragMoveEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DragMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_DropEvent(QTextEdit* self, QDropEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->dropEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->dropEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseDropEvent(QTextEdit* self, QDropEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DropEvent_IsBase(true);
-        vqtextedit->dropEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->dropEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnDropEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DropEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DropEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_FocusInEvent(QTextEdit* self, QFocusEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->focusInEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->focusInEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseFocusInEvent(QTextEdit* self, QFocusEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_FocusInEvent_IsBase(true);
-        vqtextedit->focusInEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->focusInEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnFocusInEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_FocusOutEvent(QTextEdit* self, QFocusEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->focusOutEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->focusOutEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseFocusOutEvent(QTextEdit* self, QFocusEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_FocusOutEvent_IsBase(true);
-        vqtextedit->focusOutEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->focusOutEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnFocusOutEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_FocusOutEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_ShowEvent(QTextEdit* self, QShowEvent* param1) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->showEvent(param1);
-    } else {
-        ((VirtualQTextEdit*)self)->showEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseShowEvent(QTextEdit* self, QShowEvent* param1) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ShowEvent_IsBase(true);
-        vqtextedit->showEvent(param1);
-    } else {
-        ((VirtualQTextEdit*)self)->showEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnShowEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ShowEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ShowEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_ChangeEvent(QTextEdit* self, QEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->changeEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->changeEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseChangeEvent(QTextEdit* self, QEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ChangeEvent_IsBase(true);
-        vqtextedit->changeEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->changeEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnChangeEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_WheelEvent(QTextEdit* self, QWheelEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->wheelEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->wheelEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseWheelEvent(QTextEdit* self, QWheelEvent* e) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_WheelEvent_IsBase(true);
-        vqtextedit->wheelEvent(e);
-    } else {
-        ((VirtualQTextEdit*)self)->wheelEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnWheelEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_WheelEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_WheelEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QMimeData* QTextEdit_CreateMimeDataFromSelection(const QTextEdit* self) {
-    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return vqtextedit->createMimeDataFromSelection();
-    } else {
-        return ((VirtualQTextEdit*)self)->createMimeDataFromSelection();
-    }
-}
-
-// Base class handler implementation
-QMimeData* QTextEdit_QBaseCreateMimeDataFromSelection(const QTextEdit* self) {
-    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_CreateMimeDataFromSelection_IsBase(true);
-        return vqtextedit->createMimeDataFromSelection();
-    } else {
-        return ((VirtualQTextEdit*)self)->createMimeDataFromSelection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnCreateMimeDataFromSelection(const QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_CreateMimeDataFromSelection_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTextEdit_CanInsertFromMimeData(const QTextEdit* self, const QMimeData* source) {
-    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return vqtextedit->canInsertFromMimeData(source);
-    } else {
-        return ((VirtualQTextEdit*)self)->canInsertFromMimeData(source);
-    }
-}
-
-// Base class handler implementation
-bool QTextEdit_QBaseCanInsertFromMimeData(const QTextEdit* self, const QMimeData* source) {
-    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_CanInsertFromMimeData_IsBase(true);
-        return vqtextedit->canInsertFromMimeData(source);
-    } else {
-        return ((VirtualQTextEdit*)self)->canInsertFromMimeData(source);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnCanInsertFromMimeData(const QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_CanInsertFromMimeData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_InsertFromMimeData(QTextEdit* self, const QMimeData* source) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->insertFromMimeData(source);
-    } else {
-        ((VirtualQTextEdit*)self)->insertFromMimeData(source);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseInsertFromMimeData(QTextEdit* self, const QMimeData* source) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_InsertFromMimeData_IsBase(true);
-        vqtextedit->insertFromMimeData(source);
-    } else {
-        ((VirtualQTextEdit*)self)->insertFromMimeData(source);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnInsertFromMimeData(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_InsertFromMimeData_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_InsertFromMimeData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_InputMethodEvent(QTextEdit* self, QInputMethodEvent* param1) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualQTextEdit*)self)->inputMethodEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseInputMethodEvent(QTextEdit* self, QInputMethodEvent* param1) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_InputMethodEvent_IsBase(true);
-        vqtextedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualQTextEdit*)self)->inputMethodEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnInputMethodEvent(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_InputMethodEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_ScrollContentsBy(QTextEdit* self, int dx, int dy) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQTextEdit*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseScrollContentsBy(QTextEdit* self, int dx, int dy) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ScrollContentsBy_IsBase(true);
-        vqtextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQTextEdit*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnScrollContentsBy(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_ScrollContentsBy_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_ScrollContentsBy_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTextEdit_DoSetTextCursor(QTextEdit* self, const QTextCursor* cursor) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->doSetTextCursor(*cursor);
-    } else {
-        ((VirtualQTextEdit*)self)->doSetTextCursor(*cursor);
-    }
-}
-
-// Base class handler implementation
-void QTextEdit_QBaseDoSetTextCursor(QTextEdit* self, const QTextCursor* cursor) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DoSetTextCursor_IsBase(true);
-        vqtextedit->doSetTextCursor(*cursor);
-    } else {
-        ((VirtualQTextEdit*)self)->doSetTextCursor(*cursor);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextEdit_OnDoSetTextCursor(QTextEdit* self, intptr_t slot) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        vqtextedit->setQTextEdit_DoSetTextCursor_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_DoSetTextCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

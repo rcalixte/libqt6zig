@@ -72,8 +72,20 @@ libqt_string QsciLexerYAML_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerYAML_Language(const QsciLexerYAML* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerYAML_Lexer(const QsciLexerYAML* self) {
+    return (const char*)self->lexer();
+}
+
 QColor* QsciLexerYAML_DefaultColor(const QsciLexerYAML* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+bool QsciLexerYAML_DefaultEolFill(const QsciLexerYAML* self, int style) {
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 QFont* QsciLexerYAML_DefaultFont(const QsciLexerYAML* self, int style) {
@@ -84,8 +96,56 @@ QColor* QsciLexerYAML_DefaultPaper(const QsciLexerYAML* self, int style) {
     return new QColor(self->defaultPaper(static_cast<int>(style)));
 }
 
+const char* QsciLexerYAML_Keywords(const QsciLexerYAML* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
+libqt_string QsciLexerYAML_Description(const QsciLexerYAML* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+void QsciLexerYAML_RefreshProperties(QsciLexerYAML* self) {
+    self->refreshProperties();
+}
+
 bool QsciLexerYAML_FoldComments(const QsciLexerYAML* self) {
     return self->foldComments();
+}
+
+void QsciLexerYAML_SetFoldComments(QsciLexerYAML* self, bool fold) {
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        self->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerYAML*)self)->setFoldComments(fold);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciLexerYAML_OnSetFoldComments(QsciLexerYAML* self, intptr_t slot) {
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetFoldComments_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciLexerYAML_QBaseSetFoldComments(QsciLexerYAML* self, bool fold) {
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_SetFoldComments_IsBase(true);
+        vqscilexeryaml->setFoldComments(fold);
+    } else {
+        ((VirtualQsciLexerYAML*)self)->setFoldComments(fold);
+    }
 }
 
 libqt_string QsciLexerYAML_Tr2(const char* s, const char* c) {
@@ -110,93 +170,6 @@ libqt_string QsciLexerYAML_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QsciLexerYAML_SetFoldComments(QsciLexerYAML* self, bool fold) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerYAML*)self)->setFoldComments(fold);
-    }
-}
-
-// Base class handler implementation
-void QsciLexerYAML_QBaseSetFoldComments(QsciLexerYAML* self, bool fold) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_SetFoldComments_IsBase(true);
-        vqscilexeryaml->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerYAML*)self)->setFoldComments(fold);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnSetFoldComments(QsciLexerYAML* self, intptr_t slot) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetFoldComments_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerYAML_Language(const QsciLexerYAML* self) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        return (const char*)vqscilexeryaml->language();
-    } else {
-        return (const char*)((VirtualQsciLexerYAML*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerYAML_QBaseLanguage(const QsciLexerYAML* self) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Language_IsBase(true);
-        return (const char*)vqscilexeryaml->language();
-    } else {
-        return (const char*)((VirtualQsciLexerYAML*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnLanguage(const QsciLexerYAML* self, intptr_t slot) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Language_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerYAML_Lexer(const QsciLexerYAML* self) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        return (const char*)vqscilexeryaml->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerYAML*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerYAML_QBaseLexer(const QsciLexerYAML* self) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Lexer_IsBase(true);
-        return (const char*)vqscilexeryaml->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerYAML*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnLexer(const QsciLexerYAML* self, intptr_t slot) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Lexer_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,35 +618,6 @@ void QsciLexerYAML_OnIndentationGuideView(const QsciLexerYAML* self, intptr_t sl
 }
 
 // Derived class handler implementation
-const char* QsciLexerYAML_Keywords(const QsciLexerYAML* self, int set) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        return (const char*)vqscilexeryaml->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerYAML*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerYAML_QBaseKeywords(const QsciLexerYAML* self, int set) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Keywords_IsBase(true);
-        return (const char*)vqscilexeryaml->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerYAML*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnKeywords(const QsciLexerYAML* self, intptr_t slot) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Keywords_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Keywords_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerYAML_DefaultStyle(const QsciLexerYAML* self) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
@@ -699,67 +643,6 @@ void QsciLexerYAML_OnDefaultStyle(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
         vqscilexeryaml->setQsciLexerYAML_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerYAML_Description(const QsciLexerYAML* self, int style) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        QString _ret = vqscilexeryaml->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerYAML*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerYAML_QBaseDescription(const QsciLexerYAML* self, int style) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Description_IsBase(true);
-        QString _ret = vqscilexeryaml->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerYAML*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnDescription(const QsciLexerYAML* self, intptr_t slot) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_Description_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Description_Callback>(slot));
     }
 }
 
@@ -818,35 +701,6 @@ void QsciLexerYAML_OnDefaultColor2(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
         vqscilexeryaml->setQsciLexerYAML_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultColor2_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QsciLexerYAML_DefaultEolFill(const QsciLexerYAML* self, int style) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        return vqscilexeryaml->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerYAML*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerYAML_QBaseDefaultEolFill(const QsciLexerYAML* self, int style) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_DefaultEolFill_IsBase(true);
-        return vqscilexeryaml->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerYAML*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnDefaultEolFill(const QsciLexerYAML* self, intptr_t slot) {
-    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultEolFill_Callback>(slot));
     }
 }
 
@@ -934,35 +788,6 @@ void QsciLexerYAML_OnSetEditor(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
         vqscilexeryaml->setQsciLexerYAML_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetEditor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciLexerYAML_RefreshProperties(QsciLexerYAML* self) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->refreshProperties();
-    } else {
-        ((VirtualQsciLexerYAML*)self)->refreshProperties();
-    }
-}
-
-// Base class handler implementation
-void QsciLexerYAML_QBaseRefreshProperties(QsciLexerYAML* self) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_RefreshProperties_IsBase(true);
-        vqscilexeryaml->refreshProperties();
-    } else {
-        ((VirtualQsciLexerYAML*)self)->refreshProperties();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnRefreshProperties(QsciLexerYAML* self, intptr_t slot) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_RefreshProperties_Callback>(slot));
     }
 }
 

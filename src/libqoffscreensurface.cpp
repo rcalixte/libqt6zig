@@ -76,6 +76,34 @@ libqt_string QOffscreenSurface_Tr(const char* s) {
     return _str;
 }
 
+int QOffscreenSurface_SurfaceType(const QOffscreenSurface* self) {
+    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        return static_cast<int>(self->surfaceType());
+    } else {
+        return static_cast<int>(((VirtualQOffscreenSurface*)self)->surfaceType());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QOffscreenSurface_OnSurfaceType(const QOffscreenSurface* self, intptr_t slot) {
+    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_SurfaceType_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_SurfaceType_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QOffscreenSurface_QBaseSurfaceType(const QOffscreenSurface* self) {
+    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_SurfaceType_IsBase(true);
+        return static_cast<int>(vqoffscreensurface->surfaceType());
+    } else {
+        return static_cast<int>(((VirtualQOffscreenSurface*)self)->surfaceType());
+    }
+}
+
 void QOffscreenSurface_Create(QOffscreenSurface* self) {
     self->create();
 }
@@ -92,8 +120,64 @@ void QOffscreenSurface_SetFormat(QOffscreenSurface* self, const QSurfaceFormat* 
     self->setFormat(*format);
 }
 
+QSurfaceFormat* QOffscreenSurface_Format(const QOffscreenSurface* self) {
+    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        return new QSurfaceFormat(self->format());
+    } else {
+        return new QSurfaceFormat(((VirtualQOffscreenSurface*)self)->format());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QOffscreenSurface_OnFormat(const QOffscreenSurface* self, intptr_t slot) {
+    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_Format_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Format_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSurfaceFormat* QOffscreenSurface_QBaseFormat(const QOffscreenSurface* self) {
+    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_Format_IsBase(true);
+        return new QSurfaceFormat(vqoffscreensurface->format());
+    } else {
+        return new QSurfaceFormat(((VirtualQOffscreenSurface*)self)->format());
+    }
+}
+
 QSurfaceFormat* QOffscreenSurface_RequestedFormat(const QOffscreenSurface* self) {
     return new QSurfaceFormat(self->requestedFormat());
+}
+
+QSize* QOffscreenSurface_Size(const QOffscreenSurface* self) {
+    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        return new QSize(self->size());
+    } else {
+        return new QSize(((VirtualQOffscreenSurface*)self)->size());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QOffscreenSurface_OnSize(const QOffscreenSurface* self, intptr_t slot) {
+    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_Size_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Size_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QOffscreenSurface_QBaseSize(const QOffscreenSurface* self) {
+    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_Size_IsBase(true);
+        return new QSize(vqoffscreensurface->size());
+    } else {
+        return new QSize(((VirtualQOffscreenSurface*)self)->size());
+    }
 }
 
 QScreen* QOffscreenSurface_Screen(const QOffscreenSurface* self) {
@@ -138,93 +222,6 @@ libqt_string QOffscreenSurface_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QOffscreenSurface_SurfaceType(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return static_cast<int>(vqoffscreensurface->surfaceType());
-    } else {
-        return static_cast<int>(self->QOffscreenSurface::surfaceType());
-    }
-}
-
-// Base class handler implementation
-int QOffscreenSurface_QBaseSurfaceType(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_SurfaceType_IsBase(true);
-        return static_cast<int>(vqoffscreensurface->surfaceType());
-    } else {
-        return static_cast<int>(self->QOffscreenSurface::surfaceType());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnSurfaceType(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_SurfaceType_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_SurfaceType_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSurfaceFormat* QOffscreenSurface_Format(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return new QSurfaceFormat(vqoffscreensurface->format());
-    } else {
-        return new QSurfaceFormat(((VirtualQOffscreenSurface*)self)->format());
-    }
-}
-
-// Base class handler implementation
-QSurfaceFormat* QOffscreenSurface_QBaseFormat(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Format_IsBase(true);
-        return new QSurfaceFormat(vqoffscreensurface->format());
-    } else {
-        return new QSurfaceFormat(((VirtualQOffscreenSurface*)self)->format());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnFormat(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Format_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Format_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QOffscreenSurface_Size(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return new QSize(vqoffscreensurface->size());
-    } else {
-        return new QSize(((VirtualQOffscreenSurface*)self)->size());
-    }
-}
-
-// Base class handler implementation
-QSize* QOffscreenSurface_QBaseSize(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Size_IsBase(true);
-        return new QSize(vqoffscreensurface->size());
-    } else {
-        return new QSize(((VirtualQOffscreenSurface*)self)->size());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnSize(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Size_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -23,17 +23,8 @@ QLayoutItem* QLayoutItem_new3(int alignment) {
     return new VirtualQLayoutItem(static_cast<Qt::Alignment>(alignment));
 }
 
-int QLayoutItem_Alignment(const QLayoutItem* self) {
-    return static_cast<int>(self->alignment());
-}
-
-void QLayoutItem_SetAlignment(QLayoutItem* self, int a) {
-    self->setAlignment(static_cast<Qt::Alignment>(a));
-}
-
-// Derived class handler implementation
 QSize* QLayoutItem_SizeHint(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         return new QSize(vqlayoutitem->sizeHint());
     } else {
@@ -41,9 +32,17 @@ QSize* QLayoutItem_SizeHint(const QLayoutItem* self) {
     }
 }
 
-// Base class handler implementation
-QSize* QLayoutItem_QBaseSizeHint(const QLayoutItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QLayoutItem_OnSizeHint(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_SizeHint_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QLayoutItem_QBaseSizeHint(const QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         vqlayoutitem->setQLayoutItem_SizeHint_IsBase(true);
         return new QSize(vqlayoutitem->sizeHint());
@@ -52,17 +51,8 @@ QSize* QLayoutItem_QBaseSizeHint(const QLayoutItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QLayoutItem_OnSizeHint(const QLayoutItem* self, intptr_t slot) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_SizeHint_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QSize* QLayoutItem_MinimumSize(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         return new QSize(vqlayoutitem->minimumSize());
     } else {
@@ -70,9 +60,17 @@ QSize* QLayoutItem_MinimumSize(const QLayoutItem* self) {
     }
 }
 
-// Base class handler implementation
-QSize* QLayoutItem_QBaseMinimumSize(const QLayoutItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QLayoutItem_OnMinimumSize(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_MinimumSize_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_MinimumSize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QLayoutItem_QBaseMinimumSize(const QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         vqlayoutitem->setQLayoutItem_MinimumSize_IsBase(true);
         return new QSize(vqlayoutitem->minimumSize());
@@ -81,17 +79,8 @@ QSize* QLayoutItem_QBaseMinimumSize(const QLayoutItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QLayoutItem_OnMinimumSize(const QLayoutItem* self, intptr_t slot) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_MinimumSize_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_MinimumSize_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QSize* QLayoutItem_MaximumSize(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         return new QSize(vqlayoutitem->maximumSize());
     } else {
@@ -99,9 +88,17 @@ QSize* QLayoutItem_MaximumSize(const QLayoutItem* self) {
     }
 }
 
-// Base class handler implementation
-QSize* QLayoutItem_QBaseMaximumSize(const QLayoutItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QLayoutItem_OnMaximumSize(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_MaximumSize_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_MaximumSize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QLayoutItem_QBaseMaximumSize(const QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         vqlayoutitem->setQLayoutItem_MaximumSize_IsBase(true);
         return new QSize(vqlayoutitem->maximumSize());
@@ -110,17 +107,8 @@ QSize* QLayoutItem_QBaseMaximumSize(const QLayoutItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QLayoutItem_OnMaximumSize(const QLayoutItem* self, intptr_t slot) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_MaximumSize_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_MaximumSize_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QLayoutItem_ExpandingDirections(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         return static_cast<int>(vqlayoutitem->expandingDirections());
     } else {
@@ -128,9 +116,17 @@ int QLayoutItem_ExpandingDirections(const QLayoutItem* self) {
     }
 }
 
-// Base class handler implementation
-int QLayoutItem_QBaseExpandingDirections(const QLayoutItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QLayoutItem_OnExpandingDirections(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_ExpandingDirections_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_ExpandingDirections_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QLayoutItem_QBaseExpandingDirections(const QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         vqlayoutitem->setQLayoutItem_ExpandingDirections_IsBase(true);
         return static_cast<int>(vqlayoutitem->expandingDirections());
@@ -139,15 +135,6 @@ int QLayoutItem_QBaseExpandingDirections(const QLayoutItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QLayoutItem_OnExpandingDirections(const QLayoutItem* self, intptr_t slot) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_ExpandingDirections_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_ExpandingDirections_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 void QLayoutItem_SetGeometry(QLayoutItem* self, const QRect* geometry) {
     auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
@@ -157,7 +144,15 @@ void QLayoutItem_SetGeometry(QLayoutItem* self, const QRect* geometry) {
     }
 }
 
-// Base class handler implementation
+// Subclass method to allow providing a virtual method re-implementation
+void QLayoutItem_OnSetGeometry(QLayoutItem* self, intptr_t slot) {
+    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_SetGeometry_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_SetGeometry_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
 void QLayoutItem_QBaseSetGeometry(QLayoutItem* self, const QRect* geometry) {
     auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
@@ -168,17 +163,8 @@ void QLayoutItem_QBaseSetGeometry(QLayoutItem* self, const QRect* geometry) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QLayoutItem_OnSetGeometry(QLayoutItem* self, intptr_t slot) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_SetGeometry_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_SetGeometry_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QRect* QLayoutItem_Geometry(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         return new QRect(vqlayoutitem->geometry());
     } else {
@@ -186,9 +172,17 @@ QRect* QLayoutItem_Geometry(const QLayoutItem* self) {
     }
 }
 
-// Base class handler implementation
-QRect* QLayoutItem_QBaseGeometry(const QLayoutItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QLayoutItem_OnGeometry(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_Geometry_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_Geometry_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QRect* QLayoutItem_QBaseGeometry(const QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         vqlayoutitem->setQLayoutItem_Geometry_IsBase(true);
         return new QRect(vqlayoutitem->geometry());
@@ -197,17 +191,8 @@ QRect* QLayoutItem_QBaseGeometry(const QLayoutItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QLayoutItem_OnGeometry(const QLayoutItem* self, intptr_t slot) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_Geometry_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_Geometry_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 bool QLayoutItem_IsEmpty(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         return vqlayoutitem->isEmpty();
     } else {
@@ -215,9 +200,17 @@ bool QLayoutItem_IsEmpty(const QLayoutItem* self) {
     }
 }
 
-// Base class handler implementation
-bool QLayoutItem_QBaseIsEmpty(const QLayoutItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QLayoutItem_OnIsEmpty(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_IsEmpty_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_IsEmpty_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QLayoutItem_QBaseIsEmpty(const QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         vqlayoutitem->setQLayoutItem_IsEmpty_IsBase(true);
         return vqlayoutitem->isEmpty();
@@ -226,36 +219,16 @@ bool QLayoutItem_QBaseIsEmpty(const QLayoutItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QLayoutItem_OnIsEmpty(const QLayoutItem* self, intptr_t slot) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_IsEmpty_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_IsEmpty_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 bool QLayoutItem_HasHeightForWidth(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return vqlayoutitem->hasHeightForWidth();
+        return self->hasHeightForWidth();
     } else {
-        return self->QLayoutItem::hasHeightForWidth();
+        return ((VirtualQLayoutItem*)self)->hasHeightForWidth();
     }
 }
 
-// Base class handler implementation
-bool QLayoutItem_QBaseHasHeightForWidth(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_HasHeightForWidth_IsBase(true);
-        return vqlayoutitem->hasHeightForWidth();
-    } else {
-        return self->QLayoutItem::hasHeightForWidth();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QLayoutItem_OnHasHeightForWidth(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
@@ -263,28 +236,27 @@ void QLayoutItem_OnHasHeightForWidth(const QLayoutItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+bool QLayoutItem_QBaseHasHeightForWidth(const QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_HasHeightForWidth_IsBase(true);
+        return vqlayoutitem->hasHeightForWidth();
+    } else {
+        return ((VirtualQLayoutItem*)self)->hasHeightForWidth();
+    }
+}
+
 int QLayoutItem_HeightForWidth(const QLayoutItem* self, int param1) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return vqlayoutitem->heightForWidth(static_cast<int>(param1));
+        return self->heightForWidth(static_cast<int>(param1));
     } else {
-        return self->QLayoutItem::heightForWidth(static_cast<int>(param1));
+        return ((VirtualQLayoutItem*)self)->heightForWidth(static_cast<int>(param1));
     }
 }
 
-// Base class handler implementation
-int QLayoutItem_QBaseHeightForWidth(const QLayoutItem* self, int param1) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_HeightForWidth_IsBase(true);
-        return vqlayoutitem->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QLayoutItem::heightForWidth(static_cast<int>(param1));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QLayoutItem_OnHeightForWidth(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
@@ -292,28 +264,27 @@ void QLayoutItem_OnHeightForWidth(const QLayoutItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+int QLayoutItem_QBaseHeightForWidth(const QLayoutItem* self, int param1) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_HeightForWidth_IsBase(true);
+        return vqlayoutitem->heightForWidth(static_cast<int>(param1));
+    } else {
+        return ((VirtualQLayoutItem*)self)->heightForWidth(static_cast<int>(param1));
+    }
+}
+
 int QLayoutItem_MinimumHeightForWidth(const QLayoutItem* self, int param1) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return vqlayoutitem->minimumHeightForWidth(static_cast<int>(param1));
+        return self->minimumHeightForWidth(static_cast<int>(param1));
     } else {
-        return self->QLayoutItem::minimumHeightForWidth(static_cast<int>(param1));
+        return ((VirtualQLayoutItem*)self)->minimumHeightForWidth(static_cast<int>(param1));
     }
 }
 
-// Base class handler implementation
-int QLayoutItem_QBaseMinimumHeightForWidth(const QLayoutItem* self, int param1) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_MinimumHeightForWidth_IsBase(true);
-        return vqlayoutitem->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QLayoutItem::minimumHeightForWidth(static_cast<int>(param1));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QLayoutItem_OnMinimumHeightForWidth(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
@@ -321,28 +292,27 @@ void QLayoutItem_OnMinimumHeightForWidth(const QLayoutItem* self, intptr_t slot)
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+int QLayoutItem_QBaseMinimumHeightForWidth(const QLayoutItem* self, int param1) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_MinimumHeightForWidth_IsBase(true);
+        return vqlayoutitem->minimumHeightForWidth(static_cast<int>(param1));
+    } else {
+        return ((VirtualQLayoutItem*)self)->minimumHeightForWidth(static_cast<int>(param1));
+    }
+}
+
 void QLayoutItem_Invalidate(QLayoutItem* self) {
     auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->invalidate();
+        self->invalidate();
     } else {
-        self->QLayoutItem::invalidate();
+        ((VirtualQLayoutItem*)self)->invalidate();
     }
 }
 
-// Base class handler implementation
-void QLayoutItem_QBaseInvalidate(QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_Invalidate_IsBase(true);
-        vqlayoutitem->invalidate();
-    } else {
-        self->QLayoutItem::invalidate();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QLayoutItem_OnInvalidate(QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
@@ -350,28 +320,27 @@ void QLayoutItem_OnInvalidate(QLayoutItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QLayoutItem_QBaseInvalidate(QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_Invalidate_IsBase(true);
+        vqlayoutitem->invalidate();
+    } else {
+        ((VirtualQLayoutItem*)self)->invalidate();
+    }
+}
+
 QWidget* QLayoutItem_Widget(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return vqlayoutitem->widget();
+        return self->widget();
     } else {
-        return self->QLayoutItem::widget();
+        return ((VirtualQLayoutItem*)self)->widget();
     }
 }
 
-// Base class handler implementation
-QWidget* QLayoutItem_QBaseWidget(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_Widget_IsBase(true);
-        return vqlayoutitem->widget();
-    } else {
-        return self->QLayoutItem::widget();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QLayoutItem_OnWidget(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
@@ -379,28 +348,27 @@ void QLayoutItem_OnWidget(const QLayoutItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+QWidget* QLayoutItem_QBaseWidget(const QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_Widget_IsBase(true);
+        return vqlayoutitem->widget();
+    } else {
+        return ((VirtualQLayoutItem*)self)->widget();
+    }
+}
+
 QLayout* QLayoutItem_Layout(QLayoutItem* self) {
     auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return vqlayoutitem->layout();
+        return self->layout();
     } else {
-        return self->QLayoutItem::layout();
+        return ((VirtualQLayoutItem*)self)->layout();
     }
 }
 
-// Base class handler implementation
-QLayout* QLayoutItem_QBaseLayout(QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_Layout_IsBase(true);
-        return vqlayoutitem->layout();
-    } else {
-        return self->QLayoutItem::layout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QLayoutItem_OnLayout(QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
@@ -408,28 +376,27 @@ void QLayoutItem_OnLayout(QLayoutItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+QLayout* QLayoutItem_QBaseLayout(QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_Layout_IsBase(true);
+        return vqlayoutitem->layout();
+    } else {
+        return ((VirtualQLayoutItem*)self)->layout();
+    }
+}
+
 QSpacerItem* QLayoutItem_SpacerItem(QLayoutItem* self) {
     auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return vqlayoutitem->spacerItem();
+        return self->spacerItem();
     } else {
-        return self->QLayoutItem::spacerItem();
+        return ((VirtualQLayoutItem*)self)->spacerItem();
     }
 }
 
-// Base class handler implementation
-QSpacerItem* QLayoutItem_QBaseSpacerItem(QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_SpacerItem_IsBase(true);
-        return vqlayoutitem->spacerItem();
-    } else {
-        return self->QLayoutItem::spacerItem();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QLayoutItem_OnSpacerItem(QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
@@ -437,32 +404,50 @@ void QLayoutItem_OnSpacerItem(QLayoutItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+QSpacerItem* QLayoutItem_QBaseSpacerItem(QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_SpacerItem_IsBase(true);
+        return vqlayoutitem->spacerItem();
+    } else {
+        return ((VirtualQLayoutItem*)self)->spacerItem();
+    }
+}
+
+int QLayoutItem_Alignment(const QLayoutItem* self) {
+    return static_cast<int>(self->alignment());
+}
+
+void QLayoutItem_SetAlignment(QLayoutItem* self, int a) {
+    self->setAlignment(static_cast<Qt::Alignment>(a));
+}
+
 int QLayoutItem_ControlTypes(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return static_cast<int>(vqlayoutitem->controlTypes());
+        return static_cast<int>(self->controlTypes());
     } else {
-        return static_cast<int>(self->QLayoutItem::controlTypes());
+        return static_cast<int>(((VirtualQLayoutItem*)self)->controlTypes());
     }
 }
 
-// Base class handler implementation
-int QLayoutItem_QBaseControlTypes(const QLayoutItem* self) {
-    auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_ControlTypes_IsBase(true);
-        return static_cast<int>(vqlayoutitem->controlTypes());
-    } else {
-        return static_cast<int>(self->QLayoutItem::controlTypes());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QLayoutItem_OnControlTypes(const QLayoutItem* self, intptr_t slot) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
     if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
         vqlayoutitem->setQLayoutItem_ControlTypes_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_ControlTypes_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QLayoutItem_QBaseControlTypes(const QLayoutItem* self) {
+    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
+    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
+        vqlayoutitem->setQLayoutItem_ControlTypes_IsBase(true);
+        return static_cast<int>(vqlayoutitem->controlTypes());
+    } else {
+        return static_cast<int>(((VirtualQLayoutItem*)self)->controlTypes());
     }
 }
 
@@ -519,6 +504,230 @@ void QSpacerItem_ChangeSize(QSpacerItem* self, int w, int h) {
     self->changeSize(static_cast<int>(w), static_cast<int>(h));
 }
 
+QSize* QSpacerItem_SizeHint(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQSpacerItem*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpacerItem_OnSizeHint(const QSpacerItem* self, intptr_t slot) {
+    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_SizeHint_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QSpacerItem_QBaseSizeHint(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_SizeHint_IsBase(true);
+        return new QSize(vqspaceritem->sizeHint());
+    } else {
+        return new QSize(((VirtualQSpacerItem*)self)->sizeHint());
+    }
+}
+
+QSize* QSpacerItem_MinimumSize(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        return new QSize(self->minimumSize());
+    } else {
+        return new QSize(((VirtualQSpacerItem*)self)->minimumSize());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpacerItem_OnMinimumSize(const QSpacerItem* self, intptr_t slot) {
+    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_MinimumSize_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_MinimumSize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QSpacerItem_QBaseMinimumSize(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_MinimumSize_IsBase(true);
+        return new QSize(vqspaceritem->minimumSize());
+    } else {
+        return new QSize(((VirtualQSpacerItem*)self)->minimumSize());
+    }
+}
+
+QSize* QSpacerItem_MaximumSize(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        return new QSize(self->maximumSize());
+    } else {
+        return new QSize(((VirtualQSpacerItem*)self)->maximumSize());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpacerItem_OnMaximumSize(const QSpacerItem* self, intptr_t slot) {
+    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_MaximumSize_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_MaximumSize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QSpacerItem_QBaseMaximumSize(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_MaximumSize_IsBase(true);
+        return new QSize(vqspaceritem->maximumSize());
+    } else {
+        return new QSize(((VirtualQSpacerItem*)self)->maximumSize());
+    }
+}
+
+int QSpacerItem_ExpandingDirections(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        return static_cast<int>(self->expandingDirections());
+    } else {
+        return static_cast<int>(((VirtualQSpacerItem*)self)->expandingDirections());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpacerItem_OnExpandingDirections(const QSpacerItem* self, intptr_t slot) {
+    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_ExpandingDirections_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_ExpandingDirections_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QSpacerItem_QBaseExpandingDirections(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_ExpandingDirections_IsBase(true);
+        return static_cast<int>(vqspaceritem->expandingDirections());
+    } else {
+        return static_cast<int>(((VirtualQSpacerItem*)self)->expandingDirections());
+    }
+}
+
+bool QSpacerItem_IsEmpty(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        return self->isEmpty();
+    } else {
+        return ((VirtualQSpacerItem*)self)->isEmpty();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpacerItem_OnIsEmpty(const QSpacerItem* self, intptr_t slot) {
+    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_IsEmpty_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_IsEmpty_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSpacerItem_QBaseIsEmpty(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_IsEmpty_IsBase(true);
+        return vqspaceritem->isEmpty();
+    } else {
+        return ((VirtualQSpacerItem*)self)->isEmpty();
+    }
+}
+
+void QSpacerItem_SetGeometry(QSpacerItem* self, const QRect* geometry) {
+    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        self->setGeometry(*geometry);
+    } else {
+        ((VirtualQSpacerItem*)self)->setGeometry(*geometry);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpacerItem_OnSetGeometry(QSpacerItem* self, intptr_t slot) {
+    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_SetGeometry_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_SetGeometry_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSpacerItem_QBaseSetGeometry(QSpacerItem* self, const QRect* geometry) {
+    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_SetGeometry_IsBase(true);
+        vqspaceritem->setGeometry(*geometry);
+    } else {
+        ((VirtualQSpacerItem*)self)->setGeometry(*geometry);
+    }
+}
+
+QRect* QSpacerItem_Geometry(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        return new QRect(self->geometry());
+    } else {
+        return new QRect(((VirtualQSpacerItem*)self)->geometry());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpacerItem_OnGeometry(const QSpacerItem* self, intptr_t slot) {
+    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_Geometry_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_Geometry_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QRect* QSpacerItem_QBaseGeometry(const QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_Geometry_IsBase(true);
+        return new QRect(vqspaceritem->geometry());
+    } else {
+        return new QRect(((VirtualQSpacerItem*)self)->geometry());
+    }
+}
+
+QSpacerItem* QSpacerItem_SpacerItem(QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        return self->spacerItem();
+    } else {
+        return ((VirtualQSpacerItem*)self)->spacerItem();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSpacerItem_OnSpacerItem(QSpacerItem* self, intptr_t slot) {
+    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_SpacerItem_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_SpacerItem_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSpacerItem* QSpacerItem_QBaseSpacerItem(QSpacerItem* self) {
+    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
+    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
+        vqspaceritem->setQSpacerItem_SpacerItem_IsBase(true);
+        return vqspaceritem->spacerItem();
+    } else {
+        return ((VirtualQSpacerItem*)self)->spacerItem();
+    }
+}
+
 QSizePolicy* QSpacerItem_SizePolicy(const QSpacerItem* self) {
     return new QSizePolicy(self->sizePolicy());
 }
@@ -529,238 +738,6 @@ void QSpacerItem_ChangeSize3(QSpacerItem* self, int w, int h, int hData) {
 
 void QSpacerItem_ChangeSize4(QSpacerItem* self, int w, int h, int hData, int vData) {
     self->changeSize(static_cast<int>(w), static_cast<int>(h), static_cast<QSizePolicy::Policy>(hData), static_cast<QSizePolicy::Policy>(vData));
-}
-
-// Derived class handler implementation
-QSize* QSpacerItem_SizeHint(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return new QSize(vqspaceritem->sizeHint());
-    } else {
-        return new QSize(((VirtualQSpacerItem*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QSpacerItem_QBaseSizeHint(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_SizeHint_IsBase(true);
-        return new QSize(vqspaceritem->sizeHint());
-    } else {
-        return new QSize(((VirtualQSpacerItem*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpacerItem_OnSizeHint(const QSpacerItem* self, intptr_t slot) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_SizeHint_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QSpacerItem_MinimumSize(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return new QSize(vqspaceritem->minimumSize());
-    } else {
-        return new QSize(((VirtualQSpacerItem*)self)->minimumSize());
-    }
-}
-
-// Base class handler implementation
-QSize* QSpacerItem_QBaseMinimumSize(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_MinimumSize_IsBase(true);
-        return new QSize(vqspaceritem->minimumSize());
-    } else {
-        return new QSize(((VirtualQSpacerItem*)self)->minimumSize());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpacerItem_OnMinimumSize(const QSpacerItem* self, intptr_t slot) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_MinimumSize_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_MinimumSize_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QSpacerItem_MaximumSize(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return new QSize(vqspaceritem->maximumSize());
-    } else {
-        return new QSize(((VirtualQSpacerItem*)self)->maximumSize());
-    }
-}
-
-// Base class handler implementation
-QSize* QSpacerItem_QBaseMaximumSize(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_MaximumSize_IsBase(true);
-        return new QSize(vqspaceritem->maximumSize());
-    } else {
-        return new QSize(((VirtualQSpacerItem*)self)->maximumSize());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpacerItem_OnMaximumSize(const QSpacerItem* self, intptr_t slot) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_MaximumSize_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_MaximumSize_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QSpacerItem_ExpandingDirections(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return static_cast<int>(vqspaceritem->expandingDirections());
-    } else {
-        return static_cast<int>(self->QSpacerItem::expandingDirections());
-    }
-}
-
-// Base class handler implementation
-int QSpacerItem_QBaseExpandingDirections(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_ExpandingDirections_IsBase(true);
-        return static_cast<int>(vqspaceritem->expandingDirections());
-    } else {
-        return static_cast<int>(self->QSpacerItem::expandingDirections());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpacerItem_OnExpandingDirections(const QSpacerItem* self, intptr_t slot) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_ExpandingDirections_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_ExpandingDirections_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSpacerItem_IsEmpty(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return vqspaceritem->isEmpty();
-    } else {
-        return self->QSpacerItem::isEmpty();
-    }
-}
-
-// Base class handler implementation
-bool QSpacerItem_QBaseIsEmpty(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_IsEmpty_IsBase(true);
-        return vqspaceritem->isEmpty();
-    } else {
-        return self->QSpacerItem::isEmpty();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpacerItem_OnIsEmpty(const QSpacerItem* self, intptr_t slot) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_IsEmpty_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_IsEmpty_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSpacerItem_SetGeometry(QSpacerItem* self, const QRect* geometry) {
-    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setGeometry(*geometry);
-    } else {
-        self->QSpacerItem::setGeometry(*geometry);
-    }
-}
-
-// Base class handler implementation
-void QSpacerItem_QBaseSetGeometry(QSpacerItem* self, const QRect* geometry) {
-    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_SetGeometry_IsBase(true);
-        vqspaceritem->setGeometry(*geometry);
-    } else {
-        self->QSpacerItem::setGeometry(*geometry);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpacerItem_OnSetGeometry(QSpacerItem* self, intptr_t slot) {
-    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_SetGeometry_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_SetGeometry_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QRect* QSpacerItem_Geometry(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return new QRect(vqspaceritem->geometry());
-    } else {
-        return new QRect(((VirtualQSpacerItem*)self)->geometry());
-    }
-}
-
-// Base class handler implementation
-QRect* QSpacerItem_QBaseGeometry(const QSpacerItem* self) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_Geometry_IsBase(true);
-        return new QRect(vqspaceritem->geometry());
-    } else {
-        return new QRect(((VirtualQSpacerItem*)self)->geometry());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpacerItem_OnGeometry(const QSpacerItem* self, intptr_t slot) {
-    auto* vqspaceritem = const_cast<VirtualQSpacerItem*>(dynamic_cast<const VirtualQSpacerItem*>(self));
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_Geometry_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_Geometry_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSpacerItem* QSpacerItem_SpacerItem(QSpacerItem* self) {
-    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return vqspaceritem->spacerItem();
-    } else {
-        return self->QSpacerItem::spacerItem();
-    }
-}
-
-// Base class handler implementation
-QSpacerItem* QSpacerItem_QBaseSpacerItem(QSpacerItem* self) {
-    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_SpacerItem_IsBase(true);
-        return vqspaceritem->spacerItem();
-    } else {
-        return self->QSpacerItem::spacerItem();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpacerItem_OnSpacerItem(QSpacerItem* self, intptr_t slot) {
-    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        vqspaceritem->setQSpacerItem_SpacerItem_Callback(reinterpret_cast<VirtualQSpacerItem::QSpacerItem_SpacerItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,19 +951,26 @@ QWidgetItem* QWidgetItem_new(QWidget* w) {
     return new VirtualQWidgetItem(w);
 }
 
-// Derived class handler implementation
 QSize* QWidgetItem_SizeHint(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return new QSize(vqwidgetitem->sizeHint());
+        return new QSize(self->sizeHint());
     } else {
         return new QSize(((VirtualQWidgetItem*)self)->sizeHint());
     }
 }
 
-// Base class handler implementation
-QSize* QWidgetItem_QBaseSizeHint(const QWidgetItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QWidgetItem_OnSizeHint(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_SizeHint_Callback(reinterpret_cast<VirtualQWidgetItem::QWidgetItem_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QWidgetItem_QBaseSizeHint(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
         vqwidgetitem->setQWidgetItem_SizeHint_IsBase(true);
         return new QSize(vqwidgetitem->sizeHint());
@@ -995,27 +979,26 @@ QSize* QWidgetItem_QBaseSizeHint(const QWidgetItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QWidgetItem_OnSizeHint(const QWidgetItem* self, intptr_t slot) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_SizeHint_Callback(reinterpret_cast<VirtualQWidgetItem::QWidgetItem_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QSize* QWidgetItem_MinimumSize(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return new QSize(vqwidgetitem->minimumSize());
+        return new QSize(self->minimumSize());
     } else {
         return new QSize(((VirtualQWidgetItem*)self)->minimumSize());
     }
 }
 
-// Base class handler implementation
-QSize* QWidgetItem_QBaseMinimumSize(const QWidgetItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QWidgetItem_OnMinimumSize(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_MinimumSize_Callback(reinterpret_cast<VirtualQWidgetItem::QWidgetItem_MinimumSize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QWidgetItem_QBaseMinimumSize(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
         vqwidgetitem->setQWidgetItem_MinimumSize_IsBase(true);
         return new QSize(vqwidgetitem->minimumSize());
@@ -1024,27 +1007,26 @@ QSize* QWidgetItem_QBaseMinimumSize(const QWidgetItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QWidgetItem_OnMinimumSize(const QWidgetItem* self, intptr_t slot) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_MinimumSize_Callback(reinterpret_cast<VirtualQWidgetItem::QWidgetItem_MinimumSize_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QSize* QWidgetItem_MaximumSize(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return new QSize(vqwidgetitem->maximumSize());
+        return new QSize(self->maximumSize());
     } else {
         return new QSize(((VirtualQWidgetItem*)self)->maximumSize());
     }
 }
 
-// Base class handler implementation
-QSize* QWidgetItem_QBaseMaximumSize(const QWidgetItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QWidgetItem_OnMaximumSize(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_MaximumSize_Callback(reinterpret_cast<VirtualQWidgetItem::QWidgetItem_MaximumSize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QWidgetItem_QBaseMaximumSize(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
         vqwidgetitem->setQWidgetItem_MaximumSize_IsBase(true);
         return new QSize(vqwidgetitem->maximumSize());
@@ -1053,36 +1035,16 @@ QSize* QWidgetItem_QBaseMaximumSize(const QWidgetItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QWidgetItem_OnMaximumSize(const QWidgetItem* self, intptr_t slot) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_MaximumSize_Callback(reinterpret_cast<VirtualQWidgetItem::QWidgetItem_MaximumSize_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QWidgetItem_ExpandingDirections(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return static_cast<int>(vqwidgetitem->expandingDirections());
+        return static_cast<int>(self->expandingDirections());
     } else {
-        return static_cast<int>(self->QWidgetItem::expandingDirections());
+        return static_cast<int>(((VirtualQWidgetItem*)self)->expandingDirections());
     }
 }
 
-// Base class handler implementation
-int QWidgetItem_QBaseExpandingDirections(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_ExpandingDirections_IsBase(true);
-        return static_cast<int>(vqwidgetitem->expandingDirections());
-    } else {
-        return static_cast<int>(self->QWidgetItem::expandingDirections());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWidgetItem_OnExpandingDirections(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
@@ -1090,28 +1052,27 @@ void QWidgetItem_OnExpandingDirections(const QWidgetItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+int QWidgetItem_QBaseExpandingDirections(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_ExpandingDirections_IsBase(true);
+        return static_cast<int>(vqwidgetitem->expandingDirections());
+    } else {
+        return static_cast<int>(((VirtualQWidgetItem*)self)->expandingDirections());
+    }
+}
+
 bool QWidgetItem_IsEmpty(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return vqwidgetitem->isEmpty();
+        return self->isEmpty();
     } else {
-        return self->QWidgetItem::isEmpty();
+        return ((VirtualQWidgetItem*)self)->isEmpty();
     }
 }
 
-// Base class handler implementation
-bool QWidgetItem_QBaseIsEmpty(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_IsEmpty_IsBase(true);
-        return vqwidgetitem->isEmpty();
-    } else {
-        return self->QWidgetItem::isEmpty();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWidgetItem_OnIsEmpty(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
@@ -1119,28 +1080,27 @@ void QWidgetItem_OnIsEmpty(const QWidgetItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+bool QWidgetItem_QBaseIsEmpty(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_IsEmpty_IsBase(true);
+        return vqwidgetitem->isEmpty();
+    } else {
+        return ((VirtualQWidgetItem*)self)->isEmpty();
+    }
+}
+
 void QWidgetItem_SetGeometry(QWidgetItem* self, const QRect* geometry) {
     auto* vqwidgetitem = dynamic_cast<VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setGeometry(*geometry);
+        self->setGeometry(*geometry);
     } else {
-        self->QWidgetItem::setGeometry(*geometry);
+        ((VirtualQWidgetItem*)self)->setGeometry(*geometry);
     }
 }
 
-// Base class handler implementation
-void QWidgetItem_QBaseSetGeometry(QWidgetItem* self, const QRect* geometry) {
-    auto* vqwidgetitem = dynamic_cast<VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_SetGeometry_IsBase(true);
-        vqwidgetitem->setGeometry(*geometry);
-    } else {
-        self->QWidgetItem::setGeometry(*geometry);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWidgetItem_OnSetGeometry(QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = dynamic_cast<VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
@@ -1148,19 +1108,37 @@ void QWidgetItem_OnSetGeometry(QWidgetItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
-QRect* QWidgetItem_Geometry(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+// Virtual base class handler implementation
+void QWidgetItem_QBaseSetGeometry(QWidgetItem* self, const QRect* geometry) {
+    auto* vqwidgetitem = dynamic_cast<VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return new QRect(vqwidgetitem->geometry());
+        vqwidgetitem->setQWidgetItem_SetGeometry_IsBase(true);
+        vqwidgetitem->setGeometry(*geometry);
+    } else {
+        ((VirtualQWidgetItem*)self)->setGeometry(*geometry);
+    }
+}
+
+QRect* QWidgetItem_Geometry(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        return new QRect(self->geometry());
     } else {
         return new QRect(((VirtualQWidgetItem*)self)->geometry());
     }
 }
 
-// Base class handler implementation
-QRect* QWidgetItem_QBaseGeometry(const QWidgetItem* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QWidgetItem_OnGeometry(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_Geometry_Callback(reinterpret_cast<VirtualQWidgetItem::QWidgetItem_Geometry_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QRect* QWidgetItem_QBaseGeometry(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
         vqwidgetitem->setQWidgetItem_Geometry_IsBase(true);
         return new QRect(vqwidgetitem->geometry());
@@ -1169,36 +1147,16 @@ QRect* QWidgetItem_QBaseGeometry(const QWidgetItem* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QWidgetItem_OnGeometry(const QWidgetItem* self, intptr_t slot) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_Geometry_Callback(reinterpret_cast<VirtualQWidgetItem::QWidgetItem_Geometry_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QWidget* QWidgetItem_Widget(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return vqwidgetitem->widget();
+        return self->widget();
     } else {
-        return self->QWidgetItem::widget();
+        return ((VirtualQWidgetItem*)self)->widget();
     }
 }
 
-// Base class handler implementation
-QWidget* QWidgetItem_QBaseWidget(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_Widget_IsBase(true);
-        return vqwidgetitem->widget();
-    } else {
-        return self->QWidgetItem::widget();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWidgetItem_OnWidget(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
@@ -1206,28 +1164,27 @@ void QWidgetItem_OnWidget(const QWidgetItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+QWidget* QWidgetItem_QBaseWidget(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_Widget_IsBase(true);
+        return vqwidgetitem->widget();
+    } else {
+        return ((VirtualQWidgetItem*)self)->widget();
+    }
+}
+
 bool QWidgetItem_HasHeightForWidth(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return vqwidgetitem->hasHeightForWidth();
+        return self->hasHeightForWidth();
     } else {
-        return self->QWidgetItem::hasHeightForWidth();
+        return ((VirtualQWidgetItem*)self)->hasHeightForWidth();
     }
 }
 
-// Base class handler implementation
-bool QWidgetItem_QBaseHasHeightForWidth(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_HasHeightForWidth_IsBase(true);
-        return vqwidgetitem->hasHeightForWidth();
-    } else {
-        return self->QWidgetItem::hasHeightForWidth();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWidgetItem_OnHasHeightForWidth(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
@@ -1235,28 +1192,27 @@ void QWidgetItem_OnHasHeightForWidth(const QWidgetItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+bool QWidgetItem_QBaseHasHeightForWidth(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_HasHeightForWidth_IsBase(true);
+        return vqwidgetitem->hasHeightForWidth();
+    } else {
+        return ((VirtualQWidgetItem*)self)->hasHeightForWidth();
+    }
+}
+
 int QWidgetItem_HeightForWidth(const QWidgetItem* self, int param1) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return vqwidgetitem->heightForWidth(static_cast<int>(param1));
+        return self->heightForWidth(static_cast<int>(param1));
     } else {
-        return self->QWidgetItem::heightForWidth(static_cast<int>(param1));
+        return ((VirtualQWidgetItem*)self)->heightForWidth(static_cast<int>(param1));
     }
 }
 
-// Base class handler implementation
-int QWidgetItem_QBaseHeightForWidth(const QWidgetItem* self, int param1) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_HeightForWidth_IsBase(true);
-        return vqwidgetitem->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QWidgetItem::heightForWidth(static_cast<int>(param1));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWidgetItem_OnHeightForWidth(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
@@ -1264,28 +1220,27 @@ void QWidgetItem_OnHeightForWidth(const QWidgetItem* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+int QWidgetItem_QBaseHeightForWidth(const QWidgetItem* self, int param1) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_HeightForWidth_IsBase(true);
+        return vqwidgetitem->heightForWidth(static_cast<int>(param1));
+    } else {
+        return ((VirtualQWidgetItem*)self)->heightForWidth(static_cast<int>(param1));
+    }
+}
+
 int QWidgetItem_MinimumHeightForWidth(const QWidgetItem* self, int param1) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return vqwidgetitem->minimumHeightForWidth(static_cast<int>(param1));
+        return self->minimumHeightForWidth(static_cast<int>(param1));
     } else {
-        return self->QWidgetItem::minimumHeightForWidth(static_cast<int>(param1));
+        return ((VirtualQWidgetItem*)self)->minimumHeightForWidth(static_cast<int>(param1));
     }
 }
 
-// Base class handler implementation
-int QWidgetItem_QBaseMinimumHeightForWidth(const QWidgetItem* self, int param1) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_MinimumHeightForWidth_IsBase(true);
-        return vqwidgetitem->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QWidgetItem::minimumHeightForWidth(static_cast<int>(param1));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWidgetItem_OnMinimumHeightForWidth(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
@@ -1293,32 +1248,42 @@ void QWidgetItem_OnMinimumHeightForWidth(const QWidgetItem* self, intptr_t slot)
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+int QWidgetItem_QBaseMinimumHeightForWidth(const QWidgetItem* self, int param1) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_MinimumHeightForWidth_IsBase(true);
+        return vqwidgetitem->minimumHeightForWidth(static_cast<int>(param1));
+    } else {
+        return ((VirtualQWidgetItem*)self)->minimumHeightForWidth(static_cast<int>(param1));
+    }
+}
+
 int QWidgetItem_ControlTypes(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return static_cast<int>(vqwidgetitem->controlTypes());
+        return static_cast<int>(self->controlTypes());
     } else {
-        return static_cast<int>(self->QWidgetItem::controlTypes());
+        return static_cast<int>(((VirtualQWidgetItem*)self)->controlTypes());
     }
 }
 
-// Base class handler implementation
-int QWidgetItem_QBaseControlTypes(const QWidgetItem* self) {
-    auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        vqwidgetitem->setQWidgetItem_ControlTypes_IsBase(true);
-        return static_cast<int>(vqwidgetitem->controlTypes());
-    } else {
-        return static_cast<int>(self->QWidgetItem::controlTypes());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWidgetItem_OnControlTypes(const QWidgetItem* self, intptr_t slot) {
     auto* vqwidgetitem = const_cast<VirtualQWidgetItem*>(dynamic_cast<const VirtualQWidgetItem*>(self));
     if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
         vqwidgetitem->setQWidgetItem_ControlTypes_Callback(reinterpret_cast<VirtualQWidgetItem::QWidgetItem_ControlTypes_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QWidgetItem_QBaseControlTypes(const QWidgetItem* self) {
+    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
+    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
+        vqwidgetitem->setQWidgetItem_ControlTypes_IsBase(true);
+        return static_cast<int>(vqwidgetitem->controlTypes());
+    } else {
+        return static_cast<int>(((VirtualQWidgetItem*)self)->controlTypes());
     }
 }
 
@@ -1417,19 +1382,26 @@ QWidgetItemV2* QWidgetItemV2_new(QWidget* widget) {
     return new VirtualQWidgetItemV2(widget);
 }
 
-// Derived class handler implementation
 QSize* QWidgetItemV2_SizeHint(const QWidgetItemV2* self) {
-    auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
+    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
     if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        return new QSize(vqwidgetitemv2->sizeHint());
+        return new QSize(self->sizeHint());
     } else {
         return new QSize(((VirtualQWidgetItemV2*)self)->sizeHint());
     }
 }
 
-// Base class handler implementation
-QSize* QWidgetItemV2_QBaseSizeHint(const QWidgetItemV2* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QWidgetItemV2_OnSizeHint(const QWidgetItemV2* self, intptr_t slot) {
     auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
+    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
+        vqwidgetitemv2->setQWidgetItemV2_SizeHint_Callback(reinterpret_cast<VirtualQWidgetItemV2::QWidgetItemV2_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QWidgetItemV2_QBaseSizeHint(const QWidgetItemV2* self) {
+    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
     if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
         vqwidgetitemv2->setQWidgetItemV2_SizeHint_IsBase(true);
         return new QSize(vqwidgetitemv2->sizeHint());
@@ -1438,27 +1410,26 @@ QSize* QWidgetItemV2_QBaseSizeHint(const QWidgetItemV2* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QWidgetItemV2_OnSizeHint(const QWidgetItemV2* self, intptr_t slot) {
-    auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
-    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        vqwidgetitemv2->setQWidgetItemV2_SizeHint_Callback(reinterpret_cast<VirtualQWidgetItemV2::QWidgetItemV2_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QSize* QWidgetItemV2_MinimumSize(const QWidgetItemV2* self) {
-    auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
+    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
     if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        return new QSize(vqwidgetitemv2->minimumSize());
+        return new QSize(self->minimumSize());
     } else {
         return new QSize(((VirtualQWidgetItemV2*)self)->minimumSize());
     }
 }
 
-// Base class handler implementation
-QSize* QWidgetItemV2_QBaseMinimumSize(const QWidgetItemV2* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QWidgetItemV2_OnMinimumSize(const QWidgetItemV2* self, intptr_t slot) {
     auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
+    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
+        vqwidgetitemv2->setQWidgetItemV2_MinimumSize_Callback(reinterpret_cast<VirtualQWidgetItemV2::QWidgetItemV2_MinimumSize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QWidgetItemV2_QBaseMinimumSize(const QWidgetItemV2* self) {
+    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
     if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
         vqwidgetitemv2->setQWidgetItemV2_MinimumSize_IsBase(true);
         return new QSize(vqwidgetitemv2->minimumSize());
@@ -1467,27 +1438,26 @@ QSize* QWidgetItemV2_QBaseMinimumSize(const QWidgetItemV2* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QWidgetItemV2_OnMinimumSize(const QWidgetItemV2* self, intptr_t slot) {
-    auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
-    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        vqwidgetitemv2->setQWidgetItemV2_MinimumSize_Callback(reinterpret_cast<VirtualQWidgetItemV2::QWidgetItemV2_MinimumSize_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QSize* QWidgetItemV2_MaximumSize(const QWidgetItemV2* self) {
-    auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
+    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
     if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        return new QSize(vqwidgetitemv2->maximumSize());
+        return new QSize(self->maximumSize());
     } else {
         return new QSize(((VirtualQWidgetItemV2*)self)->maximumSize());
     }
 }
 
-// Base class handler implementation
-QSize* QWidgetItemV2_QBaseMaximumSize(const QWidgetItemV2* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QWidgetItemV2_OnMaximumSize(const QWidgetItemV2* self, intptr_t slot) {
     auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
+    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
+        vqwidgetitemv2->setQWidgetItemV2_MaximumSize_Callback(reinterpret_cast<VirtualQWidgetItemV2::QWidgetItemV2_MaximumSize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QWidgetItemV2_QBaseMaximumSize(const QWidgetItemV2* self) {
+    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
     if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
         vqwidgetitemv2->setQWidgetItemV2_MaximumSize_IsBase(true);
         return new QSize(vqwidgetitemv2->maximumSize());
@@ -1496,40 +1466,31 @@ QSize* QWidgetItemV2_QBaseMaximumSize(const QWidgetItemV2* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QWidgetItemV2_OnMaximumSize(const QWidgetItemV2* self, intptr_t slot) {
-    auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
-    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        vqwidgetitemv2->setQWidgetItemV2_MaximumSize_Callback(reinterpret_cast<VirtualQWidgetItemV2::QWidgetItemV2_MaximumSize_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QWidgetItemV2_HeightForWidth(const QWidgetItemV2* self, int width) {
-    auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
+    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
     if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        return vqwidgetitemv2->heightForWidth(static_cast<int>(width));
+        return self->heightForWidth(static_cast<int>(width));
     } else {
-        return self->QWidgetItemV2::heightForWidth(static_cast<int>(width));
+        return ((VirtualQWidgetItemV2*)self)->heightForWidth(static_cast<int>(width));
     }
 }
 
-// Base class handler implementation
-int QWidgetItemV2_QBaseHeightForWidth(const QWidgetItemV2* self, int width) {
-    auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
-    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        vqwidgetitemv2->setQWidgetItemV2_HeightForWidth_IsBase(true);
-        return vqwidgetitemv2->heightForWidth(static_cast<int>(width));
-    } else {
-        return self->QWidgetItemV2::heightForWidth(static_cast<int>(width));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QWidgetItemV2_OnHeightForWidth(const QWidgetItemV2* self, intptr_t slot) {
     auto* vqwidgetitemv2 = const_cast<VirtualQWidgetItemV2*>(dynamic_cast<const VirtualQWidgetItemV2*>(self));
     if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
         vqwidgetitemv2->setQWidgetItemV2_HeightForWidth_Callback(reinterpret_cast<VirtualQWidgetItemV2::QWidgetItemV2_HeightForWidth_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QWidgetItemV2_QBaseHeightForWidth(const QWidgetItemV2* self, int width) {
+    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
+    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
+        vqwidgetitemv2->setQWidgetItemV2_HeightForWidth_IsBase(true);
+        return vqwidgetitemv2->heightForWidth(static_cast<int>(width));
+    } else {
+        return ((VirtualQWidgetItemV2*)self)->heightForWidth(static_cast<int>(width));
     }
 }
 

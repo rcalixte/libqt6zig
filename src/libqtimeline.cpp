@@ -153,6 +153,34 @@ int QTimeLine_FrameForTime(const QTimeLine* self, int msec) {
     return self->frameForTime(static_cast<int>(msec));
 }
 
+double QTimeLine_ValueForTime(const QTimeLine* self, int msec) {
+    auto* vqtimeline = dynamic_cast<const VirtualQTimeLine*>(self);
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        return static_cast<double>(self->valueForTime(static_cast<int>(msec)));
+    } else {
+        return static_cast<double>(((VirtualQTimeLine*)self)->valueForTime(static_cast<int>(msec)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTimeLine_OnValueForTime(const QTimeLine* self, intptr_t slot) {
+    auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        vqtimeline->setQTimeLine_ValueForTime_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_ValueForTime_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+double QTimeLine_QBaseValueForTime(const QTimeLine* self, int msec) {
+    auto* vqtimeline = dynamic_cast<const VirtualQTimeLine*>(self);
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        vqtimeline->setQTimeLine_ValueForTime_IsBase(true);
+        return static_cast<double>(vqtimeline->valueForTime(static_cast<int>(msec)));
+    } else {
+        return static_cast<double>(((VirtualQTimeLine*)self)->valueForTime(static_cast<int>(msec)));
+    }
+}
+
 void QTimeLine_Start(QTimeLine* self) {
     self->start();
 }
@@ -177,6 +205,30 @@ void QTimeLine_ToggleDirection(QTimeLine* self) {
     self->toggleDirection();
 }
 
+void QTimeLine_TimerEvent(QTimeLine* self, QTimerEvent* event) {
+    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        vqtimeline->timerEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QTimeLine_OnTimerEvent(QTimeLine* self, intptr_t slot) {
+    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        vqtimeline->setQTimeLine_TimerEvent_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_TimerEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QTimeLine_QBaseTimerEvent(QTimeLine* self, QTimerEvent* event) {
+    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        vqtimeline->setQTimeLine_TimerEvent_IsBase(true);
+        vqtimeline->timerEvent(event);
+    }
+}
+
 libqt_string QTimeLine_Tr2(const char* s, const char* c) {
     QString _ret = QTimeLine::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -199,64 +251,6 @@ libqt_string QTimeLine_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-double QTimeLine_ValueForTime(const QTimeLine* self, int msec) {
-    auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        return static_cast<double>(vqtimeline->valueForTime(static_cast<int>(msec)));
-    } else {
-        return static_cast<double>(self->QTimeLine::valueForTime(static_cast<int>(msec)));
-    }
-}
-
-// Base class handler implementation
-double QTimeLine_QBaseValueForTime(const QTimeLine* self, int msec) {
-    auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        vqtimeline->setQTimeLine_ValueForTime_IsBase(true);
-        return static_cast<double>(vqtimeline->valueForTime(static_cast<int>(msec)));
-    } else {
-        return static_cast<double>(self->QTimeLine::valueForTime(static_cast<int>(msec)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeLine_OnValueForTime(const QTimeLine* self, intptr_t slot) {
-    auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        vqtimeline->setQTimeLine_ValueForTime_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_ValueForTime_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTimeLine_TimerEvent(QTimeLine* self, QTimerEvent* event) {
-    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        vqtimeline->timerEvent(event);
-    } else {
-        ((VirtualQTimeLine*)self)->timerEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QTimeLine_QBaseTimerEvent(QTimeLine* self, QTimerEvent* event) {
-    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        vqtimeline->setQTimeLine_TimerEvent_IsBase(true);
-        vqtimeline->timerEvent(event);
-    } else {
-        ((VirtualQTimeLine*)self)->timerEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeLine_OnTimerEvent(QTimeLine* self, intptr_t slot) {
-    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        vqtimeline->setQTimeLine_TimerEvent_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -69,6 +69,34 @@ libqt_string QWebEngineUrlSchemeHandler_Tr(const char* s) {
     return _str;
 }
 
+void QWebEngineUrlSchemeHandler_RequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->requestStarted(param1);
+    } else {
+        ((VirtualQWebEngineUrlSchemeHandler*)self)->requestStarted(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWebEngineUrlSchemeHandler_OnRequestStarted(QWebEngineUrlSchemeHandler* self, intptr_t slot) {
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_RequestStarted_Callback(reinterpret_cast<VirtualQWebEngineUrlSchemeHandler::QWebEngineUrlSchemeHandler_RequestStarted_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWebEngineUrlSchemeHandler_QBaseRequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_RequestStarted_IsBase(true);
+        vqwebengineurlschemehandler->requestStarted(param1);
+    } else {
+        ((VirtualQWebEngineUrlSchemeHandler*)self)->requestStarted(param1);
+    }
+}
+
 libqt_string QWebEngineUrlSchemeHandler_Tr2(const char* s, const char* c) {
     QString _ret = QWebEngineUrlSchemeHandler::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -91,35 +119,6 @@ libqt_string QWebEngineUrlSchemeHandler_Tr3(const char* s, const char* c, int n)
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QWebEngineUrlSchemeHandler_RequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        vqwebengineurlschemehandler->requestStarted(param1);
-    } else {
-        ((VirtualQWebEngineUrlSchemeHandler*)self)->requestStarted(param1);
-    }
-}
-
-// Base class handler implementation
-void QWebEngineUrlSchemeHandler_QBaseRequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_RequestStarted_IsBase(true);
-        vqwebengineurlschemehandler->requestStarted(param1);
-    } else {
-        ((VirtualQWebEngineUrlSchemeHandler*)self)->requestStarted(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebEngineUrlSchemeHandler_OnRequestStarted(QWebEngineUrlSchemeHandler* self, intptr_t slot) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_RequestStarted_Callback(reinterpret_cast<VirtualQWebEngineUrlSchemeHandler::QWebEngineUrlSchemeHandler_RequestStarted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

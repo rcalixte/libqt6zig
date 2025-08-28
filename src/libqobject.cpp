@@ -241,6 +241,62 @@ libqt_string QObject_Tr(const char* s) {
     return _str;
 }
 
+bool QObject_Event(QObject* self, QEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        return self->event(event);
+    } else {
+        return ((VirtualQObject*)self)->event(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QObject_OnEvent(QObject* self, intptr_t slot) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_Event_Callback(reinterpret_cast<VirtualQObject::QObject_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QObject_QBaseEvent(QObject* self, QEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_Event_IsBase(true);
+        return vqobject->event(event);
+    } else {
+        return ((VirtualQObject*)self)->event(event);
+    }
+}
+
+bool QObject_EventFilter(QObject* self, QObject* watched, QEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        return self->eventFilter(watched, event);
+    } else {
+        return ((VirtualQObject*)self)->eventFilter(watched, event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QObject_OnEventFilter(QObject* self, intptr_t slot) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_EventFilter_Callback(reinterpret_cast<VirtualQObject::QObject_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QObject_QBaseEventFilter(QObject* self, QObject* watched, QEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_EventFilter_IsBase(true);
+        return vqobject->eventFilter(watched, event);
+    } else {
+        return ((VirtualQObject*)self)->eventFilter(watched, event);
+    }
+}
+
 libqt_string QObject_ObjectName(const QObject* self) {
     QString _ret = self->objectName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -405,6 +461,126 @@ void QObject_DeleteLater(QObject* self) {
     self->deleteLater();
 }
 
+void QObject_TimerEvent(QObject* self, QTimerEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->timerEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QObject_OnTimerEvent(QObject* self, intptr_t slot) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_TimerEvent_Callback(reinterpret_cast<VirtualQObject::QObject_TimerEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QObject_QBaseTimerEvent(QObject* self, QTimerEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_TimerEvent_IsBase(true);
+        vqobject->timerEvent(event);
+    }
+}
+
+void QObject_ChildEvent(QObject* self, QChildEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->childEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QObject_OnChildEvent(QObject* self, intptr_t slot) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_ChildEvent_Callback(reinterpret_cast<VirtualQObject::QObject_ChildEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QObject_QBaseChildEvent(QObject* self, QChildEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_ChildEvent_IsBase(true);
+        vqobject->childEvent(event);
+    }
+}
+
+void QObject_CustomEvent(QObject* self, QEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->customEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QObject_OnCustomEvent(QObject* self, intptr_t slot) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_CustomEvent_Callback(reinterpret_cast<VirtualQObject::QObject_CustomEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QObject_QBaseCustomEvent(QObject* self, QEvent* event) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_CustomEvent_IsBase(true);
+        vqobject->customEvent(event);
+    }
+}
+
+void QObject_ConnectNotify(QObject* self, const QMetaMethod* signal) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->connectNotify(*signal);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QObject_OnConnectNotify(QObject* self, intptr_t slot) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_ConnectNotify_Callback(reinterpret_cast<VirtualQObject::QObject_ConnectNotify_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QObject_QBaseConnectNotify(QObject* self, const QMetaMethod* signal) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_ConnectNotify_IsBase(true);
+        vqobject->connectNotify(*signal);
+    }
+}
+
+void QObject_DisconnectNotify(QObject* self, const QMetaMethod* signal) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->disconnectNotify(*signal);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QObject_OnDisconnectNotify(QObject* self, intptr_t slot) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_DisconnectNotify_Callback(reinterpret_cast<VirtualQObject::QObject_DisconnectNotify_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QObject_QBaseDisconnectNotify(QObject* self, const QMetaMethod* signal) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_DisconnectNotify_IsBase(true);
+        vqobject->disconnectNotify(*signal);
+    }
+}
+
 libqt_string QObject_Tr2(const char* s, const char* c) {
     QString _ret = QObject::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -455,209 +631,6 @@ void QObject_Connect_Destroyed1(QObject* self, intptr_t slot) {
         QObject* sigval1 = param1;
         slotFunc(self, sigval1);
     });
-}
-
-// Derived class handler implementation
-bool QObject_Event(QObject* self, QEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        return vqobject->event(event);
-    } else {
-        return self->QObject::event(event);
-    }
-}
-
-// Base class handler implementation
-bool QObject_QBaseEvent(QObject* self, QEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_Event_IsBase(true);
-        return vqobject->event(event);
-    } else {
-        return self->QObject::event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObject_OnEvent(QObject* self, intptr_t slot) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_Event_Callback(reinterpret_cast<VirtualQObject::QObject_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QObject_EventFilter(QObject* self, QObject* watched, QEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        return vqobject->eventFilter(watched, event);
-    } else {
-        return self->QObject::eventFilter(watched, event);
-    }
-}
-
-// Base class handler implementation
-bool QObject_QBaseEventFilter(QObject* self, QObject* watched, QEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_EventFilter_IsBase(true);
-        return vqobject->eventFilter(watched, event);
-    } else {
-        return self->QObject::eventFilter(watched, event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObject_OnEventFilter(QObject* self, intptr_t slot) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_EventFilter_Callback(reinterpret_cast<VirtualQObject::QObject_EventFilter_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QObject_TimerEvent(QObject* self, QTimerEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->timerEvent(event);
-    } else {
-        ((VirtualQObject*)self)->timerEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QObject_QBaseTimerEvent(QObject* self, QTimerEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_TimerEvent_IsBase(true);
-        vqobject->timerEvent(event);
-    } else {
-        ((VirtualQObject*)self)->timerEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObject_OnTimerEvent(QObject* self, intptr_t slot) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_TimerEvent_Callback(reinterpret_cast<VirtualQObject::QObject_TimerEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QObject_ChildEvent(QObject* self, QChildEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->childEvent(event);
-    } else {
-        ((VirtualQObject*)self)->childEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QObject_QBaseChildEvent(QObject* self, QChildEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_ChildEvent_IsBase(true);
-        vqobject->childEvent(event);
-    } else {
-        ((VirtualQObject*)self)->childEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObject_OnChildEvent(QObject* self, intptr_t slot) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_ChildEvent_Callback(reinterpret_cast<VirtualQObject::QObject_ChildEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QObject_CustomEvent(QObject* self, QEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->customEvent(event);
-    } else {
-        ((VirtualQObject*)self)->customEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QObject_QBaseCustomEvent(QObject* self, QEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_CustomEvent_IsBase(true);
-        vqobject->customEvent(event);
-    } else {
-        ((VirtualQObject*)self)->customEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObject_OnCustomEvent(QObject* self, intptr_t slot) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_CustomEvent_Callback(reinterpret_cast<VirtualQObject::QObject_CustomEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QObject_ConnectNotify(QObject* self, const QMetaMethod* signal) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->connectNotify(*signal);
-    } else {
-        ((VirtualQObject*)self)->connectNotify(*signal);
-    }
-}
-
-// Base class handler implementation
-void QObject_QBaseConnectNotify(QObject* self, const QMetaMethod* signal) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_ConnectNotify_IsBase(true);
-        vqobject->connectNotify(*signal);
-    } else {
-        ((VirtualQObject*)self)->connectNotify(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObject_OnConnectNotify(QObject* self, intptr_t slot) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_ConnectNotify_Callback(reinterpret_cast<VirtualQObject::QObject_ConnectNotify_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QObject_DisconnectNotify(QObject* self, const QMetaMethod* signal) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->disconnectNotify(*signal);
-    } else {
-        ((VirtualQObject*)self)->disconnectNotify(*signal);
-    }
-}
-
-// Base class handler implementation
-void QObject_QBaseDisconnectNotify(QObject* self, const QMetaMethod* signal) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_DisconnectNotify_IsBase(true);
-        vqobject->disconnectNotify(*signal);
-    } else {
-        ((VirtualQObject*)self)->disconnectNotify(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObject_OnDisconnectNotify(QObject* self, intptr_t slot) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        vqobject->setQObject_DisconnectNotify_Callback(reinterpret_cast<VirtualQObject::QObject_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

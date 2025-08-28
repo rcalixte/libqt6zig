@@ -72,8 +72,28 @@ libqt_string QsciLexerHTML_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerHTML_Language(const QsciLexerHTML* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerHTML_Lexer(const QsciLexerHTML* self) {
+    return (const char*)self->lexer();
+}
+
+const char* QsciLexerHTML_AutoCompletionFillups(const QsciLexerHTML* self) {
+    return (const char*)self->autoCompletionFillups();
+}
+
+const char* QsciLexerHTML_WordCharacters(const QsciLexerHTML* self) {
+    return (const char*)self->wordCharacters();
+}
+
 QColor* QsciLexerHTML_DefaultColor(const QsciLexerHTML* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+bool QsciLexerHTML_DefaultEolFill(const QsciLexerHTML* self, int style) {
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 QFont* QsciLexerHTML_DefaultFont(const QsciLexerHTML* self, int style) {
@@ -82,6 +102,26 @@ QFont* QsciLexerHTML_DefaultFont(const QsciLexerHTML* self, int style) {
 
 QColor* QsciLexerHTML_DefaultPaper(const QsciLexerHTML* self, int style) {
     return new QColor(self->defaultPaper(static_cast<int>(style)));
+}
+
+const char* QsciLexerHTML_Keywords(const QsciLexerHTML* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
+libqt_string QsciLexerHTML_Description(const QsciLexerHTML* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+void QsciLexerHTML_RefreshProperties(QsciLexerHTML* self) {
+    self->refreshProperties();
 }
 
 bool QsciLexerHTML_CaseSensitiveTags(const QsciLexerHTML* self) {
@@ -128,6 +168,90 @@ bool QsciLexerHTML_MakoTemplates(const QsciLexerHTML* self) {
     return self->makoTemplates();
 }
 
+void QsciLexerHTML_SetFoldCompact(QsciLexerHTML* self, bool fold) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        self->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerHTML*)self)->setFoldCompact(fold);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciLexerHTML_OnSetFoldCompact(QsciLexerHTML* self, intptr_t slot) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_SetFoldCompact_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciLexerHTML_QBaseSetFoldCompact(QsciLexerHTML* self, bool fold) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_SetFoldCompact_IsBase(true);
+        vqscilexerhtml->setFoldCompact(fold);
+    } else {
+        ((VirtualQsciLexerHTML*)self)->setFoldCompact(fold);
+    }
+}
+
+void QsciLexerHTML_SetFoldPreprocessor(QsciLexerHTML* self, bool fold) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        self->setFoldPreprocessor(fold);
+    } else {
+        ((VirtualQsciLexerHTML*)self)->setFoldPreprocessor(fold);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciLexerHTML_OnSetFoldPreprocessor(QsciLexerHTML* self, intptr_t slot) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_SetFoldPreprocessor_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_SetFoldPreprocessor_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciLexerHTML_QBaseSetFoldPreprocessor(QsciLexerHTML* self, bool fold) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_SetFoldPreprocessor_IsBase(true);
+        vqscilexerhtml->setFoldPreprocessor(fold);
+    } else {
+        ((VirtualQsciLexerHTML*)self)->setFoldPreprocessor(fold);
+    }
+}
+
+void QsciLexerHTML_SetCaseSensitiveTags(QsciLexerHTML* self, bool sens) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        self->setCaseSensitiveTags(sens);
+    } else {
+        ((VirtualQsciLexerHTML*)self)->setCaseSensitiveTags(sens);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciLexerHTML_OnSetCaseSensitiveTags(QsciLexerHTML* self, intptr_t slot) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_SetCaseSensitiveTags_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_SetCaseSensitiveTags_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciLexerHTML_QBaseSetCaseSensitiveTags(QsciLexerHTML* self, bool sens) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_SetCaseSensitiveTags_IsBase(true);
+        vqscilexerhtml->setCaseSensitiveTags(sens);
+    } else {
+        ((VirtualQsciLexerHTML*)self)->setCaseSensitiveTags(sens);
+    }
+}
+
 libqt_string QsciLexerHTML_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerHTML::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -150,151 +274,6 @@ libqt_string QsciLexerHTML_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QsciLexerHTML_SetFoldCompact(QsciLexerHTML* self, bool fold) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerHTML*)self)->setFoldCompact(fold);
-    }
-}
-
-// Base class handler implementation
-void QsciLexerHTML_QBaseSetFoldCompact(QsciLexerHTML* self, bool fold) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_SetFoldCompact_IsBase(true);
-        vqscilexerhtml->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerHTML*)self)->setFoldCompact(fold);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnSetFoldCompact(QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_SetFoldCompact_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciLexerHTML_SetFoldPreprocessor(QsciLexerHTML* self, bool fold) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setFoldPreprocessor(fold);
-    } else {
-        ((VirtualQsciLexerHTML*)self)->setFoldPreprocessor(fold);
-    }
-}
-
-// Base class handler implementation
-void QsciLexerHTML_QBaseSetFoldPreprocessor(QsciLexerHTML* self, bool fold) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_SetFoldPreprocessor_IsBase(true);
-        vqscilexerhtml->setFoldPreprocessor(fold);
-    } else {
-        ((VirtualQsciLexerHTML*)self)->setFoldPreprocessor(fold);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnSetFoldPreprocessor(QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_SetFoldPreprocessor_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_SetFoldPreprocessor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciLexerHTML_SetCaseSensitiveTags(QsciLexerHTML* self, bool sens) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setCaseSensitiveTags(sens);
-    } else {
-        ((VirtualQsciLexerHTML*)self)->setCaseSensitiveTags(sens);
-    }
-}
-
-// Base class handler implementation
-void QsciLexerHTML_QBaseSetCaseSensitiveTags(QsciLexerHTML* self, bool sens) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_SetCaseSensitiveTags_IsBase(true);
-        vqscilexerhtml->setCaseSensitiveTags(sens);
-    } else {
-        ((VirtualQsciLexerHTML*)self)->setCaseSensitiveTags(sens);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnSetCaseSensitiveTags(QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_SetCaseSensitiveTags_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_SetCaseSensitiveTags_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerHTML_Language(const QsciLexerHTML* self) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        return (const char*)vqscilexerhtml->language();
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerHTML_QBaseLanguage(const QsciLexerHTML* self) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_Language_IsBase(true);
-        return (const char*)vqscilexerhtml->language();
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnLanguage(const QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_Language_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerHTML_Lexer(const QsciLexerHTML* self) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        return (const char*)vqscilexerhtml->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerHTML_QBaseLexer(const QsciLexerHTML* self) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_Lexer_IsBase(true);
-        return (const char*)vqscilexerhtml->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnLexer(const QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_Lexer_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,35 +302,6 @@ void QsciLexerHTML_OnLexerId(const QsciLexerHTML* self, intptr_t slot) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
         vqscilexerhtml->setQsciLexerHTML_LexerId_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_LexerId_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerHTML_AutoCompletionFillups(const QsciLexerHTML* self) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        return (const char*)vqscilexerhtml->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->autoCompletionFillups();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerHTML_QBaseAutoCompletionFillups(const QsciLexerHTML* self) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_AutoCompletionFillups_IsBase(true);
-        return (const char*)vqscilexerhtml->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->autoCompletionFillups();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnAutoCompletionFillups(const QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_AutoCompletionFillups_Callback>(slot));
     }
 }
 
@@ -743,35 +693,6 @@ void QsciLexerHTML_OnIndentationGuideView(const QsciLexerHTML* self, intptr_t sl
 }
 
 // Derived class handler implementation
-const char* QsciLexerHTML_Keywords(const QsciLexerHTML* self, int set) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        return (const char*)vqscilexerhtml->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerHTML_QBaseKeywords(const QsciLexerHTML* self, int set) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_Keywords_IsBase(true);
-        return (const char*)vqscilexerhtml->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnKeywords(const QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_Keywords_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_Keywords_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerHTML_DefaultStyle(const QsciLexerHTML* self) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
@@ -797,67 +718,6 @@ void QsciLexerHTML_OnDefaultStyle(const QsciLexerHTML* self, intptr_t slot) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
         vqscilexerhtml->setQsciLexerHTML_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerHTML_Description(const QsciLexerHTML* self, int style) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        QString _ret = vqscilexerhtml->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerHTML*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerHTML_QBaseDescription(const QsciLexerHTML* self, int style) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_Description_IsBase(true);
-        QString _ret = vqscilexerhtml->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerHTML*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnDescription(const QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_Description_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_Description_Callback>(slot));
     }
 }
 
@@ -916,35 +776,6 @@ void QsciLexerHTML_OnDefaultColor2(const QsciLexerHTML* self, intptr_t slot) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
         vqscilexerhtml->setQsciLexerHTML_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_DefaultColor2_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QsciLexerHTML_DefaultEolFill(const QsciLexerHTML* self, int style) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        return vqscilexerhtml->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerHTML*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerHTML_QBaseDefaultEolFill(const QsciLexerHTML* self, int style) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_DefaultEolFill_IsBase(true);
-        return vqscilexerhtml->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerHTML*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnDefaultEolFill(const QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_DefaultEolFill_Callback>(slot));
     }
 }
 
@@ -1036,35 +867,6 @@ void QsciLexerHTML_OnSetEditor(QsciLexerHTML* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void QsciLexerHTML_RefreshProperties(QsciLexerHTML* self) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->refreshProperties();
-    } else {
-        ((VirtualQsciLexerHTML*)self)->refreshProperties();
-    }
-}
-
-// Base class handler implementation
-void QsciLexerHTML_QBaseRefreshProperties(QsciLexerHTML* self) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_RefreshProperties_IsBase(true);
-        vqscilexerhtml->refreshProperties();
-    } else {
-        ((VirtualQsciLexerHTML*)self)->refreshProperties();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnRefreshProperties(QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_RefreshProperties_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerHTML_StyleBitsNeeded(const QsciLexerHTML* self) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
@@ -1090,35 +892,6 @@ void QsciLexerHTML_OnStyleBitsNeeded(const QsciLexerHTML* self, intptr_t slot) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
         vqscilexerhtml->setQsciLexerHTML_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_StyleBitsNeeded_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerHTML_WordCharacters(const QsciLexerHTML* self) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        return (const char*)vqscilexerhtml->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->wordCharacters();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerHTML_QBaseWordCharacters(const QsciLexerHTML* self) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_WordCharacters_IsBase(true);
-        return (const char*)vqscilexerhtml->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerHTML*)self)->wordCharacters();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnWordCharacters(const QsciLexerHTML* self, intptr_t slot) {
-    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_WordCharacters_Callback>(slot));
     }
 }
 

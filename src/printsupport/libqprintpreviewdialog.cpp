@@ -117,6 +117,62 @@ QPrinter* QPrintPreviewDialog_Printer(QPrintPreviewDialog* self) {
     return self->printer();
 }
 
+void QPrintPreviewDialog_SetVisible(QPrintPreviewDialog* self, bool visible) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        self->setVisible(visible);
+    } else {
+        ((VirtualQPrintPreviewDialog*)self)->setVisible(visible);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrintPreviewDialog_OnSetVisible(QPrintPreviewDialog* self, intptr_t slot) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_SetVisible_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPrintPreviewDialog_QBaseSetVisible(QPrintPreviewDialog* self, bool visible) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_SetVisible_IsBase(true);
+        vqprintpreviewdialog->setVisible(visible);
+    } else {
+        ((VirtualQPrintPreviewDialog*)self)->setVisible(visible);
+    }
+}
+
+void QPrintPreviewDialog_Done(QPrintPreviewDialog* self, int result) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        self->done(static_cast<int>(result));
+    } else {
+        ((VirtualQPrintPreviewDialog*)self)->done(static_cast<int>(result));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrintPreviewDialog_OnDone(QPrintPreviewDialog* self, intptr_t slot) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_Done_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_Done_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPrintPreviewDialog_QBaseDone(QPrintPreviewDialog* self, int result) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_Done_IsBase(true);
+        vqprintpreviewdialog->done(static_cast<int>(result));
+    } else {
+        ((VirtualQPrintPreviewDialog*)self)->done(static_cast<int>(result));
+    }
+}
+
 void QPrintPreviewDialog_PaintRequested(QPrintPreviewDialog* self, QPrinter* printer) {
     self->paintRequested(printer);
 }
@@ -151,64 +207,6 @@ libqt_string QPrintPreviewDialog_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QPrintPreviewDialog_SetVisible(QPrintPreviewDialog* self, bool visible) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setVisible(visible);
-    } else {
-        self->QPrintPreviewDialog::setVisible(visible);
-    }
-}
-
-// Base class handler implementation
-void QPrintPreviewDialog_QBaseSetVisible(QPrintPreviewDialog* self, bool visible) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_SetVisible_IsBase(true);
-        vqprintpreviewdialog->setVisible(visible);
-    } else {
-        self->QPrintPreviewDialog::setVisible(visible);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewDialog_OnSetVisible(QPrintPreviewDialog* self, intptr_t slot) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_SetVisible_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QPrintPreviewDialog_Done(QPrintPreviewDialog* self, int result) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->done(static_cast<int>(result));
-    } else {
-        self->QPrintPreviewDialog::done(static_cast<int>(result));
-    }
-}
-
-// Base class handler implementation
-void QPrintPreviewDialog_QBaseDone(QPrintPreviewDialog* self, int result) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_Done_IsBase(true);
-        vqprintpreviewdialog->done(static_cast<int>(result));
-    } else {
-        self->QPrintPreviewDialog::done(static_cast<int>(result));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewDialog_OnDone(QPrintPreviewDialog* self, intptr_t slot) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        vqprintpreviewdialog->setQPrintPreviewDialog_Done_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

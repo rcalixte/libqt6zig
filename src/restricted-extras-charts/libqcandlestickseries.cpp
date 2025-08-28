@@ -131,6 +131,34 @@ int QCandlestickSeries_Count(const QCandlestickSeries* self) {
     return self->count();
 }
 
+int QCandlestickSeries_Type(const QCandlestickSeries* self) {
+    auto* vqcandlestickseries = dynamic_cast<const VirtualQCandlestickSeries*>(self);
+    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQCandlestickSeries*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QCandlestickSeries_OnType(const QCandlestickSeries* self, intptr_t slot) {
+    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
+    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+        vqcandlestickseries->setQCandlestickSeries_Type_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QCandlestickSeries_QBaseType(const QCandlestickSeries* self) {
+    auto* vqcandlestickseries = dynamic_cast<const VirtualQCandlestickSeries*>(self);
+    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+        vqcandlestickseries->setQCandlestickSeries_Type_IsBase(true);
+        return static_cast<int>(vqcandlestickseries->type());
+    } else {
+        return static_cast<int>(((VirtualQCandlestickSeries*)self)->type());
+    }
+}
+
 void QCandlestickSeries_SetMaximumColumnWidth(QCandlestickSeries* self, double maximumColumnWidth) {
     self->setMaximumColumnWidth(static_cast<qreal>(maximumColumnWidth));
 }
@@ -469,35 +497,6 @@ libqt_string QCandlestickSeries_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QCandlestickSeries_Type(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return static_cast<int>(vqcandlestickseries->type());
-    } else {
-        return static_cast<int>(self->QCandlestickSeries::type());
-    }
-}
-
-// Base class handler implementation
-int QCandlestickSeries_QBaseType(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_Type_IsBase(true);
-        return static_cast<int>(vqcandlestickseries->type());
-    } else {
-        return static_cast<int>(self->QCandlestickSeries::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCandlestickSeries_OnType(const QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_Type_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -262,8 +262,176 @@ void QItemSelectionModel_SetModel(QItemSelectionModel* self, QAbstractItemModel*
     self->setModel(model);
 }
 
+void QItemSelectionModel_SetCurrentIndex(QItemSelectionModel* self, const QModelIndex* index, int command) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        self->setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else {
+        ((VirtualQItemSelectionModel*)self)->setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemSelectionModel_OnSetCurrentIndex(QItemSelectionModel* self, intptr_t slot) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_SetCurrentIndex_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_SetCurrentIndex_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemSelectionModel_QBaseSetCurrentIndex(QItemSelectionModel* self, const QModelIndex* index, int command) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_SetCurrentIndex_IsBase(true);
+        vqitemselectionmodel->setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else {
+        ((VirtualQItemSelectionModel*)self)->setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    }
+}
+
+void QItemSelectionModel_Select(QItemSelectionModel* self, const QModelIndex* index, int command) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        self->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else {
+        ((VirtualQItemSelectionModel*)self)->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemSelectionModel_OnSelect(QItemSelectionModel* self, intptr_t slot) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Select_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_Select_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemSelectionModel_QBaseSelect(QItemSelectionModel* self, const QModelIndex* index, int command) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Select_IsBase(true);
+        vqitemselectionmodel->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else {
+        ((VirtualQItemSelectionModel*)self)->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    }
+}
+
+void QItemSelectionModel_Select2(QItemSelectionModel* self, const QItemSelection* selection, int command) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        self->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else {
+        ((VirtualQItemSelectionModel*)self)->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemSelectionModel_OnSelect2(QItemSelectionModel* self, intptr_t slot) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Select2_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_Select2_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemSelectionModel_QBaseSelect2(QItemSelectionModel* self, const QItemSelection* selection, int command) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Select2_IsBase(true);
+        vqitemselectionmodel->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else {
+        ((VirtualQItemSelectionModel*)self)->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    }
+}
+
+void QItemSelectionModel_Clear(QItemSelectionModel* self) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        self->clear();
+    } else {
+        ((VirtualQItemSelectionModel*)self)->clear();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemSelectionModel_OnClear(QItemSelectionModel* self, intptr_t slot) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Clear_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_Clear_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemSelectionModel_QBaseClear(QItemSelectionModel* self) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Clear_IsBase(true);
+        vqitemselectionmodel->clear();
+    } else {
+        ((VirtualQItemSelectionModel*)self)->clear();
+    }
+}
+
+void QItemSelectionModel_Reset(QItemSelectionModel* self) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        self->reset();
+    } else {
+        ((VirtualQItemSelectionModel*)self)->reset();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemSelectionModel_OnReset(QItemSelectionModel* self, intptr_t slot) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Reset_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_Reset_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemSelectionModel_QBaseReset(QItemSelectionModel* self) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Reset_IsBase(true);
+        vqitemselectionmodel->reset();
+    } else {
+        ((VirtualQItemSelectionModel*)self)->reset();
+    }
+}
+
 void QItemSelectionModel_ClearSelection(QItemSelectionModel* self) {
     self->clearSelection();
+}
+
+void QItemSelectionModel_ClearCurrentIndex(QItemSelectionModel* self) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        self->clearCurrentIndex();
+    } else {
+        ((VirtualQItemSelectionModel*)self)->clearCurrentIndex();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QItemSelectionModel_OnClearCurrentIndex(QItemSelectionModel* self, intptr_t slot) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_ClearCurrentIndex_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_ClearCurrentIndex_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QItemSelectionModel_QBaseClearCurrentIndex(QItemSelectionModel* self) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_ClearCurrentIndex_IsBase(true);
+        vqitemselectionmodel->clearCurrentIndex();
+    } else {
+        ((VirtualQItemSelectionModel*)self)->clearCurrentIndex();
+    }
 }
 
 void QItemSelectionModel_SelectionChanged(QItemSelectionModel* self, const QItemSelection* selected, const QItemSelection* deselected) {
@@ -410,180 +578,6 @@ libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedColumns1(const QIte
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-// Derived class handler implementation
-void QItemSelectionModel_SetCurrentIndex(QItemSelectionModel* self, const QModelIndex* index, int command) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        self->QItemSelectionModel::setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
-}
-
-// Base class handler implementation
-void QItemSelectionModel_QBaseSetCurrentIndex(QItemSelectionModel* self, const QModelIndex* index, int command) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_SetCurrentIndex_IsBase(true);
-        vqitemselectionmodel->setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        self->QItemSelectionModel::setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemSelectionModel_OnSetCurrentIndex(QItemSelectionModel* self, intptr_t slot) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_SetCurrentIndex_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_SetCurrentIndex_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemSelectionModel_Select(QItemSelectionModel* self, const QModelIndex* index, int command) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        self->QItemSelectionModel::select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
-}
-
-// Base class handler implementation
-void QItemSelectionModel_QBaseSelect(QItemSelectionModel* self, const QModelIndex* index, int command) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_Select_IsBase(true);
-        vqitemselectionmodel->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        self->QItemSelectionModel::select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemSelectionModel_OnSelect(QItemSelectionModel* self, intptr_t slot) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_Select_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_Select_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemSelectionModel_Select2(QItemSelectionModel* self, const QItemSelection* selection, int command) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        self->QItemSelectionModel::select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
-}
-
-// Base class handler implementation
-void QItemSelectionModel_QBaseSelect2(QItemSelectionModel* self, const QItemSelection* selection, int command) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_Select2_IsBase(true);
-        vqitemselectionmodel->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        self->QItemSelectionModel::select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemSelectionModel_OnSelect2(QItemSelectionModel* self, intptr_t slot) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_Select2_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_Select2_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemSelectionModel_Clear(QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->clear();
-    } else {
-        self->QItemSelectionModel::clear();
-    }
-}
-
-// Base class handler implementation
-void QItemSelectionModel_QBaseClear(QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_Clear_IsBase(true);
-        vqitemselectionmodel->clear();
-    } else {
-        self->QItemSelectionModel::clear();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemSelectionModel_OnClear(QItemSelectionModel* self, intptr_t slot) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_Clear_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_Clear_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemSelectionModel_Reset(QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->reset();
-    } else {
-        self->QItemSelectionModel::reset();
-    }
-}
-
-// Base class handler implementation
-void QItemSelectionModel_QBaseReset(QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_Reset_IsBase(true);
-        vqitemselectionmodel->reset();
-    } else {
-        self->QItemSelectionModel::reset();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemSelectionModel_OnReset(QItemSelectionModel* self, intptr_t slot) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_Reset_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_Reset_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QItemSelectionModel_ClearCurrentIndex(QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->clearCurrentIndex();
-    } else {
-        self->QItemSelectionModel::clearCurrentIndex();
-    }
-}
-
-// Base class handler implementation
-void QItemSelectionModel_QBaseClearCurrentIndex(QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_ClearCurrentIndex_IsBase(true);
-        vqitemselectionmodel->clearCurrentIndex();
-    } else {
-        self->QItemSelectionModel::clearCurrentIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QItemSelectionModel_OnClearCurrentIndex(QItemSelectionModel* self, intptr_t slot) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        vqitemselectionmodel->setQItemSelectionModel_ClearCurrentIndex_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_ClearCurrentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

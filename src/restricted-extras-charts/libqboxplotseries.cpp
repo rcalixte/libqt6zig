@@ -120,6 +120,34 @@ void QBoxPlotSeries_Clear(QBoxPlotSeries* self) {
     self->clear();
 }
 
+int QBoxPlotSeries_Type(const QBoxPlotSeries* self) {
+    auto* vqboxplotseries = dynamic_cast<const VirtualQBoxPlotSeries*>(self);
+    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQBoxPlotSeries*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QBoxPlotSeries_OnType(const QBoxPlotSeries* self, intptr_t slot) {
+    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
+    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+        vqboxplotseries->setQBoxPlotSeries_Type_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QBoxPlotSeries_QBaseType(const QBoxPlotSeries* self) {
+    auto* vqboxplotseries = dynamic_cast<const VirtualQBoxPlotSeries*>(self);
+    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+        vqboxplotseries->setQBoxPlotSeries_Type_IsBase(true);
+        return static_cast<int>(vqboxplotseries->type());
+    } else {
+        return static_cast<int>(((VirtualQBoxPlotSeries*)self)->type());
+    }
+}
+
 void QBoxPlotSeries_SetBoxOutlineVisible(QBoxPlotSeries* self, bool visible) {
     self->setBoxOutlineVisible(visible);
 }
@@ -344,35 +372,6 @@ libqt_string QBoxPlotSeries_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QBoxPlotSeries_Type(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return static_cast<int>(vqboxplotseries->type());
-    } else {
-        return static_cast<int>(self->QBoxPlotSeries::type());
-    }
-}
-
-// Base class handler implementation
-int QBoxPlotSeries_QBaseType(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_Type_IsBase(true);
-        return static_cast<int>(vqboxplotseries->type());
-    } else {
-        return static_cast<int>(self->QBoxPlotSeries::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotSeries_OnType(const QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_Type_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -72,8 +72,16 @@ libqt_string QsciLexerJavaScript_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerJavaScript_Language(const QsciLexerJavaScript* self) {
+    return (const char*)self->language();
+}
+
 QColor* QsciLexerJavaScript_DefaultColor(const QsciLexerJavaScript* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+bool QsciLexerJavaScript_DefaultEolFill(const QsciLexerJavaScript* self, int style) {
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 QFont* QsciLexerJavaScript_DefaultFont(const QsciLexerJavaScript* self, int style) {
@@ -82,6 +90,22 @@ QFont* QsciLexerJavaScript_DefaultFont(const QsciLexerJavaScript* self, int styl
 
 QColor* QsciLexerJavaScript_DefaultPaper(const QsciLexerJavaScript* self, int style) {
     return new QColor(self->defaultPaper(static_cast<int>(style)));
+}
+
+const char* QsciLexerJavaScript_Keywords(const QsciLexerJavaScript* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
+libqt_string QsciLexerJavaScript_Description(const QsciLexerJavaScript* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QsciLexerJavaScript_Tr2(const char* s, const char* c) {
@@ -250,35 +274,6 @@ void QsciLexerJavaScript_OnSetStylePreprocessor(QsciLexerJavaScript* self, intpt
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetStylePreprocessor_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetStylePreprocessor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerJavaScript_Language(const QsciLexerJavaScript* self) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        return (const char*)vqscilexerjavascript->language();
-    } else {
-        return (const char*)((VirtualQsciLexerJavaScript*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerJavaScript_QBaseLanguage(const QsciLexerJavaScript* self) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_Language_IsBase(true);
-        return (const char*)vqscilexerjavascript->language();
-    } else {
-        return (const char*)((VirtualQsciLexerJavaScript*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJavaScript_OnLanguage(const QsciLexerJavaScript* self, intptr_t slot) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_Language_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Language_Callback>(slot));
     }
 }
 
@@ -757,35 +752,6 @@ void QsciLexerJavaScript_OnIndentationGuideView(const QsciLexerJavaScript* self,
 }
 
 // Derived class handler implementation
-const char* QsciLexerJavaScript_Keywords(const QsciLexerJavaScript* self, int set) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        return (const char*)vqscilexerjavascript->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerJavaScript*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerJavaScript_QBaseKeywords(const QsciLexerJavaScript* self, int set) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_Keywords_IsBase(true);
-        return (const char*)vqscilexerjavascript->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerJavaScript*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJavaScript_OnKeywords(const QsciLexerJavaScript* self, intptr_t slot) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_Keywords_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Keywords_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerJavaScript_DefaultStyle(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
@@ -811,67 +777,6 @@ void QsciLexerJavaScript_OnDefaultStyle(const QsciLexerJavaScript* self, intptr_
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerJavaScript_Description(const QsciLexerJavaScript* self, int style) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        QString _ret = vqscilexerjavascript->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerJavaScript*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerJavaScript_QBaseDescription(const QsciLexerJavaScript* self, int style) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_Description_IsBase(true);
-        QString _ret = vqscilexerjavascript->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerJavaScript*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJavaScript_OnDescription(const QsciLexerJavaScript* self, intptr_t slot) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_Description_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Description_Callback>(slot));
     }
 }
 
@@ -930,35 +835,6 @@ void QsciLexerJavaScript_OnDefaultColor2(const QsciLexerJavaScript* self, intptr
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultColor2_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QsciLexerJavaScript_DefaultEolFill(const QsciLexerJavaScript* self, int style) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        return vqscilexerjavascript->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerJavaScript*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerJavaScript_QBaseDefaultEolFill(const QsciLexerJavaScript* self, int style) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_DefaultEolFill_IsBase(true);
-        return vqscilexerjavascript->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerJavaScript*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJavaScript_OnDefaultEolFill(const QsciLexerJavaScript* self, intptr_t slot) {
-    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultEolFill_Callback>(slot));
     }
 }
 

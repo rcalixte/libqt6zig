@@ -119,6 +119,34 @@ int KRatingWidget_Spacing(const KRatingWidget* self) {
     return self->spacing();
 }
 
+QSize* KRatingWidget_SizeHint(const KRatingWidget* self) {
+    auto* vkratingwidget = dynamic_cast<const VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualKRatingWidget*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KRatingWidget_OnSizeHint(const KRatingWidget* self, intptr_t slot) {
+    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_SizeHint_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KRatingWidget_QBaseSizeHint(const KRatingWidget* self) {
+    auto* vkratingwidget = dynamic_cast<const VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_SizeHint_IsBase(true);
+        return new QSize(vkratingwidget->sizeHint());
+    } else {
+        return new QSize(((VirtualKRatingWidget*)self)->sizeHint());
+    }
+}
+
 bool KRatingWidget_HalfStepsEnabled(const KRatingWidget* self) {
     return self->halfStepsEnabled();
 }
@@ -175,6 +203,126 @@ void KRatingWidget_SetPixmapSize(KRatingWidget* self, int size) {
     self->setPixmapSize(static_cast<int>(size));
 }
 
+void KRatingWidget_MousePressEvent(KRatingWidget* self, QMouseEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->mousePressEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KRatingWidget_OnMousePressEvent(KRatingWidget* self, intptr_t slot) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KRatingWidget_QBaseMousePressEvent(KRatingWidget* self, QMouseEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_MousePressEvent_IsBase(true);
+        vkratingwidget->mousePressEvent(e);
+    }
+}
+
+void KRatingWidget_MouseMoveEvent(KRatingWidget* self, QMouseEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->mouseMoveEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KRatingWidget_OnMouseMoveEvent(KRatingWidget* self, intptr_t slot) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KRatingWidget_QBaseMouseMoveEvent(KRatingWidget* self, QMouseEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_MouseMoveEvent_IsBase(true);
+        vkratingwidget->mouseMoveEvent(e);
+    }
+}
+
+void KRatingWidget_LeaveEvent(KRatingWidget* self, QEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->leaveEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KRatingWidget_OnLeaveEvent(KRatingWidget* self, intptr_t slot) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_LeaveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KRatingWidget_QBaseLeaveEvent(KRatingWidget* self, QEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_LeaveEvent_IsBase(true);
+        vkratingwidget->leaveEvent(e);
+    }
+}
+
+void KRatingWidget_PaintEvent(KRatingWidget* self, QPaintEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->paintEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KRatingWidget_OnPaintEvent(KRatingWidget* self, intptr_t slot) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_PaintEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KRatingWidget_QBasePaintEvent(KRatingWidget* self, QPaintEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_PaintEvent_IsBase(true);
+        vkratingwidget->paintEvent(e);
+    }
+}
+
+void KRatingWidget_ResizeEvent(KRatingWidget* self, QResizeEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->resizeEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KRatingWidget_OnResizeEvent(KRatingWidget* self, intptr_t slot) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KRatingWidget_QBaseResizeEvent(KRatingWidget* self, QResizeEvent* e) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_ResizeEvent_IsBase(true);
+        vkratingwidget->resizeEvent(e);
+    }
+}
+
 libqt_string KRatingWidget_Tr2(const char* s, const char* c) {
     QString _ret = KRatingWidget::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -197,180 +345,6 @@ libqt_string KRatingWidget_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* KRatingWidget_SizeHint(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return new QSize(vkratingwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKRatingWidget*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KRatingWidget_QBaseSizeHint(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_SizeHint_IsBase(true);
-        return new QSize(vkratingwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKRatingWidget*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnSizeHint(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_SizeHint_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KRatingWidget_MousePressEvent(KRatingWidget* self, QMouseEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->mousePressEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->mousePressEvent(e);
-    }
-}
-
-// Base class handler implementation
-void KRatingWidget_QBaseMousePressEvent(KRatingWidget* self, QMouseEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MousePressEvent_IsBase(true);
-        vkratingwidget->mousePressEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->mousePressEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnMousePressEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KRatingWidget_MouseMoveEvent(KRatingWidget* self, QMouseEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->mouseMoveEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->mouseMoveEvent(e);
-    }
-}
-
-// Base class handler implementation
-void KRatingWidget_QBaseMouseMoveEvent(KRatingWidget* self, QMouseEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MouseMoveEvent_IsBase(true);
-        vkratingwidget->mouseMoveEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->mouseMoveEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnMouseMoveEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KRatingWidget_LeaveEvent(KRatingWidget* self, QEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->leaveEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->leaveEvent(e);
-    }
-}
-
-// Base class handler implementation
-void KRatingWidget_QBaseLeaveEvent(KRatingWidget* self, QEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_LeaveEvent_IsBase(true);
-        vkratingwidget->leaveEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->leaveEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnLeaveEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_LeaveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KRatingWidget_PaintEvent(KRatingWidget* self, QPaintEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->paintEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->paintEvent(e);
-    }
-}
-
-// Base class handler implementation
-void KRatingWidget_QBasePaintEvent(KRatingWidget* self, QPaintEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_PaintEvent_IsBase(true);
-        vkratingwidget->paintEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->paintEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnPaintEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_PaintEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KRatingWidget_ResizeEvent(KRatingWidget* self, QResizeEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->resizeEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->resizeEvent(e);
-    }
-}
-
-// Base class handler implementation
-void KRatingWidget_QBaseResizeEvent(KRatingWidget* self, QResizeEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_ResizeEvent_IsBase(true);
-        vkratingwidget->resizeEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->resizeEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnResizeEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

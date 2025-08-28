@@ -2094,6 +2094,34 @@ KMimeTypeChooser* KMimeTypeChooserDialog_Chooser(KMimeTypeChooserDialog* self) {
     return self->chooser();
 }
 
+QSize* KMimeTypeChooserDialog_SizeHint(const KMimeTypeChooserDialog* self) {
+    auto* vkmimetypechooserdialog = dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self);
+    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualKMimeTypeChooserDialog*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KMimeTypeChooserDialog_OnSizeHint(const KMimeTypeChooserDialog* self, intptr_t slot) {
+    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
+    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SizeHint_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KMimeTypeChooserDialog_QBaseSizeHint(const KMimeTypeChooserDialog* self) {
+    auto* vkmimetypechooserdialog = dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self);
+    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SizeHint_IsBase(true);
+        return new QSize(vkmimetypechooserdialog->sizeHint());
+    } else {
+        return new QSize(((VirtualKMimeTypeChooserDialog*)self)->sizeHint());
+    }
+}
+
 libqt_string KMimeTypeChooserDialog_Tr2(const char* s, const char* c) {
     QString _ret = KMimeTypeChooserDialog::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2116,35 +2144,6 @@ libqt_string KMimeTypeChooserDialog_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* KMimeTypeChooserDialog_SizeHint(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return new QSize(vkmimetypechooserdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKMimeTypeChooserDialog*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KMimeTypeChooserDialog_QBaseSizeHint(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SizeHint_IsBase(true);
-        return new QSize(vkmimetypechooserdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKMimeTypeChooserDialog*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnSizeHint(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SizeHint_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

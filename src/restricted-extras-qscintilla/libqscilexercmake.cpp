@@ -72,6 +72,14 @@ libqt_string QsciLexerCMake_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerCMake_Language(const QsciLexerCMake* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerCMake_Lexer(const QsciLexerCMake* self) {
+    return (const char*)self->lexer();
+}
+
 QColor* QsciLexerCMake_DefaultColor(const QsciLexerCMake* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
 }
@@ -84,8 +92,56 @@ QColor* QsciLexerCMake_DefaultPaper(const QsciLexerCMake* self, int style) {
     return new QColor(self->defaultPaper(static_cast<int>(style)));
 }
 
+const char* QsciLexerCMake_Keywords(const QsciLexerCMake* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
+libqt_string QsciLexerCMake_Description(const QsciLexerCMake* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+void QsciLexerCMake_RefreshProperties(QsciLexerCMake* self) {
+    self->refreshProperties();
+}
+
 bool QsciLexerCMake_FoldAtElse(const QsciLexerCMake* self) {
     return self->foldAtElse();
+}
+
+void QsciLexerCMake_SetFoldAtElse(QsciLexerCMake* self, bool fold) {
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        self->setFoldAtElse(fold);
+    } else {
+        ((VirtualQsciLexerCMake*)self)->setFoldAtElse(fold);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciLexerCMake_OnSetFoldAtElse(QsciLexerCMake* self, intptr_t slot) {
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetFoldAtElse_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciLexerCMake_QBaseSetFoldAtElse(QsciLexerCMake* self, bool fold) {
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_IsBase(true);
+        vqscilexercmake->setFoldAtElse(fold);
+    } else {
+        ((VirtualQsciLexerCMake*)self)->setFoldAtElse(fold);
+    }
 }
 
 libqt_string QsciLexerCMake_Tr2(const char* s, const char* c) {
@@ -110,93 +166,6 @@ libqt_string QsciLexerCMake_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QsciLexerCMake_SetFoldAtElse(QsciLexerCMake* self, bool fold) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setFoldAtElse(fold);
-    } else {
-        ((VirtualQsciLexerCMake*)self)->setFoldAtElse(fold);
-    }
-}
-
-// Base class handler implementation
-void QsciLexerCMake_QBaseSetFoldAtElse(QsciLexerCMake* self, bool fold) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_IsBase(true);
-        vqscilexercmake->setFoldAtElse(fold);
-    } else {
-        ((VirtualQsciLexerCMake*)self)->setFoldAtElse(fold);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerCMake_OnSetFoldAtElse(QsciLexerCMake* self, intptr_t slot) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetFoldAtElse_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerCMake_Language(const QsciLexerCMake* self) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        return (const char*)vqscilexercmake->language();
-    } else {
-        return (const char*)((VirtualQsciLexerCMake*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerCMake_QBaseLanguage(const QsciLexerCMake* self) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Language_IsBase(true);
-        return (const char*)vqscilexercmake->language();
-    } else {
-        return (const char*)((VirtualQsciLexerCMake*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerCMake_OnLanguage(const QsciLexerCMake* self, intptr_t slot) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Language_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerCMake_Lexer(const QsciLexerCMake* self) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        return (const char*)vqscilexercmake->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerCMake*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerCMake_QBaseLexer(const QsciLexerCMake* self) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Lexer_IsBase(true);
-        return (const char*)vqscilexercmake->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerCMake*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerCMake_OnLexer(const QsciLexerCMake* self, intptr_t slot) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Lexer_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,35 +614,6 @@ void QsciLexerCMake_OnIndentationGuideView(const QsciLexerCMake* self, intptr_t 
 }
 
 // Derived class handler implementation
-const char* QsciLexerCMake_Keywords(const QsciLexerCMake* self, int set) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        return (const char*)vqscilexercmake->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerCMake*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerCMake_QBaseKeywords(const QsciLexerCMake* self, int set) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Keywords_IsBase(true);
-        return (const char*)vqscilexercmake->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerCMake*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerCMake_OnKeywords(const QsciLexerCMake* self, intptr_t slot) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Keywords_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Keywords_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerCMake_DefaultStyle(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
@@ -699,67 +639,6 @@ void QsciLexerCMake_OnDefaultStyle(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerCMake_Description(const QsciLexerCMake* self, int style) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        QString _ret = vqscilexercmake->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerCMake*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerCMake_QBaseDescription(const QsciLexerCMake* self, int style) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Description_IsBase(true);
-        QString _ret = vqscilexercmake->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerCMake*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerCMake_OnDescription(const QsciLexerCMake* self, intptr_t slot) {
-    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_Description_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Description_Callback>(slot));
     }
 }
 
@@ -934,35 +813,6 @@ void QsciLexerCMake_OnSetEditor(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetEditor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciLexerCMake_RefreshProperties(QsciLexerCMake* self) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->refreshProperties();
-    } else {
-        ((VirtualQsciLexerCMake*)self)->refreshProperties();
-    }
-}
-
-// Base class handler implementation
-void QsciLexerCMake_QBaseRefreshProperties(QsciLexerCMake* self) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_RefreshProperties_IsBase(true);
-        vqscilexercmake->refreshProperties();
-    } else {
-        ((VirtualQsciLexerCMake*)self)->refreshProperties();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerCMake_OnRefreshProperties(QsciLexerCMake* self, intptr_t slot) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_RefreshProperties_Callback>(slot));
     }
 }
 

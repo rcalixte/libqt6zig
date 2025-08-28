@@ -390,6 +390,34 @@ void QGraphicsScene_SetForegroundBrush(QGraphicsScene* self, const QBrush* brush
     self->setForegroundBrush(*brush);
 }
 
+QVariant* QGraphicsScene_InputMethodQuery(const QGraphicsScene* self, int query) {
+    auto* vqgraphicsscene = dynamic_cast<const VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+    } else {
+        return new QVariant(((VirtualQGraphicsScene*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnInputMethodQuery(const QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_InputMethodQuery_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QGraphicsScene_QBaseInputMethodQuery(const QGraphicsScene* self, int query) {
+    auto* vqgraphicsscene = dynamic_cast<const VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_InputMethodQuery_IsBase(true);
+        return new QVariant(vqgraphicsscene->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+    } else {
+        return new QVariant(((VirtualQGraphicsScene*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+    }
+}
+
 libqt_list /* of QGraphicsView* */ QGraphicsScene_Views(const QGraphicsScene* self) {
     QList<QGraphicsView*> _ret = self->views();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -493,6 +521,516 @@ void QGraphicsScene_ClearSelection(QGraphicsScene* self) {
 
 void QGraphicsScene_Clear(QGraphicsScene* self) {
     self->clear();
+}
+
+bool QGraphicsScene_Event(QGraphicsScene* self, QEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        return vqgraphicsscene->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_Event_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QGraphicsScene_QBaseEvent(QGraphicsScene* self, QEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_Event_IsBase(true);
+        return vqgraphicsscene->event(event);
+    }
+    return {};
+}
+
+bool QGraphicsScene_EventFilter(QGraphicsScene* self, QObject* watched, QEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        return vqgraphicsscene->eventFilter(watched, event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnEventFilter(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QGraphicsScene_QBaseEventFilter(QGraphicsScene* self, QObject* watched, QEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_EventFilter_IsBase(true);
+        return vqgraphicsscene->eventFilter(watched, event);
+    }
+    return {};
+}
+
+void QGraphicsScene_ContextMenuEvent(QGraphicsScene* self, QGraphicsSceneContextMenuEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->contextMenuEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnContextMenuEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseContextMenuEvent(QGraphicsScene* self, QGraphicsSceneContextMenuEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_ContextMenuEvent_IsBase(true);
+        vqgraphicsscene->contextMenuEvent(event);
+    }
+}
+
+void QGraphicsScene_DragEnterEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->dragEnterEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnDragEnterEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DragEnterEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseDragEnterEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DragEnterEvent_IsBase(true);
+        vqgraphicsscene->dragEnterEvent(event);
+    }
+}
+
+void QGraphicsScene_DragMoveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->dragMoveEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnDragMoveEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DragMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseDragMoveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DragMoveEvent_IsBase(true);
+        vqgraphicsscene->dragMoveEvent(event);
+    }
+}
+
+void QGraphicsScene_DragLeaveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->dragLeaveEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnDragLeaveEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DragLeaveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseDragLeaveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DragLeaveEvent_IsBase(true);
+        vqgraphicsscene->dragLeaveEvent(event);
+    }
+}
+
+void QGraphicsScene_DropEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->dropEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnDropEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DropEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseDropEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DropEvent_IsBase(true);
+        vqgraphicsscene->dropEvent(event);
+    }
+}
+
+void QGraphicsScene_FocusInEvent(QGraphicsScene* self, QFocusEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->focusInEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnFocusInEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseFocusInEvent(QGraphicsScene* self, QFocusEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_FocusInEvent_IsBase(true);
+        vqgraphicsscene->focusInEvent(event);
+    }
+}
+
+void QGraphicsScene_FocusOutEvent(QGraphicsScene* self, QFocusEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->focusOutEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnFocusOutEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseFocusOutEvent(QGraphicsScene* self, QFocusEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_FocusOutEvent_IsBase(true);
+        vqgraphicsscene->focusOutEvent(event);
+    }
+}
+
+void QGraphicsScene_HelpEvent(QGraphicsScene* self, QGraphicsSceneHelpEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->helpEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnHelpEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_HelpEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_HelpEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseHelpEvent(QGraphicsScene* self, QGraphicsSceneHelpEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_HelpEvent_IsBase(true);
+        vqgraphicsscene->helpEvent(event);
+    }
+}
+
+void QGraphicsScene_KeyPressEvent(QGraphicsScene* self, QKeyEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->keyPressEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnKeyPressEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseKeyPressEvent(QGraphicsScene* self, QKeyEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_KeyPressEvent_IsBase(true);
+        vqgraphicsscene->keyPressEvent(event);
+    }
+}
+
+void QGraphicsScene_KeyReleaseEvent(QGraphicsScene* self, QKeyEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->keyReleaseEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnKeyReleaseEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_KeyReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseKeyReleaseEvent(QGraphicsScene* self, QKeyEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_KeyReleaseEvent_IsBase(true);
+        vqgraphicsscene->keyReleaseEvent(event);
+    }
+}
+
+void QGraphicsScene_MousePressEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->mousePressEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnMousePressEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseMousePressEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MousePressEvent_IsBase(true);
+        vqgraphicsscene->mousePressEvent(event);
+    }
+}
+
+void QGraphicsScene_MouseMoveEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->mouseMoveEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnMouseMoveEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseMouseMoveEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MouseMoveEvent_IsBase(true);
+        vqgraphicsscene->mouseMoveEvent(event);
+    }
+}
+
+void QGraphicsScene_MouseReleaseEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->mouseReleaseEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnMouseReleaseEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseMouseReleaseEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MouseReleaseEvent_IsBase(true);
+        vqgraphicsscene->mouseReleaseEvent(event);
+    }
+}
+
+void QGraphicsScene_MouseDoubleClickEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->mouseDoubleClickEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnMouseDoubleClickEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_MouseDoubleClickEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseMouseDoubleClickEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MouseDoubleClickEvent_IsBase(true);
+        vqgraphicsscene->mouseDoubleClickEvent(event);
+    }
+}
+
+void QGraphicsScene_WheelEvent(QGraphicsScene* self, QGraphicsSceneWheelEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->wheelEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnWheelEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_WheelEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_WheelEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseWheelEvent(QGraphicsScene* self, QGraphicsSceneWheelEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_WheelEvent_IsBase(true);
+        vqgraphicsscene->wheelEvent(event);
+    }
+}
+
+void QGraphicsScene_InputMethodEvent(QGraphicsScene* self, QInputMethodEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->inputMethodEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnInputMethodEvent(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_InputMethodEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseInputMethodEvent(QGraphicsScene* self, QInputMethodEvent* event) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_InputMethodEvent_IsBase(true);
+        vqgraphicsscene->inputMethodEvent(event);
+    }
+}
+
+void QGraphicsScene_DrawBackground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->drawBackground(painter, *rect);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnDrawBackground(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DrawBackground_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DrawBackground_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseDrawBackground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DrawBackground_IsBase(true);
+        vqgraphicsscene->drawBackground(painter, *rect);
+    }
+}
+
+void QGraphicsScene_DrawForeground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->drawForeground(painter, *rect);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnDrawForeground(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DrawForeground_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DrawForeground_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsScene_QBaseDrawForeground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DrawForeground_IsBase(true);
+        vqgraphicsscene->drawForeground(painter, *rect);
+    }
+}
+
+bool QGraphicsScene_FocusNextPrevChild(QGraphicsScene* self, bool next) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        return vqgraphicsscene->focusNextPrevChild(next);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsScene_OnFocusNextPrevChild(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_FocusNextPrevChild_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QGraphicsScene_QBaseFocusNextPrevChild(QGraphicsScene* self, bool next) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_FocusNextPrevChild_IsBase(true);
+        return vqgraphicsscene->focusNextPrevChild(next);
+    }
+    return {};
 }
 
 void QGraphicsScene_Changed(QGraphicsScene* self, const libqt_list /* of QRectF* */ region) {
@@ -849,644 +1387,6 @@ void QGraphicsScene_Invalidate1(QGraphicsScene* self, const QRectF* rect) {
 
 void QGraphicsScene_Invalidate22(QGraphicsScene* self, const QRectF* rect, int layers) {
     self->invalidate(*rect, static_cast<QGraphicsScene::SceneLayers>(layers));
-}
-
-// Derived class handler implementation
-QVariant* QGraphicsScene_InputMethodQuery(const QGraphicsScene* self, int query) {
-    auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        return new QVariant(vqgraphicsscene->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQGraphicsScene*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QGraphicsScene_QBaseInputMethodQuery(const QGraphicsScene* self, int query) {
-    auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_InputMethodQuery_IsBase(true);
-        return new QVariant(vqgraphicsscene->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQGraphicsScene*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnInputMethodQuery(const QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_InputMethodQuery_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QGraphicsScene_Event(QGraphicsScene* self, QEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        return vqgraphicsscene->event(event);
-    } else {
-        return ((VirtualQGraphicsScene*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool QGraphicsScene_QBaseEvent(QGraphicsScene* self, QEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_Event_IsBase(true);
-        return vqgraphicsscene->event(event);
-    } else {
-        return ((VirtualQGraphicsScene*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_Event_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QGraphicsScene_EventFilter(QGraphicsScene* self, QObject* watched, QEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        return vqgraphicsscene->eventFilter(watched, event);
-    } else {
-        return ((VirtualQGraphicsScene*)self)->eventFilter(watched, event);
-    }
-}
-
-// Base class handler implementation
-bool QGraphicsScene_QBaseEventFilter(QGraphicsScene* self, QObject* watched, QEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_EventFilter_IsBase(true);
-        return vqgraphicsscene->eventFilter(watched, event);
-    } else {
-        return ((VirtualQGraphicsScene*)self)->eventFilter(watched, event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnEventFilter(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_EventFilter_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_ContextMenuEvent(QGraphicsScene* self, QGraphicsSceneContextMenuEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->contextMenuEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->contextMenuEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseContextMenuEvent(QGraphicsScene* self, QGraphicsSceneContextMenuEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_ContextMenuEvent_IsBase(true);
-        vqgraphicsscene->contextMenuEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->contextMenuEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnContextMenuEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_DragEnterEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->dragEnterEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->dragEnterEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseDragEnterEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DragEnterEvent_IsBase(true);
-        vqgraphicsscene->dragEnterEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->dragEnterEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnDragEnterEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DragEnterEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_DragMoveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->dragMoveEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->dragMoveEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseDragMoveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DragMoveEvent_IsBase(true);
-        vqgraphicsscene->dragMoveEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->dragMoveEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnDragMoveEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DragMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_DragLeaveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->dragLeaveEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->dragLeaveEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseDragLeaveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DragLeaveEvent_IsBase(true);
-        vqgraphicsscene->dragLeaveEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->dragLeaveEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnDragLeaveEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DragLeaveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_DropEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->dropEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->dropEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseDropEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DropEvent_IsBase(true);
-        vqgraphicsscene->dropEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->dropEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnDropEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DropEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_FocusInEvent(QGraphicsScene* self, QFocusEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->focusInEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->focusInEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseFocusInEvent(QGraphicsScene* self, QFocusEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_FocusInEvent_IsBase(true);
-        vqgraphicsscene->focusInEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->focusInEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnFocusInEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_FocusOutEvent(QGraphicsScene* self, QFocusEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->focusOutEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->focusOutEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseFocusOutEvent(QGraphicsScene* self, QFocusEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_FocusOutEvent_IsBase(true);
-        vqgraphicsscene->focusOutEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->focusOutEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnFocusOutEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_FocusOutEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_HelpEvent(QGraphicsScene* self, QGraphicsSceneHelpEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->helpEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->helpEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseHelpEvent(QGraphicsScene* self, QGraphicsSceneHelpEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_HelpEvent_IsBase(true);
-        vqgraphicsscene->helpEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->helpEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnHelpEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_HelpEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_HelpEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_KeyPressEvent(QGraphicsScene* self, QKeyEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->keyPressEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->keyPressEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseKeyPressEvent(QGraphicsScene* self, QKeyEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_KeyPressEvent_IsBase(true);
-        vqgraphicsscene->keyPressEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->keyPressEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnKeyPressEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_KeyReleaseEvent(QGraphicsScene* self, QKeyEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->keyReleaseEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->keyReleaseEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseKeyReleaseEvent(QGraphicsScene* self, QKeyEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_KeyReleaseEvent_IsBase(true);
-        vqgraphicsscene->keyReleaseEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->keyReleaseEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnKeyReleaseEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_KeyReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_MousePressEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->mousePressEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->mousePressEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseMousePressEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_MousePressEvent_IsBase(true);
-        vqgraphicsscene->mousePressEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->mousePressEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnMousePressEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_MouseMoveEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->mouseMoveEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->mouseMoveEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseMouseMoveEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_MouseMoveEvent_IsBase(true);
-        vqgraphicsscene->mouseMoveEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->mouseMoveEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnMouseMoveEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_MouseReleaseEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->mouseReleaseEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseMouseReleaseEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_MouseReleaseEvent_IsBase(true);
-        vqgraphicsscene->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->mouseReleaseEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnMouseReleaseEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_MouseDoubleClickEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->mouseDoubleClickEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseMouseDoubleClickEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_MouseDoubleClickEvent_IsBase(true);
-        vqgraphicsscene->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->mouseDoubleClickEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnMouseDoubleClickEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_MouseDoubleClickEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_WheelEvent(QGraphicsScene* self, QGraphicsSceneWheelEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->wheelEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->wheelEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseWheelEvent(QGraphicsScene* self, QGraphicsSceneWheelEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_WheelEvent_IsBase(true);
-        vqgraphicsscene->wheelEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->wheelEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnWheelEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_WheelEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_WheelEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_InputMethodEvent(QGraphicsScene* self, QInputMethodEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->inputMethodEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->inputMethodEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseInputMethodEvent(QGraphicsScene* self, QInputMethodEvent* event) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_InputMethodEvent_IsBase(true);
-        vqgraphicsscene->inputMethodEvent(event);
-    } else {
-        ((VirtualQGraphicsScene*)self)->inputMethodEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnInputMethodEvent(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_InputMethodEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_DrawBackground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->drawBackground(painter, *rect);
-    } else {
-        ((VirtualQGraphicsScene*)self)->drawBackground(painter, *rect);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseDrawBackground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DrawBackground_IsBase(true);
-        vqgraphicsscene->drawBackground(painter, *rect);
-    } else {
-        ((VirtualQGraphicsScene*)self)->drawBackground(painter, *rect);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnDrawBackground(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DrawBackground_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DrawBackground_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QGraphicsScene_DrawForeground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->drawForeground(painter, *rect);
-    } else {
-        ((VirtualQGraphicsScene*)self)->drawForeground(painter, *rect);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsScene_QBaseDrawForeground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DrawForeground_IsBase(true);
-        vqgraphicsscene->drawForeground(painter, *rect);
-    } else {
-        ((VirtualQGraphicsScene*)self)->drawForeground(painter, *rect);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnDrawForeground(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_DrawForeground_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DrawForeground_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QGraphicsScene_FocusNextPrevChild(QGraphicsScene* self, bool next) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        return vqgraphicsscene->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQGraphicsScene*)self)->focusNextPrevChild(next);
-    }
-}
-
-// Base class handler implementation
-bool QGraphicsScene_QBaseFocusNextPrevChild(QGraphicsScene* self, bool next) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_FocusNextPrevChild_IsBase(true);
-        return vqgraphicsscene->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQGraphicsScene*)self)->focusNextPrevChild(next);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsScene_OnFocusNextPrevChild(QGraphicsScene* self, intptr_t slot) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        vqgraphicsscene->setQGraphicsScene_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

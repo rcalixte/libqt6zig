@@ -72,6 +72,62 @@ libqt_string QPieLegendMarker_Tr(const char* s) {
     return _str;
 }
 
+int QPieLegendMarker_Type(QPieLegendMarker* self) {
+    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQPieLegendMarker*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPieLegendMarker_OnType(QPieLegendMarker* self, intptr_t slot) {
+    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+        vqpielegendmarker->setQPieLegendMarker_Type_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QPieLegendMarker_QBaseType(QPieLegendMarker* self) {
+    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+        vqpielegendmarker->setQPieLegendMarker_Type_IsBase(true);
+        return static_cast<int>(vqpielegendmarker->type());
+    } else {
+        return static_cast<int>(((VirtualQPieLegendMarker*)self)->type());
+    }
+}
+
+QPieSeries* QPieLegendMarker_Series(QPieLegendMarker* self) {
+    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+        return self->series();
+    } else {
+        return ((VirtualQPieLegendMarker*)self)->series();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPieLegendMarker_OnSeries(QPieLegendMarker* self, intptr_t slot) {
+    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+        vqpielegendmarker->setQPieLegendMarker_Series_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Series_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QPieSeries* QPieLegendMarker_QBaseSeries(QPieLegendMarker* self) {
+    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+        vqpielegendmarker->setQPieLegendMarker_Series_IsBase(true);
+        return vqpielegendmarker->series();
+    } else {
+        return ((VirtualQPieLegendMarker*)self)->series();
+    }
+}
+
 QPieSlice* QPieLegendMarker_Slice(QPieLegendMarker* self) {
     return self->slice();
 }
@@ -98,64 +154,6 @@ libqt_string QPieLegendMarker_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QPieLegendMarker_Type(QPieLegendMarker* self) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return static_cast<int>(vqpielegendmarker->type());
-    } else {
-        return static_cast<int>(self->QPieLegendMarker::type());
-    }
-}
-
-// Base class handler implementation
-int QPieLegendMarker_QBaseType(QPieLegendMarker* self) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Type_IsBase(true);
-        return static_cast<int>(vqpielegendmarker->type());
-    } else {
-        return static_cast<int>(self->QPieLegendMarker::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieLegendMarker_OnType(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Type_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Type_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QPieSeries* QPieLegendMarker_Series(QPieLegendMarker* self) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return vqpielegendmarker->series();
-    } else {
-        return self->QPieLegendMarker::series();
-    }
-}
-
-// Base class handler implementation
-QPieSeries* QPieLegendMarker_QBaseSeries(QPieLegendMarker* self) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Series_IsBase(true);
-        return vqpielegendmarker->series();
-    } else {
-        return self->QPieLegendMarker::series();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieLegendMarker_OnSeries(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Series_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Series_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

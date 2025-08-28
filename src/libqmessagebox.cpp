@@ -480,6 +480,152 @@ void QMessageBox_Connect_ButtonClicked(QMessageBox* self, intptr_t slot) {
     });
 }
 
+bool QMessageBox_Event(QMessageBox* self, QEvent* e) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        return vqmessagebox->event(e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMessageBox_OnEvent(QMessageBox* self, intptr_t slot) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_Event_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QMessageBox_QBaseEvent(QMessageBox* self, QEvent* e) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_Event_IsBase(true);
+        return vqmessagebox->event(e);
+    }
+    return {};
+}
+
+void QMessageBox_ResizeEvent(QMessageBox* self, QResizeEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->resizeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMessageBox_OnResizeEvent(QMessageBox* self, intptr_t slot) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_ResizeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMessageBox_QBaseResizeEvent(QMessageBox* self, QResizeEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_ResizeEvent_IsBase(true);
+        vqmessagebox->resizeEvent(event);
+    }
+}
+
+void QMessageBox_ShowEvent(QMessageBox* self, QShowEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->showEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMessageBox_OnShowEvent(QMessageBox* self, intptr_t slot) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_ShowEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ShowEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMessageBox_QBaseShowEvent(QMessageBox* self, QShowEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_ShowEvent_IsBase(true);
+        vqmessagebox->showEvent(event);
+    }
+}
+
+void QMessageBox_CloseEvent(QMessageBox* self, QCloseEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->closeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMessageBox_OnCloseEvent(QMessageBox* self, intptr_t slot) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_CloseEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_CloseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMessageBox_QBaseCloseEvent(QMessageBox* self, QCloseEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_CloseEvent_IsBase(true);
+        vqmessagebox->closeEvent(event);
+    }
+}
+
+void QMessageBox_KeyPressEvent(QMessageBox* self, QKeyEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->keyPressEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMessageBox_OnKeyPressEvent(QMessageBox* self, intptr_t slot) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMessageBox_QBaseKeyPressEvent(QMessageBox* self, QKeyEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_KeyPressEvent_IsBase(true);
+        vqmessagebox->keyPressEvent(event);
+    }
+}
+
+void QMessageBox_ChangeEvent(QMessageBox* self, QEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->changeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMessageBox_OnChangeEvent(QMessageBox* self, intptr_t slot) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_ChangeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMessageBox_QBaseChangeEvent(QMessageBox* self, QEvent* event) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_ChangeEvent_IsBase(true);
+        vqmessagebox->changeEvent(event);
+    }
+}
+
 libqt_string QMessageBox_Tr2(const char* s, const char* c) {
     QString _ret = QMessageBox::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -741,180 +887,6 @@ int QMessageBox_Critical8(QWidget* parent, const libqt_string title, const libqt
     QString button1Text_QString = QString::fromUtf8(button1Text.data, button1Text.len);
     QString button2Text_QString = QString::fromUtf8(button2Text.data, button2Text.len);
     return QMessageBox::critical(parent, title_QString, text_QString, button0Text_QString, button1Text_QString, button2Text_QString, static_cast<int>(defaultButtonNumber), static_cast<int>(escapeButtonNumber));
-}
-
-// Derived class handler implementation
-bool QMessageBox_Event(QMessageBox* self, QEvent* e) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->event(e);
-    } else {
-        return ((VirtualQMessageBox*)self)->event(e);
-    }
-}
-
-// Base class handler implementation
-bool QMessageBox_QBaseEvent(QMessageBox* self, QEvent* e) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Event_IsBase(true);
-        return vqmessagebox->event(e);
-    } else {
-        return ((VirtualQMessageBox*)self)->event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Event_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMessageBox_ResizeEvent(QMessageBox* self, QResizeEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->resizeEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->resizeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QMessageBox_QBaseResizeEvent(QMessageBox* self, QResizeEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ResizeEvent_IsBase(true);
-        vqmessagebox->resizeEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->resizeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnResizeEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ResizeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMessageBox_ShowEvent(QMessageBox* self, QShowEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->showEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->showEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QMessageBox_QBaseShowEvent(QMessageBox* self, QShowEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ShowEvent_IsBase(true);
-        vqmessagebox->showEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->showEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnShowEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ShowEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ShowEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMessageBox_CloseEvent(QMessageBox* self, QCloseEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->closeEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->closeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QMessageBox_QBaseCloseEvent(QMessageBox* self, QCloseEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_CloseEvent_IsBase(true);
-        vqmessagebox->closeEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->closeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnCloseEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_CloseEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_CloseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMessageBox_KeyPressEvent(QMessageBox* self, QKeyEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->keyPressEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->keyPressEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QMessageBox_QBaseKeyPressEvent(QMessageBox* self, QKeyEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_KeyPressEvent_IsBase(true);
-        vqmessagebox->keyPressEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->keyPressEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnKeyPressEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMessageBox_ChangeEvent(QMessageBox* self, QEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->changeEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->changeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QMessageBox_QBaseChangeEvent(QMessageBox* self, QEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ChangeEvent_IsBase(true);
-        vqmessagebox->changeEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->changeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnChangeEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ChangeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

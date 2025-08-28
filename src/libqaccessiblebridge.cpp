@@ -87,6 +87,36 @@ libqt_string QAccessibleBridgePlugin_Tr(const char* s) {
     return _str;
 }
 
+QAccessibleBridge* QAccessibleBridgePlugin_Create(QAccessibleBridgePlugin* self, const libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
+    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+        return vqaccessiblebridgeplugin->create(key_QString);
+    } else {
+        return ((VirtualQAccessibleBridgePlugin*)self)->create(key_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAccessibleBridgePlugin_OnCreate(QAccessibleBridgePlugin* self, intptr_t slot) {
+    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
+    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Create_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Create_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QAccessibleBridge* QAccessibleBridgePlugin_QBaseCreate(QAccessibleBridgePlugin* self, const libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
+    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Create_IsBase(true);
+        return vqaccessiblebridgeplugin->create(key_QString);
+    } else {
+        return ((VirtualQAccessibleBridgePlugin*)self)->create(key_QString);
+    }
+}
+
 libqt_string QAccessibleBridgePlugin_Tr2(const char* s, const char* c) {
     QString _ret = QAccessibleBridgePlugin::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -109,37 +139,6 @@ libqt_string QAccessibleBridgePlugin_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QAccessibleBridge* QAccessibleBridgePlugin_Create(QAccessibleBridgePlugin* self, const libqt_string key) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        return vqaccessiblebridgeplugin->create(key_QString);
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->create(key_QString);
-    }
-}
-
-// Base class handler implementation
-QAccessibleBridge* QAccessibleBridgePlugin_QBaseCreate(QAccessibleBridgePlugin* self, const libqt_string key) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Create_IsBase(true);
-        return vqaccessiblebridgeplugin->create(key_QString);
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->create(key_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAccessibleBridgePlugin_OnCreate(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Create_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

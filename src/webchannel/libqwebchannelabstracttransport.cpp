@@ -69,6 +69,34 @@ libqt_string QWebChannelAbstractTransport_Tr(const char* s) {
     return _str;
 }
 
+void QWebChannelAbstractTransport_SendMessage(QWebChannelAbstractTransport* self, const QJsonObject* message) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
+        vqwebchannelabstracttransport->sendMessage(*message);
+    } else {
+        ((VirtualQWebChannelAbstractTransport*)self)->sendMessage(*message);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWebChannelAbstractTransport_OnSendMessage(QWebChannelAbstractTransport* self, intptr_t slot) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
+        vqwebchannelabstracttransport->setQWebChannelAbstractTransport_SendMessage_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_SendMessage_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWebChannelAbstractTransport_QBaseSendMessage(QWebChannelAbstractTransport* self, const QJsonObject* message) {
+    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
+    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
+        vqwebchannelabstracttransport->setQWebChannelAbstractTransport_SendMessage_IsBase(true);
+        vqwebchannelabstracttransport->sendMessage(*message);
+    } else {
+        ((VirtualQWebChannelAbstractTransport*)self)->sendMessage(*message);
+    }
+}
+
 void QWebChannelAbstractTransport_MessageReceived(QWebChannelAbstractTransport* self, const QJsonObject* message, QWebChannelAbstractTransport* transport) {
     self->messageReceived(*message, transport);
 }
@@ -106,35 +134,6 @@ libqt_string QWebChannelAbstractTransport_Tr3(const char* s, const char* c, int 
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QWebChannelAbstractTransport_SendMessage(QWebChannelAbstractTransport* self, const QJsonObject* message) {
-    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
-    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
-        vqwebchannelabstracttransport->sendMessage(*message);
-    } else {
-        ((VirtualQWebChannelAbstractTransport*)self)->sendMessage(*message);
-    }
-}
-
-// Base class handler implementation
-void QWebChannelAbstractTransport_QBaseSendMessage(QWebChannelAbstractTransport* self, const QJsonObject* message) {
-    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
-    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
-        vqwebchannelabstracttransport->setQWebChannelAbstractTransport_SendMessage_IsBase(true);
-        vqwebchannelabstracttransport->sendMessage(*message);
-    } else {
-        ((VirtualQWebChannelAbstractTransport*)self)->sendMessage(*message);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebChannelAbstractTransport_OnSendMessage(QWebChannelAbstractTransport* self, intptr_t slot) {
-    auto* vqwebchannelabstracttransport = dynamic_cast<VirtualQWebChannelAbstractTransport*>(self);
-    if (vqwebchannelabstracttransport && vqwebchannelabstracttransport->isVirtualQWebChannelAbstractTransport) {
-        vqwebchannelabstracttransport->setQWebChannelAbstractTransport_SendMessage_Callback(reinterpret_cast<VirtualQWebChannelAbstractTransport::QWebChannelAbstractTransport_SendMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

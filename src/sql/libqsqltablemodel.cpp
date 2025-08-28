@@ -89,6 +89,36 @@ libqt_string QSqlTableModel_Tr(const char* s) {
     return _str;
 }
 
+void QSqlTableModel_SetTable(QSqlTableModel* self, const libqt_string tableName) {
+    QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        self->setTable(tableName_QString);
+    } else {
+        ((VirtualQSqlTableModel*)self)->setTable(tableName_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSetTable(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetTable_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetTable_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlTableModel_QBaseSetTable(QSqlTableModel* self, const libqt_string tableName) {
+    QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetTable_IsBase(true);
+        vqsqltablemodel->setTable(tableName_QString);
+    } else {
+        ((VirtualQSqlTableModel*)self)->setTable(tableName_QString);
+    }
+}
+
 libqt_string QSqlTableModel_TableName(const QSqlTableModel* self) {
     QString _ret = self->tableName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -101,6 +131,34 @@ libqt_string QSqlTableModel_TableName(const QSqlTableModel* self) {
     return _str;
 }
 
+int QSqlTableModel_Flags(const QSqlTableModel* self, const QModelIndex* index) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return static_cast<int>(self->flags(*index));
+    } else {
+        return static_cast<int>(((VirtualQSqlTableModel*)self)->flags(*index));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnFlags(const QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Flags_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Flags_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QSqlTableModel_QBaseFlags(const QSqlTableModel* self, const QModelIndex* index) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Flags_IsBase(true);
+        return static_cast<int>(vqsqltablemodel->flags(*index));
+    } else {
+        return static_cast<int>(((VirtualQSqlTableModel*)self)->flags(*index));
+    }
+}
+
 QSqlRecord* QSqlTableModel_Record(const QSqlTableModel* self) {
     return new QSqlRecord(self->record());
 }
@@ -109,12 +167,180 @@ QSqlRecord* QSqlTableModel_Record2(const QSqlTableModel* self, int row) {
     return new QSqlRecord(self->record(static_cast<int>(row)));
 }
 
+QVariant* QSqlTableModel_Data(const QSqlTableModel* self, const QModelIndex* idx, int role) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return new QVariant(self->data(*idx, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQSqlTableModel*)self)->data(*idx, static_cast<int>(role)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnData(const QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Data_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Data_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QSqlTableModel_QBaseData(const QSqlTableModel* self, const QModelIndex* idx, int role) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Data_IsBase(true);
+        return new QVariant(vqsqltablemodel->data(*idx, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQSqlTableModel*)self)->data(*idx, static_cast<int>(role)));
+    }
+}
+
+bool QSqlTableModel_SetData(QSqlTableModel* self, const QModelIndex* index, const QVariant* value, int role) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->setData(*index, *value, static_cast<int>(role));
+    } else {
+        return ((VirtualQSqlTableModel*)self)->setData(*index, *value, static_cast<int>(role));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSetData(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetData_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseSetData(QSqlTableModel* self, const QModelIndex* index, const QVariant* value, int role) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetData_IsBase(true);
+        return vqsqltablemodel->setData(*index, *value, static_cast<int>(role));
+    } else {
+        return ((VirtualQSqlTableModel*)self)->setData(*index, *value, static_cast<int>(role));
+    }
+}
+
+bool QSqlTableModel_ClearItemData(QSqlTableModel* self, const QModelIndex* index) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->clearItemData(*index);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->clearItemData(*index);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnClearItemData(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_ClearItemData_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_ClearItemData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseClearItemData(QSqlTableModel* self, const QModelIndex* index) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_ClearItemData_IsBase(true);
+        return vqsqltablemodel->clearItemData(*index);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->clearItemData(*index);
+    }
+}
+
+QVariant* QSqlTableModel_HeaderData(const QSqlTableModel* self, int section, int orientation, int role) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQSqlTableModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnHeaderData(const QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_HeaderData_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_HeaderData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QSqlTableModel_QBaseHeaderData(const QSqlTableModel* self, int section, int orientation, int role) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_HeaderData_IsBase(true);
+        return new QVariant(vqsqltablemodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQSqlTableModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
+    }
+}
+
 bool QSqlTableModel_IsDirty(const QSqlTableModel* self) {
     return self->isDirty();
 }
 
 bool QSqlTableModel_IsDirty2(const QSqlTableModel* self, const QModelIndex* index) {
     return self->isDirty(*index);
+}
+
+void QSqlTableModel_Clear(QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        self->clear();
+    } else {
+        ((VirtualQSqlTableModel*)self)->clear();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnClear(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Clear_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Clear_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlTableModel_QBaseClear(QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Clear_IsBase(true);
+        vqsqltablemodel->clear();
+    } else {
+        ((VirtualQSqlTableModel*)self)->clear();
+    }
+}
+
+void QSqlTableModel_SetEditStrategy(QSqlTableModel* self, int strategy) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        self->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
+    } else {
+        ((VirtualQSqlTableModel*)self)->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSetEditStrategy(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetEditStrategy_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetEditStrategy_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlTableModel_QBaseSetEditStrategy(QSqlTableModel* self, int strategy) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetEditStrategy_IsBase(true);
+        vqsqltablemodel->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
+    } else {
+        ((VirtualQSqlTableModel*)self)->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
+    }
 }
 
 int QSqlTableModel_EditStrategy(const QSqlTableModel* self) {
@@ -134,6 +360,62 @@ int QSqlTableModel_FieldIndex(const QSqlTableModel* self, const libqt_string fie
     return self->fieldIndex(fieldName_QString);
 }
 
+void QSqlTableModel_Sort(QSqlTableModel* self, int column, int order) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        ((VirtualQSqlTableModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSort(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Sort_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Sort_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlTableModel_QBaseSort(QSqlTableModel* self, int column, int order) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Sort_IsBase(true);
+        vqsqltablemodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        ((VirtualQSqlTableModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
+void QSqlTableModel_SetSort(QSqlTableModel* self, int column, int order) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        self->setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        ((VirtualQSqlTableModel*)self)->setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSetSort(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetSort_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetSort_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlTableModel_QBaseSetSort(QSqlTableModel* self, int column, int order) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetSort_IsBase(true);
+        vqsqltablemodel->setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        ((VirtualQSqlTableModel*)self)->setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
 libqt_string QSqlTableModel_Filter(const QSqlTableModel* self) {
     QString _ret = self->filter();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -146,12 +428,294 @@ libqt_string QSqlTableModel_Filter(const QSqlTableModel* self) {
     return _str;
 }
 
+void QSqlTableModel_SetFilter(QSqlTableModel* self, const libqt_string filter) {
+    QString filter_QString = QString::fromUtf8(filter.data, filter.len);
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        self->setFilter(filter_QString);
+    } else {
+        ((VirtualQSqlTableModel*)self)->setFilter(filter_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSetFilter(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetFilter_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlTableModel_QBaseSetFilter(QSqlTableModel* self, const libqt_string filter) {
+    QString filter_QString = QString::fromUtf8(filter.data, filter.len);
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SetFilter_IsBase(true);
+        vqsqltablemodel->setFilter(filter_QString);
+    } else {
+        ((VirtualQSqlTableModel*)self)->setFilter(filter_QString);
+    }
+}
+
+int QSqlTableModel_RowCount(const QSqlTableModel* self, const QModelIndex* parent) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->rowCount(*parent);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->rowCount(*parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnRowCount(const QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_RowCount_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_RowCount_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QSqlTableModel_QBaseRowCount(const QSqlTableModel* self, const QModelIndex* parent) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_RowCount_IsBase(true);
+        return vqsqltablemodel->rowCount(*parent);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->rowCount(*parent);
+    }
+}
+
+bool QSqlTableModel_RemoveColumns(QSqlTableModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnRemoveColumns(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_RemoveColumns_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_RemoveColumns_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseRemoveColumns(QSqlTableModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_RemoveColumns_IsBase(true);
+        return vqsqltablemodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+bool QSqlTableModel_RemoveRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnRemoveRows(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_RemoveRows_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_RemoveRows_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseRemoveRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_RemoveRows_IsBase(true);
+        return vqsqltablemodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+bool QSqlTableModel_InsertRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnInsertRows(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_InsertRows_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_InsertRows_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseInsertRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_InsertRows_IsBase(true);
+        return vqsqltablemodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
+    }
+}
+
 bool QSqlTableModel_InsertRecord(QSqlTableModel* self, int row, const QSqlRecord* record) {
     return self->insertRecord(static_cast<int>(row), *record);
 }
 
 bool QSqlTableModel_SetRecord(QSqlTableModel* self, int row, const QSqlRecord* record) {
     return self->setRecord(static_cast<int>(row), *record);
+}
+
+void QSqlTableModel_RevertRow(QSqlTableModel* self, int row) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        self->revertRow(static_cast<int>(row));
+    } else {
+        ((VirtualQSqlTableModel*)self)->revertRow(static_cast<int>(row));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnRevertRow(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_RevertRow_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_RevertRow_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlTableModel_QBaseRevertRow(QSqlTableModel* self, int row) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_RevertRow_IsBase(true);
+        vqsqltablemodel->revertRow(static_cast<int>(row));
+    } else {
+        ((VirtualQSqlTableModel*)self)->revertRow(static_cast<int>(row));
+    }
+}
+
+bool QSqlTableModel_Select(QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->select();
+    } else {
+        return ((VirtualQSqlTableModel*)self)->select();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSelect(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Select_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Select_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseSelect(QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Select_IsBase(true);
+        return vqsqltablemodel->select();
+    } else {
+        return ((VirtualQSqlTableModel*)self)->select();
+    }
+}
+
+bool QSqlTableModel_SelectRow(QSqlTableModel* self, int row) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->selectRow(static_cast<int>(row));
+    } else {
+        return ((VirtualQSqlTableModel*)self)->selectRow(static_cast<int>(row));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSelectRow(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SelectRow_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SelectRow_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseSelectRow(QSqlTableModel* self, int row) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SelectRow_IsBase(true);
+        return vqsqltablemodel->selectRow(static_cast<int>(row));
+    } else {
+        return ((VirtualQSqlTableModel*)self)->selectRow(static_cast<int>(row));
+    }
+}
+
+bool QSqlTableModel_Submit(QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->submit();
+    } else {
+        return ((VirtualQSqlTableModel*)self)->submit();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSubmit(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Submit_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Submit_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseSubmit(QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Submit_IsBase(true);
+        return vqsqltablemodel->submit();
+    } else {
+        return ((VirtualQSqlTableModel*)self)->submit();
+    }
+}
+
+void QSqlTableModel_Revert(QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        self->revert();
+    } else {
+        ((VirtualQSqlTableModel*)self)->revert();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnRevert(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Revert_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Revert_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlTableModel_QBaseRevert(QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Revert_IsBase(true);
+        vqsqltablemodel->revert();
+    } else {
+        ((VirtualQSqlTableModel*)self)->revert();
+    }
 }
 
 bool QSqlTableModel_SubmitAll(QSqlTableModel* self) {
@@ -218,6 +782,194 @@ void QSqlTableModel_Connect_BeforeDelete(QSqlTableModel* self, intptr_t slot) {
     });
 }
 
+bool QSqlTableModel_UpdateRowInTable(QSqlTableModel* self, int row, const QSqlRecord* values) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return vqsqltablemodel->updateRowInTable(static_cast<int>(row), *values);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnUpdateRowInTable(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_UpdateRowInTable_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_UpdateRowInTable_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseUpdateRowInTable(QSqlTableModel* self, int row, const QSqlRecord* values) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_UpdateRowInTable_IsBase(true);
+        return vqsqltablemodel->updateRowInTable(static_cast<int>(row), *values);
+    }
+    return {};
+}
+
+bool QSqlTableModel_InsertRowIntoTable(QSqlTableModel* self, const QSqlRecord* values) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return vqsqltablemodel->insertRowIntoTable(*values);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnInsertRowIntoTable(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_InsertRowIntoTable_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_InsertRowIntoTable_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseInsertRowIntoTable(QSqlTableModel* self, const QSqlRecord* values) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_InsertRowIntoTable_IsBase(true);
+        return vqsqltablemodel->insertRowIntoTable(*values);
+    }
+    return {};
+}
+
+bool QSqlTableModel_DeleteRowFromTable(QSqlTableModel* self, int row) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return vqsqltablemodel->deleteRowFromTable(static_cast<int>(row));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnDeleteRowFromTable(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_DeleteRowFromTable_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_DeleteRowFromTable_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlTableModel_QBaseDeleteRowFromTable(QSqlTableModel* self, int row) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_DeleteRowFromTable_IsBase(true);
+        return vqsqltablemodel->deleteRowFromTable(static_cast<int>(row));
+    }
+    return {};
+}
+
+libqt_string QSqlTableModel_OrderByClause(const QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        QString _ret = vqsqltablemodel->orderByClause();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnOrderByClause(const QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_OrderByClause_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_OrderByClause_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QSqlTableModel_QBaseOrderByClause(const QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_OrderByClause_IsBase(true);
+        QString _ret = vqsqltablemodel->orderByClause();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+libqt_string QSqlTableModel_SelectStatement(const QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        QString _ret = vqsqltablemodel->selectStatement();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnSelectStatement(const QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SelectStatement_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SelectStatement_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QSqlTableModel_QBaseSelectStatement(const QSqlTableModel* self) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_SelectStatement_IsBase(true);
+        QString _ret = vqsqltablemodel->selectStatement();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+QModelIndex* QSqlTableModel_IndexInQuery(const QSqlTableModel* self, const QModelIndex* item) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return new QModelIndex(vqsqltablemodel->indexInQuery(*item));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlTableModel_OnIndexInQuery(const QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_IndexInQuery_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_IndexInQuery_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QModelIndex* QSqlTableModel_QBaseIndexInQuery(const QSqlTableModel* self, const QModelIndex* item) {
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_IndexInQuery_IsBase(true);
+        return new QModelIndex(vqsqltablemodel->indexInQuery(*item));
+    }
+    return {};
+}
+
 libqt_string QSqlTableModel_Tr2(const char* s, const char* c) {
     QString _ret = QSqlTableModel::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -240,826 +992,6 @@ libqt_string QSqlTableModel_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QSqlTableModel_SetTable(QSqlTableModel* self, const libqt_string tableName) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setTable(tableName_QString);
-    } else {
-        self->QSqlTableModel::setTable(tableName_QString);
-    }
-}
-
-// Base class handler implementation
-void QSqlTableModel_QBaseSetTable(QSqlTableModel* self, const libqt_string tableName) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetTable_IsBase(true);
-        vqsqltablemodel->setTable(tableName_QString);
-    } else {
-        self->QSqlTableModel::setTable(tableName_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSetTable(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetTable_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetTable_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QSqlTableModel_Flags(const QSqlTableModel* self, const QModelIndex* index) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return static_cast<int>(vqsqltablemodel->flags(*index));
-    } else {
-        return static_cast<int>(self->QSqlTableModel::flags(*index));
-    }
-}
-
-// Base class handler implementation
-int QSqlTableModel_QBaseFlags(const QSqlTableModel* self, const QModelIndex* index) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Flags_IsBase(true);
-        return static_cast<int>(vqsqltablemodel->flags(*index));
-    } else {
-        return static_cast<int>(self->QSqlTableModel::flags(*index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnFlags(const QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Flags_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Flags_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QSqlTableModel_Data(const QSqlTableModel* self, const QModelIndex* idx, int role) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return new QVariant(vqsqltablemodel->data(*idx, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlTableModel*)self)->data(*idx, static_cast<int>(role)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QSqlTableModel_QBaseData(const QSqlTableModel* self, const QModelIndex* idx, int role) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Data_IsBase(true);
-        return new QVariant(vqsqltablemodel->data(*idx, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlTableModel*)self)->data(*idx, static_cast<int>(role)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnData(const QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Data_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Data_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_SetData(QSqlTableModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->QSqlTableModel::setData(*index, *value, static_cast<int>(role));
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseSetData(QSqlTableModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetData_IsBase(true);
-        return vqsqltablemodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->QSqlTableModel::setData(*index, *value, static_cast<int>(role));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSetData(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetData_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_ClearItemData(QSqlTableModel* self, const QModelIndex* index) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->clearItemData(*index);
-    } else {
-        return self->QSqlTableModel::clearItemData(*index);
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseClearItemData(QSqlTableModel* self, const QModelIndex* index) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_ClearItemData_IsBase(true);
-        return vqsqltablemodel->clearItemData(*index);
-    } else {
-        return self->QSqlTableModel::clearItemData(*index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnClearItemData(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_ClearItemData_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_ClearItemData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QSqlTableModel_HeaderData(const QSqlTableModel* self, int section, int orientation, int role) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return new QVariant(vqsqltablemodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlTableModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QSqlTableModel_QBaseHeaderData(const QSqlTableModel* self, int section, int orientation, int role) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_HeaderData_IsBase(true);
-        return new QVariant(vqsqltablemodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlTableModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnHeaderData(const QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_HeaderData_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_HeaderData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlTableModel_Clear(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->clear();
-    } else {
-        self->QSqlTableModel::clear();
-    }
-}
-
-// Base class handler implementation
-void QSqlTableModel_QBaseClear(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Clear_IsBase(true);
-        vqsqltablemodel->clear();
-    } else {
-        self->QSqlTableModel::clear();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnClear(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Clear_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Clear_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlTableModel_SetEditStrategy(QSqlTableModel* self, int strategy) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
-    } else {
-        self->QSqlTableModel::setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
-    }
-}
-
-// Base class handler implementation
-void QSqlTableModel_QBaseSetEditStrategy(QSqlTableModel* self, int strategy) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetEditStrategy_IsBase(true);
-        vqsqltablemodel->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
-    } else {
-        self->QSqlTableModel::setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSetEditStrategy(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetEditStrategy_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetEditStrategy_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlTableModel_Sort(QSqlTableModel* self, int column, int order) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->QSqlTableModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Base class handler implementation
-void QSqlTableModel_QBaseSort(QSqlTableModel* self, int column, int order) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Sort_IsBase(true);
-        vqsqltablemodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->QSqlTableModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSort(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Sort_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Sort_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlTableModel_SetSort(QSqlTableModel* self, int column, int order) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->QSqlTableModel::setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Base class handler implementation
-void QSqlTableModel_QBaseSetSort(QSqlTableModel* self, int column, int order) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetSort_IsBase(true);
-        vqsqltablemodel->setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->QSqlTableModel::setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSetSort(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetSort_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetSort_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlTableModel_SetFilter(QSqlTableModel* self, const libqt_string filter) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    QString filter_QString = QString::fromUtf8(filter.data, filter.len);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setFilter(filter_QString);
-    } else {
-        self->QSqlTableModel::setFilter(filter_QString);
-    }
-}
-
-// Base class handler implementation
-void QSqlTableModel_QBaseSetFilter(QSqlTableModel* self, const libqt_string filter) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    QString filter_QString = QString::fromUtf8(filter.data, filter.len);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetFilter_IsBase(true);
-        vqsqltablemodel->setFilter(filter_QString);
-    } else {
-        self->QSqlTableModel::setFilter(filter_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSetFilter(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SetFilter_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SetFilter_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QSqlTableModel_RowCount(const QSqlTableModel* self, const QModelIndex* parent) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->rowCount(*parent);
-    } else {
-        return self->QSqlTableModel::rowCount(*parent);
-    }
-}
-
-// Base class handler implementation
-int QSqlTableModel_QBaseRowCount(const QSqlTableModel* self, const QModelIndex* parent) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_RowCount_IsBase(true);
-        return vqsqltablemodel->rowCount(*parent);
-    } else {
-        return self->QSqlTableModel::rowCount(*parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnRowCount(const QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_RowCount_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_RowCount_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_RemoveColumns(QSqlTableModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QSqlTableModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseRemoveColumns(QSqlTableModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_RemoveColumns_IsBase(true);
-        return vqsqltablemodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QSqlTableModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnRemoveColumns(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_RemoveColumns_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_RemoveColumns_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_RemoveRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QSqlTableModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseRemoveRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_RemoveRows_IsBase(true);
-        return vqsqltablemodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QSqlTableModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnRemoveRows(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_RemoveRows_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_RemoveRows_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_InsertRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QSqlTableModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseInsertRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_InsertRows_IsBase(true);
-        return vqsqltablemodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QSqlTableModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnInsertRows(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_InsertRows_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_InsertRows_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlTableModel_RevertRow(QSqlTableModel* self, int row) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->revertRow(static_cast<int>(row));
-    } else {
-        self->QSqlTableModel::revertRow(static_cast<int>(row));
-    }
-}
-
-// Base class handler implementation
-void QSqlTableModel_QBaseRevertRow(QSqlTableModel* self, int row) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_RevertRow_IsBase(true);
-        vqsqltablemodel->revertRow(static_cast<int>(row));
-    } else {
-        self->QSqlTableModel::revertRow(static_cast<int>(row));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnRevertRow(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_RevertRow_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_RevertRow_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_Select(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->select();
-    } else {
-        return self->QSqlTableModel::select();
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseSelect(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Select_IsBase(true);
-        return vqsqltablemodel->select();
-    } else {
-        return self->QSqlTableModel::select();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSelect(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Select_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Select_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_SelectRow(QSqlTableModel* self, int row) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->selectRow(static_cast<int>(row));
-    } else {
-        return self->QSqlTableModel::selectRow(static_cast<int>(row));
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseSelectRow(QSqlTableModel* self, int row) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SelectRow_IsBase(true);
-        return vqsqltablemodel->selectRow(static_cast<int>(row));
-    } else {
-        return self->QSqlTableModel::selectRow(static_cast<int>(row));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSelectRow(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SelectRow_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SelectRow_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_Submit(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->submit();
-    } else {
-        return self->QSqlTableModel::submit();
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseSubmit(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Submit_IsBase(true);
-        return vqsqltablemodel->submit();
-    } else {
-        return self->QSqlTableModel::submit();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSubmit(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Submit_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Submit_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlTableModel_Revert(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->revert();
-    } else {
-        self->QSqlTableModel::revert();
-    }
-}
-
-// Base class handler implementation
-void QSqlTableModel_QBaseRevert(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Revert_IsBase(true);
-        vqsqltablemodel->revert();
-    } else {
-        self->QSqlTableModel::revert();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnRevert(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_Revert_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Revert_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_UpdateRowInTable(QSqlTableModel* self, int row, const QSqlRecord* values) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->updateRowInTable(static_cast<int>(row), *values);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->updateRowInTable(static_cast<int>(row), *values);
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseUpdateRowInTable(QSqlTableModel* self, int row, const QSqlRecord* values) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_UpdateRowInTable_IsBase(true);
-        return vqsqltablemodel->updateRowInTable(static_cast<int>(row), *values);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->updateRowInTable(static_cast<int>(row), *values);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnUpdateRowInTable(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_UpdateRowInTable_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_UpdateRowInTable_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_InsertRowIntoTable(QSqlTableModel* self, const QSqlRecord* values) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->insertRowIntoTable(*values);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->insertRowIntoTable(*values);
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseInsertRowIntoTable(QSqlTableModel* self, const QSqlRecord* values) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_InsertRowIntoTable_IsBase(true);
-        return vqsqltablemodel->insertRowIntoTable(*values);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->insertRowIntoTable(*values);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnInsertRowIntoTable(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_InsertRowIntoTable_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_InsertRowIntoTable_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlTableModel_DeleteRowFromTable(QSqlTableModel* self, int row) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return vqsqltablemodel->deleteRowFromTable(static_cast<int>(row));
-    } else {
-        return ((VirtualQSqlTableModel*)self)->deleteRowFromTable(static_cast<int>(row));
-    }
-}
-
-// Base class handler implementation
-bool QSqlTableModel_QBaseDeleteRowFromTable(QSqlTableModel* self, int row) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_DeleteRowFromTable_IsBase(true);
-        return vqsqltablemodel->deleteRowFromTable(static_cast<int>(row));
-    } else {
-        return ((VirtualQSqlTableModel*)self)->deleteRowFromTable(static_cast<int>(row));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnDeleteRowFromTable(QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_DeleteRowFromTable_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_DeleteRowFromTable_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QSqlTableModel_OrderByClause(const QSqlTableModel* self) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        QString _ret = vqsqltablemodel->orderByClause();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSqlTableModel*)self)->orderByClause();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QSqlTableModel_QBaseOrderByClause(const QSqlTableModel* self) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_OrderByClause_IsBase(true);
-        QString _ret = vqsqltablemodel->orderByClause();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSqlTableModel*)self)->orderByClause();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnOrderByClause(const QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_OrderByClause_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_OrderByClause_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QSqlTableModel_SelectStatement(const QSqlTableModel* self) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        QString _ret = vqsqltablemodel->selectStatement();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSqlTableModel*)self)->selectStatement();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QSqlTableModel_QBaseSelectStatement(const QSqlTableModel* self) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SelectStatement_IsBase(true);
-        QString _ret = vqsqltablemodel->selectStatement();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSqlTableModel*)self)->selectStatement();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnSelectStatement(const QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_SelectStatement_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_SelectStatement_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QModelIndex* QSqlTableModel_IndexInQuery(const QSqlTableModel* self, const QModelIndex* item) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return new QModelIndex(vqsqltablemodel->indexInQuery(*item));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QModelIndex* QSqlTableModel_QBaseIndexInQuery(const QSqlTableModel* self, const QModelIndex* item) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_IndexInQuery_IsBase(true);
-        return new QModelIndex(vqsqltablemodel->indexInQuery(*item));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlTableModel_OnIndexInQuery(const QSqlTableModel* self, intptr_t slot) {
-    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        vqsqltablemodel->setQSqlTableModel_IndexInQuery_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_IndexInQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -454,6 +454,62 @@ KTwoFingerSwipeRecognizer* KTwoFingerSwipeRecognizer_new() {
     return new VirtualKTwoFingerSwipeRecognizer();
 }
 
+QGesture* KTwoFingerSwipeRecognizer_Create(KTwoFingerSwipeRecognizer* self, QObject* target) {
+    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
+    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
+        return self->create(target);
+    } else {
+        return ((VirtualKTwoFingerSwipeRecognizer*)self)->create(target);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KTwoFingerSwipeRecognizer_OnCreate(KTwoFingerSwipeRecognizer* self, intptr_t slot) {
+    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
+    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
+        vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Create_Callback(reinterpret_cast<VirtualKTwoFingerSwipeRecognizer::KTwoFingerSwipeRecognizer_Create_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QGesture* KTwoFingerSwipeRecognizer_QBaseCreate(KTwoFingerSwipeRecognizer* self, QObject* target) {
+    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
+    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
+        vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Create_IsBase(true);
+        return vktwofingerswiperecognizer->create(target);
+    } else {
+        return ((VirtualKTwoFingerSwipeRecognizer*)self)->create(target);
+    }
+}
+
+int KTwoFingerSwipeRecognizer_Recognize(KTwoFingerSwipeRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
+    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
+    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
+        return static_cast<int>(self->recognize(gesture, watched, event));
+    } else {
+        return static_cast<int>(((VirtualKTwoFingerSwipeRecognizer*)self)->recognize(gesture, watched, event));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KTwoFingerSwipeRecognizer_OnRecognize(KTwoFingerSwipeRecognizer* self, intptr_t slot) {
+    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
+    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
+        vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Recognize_Callback(reinterpret_cast<VirtualKTwoFingerSwipeRecognizer::KTwoFingerSwipeRecognizer_Recognize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int KTwoFingerSwipeRecognizer_QBaseRecognize(KTwoFingerSwipeRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
+    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
+    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
+        vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Recognize_IsBase(true);
+        return static_cast<int>(vktwofingerswiperecognizer->recognize(gesture, watched, event));
+    } else {
+        return static_cast<int>(((VirtualKTwoFingerSwipeRecognizer*)self)->recognize(gesture, watched, event));
+    }
+}
+
 int KTwoFingerSwipeRecognizer_MaxSwipeTime(const KTwoFingerSwipeRecognizer* self) {
     return self->maxSwipeTime();
 }
@@ -468,64 +524,6 @@ int KTwoFingerSwipeRecognizer_MinSswipeDistance(const KTwoFingerSwipeRecognizer*
 
 void KTwoFingerSwipeRecognizer_SetSwipeDistance(KTwoFingerSwipeRecognizer* self, int i) {
     self->setSwipeDistance(static_cast<int>(i));
-}
-
-// Derived class handler implementation
-QGesture* KTwoFingerSwipeRecognizer_Create(KTwoFingerSwipeRecognizer* self, QObject* target) {
-    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
-        return vktwofingerswiperecognizer->create(target);
-    } else {
-        return self->KTwoFingerSwipeRecognizer::create(target);
-    }
-}
-
-// Base class handler implementation
-QGesture* KTwoFingerSwipeRecognizer_QBaseCreate(KTwoFingerSwipeRecognizer* self, QObject* target) {
-    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
-        vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Create_IsBase(true);
-        return vktwofingerswiperecognizer->create(target);
-    } else {
-        return self->KTwoFingerSwipeRecognizer::create(target);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTwoFingerSwipeRecognizer_OnCreate(KTwoFingerSwipeRecognizer* self, intptr_t slot) {
-    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
-        vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Create_Callback(reinterpret_cast<VirtualKTwoFingerSwipeRecognizer::KTwoFingerSwipeRecognizer_Create_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int KTwoFingerSwipeRecognizer_Recognize(KTwoFingerSwipeRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
-    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
-        return static_cast<int>(vktwofingerswiperecognizer->recognize(gesture, watched, event));
-    } else {
-        return static_cast<int>(self->KTwoFingerSwipeRecognizer::recognize(gesture, watched, event));
-    }
-}
-
-// Base class handler implementation
-int KTwoFingerSwipeRecognizer_QBaseRecognize(KTwoFingerSwipeRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
-    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
-        vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Recognize_IsBase(true);
-        return static_cast<int>(vktwofingerswiperecognizer->recognize(gesture, watched, event));
-    } else {
-        return static_cast<int>(self->KTwoFingerSwipeRecognizer::recognize(gesture, watched, event));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTwoFingerSwipeRecognizer_OnRecognize(KTwoFingerSwipeRecognizer* self, intptr_t slot) {
-    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
-        vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Recognize_Callback(reinterpret_cast<VirtualKTwoFingerSwipeRecognizer::KTwoFingerSwipeRecognizer_Recognize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

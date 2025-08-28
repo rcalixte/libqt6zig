@@ -120,6 +120,62 @@ bool KCollapsibleGroupBox_IsExpanded(const KCollapsibleGroupBox* self) {
     return self->isExpanded();
 }
 
+QSize* KCollapsibleGroupBox_SizeHint(const KCollapsibleGroupBox* self) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<const VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualKCollapsibleGroupBox*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCollapsibleGroupBox_OnSizeHint(const KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_SizeHint_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KCollapsibleGroupBox_QBaseSizeHint(const KCollapsibleGroupBox* self) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<const VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_SizeHint_IsBase(true);
+        return new QSize(vkcollapsiblegroupbox->sizeHint());
+    } else {
+        return new QSize(((VirtualKCollapsibleGroupBox*)self)->sizeHint());
+    }
+}
+
+QSize* KCollapsibleGroupBox_MinimumSizeHint(const KCollapsibleGroupBox* self) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<const VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKCollapsibleGroupBox*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCollapsibleGroupBox_OnMinimumSizeHint(const KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KCollapsibleGroupBox_QBaseMinimumSizeHint(const KCollapsibleGroupBox* self) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<const VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MinimumSizeHint_IsBase(true);
+        return new QSize(vkcollapsiblegroupbox->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualKCollapsibleGroupBox*)self)->minimumSizeHint());
+    }
+}
+
 void KCollapsibleGroupBox_Toggle(KCollapsibleGroupBox* self) {
     self->toggle();
 }
@@ -154,6 +210,176 @@ void KCollapsibleGroupBox_Connect_ExpandedChanged(KCollapsibleGroupBox* self, in
     });
 }
 
+void KCollapsibleGroupBox_PaintEvent(KCollapsibleGroupBox* self, QPaintEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCollapsibleGroupBox_OnPaintEvent(KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_PaintEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCollapsibleGroupBox_QBasePaintEvent(KCollapsibleGroupBox* self, QPaintEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_PaintEvent_IsBase(true);
+        vkcollapsiblegroupbox->paintEvent(param1);
+    }
+}
+
+bool KCollapsibleGroupBox_Event(KCollapsibleGroupBox* self, QEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        return vkcollapsiblegroupbox->event(param1);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCollapsibleGroupBox_OnEvent(KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_Event_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KCollapsibleGroupBox_QBaseEvent(KCollapsibleGroupBox* self, QEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_Event_IsBase(true);
+        return vkcollapsiblegroupbox->event(param1);
+    }
+    return {};
+}
+
+void KCollapsibleGroupBox_MousePressEvent(KCollapsibleGroupBox* self, QMouseEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->mousePressEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCollapsibleGroupBox_OnMousePressEvent(KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MousePressEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCollapsibleGroupBox_QBaseMousePressEvent(KCollapsibleGroupBox* self, QMouseEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MousePressEvent_IsBase(true);
+        vkcollapsiblegroupbox->mousePressEvent(param1);
+    }
+}
+
+void KCollapsibleGroupBox_MouseMoveEvent(KCollapsibleGroupBox* self, QMouseEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->mouseMoveEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCollapsibleGroupBox_OnMouseMoveEvent(KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCollapsibleGroupBox_QBaseMouseMoveEvent(KCollapsibleGroupBox* self, QMouseEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MouseMoveEvent_IsBase(true);
+        vkcollapsiblegroupbox->mouseMoveEvent(param1);
+    }
+}
+
+void KCollapsibleGroupBox_LeaveEvent(KCollapsibleGroupBox* self, QEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->leaveEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCollapsibleGroupBox_OnLeaveEvent(KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_LeaveEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_LeaveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCollapsibleGroupBox_QBaseLeaveEvent(KCollapsibleGroupBox* self, QEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_LeaveEvent_IsBase(true);
+        vkcollapsiblegroupbox->leaveEvent(param1);
+    }
+}
+
+void KCollapsibleGroupBox_KeyPressEvent(KCollapsibleGroupBox* self, QKeyEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->keyPressEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCollapsibleGroupBox_OnKeyPressEvent(KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCollapsibleGroupBox_QBaseKeyPressEvent(KCollapsibleGroupBox* self, QKeyEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_KeyPressEvent_IsBase(true);
+        vkcollapsiblegroupbox->keyPressEvent(param1);
+    }
+}
+
+void KCollapsibleGroupBox_ResizeEvent(KCollapsibleGroupBox* self, QResizeEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->resizeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCollapsibleGroupBox_OnResizeEvent(KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_ResizeEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCollapsibleGroupBox_QBaseResizeEvent(KCollapsibleGroupBox* self, QResizeEvent* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_ResizeEvent_IsBase(true);
+        vkcollapsiblegroupbox->resizeEvent(param1);
+    }
+}
+
 libqt_string KCollapsibleGroupBox_Tr2(const char* s, const char* c) {
     QString _ret = KCollapsibleGroupBox::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -176,267 +402,6 @@ libqt_string KCollapsibleGroupBox_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* KCollapsibleGroupBox_SizeHint(const KCollapsibleGroupBox* self) {
-    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        return new QSize(vkcollapsiblegroupbox->sizeHint());
-    } else {
-        return new QSize(((VirtualKCollapsibleGroupBox*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KCollapsibleGroupBox_QBaseSizeHint(const KCollapsibleGroupBox* self) {
-    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_SizeHint_IsBase(true);
-        return new QSize(vkcollapsiblegroupbox->sizeHint());
-    } else {
-        return new QSize(((VirtualKCollapsibleGroupBox*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCollapsibleGroupBox_OnSizeHint(const KCollapsibleGroupBox* self, intptr_t slot) {
-    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_SizeHint_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* KCollapsibleGroupBox_MinimumSizeHint(const KCollapsibleGroupBox* self) {
-    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        return new QSize(vkcollapsiblegroupbox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCollapsibleGroupBox*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KCollapsibleGroupBox_QBaseMinimumSizeHint(const KCollapsibleGroupBox* self) {
-    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vkcollapsiblegroupbox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCollapsibleGroupBox*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCollapsibleGroupBox_OnMinimumSizeHint(const KCollapsibleGroupBox* self, intptr_t slot) {
-    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCollapsibleGroupBox_PaintEvent(KCollapsibleGroupBox* self, QPaintEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->paintEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KCollapsibleGroupBox_QBasePaintEvent(KCollapsibleGroupBox* self, QPaintEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_PaintEvent_IsBase(true);
-        vkcollapsiblegroupbox->paintEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCollapsibleGroupBox_OnPaintEvent(KCollapsibleGroupBox* self, intptr_t slot) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_PaintEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KCollapsibleGroupBox_Event(KCollapsibleGroupBox* self, QEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        return vkcollapsiblegroupbox->event(param1);
-    } else {
-        return ((VirtualKCollapsibleGroupBox*)self)->event(param1);
-    }
-}
-
-// Base class handler implementation
-bool KCollapsibleGroupBox_QBaseEvent(KCollapsibleGroupBox* self, QEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_Event_IsBase(true);
-        return vkcollapsiblegroupbox->event(param1);
-    } else {
-        return ((VirtualKCollapsibleGroupBox*)self)->event(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCollapsibleGroupBox_OnEvent(KCollapsibleGroupBox* self, intptr_t slot) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_Event_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCollapsibleGroupBox_MousePressEvent(KCollapsibleGroupBox* self, QMouseEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->mousePressEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->mousePressEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KCollapsibleGroupBox_QBaseMousePressEvent(KCollapsibleGroupBox* self, QMouseEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MousePressEvent_IsBase(true);
-        vkcollapsiblegroupbox->mousePressEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->mousePressEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCollapsibleGroupBox_OnMousePressEvent(KCollapsibleGroupBox* self, intptr_t slot) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MousePressEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCollapsibleGroupBox_MouseMoveEvent(KCollapsibleGroupBox* self, QMouseEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->mouseMoveEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->mouseMoveEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KCollapsibleGroupBox_QBaseMouseMoveEvent(KCollapsibleGroupBox* self, QMouseEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MouseMoveEvent_IsBase(true);
-        vkcollapsiblegroupbox->mouseMoveEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->mouseMoveEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCollapsibleGroupBox_OnMouseMoveEvent(KCollapsibleGroupBox* self, intptr_t slot) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCollapsibleGroupBox_LeaveEvent(KCollapsibleGroupBox* self, QEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->leaveEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->leaveEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KCollapsibleGroupBox_QBaseLeaveEvent(KCollapsibleGroupBox* self, QEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_LeaveEvent_IsBase(true);
-        vkcollapsiblegroupbox->leaveEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->leaveEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCollapsibleGroupBox_OnLeaveEvent(KCollapsibleGroupBox* self, intptr_t slot) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_LeaveEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_LeaveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCollapsibleGroupBox_KeyPressEvent(KCollapsibleGroupBox* self, QKeyEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->keyPressEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->keyPressEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KCollapsibleGroupBox_QBaseKeyPressEvent(KCollapsibleGroupBox* self, QKeyEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_KeyPressEvent_IsBase(true);
-        vkcollapsiblegroupbox->keyPressEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->keyPressEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCollapsibleGroupBox_OnKeyPressEvent(KCollapsibleGroupBox* self, intptr_t slot) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KCollapsibleGroupBox_ResizeEvent(KCollapsibleGroupBox* self, QResizeEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->resizeEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->resizeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KCollapsibleGroupBox_QBaseResizeEvent(KCollapsibleGroupBox* self, QResizeEvent* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_ResizeEvent_IsBase(true);
-        vkcollapsiblegroupbox->resizeEvent(param1);
-    } else {
-        ((VirtualKCollapsibleGroupBox*)self)->resizeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCollapsibleGroupBox_OnResizeEvent(KCollapsibleGroupBox* self, intptr_t slot) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        vkcollapsiblegroupbox->setKCollapsibleGroupBox_ResizeEvent_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

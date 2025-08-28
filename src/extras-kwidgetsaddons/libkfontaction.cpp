@@ -101,6 +101,34 @@ void KFontAction_SetFont(KFontAction* self, const libqt_string family) {
     self->setFont(family_QString);
 }
 
+QWidget* KFontAction_CreateWidget(KFontAction* self, QWidget* parent) {
+    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
+    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+        return self->createWidget(parent);
+    } else {
+        return ((VirtualKFontAction*)self)->createWidget(parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KFontAction_OnCreateWidget(KFontAction* self, intptr_t slot) {
+    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
+    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+        vkfontaction->setKFontAction_CreateWidget_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_CreateWidget_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QWidget* KFontAction_QBaseCreateWidget(KFontAction* self, QWidget* parent) {
+    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
+    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+        vkfontaction->setKFontAction_CreateWidget_IsBase(true);
+        return vkfontaction->createWidget(parent);
+    } else {
+        return ((VirtualKFontAction*)self)->createWidget(parent);
+    }
+}
+
 libqt_string KFontAction_Tr2(const char* s, const char* c) {
     QString _ret = KFontAction::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -123,35 +151,6 @@ libqt_string KFontAction_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QWidget* KFontAction_CreateWidget(KFontAction* self, QWidget* parent) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return vkfontaction->createWidget(parent);
-    } else {
-        return self->KFontAction::createWidget(parent);
-    }
-}
-
-// Base class handler implementation
-QWidget* KFontAction_QBaseCreateWidget(KFontAction* self, QWidget* parent) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_CreateWidget_IsBase(true);
-        return vkfontaction->createWidget(parent);
-    } else {
-        return self->KFontAction::createWidget(parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontAction_OnCreateWidget(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_CreateWidget_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

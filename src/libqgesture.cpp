@@ -2684,6 +2684,10 @@ libqt_list /* of QGesture* */ QGestureEvent_CanceledGestures(const QGestureEvent
     return _out;
 }
 
+void QGestureEvent_SetAccepted(QGestureEvent* self, QGesture* param1, bool param2) {
+    self->setAccepted(param1, param2);
+}
+
 void QGestureEvent_Accept(QGestureEvent* self, QGesture* param1) {
     self->accept(param1);
 }
@@ -2722,35 +2726,6 @@ QWidget* QGestureEvent_Widget(const QGestureEvent* self) {
 
 QPointF* QGestureEvent_MapToGraphicsScene(const QGestureEvent* self, const QPointF* gesturePoint) {
     return new QPointF(self->mapToGraphicsScene(*gesturePoint));
-}
-
-// Derived class handler implementation
-void QGestureEvent_SetAccepted(QGestureEvent* self, bool accepted) {
-    auto* vqgestureevent = dynamic_cast<VirtualQGestureEvent*>(self);
-    if (vqgestureevent && vqgestureevent->isVirtualQGestureEvent) {
-        vqgestureevent->setAccepted(accepted);
-    } else {
-        self->QGestureEvent::setAccepted(accepted);
-    }
-}
-
-// Base class handler implementation
-void QGestureEvent_QBaseSetAccepted(QGestureEvent* self, bool accepted) {
-    auto* vqgestureevent = dynamic_cast<VirtualQGestureEvent*>(self);
-    if (vqgestureevent && vqgestureevent->isVirtualQGestureEvent) {
-        vqgestureevent->setQGestureEvent_SetAccepted_IsBase(true);
-        vqgestureevent->setAccepted(accepted);
-    } else {
-        self->QGestureEvent::setAccepted(accepted);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGestureEvent_OnSetAccepted(QGestureEvent* self, intptr_t slot) {
-    auto* vqgestureevent = dynamic_cast<VirtualQGestureEvent*>(self);
-    if (vqgestureevent && vqgestureevent->isVirtualQGestureEvent) {
-        vqgestureevent->setQGestureEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGestureEvent::QGestureEvent_SetAccepted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

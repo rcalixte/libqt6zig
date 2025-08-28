@@ -126,6 +126,102 @@ void QChartView_SetChart(QChartView* self, QChart* chart) {
     self->setChart(chart);
 }
 
+void QChartView_ResizeEvent(QChartView* self, QResizeEvent* event) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->resizeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QChartView_OnResizeEvent(QChartView* self, intptr_t slot) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_ResizeEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QChartView_QBaseResizeEvent(QChartView* self, QResizeEvent* event) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_ResizeEvent_IsBase(true);
+        vqchartview->resizeEvent(event);
+    }
+}
+
+void QChartView_MousePressEvent(QChartView* self, QMouseEvent* event) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->mousePressEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QChartView_OnMousePressEvent(QChartView* self, intptr_t slot) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_MousePressEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QChartView_QBaseMousePressEvent(QChartView* self, QMouseEvent* event) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_MousePressEvent_IsBase(true);
+        vqchartview->mousePressEvent(event);
+    }
+}
+
+void QChartView_MouseMoveEvent(QChartView* self, QMouseEvent* event) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->mouseMoveEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QChartView_OnMouseMoveEvent(QChartView* self, intptr_t slot) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QChartView_QBaseMouseMoveEvent(QChartView* self, QMouseEvent* event) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_MouseMoveEvent_IsBase(true);
+        vqchartview->mouseMoveEvent(event);
+    }
+}
+
+void QChartView_MouseReleaseEvent(QChartView* self, QMouseEvent* event) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->mouseReleaseEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QChartView_OnMouseReleaseEvent(QChartView* self, intptr_t slot) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QChartView_QBaseMouseReleaseEvent(QChartView* self, QMouseEvent* event) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_MouseReleaseEvent_IsBase(true);
+        vqchartview->mouseReleaseEvent(event);
+    }
+}
+
 libqt_string QChartView_Tr2(const char* s, const char* c) {
     QString _ret = QChartView::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -148,122 +244,6 @@ libqt_string QChartView_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QChartView_ResizeEvent(QChartView* self, QResizeEvent* event) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->resizeEvent(event);
-    } else {
-        ((VirtualQChartView*)self)->resizeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QChartView_QBaseResizeEvent(QChartView* self, QResizeEvent* event) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->setQChartView_ResizeEvent_IsBase(true);
-        vqchartview->resizeEvent(event);
-    } else {
-        ((VirtualQChartView*)self)->resizeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QChartView_OnResizeEvent(QChartView* self, intptr_t slot) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->setQChartView_ResizeEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QChartView_MousePressEvent(QChartView* self, QMouseEvent* event) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->mousePressEvent(event);
-    } else {
-        ((VirtualQChartView*)self)->mousePressEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QChartView_QBaseMousePressEvent(QChartView* self, QMouseEvent* event) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->setQChartView_MousePressEvent_IsBase(true);
-        vqchartview->mousePressEvent(event);
-    } else {
-        ((VirtualQChartView*)self)->mousePressEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QChartView_OnMousePressEvent(QChartView* self, intptr_t slot) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->setQChartView_MousePressEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QChartView_MouseMoveEvent(QChartView* self, QMouseEvent* event) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->mouseMoveEvent(event);
-    } else {
-        ((VirtualQChartView*)self)->mouseMoveEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QChartView_QBaseMouseMoveEvent(QChartView* self, QMouseEvent* event) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->setQChartView_MouseMoveEvent_IsBase(true);
-        vqchartview->mouseMoveEvent(event);
-    } else {
-        ((VirtualQChartView*)self)->mouseMoveEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QChartView_OnMouseMoveEvent(QChartView* self, intptr_t slot) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->setQChartView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QChartView_MouseReleaseEvent(QChartView* self, QMouseEvent* event) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQChartView*)self)->mouseReleaseEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QChartView_QBaseMouseReleaseEvent(QChartView* self, QMouseEvent* event) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->setQChartView_MouseReleaseEvent_IsBase(true);
-        vqchartview->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQChartView*)self)->mouseReleaseEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QChartView_OnMouseReleaseEvent(QChartView* self, intptr_t slot) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        vqchartview->setQChartView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

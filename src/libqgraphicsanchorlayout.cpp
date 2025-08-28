@@ -132,32 +132,16 @@ double QGraphicsAnchorLayout_VerticalSpacing(const QGraphicsAnchorLayout* self) 
     return static_cast<double>(self->verticalSpacing());
 }
 
-void QGraphicsAnchorLayout_AddAnchors3(QGraphicsAnchorLayout* self, QGraphicsLayoutItem* firstItem, QGraphicsLayoutItem* secondItem, int orientations) {
-    self->addAnchors(firstItem, secondItem, static_cast<Qt::Orientations>(orientations));
-}
-
-// Derived class handler implementation
 void QGraphicsAnchorLayout_RemoveAt(QGraphicsAnchorLayout* self, int index) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        vqgraphicsanchorlayout->removeAt(static_cast<int>(index));
+        self->removeAt(static_cast<int>(index));
     } else {
-        self->QGraphicsAnchorLayout::removeAt(static_cast<int>(index));
+        ((VirtualQGraphicsAnchorLayout*)self)->removeAt(static_cast<int>(index));
     }
 }
 
-// Base class handler implementation
-void QGraphicsAnchorLayout_QBaseRemoveAt(QGraphicsAnchorLayout* self, int index) {
-    auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_RemoveAt_IsBase(true);
-        vqgraphicsanchorlayout->removeAt(static_cast<int>(index));
-    } else {
-        self->QGraphicsAnchorLayout::removeAt(static_cast<int>(index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QGraphicsAnchorLayout_OnRemoveAt(QGraphicsAnchorLayout* self, intptr_t slot) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
@@ -165,28 +149,27 @@ void QGraphicsAnchorLayout_OnRemoveAt(QGraphicsAnchorLayout* self, intptr_t slot
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QGraphicsAnchorLayout_QBaseRemoveAt(QGraphicsAnchorLayout* self, int index) {
+    auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
+    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
+        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_RemoveAt_IsBase(true);
+        vqgraphicsanchorlayout->removeAt(static_cast<int>(index));
+    } else {
+        ((VirtualQGraphicsAnchorLayout*)self)->removeAt(static_cast<int>(index));
+    }
+}
+
 void QGraphicsAnchorLayout_SetGeometry(QGraphicsAnchorLayout* self, const QRectF* rect) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        vqgraphicsanchorlayout->setGeometry(*rect);
+        self->setGeometry(*rect);
     } else {
-        self->QGraphicsAnchorLayout::setGeometry(*rect);
+        ((VirtualQGraphicsAnchorLayout*)self)->setGeometry(*rect);
     }
 }
 
-// Base class handler implementation
-void QGraphicsAnchorLayout_QBaseSetGeometry(QGraphicsAnchorLayout* self, const QRectF* rect) {
-    auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_SetGeometry_IsBase(true);
-        vqgraphicsanchorlayout->setGeometry(*rect);
-    } else {
-        self->QGraphicsAnchorLayout::setGeometry(*rect);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QGraphicsAnchorLayout_OnSetGeometry(QGraphicsAnchorLayout* self, intptr_t slot) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
@@ -194,28 +177,27 @@ void QGraphicsAnchorLayout_OnSetGeometry(QGraphicsAnchorLayout* self, intptr_t s
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QGraphicsAnchorLayout_QBaseSetGeometry(QGraphicsAnchorLayout* self, const QRectF* rect) {
+    auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
+    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
+        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_SetGeometry_IsBase(true);
+        vqgraphicsanchorlayout->setGeometry(*rect);
+    } else {
+        ((VirtualQGraphicsAnchorLayout*)self)->setGeometry(*rect);
+    }
+}
+
 int QGraphicsAnchorLayout_Count(const QGraphicsAnchorLayout* self) {
-    auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
+    auto* vqgraphicsanchorlayout = dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        return vqgraphicsanchorlayout->count();
+        return self->count();
     } else {
-        return self->QGraphicsAnchorLayout::count();
+        return ((VirtualQGraphicsAnchorLayout*)self)->count();
     }
 }
 
-// Base class handler implementation
-int QGraphicsAnchorLayout_QBaseCount(const QGraphicsAnchorLayout* self) {
-    auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_Count_IsBase(true);
-        return vqgraphicsanchorlayout->count();
-    } else {
-        return self->QGraphicsAnchorLayout::count();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QGraphicsAnchorLayout_OnCount(const QGraphicsAnchorLayout* self, intptr_t slot) {
     auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
@@ -223,28 +205,27 @@ void QGraphicsAnchorLayout_OnCount(const QGraphicsAnchorLayout* self, intptr_t s
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+int QGraphicsAnchorLayout_QBaseCount(const QGraphicsAnchorLayout* self) {
+    auto* vqgraphicsanchorlayout = dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self);
+    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
+        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_Count_IsBase(true);
+        return vqgraphicsanchorlayout->count();
+    } else {
+        return ((VirtualQGraphicsAnchorLayout*)self)->count();
+    }
+}
+
 QGraphicsLayoutItem* QGraphicsAnchorLayout_ItemAt(const QGraphicsAnchorLayout* self, int index) {
-    auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
+    auto* vqgraphicsanchorlayout = dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        return vqgraphicsanchorlayout->itemAt(static_cast<int>(index));
+        return self->itemAt(static_cast<int>(index));
     } else {
-        return self->QGraphicsAnchorLayout::itemAt(static_cast<int>(index));
+        return ((VirtualQGraphicsAnchorLayout*)self)->itemAt(static_cast<int>(index));
     }
 }
 
-// Base class handler implementation
-QGraphicsLayoutItem* QGraphicsAnchorLayout_QBaseItemAt(const QGraphicsAnchorLayout* self, int index) {
-    auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_ItemAt_IsBase(true);
-        return vqgraphicsanchorlayout->itemAt(static_cast<int>(index));
-    } else {
-        return self->QGraphicsAnchorLayout::itemAt(static_cast<int>(index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QGraphicsAnchorLayout_OnItemAt(const QGraphicsAnchorLayout* self, intptr_t slot) {
     auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
@@ -252,28 +233,27 @@ void QGraphicsAnchorLayout_OnItemAt(const QGraphicsAnchorLayout* self, intptr_t 
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+QGraphicsLayoutItem* QGraphicsAnchorLayout_QBaseItemAt(const QGraphicsAnchorLayout* self, int index) {
+    auto* vqgraphicsanchorlayout = dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self);
+    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
+        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_ItemAt_IsBase(true);
+        return vqgraphicsanchorlayout->itemAt(static_cast<int>(index));
+    } else {
+        return ((VirtualQGraphicsAnchorLayout*)self)->itemAt(static_cast<int>(index));
+    }
+}
+
 void QGraphicsAnchorLayout_Invalidate(QGraphicsAnchorLayout* self) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        vqgraphicsanchorlayout->invalidate();
+        self->invalidate();
     } else {
-        self->QGraphicsAnchorLayout::invalidate();
+        ((VirtualQGraphicsAnchorLayout*)self)->invalidate();
     }
 }
 
-// Base class handler implementation
-void QGraphicsAnchorLayout_QBaseInvalidate(QGraphicsAnchorLayout* self) {
-    auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_Invalidate_IsBase(true);
-        vqgraphicsanchorlayout->invalidate();
-    } else {
-        self->QGraphicsAnchorLayout::invalidate();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QGraphicsAnchorLayout_OnInvalidate(QGraphicsAnchorLayout* self, intptr_t slot) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
@@ -281,18 +261,36 @@ void QGraphicsAnchorLayout_OnInvalidate(QGraphicsAnchorLayout* self, intptr_t sl
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QGraphicsAnchorLayout_QBaseInvalidate(QGraphicsAnchorLayout* self) {
+    auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
+    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
+        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_Invalidate_IsBase(true);
+        vqgraphicsanchorlayout->invalidate();
+    } else {
+        ((VirtualQGraphicsAnchorLayout*)self)->invalidate();
+    }
+}
+
 QSizeF* QGraphicsAnchorLayout_SizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint) {
-    auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
+    auto* vqgraphicsanchorlayout = dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         return new QSizeF(vqgraphicsanchorlayout->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
     }
     return {};
 }
 
-// Base class handler implementation
-QSizeF* QGraphicsAnchorLayout_QBaseSizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint) {
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsAnchorLayout_OnSizeHint(const QGraphicsAnchorLayout* self, intptr_t slot) {
     auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
+    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
+        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_SizeHint_Callback(reinterpret_cast<VirtualQGraphicsAnchorLayout::QGraphicsAnchorLayout_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSizeF* QGraphicsAnchorLayout_QBaseSizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint) {
+    auto* vqgraphicsanchorlayout = dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_SizeHint_IsBase(true);
         return new QSizeF(vqgraphicsanchorlayout->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
@@ -300,12 +298,8 @@ QSizeF* QGraphicsAnchorLayout_QBaseSizeHint(const QGraphicsAnchorLayout* self, i
     return {};
 }
 
-// Auxiliary method to allow providing re-implementation
-void QGraphicsAnchorLayout_OnSizeHint(const QGraphicsAnchorLayout* self, intptr_t slot) {
-    auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        vqgraphicsanchorlayout->setQGraphicsAnchorLayout_SizeHint_Callback(reinterpret_cast<VirtualQGraphicsAnchorLayout::QGraphicsAnchorLayout_SizeHint_Callback>(slot));
-    }
+void QGraphicsAnchorLayout_AddAnchors3(QGraphicsAnchorLayout* self, QGraphicsLayoutItem* firstItem, QGraphicsLayoutItem* secondItem, int orientations) {
+    self->addAnchors(firstItem, secondItem, static_cast<Qt::Orientations>(orientations));
 }
 
 // Derived class handler implementation

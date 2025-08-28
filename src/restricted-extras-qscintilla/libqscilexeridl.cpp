@@ -72,8 +72,28 @@ libqt_string QsciLexerIDL_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerIDL_Language(const QsciLexerIDL* self) {
+    return (const char*)self->language();
+}
+
 QColor* QsciLexerIDL_DefaultColor(const QsciLexerIDL* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+const char* QsciLexerIDL_Keywords(const QsciLexerIDL* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
+libqt_string QsciLexerIDL_Description(const QsciLexerIDL* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QsciLexerIDL_Tr2(const char* s, const char* c) {
@@ -242,35 +262,6 @@ void QsciLexerIDL_OnSetStylePreprocessor(QsciLexerIDL* self, intptr_t slot) {
     auto* vqscilexeridl = dynamic_cast<VirtualQsciLexerIDL*>(self);
     if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
         vqscilexeridl->setQsciLexerIDL_SetStylePreprocessor_Callback(reinterpret_cast<VirtualQsciLexerIDL::QsciLexerIDL_SetStylePreprocessor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerIDL_Language(const QsciLexerIDL* self) {
-    auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
-    if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
-        return (const char*)vqscilexeridl->language();
-    } else {
-        return (const char*)((VirtualQsciLexerIDL*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerIDL_QBaseLanguage(const QsciLexerIDL* self) {
-    auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
-    if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
-        vqscilexeridl->setQsciLexerIDL_Language_IsBase(true);
-        return (const char*)vqscilexeridl->language();
-    } else {
-        return (const char*)((VirtualQsciLexerIDL*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerIDL_OnLanguage(const QsciLexerIDL* self, intptr_t slot) {
-    auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
-    if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
-        vqscilexeridl->setQsciLexerIDL_Language_Callback(reinterpret_cast<VirtualQsciLexerIDL::QsciLexerIDL_Language_Callback>(slot));
     }
 }
 
@@ -749,35 +740,6 @@ void QsciLexerIDL_OnIndentationGuideView(const QsciLexerIDL* self, intptr_t slot
 }
 
 // Derived class handler implementation
-const char* QsciLexerIDL_Keywords(const QsciLexerIDL* self, int set) {
-    auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
-    if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
-        return (const char*)vqscilexeridl->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerIDL*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerIDL_QBaseKeywords(const QsciLexerIDL* self, int set) {
-    auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
-    if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
-        vqscilexeridl->setQsciLexerIDL_Keywords_IsBase(true);
-        return (const char*)vqscilexeridl->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerIDL*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerIDL_OnKeywords(const QsciLexerIDL* self, intptr_t slot) {
-    auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
-    if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
-        vqscilexeridl->setQsciLexerIDL_Keywords_Callback(reinterpret_cast<VirtualQsciLexerIDL::QsciLexerIDL_Keywords_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerIDL_DefaultStyle(const QsciLexerIDL* self) {
     auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
     if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
@@ -803,67 +765,6 @@ void QsciLexerIDL_OnDefaultStyle(const QsciLexerIDL* self, intptr_t slot) {
     auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
     if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
         vqscilexeridl->setQsciLexerIDL_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerIDL::QsciLexerIDL_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerIDL_Description(const QsciLexerIDL* self, int style) {
-    auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
-    if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
-        QString _ret = vqscilexeridl->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerIDL*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerIDL_QBaseDescription(const QsciLexerIDL* self, int style) {
-    auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
-    if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
-        vqscilexeridl->setQsciLexerIDL_Description_IsBase(true);
-        QString _ret = vqscilexeridl->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerIDL*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerIDL_OnDescription(const QsciLexerIDL* self, intptr_t slot) {
-    auto* vqscilexeridl = const_cast<VirtualQsciLexerIDL*>(dynamic_cast<const VirtualQsciLexerIDL*>(self));
-    if (vqscilexeridl && vqscilexeridl->isVirtualQsciLexerIDL) {
-        vqscilexeridl->setQsciLexerIDL_Description_Callback(reinterpret_cast<VirtualQsciLexerIDL::QsciLexerIDL_Description_Callback>(slot));
     }
 }
 

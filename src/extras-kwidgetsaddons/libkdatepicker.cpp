@@ -106,6 +106,34 @@ libqt_string KDatePicker_Tr(const char* s) {
     return _str;
 }
 
+QSize* KDatePicker_SizeHint(const KDatePicker* self) {
+    auto* vkdatepicker = dynamic_cast<const VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualKDatePicker*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KDatePicker_OnSizeHint(const KDatePicker* self, intptr_t slot) {
+    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_SizeHint_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* KDatePicker_QBaseSizeHint(const KDatePicker* self) {
+    auto* vkdatepicker = dynamic_cast<const VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_SizeHint_IsBase(true);
+        return new QSize(vkdatepicker->sizeHint());
+    } else {
+        return new QSize(((VirtualKDatePicker*)self)->sizeHint());
+    }
+}
+
 bool KDatePicker_SetDate(KDatePicker* self, const QDate* date) {
     return self->setDate(*date);
 }
@@ -134,6 +162,80 @@ bool KDatePicker_HasCloseButton(const KDatePicker* self) {
 
 void KDatePicker_SetDateRange(KDatePicker* self, const QDate* minDate) {
     self->setDateRange(*minDate);
+}
+
+bool KDatePicker_EventFilter(KDatePicker* self, QObject* o, QEvent* e) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        return vkdatepicker->eventFilter(o, e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KDatePicker_OnEventFilter(KDatePicker* self, intptr_t slot) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_EventFilter_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KDatePicker_QBaseEventFilter(KDatePicker* self, QObject* o, QEvent* e) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_EventFilter_IsBase(true);
+        return vkdatepicker->eventFilter(o, e);
+    }
+    return {};
+}
+
+void KDatePicker_ResizeEvent(KDatePicker* self, QResizeEvent* param1) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->resizeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KDatePicker_OnResizeEvent(KDatePicker* self, intptr_t slot) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_ResizeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KDatePicker_QBaseResizeEvent(KDatePicker* self, QResizeEvent* param1) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_ResizeEvent_IsBase(true);
+        vkdatepicker->resizeEvent(param1);
+    }
+}
+
+void KDatePicker_ChangeEvent(KDatePicker* self, QEvent* event) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->changeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KDatePicker_OnChangeEvent(KDatePicker* self, intptr_t slot) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_ChangeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KDatePicker_QBaseChangeEvent(KDatePicker* self, QEvent* event) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_ChangeEvent_IsBase(true);
+        vkdatepicker->changeEvent(event);
+    }
 }
 
 void KDatePicker_DateChanged(KDatePicker* self, const QDate* date) {
@@ -215,122 +317,6 @@ libqt_string KDatePicker_Tr3(const char* s, const char* c, int n) {
 
 void KDatePicker_SetDateRange2(KDatePicker* self, const QDate* minDate, const QDate* maxDate) {
     self->setDateRange(*minDate, *maxDate);
-}
-
-// Derived class handler implementation
-QSize* KDatePicker_SizeHint(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return new QSize(vkdatepicker->sizeHint());
-    } else {
-        return new QSize(((VirtualKDatePicker*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* KDatePicker_QBaseSizeHint(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_SizeHint_IsBase(true);
-        return new QSize(vkdatepicker->sizeHint());
-    } else {
-        return new QSize(((VirtualKDatePicker*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnSizeHint(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_SizeHint_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KDatePicker_EventFilter(KDatePicker* self, QObject* o, QEvent* e) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->eventFilter(o, e);
-    } else {
-        return ((VirtualKDatePicker*)self)->eventFilter(o, e);
-    }
-}
-
-// Base class handler implementation
-bool KDatePicker_QBaseEventFilter(KDatePicker* self, QObject* o, QEvent* e) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_EventFilter_IsBase(true);
-        return vkdatepicker->eventFilter(o, e);
-    } else {
-        return ((VirtualKDatePicker*)self)->eventFilter(o, e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnEventFilter(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_EventFilter_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_EventFilter_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KDatePicker_ResizeEvent(KDatePicker* self, QResizeEvent* param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->resizeEvent(param1);
-    } else {
-        ((VirtualKDatePicker*)self)->resizeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KDatePicker_QBaseResizeEvent(KDatePicker* self, QResizeEvent* param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ResizeEvent_IsBase(true);
-        vkdatepicker->resizeEvent(param1);
-    } else {
-        ((VirtualKDatePicker*)self)->resizeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnResizeEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ResizeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KDatePicker_ChangeEvent(KDatePicker* self, QEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->changeEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->changeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KDatePicker_QBaseChangeEvent(KDatePicker* self, QEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ChangeEvent_IsBase(true);
-        vkdatepicker->changeEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->changeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnChangeEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ChangeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

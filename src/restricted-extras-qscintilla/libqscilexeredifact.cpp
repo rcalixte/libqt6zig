@@ -72,8 +72,28 @@ libqt_string QsciLexerEDIFACT_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerEDIFACT_Language(const QsciLexerEDIFACT* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerEDIFACT_Lexer(const QsciLexerEDIFACT* self) {
+    return (const char*)self->lexer();
+}
+
 QColor* QsciLexerEDIFACT_DefaultColor(const QsciLexerEDIFACT* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+libqt_string QsciLexerEDIFACT_Description(const QsciLexerEDIFACT* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QsciLexerEDIFACT_Tr2(const char* s, const char* c) {
@@ -98,64 +118,6 @@ libqt_string QsciLexerEDIFACT_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-const char* QsciLexerEDIFACT_Language(const QsciLexerEDIFACT* self) {
-    auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        return (const char*)vqscilexeredifact->language();
-    } else {
-        return (const char*)((VirtualQsciLexerEDIFACT*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerEDIFACT_QBaseLanguage(const QsciLexerEDIFACT* self) {
-    auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_Language_IsBase(true);
-        return (const char*)vqscilexeredifact->language();
-    } else {
-        return (const char*)((VirtualQsciLexerEDIFACT*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerEDIFACT_OnLanguage(const QsciLexerEDIFACT* self, intptr_t slot) {
-    auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_Language_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerEDIFACT_Lexer(const QsciLexerEDIFACT* self) {
-    auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        return (const char*)vqscilexeredifact->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerEDIFACT*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerEDIFACT_QBaseLexer(const QsciLexerEDIFACT* self) {
-    auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_Lexer_IsBase(true);
-        return (const char*)vqscilexeredifact->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerEDIFACT*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerEDIFACT_OnLexer(const QsciLexerEDIFACT* self, intptr_t slot) {
-    auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_Lexer_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -658,67 +620,6 @@ void QsciLexerEDIFACT_OnDefaultStyle(const QsciLexerEDIFACT* self, intptr_t slot
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
         vqscilexeredifact->setQsciLexerEDIFACT_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerEDIFACT_Description(const QsciLexerEDIFACT* self, int style) {
-    auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        QString _ret = vqscilexeredifact->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerEDIFACT*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerEDIFACT_QBaseDescription(const QsciLexerEDIFACT* self, int style) {
-    auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_Description_IsBase(true);
-        QString _ret = vqscilexeredifact->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerEDIFACT*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerEDIFACT_OnDescription(const QsciLexerEDIFACT* self, intptr_t slot) {
-    auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_Description_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_Description_Callback>(slot));
     }
 }
 

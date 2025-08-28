@@ -77,33 +77,30 @@ libqt_list /* of libqt_string */ KConfigLoader_GroupList(const KConfigLoader* se
     return _out;
 }
 
-// Derived class handler implementation
 bool KConfigLoader_UsrSave(KConfigLoader* self) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         return vkconfigloader->usrSave();
-    } else {
-        return ((VirtualKConfigLoader*)self)->usrSave();
     }
+    return {};
 }
 
-// Base class handler implementation
-bool KConfigLoader_QBaseUsrSave(KConfigLoader* self) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_UsrSave_IsBase(true);
-        return vkconfigloader->usrSave();
-    } else {
-        return ((VirtualKConfigLoader*)self)->usrSave();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void KConfigLoader_OnUsrSave(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_UsrSave_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSave_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+bool KConfigLoader_QBaseUsrSave(KConfigLoader* self) {
+    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+        vkconfigloader->setKConfigLoader_UsrSave_IsBase(true);
+        return vkconfigloader->usrSave();
+    }
+    return {};
 }
 
 // Derived class handler implementation

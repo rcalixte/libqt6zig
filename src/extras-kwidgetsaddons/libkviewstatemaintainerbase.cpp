@@ -86,6 +86,62 @@ QAbstractItemView* KViewStateMaintainerBase_View(const KViewStateMaintainerBase*
     return self->view();
 }
 
+void KViewStateMaintainerBase_SaveState(KViewStateMaintainerBase* self) {
+    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->saveState();
+    } else {
+        ((VirtualKViewStateMaintainerBase*)self)->saveState();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KViewStateMaintainerBase_OnSaveState(KViewStateMaintainerBase* self, intptr_t slot) {
+    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->setKViewStateMaintainerBase_SaveState_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_SaveState_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KViewStateMaintainerBase_QBaseSaveState(KViewStateMaintainerBase* self) {
+    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->setKViewStateMaintainerBase_SaveState_IsBase(true);
+        vkviewstatemaintainerbase->saveState();
+    } else {
+        ((VirtualKViewStateMaintainerBase*)self)->saveState();
+    }
+}
+
+void KViewStateMaintainerBase_RestoreState(KViewStateMaintainerBase* self) {
+    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->restoreState();
+    } else {
+        ((VirtualKViewStateMaintainerBase*)self)->restoreState();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KViewStateMaintainerBase_OnRestoreState(KViewStateMaintainerBase* self, intptr_t slot) {
+    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->setKViewStateMaintainerBase_RestoreState_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_RestoreState_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KViewStateMaintainerBase_QBaseRestoreState(KViewStateMaintainerBase* self) {
+    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->setKViewStateMaintainerBase_RestoreState_IsBase(true);
+        vkviewstatemaintainerbase->restoreState();
+    } else {
+        ((VirtualKViewStateMaintainerBase*)self)->restoreState();
+    }
+}
+
 libqt_string KViewStateMaintainerBase_Tr2(const char* s, const char* c) {
     QString _ret = KViewStateMaintainerBase::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -108,64 +164,6 @@ libqt_string KViewStateMaintainerBase_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KViewStateMaintainerBase_SaveState(KViewStateMaintainerBase* self) {
-    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
-        vkviewstatemaintainerbase->saveState();
-    } else {
-        ((VirtualKViewStateMaintainerBase*)self)->saveState();
-    }
-}
-
-// Base class handler implementation
-void KViewStateMaintainerBase_QBaseSaveState(KViewStateMaintainerBase* self) {
-    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
-        vkviewstatemaintainerbase->setKViewStateMaintainerBase_SaveState_IsBase(true);
-        vkviewstatemaintainerbase->saveState();
-    } else {
-        ((VirtualKViewStateMaintainerBase*)self)->saveState();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KViewStateMaintainerBase_OnSaveState(KViewStateMaintainerBase* self, intptr_t slot) {
-    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
-        vkviewstatemaintainerbase->setKViewStateMaintainerBase_SaveState_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_SaveState_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void KViewStateMaintainerBase_RestoreState(KViewStateMaintainerBase* self) {
-    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
-        vkviewstatemaintainerbase->restoreState();
-    } else {
-        ((VirtualKViewStateMaintainerBase*)self)->restoreState();
-    }
-}
-
-// Base class handler implementation
-void KViewStateMaintainerBase_QBaseRestoreState(KViewStateMaintainerBase* self) {
-    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
-        vkviewstatemaintainerbase->setKViewStateMaintainerBase_RestoreState_IsBase(true);
-        vkviewstatemaintainerbase->restoreState();
-    } else {
-        ((VirtualKViewStateMaintainerBase*)self)->restoreState();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KViewStateMaintainerBase_OnRestoreState(KViewStateMaintainerBase* self, intptr_t slot) {
-    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
-        vkviewstatemaintainerbase->setKViewStateMaintainerBase_RestoreState_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_RestoreState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

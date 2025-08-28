@@ -110,6 +110,34 @@ QSvgRenderer* QSvgWidget_Renderer(const QSvgWidget* self) {
     return self->renderer();
 }
 
+QSize* QSvgWidget_SizeHint(const QSvgWidget* self) {
+    auto* vqsvgwidget = dynamic_cast<const VirtualQSvgWidget*>(self);
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQSvgWidget*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSvgWidget_OnSizeHint(const QSvgWidget* self, intptr_t slot) {
+    auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_SizeHint_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QSvgWidget_QBaseSizeHint(const QSvgWidget* self) {
+    auto* vqsvgwidget = dynamic_cast<const VirtualQSvgWidget*>(self);
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_SizeHint_IsBase(true);
+        return new QSize(vqsvgwidget->sizeHint());
+    } else {
+        return new QSize(((VirtualQSvgWidget*)self)->sizeHint());
+    }
+}
+
 int QSvgWidget_Options(const QSvgWidget* self) {
     return static_cast<int>(self->options());
 }
@@ -126,6 +154,30 @@ void QSvgWidget_Load(QSvgWidget* self, const libqt_string file) {
 void QSvgWidget_Load2(QSvgWidget* self, const libqt_string contents) {
     QByteArray contents_QByteArray(contents.data, contents.len);
     self->load(contents_QByteArray);
+}
+
+void QSvgWidget_PaintEvent(QSvgWidget* self, QPaintEvent* event) {
+    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->paintEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSvgWidget_OnPaintEvent(QSvgWidget* self, intptr_t slot) {
+    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_PaintEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSvgWidget_QBasePaintEvent(QSvgWidget* self, QPaintEvent* event) {
+    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_PaintEvent_IsBase(true);
+        vqsvgwidget->paintEvent(event);
+    }
 }
 
 libqt_string QSvgWidget_Tr2(const char* s, const char* c) {
@@ -150,64 +202,6 @@ libqt_string QSvgWidget_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* QSvgWidget_SizeHint(const QSvgWidget* self) {
-    auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        return new QSize(vqsvgwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQSvgWidget*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QSvgWidget_QBaseSizeHint(const QSvgWidget* self) {
-    auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        vqsvgwidget->setQSvgWidget_SizeHint_IsBase(true);
-        return new QSize(vqsvgwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQSvgWidget*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSvgWidget_OnSizeHint(const QSvgWidget* self, intptr_t slot) {
-    auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        vqsvgwidget->setQSvgWidget_SizeHint_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSvgWidget_PaintEvent(QSvgWidget* self, QPaintEvent* event) {
-    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        vqsvgwidget->paintEvent(event);
-    } else {
-        ((VirtualQSvgWidget*)self)->paintEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QSvgWidget_QBasePaintEvent(QSvgWidget* self, QPaintEvent* event) {
-    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        vqsvgwidget->setQSvgWidget_PaintEvent_IsBase(true);
-        vqsvgwidget->paintEvent(event);
-    } else {
-        ((VirtualQSvgWidget*)self)->paintEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSvgWidget_OnPaintEvent(QSvgWidget* self, intptr_t slot) {
-    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        vqsvgwidget->setQSvgWidget_PaintEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

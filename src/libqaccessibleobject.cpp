@@ -19,28 +19,16 @@ QAccessibleObject* QAccessibleObject_new(QObject* object) {
     return new VirtualQAccessibleObject(object);
 }
 
-// Derived class handler implementation
 bool QAccessibleObject_IsValid(const QAccessibleObject* self) {
-    auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
+    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        return vqaccessibleobject->isValid();
+        return self->isValid();
     } else {
-        return self->QAccessibleObject::isValid();
+        return ((VirtualQAccessibleObject*)self)->isValid();
     }
 }
 
-// Base class handler implementation
-bool QAccessibleObject_QBaseIsValid(const QAccessibleObject* self) {
-    auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        vqaccessibleobject->setQAccessibleObject_IsValid_IsBase(true);
-        return vqaccessibleobject->isValid();
-    } else {
-        return self->QAccessibleObject::isValid();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleObject_OnIsValid(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
@@ -48,28 +36,27 @@ void QAccessibleObject_OnIsValid(const QAccessibleObject* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+bool QAccessibleObject_QBaseIsValid(const QAccessibleObject* self) {
+    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+        vqaccessibleobject->setQAccessibleObject_IsValid_IsBase(true);
+        return vqaccessibleobject->isValid();
+    } else {
+        return ((VirtualQAccessibleObject*)self)->isValid();
+    }
+}
+
 QObject* QAccessibleObject_Object(const QAccessibleObject* self) {
-    auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
+    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        return vqaccessibleobject->object();
+        return self->object();
     } else {
-        return self->QAccessibleObject::object();
+        return ((VirtualQAccessibleObject*)self)->object();
     }
 }
 
-// Base class handler implementation
-QObject* QAccessibleObject_QBaseObject(const QAccessibleObject* self) {
-    auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        vqaccessibleobject->setQAccessibleObject_Object_IsBase(true);
-        return vqaccessibleobject->object();
-    } else {
-        return self->QAccessibleObject::object();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleObject_OnObject(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
@@ -77,19 +64,37 @@ void QAccessibleObject_OnObject(const QAccessibleObject* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
-QRect* QAccessibleObject_Rect(const QAccessibleObject* self) {
-    auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
+// Virtual base class handler implementation
+QObject* QAccessibleObject_QBaseObject(const QAccessibleObject* self) {
+    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        return new QRect(vqaccessibleobject->rect());
+        vqaccessibleobject->setQAccessibleObject_Object_IsBase(true);
+        return vqaccessibleobject->object();
+    } else {
+        return ((VirtualQAccessibleObject*)self)->object();
+    }
+}
+
+QRect* QAccessibleObject_Rect(const QAccessibleObject* self) {
+    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+        return new QRect(self->rect());
     } else {
         return new QRect(((VirtualQAccessibleObject*)self)->rect());
     }
 }
 
-// Base class handler implementation
-QRect* QAccessibleObject_QBaseRect(const QAccessibleObject* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QAccessibleObject_OnRect(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+        vqaccessibleobject->setQAccessibleObject_Rect_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Rect_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QRect* QAccessibleObject_QBaseRect(const QAccessibleObject* self) {
+    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Rect_IsBase(true);
         return new QRect(vqaccessibleobject->rect());
@@ -98,38 +103,17 @@ QRect* QAccessibleObject_QBaseRect(const QAccessibleObject* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QAccessibleObject_OnRect(const QAccessibleObject* self, intptr_t slot) {
-    auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        vqaccessibleobject->setQAccessibleObject_Rect_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Rect_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 void QAccessibleObject_SetText(QAccessibleObject* self, int t, const libqt_string text) {
-    auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        vqaccessibleobject->setText(static_cast<QAccessible::Text>(t), text_QString);
+        self->setText(static_cast<QAccessible::Text>(t), text_QString);
     } else {
-        self->QAccessibleObject::setText(static_cast<QAccessible::Text>(t), text_QString);
+        ((VirtualQAccessibleObject*)self)->setText(static_cast<QAccessible::Text>(t), text_QString);
     }
 }
 
-// Base class handler implementation
-void QAccessibleObject_QBaseSetText(QAccessibleObject* self, int t, const libqt_string text) {
-    auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        vqaccessibleobject->setQAccessibleObject_SetText_IsBase(true);
-        vqaccessibleobject->setText(static_cast<QAccessible::Text>(t), text_QString);
-    } else {
-        self->QAccessibleObject::setText(static_cast<QAccessible::Text>(t), text_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleObject_OnSetText(QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
@@ -137,32 +121,43 @@ void QAccessibleObject_OnSetText(QAccessibleObject* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QAccessibleObject_QBaseSetText(QAccessibleObject* self, int t, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+        vqaccessibleobject->setQAccessibleObject_SetText_IsBase(true);
+        vqaccessibleobject->setText(static_cast<QAccessible::Text>(t), text_QString);
+    } else {
+        ((VirtualQAccessibleObject*)self)->setText(static_cast<QAccessible::Text>(t), text_QString);
+    }
+}
+
 QAccessibleInterface* QAccessibleObject_ChildAt(const QAccessibleObject* self, int x, int y) {
-    auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
+    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        return vqaccessibleobject->childAt(static_cast<int>(x), static_cast<int>(y));
+        return self->childAt(static_cast<int>(x), static_cast<int>(y));
     } else {
-        return self->QAccessibleObject::childAt(static_cast<int>(x), static_cast<int>(y));
+        return ((VirtualQAccessibleObject*)self)->childAt(static_cast<int>(x), static_cast<int>(y));
     }
 }
 
-// Base class handler implementation
-QAccessibleInterface* QAccessibleObject_QBaseChildAt(const QAccessibleObject* self, int x, int y) {
-    auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        vqaccessibleobject->setQAccessibleObject_ChildAt_IsBase(true);
-        return vqaccessibleobject->childAt(static_cast<int>(x), static_cast<int>(y));
-    } else {
-        return self->QAccessibleObject::childAt(static_cast<int>(x), static_cast<int>(y));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleObject_OnChildAt(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_ChildAt_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_ChildAt_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QAccessibleInterface* QAccessibleObject_QBaseChildAt(const QAccessibleObject* self, int x, int y) {
+    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+        vqaccessibleobject->setQAccessibleObject_ChildAt_IsBase(true);
+        return vqaccessibleobject->childAt(static_cast<int>(x), static_cast<int>(y));
+    } else {
+        return ((VirtualQAccessibleObject*)self)->childAt(static_cast<int>(x), static_cast<int>(y));
     }
 }
 
@@ -680,28 +675,16 @@ QAccessibleApplication* QAccessibleApplication_new() {
     return new VirtualQAccessibleApplication();
 }
 
-// Derived class handler implementation
 QWindow* QAccessibleApplication_Window(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return vqaccessibleapplication->window();
+        return self->window();
     } else {
-        return self->QAccessibleApplication::window();
+        return ((VirtualQAccessibleApplication*)self)->window();
     }
 }
 
-// Base class handler implementation
-QWindow* QAccessibleApplication_QBaseWindow(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        vqaccessibleapplication->setQAccessibleApplication_Window_IsBase(true);
-        return vqaccessibleapplication->window();
-    } else {
-        return self->QAccessibleApplication::window();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleApplication_OnWindow(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
@@ -709,28 +692,27 @@ void QAccessibleApplication_OnWindow(const QAccessibleApplication* self, intptr_
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+QWindow* QAccessibleApplication_QBaseWindow(const QAccessibleApplication* self) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+        vqaccessibleapplication->setQAccessibleApplication_Window_IsBase(true);
+        return vqaccessibleapplication->window();
+    } else {
+        return ((VirtualQAccessibleApplication*)self)->window();
+    }
+}
+
 int QAccessibleApplication_ChildCount(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return vqaccessibleapplication->childCount();
+        return self->childCount();
     } else {
-        return self->QAccessibleApplication::childCount();
+        return ((VirtualQAccessibleApplication*)self)->childCount();
     }
 }
 
-// Base class handler implementation
-int QAccessibleApplication_QBaseChildCount(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        vqaccessibleapplication->setQAccessibleApplication_ChildCount_IsBase(true);
-        return vqaccessibleapplication->childCount();
-    } else {
-        return self->QAccessibleApplication::childCount();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleApplication_OnChildCount(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
@@ -738,28 +720,27 @@ void QAccessibleApplication_OnChildCount(const QAccessibleApplication* self, int
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+int QAccessibleApplication_QBaseChildCount(const QAccessibleApplication* self) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+        vqaccessibleapplication->setQAccessibleApplication_ChildCount_IsBase(true);
+        return vqaccessibleapplication->childCount();
+    } else {
+        return ((VirtualQAccessibleApplication*)self)->childCount();
+    }
+}
+
 int QAccessibleApplication_IndexOfChild(const QAccessibleApplication* self, const QAccessibleInterface* param1) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return vqaccessibleapplication->indexOfChild(param1);
+        return self->indexOfChild(param1);
     } else {
-        return self->QAccessibleApplication::indexOfChild(param1);
+        return ((VirtualQAccessibleApplication*)self)->indexOfChild(param1);
     }
 }
 
-// Base class handler implementation
-int QAccessibleApplication_QBaseIndexOfChild(const QAccessibleApplication* self, const QAccessibleInterface* param1) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        vqaccessibleapplication->setQAccessibleApplication_IndexOfChild_IsBase(true);
-        return vqaccessibleapplication->indexOfChild(param1);
-    } else {
-        return self->QAccessibleApplication::indexOfChild(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleApplication_OnIndexOfChild(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
@@ -767,28 +748,27 @@ void QAccessibleApplication_OnIndexOfChild(const QAccessibleApplication* self, i
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+int QAccessibleApplication_QBaseIndexOfChild(const QAccessibleApplication* self, const QAccessibleInterface* param1) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+        vqaccessibleapplication->setQAccessibleApplication_IndexOfChild_IsBase(true);
+        return vqaccessibleapplication->indexOfChild(param1);
+    } else {
+        return ((VirtualQAccessibleApplication*)self)->indexOfChild(param1);
+    }
+}
+
 QAccessibleInterface* QAccessibleApplication_FocusChild(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return vqaccessibleapplication->focusChild();
+        return self->focusChild();
     } else {
-        return self->QAccessibleApplication::focusChild();
+        return ((VirtualQAccessibleApplication*)self)->focusChild();
     }
 }
 
-// Base class handler implementation
-QAccessibleInterface* QAccessibleApplication_QBaseFocusChild(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        vqaccessibleapplication->setQAccessibleApplication_FocusChild_IsBase(true);
-        return vqaccessibleapplication->focusChild();
-    } else {
-        return self->QAccessibleApplication::focusChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleApplication_OnFocusChild(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
@@ -796,28 +776,27 @@ void QAccessibleApplication_OnFocusChild(const QAccessibleApplication* self, int
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+QAccessibleInterface* QAccessibleApplication_QBaseFocusChild(const QAccessibleApplication* self) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+        vqaccessibleapplication->setQAccessibleApplication_FocusChild_IsBase(true);
+        return vqaccessibleapplication->focusChild();
+    } else {
+        return ((VirtualQAccessibleApplication*)self)->focusChild();
+    }
+}
+
 QAccessibleInterface* QAccessibleApplication_Parent(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return vqaccessibleapplication->parent();
+        return self->parent();
     } else {
-        return self->QAccessibleApplication::parent();
+        return ((VirtualQAccessibleApplication*)self)->parent();
     }
 }
 
-// Base class handler implementation
-QAccessibleInterface* QAccessibleApplication_QBaseParent(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        vqaccessibleapplication->setQAccessibleApplication_Parent_IsBase(true);
-        return vqaccessibleapplication->parent();
-    } else {
-        return self->QAccessibleApplication::parent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleApplication_OnParent(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
@@ -825,28 +804,27 @@ void QAccessibleApplication_OnParent(const QAccessibleApplication* self, intptr_
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+QAccessibleInterface* QAccessibleApplication_QBaseParent(const QAccessibleApplication* self) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+        vqaccessibleapplication->setQAccessibleApplication_Parent_IsBase(true);
+        return vqaccessibleapplication->parent();
+    } else {
+        return ((VirtualQAccessibleApplication*)self)->parent();
+    }
+}
+
 QAccessibleInterface* QAccessibleApplication_Child(const QAccessibleApplication* self, int index) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return vqaccessibleapplication->child(static_cast<int>(index));
+        return self->child(static_cast<int>(index));
     } else {
-        return self->QAccessibleApplication::child(static_cast<int>(index));
+        return ((VirtualQAccessibleApplication*)self)->child(static_cast<int>(index));
     }
 }
 
-// Base class handler implementation
-QAccessibleInterface* QAccessibleApplication_QBaseChild(const QAccessibleApplication* self, int index) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        vqaccessibleapplication->setQAccessibleApplication_Child_IsBase(true);
-        return vqaccessibleapplication->child(static_cast<int>(index));
-    } else {
-        return self->QAccessibleApplication::child(static_cast<int>(index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleApplication_OnChild(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
@@ -854,11 +832,21 @@ void QAccessibleApplication_OnChild(const QAccessibleApplication* self, intptr_t
     }
 }
 
-// Derived class handler implementation
-libqt_string QAccessibleApplication_Text(const QAccessibleApplication* self, int t) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+// Virtual base class handler implementation
+QAccessibleInterface* QAccessibleApplication_QBaseChild(const QAccessibleApplication* self, int index) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        QString _ret = vqaccessibleapplication->text(static_cast<QAccessible::Text>(t));
+        vqaccessibleapplication->setQAccessibleApplication_Child_IsBase(true);
+        return vqaccessibleapplication->child(static_cast<int>(index));
+    } else {
+        return ((VirtualQAccessibleApplication*)self)->child(static_cast<int>(index));
+    }
+}
+
+libqt_string QAccessibleApplication_Text(const QAccessibleApplication* self, int t) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+        QString _ret = self->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -868,7 +856,7 @@ libqt_string QAccessibleApplication_Text(const QAccessibleApplication* self, int
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QAccessibleApplication::text(static_cast<QAccessible::Text>(t));
+        QString _ret = ((VirtualQAccessibleApplication*)self)->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -880,9 +868,17 @@ libqt_string QAccessibleApplication_Text(const QAccessibleApplication* self, int
     }
 }
 
-// Base class handler implementation
-libqt_string QAccessibleApplication_QBaseText(const QAccessibleApplication* self, int t) {
+// Subclass method to allow providing a virtual method re-implementation
+void QAccessibleApplication_OnText(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+        vqaccessibleapplication->setQAccessibleApplication_Text_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Text_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QAccessibleApplication_QBaseText(const QAccessibleApplication* self, int t) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Text_IsBase(true);
         QString _ret = vqaccessibleapplication->text(static_cast<QAccessible::Text>(t));
@@ -895,7 +891,7 @@ libqt_string QAccessibleApplication_QBaseText(const QAccessibleApplication* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QAccessibleApplication::text(static_cast<QAccessible::Text>(t));
+        QString _ret = ((VirtualQAccessibleApplication*)self)->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -907,36 +903,16 @@ libqt_string QAccessibleApplication_QBaseText(const QAccessibleApplication* self
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QAccessibleApplication_OnText(const QAccessibleApplication* self, intptr_t slot) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        vqaccessibleapplication->setQAccessibleApplication_Text_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Text_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QAccessibleApplication_Role(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return static_cast<int>(vqaccessibleapplication->role());
+        return static_cast<int>(self->role());
     } else {
-        return static_cast<int>(self->QAccessibleApplication::role());
+        return static_cast<int>(((VirtualQAccessibleApplication*)self)->role());
     }
 }
 
-// Base class handler implementation
-int QAccessibleApplication_QBaseRole(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        vqaccessibleapplication->setQAccessibleApplication_Role_IsBase(true);
-        return static_cast<int>(vqaccessibleapplication->role());
-    } else {
-        return static_cast<int>(self->QAccessibleApplication::role());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QAccessibleApplication_OnRole(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
@@ -944,32 +920,42 @@ void QAccessibleApplication_OnRole(const QAccessibleApplication* self, intptr_t 
     }
 }
 
-// Derived class handler implementation
-QAccessible__State* QAccessibleApplication_State(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+// Virtual base class handler implementation
+int QAccessibleApplication_QBaseRole(const QAccessibleApplication* self) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return new QAccessible::State(vqaccessibleapplication->state());
+        vqaccessibleapplication->setQAccessibleApplication_Role_IsBase(true);
+        return static_cast<int>(vqaccessibleapplication->role());
+    } else {
+        return static_cast<int>(((VirtualQAccessibleApplication*)self)->role());
+    }
+}
+
+QAccessible__State* QAccessibleApplication_State(const QAccessibleApplication* self) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+        return new QAccessible::State(self->state());
     } else {
         return new QAccessible::State(((VirtualQAccessibleApplication*)self)->state());
     }
 }
 
-// Base class handler implementation
-QAccessible__State* QAccessibleApplication_QBaseState(const QAccessibleApplication* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QAccessibleApplication_OnState(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+        vqaccessibleapplication->setQAccessibleApplication_State_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_State_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QAccessible__State* QAccessibleApplication_QBaseState(const QAccessibleApplication* self) {
+    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_State_IsBase(true);
         return new QAccessible::State(vqaccessibleapplication->state());
     } else {
         return new QAccessible::State(((VirtualQAccessibleApplication*)self)->state());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAccessibleApplication_OnState(const QAccessibleApplication* self, intptr_t slot) {
-    auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        vqaccessibleapplication->setQAccessibleApplication_State_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_State_Callback>(slot));
     }
 }
 

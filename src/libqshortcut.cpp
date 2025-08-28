@@ -200,6 +200,32 @@ void QShortcut_Connect_ActivatedAmbiguously(QShortcut* self, intptr_t slot) {
     });
 }
 
+bool QShortcut_Event(QShortcut* self, QEvent* e) {
+    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
+    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+        return vqshortcut->event(e);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QShortcut_OnEvent(QShortcut* self, intptr_t slot) {
+    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
+    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+        vqshortcut->setQShortcut_Event_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QShortcut_QBaseEvent(QShortcut* self, QEvent* e) {
+    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
+    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+        vqshortcut->setQShortcut_Event_IsBase(true);
+        return vqshortcut->event(e);
+    }
+    return {};
+}
+
 libqt_string QShortcut_Tr2(const char* s, const char* c) {
     QString _ret = QShortcut::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -222,35 +248,6 @@ libqt_string QShortcut_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool QShortcut_Event(QShortcut* self, QEvent* e) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        return vqshortcut->event(e);
-    } else {
-        return ((VirtualQShortcut*)self)->event(e);
-    }
-}
-
-// Base class handler implementation
-bool QShortcut_QBaseEvent(QShortcut* self, QEvent* e) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_Event_IsBase(true);
-        return vqshortcut->event(e);
-    } else {
-        return ((VirtualQShortcut*)self)->event(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QShortcut_OnEvent(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_Event_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

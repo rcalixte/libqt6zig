@@ -76,6 +76,44 @@ void KPluginFactory_SetMetaData(KPluginFactory* self, const KPluginMetaData* met
     self->setMetaData(*metaData);
 }
 
+QObject* KPluginFactory_Create(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args) {
+    QList<QVariant> args_QList;
+    args_QList.reserve(args.len);
+    QVariant** args_arr = static_cast<QVariant**>(args.data);
+    for (size_t i = 0; i < args.len; ++i) {
+        args_QList.push_back(*(args_arr[i]));
+    }
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        return vkpluginfactory->create(iface, parentWidget, parent, args_QList);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KPluginFactory_OnCreate(KPluginFactory* self, intptr_t slot) {
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_Create_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Create_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QObject* KPluginFactory_QBaseCreate(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args) {
+    QList<QVariant> args_QList;
+    args_QList.reserve(args.len);
+    QVariant** args_arr = static_cast<QVariant**>(args.data);
+    for (size_t i = 0; i < args.len; ++i) {
+        args_QList.push_back(*(args_arr[i]));
+    }
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_Create_IsBase(true);
+        return vkpluginfactory->create(iface, parentWidget, parent, args_QList);
+    }
+    return {};
+}
+
 libqt_string KPluginFactory_Tr2(const char* s, const char* c) {
     QString _ret = KPluginFactory::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -98,47 +136,6 @@ libqt_string KPluginFactory_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QObject* KPluginFactory_Create(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    QList<QVariant> args_QList;
-    args_QList.reserve(args.len);
-    QVariant** args_arr = static_cast<QVariant**>(args.data);
-    for (size_t i = 0; i < args.len; ++i) {
-        args_QList.push_back(*(args_arr[i]));
-    }
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return vkpluginfactory->create(iface, parentWidget, parent, args_QList);
-    } else {
-        return ((VirtualKPluginFactory*)self)->create(iface, parentWidget, parent, args_QList);
-    }
-}
-
-// Base class handler implementation
-QObject* KPluginFactory_QBaseCreate(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    QList<QVariant> args_QList;
-    args_QList.reserve(args.len);
-    QVariant** args_arr = static_cast<QVariant**>(args.data);
-    for (size_t i = 0; i < args.len; ++i) {
-        args_QList.push_back(*(args_arr[i]));
-    }
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Create_IsBase(true);
-        return vkpluginfactory->create(iface, parentWidget, parent, args_QList);
-    } else {
-        return ((VirtualKPluginFactory*)self)->create(iface, parentWidget, parent, args_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPluginFactory_OnCreate(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Create_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

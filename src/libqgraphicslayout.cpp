@@ -20,6 +20,34 @@ void QGraphicsLayout_SetContentsMargins(QGraphicsLayout* self, double left, doub
     self->setContentsMargins(static_cast<qreal>(left), static_cast<qreal>(top), static_cast<qreal>(right), static_cast<qreal>(bottom));
 }
 
+void QGraphicsLayout_GetContentsMargins(const QGraphicsLayout* self, double* left, double* top, double* right, double* bottom) {
+    auto* vqgraphicslayout = dynamic_cast<const VirtualQGraphicsLayout*>(self);
+    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
+        self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
+    } else {
+        ((VirtualQGraphicsLayout*)self)->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsLayout_OnGetContentsMargins(const QGraphicsLayout* self, intptr_t slot) {
+    auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
+    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
+        vqgraphicslayout->setQGraphicsLayout_GetContentsMargins_Callback(reinterpret_cast<VirtualQGraphicsLayout::QGraphicsLayout_GetContentsMargins_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QGraphicsLayout_QBaseGetContentsMargins(const QGraphicsLayout* self, double* left, double* top, double* right, double* bottom) {
+    auto* vqgraphicslayout = dynamic_cast<const VirtualQGraphicsLayout*>(self);
+    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
+        vqgraphicslayout->setQGraphicsLayout_GetContentsMargins_IsBase(true);
+        vqgraphicslayout->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
+    } else {
+        ((VirtualQGraphicsLayout*)self)->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
+    }
+}
+
 void QGraphicsLayout_Activate(QGraphicsLayout* self) {
     self->activate();
 }
@@ -28,65 +56,16 @@ bool QGraphicsLayout_IsActivated(const QGraphicsLayout* self) {
     return self->isActivated();
 }
 
-void QGraphicsLayout_SetInstantInvalidatePropagation(bool enable) {
-    QGraphicsLayout::setInstantInvalidatePropagation(enable);
-}
-
-bool QGraphicsLayout_InstantInvalidatePropagation() {
-    return QGraphicsLayout::instantInvalidatePropagation();
-}
-
-// Derived class handler implementation
-void QGraphicsLayout_GetContentsMargins(const QGraphicsLayout* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        self->QGraphicsLayout::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QGraphicsLayout_QBaseGetContentsMargins(const QGraphicsLayout* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->setQGraphicsLayout_GetContentsMargins_IsBase(true);
-        vqgraphicslayout->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        self->QGraphicsLayout::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsLayout_OnGetContentsMargins(const QGraphicsLayout* self, intptr_t slot) {
-    auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->setQGraphicsLayout_GetContentsMargins_Callback(reinterpret_cast<VirtualQGraphicsLayout::QGraphicsLayout_GetContentsMargins_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 void QGraphicsLayout_Invalidate(QGraphicsLayout* self) {
     auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->invalidate();
+        self->invalidate();
     } else {
-        self->QGraphicsLayout::invalidate();
+        ((VirtualQGraphicsLayout*)self)->invalidate();
     }
 }
 
-// Base class handler implementation
-void QGraphicsLayout_QBaseInvalidate(QGraphicsLayout* self) {
-    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->setQGraphicsLayout_Invalidate_IsBase(true);
-        vqgraphicslayout->invalidate();
-    } else {
-        self->QGraphicsLayout::invalidate();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QGraphicsLayout_OnInvalidate(QGraphicsLayout* self, intptr_t slot) {
     auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
@@ -94,28 +73,27 @@ void QGraphicsLayout_OnInvalidate(QGraphicsLayout* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QGraphicsLayout_QBaseInvalidate(QGraphicsLayout* self) {
+    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
+    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
+        vqgraphicslayout->setQGraphicsLayout_Invalidate_IsBase(true);
+        vqgraphicslayout->invalidate();
+    } else {
+        ((VirtualQGraphicsLayout*)self)->invalidate();
+    }
+}
+
 void QGraphicsLayout_UpdateGeometry(QGraphicsLayout* self) {
     auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->updateGeometry();
+        self->updateGeometry();
     } else {
-        self->QGraphicsLayout::updateGeometry();
+        ((VirtualQGraphicsLayout*)self)->updateGeometry();
     }
 }
 
-// Base class handler implementation
-void QGraphicsLayout_QBaseUpdateGeometry(QGraphicsLayout* self) {
-    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->setQGraphicsLayout_UpdateGeometry_IsBase(true);
-        vqgraphicslayout->updateGeometry();
-    } else {
-        self->QGraphicsLayout::updateGeometry();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QGraphicsLayout_OnUpdateGeometry(QGraphicsLayout* self, intptr_t slot) {
     auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
@@ -123,28 +101,27 @@ void QGraphicsLayout_OnUpdateGeometry(QGraphicsLayout* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QGraphicsLayout_QBaseUpdateGeometry(QGraphicsLayout* self) {
+    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
+    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
+        vqgraphicslayout->setQGraphicsLayout_UpdateGeometry_IsBase(true);
+        vqgraphicslayout->updateGeometry();
+    } else {
+        ((VirtualQGraphicsLayout*)self)->updateGeometry();
+    }
+}
+
 void QGraphicsLayout_WidgetEvent(QGraphicsLayout* self, QEvent* e) {
     auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->widgetEvent(e);
+        self->widgetEvent(e);
     } else {
-        self->QGraphicsLayout::widgetEvent(e);
+        ((VirtualQGraphicsLayout*)self)->widgetEvent(e);
     }
 }
 
-// Base class handler implementation
-void QGraphicsLayout_QBaseWidgetEvent(QGraphicsLayout* self, QEvent* e) {
-    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->setQGraphicsLayout_WidgetEvent_IsBase(true);
-        vqgraphicslayout->widgetEvent(e);
-    } else {
-        self->QGraphicsLayout::widgetEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QGraphicsLayout_OnWidgetEvent(QGraphicsLayout* self, intptr_t slot) {
     auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
@@ -152,9 +129,19 @@ void QGraphicsLayout_OnWidgetEvent(QGraphicsLayout* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
+// Virtual base class handler implementation
+void QGraphicsLayout_QBaseWidgetEvent(QGraphicsLayout* self, QEvent* e) {
+    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
+    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
+        vqgraphicslayout->setQGraphicsLayout_WidgetEvent_IsBase(true);
+        vqgraphicslayout->widgetEvent(e);
+    } else {
+        ((VirtualQGraphicsLayout*)self)->widgetEvent(e);
+    }
+}
+
 int QGraphicsLayout_Count(const QGraphicsLayout* self) {
-    auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
+    auto* vqgraphicslayout = dynamic_cast<const VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
         return vqgraphicslayout->count();
     } else {
@@ -162,9 +149,17 @@ int QGraphicsLayout_Count(const QGraphicsLayout* self) {
     }
 }
 
-// Base class handler implementation
-int QGraphicsLayout_QBaseCount(const QGraphicsLayout* self) {
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsLayout_OnCount(const QGraphicsLayout* self, intptr_t slot) {
     auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
+    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
+        vqgraphicslayout->setQGraphicsLayout_Count_Callback(reinterpret_cast<VirtualQGraphicsLayout::QGraphicsLayout_Count_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QGraphicsLayout_QBaseCount(const QGraphicsLayout* self) {
+    auto* vqgraphicslayout = dynamic_cast<const VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
         vqgraphicslayout->setQGraphicsLayout_Count_IsBase(true);
         return vqgraphicslayout->count();
@@ -173,17 +168,8 @@ int QGraphicsLayout_QBaseCount(const QGraphicsLayout* self) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QGraphicsLayout_OnCount(const QGraphicsLayout* self, intptr_t slot) {
-    auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->setQGraphicsLayout_Count_Callback(reinterpret_cast<VirtualQGraphicsLayout::QGraphicsLayout_Count_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QGraphicsLayoutItem* QGraphicsLayout_ItemAt(const QGraphicsLayout* self, int i) {
-    auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
+    auto* vqgraphicslayout = dynamic_cast<const VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
         return vqgraphicslayout->itemAt(static_cast<int>(i));
     } else {
@@ -191,9 +177,17 @@ QGraphicsLayoutItem* QGraphicsLayout_ItemAt(const QGraphicsLayout* self, int i) 
     }
 }
 
-// Base class handler implementation
-QGraphicsLayoutItem* QGraphicsLayout_QBaseItemAt(const QGraphicsLayout* self, int i) {
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsLayout_OnItemAt(const QGraphicsLayout* self, intptr_t slot) {
     auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
+    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
+        vqgraphicslayout->setQGraphicsLayout_ItemAt_Callback(reinterpret_cast<VirtualQGraphicsLayout::QGraphicsLayout_ItemAt_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QGraphicsLayoutItem* QGraphicsLayout_QBaseItemAt(const QGraphicsLayout* self, int i) {
+    auto* vqgraphicslayout = dynamic_cast<const VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
         vqgraphicslayout->setQGraphicsLayout_ItemAt_IsBase(true);
         return vqgraphicslayout->itemAt(static_cast<int>(i));
@@ -202,15 +196,6 @@ QGraphicsLayoutItem* QGraphicsLayout_QBaseItemAt(const QGraphicsLayout* self, in
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QGraphicsLayout_OnItemAt(const QGraphicsLayout* self, intptr_t slot) {
-    auto* vqgraphicslayout = const_cast<VirtualQGraphicsLayout*>(dynamic_cast<const VirtualQGraphicsLayout*>(self));
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->setQGraphicsLayout_ItemAt_Callback(reinterpret_cast<VirtualQGraphicsLayout::QGraphicsLayout_ItemAt_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 void QGraphicsLayout_RemoveAt(QGraphicsLayout* self, int index) {
     auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
@@ -220,7 +205,15 @@ void QGraphicsLayout_RemoveAt(QGraphicsLayout* self, int index) {
     }
 }
 
-// Base class handler implementation
+// Subclass method to allow providing a virtual method re-implementation
+void QGraphicsLayout_OnRemoveAt(QGraphicsLayout* self, intptr_t slot) {
+    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
+    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
+        vqgraphicslayout->setQGraphicsLayout_RemoveAt_Callback(reinterpret_cast<VirtualQGraphicsLayout::QGraphicsLayout_RemoveAt_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
 void QGraphicsLayout_QBaseRemoveAt(QGraphicsLayout* self, int index) {
     auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
     if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
@@ -231,12 +224,12 @@ void QGraphicsLayout_QBaseRemoveAt(QGraphicsLayout* self, int index) {
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QGraphicsLayout_OnRemoveAt(QGraphicsLayout* self, intptr_t slot) {
-    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->setQGraphicsLayout_RemoveAt_Callback(reinterpret_cast<VirtualQGraphicsLayout::QGraphicsLayout_RemoveAt_Callback>(slot));
-    }
+void QGraphicsLayout_SetInstantInvalidatePropagation(bool enable) {
+    QGraphicsLayout::setInstantInvalidatePropagation(enable);
+}
+
+bool QGraphicsLayout_InstantInvalidatePropagation() {
+    return QGraphicsLayout::instantInvalidatePropagation();
 }
 
 // Derived class handler implementation

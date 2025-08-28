@@ -106,6 +106,90 @@ libqt_string QPrintDialog_Tr(const char* s) {
     return _str;
 }
 
+int QPrintDialog_Exec(QPrintDialog* self) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        return self->exec();
+    } else {
+        return ((VirtualQPrintDialog*)self)->exec();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrintDialog_OnExec(QPrintDialog* self, intptr_t slot) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        vqprintdialog->setQPrintDialog_Exec_Callback(reinterpret_cast<VirtualQPrintDialog::QPrintDialog_Exec_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QPrintDialog_QBaseExec(QPrintDialog* self) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        vqprintdialog->setQPrintDialog_Exec_IsBase(true);
+        return vqprintdialog->exec();
+    } else {
+        return ((VirtualQPrintDialog*)self)->exec();
+    }
+}
+
+void QPrintDialog_Accept(QPrintDialog* self) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        self->accept();
+    } else {
+        ((VirtualQPrintDialog*)self)->accept();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrintDialog_OnAccept(QPrintDialog* self, intptr_t slot) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        vqprintdialog->setQPrintDialog_Accept_Callback(reinterpret_cast<VirtualQPrintDialog::QPrintDialog_Accept_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPrintDialog_QBaseAccept(QPrintDialog* self) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        vqprintdialog->setQPrintDialog_Accept_IsBase(true);
+        vqprintdialog->accept();
+    } else {
+        ((VirtualQPrintDialog*)self)->accept();
+    }
+}
+
+void QPrintDialog_Done(QPrintDialog* self, int result) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        self->done(static_cast<int>(result));
+    } else {
+        ((VirtualQPrintDialog*)self)->done(static_cast<int>(result));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrintDialog_OnDone(QPrintDialog* self, intptr_t slot) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        vqprintdialog->setQPrintDialog_Done_Callback(reinterpret_cast<VirtualQPrintDialog::QPrintDialog_Done_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPrintDialog_QBaseDone(QPrintDialog* self, int result) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        vqprintdialog->setQPrintDialog_Done_IsBase(true);
+        vqprintdialog->done(static_cast<int>(result));
+    } else {
+        ((VirtualQPrintDialog*)self)->done(static_cast<int>(result));
+    }
+}
+
 void QPrintDialog_SetOption(QPrintDialog* self, int option) {
     self->setOption(static_cast<QAbstractPrintDialog::PrintDialogOption>(option));
 }
@@ -120,6 +204,34 @@ void QPrintDialog_SetOptions(QPrintDialog* self, int options) {
 
 int QPrintDialog_Options(const QPrintDialog* self) {
     return static_cast<int>(self->options());
+}
+
+void QPrintDialog_SetVisible(QPrintDialog* self, bool visible) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        self->setVisible(visible);
+    } else {
+        ((VirtualQPrintDialog*)self)->setVisible(visible);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrintDialog_OnSetVisible(QPrintDialog* self, intptr_t slot) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        vqprintdialog->setQPrintDialog_SetVisible_Callback(reinterpret_cast<VirtualQPrintDialog::QPrintDialog_SetVisible_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPrintDialog_QBaseSetVisible(QPrintDialog* self, bool visible) {
+    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
+    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
+        vqprintdialog->setQPrintDialog_SetVisible_IsBase(true);
+        vqprintdialog->setVisible(visible);
+    } else {
+        ((VirtualQPrintDialog*)self)->setVisible(visible);
+    }
 }
 
 void QPrintDialog_Accepted(QPrintDialog* self, QPrinter* printer) {
@@ -152,122 +264,6 @@ libqt_string QPrintDialog_Tr3(const char* s, const char* c, int n) {
 
 void QPrintDialog_SetOption2(QPrintDialog* self, int option, bool on) {
     self->setOption(static_cast<QAbstractPrintDialog::PrintDialogOption>(option), on);
-}
-
-// Derived class handler implementation
-int QPrintDialog_Exec(QPrintDialog* self) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        return vqprintdialog->exec();
-    } else {
-        return self->QPrintDialog::exec();
-    }
-}
-
-// Base class handler implementation
-int QPrintDialog_QBaseExec(QPrintDialog* self) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->setQPrintDialog_Exec_IsBase(true);
-        return vqprintdialog->exec();
-    } else {
-        return self->QPrintDialog::exec();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintDialog_OnExec(QPrintDialog* self, intptr_t slot) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->setQPrintDialog_Exec_Callback(reinterpret_cast<VirtualQPrintDialog::QPrintDialog_Exec_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QPrintDialog_Accept(QPrintDialog* self) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->accept();
-    } else {
-        self->QPrintDialog::accept();
-    }
-}
-
-// Base class handler implementation
-void QPrintDialog_QBaseAccept(QPrintDialog* self) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->setQPrintDialog_Accept_IsBase(true);
-        vqprintdialog->accept();
-    } else {
-        self->QPrintDialog::accept();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintDialog_OnAccept(QPrintDialog* self, intptr_t slot) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->setQPrintDialog_Accept_Callback(reinterpret_cast<VirtualQPrintDialog::QPrintDialog_Accept_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QPrintDialog_Done(QPrintDialog* self, int result) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->done(static_cast<int>(result));
-    } else {
-        self->QPrintDialog::done(static_cast<int>(result));
-    }
-}
-
-// Base class handler implementation
-void QPrintDialog_QBaseDone(QPrintDialog* self, int result) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->setQPrintDialog_Done_IsBase(true);
-        vqprintdialog->done(static_cast<int>(result));
-    } else {
-        self->QPrintDialog::done(static_cast<int>(result));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintDialog_OnDone(QPrintDialog* self, intptr_t slot) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->setQPrintDialog_Done_Callback(reinterpret_cast<VirtualQPrintDialog::QPrintDialog_Done_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QPrintDialog_SetVisible(QPrintDialog* self, bool visible) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->setVisible(visible);
-    } else {
-        self->QPrintDialog::setVisible(visible);
-    }
-}
-
-// Base class handler implementation
-void QPrintDialog_QBaseSetVisible(QPrintDialog* self, bool visible) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->setQPrintDialog_SetVisible_IsBase(true);
-        vqprintdialog->setVisible(visible);
-    } else {
-        self->QPrintDialog::setVisible(visible);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintDialog_OnSetVisible(QPrintDialog* self, intptr_t slot) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        vqprintdialog->setQPrintDialog_SetVisible_Callback(reinterpret_cast<VirtualQPrintDialog::QPrintDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

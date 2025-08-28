@@ -202,8 +202,208 @@ bool QAbstractSpinBox_IsGroupSeparatorShown(const QAbstractSpinBox* self) {
     return self->isGroupSeparatorShown();
 }
 
+QSize* QAbstractSpinBox_SizeHint(const QAbstractSpinBox* self) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQAbstractSpinBox*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnSizeHint(const QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_SizeHint_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QAbstractSpinBox_QBaseSizeHint(const QAbstractSpinBox* self) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_SizeHint_IsBase(true);
+        return new QSize(vqabstractspinbox->sizeHint());
+    } else {
+        return new QSize(((VirtualQAbstractSpinBox*)self)->sizeHint());
+    }
+}
+
+QSize* QAbstractSpinBox_MinimumSizeHint(const QAbstractSpinBox* self) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQAbstractSpinBox*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnMinimumSizeHint(const QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QAbstractSpinBox_QBaseMinimumSizeHint(const QAbstractSpinBox* self) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MinimumSizeHint_IsBase(true);
+        return new QSize(vqabstractspinbox->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQAbstractSpinBox*)self)->minimumSizeHint());
+    }
+}
+
 void QAbstractSpinBox_InterpretText(QAbstractSpinBox* self) {
     self->interpretText();
+}
+
+bool QAbstractSpinBox_Event(QAbstractSpinBox* self, QEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        return self->event(event);
+    } else {
+        return ((VirtualQAbstractSpinBox*)self)->event(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Event_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QAbstractSpinBox_QBaseEvent(QAbstractSpinBox* self, QEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Event_IsBase(true);
+        return vqabstractspinbox->event(event);
+    } else {
+        return ((VirtualQAbstractSpinBox*)self)->event(event);
+    }
+}
+
+QVariant* QAbstractSpinBox_InputMethodQuery(const QAbstractSpinBox* self, int param1) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    } else {
+        return new QVariant(((VirtualQAbstractSpinBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnInputMethodQuery(const QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InputMethodQuery_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QAbstractSpinBox_QBaseInputMethodQuery(const QAbstractSpinBox* self, int param1) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_InputMethodQuery_IsBase(true);
+        return new QVariant(vqabstractspinbox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    } else {
+        return new QVariant(((VirtualQAbstractSpinBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+    }
+}
+
+int QAbstractSpinBox_Validate(const QAbstractSpinBox* self, libqt_string input, int* pos) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        return static_cast<int>(self->validate(input_QString, static_cast<int&>(*pos)));
+    } else {
+        return static_cast<int>(((VirtualQAbstractSpinBox*)self)->validate(input_QString, static_cast<int&>(*pos)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnValidate(const QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Validate_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Validate_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QAbstractSpinBox_QBaseValidate(const QAbstractSpinBox* self, libqt_string input, int* pos) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Validate_IsBase(true);
+        return static_cast<int>(vqabstractspinbox->validate(input_QString, static_cast<int&>(*pos)));
+    } else {
+        return static_cast<int>(((VirtualQAbstractSpinBox*)self)->validate(input_QString, static_cast<int&>(*pos)));
+    }
+}
+
+void QAbstractSpinBox_Fixup(const QAbstractSpinBox* self, libqt_string input) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        self->fixup(input_QString);
+    } else {
+        ((VirtualQAbstractSpinBox*)self)->fixup(input_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnFixup(const QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Fixup_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Fixup_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseFixup(const QAbstractSpinBox* self, libqt_string input) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Fixup_IsBase(true);
+        vqabstractspinbox->fixup(input_QString);
+    } else {
+        ((VirtualQAbstractSpinBox*)self)->fixup(input_QString);
+    }
+}
+
+void QAbstractSpinBox_StepBy(QAbstractSpinBox* self, int steps) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        self->stepBy(static_cast<int>(steps));
+    } else {
+        ((VirtualQAbstractSpinBox*)self)->stepBy(static_cast<int>(steps));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnStepBy(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_StepBy_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepBy_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseStepBy(QAbstractSpinBox* self, int steps) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_StepBy_IsBase(true);
+        vqabstractspinbox->stepBy(static_cast<int>(steps));
+    } else {
+        ((VirtualQAbstractSpinBox*)self)->stepBy(static_cast<int>(steps));
+    }
 }
 
 void QAbstractSpinBox_StepUp(QAbstractSpinBox* self) {
@@ -216,6 +416,468 @@ void QAbstractSpinBox_StepDown(QAbstractSpinBox* self) {
 
 void QAbstractSpinBox_SelectAll(QAbstractSpinBox* self) {
     self->selectAll();
+}
+
+void QAbstractSpinBox_Clear(QAbstractSpinBox* self) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        self->clear();
+    } else {
+        ((VirtualQAbstractSpinBox*)self)->clear();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnClear(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Clear_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Clear_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseClear(QAbstractSpinBox* self) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Clear_IsBase(true);
+        vqabstractspinbox->clear();
+    } else {
+        ((VirtualQAbstractSpinBox*)self)->clear();
+    }
+}
+
+void QAbstractSpinBox_ResizeEvent(QAbstractSpinBox* self, QResizeEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->resizeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnResizeEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_ResizeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseResizeEvent(QAbstractSpinBox* self, QResizeEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_ResizeEvent_IsBase(true);
+        vqabstractspinbox->resizeEvent(event);
+    }
+}
+
+void QAbstractSpinBox_KeyPressEvent(QAbstractSpinBox* self, QKeyEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->keyPressEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnKeyPressEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseKeyPressEvent(QAbstractSpinBox* self, QKeyEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_KeyPressEvent_IsBase(true);
+        vqabstractspinbox->keyPressEvent(event);
+    }
+}
+
+void QAbstractSpinBox_KeyReleaseEvent(QAbstractSpinBox* self, QKeyEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->keyReleaseEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnKeyReleaseEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseKeyReleaseEvent(QAbstractSpinBox* self, QKeyEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_KeyReleaseEvent_IsBase(true);
+        vqabstractspinbox->keyReleaseEvent(event);
+    }
+}
+
+void QAbstractSpinBox_WheelEvent(QAbstractSpinBox* self, QWheelEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->wheelEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnWheelEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_WheelEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_WheelEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseWheelEvent(QAbstractSpinBox* self, QWheelEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_WheelEvent_IsBase(true);
+        vqabstractspinbox->wheelEvent(event);
+    }
+}
+
+void QAbstractSpinBox_FocusInEvent(QAbstractSpinBox* self, QFocusEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->focusInEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnFocusInEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_FocusInEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseFocusInEvent(QAbstractSpinBox* self, QFocusEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_FocusInEvent_IsBase(true);
+        vqabstractspinbox->focusInEvent(event);
+    }
+}
+
+void QAbstractSpinBox_FocusOutEvent(QAbstractSpinBox* self, QFocusEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->focusOutEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnFocusOutEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusOutEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseFocusOutEvent(QAbstractSpinBox* self, QFocusEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_FocusOutEvent_IsBase(true);
+        vqabstractspinbox->focusOutEvent(event);
+    }
+}
+
+void QAbstractSpinBox_ContextMenuEvent(QAbstractSpinBox* self, QContextMenuEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->contextMenuEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnContextMenuEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseContextMenuEvent(QAbstractSpinBox* self, QContextMenuEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_ContextMenuEvent_IsBase(true);
+        vqabstractspinbox->contextMenuEvent(event);
+    }
+}
+
+void QAbstractSpinBox_ChangeEvent(QAbstractSpinBox* self, QEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->changeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnChangeEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_ChangeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseChangeEvent(QAbstractSpinBox* self, QEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_ChangeEvent_IsBase(true);
+        vqabstractspinbox->changeEvent(event);
+    }
+}
+
+void QAbstractSpinBox_CloseEvent(QAbstractSpinBox* self, QCloseEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->closeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnCloseEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_CloseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_CloseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseCloseEvent(QAbstractSpinBox* self, QCloseEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_CloseEvent_IsBase(true);
+        vqabstractspinbox->closeEvent(event);
+    }
+}
+
+void QAbstractSpinBox_HideEvent(QAbstractSpinBox* self, QHideEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->hideEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnHideEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_HideEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HideEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseHideEvent(QAbstractSpinBox* self, QHideEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_HideEvent_IsBase(true);
+        vqabstractspinbox->hideEvent(event);
+    }
+}
+
+void QAbstractSpinBox_MousePressEvent(QAbstractSpinBox* self, QMouseEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->mousePressEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnMousePressEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MousePressEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseMousePressEvent(QAbstractSpinBox* self, QMouseEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MousePressEvent_IsBase(true);
+        vqabstractspinbox->mousePressEvent(event);
+    }
+}
+
+void QAbstractSpinBox_MouseReleaseEvent(QAbstractSpinBox* self, QMouseEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->mouseReleaseEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnMouseReleaseEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseReleaseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseMouseReleaseEvent(QAbstractSpinBox* self, QMouseEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MouseReleaseEvent_IsBase(true);
+        vqabstractspinbox->mouseReleaseEvent(event);
+    }
+}
+
+void QAbstractSpinBox_MouseMoveEvent(QAbstractSpinBox* self, QMouseEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->mouseMoveEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnMouseMoveEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseMoveEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseMouseMoveEvent(QAbstractSpinBox* self, QMouseEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MouseMoveEvent_IsBase(true);
+        vqabstractspinbox->mouseMoveEvent(event);
+    }
+}
+
+void QAbstractSpinBox_TimerEvent(QAbstractSpinBox* self, QTimerEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->timerEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnTimerEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_TimerEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseTimerEvent(QAbstractSpinBox* self, QTimerEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_TimerEvent_IsBase(true);
+        vqabstractspinbox->timerEvent(event);
+    }
+}
+
+void QAbstractSpinBox_PaintEvent(QAbstractSpinBox* self, QPaintEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->paintEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnPaintEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_PaintEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBasePaintEvent(QAbstractSpinBox* self, QPaintEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_PaintEvent_IsBase(true);
+        vqabstractspinbox->paintEvent(event);
+    }
+}
+
+void QAbstractSpinBox_ShowEvent(QAbstractSpinBox* self, QShowEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->showEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnShowEvent(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_ShowEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ShowEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseShowEvent(QAbstractSpinBox* self, QShowEvent* event) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_ShowEvent_IsBase(true);
+        vqabstractspinbox->showEvent(event);
+    }
+}
+
+void QAbstractSpinBox_InitStyleOption(const QAbstractSpinBox* self, QStyleOptionSpinBox* option) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->initStyleOption(option);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnInitStyleOption(const QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_InitStyleOption_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QAbstractSpinBox_QBaseInitStyleOption(const QAbstractSpinBox* self, QStyleOptionSpinBox* option) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_InitStyleOption_IsBase(true);
+        vqabstractspinbox->initStyleOption(option);
+    }
+}
+
+int QAbstractSpinBox_StepEnabled(const QAbstractSpinBox* self) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        return static_cast<int>(vqabstractspinbox->stepEnabled());
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QAbstractSpinBox_OnStepEnabled(const QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_StepEnabled_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepEnabled_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QAbstractSpinBox_QBaseStepEnabled(const QAbstractSpinBox* self) {
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_StepEnabled_IsBase(true);
+        return static_cast<int>(vqabstractspinbox->stepEnabled());
+    }
+    return {};
 }
 
 void QAbstractSpinBox_EditingFinished(QAbstractSpinBox* self) {
@@ -251,764 +913,6 @@ libqt_string QAbstractSpinBox_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* QAbstractSpinBox_SizeHint(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return new QSize(vqabstractspinbox->sizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSpinBox*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QAbstractSpinBox_QBaseSizeHint(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_SizeHint_IsBase(true);
-        return new QSize(vqabstractspinbox->sizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSpinBox*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnSizeHint(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_SizeHint_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QAbstractSpinBox_MinimumSizeHint(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return new QSize(vqabstractspinbox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSpinBox*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QAbstractSpinBox_QBaseMinimumSizeHint(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vqabstractspinbox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSpinBox*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnMinimumSizeHint(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QAbstractSpinBox_Event(QAbstractSpinBox* self, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->event(event);
-    } else {
-        return self->QAbstractSpinBox::event(event);
-    }
-}
-
-// Base class handler implementation
-bool QAbstractSpinBox_QBaseEvent(QAbstractSpinBox* self, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Event_IsBase(true);
-        return vqabstractspinbox->event(event);
-    } else {
-        return self->QAbstractSpinBox::event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Event_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QAbstractSpinBox_InputMethodQuery(const QAbstractSpinBox* self, int param1) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return new QVariant(vqabstractspinbox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQAbstractSpinBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QAbstractSpinBox_QBaseInputMethodQuery(const QAbstractSpinBox* self, int param1) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vqabstractspinbox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQAbstractSpinBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnInputMethodQuery(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InputMethodQuery_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QAbstractSpinBox_Validate(const QAbstractSpinBox* self, libqt_string input, int* pos) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return static_cast<int>(vqabstractspinbox->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(self->QAbstractSpinBox::validate(input_QString, static_cast<int&>(*pos)));
-    }
-}
-
-// Base class handler implementation
-int QAbstractSpinBox_QBaseValidate(const QAbstractSpinBox* self, libqt_string input, int* pos) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Validate_IsBase(true);
-        return static_cast<int>(vqabstractspinbox->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(self->QAbstractSpinBox::validate(input_QString, static_cast<int&>(*pos)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnValidate(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Validate_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Validate_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_Fixup(const QAbstractSpinBox* self, libqt_string input) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->fixup(input_QString);
-    } else {
-        self->QAbstractSpinBox::fixup(input_QString);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseFixup(const QAbstractSpinBox* self, libqt_string input) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Fixup_IsBase(true);
-        vqabstractspinbox->fixup(input_QString);
-    } else {
-        self->QAbstractSpinBox::fixup(input_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnFixup(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Fixup_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Fixup_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_StepBy(QAbstractSpinBox* self, int steps) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->stepBy(static_cast<int>(steps));
-    } else {
-        self->QAbstractSpinBox::stepBy(static_cast<int>(steps));
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseStepBy(QAbstractSpinBox* self, int steps) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_StepBy_IsBase(true);
-        vqabstractspinbox->stepBy(static_cast<int>(steps));
-    } else {
-        self->QAbstractSpinBox::stepBy(static_cast<int>(steps));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnStepBy(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_StepBy_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepBy_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_Clear(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->clear();
-    } else {
-        self->QAbstractSpinBox::clear();
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseClear(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Clear_IsBase(true);
-        vqabstractspinbox->clear();
-    } else {
-        self->QAbstractSpinBox::clear();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnClear(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Clear_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Clear_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_ResizeEvent(QAbstractSpinBox* self, QResizeEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->resizeEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->resizeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseResizeEvent(QAbstractSpinBox* self, QResizeEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ResizeEvent_IsBase(true);
-        vqabstractspinbox->resizeEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->resizeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnResizeEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ResizeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_KeyPressEvent(QAbstractSpinBox* self, QKeyEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->keyPressEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->keyPressEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseKeyPressEvent(QAbstractSpinBox* self, QKeyEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_KeyPressEvent_IsBase(true);
-        vqabstractspinbox->keyPressEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->keyPressEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnKeyPressEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_KeyReleaseEvent(QAbstractSpinBox* self, QKeyEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->keyReleaseEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->keyReleaseEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseKeyReleaseEvent(QAbstractSpinBox* self, QKeyEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_KeyReleaseEvent_IsBase(true);
-        vqabstractspinbox->keyReleaseEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->keyReleaseEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnKeyReleaseEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_WheelEvent(QAbstractSpinBox* self, QWheelEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->wheelEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->wheelEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseWheelEvent(QAbstractSpinBox* self, QWheelEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_WheelEvent_IsBase(true);
-        vqabstractspinbox->wheelEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->wheelEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnWheelEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_WheelEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_WheelEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_FocusInEvent(QAbstractSpinBox* self, QFocusEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->focusInEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->focusInEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseFocusInEvent(QAbstractSpinBox* self, QFocusEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_FocusInEvent_IsBase(true);
-        vqabstractspinbox->focusInEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->focusInEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnFocusInEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_FocusInEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_FocusOutEvent(QAbstractSpinBox* self, QFocusEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->focusOutEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->focusOutEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseFocusOutEvent(QAbstractSpinBox* self, QFocusEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_FocusOutEvent_IsBase(true);
-        vqabstractspinbox->focusOutEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->focusOutEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnFocusOutEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusOutEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_ContextMenuEvent(QAbstractSpinBox* self, QContextMenuEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->contextMenuEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->contextMenuEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseContextMenuEvent(QAbstractSpinBox* self, QContextMenuEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ContextMenuEvent_IsBase(true);
-        vqabstractspinbox->contextMenuEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->contextMenuEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnContextMenuEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_ChangeEvent(QAbstractSpinBox* self, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->changeEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->changeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseChangeEvent(QAbstractSpinBox* self, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ChangeEvent_IsBase(true);
-        vqabstractspinbox->changeEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->changeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnChangeEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ChangeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_CloseEvent(QAbstractSpinBox* self, QCloseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->closeEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->closeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseCloseEvent(QAbstractSpinBox* self, QCloseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_CloseEvent_IsBase(true);
-        vqabstractspinbox->closeEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->closeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnCloseEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_CloseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_CloseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_HideEvent(QAbstractSpinBox* self, QHideEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->hideEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->hideEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseHideEvent(QAbstractSpinBox* self, QHideEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_HideEvent_IsBase(true);
-        vqabstractspinbox->hideEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->hideEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnHideEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_HideEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HideEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_MousePressEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->mousePressEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mousePressEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseMousePressEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MousePressEvent_IsBase(true);
-        vqabstractspinbox->mousePressEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mousePressEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnMousePressEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MousePressEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_MouseReleaseEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mouseReleaseEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseMouseReleaseEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MouseReleaseEvent_IsBase(true);
-        vqabstractspinbox->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mouseReleaseEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnMouseReleaseEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseReleaseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_MouseMoveEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->mouseMoveEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mouseMoveEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseMouseMoveEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MouseMoveEvent_IsBase(true);
-        vqabstractspinbox->mouseMoveEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mouseMoveEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnMouseMoveEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseMoveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_TimerEvent(QAbstractSpinBox* self, QTimerEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->timerEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->timerEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseTimerEvent(QAbstractSpinBox* self, QTimerEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_TimerEvent_IsBase(true);
-        vqabstractspinbox->timerEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->timerEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnTimerEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_TimerEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_PaintEvent(QAbstractSpinBox* self, QPaintEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->paintEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->paintEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBasePaintEvent(QAbstractSpinBox* self, QPaintEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_PaintEvent_IsBase(true);
-        vqabstractspinbox->paintEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->paintEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnPaintEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_PaintEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_ShowEvent(QAbstractSpinBox* self, QShowEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->showEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->showEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseShowEvent(QAbstractSpinBox* self, QShowEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ShowEvent_IsBase(true);
-        vqabstractspinbox->showEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->showEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnShowEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ShowEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ShowEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QAbstractSpinBox_InitStyleOption(const QAbstractSpinBox* self, QStyleOptionSpinBox* option) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->initStyleOption(option);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->initStyleOption(option);
-    }
-}
-
-// Base class handler implementation
-void QAbstractSpinBox_QBaseInitStyleOption(const QAbstractSpinBox* self, QStyleOptionSpinBox* option) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_InitStyleOption_IsBase(true);
-        vqabstractspinbox->initStyleOption(option);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->initStyleOption(option);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnInitStyleOption(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_InitStyleOption_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InitStyleOption_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QAbstractSpinBox_StepEnabled(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return static_cast<int>(vqabstractspinbox->stepEnabled());
-    } else {
-        return static_cast<int>(((VirtualQAbstractSpinBox*)self)->stepEnabled());
-    }
-}
-
-// Base class handler implementation
-int QAbstractSpinBox_QBaseStepEnabled(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_StepEnabled_IsBase(true);
-        return static_cast<int>(vqabstractspinbox->stepEnabled());
-    } else {
-        return static_cast<int>(((VirtualQAbstractSpinBox*)self)->stepEnabled());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnStepEnabled(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_StepEnabled_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -72,12 +72,36 @@ libqt_string QsciLexerMatlab_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerMatlab_Language(const QsciLexerMatlab* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerMatlab_Lexer(const QsciLexerMatlab* self) {
+    return (const char*)self->lexer();
+}
+
 QColor* QsciLexerMatlab_DefaultColor(const QsciLexerMatlab* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
 }
 
 QFont* QsciLexerMatlab_DefaultFont(const QsciLexerMatlab* self, int style) {
     return new QFont(self->defaultFont(static_cast<int>(style)));
+}
+
+const char* QsciLexerMatlab_Keywords(const QsciLexerMatlab* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
+libqt_string QsciLexerMatlab_Description(const QsciLexerMatlab* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QsciLexerMatlab_Tr2(const char* s, const char* c) {
@@ -102,64 +126,6 @@ libqt_string QsciLexerMatlab_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-const char* QsciLexerMatlab_Language(const QsciLexerMatlab* self) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        return (const char*)vqscilexermatlab->language();
-    } else {
-        return (const char*)((VirtualQsciLexerMatlab*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerMatlab_QBaseLanguage(const QsciLexerMatlab* self) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        vqscilexermatlab->setQsciLexerMatlab_Language_IsBase(true);
-        return (const char*)vqscilexermatlab->language();
-    } else {
-        return (const char*)((VirtualQsciLexerMatlab*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerMatlab_OnLanguage(const QsciLexerMatlab* self, intptr_t slot) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        vqscilexermatlab->setQsciLexerMatlab_Language_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerMatlab_Lexer(const QsciLexerMatlab* self) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        return (const char*)vqscilexermatlab->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerMatlab*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerMatlab_QBaseLexer(const QsciLexerMatlab* self) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        vqscilexermatlab->setQsciLexerMatlab_Lexer_IsBase(true);
-        return (const char*)vqscilexermatlab->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerMatlab*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerMatlab_OnLexer(const QsciLexerMatlab* self, intptr_t slot) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        vqscilexermatlab->setQsciLexerMatlab_Lexer_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -608,35 +574,6 @@ void QsciLexerMatlab_OnIndentationGuideView(const QsciLexerMatlab* self, intptr_
 }
 
 // Derived class handler implementation
-const char* QsciLexerMatlab_Keywords(const QsciLexerMatlab* self, int set) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        return (const char*)vqscilexermatlab->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerMatlab*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerMatlab_QBaseKeywords(const QsciLexerMatlab* self, int set) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        vqscilexermatlab->setQsciLexerMatlab_Keywords_IsBase(true);
-        return (const char*)vqscilexermatlab->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerMatlab*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerMatlab_OnKeywords(const QsciLexerMatlab* self, intptr_t slot) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        vqscilexermatlab->setQsciLexerMatlab_Keywords_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Keywords_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerMatlab_DefaultStyle(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
@@ -662,67 +599,6 @@ void QsciLexerMatlab_OnDefaultStyle(const QsciLexerMatlab* self, intptr_t slot) 
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerMatlab_Description(const QsciLexerMatlab* self, int style) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        QString _ret = vqscilexermatlab->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerMatlab*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerMatlab_QBaseDescription(const QsciLexerMatlab* self, int style) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        vqscilexermatlab->setQsciLexerMatlab_Description_IsBase(true);
-        QString _ret = vqscilexermatlab->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerMatlab*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerMatlab_OnDescription(const QsciLexerMatlab* self, intptr_t slot) {
-    auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
-        vqscilexermatlab->setQsciLexerMatlab_Description_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Description_Callback>(slot));
     }
 }
 

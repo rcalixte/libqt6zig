@@ -446,36 +446,16 @@ KTwoFingerTapRecognizer* KTwoFingerTapRecognizer_new() {
     return new VirtualKTwoFingerTapRecognizer();
 }
 
-int KTwoFingerTapRecognizer_TapRadius(const KTwoFingerTapRecognizer* self) {
-    return self->tapRadius();
-}
-
-void KTwoFingerTapRecognizer_SetTapRadius(KTwoFingerTapRecognizer* self, int i) {
-    self->setTapRadius(static_cast<int>(i));
-}
-
-// Derived class handler implementation
 QGesture* KTwoFingerTapRecognizer_Create(KTwoFingerTapRecognizer* self, QObject* target) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
     if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        return vktwofingertaprecognizer->create(target);
+        return self->create(target);
     } else {
-        return self->KTwoFingerTapRecognizer::create(target);
+        return ((VirtualKTwoFingerTapRecognizer*)self)->create(target);
     }
 }
 
-// Base class handler implementation
-QGesture* KTwoFingerTapRecognizer_QBaseCreate(KTwoFingerTapRecognizer* self, QObject* target) {
-    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Create_IsBase(true);
-        return vktwofingertaprecognizer->create(target);
-    } else {
-        return self->KTwoFingerTapRecognizer::create(target);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void KTwoFingerTapRecognizer_OnCreate(KTwoFingerTapRecognizer* self, intptr_t slot) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
     if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
@@ -483,33 +463,51 @@ void KTwoFingerTapRecognizer_OnCreate(KTwoFingerTapRecognizer* self, intptr_t sl
     }
 }
 
-// Derived class handler implementation
-int KTwoFingerTapRecognizer_Recognize(KTwoFingerTapRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
+// Virtual base class handler implementation
+QGesture* KTwoFingerTapRecognizer_QBaseCreate(KTwoFingerTapRecognizer* self, QObject* target) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
     if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        return static_cast<int>(vktwofingertaprecognizer->recognize(gesture, watched, event));
+        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Create_IsBase(true);
+        return vktwofingertaprecognizer->create(target);
     } else {
-        return static_cast<int>(self->KTwoFingerTapRecognizer::recognize(gesture, watched, event));
+        return ((VirtualKTwoFingerTapRecognizer*)self)->create(target);
     }
 }
 
-// Base class handler implementation
+int KTwoFingerTapRecognizer_Recognize(KTwoFingerTapRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
+    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
+    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
+        return static_cast<int>(self->recognize(gesture, watched, event));
+    } else {
+        return static_cast<int>(((VirtualKTwoFingerTapRecognizer*)self)->recognize(gesture, watched, event));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KTwoFingerTapRecognizer_OnRecognize(KTwoFingerTapRecognizer* self, intptr_t slot) {
+    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
+    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
+        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Recognize_Callback(reinterpret_cast<VirtualKTwoFingerTapRecognizer::KTwoFingerTapRecognizer_Recognize_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
 int KTwoFingerTapRecognizer_QBaseRecognize(KTwoFingerTapRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
     if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
         vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Recognize_IsBase(true);
         return static_cast<int>(vktwofingertaprecognizer->recognize(gesture, watched, event));
     } else {
-        return static_cast<int>(self->KTwoFingerTapRecognizer::recognize(gesture, watched, event));
+        return static_cast<int>(((VirtualKTwoFingerTapRecognizer*)self)->recognize(gesture, watched, event));
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void KTwoFingerTapRecognizer_OnRecognize(KTwoFingerTapRecognizer* self, intptr_t slot) {
-    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Recognize_Callback(reinterpret_cast<VirtualKTwoFingerTapRecognizer::KTwoFingerTapRecognizer_Recognize_Callback>(slot));
-    }
+int KTwoFingerTapRecognizer_TapRadius(const KTwoFingerTapRecognizer* self) {
+    return self->tapRadius();
+}
+
+void KTwoFingerTapRecognizer_SetTapRadius(KTwoFingerTapRecognizer* self, int i) {
+    self->setTapRadius(static_cast<int>(i));
 }
 
 // Derived class handler implementation

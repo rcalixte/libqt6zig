@@ -285,6 +285,30 @@ void KRuler_SlotEndOffset(KRuler* self, int param1) {
     self->slotEndOffset(static_cast<int>(param1));
 }
 
+void KRuler_PaintEvent(KRuler* self, QPaintEvent* param1) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->paintEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KRuler_OnPaintEvent(KRuler* self, intptr_t slot) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_PaintEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KRuler_QBasePaintEvent(KRuler* self, QPaintEvent* param1) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_PaintEvent_IsBase(true);
+        vkruler->paintEvent(param1);
+    }
+}
+
 libqt_string KRuler_Tr2(const char* s, const char* c) {
     QString _ret = KRuler::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -315,35 +339,6 @@ void KRuler_SlideUp1(KRuler* self, int count) {
 
 void KRuler_SlideDown1(KRuler* self, int count) {
     self->slideDown(static_cast<int>(count));
-}
-
-// Derived class handler implementation
-void KRuler_PaintEvent(KRuler* self, QPaintEvent* param1) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->paintEvent(param1);
-    } else {
-        ((VirtualKRuler*)self)->paintEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void KRuler_QBasePaintEvent(KRuler* self, QPaintEvent* param1) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_PaintEvent_IsBase(true);
-        vkruler->paintEvent(param1);
-    } else {
-        ((VirtualKRuler*)self)->paintEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnPaintEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_PaintEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

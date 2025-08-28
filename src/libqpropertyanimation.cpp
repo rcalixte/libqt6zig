@@ -105,6 +105,80 @@ void QPropertyAnimation_SetPropertyName(QPropertyAnimation* self, const libqt_st
     self->setPropertyName(propertyName_QByteArray);
 }
 
+bool QPropertyAnimation_Event(QPropertyAnimation* self, QEvent* event) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        return vqpropertyanimation->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPropertyAnimation_OnEvent(QPropertyAnimation* self, intptr_t slot) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_Event_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QPropertyAnimation_QBaseEvent(QPropertyAnimation* self, QEvent* event) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_Event_IsBase(true);
+        return vqpropertyanimation->event(event);
+    }
+    return {};
+}
+
+void QPropertyAnimation_UpdateCurrentValue(QPropertyAnimation* self, const QVariant* value) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->updateCurrentValue(*value);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPropertyAnimation_OnUpdateCurrentValue(QPropertyAnimation* self, intptr_t slot) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_UpdateCurrentValue_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateCurrentValue_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPropertyAnimation_QBaseUpdateCurrentValue(QPropertyAnimation* self, const QVariant* value) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_UpdateCurrentValue_IsBase(true);
+        vqpropertyanimation->updateCurrentValue(*value);
+    }
+}
+
+void QPropertyAnimation_UpdateState(QPropertyAnimation* self, int newState, int oldState) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPropertyAnimation_OnUpdateState(QPropertyAnimation* self, intptr_t slot) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_UpdateState_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateState_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QPropertyAnimation_QBaseUpdateState(QPropertyAnimation* self, int newState, int oldState) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_UpdateState_IsBase(true);
+        vqpropertyanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+    }
+}
+
 libqt_string QPropertyAnimation_Tr2(const char* s, const char* c) {
     QString _ret = QPropertyAnimation::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -127,93 +201,6 @@ libqt_string QPropertyAnimation_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool QPropertyAnimation_Event(QPropertyAnimation* self, QEvent* event) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return vqpropertyanimation->event(event);
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool QPropertyAnimation_QBaseEvent(QPropertyAnimation* self, QEvent* event) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_Event_IsBase(true);
-        return vqpropertyanimation->event(event);
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnEvent(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_Event_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QPropertyAnimation_UpdateCurrentValue(QPropertyAnimation* self, const QVariant* value) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->updateCurrentValue(*value);
-    } else {
-        ((VirtualQPropertyAnimation*)self)->updateCurrentValue(*value);
-    }
-}
-
-// Base class handler implementation
-void QPropertyAnimation_QBaseUpdateCurrentValue(QPropertyAnimation* self, const QVariant* value) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_UpdateCurrentValue_IsBase(true);
-        vqpropertyanimation->updateCurrentValue(*value);
-    } else {
-        ((VirtualQPropertyAnimation*)self)->updateCurrentValue(*value);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnUpdateCurrentValue(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_UpdateCurrentValue_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateCurrentValue_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QPropertyAnimation_UpdateState(QPropertyAnimation* self, int newState, int oldState) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    } else {
-        ((VirtualQPropertyAnimation*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    }
-}
-
-// Base class handler implementation
-void QPropertyAnimation_QBaseUpdateState(QPropertyAnimation* self, int newState, int oldState) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_UpdateState_IsBase(true);
-        vqpropertyanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    } else {
-        ((VirtualQPropertyAnimation*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnUpdateState(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_UpdateState_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

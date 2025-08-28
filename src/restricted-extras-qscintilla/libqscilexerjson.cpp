@@ -72,8 +72,20 @@ libqt_string QsciLexerJSON_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerJSON_Language(const QsciLexerJSON* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerJSON_Lexer(const QsciLexerJSON* self) {
+    return (const char*)self->lexer();
+}
+
 QColor* QsciLexerJSON_DefaultColor(const QsciLexerJSON* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+bool QsciLexerJSON_DefaultEolFill(const QsciLexerJSON* self, int style) {
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 QFont* QsciLexerJSON_DefaultFont(const QsciLexerJSON* self, int style) {
@@ -82,6 +94,26 @@ QFont* QsciLexerJSON_DefaultFont(const QsciLexerJSON* self, int style) {
 
 QColor* QsciLexerJSON_DefaultPaper(const QsciLexerJSON* self, int style) {
     return new QColor(self->defaultPaper(static_cast<int>(style)));
+}
+
+const char* QsciLexerJSON_Keywords(const QsciLexerJSON* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
+libqt_string QsciLexerJSON_Description(const QsciLexerJSON* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+void QsciLexerJSON_RefreshProperties(QsciLexerJSON* self) {
+    self->refreshProperties();
 }
 
 void QsciLexerJSON_SetHighlightComments(QsciLexerJSON* self, bool highlight) {
@@ -130,64 +162,6 @@ libqt_string QsciLexerJSON_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-const char* QsciLexerJSON_Language(const QsciLexerJSON* self) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        return (const char*)vqscilexerjson->language();
-    } else {
-        return (const char*)((VirtualQsciLexerJSON*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerJSON_QBaseLanguage(const QsciLexerJSON* self) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_Language_IsBase(true);
-        return (const char*)vqscilexerjson->language();
-    } else {
-        return (const char*)((VirtualQsciLexerJSON*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJSON_OnLanguage(const QsciLexerJSON* self, intptr_t slot) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_Language_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerJSON_Lexer(const QsciLexerJSON* self) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        return (const char*)vqscilexerjson->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerJSON*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerJSON_QBaseLexer(const QsciLexerJSON* self) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_Lexer_IsBase(true);
-        return (const char*)vqscilexerjson->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerJSON*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJSON_OnLexer(const QsciLexerJSON* self, intptr_t slot) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_Lexer_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,35 +610,6 @@ void QsciLexerJSON_OnIndentationGuideView(const QsciLexerJSON* self, intptr_t sl
 }
 
 // Derived class handler implementation
-const char* QsciLexerJSON_Keywords(const QsciLexerJSON* self, int set) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        return (const char*)vqscilexerjson->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerJSON*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerJSON_QBaseKeywords(const QsciLexerJSON* self, int set) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_Keywords_IsBase(true);
-        return (const char*)vqscilexerjson->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerJSON*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJSON_OnKeywords(const QsciLexerJSON* self, intptr_t slot) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_Keywords_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Keywords_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerJSON_DefaultStyle(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
@@ -690,67 +635,6 @@ void QsciLexerJSON_OnDefaultStyle(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerJSON_Description(const QsciLexerJSON* self, int style) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        QString _ret = vqscilexerjson->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerJSON*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerJSON_QBaseDescription(const QsciLexerJSON* self, int style) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_Description_IsBase(true);
-        QString _ret = vqscilexerjson->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerJSON*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJSON_OnDescription(const QsciLexerJSON* self, intptr_t slot) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_Description_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Description_Callback>(slot));
     }
 }
 
@@ -809,35 +693,6 @@ void QsciLexerJSON_OnDefaultColor2(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultColor2_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QsciLexerJSON_DefaultEolFill(const QsciLexerJSON* self, int style) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        return vqscilexerjson->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerJSON*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerJSON_QBaseDefaultEolFill(const QsciLexerJSON* self, int style) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_DefaultEolFill_IsBase(true);
-        return vqscilexerjson->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerJSON*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJSON_OnDefaultEolFill(const QsciLexerJSON* self, intptr_t slot) {
-    auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultEolFill_Callback>(slot));
     }
 }
 
@@ -925,35 +780,6 @@ void QsciLexerJSON_OnSetEditor(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_SetEditor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciLexerJSON_RefreshProperties(QsciLexerJSON* self) {
-    auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->refreshProperties();
-    } else {
-        ((VirtualQsciLexerJSON*)self)->refreshProperties();
-    }
-}
-
-// Base class handler implementation
-void QsciLexerJSON_QBaseRefreshProperties(QsciLexerJSON* self) {
-    auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_RefreshProperties_IsBase(true);
-        vqscilexerjson->refreshProperties();
-    } else {
-        ((VirtualQsciLexerJSON*)self)->refreshProperties();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJSON_OnRefreshProperties(QsciLexerJSON* self, intptr_t slot) {
-    auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_RefreshProperties_Callback>(slot));
     }
 }
 

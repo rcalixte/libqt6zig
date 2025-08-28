@@ -188,6 +188,76 @@ void KViewStateSerializer_RestoreScrollState(KViewStateSerializer* self, int ver
     self->restoreScrollState(static_cast<int>(verticalScoll), static_cast<int>(horizontalScroll));
 }
 
+QModelIndex* KViewStateSerializer_IndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    auto* vkviewstateserializer = dynamic_cast<const VirtualKViewStateSerializer*>(self);
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        return new QModelIndex(vkviewstateserializer->indexFromConfigString(model, key_QString));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KViewStateSerializer_OnIndexFromConfigString(const KViewStateSerializer* self, intptr_t slot) {
+    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        vkviewstateserializer->setKViewStateSerializer_IndexFromConfigString_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_IndexFromConfigString_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QModelIndex* KViewStateSerializer_QBaseIndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    auto* vkviewstateserializer = dynamic_cast<const VirtualKViewStateSerializer*>(self);
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        vkviewstateserializer->setKViewStateSerializer_IndexFromConfigString_IsBase(true);
+        return new QModelIndex(vkviewstateserializer->indexFromConfigString(model, key_QString));
+    }
+    return {};
+}
+
+libqt_string KViewStateSerializer_IndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index) {
+    auto* vkviewstateserializer = dynamic_cast<const VirtualKViewStateSerializer*>(self);
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        QString _ret = vkviewstateserializer->indexToConfigString(*index);
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KViewStateSerializer_OnIndexToConfigString(const KViewStateSerializer* self, intptr_t slot) {
+    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        vkviewstateserializer->setKViewStateSerializer_IndexToConfigString_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_IndexToConfigString_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string KViewStateSerializer_QBaseIndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index) {
+    auto* vkviewstateserializer = dynamic_cast<const VirtualKViewStateSerializer*>(self);
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        vkviewstateserializer->setKViewStateSerializer_IndexToConfigString_IsBase(true);
+        QString _ret = vkviewstateserializer->indexToConfigString(*index);
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
 libqt_string KViewStateSerializer_Tr2(const char* s, const char* c) {
     QString _ret = KViewStateSerializer::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -210,96 +280,6 @@ libqt_string KViewStateSerializer_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QModelIndex* KViewStateSerializer_IndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return new QModelIndex(vkviewstateserializer->indexFromConfigString(model, key_QString));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QModelIndex* KViewStateSerializer_QBaseIndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_IndexFromConfigString_IsBase(true);
-        return new QModelIndex(vkviewstateserializer->indexFromConfigString(model, key_QString));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnIndexFromConfigString(const KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_IndexFromConfigString_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_IndexFromConfigString_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string KViewStateSerializer_IndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        QString _ret = vkviewstateserializer->indexToConfigString(*index);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualKViewStateSerializer*)self)->indexToConfigString(*index);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string KViewStateSerializer_QBaseIndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_IndexToConfigString_IsBase(true);
-        QString _ret = vkviewstateserializer->indexToConfigString(*index);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualKViewStateSerializer*)self)->indexToConfigString(*index);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnIndexToConfigString(const KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_IndexToConfigString_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_IndexToConfigString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

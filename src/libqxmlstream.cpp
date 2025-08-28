@@ -123,13 +123,12 @@ QXmlStreamEntityResolver* QXmlStreamEntityResolver_new() {
     return new VirtualQXmlStreamEntityResolver();
 }
 
-// Derived class handler implementation
 libqt_string QXmlStreamEntityResolver_ResolveEntity(QXmlStreamEntityResolver* self, const libqt_string publicId, const libqt_string systemId) {
-    auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     QString publicId_QString = QString::fromUtf8(publicId.data, publicId.len);
     QString systemId_QString = QString::fromUtf8(systemId.data, systemId.len);
+    auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
-        QString _ret = vqxmlstreamentityresolver->resolveEntity(publicId_QString, systemId_QString);
+        QString _ret = self->resolveEntity(publicId_QString, systemId_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -139,7 +138,7 @@ libqt_string QXmlStreamEntityResolver_ResolveEntity(QXmlStreamEntityResolver* se
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QXmlStreamEntityResolver::resolveEntity(publicId_QString, systemId_QString);
+        QString _ret = ((VirtualQXmlStreamEntityResolver*)self)->resolveEntity(publicId_QString, systemId_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -151,11 +150,19 @@ libqt_string QXmlStreamEntityResolver_ResolveEntity(QXmlStreamEntityResolver* se
     }
 }
 
-// Base class handler implementation
-libqt_string QXmlStreamEntityResolver_QBaseResolveEntity(QXmlStreamEntityResolver* self, const libqt_string publicId, const libqt_string systemId) {
+// Subclass method to allow providing a virtual method re-implementation
+void QXmlStreamEntityResolver_OnResolveEntity(QXmlStreamEntityResolver* self, intptr_t slot) {
     auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
+    if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
+        vqxmlstreamentityresolver->setQXmlStreamEntityResolver_ResolveEntity_Callback(reinterpret_cast<VirtualQXmlStreamEntityResolver::QXmlStreamEntityResolver_ResolveEntity_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QXmlStreamEntityResolver_QBaseResolveEntity(QXmlStreamEntityResolver* self, const libqt_string publicId, const libqt_string systemId) {
     QString publicId_QString = QString::fromUtf8(publicId.data, publicId.len);
     QString systemId_QString = QString::fromUtf8(systemId.data, systemId.len);
+    auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
         vqxmlstreamentityresolver->setQXmlStreamEntityResolver_ResolveEntity_IsBase(true);
         QString _ret = vqxmlstreamentityresolver->resolveEntity(publicId_QString, systemId_QString);
@@ -168,7 +175,7 @@ libqt_string QXmlStreamEntityResolver_QBaseResolveEntity(QXmlStreamEntityResolve
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QXmlStreamEntityResolver::resolveEntity(publicId_QString, systemId_QString);
+        QString _ret = ((VirtualQXmlStreamEntityResolver*)self)->resolveEntity(publicId_QString, systemId_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -180,20 +187,11 @@ libqt_string QXmlStreamEntityResolver_QBaseResolveEntity(QXmlStreamEntityResolve
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QXmlStreamEntityResolver_OnResolveEntity(QXmlStreamEntityResolver* self, intptr_t slot) {
-    auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
-    if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
-        vqxmlstreamentityresolver->setQXmlStreamEntityResolver_ResolveEntity_Callback(reinterpret_cast<VirtualQXmlStreamEntityResolver::QXmlStreamEntityResolver_ResolveEntity_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 libqt_string QXmlStreamEntityResolver_ResolveUndeclaredEntity(QXmlStreamEntityResolver* self, const libqt_string name) {
-    auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
+    auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
-        QString _ret = vqxmlstreamentityresolver->resolveUndeclaredEntity(name_QString);
+        QString _ret = self->resolveUndeclaredEntity(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -203,7 +201,7 @@ libqt_string QXmlStreamEntityResolver_ResolveUndeclaredEntity(QXmlStreamEntityRe
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QXmlStreamEntityResolver::resolveUndeclaredEntity(name_QString);
+        QString _ret = ((VirtualQXmlStreamEntityResolver*)self)->resolveUndeclaredEntity(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -215,10 +213,18 @@ libqt_string QXmlStreamEntityResolver_ResolveUndeclaredEntity(QXmlStreamEntityRe
     }
 }
 
-// Base class handler implementation
-libqt_string QXmlStreamEntityResolver_QBaseResolveUndeclaredEntity(QXmlStreamEntityResolver* self, const libqt_string name) {
+// Subclass method to allow providing a virtual method re-implementation
+void QXmlStreamEntityResolver_OnResolveUndeclaredEntity(QXmlStreamEntityResolver* self, intptr_t slot) {
     auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
+    if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
+        vqxmlstreamentityresolver->setQXmlStreamEntityResolver_ResolveUndeclaredEntity_Callback(reinterpret_cast<VirtualQXmlStreamEntityResolver::QXmlStreamEntityResolver_ResolveUndeclaredEntity_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QXmlStreamEntityResolver_QBaseResolveUndeclaredEntity(QXmlStreamEntityResolver* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
+    auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
         vqxmlstreamentityresolver->setQXmlStreamEntityResolver_ResolveUndeclaredEntity_IsBase(true);
         QString _ret = vqxmlstreamentityresolver->resolveUndeclaredEntity(name_QString);
@@ -231,7 +237,7 @@ libqt_string QXmlStreamEntityResolver_QBaseResolveUndeclaredEntity(QXmlStreamEnt
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QXmlStreamEntityResolver::resolveUndeclaredEntity(name_QString);
+        QString _ret = ((VirtualQXmlStreamEntityResolver*)self)->resolveUndeclaredEntity(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -240,14 +246,6 @@ libqt_string QXmlStreamEntityResolver_QBaseResolveUndeclaredEntity(QXmlStreamEnt
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QXmlStreamEntityResolver_OnResolveUndeclaredEntity(QXmlStreamEntityResolver* self, intptr_t slot) {
-    auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
-    if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
-        vqxmlstreamentityresolver->setQXmlStreamEntityResolver_ResolveUndeclaredEntity_Callback(reinterpret_cast<VirtualQXmlStreamEntityResolver::QXmlStreamEntityResolver_ResolveUndeclaredEntity_Callback>(slot));
     }
 }
 

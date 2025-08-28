@@ -71,6 +71,34 @@ libqt_string QPieSeries_Tr(const char* s) {
     return _str;
 }
 
+int QPieSeries_Type(const QPieSeries* self) {
+    auto* vqpieseries = dynamic_cast<const VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQPieSeries*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPieSeries_OnType(const QPieSeries* self, intptr_t slot) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_Type_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QPieSeries_QBaseType(const QPieSeries* self) {
+    auto* vqpieseries = dynamic_cast<const VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_Type_IsBase(true);
+        return static_cast<int>(vqpieseries->type());
+    } else {
+        return static_cast<int>(((VirtualQPieSeries*)self)->type());
+    }
+}
+
 bool QPieSeries_Append(QPieSeries* self, QPieSlice* slice) {
     return self->append(slice);
 }
@@ -356,35 +384,6 @@ libqt_string QPieSeries_Tr3(const char* s, const char* c, int n) {
 
 void QPieSeries_SetLabelsVisible1(QPieSeries* self, bool visible) {
     self->setLabelsVisible(visible);
-}
-
-// Derived class handler implementation
-int QPieSeries_Type(const QPieSeries* self) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return static_cast<int>(vqpieseries->type());
-    } else {
-        return static_cast<int>(self->QPieSeries::type());
-    }
-}
-
-// Base class handler implementation
-int QPieSeries_QBaseType(const QPieSeries* self) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Type_IsBase(true);
-        return static_cast<int>(vqpieseries->type());
-    } else {
-        return static_cast<int>(self->QPieSeries::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieSeries_OnType(const QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Type_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

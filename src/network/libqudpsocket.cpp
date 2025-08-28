@@ -76,6 +76,10 @@ libqt_string QUdpSocket_Tr(const char* s) {
     return _str;
 }
 
+bool QUdpSocket_Bind(QUdpSocket* self, int addr) {
+    return self->bind(static_cast<QHostAddress::SpecialAddress>(addr));
+}
+
 bool QUdpSocket_JoinMulticastGroup(QUdpSocket* self, const QHostAddress* groupAddress) {
     return self->joinMulticastGroup(*groupAddress);
 }
@@ -199,35 +203,6 @@ void QUdpSocket_OnResume(QUdpSocket* self, intptr_t slot) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Resume_Callback(reinterpret_cast<VirtualQUdpSocket::QUdpSocket_Resume_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QUdpSocket_Bind(QUdpSocket* self, const QHostAddress* address, uint16_t port, int mode) {
-    auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
-    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
-        return vqudpsocket->bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    } else {
-        return self->QUdpSocket::bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    }
-}
-
-// Base class handler implementation
-bool QUdpSocket_QBaseBind(QUdpSocket* self, const QHostAddress* address, uint16_t port, int mode) {
-    auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
-    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
-        vqudpsocket->setQUdpSocket_Bind_IsBase(true);
-        return vqudpsocket->bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    } else {
-        return self->QUdpSocket::bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUdpSocket_OnBind(QUdpSocket* self, intptr_t slot) {
-    auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
-    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
-        vqudpsocket->setQUdpSocket_Bind_Callback(reinterpret_cast<VirtualQUdpSocket::QUdpSocket_Bind_Callback>(slot));
     }
 }
 

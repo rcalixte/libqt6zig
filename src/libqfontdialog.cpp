@@ -133,6 +133,34 @@ int QFontDialog_Options(const QFontDialog* self) {
     return static_cast<int>(self->options());
 }
 
+void QFontDialog_SetVisible(QFontDialog* self, bool visible) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        self->setVisible(visible);
+    } else {
+        ((VirtualQFontDialog*)self)->setVisible(visible);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFontDialog_OnSetVisible(QFontDialog* self, intptr_t slot) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_SetVisible_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_SetVisible_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QFontDialog_QBaseSetVisible(QFontDialog* self, bool visible) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_SetVisible_IsBase(true);
+        vqfontdialog->setVisible(visible);
+    } else {
+        ((VirtualQFontDialog*)self)->setVisible(visible);
+    }
+}
+
 QFont* QFontDialog_GetFont(bool* ok) {
     return new QFont(QFontDialog::getFont(ok));
 }
@@ -167,6 +195,80 @@ void QFontDialog_Connect_FontSelected(QFontDialog* self, intptr_t slot) {
         QFont* sigval1 = const_cast<QFont*>(&font_ret);
         slotFunc(self, sigval1);
     });
+}
+
+void QFontDialog_ChangeEvent(QFontDialog* self, QEvent* event) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->changeEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFontDialog_OnChangeEvent(QFontDialog* self, intptr_t slot) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QFontDialog_QBaseChangeEvent(QFontDialog* self, QEvent* event) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_ChangeEvent_IsBase(true);
+        vqfontdialog->changeEvent(event);
+    }
+}
+
+void QFontDialog_Done(QFontDialog* self, int result) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->done(static_cast<int>(result));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFontDialog_OnDone(QFontDialog* self, intptr_t slot) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_Done_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Done_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QFontDialog_QBaseDone(QFontDialog* self, int result) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_Done_IsBase(true);
+        vqfontdialog->done(static_cast<int>(result));
+    }
+}
+
+bool QFontDialog_EventFilter(QFontDialog* self, QObject* object, QEvent* event) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        return vqfontdialog->eventFilter(object, event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QFontDialog_OnEventFilter(QFontDialog* self, intptr_t slot) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_EventFilter_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QFontDialog_QBaseEventFilter(QFontDialog* self, QObject* object, QEvent* event) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_EventFilter_IsBase(true);
+        return vqfontdialog->eventFilter(object, event);
+    }
+    return {};
 }
 
 libqt_string QFontDialog_Tr2(const char* s, const char* c) {
@@ -213,122 +315,6 @@ QFont* QFontDialog_GetFont4(bool* ok, const QFont* initial, QWidget* parent, con
 QFont* QFontDialog_GetFont5(bool* ok, const QFont* initial, QWidget* parent, const libqt_string title, int options) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return new QFont(QFontDialog::getFont(ok, *initial, parent, title_QString, static_cast<QFontDialog::FontDialogOptions>(options)));
-}
-
-// Derived class handler implementation
-void QFontDialog_SetVisible(QFontDialog* self, bool visible) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->setVisible(visible);
-    } else {
-        self->QFontDialog::setVisible(visible);
-    }
-}
-
-// Base class handler implementation
-void QFontDialog_QBaseSetVisible(QFontDialog* self, bool visible) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->setQFontDialog_SetVisible_IsBase(true);
-        vqfontdialog->setVisible(visible);
-    } else {
-        self->QFontDialog::setVisible(visible);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFontDialog_OnSetVisible(QFontDialog* self, intptr_t slot) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->setQFontDialog_SetVisible_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_SetVisible_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QFontDialog_ChangeEvent(QFontDialog* self, QEvent* event) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->changeEvent(event);
-    } else {
-        ((VirtualQFontDialog*)self)->changeEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QFontDialog_QBaseChangeEvent(QFontDialog* self, QEvent* event) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->setQFontDialog_ChangeEvent_IsBase(true);
-        vqfontdialog->changeEvent(event);
-    } else {
-        ((VirtualQFontDialog*)self)->changeEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFontDialog_OnChangeEvent(QFontDialog* self, intptr_t slot) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->setQFontDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_ChangeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QFontDialog_Done(QFontDialog* self, int result) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->done(static_cast<int>(result));
-    } else {
-        ((VirtualQFontDialog*)self)->done(static_cast<int>(result));
-    }
-}
-
-// Base class handler implementation
-void QFontDialog_QBaseDone(QFontDialog* self, int result) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->setQFontDialog_Done_IsBase(true);
-        vqfontdialog->done(static_cast<int>(result));
-    } else {
-        ((VirtualQFontDialog*)self)->done(static_cast<int>(result));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFontDialog_OnDone(QFontDialog* self, intptr_t slot) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->setQFontDialog_Done_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Done_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QFontDialog_EventFilter(QFontDialog* self, QObject* object, QEvent* event) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        return vqfontdialog->eventFilter(object, event);
-    } else {
-        return ((VirtualQFontDialog*)self)->eventFilter(object, event);
-    }
-}
-
-// Base class handler implementation
-bool QFontDialog_QBaseEventFilter(QFontDialog* self, QObject* object, QEvent* event) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->setQFontDialog_EventFilter_IsBase(true);
-        return vqfontdialog->eventFilter(object, event);
-    } else {
-        return ((VirtualQFontDialog*)self)->eventFilter(object, event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFontDialog_OnEventFilter(QFontDialog* self, intptr_t slot) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        vqfontdialog->setQFontDialog_EventFilter_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

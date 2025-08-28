@@ -356,6 +356,32 @@ void QSettings_SetPath(int format, int scope, const libqt_string path) {
     QSettings::setPath(static_cast<QSettings::Format>(format), static_cast<QSettings::Scope>(scope), path_QString);
 }
 
+bool QSettings_Event(QSettings* self, QEvent* event) {
+    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
+    if (vqsettings && vqsettings->isVirtualQSettings) {
+        return vqsettings->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSettings_OnEvent(QSettings* self, intptr_t slot) {
+    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
+    if (vqsettings && vqsettings->isVirtualQSettings) {
+        vqsettings->setQSettings_Event_Callback(reinterpret_cast<VirtualQSettings::QSettings_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSettings_QBaseEvent(QSettings* self, QEvent* event) {
+    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
+    if (vqsettings && vqsettings->isVirtualQSettings) {
+        vqsettings->setQSettings_Event_IsBase(true);
+        return vqsettings->event(event);
+    }
+    return {};
+}
+
 libqt_string QSettings_Tr2(const char* s, const char* c) {
     QString _ret = QSettings::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -383,35 +409,6 @@ libqt_string QSettings_Tr3(const char* s, const char* c, int n) {
 void QSettings_BeginWriteArray2(QSettings* self, libqt_string prefix, int size) {
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     self->beginWriteArray(QAnyStringView(prefix_QString), static_cast<int>(size));
-}
-
-// Derived class handler implementation
-bool QSettings_Event(QSettings* self, QEvent* event) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        return vqsettings->event(event);
-    } else {
-        return ((VirtualQSettings*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool QSettings_QBaseEvent(QSettings* self, QEvent* event) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_Event_IsBase(true);
-        return vqsettings->event(event);
-    } else {
-        return ((VirtualQSettings*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSettings_OnEvent(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_Event_Callback(reinterpret_cast<VirtualQSettings::QSettings_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -154,12 +154,402 @@ libqt_string QSqlRelationalTableModel_Tr(const char* s) {
     return _str;
 }
 
+QVariant* QSqlRelationalTableModel_Data(const QSqlRelationalTableModel* self, const QModelIndex* item, int role) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        return new QVariant(self->data(*item, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQSqlRelationalTableModel*)self)->data(*item, static_cast<int>(role)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnData(const QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Data_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Data_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QSqlRelationalTableModel_QBaseData(const QSqlRelationalTableModel* self, const QModelIndex* item, int role) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Data_IsBase(true);
+        return new QVariant(vqsqlrelationaltablemodel->data(*item, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQSqlRelationalTableModel*)self)->data(*item, static_cast<int>(role)));
+    }
+}
+
+bool QSqlRelationalTableModel_SetData(QSqlRelationalTableModel* self, const QModelIndex* item, const QVariant* value, int role) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        return self->setData(*item, *value, static_cast<int>(role));
+    } else {
+        return ((VirtualQSqlRelationalTableModel*)self)->setData(*item, *value, static_cast<int>(role));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnSetData(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetData_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlRelationalTableModel_QBaseSetData(QSqlRelationalTableModel* self, const QModelIndex* item, const QVariant* value, int role) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetData_IsBase(true);
+        return vqsqlrelationaltablemodel->setData(*item, *value, static_cast<int>(role));
+    } else {
+        return ((VirtualQSqlRelationalTableModel*)self)->setData(*item, *value, static_cast<int>(role));
+    }
+}
+
+bool QSqlRelationalTableModel_RemoveColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQSqlRelationalTableModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnRemoveColumns(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RemoveColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RemoveColumns_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlRelationalTableModel_QBaseRemoveColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RemoveColumns_IsBase(true);
+        return vqsqlrelationaltablemodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    } else {
+        return ((VirtualQSqlRelationalTableModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
+    }
+}
+
+void QSqlRelationalTableModel_Clear(QSqlRelationalTableModel* self) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        self->clear();
+    } else {
+        ((VirtualQSqlRelationalTableModel*)self)->clear();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnClear(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Clear_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Clear_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlRelationalTableModel_QBaseClear(QSqlRelationalTableModel* self) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Clear_IsBase(true);
+        vqsqlrelationaltablemodel->clear();
+    } else {
+        ((VirtualQSqlRelationalTableModel*)self)->clear();
+    }
+}
+
+bool QSqlRelationalTableModel_Select(QSqlRelationalTableModel* self) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        return self->select();
+    } else {
+        return ((VirtualQSqlRelationalTableModel*)self)->select();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnSelect(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Select_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Select_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlRelationalTableModel_QBaseSelect(QSqlRelationalTableModel* self) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Select_IsBase(true);
+        return vqsqlrelationaltablemodel->select();
+    } else {
+        return ((VirtualQSqlRelationalTableModel*)self)->select();
+    }
+}
+
+void QSqlRelationalTableModel_SetTable(QSqlRelationalTableModel* self, const libqt_string tableName) {
+    QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        self->setTable(tableName_QString);
+    } else {
+        ((VirtualQSqlRelationalTableModel*)self)->setTable(tableName_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnSetTable(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetTable_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlRelationalTableModel_QBaseSetTable(QSqlRelationalTableModel* self, const libqt_string tableName) {
+    QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetTable_IsBase(true);
+        vqsqlrelationaltablemodel->setTable(tableName_QString);
+    } else {
+        ((VirtualQSqlRelationalTableModel*)self)->setTable(tableName_QString);
+    }
+}
+
+void QSqlRelationalTableModel_SetRelation(QSqlRelationalTableModel* self, int column, const QSqlRelation* relation) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        self->setRelation(static_cast<int>(column), *relation);
+    } else {
+        ((VirtualQSqlRelationalTableModel*)self)->setRelation(static_cast<int>(column), *relation);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnSetRelation(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetRelation_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetRelation_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlRelationalTableModel_QBaseSetRelation(QSqlRelationalTableModel* self, int column, const QSqlRelation* relation) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetRelation_IsBase(true);
+        vqsqlrelationaltablemodel->setRelation(static_cast<int>(column), *relation);
+    } else {
+        ((VirtualQSqlRelationalTableModel*)self)->setRelation(static_cast<int>(column), *relation);
+    }
+}
+
 QSqlRelation* QSqlRelationalTableModel_Relation(const QSqlRelationalTableModel* self, int column) {
     return new QSqlRelation(self->relation(static_cast<int>(column)));
 }
 
+QSqlTableModel* QSqlRelationalTableModel_RelationModel(const QSqlRelationalTableModel* self, int column) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        return self->relationModel(static_cast<int>(column));
+    } else {
+        return ((VirtualQSqlRelationalTableModel*)self)->relationModel(static_cast<int>(column));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnRelationModel(const QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RelationModel_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RelationModel_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSqlTableModel* QSqlRelationalTableModel_QBaseRelationModel(const QSqlRelationalTableModel* self, int column) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RelationModel_IsBase(true);
+        return vqsqlrelationaltablemodel->relationModel(static_cast<int>(column));
+    } else {
+        return ((VirtualQSqlRelationalTableModel*)self)->relationModel(static_cast<int>(column));
+    }
+}
+
 void QSqlRelationalTableModel_SetJoinMode(QSqlRelationalTableModel* self, int joinMode) {
     self->setJoinMode(static_cast<QSqlRelationalTableModel::JoinMode>(joinMode));
+}
+
+void QSqlRelationalTableModel_RevertRow(QSqlRelationalTableModel* self, int row) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        self->revertRow(static_cast<int>(row));
+    } else {
+        ((VirtualQSqlRelationalTableModel*)self)->revertRow(static_cast<int>(row));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnRevertRow(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RevertRow_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RevertRow_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QSqlRelationalTableModel_QBaseRevertRow(QSqlRelationalTableModel* self, int row) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RevertRow_IsBase(true);
+        vqsqlrelationaltablemodel->revertRow(static_cast<int>(row));
+    } else {
+        ((VirtualQSqlRelationalTableModel*)self)->revertRow(static_cast<int>(row));
+    }
+}
+
+libqt_string QSqlRelationalTableModel_SelectStatement(const QSqlRelationalTableModel* self) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        QString _ret = vqsqlrelationaltablemodel->selectStatement();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnSelectStatement(const QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SelectStatement_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SelectStatement_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QSqlRelationalTableModel_QBaseSelectStatement(const QSqlRelationalTableModel* self) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SelectStatement_IsBase(true);
+        QString _ret = vqsqlrelationaltablemodel->selectStatement();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+bool QSqlRelationalTableModel_UpdateRowInTable(QSqlRelationalTableModel* self, int row, const QSqlRecord* values) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        return vqsqlrelationaltablemodel->updateRowInTable(static_cast<int>(row), *values);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnUpdateRowInTable(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_UpdateRowInTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_UpdateRowInTable_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlRelationalTableModel_QBaseUpdateRowInTable(QSqlRelationalTableModel* self, int row, const QSqlRecord* values) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_UpdateRowInTable_IsBase(true);
+        return vqsqlrelationaltablemodel->updateRowInTable(static_cast<int>(row), *values);
+    }
+    return {};
+}
+
+bool QSqlRelationalTableModel_InsertRowIntoTable(QSqlRelationalTableModel* self, const QSqlRecord* values) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        return vqsqlrelationaltablemodel->insertRowIntoTable(*values);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnInsertRowIntoTable(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertRowIntoTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_InsertRowIntoTable_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QSqlRelationalTableModel_QBaseInsertRowIntoTable(QSqlRelationalTableModel* self, const QSqlRecord* values) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertRowIntoTable_IsBase(true);
+        return vqsqlrelationaltablemodel->insertRowIntoTable(*values);
+    }
+    return {};
+}
+
+libqt_string QSqlRelationalTableModel_OrderByClause(const QSqlRelationalTableModel* self) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        QString _ret = vqsqlrelationaltablemodel->orderByClause();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QSqlRelationalTableModel_OnOrderByClause(const QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_OrderByClause_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_OrderByClause_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QSqlRelationalTableModel_QBaseOrderByClause(const QSqlRelationalTableModel* self) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_OrderByClause_IsBase(true);
+        QString _ret = vqsqlrelationaltablemodel->orderByClause();
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
 }
 
 libqt_string QSqlRelationalTableModel_Tr2(const char* s, const char* c) {
@@ -184,449 +574,6 @@ libqt_string QSqlRelationalTableModel_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QVariant* QSqlRelationalTableModel_Data(const QSqlRelationalTableModel* self, const QModelIndex* item, int role) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return new QVariant(vqsqlrelationaltablemodel->data(*item, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlRelationalTableModel*)self)->data(*item, static_cast<int>(role)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QSqlRelationalTableModel_QBaseData(const QSqlRelationalTableModel* self, const QModelIndex* item, int role) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Data_IsBase(true);
-        return new QVariant(vqsqlrelationaltablemodel->data(*item, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlRelationalTableModel*)self)->data(*item, static_cast<int>(role)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnData(const QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Data_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Data_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlRelationalTableModel_SetData(QSqlRelationalTableModel* self, const QModelIndex* item, const QVariant* value, int role) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return vqsqlrelationaltablemodel->setData(*item, *value, static_cast<int>(role));
-    } else {
-        return self->QSqlRelationalTableModel::setData(*item, *value, static_cast<int>(role));
-    }
-}
-
-// Base class handler implementation
-bool QSqlRelationalTableModel_QBaseSetData(QSqlRelationalTableModel* self, const QModelIndex* item, const QVariant* value, int role) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetData_IsBase(true);
-        return vqsqlrelationaltablemodel->setData(*item, *value, static_cast<int>(role));
-    } else {
-        return self->QSqlRelationalTableModel::setData(*item, *value, static_cast<int>(role));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnSetData(QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetData_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlRelationalTableModel_RemoveColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return vqsqlrelationaltablemodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QSqlRelationalTableModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Base class handler implementation
-bool QSqlRelationalTableModel_QBaseRemoveColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RemoveColumns_IsBase(true);
-        return vqsqlrelationaltablemodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QSqlRelationalTableModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnRemoveColumns(QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RemoveColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RemoveColumns_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlRelationalTableModel_Clear(QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->clear();
-    } else {
-        self->QSqlRelationalTableModel::clear();
-    }
-}
-
-// Base class handler implementation
-void QSqlRelationalTableModel_QBaseClear(QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Clear_IsBase(true);
-        vqsqlrelationaltablemodel->clear();
-    } else {
-        self->QSqlRelationalTableModel::clear();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnClear(QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Clear_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Clear_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlRelationalTableModel_Select(QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return vqsqlrelationaltablemodel->select();
-    } else {
-        return self->QSqlRelationalTableModel::select();
-    }
-}
-
-// Base class handler implementation
-bool QSqlRelationalTableModel_QBaseSelect(QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Select_IsBase(true);
-        return vqsqlrelationaltablemodel->select();
-    } else {
-        return self->QSqlRelationalTableModel::select();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnSelect(QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Select_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Select_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlRelationalTableModel_SetTable(QSqlRelationalTableModel* self, const libqt_string tableName) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setTable(tableName_QString);
-    } else {
-        self->QSqlRelationalTableModel::setTable(tableName_QString);
-    }
-}
-
-// Base class handler implementation
-void QSqlRelationalTableModel_QBaseSetTable(QSqlRelationalTableModel* self, const libqt_string tableName) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetTable_IsBase(true);
-        vqsqlrelationaltablemodel->setTable(tableName_QString);
-    } else {
-        self->QSqlRelationalTableModel::setTable(tableName_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnSetTable(QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetTable_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlRelationalTableModel_SetRelation(QSqlRelationalTableModel* self, int column, const QSqlRelation* relation) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setRelation(static_cast<int>(column), *relation);
-    } else {
-        self->QSqlRelationalTableModel::setRelation(static_cast<int>(column), *relation);
-    }
-}
-
-// Base class handler implementation
-void QSqlRelationalTableModel_QBaseSetRelation(QSqlRelationalTableModel* self, int column, const QSqlRelation* relation) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetRelation_IsBase(true);
-        vqsqlrelationaltablemodel->setRelation(static_cast<int>(column), *relation);
-    } else {
-        self->QSqlRelationalTableModel::setRelation(static_cast<int>(column), *relation);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnSetRelation(QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetRelation_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetRelation_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSqlTableModel* QSqlRelationalTableModel_RelationModel(const QSqlRelationalTableModel* self, int column) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return vqsqlrelationaltablemodel->relationModel(static_cast<int>(column));
-    } else {
-        return self->QSqlRelationalTableModel::relationModel(static_cast<int>(column));
-    }
-}
-
-// Base class handler implementation
-QSqlTableModel* QSqlRelationalTableModel_QBaseRelationModel(const QSqlRelationalTableModel* self, int column) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RelationModel_IsBase(true);
-        return vqsqlrelationaltablemodel->relationModel(static_cast<int>(column));
-    } else {
-        return self->QSqlRelationalTableModel::relationModel(static_cast<int>(column));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnRelationModel(const QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RelationModel_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RelationModel_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QSqlRelationalTableModel_RevertRow(QSqlRelationalTableModel* self, int row) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->revertRow(static_cast<int>(row));
-    } else {
-        self->QSqlRelationalTableModel::revertRow(static_cast<int>(row));
-    }
-}
-
-// Base class handler implementation
-void QSqlRelationalTableModel_QBaseRevertRow(QSqlRelationalTableModel* self, int row) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RevertRow_IsBase(true);
-        vqsqlrelationaltablemodel->revertRow(static_cast<int>(row));
-    } else {
-        self->QSqlRelationalTableModel::revertRow(static_cast<int>(row));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnRevertRow(QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RevertRow_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RevertRow_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QSqlRelationalTableModel_SelectStatement(const QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        QString _ret = vqsqlrelationaltablemodel->selectStatement();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSqlRelationalTableModel*)self)->selectStatement();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QSqlRelationalTableModel_QBaseSelectStatement(const QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SelectStatement_IsBase(true);
-        QString _ret = vqsqlrelationaltablemodel->selectStatement();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSqlRelationalTableModel*)self)->selectStatement();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnSelectStatement(const QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SelectStatement_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SelectStatement_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlRelationalTableModel_UpdateRowInTable(QSqlRelationalTableModel* self, int row, const QSqlRecord* values) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return vqsqlrelationaltablemodel->updateRowInTable(static_cast<int>(row), *values);
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->updateRowInTable(static_cast<int>(row), *values);
-    }
-}
-
-// Base class handler implementation
-bool QSqlRelationalTableModel_QBaseUpdateRowInTable(QSqlRelationalTableModel* self, int row, const QSqlRecord* values) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_UpdateRowInTable_IsBase(true);
-        return vqsqlrelationaltablemodel->updateRowInTable(static_cast<int>(row), *values);
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->updateRowInTable(static_cast<int>(row), *values);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnUpdateRowInTable(QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_UpdateRowInTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_UpdateRowInTable_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QSqlRelationalTableModel_InsertRowIntoTable(QSqlRelationalTableModel* self, const QSqlRecord* values) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return vqsqlrelationaltablemodel->insertRowIntoTable(*values);
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->insertRowIntoTable(*values);
-    }
-}
-
-// Base class handler implementation
-bool QSqlRelationalTableModel_QBaseInsertRowIntoTable(QSqlRelationalTableModel* self, const QSqlRecord* values) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertRowIntoTable_IsBase(true);
-        return vqsqlrelationaltablemodel->insertRowIntoTable(*values);
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->insertRowIntoTable(*values);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnInsertRowIntoTable(QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertRowIntoTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_InsertRowIntoTable_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QSqlRelationalTableModel_OrderByClause(const QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        QString _ret = vqsqlrelationaltablemodel->orderByClause();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSqlRelationalTableModel*)self)->orderByClause();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QSqlRelationalTableModel_QBaseOrderByClause(const QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_OrderByClause_IsBase(true);
-        QString _ret = vqsqlrelationaltablemodel->orderByClause();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQSqlRelationalTableModel*)self)->orderByClause();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlRelationalTableModel_OnOrderByClause(const QSqlRelationalTableModel* self, intptr_t slot) {
-    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_OrderByClause_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_OrderByClause_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

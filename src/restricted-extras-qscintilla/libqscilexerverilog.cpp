@@ -72,8 +72,28 @@ libqt_string QsciLexerVerilog_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerVerilog_Language(const QsciLexerVerilog* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerVerilog_Lexer(const QsciLexerVerilog* self) {
+    return (const char*)self->lexer();
+}
+
+int QsciLexerVerilog_BraceStyle(const QsciLexerVerilog* self) {
+    return self->braceStyle();
+}
+
+const char* QsciLexerVerilog_WordCharacters(const QsciLexerVerilog* self) {
+    return (const char*)self->wordCharacters();
+}
+
 QColor* QsciLexerVerilog_DefaultColor(const QsciLexerVerilog* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+bool QsciLexerVerilog_DefaultEolFill(const QsciLexerVerilog* self, int style) {
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 QFont* QsciLexerVerilog_DefaultFont(const QsciLexerVerilog* self, int style) {
@@ -82,6 +102,26 @@ QFont* QsciLexerVerilog_DefaultFont(const QsciLexerVerilog* self, int style) {
 
 QColor* QsciLexerVerilog_DefaultPaper(const QsciLexerVerilog* self, int style) {
     return new QColor(self->defaultPaper(static_cast<int>(style)));
+}
+
+const char* QsciLexerVerilog_Keywords(const QsciLexerVerilog* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
+libqt_string QsciLexerVerilog_Description(const QsciLexerVerilog* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+void QsciLexerVerilog_RefreshProperties(QsciLexerVerilog* self) {
+    self->refreshProperties();
 }
 
 void QsciLexerVerilog_SetFoldAtElse(QsciLexerVerilog* self, bool fold) {
@@ -146,64 +186,6 @@ libqt_string QsciLexerVerilog_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-const char* QsciLexerVerilog_Language(const QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        return (const char*)vqscilexerverilog->language();
-    } else {
-        return (const char*)((VirtualQsciLexerVerilog*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerVerilog_QBaseLanguage(const QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_Language_IsBase(true);
-        return (const char*)vqscilexerverilog->language();
-    } else {
-        return (const char*)((VirtualQsciLexerVerilog*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnLanguage(const QsciLexerVerilog* self, intptr_t slot) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_Language_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerVerilog_Lexer(const QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        return (const char*)vqscilexerverilog->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerVerilog*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerVerilog_QBaseLexer(const QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_Lexer_IsBase(true);
-        return (const char*)vqscilexerverilog->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerVerilog*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnLexer(const QsciLexerVerilog* self, intptr_t slot) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_Lexer_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,35 +460,6 @@ void QsciLexerVerilog_OnBlockStartKeyword(const QsciLexerVerilog* self, intptr_t
 }
 
 // Derived class handler implementation
-int QsciLexerVerilog_BraceStyle(const QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        return vqscilexerverilog->braceStyle();
-    } else {
-        return ((VirtualQsciLexerVerilog*)self)->braceStyle();
-    }
-}
-
-// Base class handler implementation
-int QsciLexerVerilog_QBaseBraceStyle(const QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_BraceStyle_IsBase(true);
-        return vqscilexerverilog->braceStyle();
-    } else {
-        return ((VirtualQsciLexerVerilog*)self)->braceStyle();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnBraceStyle(const QsciLexerVerilog* self, intptr_t slot) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_BraceStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 bool QsciLexerVerilog_CaseSensitive(const QsciLexerVerilog* self) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
@@ -652,35 +605,6 @@ void QsciLexerVerilog_OnIndentationGuideView(const QsciLexerVerilog* self, intpt
 }
 
 // Derived class handler implementation
-const char* QsciLexerVerilog_Keywords(const QsciLexerVerilog* self, int set) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        return (const char*)vqscilexerverilog->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerVerilog*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerVerilog_QBaseKeywords(const QsciLexerVerilog* self, int set) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_Keywords_IsBase(true);
-        return (const char*)vqscilexerverilog->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerVerilog*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnKeywords(const QsciLexerVerilog* self, intptr_t slot) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_Keywords_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_Keywords_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerVerilog_DefaultStyle(const QsciLexerVerilog* self) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
@@ -706,67 +630,6 @@ void QsciLexerVerilog_OnDefaultStyle(const QsciLexerVerilog* self, intptr_t slot
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
         vqscilexerverilog->setQsciLexerVerilog_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_DefaultStyle_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QsciLexerVerilog_Description(const QsciLexerVerilog* self, int style) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        QString _ret = vqscilexerverilog->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerVerilog*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerVerilog_QBaseDescription(const QsciLexerVerilog* self, int style) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_Description_IsBase(true);
-        QString _ret = vqscilexerverilog->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerVerilog*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnDescription(const QsciLexerVerilog* self, intptr_t slot) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_Description_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_Description_Callback>(slot));
     }
 }
 
@@ -825,35 +688,6 @@ void QsciLexerVerilog_OnDefaultColor2(const QsciLexerVerilog* self, intptr_t slo
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
         vqscilexerverilog->setQsciLexerVerilog_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_DefaultColor2_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QsciLexerVerilog_DefaultEolFill(const QsciLexerVerilog* self, int style) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        return vqscilexerverilog->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerVerilog*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerVerilog_QBaseDefaultEolFill(const QsciLexerVerilog* self, int style) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_DefaultEolFill_IsBase(true);
-        return vqscilexerverilog->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerVerilog*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnDefaultEolFill(const QsciLexerVerilog* self, intptr_t slot) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_DefaultEolFill_Callback>(slot));
     }
 }
 
@@ -945,35 +779,6 @@ void QsciLexerVerilog_OnSetEditor(QsciLexerVerilog* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void QsciLexerVerilog_RefreshProperties(QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = dynamic_cast<VirtualQsciLexerVerilog*>(self);
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->refreshProperties();
-    } else {
-        ((VirtualQsciLexerVerilog*)self)->refreshProperties();
-    }
-}
-
-// Base class handler implementation
-void QsciLexerVerilog_QBaseRefreshProperties(QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = dynamic_cast<VirtualQsciLexerVerilog*>(self);
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_RefreshProperties_IsBase(true);
-        vqscilexerverilog->refreshProperties();
-    } else {
-        ((VirtualQsciLexerVerilog*)self)->refreshProperties();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnRefreshProperties(QsciLexerVerilog* self, intptr_t slot) {
-    auto* vqscilexerverilog = dynamic_cast<VirtualQsciLexerVerilog*>(self);
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_RefreshProperties_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QsciLexerVerilog_StyleBitsNeeded(const QsciLexerVerilog* self) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
@@ -999,35 +804,6 @@ void QsciLexerVerilog_OnStyleBitsNeeded(const QsciLexerVerilog* self, intptr_t s
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
         vqscilexerverilog->setQsciLexerVerilog_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_StyleBitsNeeded_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerVerilog_WordCharacters(const QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        return (const char*)vqscilexerverilog->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerVerilog*)self)->wordCharacters();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerVerilog_QBaseWordCharacters(const QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_WordCharacters_IsBase(true);
-        return (const char*)vqscilexerverilog->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerVerilog*)self)->wordCharacters();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnWordCharacters(const QsciLexerVerilog* self, intptr_t slot) {
-    auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_WordCharacters_Callback>(slot));
     }
 }
 

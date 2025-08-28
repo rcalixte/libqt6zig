@@ -89,6 +89,90 @@ libqt_string QsciMacro_Save(const QsciMacro* self) {
     return _str;
 }
 
+void QsciMacro_Play(QsciMacro* self) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        self->play();
+    } else {
+        ((VirtualQsciMacro*)self)->play();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciMacro_OnPlay(QsciMacro* self, intptr_t slot) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_Play_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_Play_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciMacro_QBasePlay(QsciMacro* self) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_Play_IsBase(true);
+        vqscimacro->play();
+    } else {
+        ((VirtualQsciMacro*)self)->play();
+    }
+}
+
+void QsciMacro_StartRecording(QsciMacro* self) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        self->startRecording();
+    } else {
+        ((VirtualQsciMacro*)self)->startRecording();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciMacro_OnStartRecording(QsciMacro* self, intptr_t slot) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_StartRecording_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_StartRecording_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciMacro_QBaseStartRecording(QsciMacro* self) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_StartRecording_IsBase(true);
+        vqscimacro->startRecording();
+    } else {
+        ((VirtualQsciMacro*)self)->startRecording();
+    }
+}
+
+void QsciMacro_EndRecording(QsciMacro* self) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        self->endRecording();
+    } else {
+        ((VirtualQsciMacro*)self)->endRecording();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QsciMacro_OnEndRecording(QsciMacro* self, intptr_t slot) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_EndRecording_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_EndRecording_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QsciMacro_QBaseEndRecording(QsciMacro* self) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_EndRecording_IsBase(true);
+        vqscimacro->endRecording();
+    } else {
+        ((VirtualQsciMacro*)self)->endRecording();
+    }
+}
+
 libqt_string QsciMacro_Tr2(const char* s, const char* c) {
     QString _ret = QsciMacro::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -111,93 +195,6 @@ libqt_string QsciMacro_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QsciMacro_Play(QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        vqscimacro->play();
-    } else {
-        self->QsciMacro::play();
-    }
-}
-
-// Base class handler implementation
-void QsciMacro_QBasePlay(QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        vqscimacro->setQsciMacro_Play_IsBase(true);
-        vqscimacro->play();
-    } else {
-        self->QsciMacro::play();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciMacro_OnPlay(QsciMacro* self, intptr_t slot) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        vqscimacro->setQsciMacro_Play_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_Play_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciMacro_StartRecording(QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        vqscimacro->startRecording();
-    } else {
-        self->QsciMacro::startRecording();
-    }
-}
-
-// Base class handler implementation
-void QsciMacro_QBaseStartRecording(QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        vqscimacro->setQsciMacro_StartRecording_IsBase(true);
-        vqscimacro->startRecording();
-    } else {
-        self->QsciMacro::startRecording();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciMacro_OnStartRecording(QsciMacro* self, intptr_t slot) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        vqscimacro->setQsciMacro_StartRecording_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_StartRecording_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QsciMacro_EndRecording(QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        vqscimacro->endRecording();
-    } else {
-        self->QsciMacro::endRecording();
-    }
-}
-
-// Base class handler implementation
-void QsciMacro_QBaseEndRecording(QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        vqscimacro->setQsciMacro_EndRecording_IsBase(true);
-        vqscimacro->endRecording();
-    } else {
-        self->QsciMacro::endRecording();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciMacro_OnEndRecording(QsciMacro* self, intptr_t slot) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        vqscimacro->setQsciMacro_EndRecording_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_EndRecording_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

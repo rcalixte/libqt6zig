@@ -103,6 +103,90 @@ int QDialog_Result(const QDialog* self) {
     return self->result();
 }
 
+void QDialog_SetVisible(QDialog* self, bool visible) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        self->setVisible(visible);
+    } else {
+        ((VirtualQDialog*)self)->setVisible(visible);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnSetVisible(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_SetVisible_Callback(reinterpret_cast<VirtualQDialog::QDialog_SetVisible_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseSetVisible(QDialog* self, bool visible) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_SetVisible_IsBase(true);
+        vqdialog->setVisible(visible);
+    } else {
+        ((VirtualQDialog*)self)->setVisible(visible);
+    }
+}
+
+QSize* QDialog_SizeHint(const QDialog* self) {
+    auto* vqdialog = dynamic_cast<const VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQDialog*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnSizeHint(const QDialog* self, intptr_t slot) {
+    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_SizeHint_Callback(reinterpret_cast<VirtualQDialog::QDialog_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QDialog_QBaseSizeHint(const QDialog* self) {
+    auto* vqdialog = dynamic_cast<const VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_SizeHint_IsBase(true);
+        return new QSize(vqdialog->sizeHint());
+    } else {
+        return new QSize(((VirtualQDialog*)self)->sizeHint());
+    }
+}
+
+QSize* QDialog_MinimumSizeHint(const QDialog* self) {
+    auto* vqdialog = dynamic_cast<const VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQDialog*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnMinimumSizeHint(const QDialog* self, intptr_t slot) {
+    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDialog::QDialog_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QDialog_QBaseMinimumSizeHint(const QDialog* self) {
+    auto* vqdialog = dynamic_cast<const VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_MinimumSizeHint_IsBase(true);
+        return new QSize(vqdialog->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQDialog*)self)->minimumSizeHint());
+    }
+}
+
 void QDialog_SetSizeGripEnabled(QDialog* self, bool sizeGripEnabled) {
     self->setSizeGripEnabled(sizeGripEnabled);
 }
@@ -153,6 +237,292 @@ void QDialog_Connect_Rejected(QDialog* self, intptr_t slot) {
     });
 }
 
+void QDialog_Open(QDialog* self) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        self->open();
+    } else {
+        ((VirtualQDialog*)self)->open();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnOpen(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Open_Callback(reinterpret_cast<VirtualQDialog::QDialog_Open_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseOpen(QDialog* self) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Open_IsBase(true);
+        vqdialog->open();
+    } else {
+        ((VirtualQDialog*)self)->open();
+    }
+}
+
+int QDialog_Exec(QDialog* self) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        return self->exec();
+    } else {
+        return ((VirtualQDialog*)self)->exec();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnExec(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Exec_Callback(reinterpret_cast<VirtualQDialog::QDialog_Exec_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QDialog_QBaseExec(QDialog* self) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Exec_IsBase(true);
+        return vqdialog->exec();
+    } else {
+        return ((VirtualQDialog*)self)->exec();
+    }
+}
+
+void QDialog_Done(QDialog* self, int param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        self->done(static_cast<int>(param1));
+    } else {
+        ((VirtualQDialog*)self)->done(static_cast<int>(param1));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnDone(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Done_Callback(reinterpret_cast<VirtualQDialog::QDialog_Done_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseDone(QDialog* self, int param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Done_IsBase(true);
+        vqdialog->done(static_cast<int>(param1));
+    } else {
+        ((VirtualQDialog*)self)->done(static_cast<int>(param1));
+    }
+}
+
+void QDialog_Accept(QDialog* self) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        self->accept();
+    } else {
+        ((VirtualQDialog*)self)->accept();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnAccept(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Accept_Callback(reinterpret_cast<VirtualQDialog::QDialog_Accept_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseAccept(QDialog* self) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Accept_IsBase(true);
+        vqdialog->accept();
+    } else {
+        ((VirtualQDialog*)self)->accept();
+    }
+}
+
+void QDialog_Reject(QDialog* self) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        self->reject();
+    } else {
+        ((VirtualQDialog*)self)->reject();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnReject(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Reject_Callback(reinterpret_cast<VirtualQDialog::QDialog_Reject_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseReject(QDialog* self) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Reject_IsBase(true);
+        vqdialog->reject();
+    } else {
+        ((VirtualQDialog*)self)->reject();
+    }
+}
+
+void QDialog_KeyPressEvent(QDialog* self, QKeyEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->keyPressEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnKeyPressEvent(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseKeyPressEvent(QDialog* self, QKeyEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_KeyPressEvent_IsBase(true);
+        vqdialog->keyPressEvent(param1);
+    }
+}
+
+void QDialog_CloseEvent(QDialog* self, QCloseEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->closeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnCloseEvent(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_CloseEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_CloseEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseCloseEvent(QDialog* self, QCloseEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_CloseEvent_IsBase(true);
+        vqdialog->closeEvent(param1);
+    }
+}
+
+void QDialog_ShowEvent(QDialog* self, QShowEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->showEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnShowEvent(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_ShowEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ShowEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseShowEvent(QDialog* self, QShowEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_ShowEvent_IsBase(true);
+        vqdialog->showEvent(param1);
+    }
+}
+
+void QDialog_ResizeEvent(QDialog* self, QResizeEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->resizeEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnResizeEvent(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseResizeEvent(QDialog* self, QResizeEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_ResizeEvent_IsBase(true);
+        vqdialog->resizeEvent(param1);
+    }
+}
+
+void QDialog_ContextMenuEvent(QDialog* self, QContextMenuEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->contextMenuEvent(param1);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnContextMenuEvent(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ContextMenuEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDialog_QBaseContextMenuEvent(QDialog* self, QContextMenuEvent* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_ContextMenuEvent_IsBase(true);
+        vqdialog->contextMenuEvent(param1);
+    }
+}
+
+bool QDialog_EventFilter(QDialog* self, QObject* param1, QEvent* param2) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        return vqdialog->eventFilter(param1, param2);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDialog_OnEventFilter(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_EventFilter_Callback(reinterpret_cast<VirtualQDialog::QDialog_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QDialog_QBaseEventFilter(QDialog* self, QObject* param1, QEvent* param2) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_EventFilter_IsBase(true);
+        return vqdialog->eventFilter(param1, param2);
+    }
+    return {};
+}
+
 libqt_string QDialog_Tr2(const char* s, const char* c) {
     QString _ret = QDialog::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -175,412 +545,6 @@ libqt_string QDialog_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QDialog_SetVisible(QDialog* self, bool visible) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setVisible(visible);
-    } else {
-        self->QDialog::setVisible(visible);
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseSetVisible(QDialog* self, bool visible) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_SetVisible_IsBase(true);
-        vqdialog->setVisible(visible);
-    } else {
-        self->QDialog::setVisible(visible);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnSetVisible(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_SetVisible_Callback(reinterpret_cast<VirtualQDialog::QDialog_SetVisible_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QDialog_SizeHint(const QDialog* self) {
-    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return new QSize(vqdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQDialog*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QDialog_QBaseSizeHint(const QDialog* self) {
-    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_SizeHint_IsBase(true);
-        return new QSize(vqdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQDialog*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnSizeHint(const QDialog* self, intptr_t slot) {
-    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_SizeHint_Callback(reinterpret_cast<VirtualQDialog::QDialog_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QDialog_MinimumSizeHint(const QDialog* self) {
-    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return new QSize(vqdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDialog*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QDialog_QBaseMinimumSizeHint(const QDialog* self) {
-    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vqdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDialog*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnMinimumSizeHint(const QDialog* self, intptr_t slot) {
-    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDialog::QDialog_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDialog_Open(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->open();
-    } else {
-        self->QDialog::open();
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseOpen(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Open_IsBase(true);
-        vqdialog->open();
-    } else {
-        self->QDialog::open();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnOpen(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Open_Callback(reinterpret_cast<VirtualQDialog::QDialog_Open_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QDialog_Exec(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return vqdialog->exec();
-    } else {
-        return self->QDialog::exec();
-    }
-}
-
-// Base class handler implementation
-int QDialog_QBaseExec(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Exec_IsBase(true);
-        return vqdialog->exec();
-    } else {
-        return self->QDialog::exec();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnExec(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Exec_Callback(reinterpret_cast<VirtualQDialog::QDialog_Exec_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDialog_Done(QDialog* self, int param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->done(static_cast<int>(param1));
-    } else {
-        self->QDialog::done(static_cast<int>(param1));
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseDone(QDialog* self, int param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Done_IsBase(true);
-        vqdialog->done(static_cast<int>(param1));
-    } else {
-        self->QDialog::done(static_cast<int>(param1));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnDone(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Done_Callback(reinterpret_cast<VirtualQDialog::QDialog_Done_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDialog_Accept(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->accept();
-    } else {
-        self->QDialog::accept();
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseAccept(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Accept_IsBase(true);
-        vqdialog->accept();
-    } else {
-        self->QDialog::accept();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnAccept(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Accept_Callback(reinterpret_cast<VirtualQDialog::QDialog_Accept_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDialog_Reject(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->reject();
-    } else {
-        self->QDialog::reject();
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseReject(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Reject_IsBase(true);
-        vqdialog->reject();
-    } else {
-        self->QDialog::reject();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnReject(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_Reject_Callback(reinterpret_cast<VirtualQDialog::QDialog_Reject_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDialog_KeyPressEvent(QDialog* self, QKeyEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->keyPressEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseKeyPressEvent(QDialog* self, QKeyEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_KeyPressEvent_IsBase(true);
-        vqdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->keyPressEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnKeyPressEvent(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDialog_CloseEvent(QDialog* self, QCloseEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->closeEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->closeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseCloseEvent(QDialog* self, QCloseEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_CloseEvent_IsBase(true);
-        vqdialog->closeEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->closeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnCloseEvent(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_CloseEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_CloseEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDialog_ShowEvent(QDialog* self, QShowEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->showEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->showEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseShowEvent(QDialog* self, QShowEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_ShowEvent_IsBase(true);
-        vqdialog->showEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->showEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnShowEvent(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_ShowEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ShowEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDialog_ResizeEvent(QDialog* self, QResizeEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->resizeEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->resizeEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseResizeEvent(QDialog* self, QResizeEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_ResizeEvent_IsBase(true);
-        vqdialog->resizeEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->resizeEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnResizeEvent(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDialog_ContextMenuEvent(QDialog* self, QContextMenuEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->contextMenuEvent(param1);
-    }
-}
-
-// Base class handler implementation
-void QDialog_QBaseContextMenuEvent(QDialog* self, QContextMenuEvent* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_ContextMenuEvent_IsBase(true);
-        vqdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualQDialog*)self)->contextMenuEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnContextMenuEvent(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ContextMenuEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QDialog_EventFilter(QDialog* self, QObject* param1, QEvent* param2) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return vqdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQDialog*)self)->eventFilter(param1, param2);
-    }
-}
-
-// Base class handler implementation
-bool QDialog_QBaseEventFilter(QDialog* self, QObject* param1, QEvent* param2) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_EventFilter_IsBase(true);
-        return vqdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQDialog*)self)->eventFilter(param1, param2);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialog_OnEventFilter(QDialog* self, intptr_t slot) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        vqdialog->setQDialog_EventFilter_Callback(reinterpret_cast<VirtualQDialog::QDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

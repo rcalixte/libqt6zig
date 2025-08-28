@@ -112,6 +112,36 @@ QListWidget* KListWidgetSearchLine_ListWidget(const KListWidgetSearchLine* self)
     return self->listWidget();
 }
 
+void KListWidgetSearchLine_UpdateSearch(KListWidgetSearchLine* self, const libqt_string s) {
+    QString s_QString = QString::fromUtf8(s.data, s.len);
+    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        self->updateSearch(s_QString);
+    } else {
+        ((VirtualKListWidgetSearchLine*)self)->updateSearch(s_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KListWidgetSearchLine_OnUpdateSearch(KListWidgetSearchLine* self, intptr_t slot) {
+    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_UpdateSearch_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_UpdateSearch_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KListWidgetSearchLine_QBaseUpdateSearch(KListWidgetSearchLine* self, const libqt_string s) {
+    QString s_QString = QString::fromUtf8(s.data, s.len);
+    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_UpdateSearch_IsBase(true);
+        vklistwidgetsearchline->updateSearch(s_QString);
+    } else {
+        ((VirtualKListWidgetSearchLine*)self)->updateSearch(s_QString);
+    }
+}
+
 void KListWidgetSearchLine_SetCaseSensitivity(KListWidgetSearchLine* self, int cs) {
     self->setCaseSensitivity(static_cast<Qt::CaseSensitivity>(cs));
 }
@@ -122,6 +152,60 @@ void KListWidgetSearchLine_SetListWidget(KListWidgetSearchLine* self, QListWidge
 
 void KListWidgetSearchLine_Clear(KListWidgetSearchLine* self) {
     self->clear();
+}
+
+bool KListWidgetSearchLine_ItemMatches(const KListWidgetSearchLine* self, const QListWidgetItem* item, const libqt_string s) {
+    QString s_QString = QString::fromUtf8(s.data, s.len);
+    auto* vklistwidgetsearchline = dynamic_cast<const VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        return vklistwidgetsearchline->itemMatches(item, s_QString);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KListWidgetSearchLine_OnItemMatches(const KListWidgetSearchLine* self, intptr_t slot) {
+    auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_ItemMatches_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ItemMatches_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KListWidgetSearchLine_QBaseItemMatches(const KListWidgetSearchLine* self, const QListWidgetItem* item, const libqt_string s) {
+    QString s_QString = QString::fromUtf8(s.data, s.len);
+    auto* vklistwidgetsearchline = dynamic_cast<const VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_ItemMatches_IsBase(true);
+        return vklistwidgetsearchline->itemMatches(item, s_QString);
+    }
+    return {};
+}
+
+bool KListWidgetSearchLine_Event(KListWidgetSearchLine* self, QEvent* event) {
+    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        return vklistwidgetsearchline->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KListWidgetSearchLine_OnEvent(KListWidgetSearchLine* self, intptr_t slot) {
+    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_Event_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KListWidgetSearchLine_QBaseEvent(KListWidgetSearchLine* self, QEvent* event) {
+    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_Event_IsBase(true);
+        return vklistwidgetsearchline->event(event);
+    }
+    return {};
 }
 
 libqt_string KListWidgetSearchLine_Tr2(const char* s, const char* c) {
@@ -146,97 +230,6 @@ libqt_string KListWidgetSearchLine_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KListWidgetSearchLine_UpdateSearch(KListWidgetSearchLine* self, const libqt_string s) {
-    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    QString s_QString = QString::fromUtf8(s.data, s.len);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        vklistwidgetsearchline->updateSearch(s_QString);
-    } else {
-        self->KListWidgetSearchLine::updateSearch(s_QString);
-    }
-}
-
-// Base class handler implementation
-void KListWidgetSearchLine_QBaseUpdateSearch(KListWidgetSearchLine* self, const libqt_string s) {
-    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    QString s_QString = QString::fromUtf8(s.data, s.len);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        vklistwidgetsearchline->setKListWidgetSearchLine_UpdateSearch_IsBase(true);
-        vklistwidgetsearchline->updateSearch(s_QString);
-    } else {
-        self->KListWidgetSearchLine::updateSearch(s_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListWidgetSearchLine_OnUpdateSearch(KListWidgetSearchLine* self, intptr_t slot) {
-    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        vklistwidgetsearchline->setKListWidgetSearchLine_UpdateSearch_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_UpdateSearch_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KListWidgetSearchLine_ItemMatches(const KListWidgetSearchLine* self, const QListWidgetItem* item, const libqt_string s) {
-    auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    QString s_QString = QString::fromUtf8(s.data, s.len);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        return vklistwidgetsearchline->itemMatches(item, s_QString);
-    } else {
-        return ((VirtualKListWidgetSearchLine*)self)->itemMatches(item, s_QString);
-    }
-}
-
-// Base class handler implementation
-bool KListWidgetSearchLine_QBaseItemMatches(const KListWidgetSearchLine* self, const QListWidgetItem* item, const libqt_string s) {
-    auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    QString s_QString = QString::fromUtf8(s.data, s.len);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        vklistwidgetsearchline->setKListWidgetSearchLine_ItemMatches_IsBase(true);
-        return vklistwidgetsearchline->itemMatches(item, s_QString);
-    } else {
-        return ((VirtualKListWidgetSearchLine*)self)->itemMatches(item, s_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListWidgetSearchLine_OnItemMatches(const KListWidgetSearchLine* self, intptr_t slot) {
-    auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        vklistwidgetsearchline->setKListWidgetSearchLine_ItemMatches_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ItemMatches_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KListWidgetSearchLine_Event(KListWidgetSearchLine* self, QEvent* event) {
-    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        return vklistwidgetsearchline->event(event);
-    } else {
-        return ((VirtualKListWidgetSearchLine*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool KListWidgetSearchLine_QBaseEvent(KListWidgetSearchLine* self, QEvent* event) {
-    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        vklistwidgetsearchline->setKListWidgetSearchLine_Event_IsBase(true);
-        return vklistwidgetsearchline->event(event);
-    } else {
-        return ((VirtualKListWidgetSearchLine*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListWidgetSearchLine_OnEvent(KListWidgetSearchLine* self, intptr_t slot) {
-    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        vklistwidgetsearchline->setKListWidgetSearchLine_Event_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

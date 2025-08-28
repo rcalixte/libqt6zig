@@ -73,6 +73,14 @@ libqt_string QsciLexerNASM_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerNASM_Language(const QsciLexerNASM* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerNASM_Lexer(const QsciLexerNASM* self) {
+    return (const char*)self->lexer();
+}
+
 libqt_string QsciLexerNASM_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerNASM::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -210,64 +218,6 @@ void QsciLexerNASM_OnSetFoldSyntaxBased(QsciLexerNASM* self, intptr_t slot) {
     auto* vqscilexernasm = dynamic_cast<VirtualQsciLexerNASM*>(self);
     if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
         vqscilexernasm->setQsciLexerNASM_SetFoldSyntaxBased_Callback(reinterpret_cast<VirtualQsciLexerNASM::QsciLexerNASM_SetFoldSyntaxBased_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerNASM_Language(const QsciLexerNASM* self) {
-    auto* vqscilexernasm = const_cast<VirtualQsciLexerNASM*>(dynamic_cast<const VirtualQsciLexerNASM*>(self));
-    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
-        return (const char*)vqscilexernasm->language();
-    } else {
-        return (const char*)((VirtualQsciLexerNASM*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerNASM_QBaseLanguage(const QsciLexerNASM* self) {
-    auto* vqscilexernasm = const_cast<VirtualQsciLexerNASM*>(dynamic_cast<const VirtualQsciLexerNASM*>(self));
-    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
-        vqscilexernasm->setQsciLexerNASM_Language_IsBase(true);
-        return (const char*)vqscilexernasm->language();
-    } else {
-        return (const char*)((VirtualQsciLexerNASM*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerNASM_OnLanguage(const QsciLexerNASM* self, intptr_t slot) {
-    auto* vqscilexernasm = const_cast<VirtualQsciLexerNASM*>(dynamic_cast<const VirtualQsciLexerNASM*>(self));
-    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
-        vqscilexernasm->setQsciLexerNASM_Language_Callback(reinterpret_cast<VirtualQsciLexerNASM::QsciLexerNASM_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerNASM_Lexer(const QsciLexerNASM* self) {
-    auto* vqscilexernasm = const_cast<VirtualQsciLexerNASM*>(dynamic_cast<const VirtualQsciLexerNASM*>(self));
-    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
-        return (const char*)vqscilexernasm->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerNASM*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerNASM_QBaseLexer(const QsciLexerNASM* self) {
-    auto* vqscilexernasm = const_cast<VirtualQsciLexerNASM*>(dynamic_cast<const VirtualQsciLexerNASM*>(self));
-    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
-        vqscilexernasm->setQsciLexerNASM_Lexer_IsBase(true);
-        return (const char*)vqscilexernasm->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerNASM*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerNASM_OnLexer(const QsciLexerNASM* self, intptr_t slot) {
-    auto* vqscilexernasm = const_cast<VirtualQsciLexerNASM*>(dynamic_cast<const VirtualQsciLexerNASM*>(self));
-    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
-        vqscilexernasm->setQsciLexerNASM_Lexer_Callback(reinterpret_cast<VirtualQsciLexerNASM::QsciLexerNASM_Lexer_Callback>(slot));
     }
 }
 

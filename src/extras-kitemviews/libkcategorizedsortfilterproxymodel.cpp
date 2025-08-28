@@ -82,6 +82,34 @@ libqt_string KCategorizedSortFilterProxyModel_Tr(const char* s) {
     return _str;
 }
 
+void KCategorizedSortFilterProxyModel_Sort(KCategorizedSortFilterProxyModel* self, int column, int order) {
+    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        ((VirtualKCategorizedSortFilterProxyModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedSortFilterProxyModel_OnSort(KCategorizedSortFilterProxyModel* self, intptr_t slot) {
+    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Sort_Callback(reinterpret_cast<VirtualKCategorizedSortFilterProxyModel::KCategorizedSortFilterProxyModel_Sort_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KCategorizedSortFilterProxyModel_QBaseSort(KCategorizedSortFilterProxyModel* self, int column, int order) {
+    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Sort_IsBase(true);
+        vkcategorizedsortfilterproxymodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    } else {
+        ((VirtualKCategorizedSortFilterProxyModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
 bool KCategorizedSortFilterProxyModel_IsCategorizedModel(const KCategorizedSortFilterProxyModel* self) {
     return self->isCategorizedModel();
 }
@@ -106,6 +134,84 @@ bool KCategorizedSortFilterProxyModel_SortCategoriesByNaturalComparison(const KC
     return self->sortCategoriesByNaturalComparison();
 }
 
+bool KCategorizedSortFilterProxyModel_LessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self);
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        return vkcategorizedsortfilterproxymodel->lessThan(*left, *right);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedSortFilterProxyModel_OnLessThan(const KCategorizedSortFilterProxyModel* self, intptr_t slot) {
+    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_LessThan_Callback(reinterpret_cast<VirtualKCategorizedSortFilterProxyModel::KCategorizedSortFilterProxyModel_LessThan_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KCategorizedSortFilterProxyModel_QBaseLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self);
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_LessThan_IsBase(true);
+        return vkcategorizedsortfilterproxymodel->lessThan(*left, *right);
+    }
+    return {};
+}
+
+bool KCategorizedSortFilterProxyModel_SubSortLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self);
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        return vkcategorizedsortfilterproxymodel->subSortLessThan(*left, *right);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedSortFilterProxyModel_OnSubSortLessThan(const KCategorizedSortFilterProxyModel* self, intptr_t slot) {
+    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SubSortLessThan_Callback(reinterpret_cast<VirtualKCategorizedSortFilterProxyModel::KCategorizedSortFilterProxyModel_SubSortLessThan_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KCategorizedSortFilterProxyModel_QBaseSubSortLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self);
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SubSortLessThan_IsBase(true);
+        return vkcategorizedsortfilterproxymodel->subSortLessThan(*left, *right);
+    }
+    return {};
+}
+
+int KCategorizedSortFilterProxyModel_CompareCategories(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self);
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        return vkcategorizedsortfilterproxymodel->compareCategories(*left, *right);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KCategorizedSortFilterProxyModel_OnCompareCategories(const KCategorizedSortFilterProxyModel* self, intptr_t slot) {
+    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CompareCategories_Callback(reinterpret_cast<VirtualKCategorizedSortFilterProxyModel::KCategorizedSortFilterProxyModel_CompareCategories_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int KCategorizedSortFilterProxyModel_QBaseCompareCategories(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self);
+    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
+        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CompareCategories_IsBase(true);
+        return vkcategorizedsortfilterproxymodel->compareCategories(*left, *right);
+    }
+    return {};
+}
+
 libqt_string KCategorizedSortFilterProxyModel_Tr2(const char* s, const char* c) {
     QString _ret = KCategorizedSortFilterProxyModel::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -128,122 +234,6 @@ libqt_string KCategorizedSortFilterProxyModel_Tr3(const char* s, const char* c, 
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KCategorizedSortFilterProxyModel_Sort(KCategorizedSortFilterProxyModel* self, int column, int order) {
-    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        vkcategorizedsortfilterproxymodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->KCategorizedSortFilterProxyModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseSort(KCategorizedSortFilterProxyModel* self, int column, int order) {
-    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Sort_IsBase(true);
-        vkcategorizedsortfilterproxymodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->KCategorizedSortFilterProxyModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedSortFilterProxyModel_OnSort(KCategorizedSortFilterProxyModel* self, intptr_t slot) {
-    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Sort_Callback(reinterpret_cast<VirtualKCategorizedSortFilterProxyModel::KCategorizedSortFilterProxyModel_Sort_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KCategorizedSortFilterProxyModel_LessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
-    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        return vkcategorizedsortfilterproxymodel->lessThan(*left, *right);
-    } else {
-        return ((VirtualKCategorizedSortFilterProxyModel*)self)->lessThan(*left, *right);
-    }
-}
-
-// Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
-    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_LessThan_IsBase(true);
-        return vkcategorizedsortfilterproxymodel->lessThan(*left, *right);
-    } else {
-        return ((VirtualKCategorizedSortFilterProxyModel*)self)->lessThan(*left, *right);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedSortFilterProxyModel_OnLessThan(const KCategorizedSortFilterProxyModel* self, intptr_t slot) {
-    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_LessThan_Callback(reinterpret_cast<VirtualKCategorizedSortFilterProxyModel::KCategorizedSortFilterProxyModel_LessThan_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KCategorizedSortFilterProxyModel_SubSortLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
-    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        return vkcategorizedsortfilterproxymodel->subSortLessThan(*left, *right);
-    } else {
-        return ((VirtualKCategorizedSortFilterProxyModel*)self)->subSortLessThan(*left, *right);
-    }
-}
-
-// Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseSubSortLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
-    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SubSortLessThan_IsBase(true);
-        return vkcategorizedsortfilterproxymodel->subSortLessThan(*left, *right);
-    } else {
-        return ((VirtualKCategorizedSortFilterProxyModel*)self)->subSortLessThan(*left, *right);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedSortFilterProxyModel_OnSubSortLessThan(const KCategorizedSortFilterProxyModel* self, intptr_t slot) {
-    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SubSortLessThan_Callback(reinterpret_cast<VirtualKCategorizedSortFilterProxyModel::KCategorizedSortFilterProxyModel_SubSortLessThan_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int KCategorizedSortFilterProxyModel_CompareCategories(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
-    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        return vkcategorizedsortfilterproxymodel->compareCategories(*left, *right);
-    } else {
-        return ((VirtualKCategorizedSortFilterProxyModel*)self)->compareCategories(*left, *right);
-    }
-}
-
-// Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseCompareCategories(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
-    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CompareCategories_IsBase(true);
-        return vkcategorizedsortfilterproxymodel->compareCategories(*left, *right);
-    } else {
-        return ((VirtualKCategorizedSortFilterProxyModel*)self)->compareCategories(*left, *right);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCategorizedSortFilterProxyModel_OnCompareCategories(const KCategorizedSortFilterProxyModel* self, intptr_t slot) {
-    auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CompareCategories_Callback(reinterpret_cast<VirtualKCategorizedSortFilterProxyModel::KCategorizedSortFilterProxyModel_CompareCategories_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

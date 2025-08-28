@@ -73,8 +73,64 @@ bool KModifierKeyInfoProvider_IsKeyLatched(const KModifierKeyInfoProvider* self,
     return self->isKeyLatched(static_cast<Qt::Key>(key));
 }
 
+bool KModifierKeyInfoProvider_SetKeyLatched(KModifierKeyInfoProvider* self, int key, bool latched) {
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        return self->setKeyLatched(static_cast<Qt::Key>(key), latched);
+    } else {
+        return ((VirtualKModifierKeyInfoProvider*)self)->setKeyLatched(static_cast<Qt::Key>(key), latched);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KModifierKeyInfoProvider_OnSetKeyLatched(KModifierKeyInfoProvider* self, intptr_t slot) {
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLatched_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_SetKeyLatched_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KModifierKeyInfoProvider_QBaseSetKeyLatched(KModifierKeyInfoProvider* self, int key, bool latched) {
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLatched_IsBase(true);
+        return vkmodifierkeyinfoprovider->setKeyLatched(static_cast<Qt::Key>(key), latched);
+    } else {
+        return ((VirtualKModifierKeyInfoProvider*)self)->setKeyLatched(static_cast<Qt::Key>(key), latched);
+    }
+}
+
 bool KModifierKeyInfoProvider_IsKeyLocked(const KModifierKeyInfoProvider* self, int key) {
     return self->isKeyLocked(static_cast<Qt::Key>(key));
+}
+
+bool KModifierKeyInfoProvider_SetKeyLocked(KModifierKeyInfoProvider* self, int key, bool locked) {
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        return self->setKeyLocked(static_cast<Qt::Key>(key), locked);
+    } else {
+        return ((VirtualKModifierKeyInfoProvider*)self)->setKeyLocked(static_cast<Qt::Key>(key), locked);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KModifierKeyInfoProvider_OnSetKeyLocked(KModifierKeyInfoProvider* self, intptr_t slot) {
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLocked_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_SetKeyLocked_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KModifierKeyInfoProvider_QBaseSetKeyLocked(KModifierKeyInfoProvider* self, int key, bool locked) {
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLocked_IsBase(true);
+        return vkmodifierkeyinfoprovider->setKeyLocked(static_cast<Qt::Key>(key), locked);
+    } else {
+        return ((VirtualKModifierKeyInfoProvider*)self)->setKeyLocked(static_cast<Qt::Key>(key), locked);
+    }
 }
 
 bool KModifierKeyInfoProvider_IsButtonPressed(const KModifierKeyInfoProvider* self, int button) {
@@ -196,64 +252,6 @@ libqt_string KModifierKeyInfoProvider_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool KModifierKeyInfoProvider_SetKeyLatched(KModifierKeyInfoProvider* self, int key, bool latched) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        return vkmodifierkeyinfoprovider->setKeyLatched(static_cast<Qt::Key>(key), latched);
-    } else {
-        return self->KModifierKeyInfoProvider::setKeyLatched(static_cast<Qt::Key>(key), latched);
-    }
-}
-
-// Base class handler implementation
-bool KModifierKeyInfoProvider_QBaseSetKeyLatched(KModifierKeyInfoProvider* self, int key, bool latched) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLatched_IsBase(true);
-        return vkmodifierkeyinfoprovider->setKeyLatched(static_cast<Qt::Key>(key), latched);
-    } else {
-        return self->KModifierKeyInfoProvider::setKeyLatched(static_cast<Qt::Key>(key), latched);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModifierKeyInfoProvider_OnSetKeyLatched(KModifierKeyInfoProvider* self, intptr_t slot) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLatched_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_SetKeyLatched_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KModifierKeyInfoProvider_SetKeyLocked(KModifierKeyInfoProvider* self, int key, bool locked) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        return vkmodifierkeyinfoprovider->setKeyLocked(static_cast<Qt::Key>(key), locked);
-    } else {
-        return self->KModifierKeyInfoProvider::setKeyLocked(static_cast<Qt::Key>(key), locked);
-    }
-}
-
-// Base class handler implementation
-bool KModifierKeyInfoProvider_QBaseSetKeyLocked(KModifierKeyInfoProvider* self, int key, bool locked) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLocked_IsBase(true);
-        return vkmodifierkeyinfoprovider->setKeyLocked(static_cast<Qt::Key>(key), locked);
-    } else {
-        return self->KModifierKeyInfoProvider::setKeyLocked(static_cast<Qt::Key>(key), locked);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModifierKeyInfoProvider_OnSetKeyLocked(KModifierKeyInfoProvider* self, intptr_t slot) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLocked_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_SetKeyLocked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

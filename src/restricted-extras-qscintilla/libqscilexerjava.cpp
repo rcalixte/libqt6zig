@@ -72,6 +72,14 @@ libqt_string QsciLexerJava_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerJava_Language(const QsciLexerJava* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerJava_Keywords(const QsciLexerJava* self, int set) {
+    return (const char*)self->keywords(static_cast<int>(set));
+}
+
 libqt_string QsciLexerJava_Tr2(const char* s, const char* c) {
     QString _ret = QsciLexerJava::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -238,35 +246,6 @@ void QsciLexerJava_OnSetStylePreprocessor(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
         vqscilexerjava->setQsciLexerJava_SetStylePreprocessor_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetStylePreprocessor_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerJava_Language(const QsciLexerJava* self) {
-    auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        return (const char*)vqscilexerjava->language();
-    } else {
-        return (const char*)((VirtualQsciLexerJava*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerJava_QBaseLanguage(const QsciLexerJava* self) {
-    auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_Language_IsBase(true);
-        return (const char*)vqscilexerjava->language();
-    } else {
-        return (const char*)((VirtualQsciLexerJava*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJava_OnLanguage(const QsciLexerJava* self, intptr_t slot) {
-    auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_Language_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Language_Callback>(slot));
     }
 }
 
@@ -741,35 +720,6 @@ void QsciLexerJava_OnIndentationGuideView(const QsciLexerJava* self, intptr_t sl
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
         vqscilexerjava->setQsciLexerJava_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_IndentationGuideView_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerJava_Keywords(const QsciLexerJava* self, int set) {
-    auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        return (const char*)vqscilexerjava->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerJava*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerJava_QBaseKeywords(const QsciLexerJava* self, int set) {
-    auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_Keywords_IsBase(true);
-        return (const char*)vqscilexerjava->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerJava*)self)->keywords(static_cast<int>(set));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerJava_OnKeywords(const QsciLexerJava* self, intptr_t slot) {
-    auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_Keywords_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Keywords_Callback>(slot));
     }
 }
 

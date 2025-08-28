@@ -70,6 +70,34 @@ libqt_string QHorizontalBarSeries_Tr(const char* s) {
     return _str;
 }
 
+int QHorizontalBarSeries_Type(const QHorizontalBarSeries* self) {
+    auto* vqhorizontalbarseries = dynamic_cast<const VirtualQHorizontalBarSeries*>(self);
+    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQHorizontalBarSeries*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QHorizontalBarSeries_OnType(const QHorizontalBarSeries* self, intptr_t slot) {
+    auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
+    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
+        vqhorizontalbarseries->setQHorizontalBarSeries_Type_Callback(reinterpret_cast<VirtualQHorizontalBarSeries::QHorizontalBarSeries_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QHorizontalBarSeries_QBaseType(const QHorizontalBarSeries* self) {
+    auto* vqhorizontalbarseries = dynamic_cast<const VirtualQHorizontalBarSeries*>(self);
+    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
+        vqhorizontalbarseries->setQHorizontalBarSeries_Type_IsBase(true);
+        return static_cast<int>(vqhorizontalbarseries->type());
+    } else {
+        return static_cast<int>(((VirtualQHorizontalBarSeries*)self)->type());
+    }
+}
+
 libqt_string QHorizontalBarSeries_Tr2(const char* s, const char* c) {
     QString _ret = QHorizontalBarSeries::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -92,35 +120,6 @@ libqt_string QHorizontalBarSeries_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QHorizontalBarSeries_Type(const QHorizontalBarSeries* self) {
-    auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        return static_cast<int>(vqhorizontalbarseries->type());
-    } else {
-        return static_cast<int>(self->QHorizontalBarSeries::type());
-    }
-}
-
-// Base class handler implementation
-int QHorizontalBarSeries_QBaseType(const QHorizontalBarSeries* self) {
-    auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        vqhorizontalbarseries->setQHorizontalBarSeries_Type_IsBase(true);
-        return static_cast<int>(vqhorizontalbarseries->type());
-    } else {
-        return static_cast<int>(self->QHorizontalBarSeries::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHorizontalBarSeries_OnType(const QHorizontalBarSeries* self, intptr_t slot) {
-    auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        vqhorizontalbarseries->setQHorizontalBarSeries_Type_Callback(reinterpret_cast<VirtualQHorizontalBarSeries::QHorizontalBarSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

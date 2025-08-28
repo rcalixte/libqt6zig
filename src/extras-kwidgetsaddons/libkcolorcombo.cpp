@@ -167,6 +167,30 @@ void KColorCombo_Connect_Highlighted(KColorCombo* self, intptr_t slot) {
     });
 }
 
+void KColorCombo_PaintEvent(KColorCombo* self, QPaintEvent* event) {
+    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+        vkcolorcombo->paintEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KColorCombo_OnPaintEvent(KColorCombo* self, intptr_t slot) {
+    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+        vkcolorcombo->setKColorCombo_PaintEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KColorCombo_QBasePaintEvent(KColorCombo* self, QPaintEvent* event) {
+    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+        vkcolorcombo->setKColorCombo_PaintEvent_IsBase(true);
+        vkcolorcombo->paintEvent(event);
+    }
+}
+
 libqt_string KColorCombo_Tr2(const char* s, const char* c) {
     QString _ret = KColorCombo::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -189,35 +213,6 @@ libqt_string KColorCombo_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KColorCombo_PaintEvent(KColorCombo* self, QPaintEvent* event) {
-    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
-        vkcolorcombo->paintEvent(event);
-    } else {
-        ((VirtualKColorCombo*)self)->paintEvent(event);
-    }
-}
-
-// Base class handler implementation
-void KColorCombo_QBasePaintEvent(KColorCombo* self, QPaintEvent* event) {
-    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
-        vkcolorcombo->setKColorCombo_PaintEvent_IsBase(true);
-        vkcolorcombo->paintEvent(event);
-    } else {
-        ((VirtualKColorCombo*)self)->paintEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorCombo_OnPaintEvent(KColorCombo* self, intptr_t slot) {
-    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
-        vkcolorcombo->setKColorCombo_PaintEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

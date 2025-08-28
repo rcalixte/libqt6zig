@@ -87,6 +87,170 @@ QPdfDocument* QPdfLinkModel_Document(const QPdfLinkModel* self) {
     return self->document();
 }
 
+libqt_map /* of int to libqt_string */ QPdfLinkModel_RoleNames(const QPdfLinkModel* self) {
+    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        QHash<int, QByteArray> _ret = self->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QHash<int, QByteArray> _ret = ((VirtualQPdfLinkModel*)self)->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPdfLinkModel_OnRoleNames(const QPdfLinkModel* self, intptr_t slot) {
+    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_RoleNames_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RoleNames_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_map /* of int to libqt_string */ QPdfLinkModel_QBaseRoleNames(const QPdfLinkModel* self) {
+    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_RoleNames_IsBase(true);
+        QHash<int, QByteArray> _ret = vqpdflinkmodel->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    } else {
+        QHash<int, QByteArray> _ret = ((VirtualQPdfLinkModel*)self)->roleNames();
+        // Convert QHash<> from C++ memory to manually-managed C memory
+        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        int _ctr = 0;
+        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+            _karr[_ctr] = _itr->first;
+            QByteArray _hashval_qb = _itr->second;
+            libqt_string _hashval_str;
+            _hashval_str.len = _hashval_qb.length();
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
+            _varr[_ctr] = _hashval_str;
+            _ctr++;
+        }
+        libqt_map _out;
+        _out.len = _ret.size();
+        _out.keys = static_cast<void*>(_karr);
+        _out.values = static_cast<void*>(_varr);
+        return _out;
+    }
+}
+
+int QPdfLinkModel_RowCount(const QPdfLinkModel* self, const QModelIndex* parent) {
+    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        return self->rowCount(*parent);
+    } else {
+        return ((VirtualQPdfLinkModel*)self)->rowCount(*parent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPdfLinkModel_OnRowCount(const QPdfLinkModel* self, intptr_t slot) {
+    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_RowCount_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RowCount_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QPdfLinkModel_QBaseRowCount(const QPdfLinkModel* self, const QModelIndex* parent) {
+    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_RowCount_IsBase(true);
+        return vqpdflinkmodel->rowCount(*parent);
+    } else {
+        return ((VirtualQPdfLinkModel*)self)->rowCount(*parent);
+    }
+}
+
+QVariant* QPdfLinkModel_Data(const QPdfLinkModel* self, const QModelIndex* index, int role) {
+    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        return new QVariant(self->data(*index, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQPdfLinkModel*)self)->data(*index, static_cast<int>(role)));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPdfLinkModel_OnData(const QPdfLinkModel* self, intptr_t slot) {
+    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_Data_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Data_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QVariant* QPdfLinkModel_QBaseData(const QPdfLinkModel* self, const QModelIndex* index, int role) {
+    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_Data_IsBase(true);
+        return new QVariant(vqpdflinkmodel->data(*index, static_cast<int>(role)));
+    } else {
+        return new QVariant(((VirtualQPdfLinkModel*)self)->data(*index, static_cast<int>(role)));
+    }
+}
+
 int QPdfLinkModel_Page(const QPdfLinkModel* self) {
     return self->page();
 }
@@ -148,173 +312,6 @@ libqt_string QPdfLinkModel_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-libqt_map /* of int to libqt_string */ QPdfLinkModel_RoleNames(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        QHash<int, QByteArray> _ret = vqpdflinkmodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = self->QPdfLinkModel::roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Base class handler implementation
-libqt_map /* of int to libqt_string */ QPdfLinkModel_QBaseRoleNames(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_RoleNames_IsBase(true);
-        QHash<int, QByteArray> _ret = vqpdflinkmodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = self->QPdfLinkModel::roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnRoleNames(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_RoleNames_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RoleNames_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QPdfLinkModel_RowCount(const QPdfLinkModel* self, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->rowCount(*parent);
-    } else {
-        return self->QPdfLinkModel::rowCount(*parent);
-    }
-}
-
-// Base class handler implementation
-int QPdfLinkModel_QBaseRowCount(const QPdfLinkModel* self, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_RowCount_IsBase(true);
-        return vqpdflinkmodel->rowCount(*parent);
-    } else {
-        return self->QPdfLinkModel::rowCount(*parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnRowCount(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_RowCount_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RowCount_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QPdfLinkModel_Data(const QPdfLinkModel* self, const QModelIndex* index, int role) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return new QVariant(vqpdflinkmodel->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQPdfLinkModel*)self)->data(*index, static_cast<int>(role)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QPdfLinkModel_QBaseData(const QPdfLinkModel* self, const QModelIndex* index, int role) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Data_IsBase(true);
-        return new QVariant(vqpdflinkmodel->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQPdfLinkModel*)self)->data(*index, static_cast<int>(role)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnData(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Data_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Data_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

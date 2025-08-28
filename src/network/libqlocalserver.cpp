@@ -96,6 +96,34 @@ libqt_string QLocalServer_ErrorString(const QLocalServer* self) {
     return _str;
 }
 
+bool QLocalServer_HasPendingConnections(const QLocalServer* self) {
+    auto* vqlocalserver = dynamic_cast<const VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        return self->hasPendingConnections();
+    } else {
+        return ((VirtualQLocalServer*)self)->hasPendingConnections();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLocalServer_OnHasPendingConnections(const QLocalServer* self, intptr_t slot) {
+    auto* vqlocalserver = const_cast<VirtualQLocalServer*>(dynamic_cast<const VirtualQLocalServer*>(self));
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_HasPendingConnections_Callback(reinterpret_cast<VirtualQLocalServer::QLocalServer_HasPendingConnections_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QLocalServer_QBaseHasPendingConnections(const QLocalServer* self) {
+    auto* vqlocalserver = dynamic_cast<const VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_HasPendingConnections_IsBase(true);
+        return vqlocalserver->hasPendingConnections();
+    } else {
+        return ((VirtualQLocalServer*)self)->hasPendingConnections();
+    }
+}
+
 bool QLocalServer_IsListening(const QLocalServer* self) {
     return self->isListening();
 }
@@ -111,6 +139,34 @@ bool QLocalServer_Listen2(QLocalServer* self, intptr_t socketDescriptor) {
 
 int QLocalServer_MaxPendingConnections(const QLocalServer* self) {
     return self->maxPendingConnections();
+}
+
+QLocalSocket* QLocalServer_NextPendingConnection(QLocalServer* self) {
+    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        return self->nextPendingConnection();
+    } else {
+        return ((VirtualQLocalServer*)self)->nextPendingConnection();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLocalServer_OnNextPendingConnection(QLocalServer* self, intptr_t slot) {
+    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_NextPendingConnection_Callback(reinterpret_cast<VirtualQLocalServer::QLocalServer_NextPendingConnection_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QLocalSocket* QLocalServer_QBaseNextPendingConnection(QLocalServer* self) {
+    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_NextPendingConnection_IsBase(true);
+        return vqlocalserver->nextPendingConnection();
+    } else {
+        return ((VirtualQLocalServer*)self)->nextPendingConnection();
+    }
 }
 
 libqt_string QLocalServer_ServerName(const QLocalServer* self) {
@@ -175,6 +231,30 @@ intptr_t QLocalServer_SocketDescriptor(const QLocalServer* self) {
     return (intptr_t)(_ret);
 }
 
+void QLocalServer_IncomingConnection(QLocalServer* self, uintptr_t socketDescriptor) {
+    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->incomingConnection(static_cast<quintptr>(socketDescriptor));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLocalServer_OnIncomingConnection(QLocalServer* self, intptr_t slot) {
+    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_IncomingConnection_Callback(reinterpret_cast<VirtualQLocalServer::QLocalServer_IncomingConnection_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QLocalServer_QBaseIncomingConnection(QLocalServer* self, uintptr_t socketDescriptor) {
+    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_IncomingConnection_IsBase(true);
+        vqlocalserver->incomingConnection(static_cast<quintptr>(socketDescriptor));
+    }
+}
+
 libqt_string QLocalServer_Tr2(const char* s, const char* c) {
     QString _ret = QLocalServer::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -205,93 +285,6 @@ bool QLocalServer_WaitForNewConnection1(QLocalServer* self, int msec) {
 
 bool QLocalServer_WaitForNewConnection2(QLocalServer* self, int msec, bool* timedOut) {
     return self->waitForNewConnection(static_cast<int>(msec), timedOut);
-}
-
-// Derived class handler implementation
-bool QLocalServer_HasPendingConnections(const QLocalServer* self) {
-    auto* vqlocalserver = const_cast<VirtualQLocalServer*>(dynamic_cast<const VirtualQLocalServer*>(self));
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        return vqlocalserver->hasPendingConnections();
-    } else {
-        return self->QLocalServer::hasPendingConnections();
-    }
-}
-
-// Base class handler implementation
-bool QLocalServer_QBaseHasPendingConnections(const QLocalServer* self) {
-    auto* vqlocalserver = const_cast<VirtualQLocalServer*>(dynamic_cast<const VirtualQLocalServer*>(self));
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        vqlocalserver->setQLocalServer_HasPendingConnections_IsBase(true);
-        return vqlocalserver->hasPendingConnections();
-    } else {
-        return self->QLocalServer::hasPendingConnections();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLocalServer_OnHasPendingConnections(const QLocalServer* self, intptr_t slot) {
-    auto* vqlocalserver = const_cast<VirtualQLocalServer*>(dynamic_cast<const VirtualQLocalServer*>(self));
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        vqlocalserver->setQLocalServer_HasPendingConnections_Callback(reinterpret_cast<VirtualQLocalServer::QLocalServer_HasPendingConnections_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QLocalSocket* QLocalServer_NextPendingConnection(QLocalServer* self) {
-    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        return vqlocalserver->nextPendingConnection();
-    } else {
-        return self->QLocalServer::nextPendingConnection();
-    }
-}
-
-// Base class handler implementation
-QLocalSocket* QLocalServer_QBaseNextPendingConnection(QLocalServer* self) {
-    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        vqlocalserver->setQLocalServer_NextPendingConnection_IsBase(true);
-        return vqlocalserver->nextPendingConnection();
-    } else {
-        return self->QLocalServer::nextPendingConnection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLocalServer_OnNextPendingConnection(QLocalServer* self, intptr_t slot) {
-    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        vqlocalserver->setQLocalServer_NextPendingConnection_Callback(reinterpret_cast<VirtualQLocalServer::QLocalServer_NextPendingConnection_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QLocalServer_IncomingConnection(QLocalServer* self, uintptr_t socketDescriptor) {
-    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        vqlocalserver->incomingConnection(static_cast<quintptr>(socketDescriptor));
-    } else {
-        ((VirtualQLocalServer*)self)->incomingConnection(static_cast<quintptr>(socketDescriptor));
-    }
-}
-
-// Base class handler implementation
-void QLocalServer_QBaseIncomingConnection(QLocalServer* self, uintptr_t socketDescriptor) {
-    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        vqlocalserver->setQLocalServer_IncomingConnection_IsBase(true);
-        vqlocalserver->incomingConnection(static_cast<quintptr>(socketDescriptor));
-    } else {
-        ((VirtualQLocalServer*)self)->incomingConnection(static_cast<quintptr>(socketDescriptor));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLocalServer_OnIncomingConnection(QLocalServer* self, intptr_t slot) {
-    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        vqlocalserver->setQLocalServer_IncomingConnection_Callback(reinterpret_cast<VirtualQLocalServer::QLocalServer_IncomingConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

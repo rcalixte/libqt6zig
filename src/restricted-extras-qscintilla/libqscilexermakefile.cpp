@@ -72,8 +72,24 @@ libqt_string QsciLexerMakefile_Tr(const char* s) {
     return _str;
 }
 
+const char* QsciLexerMakefile_Language(const QsciLexerMakefile* self) {
+    return (const char*)self->language();
+}
+
+const char* QsciLexerMakefile_Lexer(const QsciLexerMakefile* self) {
+    return (const char*)self->lexer();
+}
+
+const char* QsciLexerMakefile_WordCharacters(const QsciLexerMakefile* self) {
+    return (const char*)self->wordCharacters();
+}
+
 QColor* QsciLexerMakefile_DefaultColor(const QsciLexerMakefile* self, int style) {
     return new QColor(self->defaultColor(static_cast<int>(style)));
+}
+
+bool QsciLexerMakefile_DefaultEolFill(const QsciLexerMakefile* self, int style) {
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 QFont* QsciLexerMakefile_DefaultFont(const QsciLexerMakefile* self, int style) {
@@ -82,6 +98,18 @@ QFont* QsciLexerMakefile_DefaultFont(const QsciLexerMakefile* self, int style) {
 
 QColor* QsciLexerMakefile_DefaultPaper(const QsciLexerMakefile* self, int style) {
     return new QColor(self->defaultPaper(static_cast<int>(style)));
+}
+
+libqt_string QsciLexerMakefile_Description(const QsciLexerMakefile* self, int style) {
+    QString _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QsciLexerMakefile_Tr2(const char* s, const char* c) {
@@ -106,64 +134,6 @@ libqt_string QsciLexerMakefile_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-const char* QsciLexerMakefile_Language(const QsciLexerMakefile* self) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        return (const char*)vqscilexermakefile->language();
-    } else {
-        return (const char*)((VirtualQsciLexerMakefile*)self)->language();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerMakefile_QBaseLanguage(const QsciLexerMakefile* self) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_Language_IsBase(true);
-        return (const char*)vqscilexermakefile->language();
-    } else {
-        return (const char*)((VirtualQsciLexerMakefile*)self)->language();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerMakefile_OnLanguage(const QsciLexerMakefile* self, intptr_t slot) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_Language_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Language_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerMakefile_Lexer(const QsciLexerMakefile* self) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        return (const char*)vqscilexermakefile->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerMakefile*)self)->lexer();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerMakefile_QBaseLexer(const QsciLexerMakefile* self) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_Lexer_IsBase(true);
-        return (const char*)vqscilexermakefile->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexerMakefile*)self)->lexer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerMakefile_OnLexer(const QsciLexerMakefile* self, intptr_t slot) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_Lexer_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,67 +640,6 @@ void QsciLexerMakefile_OnDefaultStyle(const QsciLexerMakefile* self, intptr_t sl
 }
 
 // Derived class handler implementation
-libqt_string QsciLexerMakefile_Description(const QsciLexerMakefile* self, int style) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        QString _ret = vqscilexermakefile->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerMakefile*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerMakefile_QBaseDescription(const QsciLexerMakefile* self, int style) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_Description_IsBase(true);
-        QString _ret = vqscilexermakefile->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQsciLexerMakefile*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerMakefile_OnDescription(const QsciLexerMakefile* self, intptr_t slot) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_Description_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Description_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 QColor* QsciLexerMakefile_Paper(const QsciLexerMakefile* self, int style) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
@@ -785,35 +694,6 @@ void QsciLexerMakefile_OnDefaultColor2(const QsciLexerMakefile* self, intptr_t s
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
         vqscilexermakefile->setQsciLexerMakefile_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultColor2_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QsciLexerMakefile_DefaultEolFill(const QsciLexerMakefile* self, int style) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        return vqscilexermakefile->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerMakefile*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerMakefile_QBaseDefaultEolFill(const QsciLexerMakefile* self, int style) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_DefaultEolFill_IsBase(true);
-        return vqscilexermakefile->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerMakefile*)self)->defaultEolFill(static_cast<int>(style));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerMakefile_OnDefaultEolFill(const QsciLexerMakefile* self, intptr_t slot) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultEolFill_Callback>(slot));
     }
 }
 
@@ -959,35 +839,6 @@ void QsciLexerMakefile_OnStyleBitsNeeded(const QsciLexerMakefile* self, intptr_t
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
         vqscilexermakefile->setQsciLexerMakefile_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_StyleBitsNeeded_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-const char* QsciLexerMakefile_WordCharacters(const QsciLexerMakefile* self) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        return (const char*)vqscilexermakefile->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerMakefile*)self)->wordCharacters();
-    }
-}
-
-// Base class handler implementation
-const char* QsciLexerMakefile_QBaseWordCharacters(const QsciLexerMakefile* self) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_WordCharacters_IsBase(true);
-        return (const char*)vqscilexermakefile->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerMakefile*)self)->wordCharacters();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerMakefile_OnWordCharacters(const QsciLexerMakefile* self, intptr_t slot) {
-    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_WordCharacters_Callback>(slot));
     }
 }
 

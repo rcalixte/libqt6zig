@@ -32,6 +32,62 @@ QUndoCommand* QUndoCommand_new4(const libqt_string text, QUndoCommand* parent) {
     return new VirtualQUndoCommand(text_QString, parent);
 }
 
+void QUndoCommand_Undo(QUndoCommand* self) {
+    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+        self->undo();
+    } else {
+        ((VirtualQUndoCommand*)self)->undo();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QUndoCommand_OnUndo(QUndoCommand* self, intptr_t slot) {
+    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+        vqundocommand->setQUndoCommand_Undo_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_Undo_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QUndoCommand_QBaseUndo(QUndoCommand* self) {
+    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+        vqundocommand->setQUndoCommand_Undo_IsBase(true);
+        vqundocommand->undo();
+    } else {
+        ((VirtualQUndoCommand*)self)->undo();
+    }
+}
+
+void QUndoCommand_Redo(QUndoCommand* self) {
+    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+        self->redo();
+    } else {
+        ((VirtualQUndoCommand*)self)->redo();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QUndoCommand_OnRedo(QUndoCommand* self, intptr_t slot) {
+    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+        vqundocommand->setQUndoCommand_Redo_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_Redo_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QUndoCommand_QBaseRedo(QUndoCommand* self) {
+    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+        vqundocommand->setQUndoCommand_Redo_IsBase(true);
+        vqundocommand->redo();
+    } else {
+        ((VirtualQUndoCommand*)self)->redo();
+    }
+}
+
 libqt_string QUndoCommand_Text(const QUndoCommand* self) {
     QString _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -69,94 +125,16 @@ void QUndoCommand_SetObsolete(QUndoCommand* self, bool obsolete) {
     self->setObsolete(obsolete);
 }
 
-int QUndoCommand_ChildCount(const QUndoCommand* self) {
-    return self->childCount();
-}
-
-QUndoCommand* QUndoCommand_Child(const QUndoCommand* self, int index) {
-    return (QUndoCommand*)self->child(static_cast<int>(index));
-}
-
-// Derived class handler implementation
-void QUndoCommand_Undo(QUndoCommand* self) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        vqundocommand->undo();
-    } else {
-        self->QUndoCommand::undo();
-    }
-}
-
-// Base class handler implementation
-void QUndoCommand_QBaseUndo(QUndoCommand* self) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        vqundocommand->setQUndoCommand_Undo_IsBase(true);
-        vqundocommand->undo();
-    } else {
-        self->QUndoCommand::undo();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoCommand_OnUndo(QUndoCommand* self, intptr_t slot) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        vqundocommand->setQUndoCommand_Undo_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_Undo_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QUndoCommand_Redo(QUndoCommand* self) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        vqundocommand->redo();
-    } else {
-        self->QUndoCommand::redo();
-    }
-}
-
-// Base class handler implementation
-void QUndoCommand_QBaseRedo(QUndoCommand* self) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        vqundocommand->setQUndoCommand_Redo_IsBase(true);
-        vqundocommand->redo();
-    } else {
-        self->QUndoCommand::redo();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoCommand_OnRedo(QUndoCommand* self, intptr_t slot) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        vqundocommand->setQUndoCommand_Redo_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_Redo_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QUndoCommand_Id(const QUndoCommand* self) {
-    auto* vqundocommand = const_cast<VirtualQUndoCommand*>(dynamic_cast<const VirtualQUndoCommand*>(self));
+    auto* vqundocommand = dynamic_cast<const VirtualQUndoCommand*>(self);
     if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        return vqundocommand->id();
+        return self->id();
     } else {
-        return self->QUndoCommand::id();
+        return ((VirtualQUndoCommand*)self)->id();
     }
 }
 
-// Base class handler implementation
-int QUndoCommand_QBaseId(const QUndoCommand* self) {
-    auto* vqundocommand = const_cast<VirtualQUndoCommand*>(dynamic_cast<const VirtualQUndoCommand*>(self));
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        vqundocommand->setQUndoCommand_Id_IsBase(true);
-        return vqundocommand->id();
-    } else {
-        return self->QUndoCommand::id();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QUndoCommand_OnId(const QUndoCommand* self, intptr_t slot) {
     auto* vqundocommand = const_cast<VirtualQUndoCommand*>(dynamic_cast<const VirtualQUndoCommand*>(self));
     if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
@@ -164,33 +142,51 @@ void QUndoCommand_OnId(const QUndoCommand* self, intptr_t slot) {
     }
 }
 
-// Derived class handler implementation
-bool QUndoCommand_MergeWith(QUndoCommand* self, const QUndoCommand* other) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
+// Virtual base class handler implementation
+int QUndoCommand_QBaseId(const QUndoCommand* self) {
+    auto* vqundocommand = dynamic_cast<const VirtualQUndoCommand*>(self);
     if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        return vqundocommand->mergeWith(other);
+        vqundocommand->setQUndoCommand_Id_IsBase(true);
+        return vqundocommand->id();
     } else {
-        return self->QUndoCommand::mergeWith(other);
+        return ((VirtualQUndoCommand*)self)->id();
     }
 }
 
-// Base class handler implementation
+bool QUndoCommand_MergeWith(QUndoCommand* self, const QUndoCommand* other) {
+    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+        return self->mergeWith(other);
+    } else {
+        return ((VirtualQUndoCommand*)self)->mergeWith(other);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QUndoCommand_OnMergeWith(QUndoCommand* self, intptr_t slot) {
+    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+        vqundocommand->setQUndoCommand_MergeWith_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_MergeWith_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
 bool QUndoCommand_QBaseMergeWith(QUndoCommand* self, const QUndoCommand* other) {
     auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
     if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
         vqundocommand->setQUndoCommand_MergeWith_IsBase(true);
         return vqundocommand->mergeWith(other);
     } else {
-        return self->QUndoCommand::mergeWith(other);
+        return ((VirtualQUndoCommand*)self)->mergeWith(other);
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QUndoCommand_OnMergeWith(QUndoCommand* self, intptr_t slot) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        vqundocommand->setQUndoCommand_MergeWith_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_MergeWith_Callback>(slot));
-    }
+int QUndoCommand_ChildCount(const QUndoCommand* self) {
+    return self->childCount();
+}
+
+QUndoCommand* QUndoCommand_Child(const QUndoCommand* self, int index) {
+    return (QUndoCommand*)self->child(static_cast<int>(index));
 }
 
 void QUndoCommand_Delete(QUndoCommand* self) {

@@ -199,6 +199,62 @@ void KNewPasswordDialog_SetRevealPasswordMode(KNewPasswordDialog* self, int reve
     self->setRevealPasswordMode(static_cast<KPassword::RevealMode>(revealPasswordMode));
 }
 
+void KNewPasswordDialog_Accept(KNewPasswordDialog* self) {
+    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        self->accept();
+    } else {
+        ((VirtualKNewPasswordDialog*)self)->accept();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KNewPasswordDialog_OnAccept(KNewPasswordDialog* self, intptr_t slot) {
+    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        vknewpassworddialog->setKNewPasswordDialog_Accept_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Accept_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KNewPasswordDialog_QBaseAccept(KNewPasswordDialog* self) {
+    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        vknewpassworddialog->setKNewPasswordDialog_Accept_IsBase(true);
+        vknewpassworddialog->accept();
+    } else {
+        ((VirtualKNewPasswordDialog*)self)->accept();
+    }
+}
+
+bool KNewPasswordDialog_CheckPassword(KNewPasswordDialog* self, const libqt_string param1) {
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        return vknewpassworddialog->checkPassword(param1_QString);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KNewPasswordDialog_OnCheckPassword(KNewPasswordDialog* self, intptr_t slot) {
+    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        vknewpassworddialog->setKNewPasswordDialog_CheckPassword_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_CheckPassword_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool KNewPasswordDialog_QBaseCheckPassword(KNewPasswordDialog* self, const libqt_string param1) {
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        vknewpassworddialog->setKNewPasswordDialog_CheckPassword_IsBase(true);
+        return vknewpassworddialog->checkPassword(param1_QString);
+    }
+    return {};
+}
+
 void KNewPasswordDialog_NewPassword(KNewPasswordDialog* self, const libqt_string password) {
     QString password_QString = QString::fromUtf8(password.data, password.len);
     self->newPassword(password_QString);
@@ -241,66 +297,6 @@ libqt_string KNewPasswordDialog_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KNewPasswordDialog_Accept(KNewPasswordDialog* self) {
-    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        vknewpassworddialog->accept();
-    } else {
-        self->KNewPasswordDialog::accept();
-    }
-}
-
-// Base class handler implementation
-void KNewPasswordDialog_QBaseAccept(KNewPasswordDialog* self) {
-    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        vknewpassworddialog->setKNewPasswordDialog_Accept_IsBase(true);
-        vknewpassworddialog->accept();
-    } else {
-        self->KNewPasswordDialog::accept();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordDialog_OnAccept(KNewPasswordDialog* self, intptr_t slot) {
-    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        vknewpassworddialog->setKNewPasswordDialog_Accept_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Accept_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool KNewPasswordDialog_CheckPassword(KNewPasswordDialog* self, const libqt_string param1) {
-    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        return vknewpassworddialog->checkPassword(param1_QString);
-    } else {
-        return ((VirtualKNewPasswordDialog*)self)->checkPassword(param1_QString);
-    }
-}
-
-// Base class handler implementation
-bool KNewPasswordDialog_QBaseCheckPassword(KNewPasswordDialog* self, const libqt_string param1) {
-    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        vknewpassworddialog->setKNewPasswordDialog_CheckPassword_IsBase(true);
-        return vknewpassworddialog->checkPassword(param1_QString);
-    } else {
-        return ((VirtualKNewPasswordDialog*)self)->checkPassword(param1_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordDialog_OnCheckPassword(KNewPasswordDialog* self, intptr_t slot) {
-    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        vknewpassworddialog->setKNewPasswordDialog_CheckPassword_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_CheckPassword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -73,6 +73,10 @@ libqt_string QTcpSocket_Tr(const char* s) {
     return _str;
 }
 
+bool QTcpSocket_Bind(QTcpSocket* self, int addr) {
+    return self->bind(static_cast<QHostAddress::SpecialAddress>(addr));
+}
+
 libqt_string QTcpSocket_Tr2(const char* s, const char* c) {
     QString _ret = QTcpSocket::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -131,35 +135,6 @@ void QTcpSocket_OnResume(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Resume_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Resume_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QTcpSocket_Bind(QTcpSocket* self, const QHostAddress* address, uint16_t port, int mode) {
-    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
-        return vqtcpsocket->bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    } else {
-        return self->QTcpSocket::bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    }
-}
-
-// Base class handler implementation
-bool QTcpSocket_QBaseBind(QTcpSocket* self, const QHostAddress* address, uint16_t port, int mode) {
-    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
-        vqtcpsocket->setQTcpSocket_Bind_IsBase(true);
-        return vqtcpsocket->bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    } else {
-        return self->QTcpSocket::bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTcpSocket_OnBind(QTcpSocket* self, intptr_t slot) {
-    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
-        vqtcpsocket->setQTcpSocket_Bind_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Bind_Callback>(slot));
     }
 }
 

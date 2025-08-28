@@ -81,6 +81,30 @@ void KToggleAction_SetCheckedState(KToggleAction* self, const KGuiItem* checkedI
     self->setCheckedState(*checkedItem);
 }
 
+void KToggleAction_SlotToggled(KToggleAction* self, bool checked) {
+    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+        vktoggleaction->slotToggled(checked);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KToggleAction_OnSlotToggled(KToggleAction* self, intptr_t slot) {
+    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+        vktoggleaction->setKToggleAction_SlotToggled_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_SlotToggled_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KToggleAction_QBaseSlotToggled(KToggleAction* self, bool checked) {
+    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+        vktoggleaction->setKToggleAction_SlotToggled_IsBase(true);
+        vktoggleaction->slotToggled(checked);
+    }
+}
+
 libqt_string KToggleAction_Tr2(const char* s, const char* c) {
     QString _ret = KToggleAction::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -103,35 +127,6 @@ libqt_string KToggleAction_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KToggleAction_SlotToggled(KToggleAction* self, bool checked) {
-    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
-        vktoggleaction->slotToggled(checked);
-    } else {
-        ((VirtualKToggleAction*)self)->slotToggled(checked);
-    }
-}
-
-// Base class handler implementation
-void KToggleAction_QBaseSlotToggled(KToggleAction* self, bool checked) {
-    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
-        vktoggleaction->setKToggleAction_SlotToggled_IsBase(true);
-        vktoggleaction->slotToggled(checked);
-    } else {
-        ((VirtualKToggleAction*)self)->slotToggled(checked);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToggleAction_OnSlotToggled(KToggleAction* self, intptr_t slot) {
-    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
-        vktoggleaction->setKToggleAction_SlotToggled_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_SlotToggled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

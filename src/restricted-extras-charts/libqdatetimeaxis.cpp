@@ -70,6 +70,34 @@ libqt_string QDateTimeAxis_Tr(const char* s) {
     return _str;
 }
 
+int QDateTimeAxis_Type(const QDateTimeAxis* self) {
+    auto* vqdatetimeaxis = dynamic_cast<const VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQDateTimeAxis*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeAxis_OnType(const QDateTimeAxis* self, intptr_t slot) {
+    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+        vqdatetimeaxis->setQDateTimeAxis_Type_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QDateTimeAxis_QBaseType(const QDateTimeAxis* self) {
+    auto* vqdatetimeaxis = dynamic_cast<const VirtualQDateTimeAxis*>(self);
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+        vqdatetimeaxis->setQDateTimeAxis_Type_IsBase(true);
+        return static_cast<int>(vqdatetimeaxis->type());
+    } else {
+        return static_cast<int>(((VirtualQDateTimeAxis*)self)->type());
+    }
+}
+
 void QDateTimeAxis_SetMin(QDateTimeAxis* self, QDateTime* min) {
     self->setMin(*min);
 }
@@ -206,35 +234,6 @@ libqt_string QDateTimeAxis_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QDateTimeAxis_Type(const QDateTimeAxis* self) {
-    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        return static_cast<int>(vqdatetimeaxis->type());
-    } else {
-        return static_cast<int>(self->QDateTimeAxis::type());
-    }
-}
-
-// Base class handler implementation
-int QDateTimeAxis_QBaseType(const QDateTimeAxis* self) {
-    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        vqdatetimeaxis->setQDateTimeAxis_Type_IsBase(true);
-        return static_cast<int>(vqdatetimeaxis->type());
-    } else {
-        return static_cast<int>(self->QDateTimeAxis::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeAxis_OnType(const QDateTimeAxis* self, intptr_t slot) {
-    auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        vqdatetimeaxis->setQDateTimeAxis_Type_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

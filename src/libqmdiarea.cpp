@@ -102,6 +102,62 @@ libqt_string QMdiArea_Tr(const char* s) {
     return _str;
 }
 
+QSize* QMdiArea_SizeHint(const QMdiArea* self) {
+    auto* vqmdiarea = dynamic_cast<const VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQMdiArea*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnSizeHint(const QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_SizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QMdiArea_QBaseSizeHint(const QMdiArea* self) {
+    auto* vqmdiarea = dynamic_cast<const VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_SizeHint_IsBase(true);
+        return new QSize(vqmdiarea->sizeHint());
+    } else {
+        return new QSize(((VirtualQMdiArea*)self)->sizeHint());
+    }
+}
+
+QSize* QMdiArea_MinimumSizeHint(const QMdiArea* self) {
+    auto* vqmdiarea = dynamic_cast<const VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        return new QSize(self->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQMdiArea*)self)->minimumSizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnMinimumSizeHint(const QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MinimumSizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QMdiArea_QBaseMinimumSizeHint(const QMdiArea* self) {
+    auto* vqmdiarea = dynamic_cast<const VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_MinimumSizeHint_IsBase(true);
+        return new QSize(vqmdiarea->minimumSizeHint());
+    } else {
+        return new QSize(((VirtualQMdiArea*)self)->minimumSizeHint());
+    }
+}
+
 QMdiSubWindow* QMdiArea_CurrentSubWindow(const QMdiArea* self) {
     return self->currentSubWindow();
 }
@@ -243,6 +299,252 @@ void QMdiArea_ActivatePreviousSubWindow(QMdiArea* self) {
     self->activatePreviousSubWindow();
 }
 
+void QMdiArea_SetupViewport(QMdiArea* self, QWidget* viewport) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setupViewport(viewport);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnSetupViewport(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_SetupViewport_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SetupViewport_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMdiArea_QBaseSetupViewport(QMdiArea* self, QWidget* viewport) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_SetupViewport_IsBase(true);
+        vqmdiarea->setupViewport(viewport);
+    }
+}
+
+bool QMdiArea_Event(QMdiArea* self, QEvent* event) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        return vqmdiarea->event(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnEvent(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_Event_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QMdiArea_QBaseEvent(QMdiArea* self, QEvent* event) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_Event_IsBase(true);
+        return vqmdiarea->event(event);
+    }
+    return {};
+}
+
+bool QMdiArea_EventFilter(QMdiArea* self, QObject* object, QEvent* event) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        return vqmdiarea->eventFilter(object, event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnEventFilter(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_EventFilter_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_EventFilter_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QMdiArea_QBaseEventFilter(QMdiArea* self, QObject* object, QEvent* event) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_EventFilter_IsBase(true);
+        return vqmdiarea->eventFilter(object, event);
+    }
+    return {};
+}
+
+void QMdiArea_PaintEvent(QMdiArea* self, QPaintEvent* paintEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->paintEvent(paintEvent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnPaintEvent(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_PaintEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMdiArea_QBasePaintEvent(QMdiArea* self, QPaintEvent* paintEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_PaintEvent_IsBase(true);
+        vqmdiarea->paintEvent(paintEvent);
+    }
+}
+
+void QMdiArea_ChildEvent(QMdiArea* self, QChildEvent* childEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->childEvent(childEvent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnChildEvent(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ChildEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ChildEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMdiArea_QBaseChildEvent(QMdiArea* self, QChildEvent* childEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ChildEvent_IsBase(true);
+        vqmdiarea->childEvent(childEvent);
+    }
+}
+
+void QMdiArea_ResizeEvent(QMdiArea* self, QResizeEvent* resizeEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->resizeEvent(resizeEvent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnResizeEvent(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ResizeEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ResizeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMdiArea_QBaseResizeEvent(QMdiArea* self, QResizeEvent* resizeEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ResizeEvent_IsBase(true);
+        vqmdiarea->resizeEvent(resizeEvent);
+    }
+}
+
+void QMdiArea_TimerEvent(QMdiArea* self, QTimerEvent* timerEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->timerEvent(timerEvent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnTimerEvent(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_TimerEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_TimerEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMdiArea_QBaseTimerEvent(QMdiArea* self, QTimerEvent* timerEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_TimerEvent_IsBase(true);
+        vqmdiarea->timerEvent(timerEvent);
+    }
+}
+
+void QMdiArea_ShowEvent(QMdiArea* self, QShowEvent* showEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->showEvent(showEvent);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnShowEvent(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ShowEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ShowEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMdiArea_QBaseShowEvent(QMdiArea* self, QShowEvent* showEvent) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ShowEvent_IsBase(true);
+        vqmdiarea->showEvent(showEvent);
+    }
+}
+
+bool QMdiArea_ViewportEvent(QMdiArea* self, QEvent* event) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        return vqmdiarea->viewportEvent(event);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnViewportEvent(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ViewportEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QMdiArea_QBaseViewportEvent(QMdiArea* self, QEvent* event) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ViewportEvent_IsBase(true);
+        return vqmdiarea->viewportEvent(event);
+    }
+    return {};
+}
+
+void QMdiArea_ScrollContentsBy(QMdiArea* self, int dx, int dy) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QMdiArea_OnScrollContentsBy(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ScrollContentsBy_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ScrollContentsBy_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QMdiArea_QBaseScrollContentsBy(QMdiArea* self, int dx, int dy) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_ScrollContentsBy_IsBase(true);
+        vqmdiarea->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    }
+}
+
 libqt_string QMdiArea_Tr2(const char* s, const char* c) {
     QString _ret = QMdiArea::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -286,354 +588,6 @@ QMdiSubWindow* QMdiArea_AddSubWindow2(QMdiArea* self, QWidget* widget, int flags
 
 void QMdiArea_SetOption2(QMdiArea* self, int option, bool on) {
     self->setOption(static_cast<QMdiArea::AreaOption>(option), on);
-}
-
-// Derived class handler implementation
-QSize* QMdiArea_SizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return new QSize(vqmdiarea->sizeHint());
-    } else {
-        return new QSize(((VirtualQMdiArea*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QMdiArea_QBaseSizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SizeHint_IsBase(true);
-        return new QSize(vqmdiarea->sizeHint());
-    } else {
-        return new QSize(((VirtualQMdiArea*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnSizeHint(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QSize* QMdiArea_MinimumSizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return new QSize(vqmdiarea->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQMdiArea*)self)->minimumSizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QMdiArea_QBaseMinimumSizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_MinimumSizeHint_IsBase(true);
-        return new QSize(vqmdiarea->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQMdiArea*)self)->minimumSizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnMinimumSizeHint(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MinimumSizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMdiArea_SetupViewport(QMdiArea* self, QWidget* viewport) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setupViewport(viewport);
-    } else {
-        ((VirtualQMdiArea*)self)->setupViewport(viewport);
-    }
-}
-
-// Base class handler implementation
-void QMdiArea_QBaseSetupViewport(QMdiArea* self, QWidget* viewport) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SetupViewport_IsBase(true);
-        vqmdiarea->setupViewport(viewport);
-    } else {
-        ((VirtualQMdiArea*)self)->setupViewport(viewport);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnSetupViewport(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SetupViewport_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SetupViewport_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QMdiArea_Event(QMdiArea* self, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->event(event);
-    } else {
-        return ((VirtualQMdiArea*)self)->event(event);
-    }
-}
-
-// Base class handler implementation
-bool QMdiArea_QBaseEvent(QMdiArea* self, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Event_IsBase(true);
-        return vqmdiarea->event(event);
-    } else {
-        return ((VirtualQMdiArea*)self)->event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Event_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QMdiArea_EventFilter(QMdiArea* self, QObject* object, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->eventFilter(object, event);
-    } else {
-        return ((VirtualQMdiArea*)self)->eventFilter(object, event);
-    }
-}
-
-// Base class handler implementation
-bool QMdiArea_QBaseEventFilter(QMdiArea* self, QObject* object, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_EventFilter_IsBase(true);
-        return vqmdiarea->eventFilter(object, event);
-    } else {
-        return ((VirtualQMdiArea*)self)->eventFilter(object, event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnEventFilter(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_EventFilter_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_EventFilter_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMdiArea_PaintEvent(QMdiArea* self, QPaintEvent* paintEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->paintEvent(paintEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->paintEvent(paintEvent);
-    }
-}
-
-// Base class handler implementation
-void QMdiArea_QBasePaintEvent(QMdiArea* self, QPaintEvent* paintEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_PaintEvent_IsBase(true);
-        vqmdiarea->paintEvent(paintEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->paintEvent(paintEvent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnPaintEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_PaintEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMdiArea_ChildEvent(QMdiArea* self, QChildEvent* childEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->childEvent(childEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->childEvent(childEvent);
-    }
-}
-
-// Base class handler implementation
-void QMdiArea_QBaseChildEvent(QMdiArea* self, QChildEvent* childEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ChildEvent_IsBase(true);
-        vqmdiarea->childEvent(childEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->childEvent(childEvent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnChildEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ChildEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ChildEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMdiArea_ResizeEvent(QMdiArea* self, QResizeEvent* resizeEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->resizeEvent(resizeEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->resizeEvent(resizeEvent);
-    }
-}
-
-// Base class handler implementation
-void QMdiArea_QBaseResizeEvent(QMdiArea* self, QResizeEvent* resizeEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ResizeEvent_IsBase(true);
-        vqmdiarea->resizeEvent(resizeEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->resizeEvent(resizeEvent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnResizeEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ResizeEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ResizeEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMdiArea_TimerEvent(QMdiArea* self, QTimerEvent* timerEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->timerEvent(timerEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->timerEvent(timerEvent);
-    }
-}
-
-// Base class handler implementation
-void QMdiArea_QBaseTimerEvent(QMdiArea* self, QTimerEvent* timerEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_TimerEvent_IsBase(true);
-        vqmdiarea->timerEvent(timerEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->timerEvent(timerEvent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnTimerEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_TimerEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_TimerEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMdiArea_ShowEvent(QMdiArea* self, QShowEvent* showEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->showEvent(showEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->showEvent(showEvent);
-    }
-}
-
-// Base class handler implementation
-void QMdiArea_QBaseShowEvent(QMdiArea* self, QShowEvent* showEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ShowEvent_IsBase(true);
-        vqmdiarea->showEvent(showEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->showEvent(showEvent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnShowEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ShowEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ShowEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QMdiArea_ViewportEvent(QMdiArea* self, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->viewportEvent(event);
-    } else {
-        return ((VirtualQMdiArea*)self)->viewportEvent(event);
-    }
-}
-
-// Base class handler implementation
-bool QMdiArea_QBaseViewportEvent(QMdiArea* self, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ViewportEvent_IsBase(true);
-        return vqmdiarea->viewportEvent(event);
-    } else {
-        return ((VirtualQMdiArea*)self)->viewportEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnViewportEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ViewportEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMdiArea_ScrollContentsBy(QMdiArea* self, int dx, int dy) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQMdiArea*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Base class handler implementation
-void QMdiArea_QBaseScrollContentsBy(QMdiArea* self, int dx, int dy) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ScrollContentsBy_IsBase(true);
-        vqmdiarea->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQMdiArea*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnScrollContentsBy(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ScrollContentsBy_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

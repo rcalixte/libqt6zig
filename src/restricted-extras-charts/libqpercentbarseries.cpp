@@ -70,6 +70,34 @@ libqt_string QPercentBarSeries_Tr(const char* s) {
     return _str;
 }
 
+int QPercentBarSeries_Type(const QPercentBarSeries* self) {
+    auto* vqpercentbarseries = dynamic_cast<const VirtualQPercentBarSeries*>(self);
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQPercentBarSeries*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPercentBarSeries_OnType(const QPercentBarSeries* self, intptr_t slot) {
+    auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+        vqpercentbarseries->setQPercentBarSeries_Type_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QPercentBarSeries_QBaseType(const QPercentBarSeries* self) {
+    auto* vqpercentbarseries = dynamic_cast<const VirtualQPercentBarSeries*>(self);
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+        vqpercentbarseries->setQPercentBarSeries_Type_IsBase(true);
+        return static_cast<int>(vqpercentbarseries->type());
+    } else {
+        return static_cast<int>(((VirtualQPercentBarSeries*)self)->type());
+    }
+}
+
 libqt_string QPercentBarSeries_Tr2(const char* s, const char* c) {
     QString _ret = QPercentBarSeries::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -92,35 +120,6 @@ libqt_string QPercentBarSeries_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QPercentBarSeries_Type(const QPercentBarSeries* self) {
-    auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
-        return static_cast<int>(vqpercentbarseries->type());
-    } else {
-        return static_cast<int>(self->QPercentBarSeries::type());
-    }
-}
-
-// Base class handler implementation
-int QPercentBarSeries_QBaseType(const QPercentBarSeries* self) {
-    auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
-        vqpercentbarseries->setQPercentBarSeries_Type_IsBase(true);
-        return static_cast<int>(vqpercentbarseries->type());
-    } else {
-        return static_cast<int>(self->QPercentBarSeries::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPercentBarSeries_OnType(const QPercentBarSeries* self, intptr_t slot) {
-    auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
-        vqpercentbarseries->setQPercentBarSeries_Type_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

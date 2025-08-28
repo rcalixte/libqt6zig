@@ -327,6 +327,118 @@ void QDateTimeEdit_SetTimeZone(QDateTimeEdit* self, const QTimeZone* zone) {
     self->setTimeZone(*zone);
 }
 
+QSize* QDateTimeEdit_SizeHint(const QDateTimeEdit* self) {
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        return new QSize(self->sizeHint());
+    } else {
+        return new QSize(((VirtualQDateTimeEdit*)self)->sizeHint());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnSizeHint(const QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_SizeHint_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SizeHint_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QSize* QDateTimeEdit_QBaseSizeHint(const QDateTimeEdit* self) {
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_SizeHint_IsBase(true);
+        return new QSize(vqdatetimeedit->sizeHint());
+    } else {
+        return new QSize(((VirtualQDateTimeEdit*)self)->sizeHint());
+    }
+}
+
+void QDateTimeEdit_Clear(QDateTimeEdit* self) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        self->clear();
+    } else {
+        ((VirtualQDateTimeEdit*)self)->clear();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnClear(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Clear_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Clear_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDateTimeEdit_QBaseClear(QDateTimeEdit* self) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Clear_IsBase(true);
+        vqdatetimeedit->clear();
+    } else {
+        ((VirtualQDateTimeEdit*)self)->clear();
+    }
+}
+
+void QDateTimeEdit_StepBy(QDateTimeEdit* self, int steps) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        self->stepBy(static_cast<int>(steps));
+    } else {
+        ((VirtualQDateTimeEdit*)self)->stepBy(static_cast<int>(steps));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnStepBy(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_StepBy_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepBy_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDateTimeEdit_QBaseStepBy(QDateTimeEdit* self, int steps) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_StepBy_IsBase(true);
+        vqdatetimeedit->stepBy(static_cast<int>(steps));
+    } else {
+        ((VirtualQDateTimeEdit*)self)->stepBy(static_cast<int>(steps));
+    }
+}
+
+bool QDateTimeEdit_Event(QDateTimeEdit* self, QEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        return self->event(event);
+    } else {
+        return ((VirtualQDateTimeEdit*)self)->event(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnEvent(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Event_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Event_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QDateTimeEdit_QBaseEvent(QDateTimeEdit* self, QEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Event_IsBase(true);
+        return vqdatetimeedit->event(event);
+    } else {
+        return ((VirtualQDateTimeEdit*)self)->event(event);
+    }
+}
+
 void QDateTimeEdit_DateTimeChanged(QDateTimeEdit* self, const QDateTime* dateTime) {
     self->dateTimeChanged(*dateTime);
 }
@@ -377,6 +489,326 @@ void QDateTimeEdit_SetTime(QDateTimeEdit* self, QTime* time) {
     self->setTime(*time);
 }
 
+void QDateTimeEdit_KeyPressEvent(QDateTimeEdit* self, QKeyEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->keyPressEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnKeyPressEvent(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_KeyPressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDateTimeEdit_QBaseKeyPressEvent(QDateTimeEdit* self, QKeyEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_KeyPressEvent_IsBase(true);
+        vqdatetimeedit->keyPressEvent(event);
+    }
+}
+
+void QDateTimeEdit_WheelEvent(QDateTimeEdit* self, QWheelEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->wheelEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnWheelEvent(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_WheelEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_WheelEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDateTimeEdit_QBaseWheelEvent(QDateTimeEdit* self, QWheelEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_WheelEvent_IsBase(true);
+        vqdatetimeedit->wheelEvent(event);
+    }
+}
+
+void QDateTimeEdit_FocusInEvent(QDateTimeEdit* self, QFocusEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->focusInEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnFocusInEvent(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusInEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDateTimeEdit_QBaseFocusInEvent(QDateTimeEdit* self, QFocusEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_FocusInEvent_IsBase(true);
+        vqdatetimeedit->focusInEvent(event);
+    }
+}
+
+bool QDateTimeEdit_FocusNextPrevChild(QDateTimeEdit* self, bool next) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        return vqdatetimeedit->focusNextPrevChild(next);
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnFocusNextPrevChild(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusNextPrevChild_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QDateTimeEdit_QBaseFocusNextPrevChild(QDateTimeEdit* self, bool next) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_FocusNextPrevChild_IsBase(true);
+        return vqdatetimeedit->focusNextPrevChild(next);
+    }
+    return {};
+}
+
+int QDateTimeEdit_Validate(const QDateTimeEdit* self, libqt_string input, int* pos) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        return static_cast<int>(vqdatetimeedit->validate(input_QString, static_cast<int&>(*pos)));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnValidate(const QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Validate_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Validate_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QDateTimeEdit_QBaseValidate(const QDateTimeEdit* self, libqt_string input, int* pos) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Validate_IsBase(true);
+        return static_cast<int>(vqdatetimeedit->validate(input_QString, static_cast<int&>(*pos)));
+    }
+    return {};
+}
+
+void QDateTimeEdit_Fixup(const QDateTimeEdit* self, libqt_string input) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->fixup(input_QString);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnFixup(const QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Fixup_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Fixup_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDateTimeEdit_QBaseFixup(const QDateTimeEdit* self, libqt_string input) {
+    QString input_QString = QString::fromUtf8(input.data, input.len);
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Fixup_IsBase(true);
+        vqdatetimeedit->fixup(input_QString);
+    }
+}
+
+QDateTime* QDateTimeEdit_DateTimeFromText(const QDateTimeEdit* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        return new QDateTime(vqdatetimeedit->dateTimeFromText(text_QString));
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnDateTimeFromText(const QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_DateTimeFromText_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DateTimeFromText_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QDateTime* QDateTimeEdit_QBaseDateTimeFromText(const QDateTimeEdit* self, const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_DateTimeFromText_IsBase(true);
+        return new QDateTime(vqdatetimeedit->dateTimeFromText(text_QString));
+    }
+    return {};
+}
+
+libqt_string QDateTimeEdit_TextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt) {
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        QString _ret = vqdatetimeedit->textFromDateTime(*dt);
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnTextFromDateTime(const QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_TextFromDateTime_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TextFromDateTime_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QDateTimeEdit_QBaseTextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt) {
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_TextFromDateTime_IsBase(true);
+        QString _ret = vqdatetimeedit->textFromDateTime(*dt);
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+    return {};
+}
+
+int QDateTimeEdit_StepEnabled(const QDateTimeEdit* self) {
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        return static_cast<int>(vqdatetimeedit->stepEnabled());
+    }
+    return {};
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnStepEnabled(const QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_StepEnabled_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepEnabled_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QDateTimeEdit_QBaseStepEnabled(const QDateTimeEdit* self) {
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_StepEnabled_IsBase(true);
+        return static_cast<int>(vqdatetimeedit->stepEnabled());
+    }
+    return {};
+}
+
+void QDateTimeEdit_MousePressEvent(QDateTimeEdit* self, QMouseEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->mousePressEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnMousePressEvent(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MousePressEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDateTimeEdit_QBaseMousePressEvent(QDateTimeEdit* self, QMouseEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_MousePressEvent_IsBase(true);
+        vqdatetimeedit->mousePressEvent(event);
+    }
+}
+
+void QDateTimeEdit_PaintEvent(QDateTimeEdit* self, QPaintEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->paintEvent(event);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnPaintEvent(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_PaintEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_PaintEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDateTimeEdit_QBasePaintEvent(QDateTimeEdit* self, QPaintEvent* event) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_PaintEvent_IsBase(true);
+        vqdatetimeedit->paintEvent(event);
+    }
+}
+
+void QDateTimeEdit_InitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option) {
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->initStyleOption(option);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QDateTimeEdit_OnInitStyleOption(const QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InitStyleOption_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QDateTimeEdit_QBaseInitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option) {
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_InitStyleOption_IsBase(true);
+        vqdatetimeedit->initStyleOption(option);
+    }
+}
+
 libqt_string QDateTimeEdit_Tr2(const char* s, const char* c) {
     QString _ret = QDateTimeEdit::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -399,506 +831,6 @@ libqt_string QDateTimeEdit_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-QSize* QDateTimeEdit_SizeHint(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return new QSize(vqdatetimeedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQDateTimeEdit*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QDateTimeEdit_QBaseSizeHint(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_SizeHint_IsBase(true);
-        return new QSize(vqdatetimeedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQDateTimeEdit*)self)->sizeHint());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnSizeHint(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_SizeHint_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SizeHint_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDateTimeEdit_Clear(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->clear();
-    } else {
-        self->QDateTimeEdit::clear();
-    }
-}
-
-// Base class handler implementation
-void QDateTimeEdit_QBaseClear(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Clear_IsBase(true);
-        vqdatetimeedit->clear();
-    } else {
-        self->QDateTimeEdit::clear();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnClear(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Clear_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Clear_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDateTimeEdit_StepBy(QDateTimeEdit* self, int steps) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->stepBy(static_cast<int>(steps));
-    } else {
-        self->QDateTimeEdit::stepBy(static_cast<int>(steps));
-    }
-}
-
-// Base class handler implementation
-void QDateTimeEdit_QBaseStepBy(QDateTimeEdit* self, int steps) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_StepBy_IsBase(true);
-        vqdatetimeedit->stepBy(static_cast<int>(steps));
-    } else {
-        self->QDateTimeEdit::stepBy(static_cast<int>(steps));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnStepBy(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_StepBy_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepBy_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QDateTimeEdit_Event(QDateTimeEdit* self, QEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->event(event);
-    } else {
-        return self->QDateTimeEdit::event(event);
-    }
-}
-
-// Base class handler implementation
-bool QDateTimeEdit_QBaseEvent(QDateTimeEdit* self, QEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Event_IsBase(true);
-        return vqdatetimeedit->event(event);
-    } else {
-        return self->QDateTimeEdit::event(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Event_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Event_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDateTimeEdit_KeyPressEvent(QDateTimeEdit* self, QKeyEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->keyPressEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->keyPressEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QDateTimeEdit_QBaseKeyPressEvent(QDateTimeEdit* self, QKeyEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_KeyPressEvent_IsBase(true);
-        vqdatetimeedit->keyPressEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->keyPressEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnKeyPressEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_KeyPressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDateTimeEdit_WheelEvent(QDateTimeEdit* self, QWheelEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->wheelEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->wheelEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QDateTimeEdit_QBaseWheelEvent(QDateTimeEdit* self, QWheelEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_WheelEvent_IsBase(true);
-        vqdatetimeedit->wheelEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->wheelEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnWheelEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_WheelEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_WheelEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDateTimeEdit_FocusInEvent(QDateTimeEdit* self, QFocusEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->focusInEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->focusInEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QDateTimeEdit_QBaseFocusInEvent(QDateTimeEdit* self, QFocusEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_FocusInEvent_IsBase(true);
-        vqdatetimeedit->focusInEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->focusInEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnFocusInEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusInEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QDateTimeEdit_FocusNextPrevChild(QDateTimeEdit* self, bool next) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->focusNextPrevChild(next);
-    }
-}
-
-// Base class handler implementation
-bool QDateTimeEdit_QBaseFocusNextPrevChild(QDateTimeEdit* self, bool next) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_FocusNextPrevChild_IsBase(true);
-        return vqdatetimeedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->focusNextPrevChild(next);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnFocusNextPrevChild(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusNextPrevChild_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QDateTimeEdit_Validate(const QDateTimeEdit* self, libqt_string input, int* pos) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return static_cast<int>(vqdatetimeedit->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQDateTimeEdit*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
-}
-
-// Base class handler implementation
-int QDateTimeEdit_QBaseValidate(const QDateTimeEdit* self, libqt_string input, int* pos) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Validate_IsBase(true);
-        return static_cast<int>(vqdatetimeedit->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQDateTimeEdit*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnValidate(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Validate_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Validate_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDateTimeEdit_Fixup(const QDateTimeEdit* self, libqt_string input) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->fixup(input_QString);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->fixup(input_QString);
-    }
-}
-
-// Base class handler implementation
-void QDateTimeEdit_QBaseFixup(const QDateTimeEdit* self, libqt_string input) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Fixup_IsBase(true);
-        vqdatetimeedit->fixup(input_QString);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->fixup(input_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnFixup(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Fixup_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Fixup_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QDateTime* QDateTimeEdit_DateTimeFromText(const QDateTimeEdit* self, const libqt_string text) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return new QDateTime(vqdatetimeedit->dateTimeFromText(text_QString));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QDateTime* QDateTimeEdit_QBaseDateTimeFromText(const QDateTimeEdit* self, const libqt_string text) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_DateTimeFromText_IsBase(true);
-        return new QDateTime(vqdatetimeedit->dateTimeFromText(text_QString));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnDateTimeFromText(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_DateTimeFromText_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DateTimeFromText_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-libqt_string QDateTimeEdit_TextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        QString _ret = vqdatetimeedit->textFromDateTime(*dt);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQDateTimeEdit*)self)->textFromDateTime(*dt);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QDateTimeEdit_QBaseTextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_TextFromDateTime_IsBase(true);
-        QString _ret = vqdatetimeedit->textFromDateTime(*dt);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        QString _ret = ((VirtualQDateTimeEdit*)self)->textFromDateTime(*dt);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnTextFromDateTime(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_TextFromDateTime_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TextFromDateTime_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-int QDateTimeEdit_StepEnabled(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return static_cast<int>(vqdatetimeedit->stepEnabled());
-    } else {
-        return static_cast<int>(((VirtualQDateTimeEdit*)self)->stepEnabled());
-    }
-}
-
-// Base class handler implementation
-int QDateTimeEdit_QBaseStepEnabled(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_StepEnabled_IsBase(true);
-        return static_cast<int>(vqdatetimeedit->stepEnabled());
-    } else {
-        return static_cast<int>(((VirtualQDateTimeEdit*)self)->stepEnabled());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnStepEnabled(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_StepEnabled_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepEnabled_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDateTimeEdit_MousePressEvent(QDateTimeEdit* self, QMouseEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->mousePressEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->mousePressEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QDateTimeEdit_QBaseMousePressEvent(QDateTimeEdit* self, QMouseEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_MousePressEvent_IsBase(true);
-        vqdatetimeedit->mousePressEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->mousePressEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnMousePressEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MousePressEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDateTimeEdit_PaintEvent(QDateTimeEdit* self, QPaintEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->paintEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->paintEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QDateTimeEdit_QBasePaintEvent(QDateTimeEdit* self, QPaintEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_PaintEvent_IsBase(true);
-        vqdatetimeedit->paintEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->paintEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnPaintEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_PaintEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_PaintEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QDateTimeEdit_InitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->initStyleOption(option);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->initStyleOption(option);
-    }
-}
-
-// Base class handler implementation
-void QDateTimeEdit_QBaseInitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_InitStyleOption_IsBase(true);
-        vqdatetimeedit->initStyleOption(option);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->initStyleOption(option);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnInitStyleOption(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

@@ -95,6 +95,202 @@ long long QWaveDecoder_HeaderLength() {
     return static_cast<long long>(QWaveDecoder::headerLength());
 }
 
+bool QWaveDecoder_Open(QWaveDecoder* self, int mode) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        return self->open(static_cast<QIODevice::OpenMode>(mode));
+    } else {
+        return ((VirtualQWaveDecoder*)self)->open(static_cast<QIODevice::OpenMode>(mode));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWaveDecoder_OnOpen(QWaveDecoder* self, intptr_t slot) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Open_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Open_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QWaveDecoder_QBaseOpen(QWaveDecoder* self, int mode) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Open_IsBase(true);
+        return vqwavedecoder->open(static_cast<QIODevice::OpenMode>(mode));
+    } else {
+        return ((VirtualQWaveDecoder*)self)->open(static_cast<QIODevice::OpenMode>(mode));
+    }
+}
+
+void QWaveDecoder_Close(QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        self->close();
+    } else {
+        ((VirtualQWaveDecoder*)self)->close();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWaveDecoder_OnClose(QWaveDecoder* self, intptr_t slot) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Close_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Close_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QWaveDecoder_QBaseClose(QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Close_IsBase(true);
+        vqwavedecoder->close();
+    } else {
+        ((VirtualQWaveDecoder*)self)->close();
+    }
+}
+
+bool QWaveDecoder_Seek(QWaveDecoder* self, long long pos) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        return self->seek(static_cast<qint64>(pos));
+    } else {
+        return ((VirtualQWaveDecoder*)self)->seek(static_cast<qint64>(pos));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWaveDecoder_OnSeek(QWaveDecoder* self, intptr_t slot) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Seek_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Seek_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QWaveDecoder_QBaseSeek(QWaveDecoder* self, long long pos) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Seek_IsBase(true);
+        return vqwavedecoder->seek(static_cast<qint64>(pos));
+    } else {
+        return ((VirtualQWaveDecoder*)self)->seek(static_cast<qint64>(pos));
+    }
+}
+
+long long QWaveDecoder_Pos(const QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        return static_cast<long long>(self->pos());
+    } else {
+        return static_cast<long long>(((VirtualQWaveDecoder*)self)->pos());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWaveDecoder_OnPos(const QWaveDecoder* self, intptr_t slot) {
+    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Pos_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Pos_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+long long QWaveDecoder_QBasePos(const QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Pos_IsBase(true);
+        return static_cast<long long>(vqwavedecoder->pos());
+    } else {
+        return static_cast<long long>(((VirtualQWaveDecoder*)self)->pos());
+    }
+}
+
+long long QWaveDecoder_Size(const QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        return static_cast<long long>(self->size());
+    } else {
+        return static_cast<long long>(((VirtualQWaveDecoder*)self)->size());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWaveDecoder_OnSize(const QWaveDecoder* self, intptr_t slot) {
+    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Size_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Size_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+long long QWaveDecoder_QBaseSize(const QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Size_IsBase(true);
+        return static_cast<long long>(vqwavedecoder->size());
+    } else {
+        return static_cast<long long>(((VirtualQWaveDecoder*)self)->size());
+    }
+}
+
+bool QWaveDecoder_IsSequential(const QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        return self->isSequential();
+    } else {
+        return ((VirtualQWaveDecoder*)self)->isSequential();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWaveDecoder_OnIsSequential(const QWaveDecoder* self, intptr_t slot) {
+    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_IsSequential_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_IsSequential_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QWaveDecoder_QBaseIsSequential(const QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_IsSequential_IsBase(true);
+        return vqwavedecoder->isSequential();
+    } else {
+        return ((VirtualQWaveDecoder*)self)->isSequential();
+    }
+}
+
+long long QWaveDecoder_BytesAvailable(const QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        return static_cast<long long>(self->bytesAvailable());
+    } else {
+        return static_cast<long long>(((VirtualQWaveDecoder*)self)->bytesAvailable());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QWaveDecoder_OnBytesAvailable(const QWaveDecoder* self, intptr_t slot) {
+    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_BytesAvailable_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_BytesAvailable_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+long long QWaveDecoder_QBaseBytesAvailable(const QWaveDecoder* self) {
+    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_BytesAvailable_IsBase(true);
+        return static_cast<long long>(vqwavedecoder->bytesAvailable());
+    } else {
+        return static_cast<long long>(((VirtualQWaveDecoder*)self)->bytesAvailable());
+    }
+}
+
 void QWaveDecoder_FormatKnown(QWaveDecoder* self) {
     self->formatKnown();
 }
@@ -139,209 +335,6 @@ libqt_string QWaveDecoder_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-bool QWaveDecoder_Open(QWaveDecoder* self, int mode) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return vqwavedecoder->open(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return self->QWaveDecoder::open(static_cast<QIODevice::OpenMode>(mode));
-    }
-}
-
-// Base class handler implementation
-bool QWaveDecoder_QBaseOpen(QWaveDecoder* self, int mode) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Open_IsBase(true);
-        return vqwavedecoder->open(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return self->QWaveDecoder::open(static_cast<QIODevice::OpenMode>(mode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWaveDecoder_OnOpen(QWaveDecoder* self, intptr_t slot) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Open_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Open_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QWaveDecoder_Close(QWaveDecoder* self) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->close();
-    } else {
-        self->QWaveDecoder::close();
-    }
-}
-
-// Base class handler implementation
-void QWaveDecoder_QBaseClose(QWaveDecoder* self) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Close_IsBase(true);
-        vqwavedecoder->close();
-    } else {
-        self->QWaveDecoder::close();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWaveDecoder_OnClose(QWaveDecoder* self, intptr_t slot) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Close_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Close_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QWaveDecoder_Seek(QWaveDecoder* self, long long pos) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return vqwavedecoder->seek(static_cast<qint64>(pos));
-    } else {
-        return self->QWaveDecoder::seek(static_cast<qint64>(pos));
-    }
-}
-
-// Base class handler implementation
-bool QWaveDecoder_QBaseSeek(QWaveDecoder* self, long long pos) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Seek_IsBase(true);
-        return vqwavedecoder->seek(static_cast<qint64>(pos));
-    } else {
-        return self->QWaveDecoder::seek(static_cast<qint64>(pos));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWaveDecoder_OnSeek(QWaveDecoder* self, intptr_t slot) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Seek_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Seek_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-long long QWaveDecoder_Pos(const QWaveDecoder* self) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return static_cast<long long>(vqwavedecoder->pos());
-    } else {
-        return static_cast<long long>(self->QWaveDecoder::pos());
-    }
-}
-
-// Base class handler implementation
-long long QWaveDecoder_QBasePos(const QWaveDecoder* self) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Pos_IsBase(true);
-        return static_cast<long long>(vqwavedecoder->pos());
-    } else {
-        return static_cast<long long>(self->QWaveDecoder::pos());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWaveDecoder_OnPos(const QWaveDecoder* self, intptr_t slot) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Pos_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Pos_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-long long QWaveDecoder_Size(const QWaveDecoder* self) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return static_cast<long long>(vqwavedecoder->size());
-    } else {
-        return static_cast<long long>(self->QWaveDecoder::size());
-    }
-}
-
-// Base class handler implementation
-long long QWaveDecoder_QBaseSize(const QWaveDecoder* self) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Size_IsBase(true);
-        return static_cast<long long>(vqwavedecoder->size());
-    } else {
-        return static_cast<long long>(self->QWaveDecoder::size());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWaveDecoder_OnSize(const QWaveDecoder* self, intptr_t slot) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_Size_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Size_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QWaveDecoder_IsSequential(const QWaveDecoder* self) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return vqwavedecoder->isSequential();
-    } else {
-        return self->QWaveDecoder::isSequential();
-    }
-}
-
-// Base class handler implementation
-bool QWaveDecoder_QBaseIsSequential(const QWaveDecoder* self) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_IsSequential_IsBase(true);
-        return vqwavedecoder->isSequential();
-    } else {
-        return self->QWaveDecoder::isSequential();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWaveDecoder_OnIsSequential(const QWaveDecoder* self, intptr_t slot) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_IsSequential_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_IsSequential_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-long long QWaveDecoder_BytesAvailable(const QWaveDecoder* self) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return static_cast<long long>(vqwavedecoder->bytesAvailable());
-    } else {
-        return static_cast<long long>(self->QWaveDecoder::bytesAvailable());
-    }
-}
-
-// Base class handler implementation
-long long QWaveDecoder_QBaseBytesAvailable(const QWaveDecoder* self) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_BytesAvailable_IsBase(true);
-        return static_cast<long long>(vqwavedecoder->bytesAvailable());
-    } else {
-        return static_cast<long long>(self->QWaveDecoder::bytesAvailable());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWaveDecoder_OnBytesAvailable(const QWaveDecoder* self, intptr_t slot) {
-    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        vqwavedecoder->setQWaveDecoder_BytesAvailable_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

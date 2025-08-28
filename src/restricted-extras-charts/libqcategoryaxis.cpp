@@ -71,6 +71,34 @@ libqt_string QCategoryAxis_Tr(const char* s) {
     return _str;
 }
 
+int QCategoryAxis_Type(const QCategoryAxis* self) {
+    auto* vqcategoryaxis = dynamic_cast<const VirtualQCategoryAxis*>(self);
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQCategoryAxis*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QCategoryAxis_OnType(const QCategoryAxis* self, intptr_t slot) {
+    auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+        vqcategoryaxis->setQCategoryAxis_Type_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QCategoryAxis_QBaseType(const QCategoryAxis* self) {
+    auto* vqcategoryaxis = dynamic_cast<const VirtualQCategoryAxis*>(self);
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+        vqcategoryaxis->setQCategoryAxis_Type_IsBase(true);
+        return static_cast<int>(vqcategoryaxis->type());
+    } else {
+        return static_cast<int>(((VirtualQCategoryAxis*)self)->type());
+    }
+}
+
 void QCategoryAxis_Append(QCategoryAxis* self, const libqt_string label, double categoryEndValue) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
     self->append(label_QString, static_cast<qreal>(categoryEndValue));
@@ -183,35 +211,6 @@ libqt_string QCategoryAxis_Tr3(const char* s, const char* c, int n) {
 double QCategoryAxis_StartValue1(const QCategoryAxis* self, const libqt_string categoryLabel) {
     QString categoryLabel_QString = QString::fromUtf8(categoryLabel.data, categoryLabel.len);
     return static_cast<double>(self->startValue(categoryLabel_QString));
-}
-
-// Derived class handler implementation
-int QCategoryAxis_Type(const QCategoryAxis* self) {
-    auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
-        return static_cast<int>(vqcategoryaxis->type());
-    } else {
-        return static_cast<int>(self->QCategoryAxis::type());
-    }
-}
-
-// Base class handler implementation
-int QCategoryAxis_QBaseType(const QCategoryAxis* self) {
-    auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
-        vqcategoryaxis->setQCategoryAxis_Type_IsBase(true);
-        return static_cast<int>(vqcategoryaxis->type());
-    } else {
-        return static_cast<int>(self->QCategoryAxis::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCategoryAxis_OnType(const QCategoryAxis* self, intptr_t slot) {
-    auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
-        vqcategoryaxis->setQCategoryAxis_Type_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

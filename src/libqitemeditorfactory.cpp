@@ -36,40 +36,16 @@ QItemEditorFactory* QItemEditorFactory_new2(const QItemEditorFactory* param1) {
     return new VirtualQItemEditorFactory(*param1);
 }
 
-void QItemEditorFactory_RegisterEditor(QItemEditorFactory* self, int userType, QItemEditorCreatorBase* creator) {
-    self->registerEditor(static_cast<int>(userType), creator);
-}
-
-QItemEditorFactory* QItemEditorFactory_DefaultFactory() {
-    return (QItemEditorFactory*)QItemEditorFactory::defaultFactory();
-}
-
-void QItemEditorFactory_SetDefaultFactory(QItemEditorFactory* factory) {
-    QItemEditorFactory::setDefaultFactory(factory);
-}
-
-// Derived class handler implementation
 QWidget* QItemEditorFactory_CreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent) {
-    auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
+    auto* vqitemeditorfactory = dynamic_cast<const VirtualQItemEditorFactory*>(self);
     if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
-        return vqitemeditorfactory->createEditor(static_cast<int>(userType), parent);
+        return self->createEditor(static_cast<int>(userType), parent);
     } else {
-        return self->QItemEditorFactory::createEditor(static_cast<int>(userType), parent);
+        return ((VirtualQItemEditorFactory*)self)->createEditor(static_cast<int>(userType), parent);
     }
 }
 
-// Base class handler implementation
-QWidget* QItemEditorFactory_QBaseCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent) {
-    auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
-    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
-        vqitemeditorfactory->setQItemEditorFactory_CreateEditor_IsBase(true);
-        return vqitemeditorfactory->createEditor(static_cast<int>(userType), parent);
-    } else {
-        return self->QItemEditorFactory::createEditor(static_cast<int>(userType), parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QItemEditorFactory_OnCreateEditor(const QItemEditorFactory* self, intptr_t slot) {
     auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
     if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
@@ -77,11 +53,21 @@ void QItemEditorFactory_OnCreateEditor(const QItemEditorFactory* self, intptr_t 
     }
 }
 
-// Derived class handler implementation
-libqt_string QItemEditorFactory_ValuePropertyName(const QItemEditorFactory* self, int userType) {
-    auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
+// Virtual base class handler implementation
+QWidget* QItemEditorFactory_QBaseCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent) {
+    auto* vqitemeditorfactory = dynamic_cast<const VirtualQItemEditorFactory*>(self);
     if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
-        QByteArray _qb = vqitemeditorfactory->valuePropertyName(static_cast<int>(userType));
+        vqitemeditorfactory->setQItemEditorFactory_CreateEditor_IsBase(true);
+        return vqitemeditorfactory->createEditor(static_cast<int>(userType), parent);
+    } else {
+        return ((VirtualQItemEditorFactory*)self)->createEditor(static_cast<int>(userType), parent);
+    }
+}
+
+libqt_string QItemEditorFactory_ValuePropertyName(const QItemEditorFactory* self, int userType) {
+    auto* vqitemeditorfactory = dynamic_cast<const VirtualQItemEditorFactory*>(self);
+    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
+        QByteArray _qb = self->valuePropertyName(static_cast<int>(userType));
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<const char*>(malloc(_str.len + 1));
@@ -89,7 +75,7 @@ libqt_string QItemEditorFactory_ValuePropertyName(const QItemEditorFactory* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QByteArray _qb = self->QItemEditorFactory::valuePropertyName(static_cast<int>(userType));
+        QByteArray _qb = ((VirtualQItemEditorFactory*)self)->valuePropertyName(static_cast<int>(userType));
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<const char*>(malloc(_str.len + 1));
@@ -99,9 +85,17 @@ libqt_string QItemEditorFactory_ValuePropertyName(const QItemEditorFactory* self
     }
 }
 
-// Base class handler implementation
-libqt_string QItemEditorFactory_QBaseValuePropertyName(const QItemEditorFactory* self, int userType) {
+// Subclass method to allow providing a virtual method re-implementation
+void QItemEditorFactory_OnValuePropertyName(const QItemEditorFactory* self, intptr_t slot) {
     auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
+    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
+        vqitemeditorfactory->setQItemEditorFactory_ValuePropertyName_Callback(reinterpret_cast<VirtualQItemEditorFactory::QItemEditorFactory_ValuePropertyName_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+libqt_string QItemEditorFactory_QBaseValuePropertyName(const QItemEditorFactory* self, int userType) {
+    auto* vqitemeditorfactory = dynamic_cast<const VirtualQItemEditorFactory*>(self);
     if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
         vqitemeditorfactory->setQItemEditorFactory_ValuePropertyName_IsBase(true);
         QByteArray _qb = vqitemeditorfactory->valuePropertyName(static_cast<int>(userType));
@@ -112,7 +106,7 @@ libqt_string QItemEditorFactory_QBaseValuePropertyName(const QItemEditorFactory*
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QByteArray _qb = self->QItemEditorFactory::valuePropertyName(static_cast<int>(userType));
+        QByteArray _qb = ((VirtualQItemEditorFactory*)self)->valuePropertyName(static_cast<int>(userType));
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<const char*>(malloc(_str.len + 1));
@@ -122,12 +116,16 @@ libqt_string QItemEditorFactory_QBaseValuePropertyName(const QItemEditorFactory*
     }
 }
 
-// Auxiliary method to allow providing re-implementation
-void QItemEditorFactory_OnValuePropertyName(const QItemEditorFactory* self, intptr_t slot) {
-    auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
-    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
-        vqitemeditorfactory->setQItemEditorFactory_ValuePropertyName_Callback(reinterpret_cast<VirtualQItemEditorFactory::QItemEditorFactory_ValuePropertyName_Callback>(slot));
-    }
+void QItemEditorFactory_RegisterEditor(QItemEditorFactory* self, int userType, QItemEditorCreatorBase* creator) {
+    self->registerEditor(static_cast<int>(userType), creator);
+}
+
+QItemEditorFactory* QItemEditorFactory_DefaultFactory() {
+    return (QItemEditorFactory*)QItemEditorFactory::defaultFactory();
+}
+
+void QItemEditorFactory_SetDefaultFactory(QItemEditorFactory* factory) {
+    QItemEditorFactory::setDefaultFactory(factory);
 }
 
 void QItemEditorFactory_Delete(QItemEditorFactory* self) {

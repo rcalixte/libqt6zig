@@ -35,6 +35,34 @@ QPrinter* QPrinter_new4(const QPrinterInfo* printer, int mode) {
     return new VirtualQPrinter(*printer, static_cast<QPrinter::PrinterMode>(mode));
 }
 
+int QPrinter_DevType(const QPrinter* self) {
+    auto* vqprinter = dynamic_cast<const VirtualQPrinter*>(self);
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        return self->devType();
+    } else {
+        return ((VirtualQPrinter*)self)->devType();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrinter_OnDevType(const QPrinter* self, intptr_t slot) {
+    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        vqprinter->setQPrinter_DevType_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_DevType_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QPrinter_QBaseDevType(const QPrinter* self) {
+    auto* vqprinter = dynamic_cast<const VirtualQPrinter*>(self);
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        vqprinter->setQPrinter_DevType_IsBase(true);
+        return vqprinter->devType();
+    } else {
+        return ((VirtualQPrinter*)self)->devType();
+    }
+}
+
 void QPrinter_SetOutputFormat(QPrinter* self, int format) {
     self->setOutputFormat(static_cast<QPrinter::OutputFormat>(format));
 }
@@ -254,12 +282,68 @@ void QPrinter_SetPrinterSelectionOption(QPrinter* self, const libqt_string print
     self->setPrinterSelectionOption(printerSelectionOption_QString);
 }
 
+bool QPrinter_NewPage(QPrinter* self) {
+    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        return self->newPage();
+    } else {
+        return ((VirtualQPrinter*)self)->newPage();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrinter_OnNewPage(QPrinter* self, intptr_t slot) {
+    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        vqprinter->setQPrinter_NewPage_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_NewPage_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+bool QPrinter_QBaseNewPage(QPrinter* self) {
+    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        vqprinter->setQPrinter_NewPage_IsBase(true);
+        return vqprinter->newPage();
+    } else {
+        return ((VirtualQPrinter*)self)->newPage();
+    }
+}
+
 bool QPrinter_Abort(QPrinter* self) {
     return self->abort();
 }
 
 int QPrinter_PrinterState(const QPrinter* self) {
     return static_cast<int>(self->printerState());
+}
+
+QPaintEngine* QPrinter_PaintEngine(const QPrinter* self) {
+    auto* vqprinter = dynamic_cast<const VirtualQPrinter*>(self);
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        return self->paintEngine();
+    } else {
+        return ((VirtualQPrinter*)self)->paintEngine();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QPrinter_OnPaintEngine(const QPrinter* self, intptr_t slot) {
+    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        vqprinter->setQPrinter_PaintEngine_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_PaintEngine_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+QPaintEngine* QPrinter_QBasePaintEngine(const QPrinter* self) {
+    auto* vqprinter = dynamic_cast<const VirtualQPrinter*>(self);
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        vqprinter->setQPrinter_PaintEngine_IsBase(true);
+        return vqprinter->paintEngine();
+    } else {
+        return ((VirtualQPrinter*)self)->paintEngine();
+    }
 }
 
 QPrintEngine* QPrinter_PrintEngine(const QPrinter* self) {
@@ -286,120 +370,30 @@ int QPrinter_PrintRange(const QPrinter* self) {
     return static_cast<int>(self->printRange());
 }
 
-// Derived class handler implementation
-int QPrinter_DevType(const QPrinter* self) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return vqprinter->devType();
-    } else {
-        return self->QPrinter::devType();
-    }
-}
-
-// Base class handler implementation
-int QPrinter_QBaseDevType(const QPrinter* self) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_DevType_IsBase(true);
-        return vqprinter->devType();
-    } else {
-        return self->QPrinter::devType();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrinter_OnDevType(const QPrinter* self, intptr_t slot) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_DevType_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_DevType_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-bool QPrinter_NewPage(QPrinter* self) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return vqprinter->newPage();
-    } else {
-        return self->QPrinter::newPage();
-    }
-}
-
-// Base class handler implementation
-bool QPrinter_QBaseNewPage(QPrinter* self) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_NewPage_IsBase(true);
-        return vqprinter->newPage();
-    } else {
-        return self->QPrinter::newPage();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrinter_OnNewPage(QPrinter* self, intptr_t slot) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_NewPage_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_NewPage_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QPaintEngine* QPrinter_PaintEngine(const QPrinter* self) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return vqprinter->paintEngine();
-    } else {
-        return self->QPrinter::paintEngine();
-    }
-}
-
-// Base class handler implementation
-QPaintEngine* QPrinter_QBasePaintEngine(const QPrinter* self) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_PaintEngine_IsBase(true);
-        return vqprinter->paintEngine();
-    } else {
-        return self->QPrinter::paintEngine();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrinter_OnPaintEngine(const QPrinter* self, intptr_t slot) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_PaintEngine_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_PaintEngine_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
 int QPrinter_Metric(const QPrinter* self, int param1) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
+    auto* vqprinter = dynamic_cast<const VirtualQPrinter*>(self);
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         return vqprinter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQPrinter*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     }
+    return {};
 }
 
-// Base class handler implementation
-int QPrinter_QBaseMetric(const QPrinter* self, int param1) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_Metric_IsBase(true);
-        return vqprinter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQPrinter*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
+// Subclass method to allow providing a virtual method re-implementation
 void QPrinter_OnMetric(const QPrinter* self, intptr_t slot) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_Metric_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_Metric_Callback>(slot));
     }
+}
+
+// Virtual base class handler implementation
+int QPrinter_QBaseMetric(const QPrinter* self, int param1) {
+    auto* vqprinter = dynamic_cast<const VirtualQPrinter*>(self);
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        vqprinter->setQPrinter_Metric_IsBase(true);
+        return vqprinter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    }
+    return {};
 }
 
 // Derived class handler implementation

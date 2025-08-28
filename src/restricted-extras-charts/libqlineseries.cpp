@@ -73,6 +73,34 @@ libqt_string QLineSeries_Tr(const char* s) {
     return _str;
 }
 
+int QLineSeries_Type(const QLineSeries* self) {
+    auto* vqlineseries = dynamic_cast<const VirtualQLineSeries*>(self);
+    if (vqlineseries && vqlineseries->isVirtualQLineSeries) {
+        return static_cast<int>(self->type());
+    } else {
+        return static_cast<int>(((VirtualQLineSeries*)self)->type());
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QLineSeries_OnType(const QLineSeries* self, intptr_t slot) {
+    auto* vqlineseries = const_cast<VirtualQLineSeries*>(dynamic_cast<const VirtualQLineSeries*>(self));
+    if (vqlineseries && vqlineseries->isVirtualQLineSeries) {
+        vqlineseries->setQLineSeries_Type_Callback(reinterpret_cast<VirtualQLineSeries::QLineSeries_Type_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+int QLineSeries_QBaseType(const QLineSeries* self) {
+    auto* vqlineseries = dynamic_cast<const VirtualQLineSeries*>(self);
+    if (vqlineseries && vqlineseries->isVirtualQLineSeries) {
+        vqlineseries->setQLineSeries_Type_IsBase(true);
+        return static_cast<int>(vqlineseries->type());
+    } else {
+        return static_cast<int>(((VirtualQLineSeries*)self)->type());
+    }
+}
+
 libqt_string QLineSeries_Tr2(const char* s, const char* c) {
     QString _ret = QLineSeries::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -95,35 +123,6 @@ libqt_string QLineSeries_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-int QLineSeries_Type(const QLineSeries* self) {
-    auto* vqlineseries = const_cast<VirtualQLineSeries*>(dynamic_cast<const VirtualQLineSeries*>(self));
-    if (vqlineseries && vqlineseries->isVirtualQLineSeries) {
-        return static_cast<int>(vqlineseries->type());
-    } else {
-        return static_cast<int>(self->QLineSeries::type());
-    }
-}
-
-// Base class handler implementation
-int QLineSeries_QBaseType(const QLineSeries* self) {
-    auto* vqlineseries = const_cast<VirtualQLineSeries*>(dynamic_cast<const VirtualQLineSeries*>(self));
-    if (vqlineseries && vqlineseries->isVirtualQLineSeries) {
-        vqlineseries->setQLineSeries_Type_IsBase(true);
-        return static_cast<int>(vqlineseries->type());
-    } else {
-        return static_cast<int>(self->QLineSeries::type());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLineSeries_OnType(const QLineSeries* self, intptr_t slot) {
-    auto* vqlineseries = const_cast<VirtualQLineSeries*>(dynamic_cast<const VirtualQLineSeries*>(self));
-    if (vqlineseries && vqlineseries->isVirtualQLineSeries) {
-        vqlineseries->setQLineSeries_Type_Callback(reinterpret_cast<VirtualQLineSeries::QLineSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

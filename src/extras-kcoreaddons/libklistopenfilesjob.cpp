@@ -68,6 +68,34 @@ libqt_string KListOpenFilesJob_Tr(const char* s) {
     return _str;
 }
 
+void KListOpenFilesJob_Start(KListOpenFilesJob* self) {
+    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+        self->start();
+    } else {
+        ((VirtualKListOpenFilesJob*)self)->start();
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void KListOpenFilesJob_OnStart(KListOpenFilesJob* self, intptr_t slot) {
+    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+        vklistopenfilesjob->setKListOpenFilesJob_Start_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Start_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void KListOpenFilesJob_QBaseStart(KListOpenFilesJob* self) {
+    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+        vklistopenfilesjob->setKListOpenFilesJob_Start_IsBase(true);
+        vklistopenfilesjob->start();
+    } else {
+        ((VirtualKListOpenFilesJob*)self)->start();
+    }
+}
+
 libqt_list /* of KProcessList__KProcessInfo* */ KListOpenFilesJob_ProcessInfoList(const KListOpenFilesJob* self) {
     QList<KProcessList::KProcessInfo> _ret = self->processInfoList();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -103,35 +131,6 @@ libqt_string KListOpenFilesJob_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void KListOpenFilesJob_Start(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->start();
-    } else {
-        self->KListOpenFilesJob::start();
-    }
-}
-
-// Base class handler implementation
-void KListOpenFilesJob_QBaseStart(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_Start_IsBase(true);
-        vklistopenfilesjob->start();
-    } else {
-        self->KListOpenFilesJob::start();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnStart(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_Start_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation

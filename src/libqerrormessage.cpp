@@ -111,6 +111,54 @@ void QErrorMessage_ShowMessage2(QErrorMessage* self, const libqt_string message,
     self->showMessage(message_QString, typeVal_QString);
 }
 
+void QErrorMessage_Done(QErrorMessage* self, int param1) {
+    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->done(static_cast<int>(param1));
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QErrorMessage_OnDone(QErrorMessage* self, intptr_t slot) {
+    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_Done_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Done_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QErrorMessage_QBaseDone(QErrorMessage* self, int param1) {
+    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_Done_IsBase(true);
+        vqerrormessage->done(static_cast<int>(param1));
+    }
+}
+
+void QErrorMessage_ChangeEvent(QErrorMessage* self, QEvent* e) {
+    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->changeEvent(e);
+    }
+}
+
+// Subclass method to allow providing a virtual method re-implementation
+void QErrorMessage_OnChangeEvent(QErrorMessage* self, intptr_t slot) {
+    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_ChangeEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_ChangeEvent_Callback>(slot));
+    }
+}
+
+// Virtual base class handler implementation
+void QErrorMessage_QBaseChangeEvent(QErrorMessage* self, QEvent* e) {
+    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_ChangeEvent_IsBase(true);
+        vqerrormessage->changeEvent(e);
+    }
+}
+
 libqt_string QErrorMessage_Tr2(const char* s, const char* c) {
     QString _ret = QErrorMessage::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -133,64 +181,6 @@ libqt_string QErrorMessage_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-// Derived class handler implementation
-void QErrorMessage_Done(QErrorMessage* self, int param1) {
-    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
-        vqerrormessage->done(static_cast<int>(param1));
-    } else {
-        ((VirtualQErrorMessage*)self)->done(static_cast<int>(param1));
-    }
-}
-
-// Base class handler implementation
-void QErrorMessage_QBaseDone(QErrorMessage* self, int param1) {
-    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
-        vqerrormessage->setQErrorMessage_Done_IsBase(true);
-        vqerrormessage->done(static_cast<int>(param1));
-    } else {
-        ((VirtualQErrorMessage*)self)->done(static_cast<int>(param1));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QErrorMessage_OnDone(QErrorMessage* self, intptr_t slot) {
-    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
-        vqerrormessage->setQErrorMessage_Done_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Done_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QErrorMessage_ChangeEvent(QErrorMessage* self, QEvent* e) {
-    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
-        vqerrormessage->changeEvent(e);
-    } else {
-        ((VirtualQErrorMessage*)self)->changeEvent(e);
-    }
-}
-
-// Base class handler implementation
-void QErrorMessage_QBaseChangeEvent(QErrorMessage* self, QEvent* e) {
-    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
-        vqerrormessage->setQErrorMessage_ChangeEvent_IsBase(true);
-        vqerrormessage->changeEvent(e);
-    } else {
-        ((VirtualQErrorMessage*)self)->changeEvent(e);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QErrorMessage_OnChangeEvent(QErrorMessage* self, intptr_t slot) {
-    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
-        vqerrormessage->setQErrorMessage_ChangeEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
