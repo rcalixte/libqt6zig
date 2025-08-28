@@ -169,6 +169,10 @@ pub fn build(b: *std.Build) !void {
         "KI18nLocaleData",
         // Qt 6 KItemViews
         "KItemViews",
+        // Qt 6 Sonnet
+        "Sonnet",
+        "SonnetCore/sonnet",
+        "SonnetUi/sonnet",
         // Qt 6 KWidgetsAddons
         "KWidgetsAddons",
         // Qt 6 QScintilla
