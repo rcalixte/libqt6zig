@@ -595,7 +595,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 			maybeMethod := ifv(t.ParameterType == "QByteArray", "", ".toUtf8()")
 
 			afterCall = indent + "// Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory\n"
-			afterCall = indent + "const char** " + namePrefix + "_arr = static_cast<const char**>(malloc(sizeof(const char*) * (" + namePrefix + "_ret" + memberRef + "size() + 1)));\n"
+			afterCall += indent + "const char** " + namePrefix + "_arr = static_cast<const char**>(malloc(sizeof(const char*) * (" + namePrefix + "_ret" + memberRef + "size() + 1)));\n"
 			afterCall += indent + "for (qsizetype i = 0; i < " + namePrefix + "_ret" + memberRef + "size(); ++i) {\n"
 			afterCall += indent + "QByteArray " + namePrefix + "_b = " + namePrefix + "_ret[i]" + maybeMethod + ";\n"
 			afterCall += indent + "char* " + namePrefix + "_str = static_cast<char*>(malloc(" + namePrefix + "_b.length() + 1));\n"
@@ -1790,7 +1790,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 				for i, p := range m.Parameters {
 					emitAssign := emitAssignCppToCabi(fmt.Sprintf("\t\t%s sigval%d = ", p.RenderTypeCabi(true), i+1), p, p.ParameterName)
 					signalCode += emitAssign
-					if strings.Contains(emitAssign, "UTF-8 chars") {
+					if strings.Contains(emitAssign, "to UTF-8 chars") {
 						sigCleanup += "\t\tlibqt_free(" + makeNamePrefix(p.ParameterName) + "_str);\n"
 					} else if strings.Contains(emitAssign, "Append sentinel") {
 						sigCleanup += "\t\tfree(" + makeNamePrefix(p.ParameterName) + "_arr);\n"
@@ -1964,7 +1964,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			for i, p := range m.Parameters {
 				emitAssign := emitAssignCppToCabi(fmt.Sprintf("\t\t%s sigval%d = ", p.RenderTypeCabi(true), i+1), p, p.ParameterName)
 				signalCode += emitAssign
-				if strings.Contains(emitAssign, "UTF-8 chars") {
+				if strings.Contains(emitAssign, "to UTF-8 chars") {
 					sigCleanup += "\t\tlibqt_free(" + makeNamePrefix(p.ParameterName) + "_str);\n"
 				} else if strings.Contains(emitAssign, "Append sentinel") {
 					sigCleanup += "\t\tfree(" + makeNamePrefix(p.ParameterName) + "_arr);\n"
