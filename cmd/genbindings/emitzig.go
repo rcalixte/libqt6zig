@@ -90,7 +90,8 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 	}
 
 	qtUrl := "https://doc.qt.io/qt-6/"
-	if len(className) > 0 && className[0] == 'K' || className[0] == 'k' {
+	if len(className) > 0 && className[0] == 'K' || className[0] == 'k' ||
+		strings.HasPrefix(className, "Sonnet") || strings.HasPrefix(pageName, "sonnet") {
 		qtUrl = "https://api-staging.kde.org/"
 	}
 
@@ -1860,10 +1861,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 	closeEnums := false
 	if len(src.Enums) > 0 {
-		pageName := getPageName(zfs.currentHeaderName)
 		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + `_enums = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").enums;`
 		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-		pageUrl := getPageUrl(EnumPage, pageName+maybeCharts, "", zfs.currentHeaderName)
+		maybeSonnet := ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", "")
+		pageName := maybeSonnet + getPageName(zfs.currentHeaderName) + maybeCharts
+		pageUrl := getPageUrl(EnumPage, pageName, "", zfs.currentHeaderName)
 		maybeUrl := ifv(pageUrl != "", "\n/// "+pageUrl, "")
 		ret.WriteString(maybeUrl + "\npub const enums = struct {\n")
 		closeEnums = true
