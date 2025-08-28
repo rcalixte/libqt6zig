@@ -524,6 +524,7 @@ void QFileDialog_Connect_FilesSelected(QFileDialog* self, intptr_t slot) {
     void (*slotFunc)(QFileDialog*, const char**) = reinterpret_cast<void (*)(QFileDialog*, const char**)>(slot);
     QFileDialog::connect(self, &QFileDialog::filesSelected, [self, slotFunc](const QList<QString>& files) {
         const QList<QString>& files_ret = files;
+        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
         const char** files_arr = static_cast<const char**>(malloc(sizeof(const char*) * (files_ret.size() + 1)));
         for (qsizetype i = 0; i < files_ret.size(); ++i) {
             QByteArray files_b = files_ret[i].toUtf8();

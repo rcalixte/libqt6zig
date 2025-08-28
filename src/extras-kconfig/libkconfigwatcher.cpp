@@ -54,6 +54,7 @@ void KConfigWatcher_Connect_ConfigChanged(KConfigWatcher* self, intptr_t slot) {
         // Cast returned reference into pointer
         KConfigGroup* sigval1 = const_cast<KConfigGroup*>(&group_ret);
         const QList<QByteArray>& names_ret = names;
+        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
         const char** names_arr = static_cast<const char**>(malloc(sizeof(const char*) * (names_ret.size() + 1)));
         for (qsizetype i = 0; i < names_ret.size(); ++i) {
             QByteArray names_b = names_ret[i];
