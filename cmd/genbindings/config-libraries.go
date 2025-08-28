@@ -243,6 +243,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KItemViews " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// Sonnet
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "extras-sonnet",
+			dirs: []string{
+				"/usr/include/KF6/Sonnet",
+				"/usr/include/KF6/SonnetCore/sonnet",
+				"/usr/include/KF6/SonnetUi/sonnet",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/Sonnet " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// KWidgetsAddons
 		// Depends on Qt Core, GUI, Widgets, KConfig
 		{
