@@ -1,0 +1,291 @@
+#pragma once
+#ifndef SRC_EXTRAS_SONNETC_LIBDIALOG_H
+#define SRC_EXTRAS_SONNETC_LIBDIALOG_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__BackgroundChecker)
+typedef Sonnet::BackgroundChecker Sonnet__BackgroundChecker;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__Dialog)
+typedef Sonnet::Dialog Sonnet__Dialog;
+#endif
+#else
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDialog QDialog;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+typedef struct Sonnet__BackgroundChecker Sonnet__BackgroundChecker;
+typedef struct Sonnet__Dialog Sonnet__Dialog;
+#endif
+
+Sonnet__Dialog* Sonnet__Dialog_new(Sonnet__BackgroundChecker* checker, QWidget* parent);
+QMetaObject* Sonnet__Dialog_MetaObject(const Sonnet__Dialog* self);
+void* Sonnet__Dialog_Metacast(Sonnet__Dialog* self, const char* param1);
+int Sonnet__Dialog_Metacall(Sonnet__Dialog* self, int param1, int param2, void** param3);
+libqt_string Sonnet__Dialog_Tr(const char* s);
+libqt_string Sonnet__Dialog_OriginalBuffer(const Sonnet__Dialog* self);
+libqt_string Sonnet__Dialog_Buffer(const Sonnet__Dialog* self);
+void Sonnet__Dialog_Show(Sonnet__Dialog* self);
+void Sonnet__Dialog_ActiveAutoCorrect(Sonnet__Dialog* self, bool _active);
+void Sonnet__Dialog_ShowProgressDialog(Sonnet__Dialog* self);
+void Sonnet__Dialog_ShowSpellCheckCompletionMessage(Sonnet__Dialog* self);
+void Sonnet__Dialog_SetSpellCheckContinuedAfterReplacement(Sonnet__Dialog* self, bool b);
+void Sonnet__Dialog_SetBuffer(Sonnet__Dialog* self, const libqt_string buffer);
+void Sonnet__Dialog_SpellCheckDone(Sonnet__Dialog* self, const libqt_string newBuffer);
+void Sonnet__Dialog_Connect_SpellCheckDone(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_Misspelling(Sonnet__Dialog* self, const libqt_string word, int start);
+void Sonnet__Dialog_Connect_Misspelling(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_Replace(Sonnet__Dialog* self, const libqt_string oldWord, int start, const libqt_string newWord);
+void Sonnet__Dialog_Connect_Replace(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_Stop(Sonnet__Dialog* self);
+void Sonnet__Dialog_Connect_Stop(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_Cancel(Sonnet__Dialog* self);
+void Sonnet__Dialog_Connect_Cancel(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_AutoCorrect(Sonnet__Dialog* self, const libqt_string currentWord, const libqt_string replaceWord);
+void Sonnet__Dialog_Connect_AutoCorrect(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_SpellCheckStatus(Sonnet__Dialog* self, const libqt_string param1);
+void Sonnet__Dialog_Connect_SpellCheckStatus(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_LanguageChanged(Sonnet__Dialog* self, const libqt_string language);
+void Sonnet__Dialog_Connect_LanguageChanged(Sonnet__Dialog* self, intptr_t slot);
+libqt_string Sonnet__Dialog_Tr2(const char* s, const char* c);
+libqt_string Sonnet__Dialog_Tr3(const char* s, const char* c, int n);
+void Sonnet__Dialog_ShowProgressDialog1(Sonnet__Dialog* self, int timeout);
+void Sonnet__Dialog_ShowSpellCheckCompletionMessage1(Sonnet__Dialog* self, bool b);
+void Sonnet__Dialog_OnMetacall(Sonnet__Dialog* self, intptr_t slot);
+int Sonnet__Dialog_QBaseMetacall(Sonnet__Dialog* self, int param1, int param2, void** param3);
+void Sonnet__Dialog_SetVisible(Sonnet__Dialog* self, bool visible);
+void Sonnet__Dialog_OnSetVisible(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseSetVisible(Sonnet__Dialog* self, bool visible);
+QSize* Sonnet__Dialog_SizeHint(const Sonnet__Dialog* self);
+void Sonnet__Dialog_OnSizeHint(const Sonnet__Dialog* self, intptr_t slot);
+QSize* Sonnet__Dialog_QBaseSizeHint(const Sonnet__Dialog* self);
+QSize* Sonnet__Dialog_MinimumSizeHint(const Sonnet__Dialog* self);
+void Sonnet__Dialog_OnMinimumSizeHint(const Sonnet__Dialog* self, intptr_t slot);
+QSize* Sonnet__Dialog_QBaseMinimumSizeHint(const Sonnet__Dialog* self);
+void Sonnet__Dialog_Open(Sonnet__Dialog* self);
+void Sonnet__Dialog_OnOpen(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseOpen(Sonnet__Dialog* self);
+int Sonnet__Dialog_Exec(Sonnet__Dialog* self);
+void Sonnet__Dialog_OnExec(Sonnet__Dialog* self, intptr_t slot);
+int Sonnet__Dialog_QBaseExec(Sonnet__Dialog* self);
+void Sonnet__Dialog_Done(Sonnet__Dialog* self, int param1);
+void Sonnet__Dialog_OnDone(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseDone(Sonnet__Dialog* self, int param1);
+void Sonnet__Dialog_Accept(Sonnet__Dialog* self);
+void Sonnet__Dialog_OnAccept(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseAccept(Sonnet__Dialog* self);
+void Sonnet__Dialog_Reject(Sonnet__Dialog* self);
+void Sonnet__Dialog_OnReject(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseReject(Sonnet__Dialog* self);
+void Sonnet__Dialog_KeyPressEvent(Sonnet__Dialog* self, QKeyEvent* param1);
+void Sonnet__Dialog_OnKeyPressEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseKeyPressEvent(Sonnet__Dialog* self, QKeyEvent* param1);
+void Sonnet__Dialog_CloseEvent(Sonnet__Dialog* self, QCloseEvent* param1);
+void Sonnet__Dialog_OnCloseEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseCloseEvent(Sonnet__Dialog* self, QCloseEvent* param1);
+void Sonnet__Dialog_ShowEvent(Sonnet__Dialog* self, QShowEvent* param1);
+void Sonnet__Dialog_OnShowEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseShowEvent(Sonnet__Dialog* self, QShowEvent* param1);
+void Sonnet__Dialog_ResizeEvent(Sonnet__Dialog* self, QResizeEvent* param1);
+void Sonnet__Dialog_OnResizeEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseResizeEvent(Sonnet__Dialog* self, QResizeEvent* param1);
+void Sonnet__Dialog_ContextMenuEvent(Sonnet__Dialog* self, QContextMenuEvent* param1);
+void Sonnet__Dialog_OnContextMenuEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseContextMenuEvent(Sonnet__Dialog* self, QContextMenuEvent* param1);
+bool Sonnet__Dialog_EventFilter(Sonnet__Dialog* self, QObject* param1, QEvent* param2);
+void Sonnet__Dialog_OnEventFilter(Sonnet__Dialog* self, intptr_t slot);
+bool Sonnet__Dialog_QBaseEventFilter(Sonnet__Dialog* self, QObject* param1, QEvent* param2);
+int Sonnet__Dialog_DevType(const Sonnet__Dialog* self);
+void Sonnet__Dialog_OnDevType(const Sonnet__Dialog* self, intptr_t slot);
+int Sonnet__Dialog_QBaseDevType(const Sonnet__Dialog* self);
+int Sonnet__Dialog_HeightForWidth(const Sonnet__Dialog* self, int param1);
+void Sonnet__Dialog_OnHeightForWidth(const Sonnet__Dialog* self, intptr_t slot);
+int Sonnet__Dialog_QBaseHeightForWidth(const Sonnet__Dialog* self, int param1);
+bool Sonnet__Dialog_HasHeightForWidth(const Sonnet__Dialog* self);
+void Sonnet__Dialog_OnHasHeightForWidth(const Sonnet__Dialog* self, intptr_t slot);
+bool Sonnet__Dialog_QBaseHasHeightForWidth(const Sonnet__Dialog* self);
+QPaintEngine* Sonnet__Dialog_PaintEngine(const Sonnet__Dialog* self);
+void Sonnet__Dialog_OnPaintEngine(const Sonnet__Dialog* self, intptr_t slot);
+QPaintEngine* Sonnet__Dialog_QBasePaintEngine(const Sonnet__Dialog* self);
+bool Sonnet__Dialog_Event(Sonnet__Dialog* self, QEvent* event);
+void Sonnet__Dialog_OnEvent(Sonnet__Dialog* self, intptr_t slot);
+bool Sonnet__Dialog_QBaseEvent(Sonnet__Dialog* self, QEvent* event);
+void Sonnet__Dialog_MousePressEvent(Sonnet__Dialog* self, QMouseEvent* event);
+void Sonnet__Dialog_OnMousePressEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseMousePressEvent(Sonnet__Dialog* self, QMouseEvent* event);
+void Sonnet__Dialog_MouseReleaseEvent(Sonnet__Dialog* self, QMouseEvent* event);
+void Sonnet__Dialog_OnMouseReleaseEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseMouseReleaseEvent(Sonnet__Dialog* self, QMouseEvent* event);
+void Sonnet__Dialog_MouseDoubleClickEvent(Sonnet__Dialog* self, QMouseEvent* event);
+void Sonnet__Dialog_OnMouseDoubleClickEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseMouseDoubleClickEvent(Sonnet__Dialog* self, QMouseEvent* event);
+void Sonnet__Dialog_MouseMoveEvent(Sonnet__Dialog* self, QMouseEvent* event);
+void Sonnet__Dialog_OnMouseMoveEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseMouseMoveEvent(Sonnet__Dialog* self, QMouseEvent* event);
+void Sonnet__Dialog_WheelEvent(Sonnet__Dialog* self, QWheelEvent* event);
+void Sonnet__Dialog_OnWheelEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseWheelEvent(Sonnet__Dialog* self, QWheelEvent* event);
+void Sonnet__Dialog_KeyReleaseEvent(Sonnet__Dialog* self, QKeyEvent* event);
+void Sonnet__Dialog_OnKeyReleaseEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseKeyReleaseEvent(Sonnet__Dialog* self, QKeyEvent* event);
+void Sonnet__Dialog_FocusInEvent(Sonnet__Dialog* self, QFocusEvent* event);
+void Sonnet__Dialog_OnFocusInEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseFocusInEvent(Sonnet__Dialog* self, QFocusEvent* event);
+void Sonnet__Dialog_FocusOutEvent(Sonnet__Dialog* self, QFocusEvent* event);
+void Sonnet__Dialog_OnFocusOutEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseFocusOutEvent(Sonnet__Dialog* self, QFocusEvent* event);
+void Sonnet__Dialog_EnterEvent(Sonnet__Dialog* self, QEnterEvent* event);
+void Sonnet__Dialog_OnEnterEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseEnterEvent(Sonnet__Dialog* self, QEnterEvent* event);
+void Sonnet__Dialog_LeaveEvent(Sonnet__Dialog* self, QEvent* event);
+void Sonnet__Dialog_OnLeaveEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseLeaveEvent(Sonnet__Dialog* self, QEvent* event);
+void Sonnet__Dialog_PaintEvent(Sonnet__Dialog* self, QPaintEvent* event);
+void Sonnet__Dialog_OnPaintEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBasePaintEvent(Sonnet__Dialog* self, QPaintEvent* event);
+void Sonnet__Dialog_MoveEvent(Sonnet__Dialog* self, QMoveEvent* event);
+void Sonnet__Dialog_OnMoveEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseMoveEvent(Sonnet__Dialog* self, QMoveEvent* event);
+void Sonnet__Dialog_TabletEvent(Sonnet__Dialog* self, QTabletEvent* event);
+void Sonnet__Dialog_OnTabletEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseTabletEvent(Sonnet__Dialog* self, QTabletEvent* event);
+void Sonnet__Dialog_ActionEvent(Sonnet__Dialog* self, QActionEvent* event);
+void Sonnet__Dialog_OnActionEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseActionEvent(Sonnet__Dialog* self, QActionEvent* event);
+void Sonnet__Dialog_DragEnterEvent(Sonnet__Dialog* self, QDragEnterEvent* event);
+void Sonnet__Dialog_OnDragEnterEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseDragEnterEvent(Sonnet__Dialog* self, QDragEnterEvent* event);
+void Sonnet__Dialog_DragMoveEvent(Sonnet__Dialog* self, QDragMoveEvent* event);
+void Sonnet__Dialog_OnDragMoveEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseDragMoveEvent(Sonnet__Dialog* self, QDragMoveEvent* event);
+void Sonnet__Dialog_DragLeaveEvent(Sonnet__Dialog* self, QDragLeaveEvent* event);
+void Sonnet__Dialog_OnDragLeaveEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseDragLeaveEvent(Sonnet__Dialog* self, QDragLeaveEvent* event);
+void Sonnet__Dialog_DropEvent(Sonnet__Dialog* self, QDropEvent* event);
+void Sonnet__Dialog_OnDropEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseDropEvent(Sonnet__Dialog* self, QDropEvent* event);
+void Sonnet__Dialog_HideEvent(Sonnet__Dialog* self, QHideEvent* event);
+void Sonnet__Dialog_OnHideEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseHideEvent(Sonnet__Dialog* self, QHideEvent* event);
+bool Sonnet__Dialog_NativeEvent(Sonnet__Dialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void Sonnet__Dialog_OnNativeEvent(Sonnet__Dialog* self, intptr_t slot);
+bool Sonnet__Dialog_QBaseNativeEvent(Sonnet__Dialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void Sonnet__Dialog_ChangeEvent(Sonnet__Dialog* self, QEvent* param1);
+void Sonnet__Dialog_OnChangeEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseChangeEvent(Sonnet__Dialog* self, QEvent* param1);
+int Sonnet__Dialog_Metric(const Sonnet__Dialog* self, int param1);
+void Sonnet__Dialog_OnMetric(const Sonnet__Dialog* self, intptr_t slot);
+int Sonnet__Dialog_QBaseMetric(const Sonnet__Dialog* self, int param1);
+void Sonnet__Dialog_InitPainter(const Sonnet__Dialog* self, QPainter* painter);
+void Sonnet__Dialog_OnInitPainter(const Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseInitPainter(const Sonnet__Dialog* self, QPainter* painter);
+QPaintDevice* Sonnet__Dialog_Redirected(const Sonnet__Dialog* self, QPoint* offset);
+void Sonnet__Dialog_OnRedirected(const Sonnet__Dialog* self, intptr_t slot);
+QPaintDevice* Sonnet__Dialog_QBaseRedirected(const Sonnet__Dialog* self, QPoint* offset);
+QPainter* Sonnet__Dialog_SharedPainter(const Sonnet__Dialog* self);
+void Sonnet__Dialog_OnSharedPainter(const Sonnet__Dialog* self, intptr_t slot);
+QPainter* Sonnet__Dialog_QBaseSharedPainter(const Sonnet__Dialog* self);
+void Sonnet__Dialog_InputMethodEvent(Sonnet__Dialog* self, QInputMethodEvent* param1);
+void Sonnet__Dialog_OnInputMethodEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseInputMethodEvent(Sonnet__Dialog* self, QInputMethodEvent* param1);
+QVariant* Sonnet__Dialog_InputMethodQuery(const Sonnet__Dialog* self, int param1);
+void Sonnet__Dialog_OnInputMethodQuery(const Sonnet__Dialog* self, intptr_t slot);
+QVariant* Sonnet__Dialog_QBaseInputMethodQuery(const Sonnet__Dialog* self, int param1);
+bool Sonnet__Dialog_FocusNextPrevChild(Sonnet__Dialog* self, bool next);
+void Sonnet__Dialog_OnFocusNextPrevChild(Sonnet__Dialog* self, intptr_t slot);
+bool Sonnet__Dialog_QBaseFocusNextPrevChild(Sonnet__Dialog* self, bool next);
+void Sonnet__Dialog_TimerEvent(Sonnet__Dialog* self, QTimerEvent* event);
+void Sonnet__Dialog_OnTimerEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseTimerEvent(Sonnet__Dialog* self, QTimerEvent* event);
+void Sonnet__Dialog_ChildEvent(Sonnet__Dialog* self, QChildEvent* event);
+void Sonnet__Dialog_OnChildEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseChildEvent(Sonnet__Dialog* self, QChildEvent* event);
+void Sonnet__Dialog_CustomEvent(Sonnet__Dialog* self, QEvent* event);
+void Sonnet__Dialog_OnCustomEvent(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseCustomEvent(Sonnet__Dialog* self, QEvent* event);
+void Sonnet__Dialog_ConnectNotify(Sonnet__Dialog* self, const QMetaMethod* signal);
+void Sonnet__Dialog_OnConnectNotify(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseConnectNotify(Sonnet__Dialog* self, const QMetaMethod* signal);
+void Sonnet__Dialog_DisconnectNotify(Sonnet__Dialog* self, const QMetaMethod* signal);
+void Sonnet__Dialog_OnDisconnectNotify(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseDisconnectNotify(Sonnet__Dialog* self, const QMetaMethod* signal);
+void Sonnet__Dialog_AdjustPosition(Sonnet__Dialog* self, QWidget* param1);
+void Sonnet__Dialog_OnAdjustPosition(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseAdjustPosition(Sonnet__Dialog* self, QWidget* param1);
+void Sonnet__Dialog_UpdateMicroFocus(Sonnet__Dialog* self);
+void Sonnet__Dialog_OnUpdateMicroFocus(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseUpdateMicroFocus(Sonnet__Dialog* self);
+void Sonnet__Dialog_Create(Sonnet__Dialog* self);
+void Sonnet__Dialog_OnCreate(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseCreate(Sonnet__Dialog* self);
+void Sonnet__Dialog_Destroy(Sonnet__Dialog* self);
+void Sonnet__Dialog_OnDestroy(Sonnet__Dialog* self, intptr_t slot);
+void Sonnet__Dialog_QBaseDestroy(Sonnet__Dialog* self);
+bool Sonnet__Dialog_FocusNextChild(Sonnet__Dialog* self);
+void Sonnet__Dialog_OnFocusNextChild(Sonnet__Dialog* self, intptr_t slot);
+bool Sonnet__Dialog_QBaseFocusNextChild(Sonnet__Dialog* self);
+bool Sonnet__Dialog_FocusPreviousChild(Sonnet__Dialog* self);
+void Sonnet__Dialog_OnFocusPreviousChild(Sonnet__Dialog* self, intptr_t slot);
+bool Sonnet__Dialog_QBaseFocusPreviousChild(Sonnet__Dialog* self);
+QObject* Sonnet__Dialog_Sender(const Sonnet__Dialog* self);
+void Sonnet__Dialog_OnSender(const Sonnet__Dialog* self, intptr_t slot);
+QObject* Sonnet__Dialog_QBaseSender(const Sonnet__Dialog* self);
+int Sonnet__Dialog_SenderSignalIndex(const Sonnet__Dialog* self);
+void Sonnet__Dialog_OnSenderSignalIndex(const Sonnet__Dialog* self, intptr_t slot);
+int Sonnet__Dialog_QBaseSenderSignalIndex(const Sonnet__Dialog* self);
+int Sonnet__Dialog_Receivers(const Sonnet__Dialog* self, const char* signal);
+void Sonnet__Dialog_OnReceivers(const Sonnet__Dialog* self, intptr_t slot);
+int Sonnet__Dialog_QBaseReceivers(const Sonnet__Dialog* self, const char* signal);
+bool Sonnet__Dialog_IsSignalConnected(const Sonnet__Dialog* self, const QMetaMethod* signal);
+void Sonnet__Dialog_OnIsSignalConnected(const Sonnet__Dialog* self, intptr_t slot);
+bool Sonnet__Dialog_QBaseIsSignalConnected(const Sonnet__Dialog* self, const QMetaMethod* signal);
+double Sonnet__Dialog_GetDecodedMetricF(const Sonnet__Dialog* self, int metricA, int metricB);
+void Sonnet__Dialog_OnGetDecodedMetricF(const Sonnet__Dialog* self, intptr_t slot);
+double Sonnet__Dialog_QBaseGetDecodedMetricF(const Sonnet__Dialog* self, int metricA, int metricB);
+void Sonnet__Dialog_Delete(Sonnet__Dialog* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
