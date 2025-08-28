@@ -1014,25 +1014,15 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 					continue
 				}
 
-				var maybeSelf, commaParams string
+				var maybeSelf string
 				maybeConst := ifv(m.IsConst, "const ", "")
-				if len(m.Parameters) != 0 {
+				if len(m.Parameters) != 0 || (showHiddenParams && len(m.HiddenParams) != 0) {
 					maybeSelf = maybeConst + methodPrefixName + "*"
-				}
-
-				if showHiddenParams && len(m.HiddenParams) != 0 {
-					maybeSelf = maybeConst + methodPrefixName + "*"
-				}
-				if len(m.Parameters) > 0 {
-					commaParams = ", "
-				}
-				if showHiddenParams && (len(m.Parameters) > 0 || len(m.HiddenParams) > 0) {
-					commaParams = ", "
 				}
 
 				// Callback types
 				publicTypes = append(publicTypes, "\tusing "+callbackType+" = "+m.ReturnType.RenderTypeCabi(true)+
-					" (*)("+maybeSelf+commaParams+emitParameterTypesCabi(m, "")+");\n")
+					" (*)("+emitParameterTypesCabi(m, maybeSelf)+");\n")
 
 				// Instance callback storage
 				privateCallbacks = append(privateCallbacks, "\t"+callbackType+" "+callbackName+" = nullptr;\n")
@@ -1113,13 +1103,14 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 			for _, m := range virtualMethods {
 				var showHiddenParams bool
 				baseName := methodPrefixName + "_" + m.SafeMethodName()
-				if _, ok := seenVirtuals[baseName]; ok {
+				if b, ok := seenVirtuals[m.MethodName]; ok && b {
 					continue
 				}
-				if _, ok := seenVirtuals[baseName]; ok {
+				if _, ok := seenVirtuals[m.MethodName]; ok {
 					showHiddenParams = true
+					seenVirtuals[m.MethodName] = true
 				} else {
-					seenVirtuals[baseName] = false
+					seenVirtuals[m.MethodName] = false
 				}
 
 				if _, ok := skippedMethods[baseName]; ok {
@@ -1139,6 +1130,9 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 				}
 
 				var customCallback, maybeElse, maybeThis, signalCode string
+				if showHiddenParams && len(m.HiddenParams) == 0 {
+					continue
+				}
 				maybeParams := emitParameterNames(m, showHiddenParams)
 				maybeFunc := emitParametersCpp(m, showHiddenParams)
 				indent := "\t\t"
@@ -1310,7 +1304,6 @@ extern "C" {
 		methodPrefixName := cabiClassName(c.ClassName)
 		virtualMethods := c.VirtualMethods()
 		protectedMethods := c.ProtectedMethods()
-		baseMethods := c.Methods
 		seenClassMethods := map[string]struct{}{}
 		virtualEligible := AllowVirtualForClass(c.ClassName)
 
@@ -1360,7 +1353,7 @@ extern "C" {
 			ret.WriteString("void " + methodPrefixName + "_MoveAssign(" + methodPrefixName + "* self, " + methodPrefixName + "* other);\n")
 		}
 
-		for _, m := range baseMethods {
+		for _, m := range c.Methods {
 			if m.IsProtected && !m.IsVirtual {
 				continue
 			}
@@ -1511,21 +1504,12 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		methodPrefixName := cabiClassName(c.ClassName)
 		virtualMethods := c.VirtualMethods()
 		protectedMethods := c.ProtectedMethods()
-		baseMethods := c.Methods
 		cppClassName := strings.ReplaceAll(c.ClassName, "::", "")
 		virtualEligible := AllowVirtualForClass(c.ClassName)
 
 		// Add protected methods first
 		if virtualEligible && len(virtualMethods) > 0 {
 			virtualMethods = append(virtualMethods, protectedMethods...)
-		}
-
-		allVirtualsMap := map[string]struct{}{}
-		for _, m := range virtualMethods {
-			if m.MethodName == "qt_metacall" {
-				continue
-			}
-			allVirtualsMap[c.ClassName+"_"+m.SafeMethodName()] = struct{}{}
 		}
 
 		seenVirtualsMap := map[string]struct{}{}
@@ -1624,7 +1608,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 		seenMethodVariants := map[string]bool{}
 
-		for _, m := range baseMethods {
+		for _, m := range c.Methods {
 			// Protected virtual methods will be bound separately (the only
 			// useful thing is to expose calling the virtual base)
 			// Protected non-virtual methods should always be hidden
@@ -1633,9 +1617,6 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			}
 			mSafeMethodName := m.SafeMethodName()
 			baseName := c.ClassName + "_" + mSafeMethodName
-			if _, ok := allVirtualsMap[baseName]; ok {
-				continue
-			}
 			if _, ok := skippedMethods[baseName]; ok {
 				continue
 			}
