@@ -47,14 +47,19 @@ func registerChildClasses(class CppClass, packageName string) {
 	}
 }
 
-func (e CppEnum) getEnumTypeZig() string {
+func (e CppEnum) getEnumTypeZig() (string, string) {
+	flagType := "i64"
 	if len(e.Entries) > 0 {
 		// perform a lazy analysis of the enum entries
 		num, err := strconv.Atoi(e.Entries[len(e.Entries)-1].EntryValue)
 		if err == nil {
 			if float64(num) > math.MaxInt32 || float64(num) < math.MinInt32 {
 				// need to use i64 to avoid overflow
-				return "i64"
+				return "i64", "i64"
+			}
+			if float64(num) > math.MinInt16 || float64(num) < math.MaxUint16 {
+				// it should be safe to use i32
+				flagType = "i32"
 			}
 		}
 	}
@@ -62,19 +67,19 @@ func (e CppEnum) getEnumTypeZig() string {
 	switch e.UnderlyingType.ParameterType {
 	// signed types
 	case "char", "qint8", "signed char":
-		return "i8"
+		return "i8", "i8"
 	case "int", "qint32":
-		return "i32"
+		return "i32", flagType
 
 	// unsigned types
 	case "uchar", "quint8", "uint8_t", "unsigned char":
-		return "u8"
+		return "u8", "u8"
 	case "ushort", "quint16":
-		return "u16"
+		return "u16", "u16"
 	case "quint32", "unsigned int":
-		return "u32"
+		return "u32", "u32"
 	case "quint64":
-		return "u64"
+		return "u64", "u64"
 
 	default:
 		panic("UNHANDLED ENUM TYPE: " + e.UnderlyingType.ParameterType + " for " + e.EnumName)
@@ -114,7 +119,7 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 		for _, en := range c.ChildEnums {
 			enumClass := en.EnumClassName()
 			enumCABI := en.UnderlyingType.RenderTypeCabi(false)
-			enumZig := en.getEnumTypeZig()
+			enumZig, enumFlagZig := en.getEnumTypeZig()
 
 			// Register enum with fully qualified name
 			KnownEnums[en.EnumName] = lookupResultEnum{packageName, en, enumCABI, enumZig}
@@ -124,8 +129,8 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 			// Flags version
 			flagsEnum := en // copy
 			flagsEnum.EnumName = "QFlags<" + en.EnumName + ">"
-			KnownEnums[flagsEnum.EnumName] = lookupResultEnum{packageName, flagsEnum, "int64_t", "i64"}
-			KnownEnums[enumClass+"s"] = lookupResultEnum{packageName, flagsEnum, "int64_t", "i64"}
+			KnownEnums[flagsEnum.EnumName] = lookupResultEnum{packageName, flagsEnum, enumCABI, enumFlagZig}
+			KnownEnums[enumClass+"s"] = lookupResultEnum{packageName, flagsEnum, enumCABI, enumFlagZig}
 		}
 	}
 
@@ -142,7 +147,7 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 		}
 
 		enumCABI := en.UnderlyingType.RenderTypeCabi(false)
-		enumZig := en.getEnumTypeZig()
+		enumZig, enumFlagZig := en.getEnumTypeZig()
 
 		KnownEnums[en.EnumName] = lookupResultEnum{packageName, en /* copy */, enumCABI, enumZig}
 
@@ -155,9 +160,9 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 		// Flags version
 		flagsEnum := en // copy
 		flagsEnum.EnumName = "QFlags<" + en.EnumName + ">"
-		KnownEnums[flagsEnum.EnumName] = lookupResultEnum{packageName, flagsEnum, "int64_t", "i64"}
+		KnownEnums[flagsEnum.EnumName] = lookupResultEnum{packageName, flagsEnum, enumCABI, enumFlagZig}
 		if strings.Contains(en.EnumName, "::") {
-			KnownEnums[en.EnumClassName()+"s"] = lookupResultEnum{packageName, flagsEnum, "int64_t", "i64"}
+			KnownEnums[en.EnumClassName()+"s"] = lookupResultEnum{packageName, flagsEnum, enumCABI, enumFlagZig}
 		}
 	}
 
@@ -171,23 +176,6 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 			// We also need to check for enums in scoped classes
 			importName := en.EnumValueName()
 			KnownImports[importName] = lookupResultImport{packageName, filename}
-		}
-	}
-
-	// Register detected flags
-	for flagName, flagInfo := range parsed.DetectedFlags {
-		// Create flag enum entry
-		flagEnum := CppEnum{
-			EnumName:       flagInfo.PropertyName,
-			UnderlyingType: flagInfo.PropertyType,
-		}
-
-		// Register with fully qualified name
-		KnownEnums[flagInfo.PropertyName] = lookupResultEnum{packageName, flagEnum, "int64_t", "i64"}
-
-		// Register with short name
-		if strings.Contains(flagInfo.PropertyName, "::") {
-			KnownEnums[flagName] = lookupResultEnum{packageName, flagEnum, "int64_t", "i64"}
 		}
 	}
 }
