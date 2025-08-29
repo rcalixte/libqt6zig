@@ -692,11 +692,10 @@ type CppTypedef struct {
 }
 
 type CppParsedHeader struct {
-	Filename      string
-	Typedefs      []CppTypedef
-	Enums         []CppEnum
-	Classes       []CppClass
-	DetectedFlags map[string]CppFlagProperty
+	Filename string
+	Typedefs []CppTypedef
+	Enums    []CppEnum
+	Classes  []CppClass
 }
 
 func (c CppParsedHeader) Empty() bool {
