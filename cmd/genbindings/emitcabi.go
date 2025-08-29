@@ -199,7 +199,7 @@ func emitParameterNames(m CppMethod, includeHidden bool) string {
 func emitParametersCabi(m CppMethod, selfType string) string {
 	tmp := make([]string, 0, len(m.Parameters)+1)
 
-	if !m.IsStatic && selfType != "" {
+	if !(m.IsStatic && !m.IsProtected) && selfType != "" {
 		tmp = append(tmp, selfType+" self")
 	}
 
@@ -215,7 +215,7 @@ func emitParametersCabi(m CppMethod, selfType string) string {
 func emitParameterTypesCabi(m CppMethod, selfType string) string {
 	tmp := make([]string, 0, len(m.Parameters)+1)
 
-	if !m.IsStatic && selfType != "" {
+	if !(m.IsStatic && !m.IsProtected) && selfType != "" {
 		tmp = append(tmp, selfType)
 	}
 
@@ -563,12 +563,14 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		shouldReturn = maybeConst + p.ParameterType + " " + namePrefix + "_qb = "
 
+		maybeField := ifv(isSignal, ".data", "")
+
 		afterCall += indent + "libqt_string " + namePrefix + "_str;\n"
 		afterCall += indent + namePrefix + "_str.len = " + namePrefix + "_qb.length();\n"
 		afterCall += indent + namePrefix + "_str.data = static_cast<const char*>(malloc(" + namePrefix + "_str.len + 1));\n"
 		afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_qb.data(), " + namePrefix + "_str.len);\n"
 		afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + "_str.len] = '\\0';\n"
-		afterCall += indent + assignExpression + namePrefix + "_str;\n"
+		afterCall += indent + assignExpression + namePrefix + "_str" + maybeField + ";\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
 	} else if t, containerType, ok := p.QListOf(); ok {
@@ -665,24 +667,27 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		kTypeC := kType.RenderTypeCabi(false)
 		vTypeC := vType.RenderTypeCabi(false)
 
+		memberRef := ifv(p.Pointer, "->", ".")
+		maybePointer := ifv(p.Pointer, "*", "")
+
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
 
 		afterCall += indent + "// Convert " + containerType + "<> from C++ memory to manually-managed C memory\n"
-		afterCall += indent + kTypeC + "* " + namePrefix + "_karr = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ") * " + namePrefix + "_ret.size()));\n"
-		afterCall += indent + vTypeC + "* " + namePrefix + "_varr = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ") * " + namePrefix + "_ret.size()));\n"
+		afterCall += indent + kTypeC + "* " + namePrefix + "_karr = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ") * " + namePrefix + "_ret" + memberRef + "size()));\n"
+		afterCall += indent + vTypeC + "* " + namePrefix + "_varr = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ") * " + namePrefix + "_ret" + memberRef + "size()));\n"
 
 		afterCall += indent + "int " + namePrefix + "_ctr = 0;\n"
-		afterCall += indent + "for (auto " + namePrefix + "_itr = " + namePrefix + "_ret.keyValueBegin(); " + namePrefix + "_itr != " + namePrefix + "_ret.keyValueEnd(); ++" + namePrefix + "_itr) {\n"
+		afterCall += indent + "for (auto " + namePrefix + "_itr = " + namePrefix + "_ret" + memberRef + "keyValueBegin(); " + namePrefix + "_itr != " + namePrefix + "_ret" + memberRef + "keyValueEnd(); ++" + namePrefix + "_itr) {\n"
 		afterCall += emitAssignCppToCabi(indent+"\t"+namePrefix+"_karr["+namePrefix+"_ctr] = ", kType, namePrefix+"_itr->first")
 		afterCall += emitAssignCppToCabi(indent+"\t"+namePrefix+"_varr["+namePrefix+"_ctr] = ", vType, namePrefix+"_itr->second")
 		afterCall += indent + "\t" + namePrefix + "_ctr++;\n"
 
 		afterCall += indent + "}\n"
 
-		afterCall += indent + "libqt_map " + namePrefix + "_out;\n"
-		afterCall += indent + namePrefix + "_out.len = " + namePrefix + "_ret.size();\n"
-		afterCall += indent + namePrefix + "_out.keys = static_cast<void*>(" + namePrefix + "_karr);\n"
-		afterCall += indent + namePrefix + "_out.values = static_cast<void*>(" + namePrefix + "_varr);\n"
+		afterCall += indent + "libqt_map" + maybePointer + " " + namePrefix + "_out;\n"
+		afterCall += indent + namePrefix + "_out" + memberRef + "len = " + namePrefix + "_ret" + memberRef + "size();\n"
+		afterCall += indent + namePrefix + "_out" + memberRef + "keys = static_cast<void*>(" + namePrefix + "_karr);\n"
+		afterCall += indent + namePrefix + "_out" + memberRef + "values = static_cast<void*>(" + namePrefix + "_varr);\n"
 
 		afterCall += indent + assignExpression + namePrefix + "_out;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
@@ -1644,7 +1649,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 				}
 			}
 
-			if m.IsStatic {
+			if m.IsStatic && !m.IsProtected {
 				callTarget = c.ClassName + "::"
 			}
 
