@@ -206,64 +206,6 @@ func pkgConfigCflags(packageName string) string {
 	return string(stdout)
 }
 
-func (header *CppParsedHeader) RegisterFlags() map[string]CppFlagProperty {
-	if header.DetectedFlags == nil {
-		header.DetectedFlags = make(map[string]CppFlagProperty)
-	}
-
-	for _, typedef := range header.Typedefs {
-		typeClass := strings.Split(typedef.Alias, "::")[0]
-
-		// Skip private/internal types
-		if strings.HasSuffix(typedef.Alias, "Private") ||
-			strings.Contains(typeClass, "Private") {
-			continue
-		}
-
-		// Skip protected enums
-		if enum, ok := KnownEnums[typedef.Alias]; ok {
-			if enum.Enum.IsProtected {
-				continue
-			}
-		}
-
-		if strings.Contains(typedef.Alias, "::") {
-			flagDef := strings.Split(typedef.Alias, "::")
-			if len(flagDef) <= 1 {
-				continue
-			}
-
-			className := flagDef[0]
-			flagName := strings.Join(flagDef[1:], "")
-
-			flagProperty := CppFlagProperty{
-				PropertyName: typedef.Alias, // Fully qualified name
-				PropertyType: CppParameter{
-					ParameterType: typedef.UnderlyingType.RenderTypeCabi(false),
-				},
-			}
-
-			// Register both forms in DetectedFlags
-			header.DetectedFlags[typedef.Alias] = flagProperty // Full name
-			header.DetectedFlags[flagName] = flagProperty      // Short name
-
-			if _, ok := EnumScopeRegistry[flagName]; !ok {
-				EnumScopeRegistry[flagName] = make(map[string]map[string]EnumScopeInfo)
-			}
-			if _, ok := EnumScopeRegistry[flagName][className]; !ok {
-				EnumScopeRegistry[flagName][className] = make(map[string]EnumScopeInfo)
-			}
-
-			EnumScopeRegistry[flagName][className][""] = EnumScopeInfo{
-				FullyQualifiedName: typedef.Alias,
-				ClassScope:         className,
-				Namespace:          "", // Flags are always class-scoped
-			}
-		}
-	}
-	return header.DetectedFlags
-}
-
 // getReferencedClasses finds all referenced Qt types in this header
 func getReferencedClasses(src *CppParsedHeader) []string {
 	foundTypes := map[string]struct{}{}
@@ -355,7 +297,6 @@ func gatherTypes(name string, dirs []string, allowHeader func(string) bool, clan
 		// Register all types
 		addKnownTypes(name, parsed)
 
-		parsed.DetectedFlags = parsed.RegisterFlags()
 		refClasses := getReferencedClasses(parsed)
 
 		for _, class := range parsed.Classes {
