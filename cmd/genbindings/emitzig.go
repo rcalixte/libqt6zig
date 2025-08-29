@@ -239,9 +239,16 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			if zigImport, ok := KnownImports[enumClass]; ok {
 				if fullEnumName {
 					ret = "flag of " + zigImport.Filename + "_enums." + cabiEnumName(p.ParameterType[7:len(p.ParameterType)-1])
-					zfs.imports[zigImport.Filename+"_enums"] = struct{}{}
+					maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+					zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 				} else {
-					ret = ifv(p.Pointer || p.ByRef, "*", "") + ifv(p.Const && (p.Pointer || p.ByRef), "const ", "") + "i64"
+					e, ok := KnownEnums[p.ParameterType]
+					if ok {
+						_, flagType := e.Enum.getEnumTypeZig()
+						ret = ifv(p.Pointer || p.ByRef, "*", "") + ifv(p.Const && (p.Pointer || p.ByRef), "const ", "") + flagType
+					} else {
+						ret = ifv(p.Pointer || p.ByRef, "*", "") + ifv(p.Const && (p.Pointer || p.ByRef), "const ", "") + "i64"
+					}
 				}
 			}
 
@@ -346,15 +353,8 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 					ret += e.EnumTypeZig
 				}
 
-				var maybeDots string
-				if zigImport.PackageName != zfs.currentPackageName {
-					if zigImport.PackageName == "" {
-						maybeDots = "../"
-					} else {
-						maybeDots = "../" + zigImport.PackageName + "/"
-					}
-				}
-				zfs.imports[maybeDots+zigImport.Filename+"__enums"] = struct{}{}
+				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 
 			} else {
 				panic("UNKNOWN IMPORT: p.ParameterType: " + p.ParameterType + "\tenumClass: " + enumClass + "\tenumName: " + enumName)
@@ -371,7 +371,6 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 		} else if strings.HasPrefix(p.ParameterType, "QFlags<") {
 			ret += "flag of enums." + cabiEnumName(p.ParameterType)
-			zfs.imports[zfs.currentHeaderName+"_enums"] = struct{}{}
 
 		} else {
 			// Do not transform this type
@@ -405,6 +404,18 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 	}
 
 	return ret // ignore const
+}
+
+func maybeDotsPath(zigImport, zfsName string) string {
+	if zigImport != zfsName {
+		if zigImport == "" {
+			return "../"
+		} else {
+			return "../" + zigImport + "/"
+		}
+	}
+
+	return ""
 }
 
 func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string {
@@ -613,15 +624,8 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 
 			if zigImport, ok := KnownImports[enumClass]; ok {
 				returnComment = "///\n/// Returns: ``` flag of " + zigImport.Filename + "_enums." + cabiEnumName(rt.ParameterType[7:len(rt.ParameterType)-1]) + " ```\n"
-				var maybeDots string
-				if zigImport.PackageName != zfs.currentPackageName {
-					if zigImport.PackageName == "" {
-						maybeDots = "../"
-					} else {
-						maybeDots = "../" + zigImport.PackageName + "/"
-					}
-				}
-				zfs.imports[maybeDots+zigImport.Filename+"__enums"] = struct{}{}
+				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 			}
 		} else {
 			returnComment = "///\n/// Returns: ``` " + rt.RenderTypeZig(zfs, false, true) + " ```\n"
@@ -637,7 +641,8 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 
 			if zigImport, ok := KnownImports[enumClass]; ok {
 				returnComment = "///\n/// Returns: ``` []" + zigImport.Filename + "_enums." + cabiEnumName(t.ParameterType) + " ```\n"
-				zfs.imports[zigImport.Filename+"_enums"] = struct{}{}
+				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 			}
 		}
 	}
@@ -648,7 +653,7 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 func (zfs *zigFileState) emitParametersZig2CABIForwarding(m CppMethod) (preamble, forwarding string) {
 	tmp := make([]string, 0, len(m.Parameters)+2)
 
-	if !m.IsStatic {
+	if !(m.IsStatic && !m.IsProtected) {
 		tmp = append(tmp, "@ptrCast(self)")
 	}
 
@@ -1543,7 +1548,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			mTrim := mSafeMethodName[:len(mSafeMethodName)-1]
 			fnMethod := mSafeMethodName + "(self: ?*anyopaque" + commaParams
-			if m.IsStatic {
+			if m.IsStatic && !m.IsProtected {
 				commentParam = ""
 				fnMethod = mSafeMethodName + "("
 				if len(m.Parameters) == 0 {
@@ -1633,8 +1638,9 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					m.ReturnType.renderReturnTypeZig(&zfs, true) + ") void {\n" +
 					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));\n}\n")
 
+				maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
 				qbaseDocComment := "\n/// Base class method implementation\n    ///"
-				baseMethod := "QBase" + mSafeMethodName + "(self: ?*anyopaque" + commaParams
+				baseMethod := "QBase" + mSafeMethodName + "(" + maybeSelf + commaParams
 				baseCallTarget := "qtc." + cmdStructName + "_QBase" + cSafeMethodName + "(" + forwarding + ")"
 				basereturnFunc := zfs.emitCabiToZig("return ", m.ReturnType, baseCallTarget)
 
@@ -1760,11 +1766,12 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			headerComment = "\n /// Wrapper to allow calling base class virtual or protected method\n ///\n"
 
+			maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
 			returnFunc = zfs.emitCabiToZig("return ", m.ReturnType, "qtc."+cmdStructName+"_QBase"+cSafeMethodName+"("+forwarding+")")
 
 			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
 				zigStructName + commaParams + zfs.emitCommentParametersZig(m.Parameters, false) + allocComma + allocatorParam + " ```\n" + returnComment +
-				"    pub fn QBase" + mSafeMethodName + "(self: ?*anyopaque" + commaParams + zfsParams + allocComma + allocatorParam + ") " + returnTypeDecl + " {\n" +
+				"    pub fn QBase" + mSafeMethodName + "(" + maybeSelf + commaParams + zfsParams + allocComma + allocatorParam + ") " + returnTypeDecl + " {\n" +
 				preamble + returnFunc + "\n}\n")
 
 			if len(m.Parameters) > 0 {
@@ -1949,7 +1956,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					structDef = append(structDef, "pub const map_"+keyType+"_"+mapParamToString(valueType)+" = std.AutoHashMapUnmanaged("+autoKeyType+", "+valueType+");")
 				}
 			}
-			if strings.Contains(k, "struct_") {
+			if strings.HasPrefix(k, "struct_") {
 				kSplit := strings.Split(k, "_")
 				keyType := kSplit[1]
 				valueType := kSplit[2]
@@ -1957,13 +1964,13 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					structDef = append(structDef, "pub const struct_"+mapParamToString(keyType)+"_"+mapParamToString(valueType)+" = extern struct { first: "+keyType+", second: "+valueType+" };")
 				}
 			}
-			if strings.Contains(k, "__enums") {
+			if strings.HasSuffix(k, "_enums") {
 				var enumPrefix string
 				if strings.Contains(k, "/") {
 					enumPrefix = filepath.Dir(k) + "/"
 					k = filepath.Base(k)
 				}
-				enumClass := strings.Split(k, "__enums")[0]
+				enumClass := strings.Split(k, "_enums")[0]
 
 				if _, ok := seenEnumClasses[enumClass]; ok {
 					continue
