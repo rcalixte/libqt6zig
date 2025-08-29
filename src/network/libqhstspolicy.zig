@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qhstspolicy_enums = enums;
 const qurl_enums = @import("../libqurl.zig").enums;
 const std = @import("std");
 
@@ -15,7 +16,7 @@ pub const qhstspolicy = struct {
     /// New2 constructs a new QHstsPolicy object.
     ///
     /// ``` expiry: QtC.QDateTime, flags: flag of qhstspolicy_enums.PolicyFlag, host: []const u8 ```
-    pub fn New2(expiry: ?*anyopaque, flags: i64, host: []const u8) QtC.QHstsPolicy {
+    pub fn New2(expiry: ?*anyopaque, flags: i32, host: []const u8) QtC.QHstsPolicy {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
@@ -34,7 +35,7 @@ pub const qhstspolicy = struct {
     /// New4 constructs a new QHstsPolicy object.
     ///
     /// ``` expiry: QtC.QDateTime, flags: flag of qhstspolicy_enums.PolicyFlag, host: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn New4(expiry: ?*anyopaque, flags: i64, host: []const u8, mode: i32) QtC.QHstsPolicy {
+    pub fn New4(expiry: ?*anyopaque, flags: i32, host: []const u8, mode: i32) QtC.QHstsPolicy {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
@@ -128,7 +129,7 @@ pub const qhstspolicy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#host)
     ///
     /// ``` self: QtC.QHstsPolicy, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
-    pub fn Host1(self: ?*anyopaque, options: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Host1(self: ?*anyopaque, options: u32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHstsPolicy_Host1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhstspolicy.Host1: Memory allocation failed");

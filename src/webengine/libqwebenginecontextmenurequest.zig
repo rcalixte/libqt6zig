@@ -148,7 +148,7 @@ pub const qwebenginecontextmenurequest = struct {
     /// ``` self: QtC.QWebEngineContextMenuRequest ```
     ///
     /// Returns: ``` flag of qwebenginecontextmenurequest_enums.MediaFlag ```
-    pub fn MediaFlags(self: ?*anyopaque) i64 {
+    pub fn MediaFlags(self: ?*anyopaque) i32 {
         return qtc.QWebEngineContextMenuRequest_MediaFlags(@ptrCast(self));
     }
 
@@ -157,7 +157,7 @@ pub const qwebenginecontextmenurequest = struct {
     /// ``` self: QtC.QWebEngineContextMenuRequest ```
     ///
     /// Returns: ``` flag of qwebenginecontextmenurequest_enums.EditFlag ```
-    pub fn EditFlags(self: ?*anyopaque) i64 {
+    pub fn EditFlags(self: ?*anyopaque) i32 {
         return qtc.QWebEngineContextMenuRequest_EditFlags(@ptrCast(self));
     }
 

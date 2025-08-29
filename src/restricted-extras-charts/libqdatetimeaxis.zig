@@ -741,7 +741,7 @@ pub const qdatetimeaxis = struct {
     /// ``` self: QtC.QDateTimeAxis ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QAbstractAxis_Alignment(@ptrCast(self));
     }
 

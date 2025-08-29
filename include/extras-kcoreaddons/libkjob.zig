@@ -85,7 +85,7 @@ pub const kjob = struct {
     /// ``` self: QtC.KJob ```
     ///
     /// Returns: ``` flag of kjob_enums.Capability ```
-    pub fn Capabilities(self: ?*anyopaque) i64 {
+    pub fn Capabilities(self: ?*anyopaque) i32 {
         return qtc.KJob_Capabilities(@ptrCast(self));
     }
 
@@ -220,7 +220,7 @@ pub const kjob = struct {
     /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
     ///
     /// ``` self: QtC.KJob, capabilities: flag of kjob_enums.Capability ```
-    pub fn SetCapabilities(self: ?*anyopaque, capabilities: i64) void {
+    pub fn SetCapabilities(self: ?*anyopaque, capabilities: i32) void {
         qtc.KJob_SetCapabilities(@ptrCast(self), @intCast(capabilities));
     }
 
@@ -229,7 +229,7 @@ pub const kjob = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.KJob, slot: fn (self: QtC.KJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void ```
-    pub fn OnSetCapabilities(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetCapabilities(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KJob_OnSetCapabilities(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -238,7 +238,7 @@ pub const kjob = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.KJob, capabilities: flag of kjob_enums.Capability ```
-    pub fn QBaseSetCapabilities(self: ?*anyopaque, capabilities: i64) void {
+    pub fn QBaseSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
         qtc.KJob_QBaseSetCapabilities(@ptrCast(self), @intCast(capabilities));
     }
 

@@ -42,7 +42,7 @@ pub const qgesturerecognizer = struct {
     /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qgesturerecognizer_enums.ResultFlag ```
-    pub fn Recognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn Recognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.QGestureRecognizer_Recognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
     }
 
@@ -50,8 +50,8 @@ pub const qgesturerecognizer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGestureRecognizer, slot: fn (self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i64 ```
-    pub fn OnRecognize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QGestureRecognizer, slot: fn (self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i32 ```
+    pub fn OnRecognize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGestureRecognizer_OnRecognize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -62,7 +62,7 @@ pub const qgesturerecognizer = struct {
     /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qgesturerecognizer_enums.ResultFlag ```
-    pub fn QBaseRecognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn QBaseRecognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.QGestureRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
     }
 

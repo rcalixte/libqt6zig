@@ -1958,14 +1958,14 @@ pub const qpinchgesture = struct {
     /// ``` self: QtC.QPinchGesture ```
     ///
     /// Returns: ``` flag of qgesture_enums.ChangeFlag ```
-    pub fn TotalChangeFlags(self: ?*anyopaque) i64 {
+    pub fn TotalChangeFlags(self: ?*anyopaque) i32 {
         return qtc.QPinchGesture_TotalChangeFlags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalChangeFlags)
     ///
     /// ``` self: QtC.QPinchGesture, value: flag of qgesture_enums.ChangeFlag ```
-    pub fn SetTotalChangeFlags(self: ?*anyopaque, value: i64) void {
+    pub fn SetTotalChangeFlags(self: ?*anyopaque, value: i32) void {
         qtc.QPinchGesture_SetTotalChangeFlags(@ptrCast(self), @intCast(value));
     }
 
@@ -1974,14 +1974,14 @@ pub const qpinchgesture = struct {
     /// ``` self: QtC.QPinchGesture ```
     ///
     /// Returns: ``` flag of qgesture_enums.ChangeFlag ```
-    pub fn ChangeFlags(self: ?*anyopaque) i64 {
+    pub fn ChangeFlags(self: ?*anyopaque) i32 {
         return qtc.QPinchGesture_ChangeFlags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setChangeFlags)
     ///
     /// ``` self: QtC.QPinchGesture, value: flag of qgesture_enums.ChangeFlag ```
-    pub fn SetChangeFlags(self: ?*anyopaque, value: i64) void {
+    pub fn SetChangeFlags(self: ?*anyopaque, value: i32) void {
         qtc.QPinchGesture_SetChangeFlags(@ptrCast(self), @intCast(value));
     }
 

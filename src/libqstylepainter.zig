@@ -1795,7 +1795,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setRenderHints)
     ///
     /// ``` self: QtC.QStylePainter, hints: flag of qpainter_enums.RenderHint ```
-    pub fn SetRenderHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetRenderHints(self: ?*anyopaque, hints: i32) void {
         qtc.QPainter_SetRenderHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -1806,7 +1806,7 @@ pub const qstylepainter = struct {
     /// ``` self: QtC.QStylePainter ```
     ///
     /// Returns: ``` flag of qpainter_enums.RenderHint ```
-    pub fn RenderHints(self: ?*anyopaque) i64 {
+    pub fn RenderHints(self: ?*anyopaque) i32 {
         return qtc.QPainter_RenderHints(@ptrCast(self));
     }
 
@@ -1995,7 +1995,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmapFragments)
     ///
     /// ``` self: QtC.QStylePainter, fragments: QtC.QPainter__PixmapFragment, fragmentCount: i32, pixmap: QtC.QPixmap, hints: flag of qpainter_enums.PixmapFragmentHint ```
-    pub fn DrawPixmapFragments4(self: ?*anyopaque, fragments: ?*anyopaque, fragmentCount: i32, pixmap: ?*anyopaque, hints: i64) void {
+    pub fn DrawPixmapFragments4(self: ?*anyopaque, fragments: ?*anyopaque, fragmentCount: i32, pixmap: ?*anyopaque, hints: i32) void {
         qtc.QPainter_DrawPixmapFragments4(@ptrCast(self), @ptrCast(fragments), @intCast(fragmentCount), @ptrCast(pixmap), @intCast(hints));
     }
 
@@ -2004,7 +2004,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, targetRect: QtC.QRectF, image: QtC.QImage, sourceRect: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn DrawImage42(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque, flags: i64) void {
+    pub fn DrawImage42(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque, flags: i32) void {
         qtc.QPainter_DrawImage42(@ptrCast(self), @ptrCast(targetRect), @ptrCast(image), @ptrCast(sourceRect), @intCast(flags));
     }
 
@@ -2013,7 +2013,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, targetRect: QtC.QRect, image: QtC.QImage, sourceRect: QtC.QRect, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn DrawImage43(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque, flags: i64) void {
+    pub fn DrawImage43(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque, flags: i32) void {
         qtc.QPainter_DrawImage43(@ptrCast(self), @ptrCast(targetRect), @ptrCast(image), @ptrCast(sourceRect), @intCast(flags));
     }
 
@@ -2022,7 +2022,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, image: QtC.QImage, sr: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn DrawImage44(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque, flags: i64) void {
+    pub fn DrawImage44(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque, flags: i32) void {
         qtc.QPainter_DrawImage44(@ptrCast(self), @ptrCast(p), @ptrCast(image), @ptrCast(sr), @intCast(flags));
     }
 
@@ -2031,7 +2031,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint, image: QtC.QImage, sr: QtC.QRect, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn DrawImage45(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque, flags: i64) void {
+    pub fn DrawImage45(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque, flags: i32) void {
         qtc.QPainter_DrawImage45(@ptrCast(self), @ptrCast(p), @ptrCast(image), @ptrCast(sr), @intCast(flags));
     }
 
@@ -2076,7 +2076,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, image: QtC.QImage, sx: i32, sy: i32, sw: i32, sh: i32, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn DrawImage82(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32, flags: i64) void {
+    pub fn DrawImage82(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32, flags: i32) void {
         qtc.QPainter_DrawImage82(@ptrCast(self), @intCast(x), @intCast(y), @ptrCast(image), @intCast(sx), @intCast(sy), @intCast(sw), @intCast(sh), @intCast(flags));
     }
 
@@ -2159,7 +2159,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setRenderHints)
     ///
     /// ``` self: QtC.QStylePainter, hints: flag of qpainter_enums.RenderHint, on: bool ```
-    pub fn SetRenderHints2(self: ?*anyopaque, hints: i64, on: bool) void {
+    pub fn SetRenderHints2(self: ?*anyopaque, hints: i32, on: bool) void {
         qtc.QPainter_SetRenderHints2(@ptrCast(self), @intCast(hints), on);
     }
 

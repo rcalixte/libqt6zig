@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const kmodifierkeyinfoprovider_p_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -243,7 +244,7 @@ pub const kmodifierkeyinfoprovider = struct {
     /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState ```
-    pub fn StateUpdated(self: ?*anyopaque, key: i32, state: i64) void {
+    pub fn StateUpdated(self: ?*anyopaque, key: i32, state: i32) void {
         qtc.KModifierKeyInfoProvider_StateUpdated(@ptrCast(self), @intCast(key), @intCast(state));
     }
 
@@ -252,7 +253,7 @@ pub const kmodifierkeyinfoprovider = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState) callconv(.c) void ```
-    pub fn OnStateUpdated(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
+    pub fn OnStateUpdated(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_OnStateUpdated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -261,7 +262,7 @@ pub const kmodifierkeyinfoprovider = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState ```
-    pub fn QBaseStateUpdated(self: ?*anyopaque, key: i32, state: i64) void {
+    pub fn QBaseStateUpdated(self: ?*anyopaque, key: i32, state: i32) void {
         qtc.KModifierKeyInfoProvider_QBaseStateUpdated(@ptrCast(self), @intCast(key), @intCast(state));
     }
 

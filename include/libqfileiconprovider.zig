@@ -110,7 +110,7 @@ pub const qfileiconprovider = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option ```
-    pub fn SetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QFileIconProvider_SetOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -121,7 +121,7 @@ pub const qfileiconprovider = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option ```
-    pub fn QBaseSetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn QBaseSetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QFileIconProvider_QBaseSetOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -132,7 +132,7 @@ pub const qfileiconprovider = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QFileIconProvider, slot: fn (self: QtC.QFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void ```
-    pub fn OnSetOptions(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOptions(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QFileIconProvider_OnSetOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -145,7 +145,7 @@ pub const qfileiconprovider = struct {
     /// ``` self: QtC.QFileIconProvider ```
     ///
     /// Returns: ``` flag of qabstractfileiconprovider_enums.Option ```
-    pub fn Options(self: ?*anyopaque) i64 {
+    pub fn Options(self: ?*anyopaque) i32 {
         return qtc.QFileIconProvider_Options(@ptrCast(self));
     }
 
@@ -158,7 +158,7 @@ pub const qfileiconprovider = struct {
     /// ``` self: QtC.QFileIconProvider ```
     ///
     /// Returns: ``` flag of qabstractfileiconprovider_enums.Option ```
-    pub fn QBaseOptions(self: ?*anyopaque) i64 {
+    pub fn QBaseOptions(self: ?*anyopaque) i32 {
         return qtc.QFileIconProvider_QBaseOptions(@ptrCast(self));
     }
 
@@ -168,8 +168,8 @@ pub const qfileiconprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileIconProvider, slot: fn () callconv(.c) i64 ```
-    pub fn OnOptions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QFileIconProvider, slot: fn () callconv(.c) i32 ```
+    pub fn OnOptions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QFileIconProvider_OnOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

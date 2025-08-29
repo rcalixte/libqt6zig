@@ -420,14 +420,14 @@ pub const qgraphicsscenemouseevent = struct {
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     ///
     /// Returns: ``` flag of qnamespace_enums.MouseEventFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneMouseEvent_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, flags: flag of qnamespace_enums.MouseEventFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsSceneMouseEvent_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -1960,14 +1960,14 @@ pub const qgraphicsscenedragdropevent = struct {
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn PossibleActions(self: ?*anyopaque) i64 {
+    pub fn PossibleActions(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneDragDropEvent_PossibleActions(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPossibleActions)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, actions: flag of qnamespace_enums.DropAction ```
-    pub fn SetPossibleActions(self: ?*anyopaque, actions: i64) void {
+    pub fn SetPossibleActions(self: ?*anyopaque, actions: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetPossibleActions(@ptrCast(self), @intCast(actions));
     }
 

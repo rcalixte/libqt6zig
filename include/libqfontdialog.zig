@@ -6,6 +6,7 @@ const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 const qpalette_enums = @import("libqpalette.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
+const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qfontdialog.html
@@ -120,7 +121,7 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdialog.html#setOptions)
     ///
     /// ``` self: QtC.QFontDialog, options: flag of qfontdialog_enums.FontDialogOption ```
-    pub fn SetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QFontDialog_SetOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -129,7 +130,7 @@ pub const qfontdialog = struct {
     /// ``` self: QtC.QFontDialog ```
     ///
     /// Returns: ``` flag of qfontdialog_enums.FontDialogOption ```
-    pub fn Options(self: ?*anyopaque) i64 {
+    pub fn Options(self: ?*anyopaque) i32 {
         return qtc.QFontDialog_Options(@ptrCast(self));
     }
 
@@ -336,7 +337,7 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
     ///
     /// ``` ok: *bool, initial: QtC.QFont, parent: QtC.QWidget, title: []const u8, options: flag of qfontdialog_enums.FontDialogOption ```
-    pub fn GetFont5(ok: *bool, initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8, options: i64) QtC.QFont {
+    pub fn GetFont5(ok: *bool, initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8, options: i32) QtC.QFont {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -2287,7 +2288,7 @@ pub const qfontdialog = struct {
     /// ``` self: QtC.QFontDialog ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -2296,7 +2297,7 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QFontDialog, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2305,7 +2306,7 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QFontDialog, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2924,7 +2925,7 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QFontDialog, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -2951,7 +2952,7 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QFontDialog, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -2969,7 +2970,7 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QFontDialog, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

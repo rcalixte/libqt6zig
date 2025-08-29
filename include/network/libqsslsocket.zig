@@ -123,7 +123,7 @@ pub const qsslsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#setSocketDescriptor)
     ///
     /// ``` self: QtC.QSslSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i64) bool {
+    pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
         return qtc.QSslSocket_SetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
@@ -132,7 +132,7 @@ pub const qsslsocket = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnSetSocketDescriptor(self: ?*anyopaque, slot: fn (?*anyopaque, isize, i32, i64) callconv(.c) bool) void {
+    pub fn OnSetSocketDescriptor(self: ?*anyopaque, slot: fn (?*anyopaque, isize, i32, i32) callconv(.c) bool) void {
         qtc.QSslSocket_OnSetSocketDescriptor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -141,14 +141,14 @@ pub const qsslsocket = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSslSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i64) bool {
+    pub fn QBaseSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
         return qtc.QSslSocket_QBaseSetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHost)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, openMode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
-    pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, openMode: i64, protocol: i32) void {
+    pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, openMode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -161,7 +161,7 @@ pub const qsslsocket = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, hostName: [*:0]const u8, port: u16, openMode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void ```
-    pub fn OnConnectToHost(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, u16, i64, i32) callconv(.c) void) void {
+    pub fn OnConnectToHost(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, u16, i32, i32) callconv(.c) void) void {
         qtc.QSslSocket_OnConnectToHost(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -170,7 +170,7 @@ pub const qsslsocket = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, openMode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
-    pub fn QBaseConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, openMode: i64, protocol: i32) void {
+    pub fn QBaseConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, openMode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -1203,7 +1203,7 @@ pub const qsslsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn ConnectToHostEncrypted3(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64) void {
+    pub fn ConnectToHostEncrypted3(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -1214,7 +1214,7 @@ pub const qsslsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
-    pub fn ConnectToHostEncrypted4(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64, protocol: i32) void {
+    pub fn ConnectToHostEncrypted4(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -1225,7 +1225,7 @@ pub const qsslsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn ConnectToHostEncrypted42(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i64) void {
+    pub fn ConnectToHostEncrypted42(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -1240,7 +1240,7 @@ pub const qsslsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QSslSocket, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
-    pub fn ConnectToHostEncrypted5(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i64, protocol: i32) void {
+    pub fn ConnectToHostEncrypted5(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -1408,7 +1408,7 @@ pub const qsslsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtcpsocket.html#bind)
     ///
     /// ``` self: QtC.QSslSocket, addr: qhostaddress_enums.SpecialAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
-    pub fn Bind3(self: ?*anyopaque, addr: i32, port: u16, mode: i64) bool {
+    pub fn Bind3(self: ?*anyopaque, addr: i32, port: u16, mode: i32) bool {
         return qtc.QTcpSocket_Bind3(@ptrCast(self), @intCast(addr), @intCast(port), @intCast(mode));
     }
 
@@ -1419,7 +1419,7 @@ pub const qsslsocket = struct {
     /// ``` self: QtC.QSslSocket ```
     ///
     /// Returns: ``` flag of qabstractsocket_enums.PauseMode ```
-    pub fn PauseMode(self: ?*anyopaque) i64 {
+    pub fn PauseMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_PauseMode(@ptrCast(self));
     }
 
@@ -1428,7 +1428,7 @@ pub const qsslsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPauseMode)
     ///
     /// ``` self: QtC.QSslSocket, pauseMode: flag of qabstractsocket_enums.PauseMode ```
-    pub fn SetPauseMode(self: ?*anyopaque, pauseMode: i64) void {
+    pub fn SetPauseMode(self: ?*anyopaque, pauseMode: i32) void {
         qtc.QAbstractSocket_SetPauseMode(@ptrCast(self), @intCast(pauseMode));
     }
 
@@ -1725,7 +1725,7 @@ pub const qsslsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// ``` self: QtC.QSslSocket, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
-    pub fn Bind22(self: ?*anyopaque, port: u16, mode: i64) bool {
+    pub fn Bind22(self: ?*anyopaque, port: u16, mode: i32) bool {
         return qtc.QAbstractSocket_Bind22(@ptrCast(self), @intCast(port), @intCast(mode));
     }
 
@@ -1734,7 +1734,7 @@ pub const qsslsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// ``` self: QtC.QSslSocket, address: QtC.QHostAddress, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn ConnectToHost3(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i64) void {
+    pub fn ConnectToHost3(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) void {
         qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self), @ptrCast(address), @intCast(port), @intCast(mode));
     }
 
@@ -1745,7 +1745,7 @@ pub const qsslsocket = struct {
     /// ``` self: QtC.QSslSocket ```
     ///
     /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn OpenMode(self: ?*anyopaque) i64 {
+    pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
@@ -2554,7 +2554,7 @@ pub const qsslsocket = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSslSocket, address: QtC.QHostAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
-    pub fn Bind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i64) bool {
+    pub fn Bind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) bool {
         return qtc.QSslSocket_Bind(@ptrCast(self), @ptrCast(address), @intCast(port), @intCast(mode));
     }
 
@@ -2565,7 +2565,7 @@ pub const qsslsocket = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSslSocket, address: QtC.QHostAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
-    pub fn QBaseBind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i64) bool {
+    pub fn QBaseBind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) bool {
         return qtc.QSslSocket_QBaseBind(@ptrCast(self), @ptrCast(address), @intCast(port), @intCast(mode));
     }
 
@@ -2576,7 +2576,7 @@ pub const qsslsocket = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, address: QtC.QHostAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag) callconv(.c) bool ```
-    pub fn OnBind(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u16, i64) callconv(.c) bool) void {
+    pub fn OnBind(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u16, i32) callconv(.c) bool) void {
         qtc.QSslSocket_OnBind(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2688,7 +2688,7 @@ pub const qsslsocket = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSslSocket, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn Open(self: ?*anyopaque, mode: i64) bool {
+    pub fn Open(self: ?*anyopaque, mode: i32) bool {
         return qtc.QSslSocket_Open(@ptrCast(self), @intCast(mode));
     }
 
@@ -2699,7 +2699,7 @@ pub const qsslsocket = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSslSocket, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseOpen(self: ?*anyopaque, mode: i64) bool {
+    pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
         return qtc.QSslSocket_QBaseOpen(@ptrCast(self), @intCast(mode));
     }
 
@@ -2710,7 +2710,7 @@ pub const qsslsocket = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QSslSocket_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3323,7 +3323,7 @@ pub const qsslsocket = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSslSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QSslSocket_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -3334,7 +3334,7 @@ pub const qsslsocket = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSslSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QSslSocket_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -3345,7 +3345,7 @@ pub const qsslsocket = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSslSocket_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

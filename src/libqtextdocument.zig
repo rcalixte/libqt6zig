@@ -1041,7 +1041,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#toMarkdown)
     ///
     /// ``` self: QtC.QTextDocument, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
-    pub fn ToMarkdown1(self: ?*anyopaque, features: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_ToMarkdown1(@ptrCast(self), @intCast(features));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToMarkdown1: Memory allocation failed");
@@ -1052,7 +1052,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#setMarkdown)
     ///
     /// ``` self: QtC.QTextDocument, markdown: []const u8, features: flag of qtextdocument_enums.MarkdownFeature ```
-    pub fn SetMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i64) void {
+    pub fn SetMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i32) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
@@ -1074,7 +1074,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ``` self: QtC.QTextDocument, subString: []const u8, from: i32, options: flag of qtextdocument_enums.FindFlag ```
-    pub fn Find32(self: ?*anyopaque, subString: []const u8, from: i32, options: i64) QtC.QTextCursor {
+    pub fn Find32(self: ?*anyopaque, subString: []const u8, from: i32, options: i32) QtC.QTextCursor {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
@@ -1085,7 +1085,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ``` self: QtC.QTextDocument, subString: []const u8, cursor: QtC.QTextCursor, options: flag of qtextdocument_enums.FindFlag ```
-    pub fn Find33(self: ?*anyopaque, subString: []const u8, cursor: ?*anyopaque, options: i64) QtC.QTextCursor {
+    pub fn Find33(self: ?*anyopaque, subString: []const u8, cursor: ?*anyopaque, options: i32) QtC.QTextCursor {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
@@ -1103,14 +1103,14 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ``` self: QtC.QTextDocument, expr: QtC.QRegularExpression, from: i32, options: flag of qtextdocument_enums.FindFlag ```
-    pub fn Find34(self: ?*anyopaque, expr: ?*anyopaque, from: i32, options: i64) QtC.QTextCursor {
+    pub fn Find34(self: ?*anyopaque, expr: ?*anyopaque, from: i32, options: i32) QtC.QTextCursor {
         return qtc.QTextDocument_Find34(@ptrCast(self), @ptrCast(expr), @intCast(from), @intCast(options));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ``` self: QtC.QTextDocument, expr: QtC.QRegularExpression, cursor: QtC.QTextCursor, options: flag of qtextdocument_enums.FindFlag ```
-    pub fn Find35(self: ?*anyopaque, expr: ?*anyopaque, cursor: ?*anyopaque, options: i64) QtC.QTextCursor {
+    pub fn Find35(self: ?*anyopaque, expr: ?*anyopaque, cursor: ?*anyopaque, options: i32) QtC.QTextCursor {
         return qtc.QTextDocument_Find35(@ptrCast(self), @ptrCast(expr), @ptrCast(cursor), @intCast(options));
     }
 

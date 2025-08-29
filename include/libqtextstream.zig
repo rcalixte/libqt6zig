@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qiodevicebase_enums = @import("libqiodevicebase.zig").enums;
 const qstringconverter_base_enums = @import("libqstringconverter_base.zig").enums;
 const qtextstream_enums = enums;
 const std = @import("std");
@@ -35,7 +36,7 @@ pub const qtextstream = struct {
     /// New4 constructs a new QTextStream object.
     ///
     /// ``` array: []u8, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn New4(array: []u8, openMode: i64) QtC.QTextStream {
+    pub fn New4(array: []u8, openMode: i32) QtC.QTextStream {
         const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
@@ -272,7 +273,7 @@ pub const qtextstream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#setNumberFlags)
     ///
     /// ``` self: QtC.QTextStream, flags: flag of qtextstream_enums.NumberFlag ```
-    pub fn SetNumberFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetNumberFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QTextStream_SetNumberFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -281,7 +282,7 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream ```
     ///
     /// Returns: ``` flag of qtextstream_enums.NumberFlag ```
-    pub fn NumberFlags(self: ?*anyopaque) i64 {
+    pub fn NumberFlags(self: ?*anyopaque) i32 {
         return qtc.QTextStream_NumberFlags(@ptrCast(self));
     }
 

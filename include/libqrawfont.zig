@@ -177,7 +177,7 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
     /// ``` self: QtC.QRawFont, glyphIndexes: []u32, layoutFlags: flag of qrawfont_enums.LayoutFlag, allocator: std.mem.Allocator ```
-    pub fn AdvancesForGlyphIndexes2(self: ?*anyopaque, glyphIndexes: []u32, layoutFlags: i64, allocator: std.mem.Allocator) []QtC.QPointF {
+    pub fn AdvancesForGlyphIndexes2(self: ?*anyopaque, glyphIndexes: []u32, layoutFlags: i32, allocator: std.mem.Allocator) []QtC.QPointF {
         const glyphIndexes_list = qtc.libqt_list{
             .len = glyphIndexes.len,
             .data = glyphIndexes.ptr,
@@ -207,7 +207,7 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
     /// ``` self: QtC.QRawFont, glyphIndexes: *const u32, advances: QtC.QPointF, numGlyphs: i32, layoutFlags: flag of qrawfont_enums.LayoutFlag ```
-    pub fn AdvancesForGlyphIndexes4(self: ?*anyopaque, glyphIndexes: *const u32, advances: ?*anyopaque, numGlyphs: i32, layoutFlags: i64) bool {
+    pub fn AdvancesForGlyphIndexes4(self: ?*anyopaque, glyphIndexes: *const u32, advances: ?*anyopaque, numGlyphs: i32, layoutFlags: i32) bool {
         return qtc.QRawFont_AdvancesForGlyphIndexes4(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs), @intCast(layoutFlags));
     }
 

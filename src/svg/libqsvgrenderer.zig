@@ -190,14 +190,14 @@ pub const qsvgrenderer = struct {
     /// ``` self: QtC.QSvgRenderer ```
     ///
     /// Returns: ``` flag of qtsvgglobal_enums.Option ```
-    pub fn Options(self: ?*anyopaque) i64 {
+    pub fn Options(self: ?*anyopaque) u32 {
         return qtc.QSvgRenderer_Options(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#setOptions)
     ///
     /// ``` self: QtC.QSvgRenderer, flags: flag of qtsvgglobal_enums.Option ```
-    pub fn SetOptions(self: ?*anyopaque, flags: i64) void {
+    pub fn SetOptions(self: ?*anyopaque, flags: u32) void {
         qtc.QSvgRenderer_SetOptions(@ptrCast(self), @intCast(flags));
     }
 
@@ -293,7 +293,7 @@ pub const qsvgrenderer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#setDefaultOptions)
     ///
     /// ``` flags: flag of qtsvgglobal_enums.Option ```
-    pub fn SetDefaultOptions(flags: i64) void {
+    pub fn SetDefaultOptions(flags: u32) void {
         qtc.QSvgRenderer_SetDefaultOptions(@intCast(flags));
     }
 

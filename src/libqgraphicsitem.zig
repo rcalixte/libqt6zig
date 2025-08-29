@@ -150,7 +150,7 @@ pub const qgraphicsitem = struct {
     /// ``` self: QtC.QGraphicsItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -164,7 +164,7 @@ pub const qgraphicsitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -2524,7 +2524,7 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QGraphicsObject, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -3070,7 +3070,7 @@ pub const qgraphicsobject = struct {
     /// ``` self: QtC.QGraphicsObject ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -3088,7 +3088,7 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsObject, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -6298,7 +6298,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// ``` self: QtC.QAbstractGraphicsShapeItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -6316,7 +6316,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -9386,7 +9386,7 @@ pub const qgraphicspathitem = struct {
     /// ``` self: QtC.QGraphicsPathItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -9404,7 +9404,7 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsPathItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -12231,7 +12231,7 @@ pub const qgraphicsrectitem = struct {
     /// ``` self: QtC.QGraphicsRectItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -12249,7 +12249,7 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsRectItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -15104,7 +15104,7 @@ pub const qgraphicsellipseitem = struct {
     /// ``` self: QtC.QGraphicsEllipseItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -15122,7 +15122,7 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -17916,7 +17916,7 @@ pub const qgraphicspolygonitem = struct {
     /// ``` self: QtC.QGraphicsPolygonItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -17934,7 +17934,7 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -20739,7 +20739,7 @@ pub const qgraphicslineitem = struct {
     /// ``` self: QtC.QGraphicsLineItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -20757,7 +20757,7 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsLineItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -23580,7 +23580,7 @@ pub const qgraphicspixmapitem = struct {
     /// ``` self: QtC.QGraphicsPixmapItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -23598,7 +23598,7 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -26278,7 +26278,7 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#setTextInteractionFlags)
     ///
     /// ``` self: QtC.QGraphicsTextItem, flags: flag of qnamespace_enums.TextInteractionFlag ```
-    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsTextItem_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -26287,7 +26287,7 @@ pub const qgraphicstextitem = struct {
     /// ``` self: QtC.QGraphicsTextItem ```
     ///
     /// Returns: ``` flag of qnamespace_enums.TextInteractionFlag ```
-    pub fn TextInteractionFlags(self: ?*anyopaque) i64 {
+    pub fn TextInteractionFlags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsTextItem_TextInteractionFlags(@ptrCast(self));
     }
 
@@ -27184,7 +27184,7 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QGraphicsTextItem, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -27730,7 +27730,7 @@ pub const qgraphicstextitem = struct {
     /// ``` self: QtC.QGraphicsTextItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -27748,7 +27748,7 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsTextItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -30335,7 +30335,7 @@ pub const qgraphicssimpletextitem = struct {
     /// ``` self: QtC.QGraphicsSimpleTextItem ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -30353,7 +30353,7 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -32984,7 +32984,7 @@ pub const qgraphicsitemgroup = struct {
     /// ``` self: QtC.QGraphicsItemGroup ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -33002,7 +33002,7 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 

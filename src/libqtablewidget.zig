@@ -10,6 +10,7 @@ const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 const qpalette_enums = @import("libqpalette.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
+const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qtablewidgetselectionrange.html
@@ -244,14 +245,14 @@ pub const qtablewidgetitem = struct {
     /// ``` self: QtC.QTableWidgetItem ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QTableWidgetItem_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setFlags)
     ///
     /// ``` self: QtC.QTableWidgetItem, flags: flag of qnamespace_enums.ItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QTableWidgetItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -395,7 +396,7 @@ pub const qtablewidgetitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
     /// ``` self: QtC.QTableWidgetItem, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetTextAlignment3(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetTextAlignment3(self: ?*anyopaque, alignment: i32) void {
         qtc.QTableWidgetItem_SetTextAlignment3(@ptrCast(self), @intCast(alignment));
     }
 
@@ -880,7 +881,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
     ///
     /// ``` self: QtC.QTableWidget, item: QtC.QTableWidgetItem, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn SetCurrentItem2(self: ?*anyopaque, item: ?*anyopaque, command: i64) void {
+    pub fn SetCurrentItem2(self: ?*anyopaque, item: ?*anyopaque, command: i32) void {
         qtc.QTableWidget_SetCurrentItem2(@ptrCast(self), @ptrCast(item), @intCast(command));
     }
 
@@ -894,7 +895,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentCell)
     ///
     /// ``` self: QtC.QTableWidget, row: i32, column: i32, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn SetCurrentCell2(self: ?*anyopaque, row: i32, column: i32, command: i64) void {
+    pub fn SetCurrentCell2(self: ?*anyopaque, row: i32, column: i32, command: i32) void {
         qtc.QTableWidget_SetCurrentCell2(@ptrCast(self), @intCast(row), @intCast(column), @intCast(command));
     }
 
@@ -1002,7 +1003,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidget.html#findItems)
     ///
     /// ``` self: QtC.QTableWidget, text: []const u8, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn FindItems(self: ?*anyopaque, text: []const u8, flags: i64, allocator: std.mem.Allocator) []QtC.QTableWidgetItem {
+    pub fn FindItems(self: ?*anyopaque, text: []const u8, flags: i32, allocator: std.mem.Allocator) []QtC.QTableWidgetItem {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1466,7 +1467,7 @@ pub const qtablewidget = struct {
     /// ``` self: QtC.QTableWidget ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QTableWidget_SupportedDropActions(@ptrCast(self));
     }
 
@@ -1474,8 +1475,8 @@ pub const qtablewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTableWidget, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QTableWidget, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QTableWidget_OnSupportedDropActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1486,7 +1487,7 @@ pub const qtablewidget = struct {
     /// ``` self: QtC.QTableWidget ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QTableWidget_QBaseSupportedDropActions(@ptrCast(self));
     }
 
@@ -2038,7 +2039,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
     /// ``` self: QtC.QTableWidget, triggers: flag of qabstractitemview_enums.EditTrigger ```
-    pub fn SetEditTriggers(self: ?*anyopaque, triggers: i64) void {
+    pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
         qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @intCast(triggers));
     }
 
@@ -2049,7 +2050,7 @@ pub const qtablewidget = struct {
     /// ``` self: QtC.QTableWidget ```
     ///
     /// Returns: ``` flag of qabstractitemview_enums.EditTrigger ```
-    pub fn EditTriggers(self: ?*anyopaque) i64 {
+    pub fn EditTriggers(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_EditTriggers(@ptrCast(self));
     }
 
@@ -2666,7 +2667,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QTableWidget, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
+    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
 
@@ -2675,7 +2676,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QTableWidget, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
+    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qtablewidget.ScrollBarWidgets: Memory allocation failed");
@@ -4687,7 +4688,7 @@ pub const qtablewidget = struct {
     /// ``` self: QtC.QTableWidget ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -4696,7 +4697,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QTableWidget, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -4705,7 +4706,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QTableWidget, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -5324,7 +5325,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -5351,7 +5352,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -5369,7 +5370,7 @@ pub const qtablewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QTableWidget, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -6357,7 +6358,7 @@ pub const qtablewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTableWidget, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i64) void {
+    pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
         qtc.QTableWidget_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
     }
 
@@ -6368,7 +6369,7 @@ pub const qtablewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTableWidget, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i64) void {
+    pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
         qtc.QTableWidget_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
     }
 
@@ -6379,7 +6380,7 @@ pub const qtablewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
-    pub fn OnSetSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnSetSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -7309,7 +7310,7 @@ pub const qtablewidget = struct {
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn SelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn SelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.QTableWidget_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
@@ -7322,7 +7323,7 @@ pub const qtablewidget = struct {
     /// ``` self: QtC.QTableWidget, index: QtC.QModelIndex, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn QBaseSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn QBaseSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.QTableWidget_QBaseSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
@@ -7332,8 +7333,8 @@ pub const qtablewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i64 ```
-    pub fn OnSelectionCommand(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 ```
+    pub fn OnSelectionCommand(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QTableWidget_OnSelectionCommand(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -7344,7 +7345,7 @@ pub const qtablewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTableWidget, supportedActions: flag of qnamespace_enums.DropAction ```
-    pub fn StartDrag(self: ?*anyopaque, supportedActions: i64) void {
+    pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
         qtc.QTableWidget_StartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
@@ -7355,7 +7356,7 @@ pub const qtablewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTableWidget, supportedActions: flag of qnamespace_enums.DropAction ```
-    pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i64) void {
+    pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i32) void {
         qtc.QTableWidget_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
@@ -7366,7 +7367,7 @@ pub const qtablewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void ```
-    pub fn OnStartDrag(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnStartDrag(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnStartDrag(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

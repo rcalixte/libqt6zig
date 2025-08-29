@@ -294,7 +294,7 @@ pub const qimagereader = struct {
     /// ``` self: QtC.QImageReader ```
     ///
     /// Returns: ``` flag of qimageiohandler_enums.Transformation ```
-    pub fn Transformation(self: ?*anyopaque) i64 {
+    pub fn Transformation(self: ?*anyopaque) i32 {
         return qtc.QImageReader_Transformation(@ptrCast(self));
     }
 

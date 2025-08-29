@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qdir_enums = enums;
+const qfiledevice_enums = @import("libqfiledevice.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qdir.html
@@ -50,7 +51,7 @@ pub const qdir = struct {
     /// New5 constructs a new QDir object.
     ///
     /// ``` path: []const u8, nameFilter: []const u8, sort: flag of qdir_enums.SortFlag ```
-    pub fn New5(path: []const u8, nameFilter: []const u8, sort: i64) QtC.QDir {
+    pub fn New5(path: []const u8, nameFilter: []const u8, sort: i32) QtC.QDir {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -66,7 +67,7 @@ pub const qdir = struct {
     /// New6 constructs a new QDir object.
     ///
     /// ``` path: []const u8, nameFilter: []const u8, sort: flag of qdir_enums.SortFlag, filter: flag of qdir_enums.Filter ```
-    pub fn New6(path: []const u8, nameFilter: []const u8, sort: i64, filter: i64) QtC.QDir {
+    pub fn New6(path: []const u8, nameFilter: []const u8, sort: i32, filter: i32) QtC.QDir {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -351,14 +352,14 @@ pub const qdir = struct {
     /// ``` self: QtC.QDir ```
     ///
     /// Returns: ``` flag of qdir_enums.Filter ```
-    pub fn Filter(self: ?*anyopaque) i64 {
+    pub fn Filter(self: ?*anyopaque) i32 {
         return qtc.QDir_Filter(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#setFilter)
     ///
     /// ``` self: QtC.QDir, filter: flag of qdir_enums.Filter ```
-    pub fn SetFilter(self: ?*anyopaque, filter: i64) void {
+    pub fn SetFilter(self: ?*anyopaque, filter: i32) void {
         qtc.QDir_SetFilter(@ptrCast(self), @intCast(filter));
     }
 
@@ -367,14 +368,14 @@ pub const qdir = struct {
     /// ``` self: QtC.QDir ```
     ///
     /// Returns: ``` flag of qdir_enums.SortFlag ```
-    pub fn Sorting(self: ?*anyopaque) i64 {
+    pub fn Sorting(self: ?*anyopaque) i32 {
         return qtc.QDir_Sorting(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#setSorting)
     ///
     /// ``` self: QtC.QDir, sort: flag of qdir_enums.SortFlag ```
-    pub fn SetSorting(self: ?*anyopaque, sort: i64) void {
+    pub fn SetSorting(self: ?*anyopaque, sort: i32) void {
         qtc.QDir_SetSorting(@ptrCast(self), @intCast(sort));
     }
 
@@ -535,7 +536,7 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#mkdir)
     ///
     /// ``` self: QtC.QDir, dirName: []const u8, permissions: flag of qfiledevice_enums.Permission ```
-    pub fn Mkdir2(self: ?*anyopaque, dirName: []const u8, permissions: i64) bool {
+    pub fn Mkdir2(self: ?*anyopaque, dirName: []const u8, permissions: i32) bool {
         const dirName_str = qtc.libqt_string{
             .len = dirName.len,
             .data = dirName.ptr,
@@ -863,14 +864,14 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isEmpty)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter ```
-    pub fn IsEmpty1(self: ?*anyopaque, filters: i64) bool {
+    pub fn IsEmpty1(self: ?*anyopaque, filters: i32) bool {
         return qtc.QDir_IsEmpty1(@ptrCast(self), @intCast(filters));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
-    pub fn EntryList1(self: ?*anyopaque, filters: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn EntryList1(self: ?*anyopaque, filters: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_EntryList1(@ptrCast(self), @intCast(filters));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -892,7 +893,7 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter, sort: flag of qdir_enums.SortFlag, allocator: std.mem.Allocator ```
-    pub fn EntryList22(self: ?*anyopaque, filters: i64, sort: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn EntryList22(self: ?*anyopaque, filters: i32, sort: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_EntryList22(@ptrCast(self), @intCast(filters), @intCast(sort));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -914,7 +915,7 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
-    pub fn EntryList23(self: ?*anyopaque, nameFilters: [][]const u8, filters: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn EntryList23(self: ?*anyopaque, nameFilters: [][]const u8, filters: i32, allocator: std.mem.Allocator) [][]const u8 {
         var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdir.EntryList23: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
@@ -948,7 +949,7 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, sort: flag of qdir_enums.SortFlag, allocator: std.mem.Allocator ```
-    pub fn EntryList3(self: ?*anyopaque, nameFilters: [][]const u8, filters: i64, sort: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn EntryList3(self: ?*anyopaque, nameFilters: [][]const u8, filters: i32, sort: i32, allocator: std.mem.Allocator) [][]const u8 {
         var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdir.EntryList3: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
@@ -982,7 +983,7 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
-    pub fn EntryInfoList1(self: ?*anyopaque, filters: i64, allocator: std.mem.Allocator) []QtC.QFileInfo {
+    pub fn EntryInfoList1(self: ?*anyopaque, filters: i32, allocator: std.mem.Allocator) []QtC.QFileInfo {
         const _arr: qtc.libqt_list = qtc.QDir_EntryInfoList1(@ptrCast(self), @intCast(filters));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QFileInfo, _arr.len) catch @panic("qdir.EntryInfoList1: Memory allocation failed");
@@ -994,7 +995,7 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, filters: flag of qdir_enums.Filter, sort: flag of qdir_enums.SortFlag, allocator: std.mem.Allocator ```
-    pub fn EntryInfoList22(self: ?*anyopaque, filters: i64, sort: i64, allocator: std.mem.Allocator) []QtC.QFileInfo {
+    pub fn EntryInfoList22(self: ?*anyopaque, filters: i32, sort: i32, allocator: std.mem.Allocator) []QtC.QFileInfo {
         const _arr: qtc.libqt_list = qtc.QDir_EntryInfoList22(@ptrCast(self), @intCast(filters), @intCast(sort));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QFileInfo, _arr.len) catch @panic("qdir.EntryInfoList22: Memory allocation failed");
@@ -1006,7 +1007,7 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
-    pub fn EntryInfoList23(self: ?*anyopaque, nameFilters: [][]const u8, filters: i64, allocator: std.mem.Allocator) []QtC.QFileInfo {
+    pub fn EntryInfoList23(self: ?*anyopaque, nameFilters: [][]const u8, filters: i32, allocator: std.mem.Allocator) []QtC.QFileInfo {
         var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdir.EntryInfoList23: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
@@ -1030,7 +1031,7 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ``` self: QtC.QDir, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, sort: flag of qdir_enums.SortFlag, allocator: std.mem.Allocator ```
-    pub fn EntryInfoList3(self: ?*anyopaque, nameFilters: [][]const u8, filters: i64, sort: i64, allocator: std.mem.Allocator) []QtC.QFileInfo {
+    pub fn EntryInfoList3(self: ?*anyopaque, nameFilters: [][]const u8, filters: i32, sort: i32, allocator: std.mem.Allocator) []QtC.QFileInfo {
         var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdir.EntryInfoList3: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {

@@ -34,7 +34,7 @@ pub const qregularexpression = struct {
     /// New4 constructs a new QRegularExpression object.
     ///
     /// ``` pattern: []const u8, options: flag of qregularexpression_enums.PatternOption ```
-    pub fn New4(pattern: []const u8, options: i64) QtC.QRegularExpression {
+    pub fn New4(pattern: []const u8, options: i32) QtC.QRegularExpression {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
@@ -48,14 +48,14 @@ pub const qregularexpression = struct {
     /// ``` self: QtC.QRegularExpression ```
     ///
     /// Returns: ``` flag of qregularexpression_enums.PatternOption ```
-    pub fn PatternOptions(self: ?*anyopaque) i64 {
+    pub fn PatternOptions(self: ?*anyopaque) i32 {
         return qtc.QRegularExpression_PatternOptions(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#setPatternOptions)
     ///
     /// ``` self: QtC.QRegularExpression, options: flag of qregularexpression_enums.PatternOption ```
-    pub fn SetPatternOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetPatternOptions(self: ?*anyopaque, options: i32) void {
         qtc.QRegularExpression_SetPatternOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -248,7 +248,7 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#match)
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType, matchOptions: flag of qregularexpression_enums.MatchOption ```
-    pub fn Match4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i32, matchOptions: i64) QtC.QRegularExpressionMatch {
+    pub fn Match4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i32, matchOptions: i32) QtC.QRegularExpressionMatch {
         const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
@@ -281,7 +281,7 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#globalMatch)
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType, matchOptions: flag of qregularexpression_enums.MatchOption ```
-    pub fn GlobalMatch4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i32, matchOptions: i64) QtC.QRegularExpressionMatchIterator {
+    pub fn GlobalMatch4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i32, matchOptions: i32) QtC.QRegularExpressionMatchIterator {
         const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
@@ -292,7 +292,7 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#wildcardToRegularExpression)
     ///
     /// ``` str: []const u8, options: flag of qregularexpression_enums.WildcardConversionOption, allocator: std.mem.Allocator ```
-    pub fn WildcardToRegularExpression22(str: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn WildcardToRegularExpression22(str: []const u8, options: i32, allocator: std.mem.Allocator) []const u8 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -365,7 +365,7 @@ pub const qregularexpressionmatch = struct {
     /// ``` self: QtC.QRegularExpressionMatch ```
     ///
     /// Returns: ``` flag of qregularexpression_enums.MatchOption ```
-    pub fn MatchOptions(self: ?*anyopaque) i64 {
+    pub fn MatchOptions(self: ?*anyopaque) i32 {
         return qtc.QRegularExpressionMatch_MatchOptions(@ptrCast(self));
     }
 
@@ -638,7 +638,7 @@ pub const qregularexpressionmatchiterator = struct {
     /// ``` self: QtC.QRegularExpressionMatchIterator ```
     ///
     /// Returns: ``` flag of qregularexpression_enums.MatchOption ```
-    pub fn MatchOptions(self: ?*anyopaque) i64 {
+    pub fn MatchOptions(self: ?*anyopaque) i32 {
         return qtc.QRegularExpressionMatchIterator_MatchOptions(@ptrCast(self));
     }
 

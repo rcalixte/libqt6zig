@@ -804,7 +804,7 @@ pub const qcborvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
     /// ``` self: QtC.QCborValue, opt: flag of qcborvalue_enums.EncodingOption, allocator: std.mem.Allocator ```
-    pub fn ToCbor1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn ToCbor1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QCborValue_ToCbor1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalue.ToCbor1: Memory allocation failed");
@@ -815,14 +815,14 @@ pub const qcborvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
     /// ``` self: QtC.QCborValue, writer: QtC.QCborStreamWriter, opt: flag of qcborvalue_enums.EncodingOption ```
-    pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i64) void {
+    pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i32) void {
         qtc.QCborValue_ToCbor22(@ptrCast(self), @ptrCast(writer), @intCast(opt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toDiagnosticNotation)
     ///
     /// ``` self: QtC.QCborValue, opts: flag of qcborvalue_enums.DiagnosticNotationOption, allocator: std.mem.Allocator ```
-    pub fn ToDiagnosticNotation1(self: ?*anyopaque, opts: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToDiagnosticNotation1(self: ?*anyopaque, opts: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCborValue_ToDiagnosticNotation1(@ptrCast(self), @intCast(opts));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalue.ToDiagnosticNotation1: Memory allocation failed");
@@ -1311,7 +1311,7 @@ pub const qcborvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueConstRef, opt: flag of qcborvalue_enums.EncodingOption, allocator: std.mem.Allocator ```
-    pub fn ToCbor1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn ToCbor1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToCbor1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueconstref.ToCbor1: Memory allocation failed");
@@ -1322,14 +1322,14 @@ pub const qcborvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueConstRef, writer: QtC.QCborStreamWriter, opt: flag of qcborvalue_enums.EncodingOption ```
-    pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i64) void {
+    pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i32) void {
         qtc.QCborValueConstRef_ToCbor22(@ptrCast(self), @ptrCast(writer), @intCast(opt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDiagnosticNotation)
     ///
     /// ``` self: QtC.QCborValueConstRef, opt: flag of qcborvalue_enums.DiagnosticNotationOption, allocator: std.mem.Allocator ```
-    pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCborValueConstRef_ToDiagnosticNotation1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueconstref.ToDiagnosticNotation1: Memory allocation failed");
@@ -1857,7 +1857,7 @@ pub const qcborvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueRef, opt: flag of qcborvalue_enums.EncodingOption, allocator: std.mem.Allocator ```
-    pub fn ToCbor1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn ToCbor1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToCbor1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueref.ToCbor1: Memory allocation failed");
@@ -1868,14 +1868,14 @@ pub const qcborvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueRef, writer: QtC.QCborStreamWriter, opt: flag of qcborvalue_enums.EncodingOption ```
-    pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i64) void {
+    pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i32) void {
         qtc.QCborValueRef_ToCbor22(@ptrCast(self), @ptrCast(writer), @intCast(opt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toDiagnosticNotation)
     ///
     /// ``` self: QtC.QCborValueRef, opt: flag of qcborvalue_enums.DiagnosticNotationOption, allocator: std.mem.Allocator ```
-    pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCborValueRef_ToDiagnosticNotation1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborvalueref.ToDiagnosticNotation1: Memory allocation failed");

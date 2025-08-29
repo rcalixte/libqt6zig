@@ -138,7 +138,7 @@ pub const qchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchart-qtcharts.html#addAxis)
     ///
     /// ``` self: QtC.QChart, axis: QtC.QAbstractAxis, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn AddAxis(self: ?*anyopaque, axis: ?*anyopaque, alignment: i64) void {
+    pub fn AddAxis(self: ?*anyopaque, axis: ?*anyopaque, alignment: i32) void {
         qtc.QChart_AddAxis(@ptrCast(self), @ptrCast(axis), @intCast(alignment));
     }
 
@@ -307,7 +307,7 @@ pub const qchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchart-qtcharts.html#setAnimationOptions)
     ///
     /// ``` self: QtC.QChart, options: flag of qchart_enums.AnimationOption ```
-    pub fn SetAnimationOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetAnimationOptions(self: ?*anyopaque, options: i32) void {
         qtc.QChart_SetAnimationOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -316,7 +316,7 @@ pub const qchart = struct {
     /// ``` self: QtC.QChart ```
     ///
     /// Returns: ``` flag of qchart_enums.AnimationOption ```
-    pub fn AnimationOptions(self: ?*anyopaque) i64 {
+    pub fn AnimationOptions(self: ?*anyopaque) i32 {
         return qtc.QChart_AnimationOptions(@ptrCast(self));
     }
 
@@ -596,7 +596,7 @@ pub const qchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchart-qtcharts.html#axes)
     ///
     /// ``` self: QtC.QChart, orientation: flag of qnamespace_enums.Orientation, allocator: std.mem.Allocator ```
-    pub fn Axes1(self: ?*anyopaque, orientation: i64, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
+    pub fn Axes1(self: ?*anyopaque, orientation: i32, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QChart_Axes1(@ptrCast(self), @intCast(orientation));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractAxis, _arr.len) catch @panic("qchart.Axes1: Memory allocation failed");
@@ -608,7 +608,7 @@ pub const qchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchart-qtcharts.html#axes)
     ///
     /// ``` self: QtC.QChart, orientation: flag of qnamespace_enums.Orientation, series: QtC.QAbstractSeries, allocator: std.mem.Allocator ```
-    pub fn Axes2(self: ?*anyopaque, orientation: i64, series: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
+    pub fn Axes2(self: ?*anyopaque, orientation: i32, series: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QChart_Axes2(@ptrCast(self), @intCast(orientation), @ptrCast(series));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractAxis, _arr.len) catch @panic("qchart.Axes2: Memory allocation failed");
@@ -1442,7 +1442,7 @@ pub const qchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QChart, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -1988,7 +1988,7 @@ pub const qchart = struct {
     /// ``` self: QtC.QChart ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -2006,7 +2006,7 @@ pub const qchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QChart, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 

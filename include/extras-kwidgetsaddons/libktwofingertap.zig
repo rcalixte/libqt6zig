@@ -1014,7 +1014,7 @@ pub const ktwofingertaprecognizer = struct {
     /// ``` self: QtC.KTwoFingerTapRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qgesturerecognizer_enums.ResultFlag ```
-    pub fn Recognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn Recognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.KTwoFingerTapRecognizer_Recognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 
@@ -1022,8 +1022,8 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KTwoFingerTapRecognizer, slot: fn (self: QtC.KTwoFingerTapRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i64 ```
-    pub fn OnRecognize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.KTwoFingerTapRecognizer, slot: fn (self: QtC.KTwoFingerTapRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i32 ```
+    pub fn OnRecognize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.KTwoFingerTapRecognizer_OnRecognize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1034,7 +1034,7 @@ pub const ktwofingertaprecognizer = struct {
     /// ``` self: QtC.KTwoFingerTapRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qgesturerecognizer_enums.ResultFlag ```
-    pub fn QBaseRecognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn QBaseRecognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.KTwoFingerTapRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 

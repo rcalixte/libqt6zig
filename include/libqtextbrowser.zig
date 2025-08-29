@@ -11,6 +11,7 @@ const qtextcursor_enums = @import("libqtextcursor.zig").enums;
 const qtextdocument_enums = @import("libqtextdocument.zig").enums;
 const qtextedit_enums = @import("libqtextedit.zig").enums;
 const qtextoption_enums = @import("libqtextoption.zig").enums;
+const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qtextbrowser.html
@@ -770,7 +771,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTextInteractionFlags)
     ///
     /// ``` self: QtC.QTextBrowser, flags: flag of qnamespace_enums.TextInteractionFlag ```
-    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -781,7 +782,7 @@ pub const qtextbrowser = struct {
     /// ``` self: QtC.QTextBrowser ```
     ///
     /// Returns: ``` flag of qnamespace_enums.TextInteractionFlag ```
-    pub fn TextInteractionFlags(self: ?*anyopaque) i64 {
+    pub fn TextInteractionFlags(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_TextInteractionFlags(@ptrCast(self));
     }
 
@@ -868,7 +869,7 @@ pub const qtextbrowser = struct {
     /// ``` self: QtC.QTextBrowser ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_Alignment(@ptrCast(self));
     }
 
@@ -1383,7 +1384,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setAlignment)
     ///
     /// ``` self: QtC.QTextBrowser, a: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, a: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
         qtc.QTextEdit_SetAlignment(@ptrCast(self), @intCast(a));
     }
 
@@ -1703,7 +1704,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.QTextBrowser, exp: []const u8, options: flag of qtextdocument_enums.FindFlag ```
-    pub fn Find22(self: ?*anyopaque, exp: []const u8, options: i64) bool {
+    pub fn Find22(self: ?*anyopaque, exp: []const u8, options: i32) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
@@ -1716,7 +1717,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.QTextBrowser, exp: QtC.QRegularExpression, options: flag of qtextdocument_enums.FindFlag ```
-    pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i64) bool {
+    pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i32) bool {
         return qtc.QTextEdit_Find23(@ptrCast(self), @ptrCast(exp), @intCast(options));
     }
 
@@ -1725,7 +1726,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
     ///
     /// ``` self: QtC.QTextBrowser, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
-    pub fn ToMarkdown1(self: ?*anyopaque, features: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self), @intCast(features));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.ToMarkdown1: Memory allocation failed");
@@ -1859,7 +1860,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QTextBrowser, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
+    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
 
@@ -1868,7 +1869,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QTextBrowser, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
+    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qtextbrowser.ScrollBarWidgets: Memory allocation failed");
@@ -3889,7 +3890,7 @@ pub const qtextbrowser = struct {
     /// ``` self: QtC.QTextBrowser ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -3898,7 +3899,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QTextBrowser, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -3907,7 +3908,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QTextBrowser, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -4517,7 +4518,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextBrowser, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -4544,7 +4545,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextBrowser, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -4562,7 +4563,7 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QTextBrowser, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

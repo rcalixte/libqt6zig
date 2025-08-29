@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qeventloop_enums = @import("libqeventloop.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -232,14 +233,14 @@ pub const qcoreapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
     /// ``` flags: flag of qeventloop_enums.ProcessEventsFlag, maxtime: i32 ```
-    pub fn ProcessEvents2(flags: i64, maxtime: i32) void {
+    pub fn ProcessEvents2(flags: i32, maxtime: i32) void {
         qtc.QCoreApplication_ProcessEvents2(@intCast(flags), @intCast(maxtime));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
     /// ``` flags: flag of qeventloop_enums.ProcessEventsFlag, deadline: QtC.QDeadlineTimer ```
-    pub fn ProcessEvents3(flags: i64, deadline: QtC.QDeadlineTimer) void {
+    pub fn ProcessEvents3(flags: i32, deadline: QtC.QDeadlineTimer) void {
         qtc.QCoreApplication_ProcessEvents3(@intCast(flags), @ptrCast(deadline));
     }
 
@@ -652,7 +653,7 @@ pub const qcoreapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
     /// ``` flags: flag of qeventloop_enums.ProcessEventsFlag ```
-    pub fn ProcessEvents1(flags: i64) void {
+    pub fn ProcessEvents1(flags: i32) void {
         qtc.QCoreApplication_ProcessEvents1(@intCast(flags));
     }
 

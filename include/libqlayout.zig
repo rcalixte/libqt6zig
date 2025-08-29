@@ -161,14 +161,14 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i64) bool {
+    pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i32) bool {
         return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i64) bool {
+    pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i32) bool {
         return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
     }
 
@@ -324,7 +324,7 @@ pub const qlayout = struct {
     /// ``` self: QtC.QLayout ```
     ///
     /// Returns: ``` flag of qnamespace_enums.Orientation ```
-    pub fn ExpandingDirections(self: ?*anyopaque) i64 {
+    pub fn ExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QLayout_ExpandingDirections(@ptrCast(self));
     }
 
@@ -332,8 +332,8 @@ pub const qlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayout, slot: fn () callconv(.c) i64 ```
-    pub fn OnExpandingDirections(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QLayout, slot: fn () callconv(.c) i32 ```
+    pub fn OnExpandingDirections(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QLayout_OnExpandingDirections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -344,7 +344,7 @@ pub const qlayout = struct {
     /// ``` self: QtC.QLayout ```
     ///
     /// Returns: ``` flag of qnamespace_enums.Orientation ```
-    pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
+    pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QLayout_QBaseExpandingDirections(@ptrCast(self));
     }
 
@@ -578,7 +578,7 @@ pub const qlayout = struct {
     /// ``` self: QtC.QLayout ```
     ///
     /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
-    pub fn ControlTypes(self: ?*anyopaque) i64 {
+    pub fn ControlTypes(self: ?*anyopaque) i32 {
         return qtc.QLayout_ControlTypes(@ptrCast(self));
     }
 
@@ -586,8 +586,8 @@ pub const qlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayout, slot: fn () callconv(.c) i64 ```
-    pub fn OnControlTypes(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QLayout, slot: fn () callconv(.c) i32 ```
+    pub fn OnControlTypes(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QLayout_OnControlTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -598,14 +598,14 @@ pub const qlayout = struct {
     /// ``` self: QtC.QLayout ```
     ///
     /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
-    pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
+    pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
         return qtc.QLayout_QBaseControlTypes(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// ``` self: QtC.QLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
-    pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
+    pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
         return qtc.QLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
 
@@ -614,7 +614,7 @@ pub const qlayout = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QLayout, slot: fn (self: QtC.QLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i64) callconv(.c) QtC.QLayoutItem) void {
+    pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
         qtc.QLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -623,7 +623,7 @@ pub const qlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
-    pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
+    pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
         return qtc.QLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
 
@@ -1268,7 +1268,7 @@ pub const qlayout = struct {
     /// ``` self: QtC.QLayout ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
 

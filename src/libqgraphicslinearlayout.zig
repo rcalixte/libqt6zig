@@ -154,7 +154,7 @@ pub const qgraphicslinearlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, item: ?*anyopaque, alignment: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, item: ?*anyopaque, alignment: i32) void {
         qtc.QGraphicsLinearLayout_SetAlignment(@ptrCast(self), @ptrCast(item), @intCast(alignment));
     }
 
@@ -163,7 +163,7 @@ pub const qgraphicslinearlayout = struct {
     /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque, item: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque, item: ?*anyopaque) i32 {
         return qtc.QGraphicsLinearLayout_Alignment(@ptrCast(self), @ptrCast(item));
     }
 

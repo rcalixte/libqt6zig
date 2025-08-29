@@ -120,7 +120,7 @@ pub const qbuffer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#open)
     ///
     /// ``` self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn Open(self: ?*anyopaque, openMode: i64) bool {
+    pub fn Open(self: ?*anyopaque, openMode: i32) bool {
         return qtc.QBuffer_Open(@ptrCast(self), @intCast(openMode));
     }
 
@@ -129,7 +129,7 @@ pub const qbuffer = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QBuffer_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -138,7 +138,7 @@ pub const qbuffer = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseOpen(self: ?*anyopaque, openMode: i64) bool {
+    pub fn QBaseOpen(self: ?*anyopaque, openMode: i32) bool {
         return qtc.QBuffer_QBaseOpen(@ptrCast(self), @intCast(openMode));
     }
 
@@ -429,7 +429,7 @@ pub const qbuffer = struct {
     /// ``` self: QtC.QBuffer ```
     ///
     /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn OpenMode(self: ?*anyopaque) i64 {
+    pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
@@ -1669,7 +1669,7 @@ pub const qbuffer = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QBuffer_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -1680,7 +1680,7 @@ pub const qbuffer = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QBuffer_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -1691,7 +1691,7 @@ pub const qbuffer = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QBuffer_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -637,7 +637,7 @@ pub const qpdfsearchmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QPdfSearchModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
+    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
 
@@ -1227,7 +1227,7 @@ pub const qpdfsearchmodel = struct {
     /// ``` self: QtC.QPdfSearchModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QPdfSearchModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -1240,7 +1240,7 @@ pub const qpdfsearchmodel = struct {
     /// ``` self: QtC.QPdfSearchModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QPdfSearchModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -1250,8 +1250,8 @@ pub const qpdfsearchmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfSearchModel, slot: fn (self: QtC.QPdfSearchModel, index: QtC.QModelIndex) callconv(.c) i64 ```
-    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QPdfSearchModel, slot: fn (self: QtC.QPdfSearchModel, index: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QPdfSearchModel_OnFlags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1661,7 +1661,7 @@ pub const qpdfsearchmodel = struct {
     /// ``` self: QtC.QPdfSearchModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QPdfSearchModel_SupportedDropActions(@ptrCast(self));
     }
 
@@ -1674,7 +1674,7 @@ pub const qpdfsearchmodel = struct {
     /// ``` self: QtC.QPdfSearchModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QPdfSearchModel_QBaseSupportedDropActions(@ptrCast(self));
     }
 
@@ -1684,8 +1684,8 @@ pub const qpdfsearchmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfSearchModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QPdfSearchModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QPdfSearchModel_OnSupportedDropActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1698,7 +1698,7 @@ pub const qpdfsearchmodel = struct {
     /// ``` self: QtC.QPdfSearchModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QPdfSearchModel_SupportedDragActions(@ptrCast(self));
     }
 
@@ -1711,7 +1711,7 @@ pub const qpdfsearchmodel = struct {
     /// ``` self: QtC.QPdfSearchModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QPdfSearchModel_QBaseSupportedDragActions(@ptrCast(self));
     }
 
@@ -1721,8 +1721,8 @@ pub const qpdfsearchmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfSearchModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QPdfSearchModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QPdfSearchModel_OnSupportedDragActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2063,7 +2063,7 @@ pub const qpdfsearchmodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QPdfSearchModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QPdfSearchModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qpdfsearchmodel.Match: Memory allocation failed");
@@ -2079,7 +2079,7 @@ pub const qpdfsearchmodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QPdfSearchModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QPdfSearchModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qpdfsearchmodel.Match: Memory allocation failed");
@@ -2095,7 +2095,7 @@ pub const qpdfsearchmodel = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QPdfSearchModel, slot: fn (self: QtC.QPdfSearchModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex ```
-    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) [*:null]QtC.QModelIndex) void {
+    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
         qtc.QPdfSearchModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -1139,7 +1139,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#setNumberOptions)
     ///
     /// ``` self: QtC.QLocale, options: flag of qlocale_enums.NumberOption ```
-    pub fn SetNumberOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetNumberOptions(self: ?*anyopaque, options: i32) void {
         qtc.QLocale_SetNumberOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -1148,7 +1148,7 @@ pub const qlocale = struct {
     /// ``` self: QtC.QLocale ```
     ///
     /// Returns: ``` flag of qlocale_enums.NumberOption ```
-    pub fn NumberOptions(self: ?*anyopaque) i64 {
+    pub fn NumberOptions(self: ?*anyopaque) i32 {
         return qtc.QLocale_NumberOptions(@ptrCast(self));
     }
 
@@ -1788,7 +1788,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#formattedDataSize)
     ///
     /// ``` self: QtC.QLocale, bytes: i64, precision: i32, format: flag of qlocale_enums.DataSizeFormat, allocator: std.mem.Allocator ```
-    pub fn FormattedDataSize3(self: ?*anyopaque, bytes: i64, precision: i32, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn FormattedDataSize3(self: ?*anyopaque, bytes: i64, precision: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLocale_FormattedDataSize3(@ptrCast(self), @intCast(bytes), @intCast(precision), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.FormattedDataSize3: Memory allocation failed");
@@ -1821,7 +1821,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#languageToCode)
     ///
     /// ``` language: qlocale_enums.Language, codeTypes: flag of qlocale_enums.LanguageCodeType, allocator: std.mem.Allocator ```
-    pub fn LanguageToCode2(language: u16, codeTypes: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn LanguageToCode2(language: u16, codeTypes: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLocale_LanguageToCode2(@intCast(language), @intCast(codeTypes));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.LanguageToCode2: Memory allocation failed");

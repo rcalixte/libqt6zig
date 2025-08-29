@@ -448,7 +448,7 @@ pub const qsqlquery = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquery.html#bindValue)
     ///
     /// ``` self: QtC.QSqlQuery, placeholder: []const u8, val: QtC.QVariant, typeVal: flag of qtsqlglobal_enums.ParamTypeFlag ```
-    pub fn BindValue3(self: ?*anyopaque, placeholder: []const u8, val: ?*anyopaque, typeVal: i64) void {
+    pub fn BindValue3(self: ?*anyopaque, placeholder: []const u8, val: ?*anyopaque, typeVal: i32) void {
         const placeholder_str = qtc.libqt_string{
             .len = placeholder.len,
             .data = placeholder.ptr,
@@ -459,14 +459,14 @@ pub const qsqlquery = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquery.html#bindValue)
     ///
     /// ``` self: QtC.QSqlQuery, pos: i32, val: QtC.QVariant, typeVal: flag of qtsqlglobal_enums.ParamTypeFlag ```
-    pub fn BindValue32(self: ?*anyopaque, pos: i32, val: ?*anyopaque, typeVal: i64) void {
+    pub fn BindValue32(self: ?*anyopaque, pos: i32, val: ?*anyopaque, typeVal: i32) void {
         qtc.QSqlQuery_BindValue32(@ptrCast(self), @intCast(pos), @ptrCast(val), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquery.html#addBindValue)
     ///
     /// ``` self: QtC.QSqlQuery, val: QtC.QVariant, typeVal: flag of qtsqlglobal_enums.ParamTypeFlag ```
-    pub fn AddBindValue2(self: ?*anyopaque, val: ?*anyopaque, typeVal: i64) void {
+    pub fn AddBindValue2(self: ?*anyopaque, val: ?*anyopaque, typeVal: i32) void {
         qtc.QSqlQuery_AddBindValue2(@ptrCast(self), @ptrCast(val), @intCast(typeVal));
     }
 

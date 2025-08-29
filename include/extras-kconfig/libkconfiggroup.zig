@@ -1192,7 +1192,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#deleteGroupImpl)
     ///
     /// ``` self: QtC.KConfigGroup, groupName: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i64) void {
+    pub fn DeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -1205,7 +1205,7 @@ pub const kconfiggroup = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.KConfigGroup, slot: fn (self: QtC.KConfigGroup, groupName: [*:0]const u8, flags: flag of kconfigbase_enums.WriteConfigFlag) callconv(.c) void ```
-    pub fn OnDeleteGroupImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) void) void {
+    pub fn OnDeleteGroupImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.KConfigGroup_OnDeleteGroupImpl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1214,7 +1214,7 @@ pub const kconfiggroup = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.KConfigGroup, groupName: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn QBaseDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i64) void {
+    pub fn QBaseDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -1258,21 +1258,21 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#copyTo)
     ///
     /// ``` self: QtC.KConfigGroup, other: QtC.KConfigBase, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn CopyTo2(self: ?*anyopaque, other: ?*anyopaque, pFlags: i64) void {
+    pub fn CopyTo2(self: ?*anyopaque, other: ?*anyopaque, pFlags: i32) void {
         qtc.KConfigGroup_CopyTo2(@ptrCast(self), @ptrCast(other), @intCast(pFlags));
     }
 
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#reparent)
     ///
     /// ``` self: QtC.KConfigGroup, parent: QtC.KConfigBase, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn Reparent2(self: ?*anyopaque, parent: ?*anyopaque, pFlags: i64) void {
+    pub fn Reparent2(self: ?*anyopaque, parent: ?*anyopaque, pFlags: i32) void {
         qtc.KConfigGroup_Reparent2(@ptrCast(self), @ptrCast(parent), @intCast(pFlags));
     }
 
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#moveValuesTo)
     ///
     /// ``` self: QtC.KConfigGroup, keys: [][]const u8, other: QtC.KConfigGroup, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn MoveValuesTo3(self: ?*anyopaque, keys: [][]const u8, other: ?*anyopaque, pFlags: i64) void {
+    pub fn MoveValuesTo3(self: ?*anyopaque, keys: [][]const u8, other: ?*anyopaque, pFlags: i32) void {
         const keys_list = qtc.libqt_list{
             .len = keys.len,
             .data = keys.ptr,
@@ -1283,14 +1283,14 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#moveValuesTo)
     ///
     /// ``` self: QtC.KConfigGroup, other: QtC.KConfigGroup, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn MoveValuesTo22(self: ?*anyopaque, other: ?*anyopaque, pFlags: i64) void {
+    pub fn MoveValuesTo22(self: ?*anyopaque, other: ?*anyopaque, pFlags: i32) void {
         qtc.KConfigGroup_MoveValuesTo22(@ptrCast(self), @ptrCast(other), @intCast(pFlags));
     }
 
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#deleteGroup)
     ///
     /// ``` self: QtC.KConfigGroup, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteGroup1(self: ?*anyopaque, pFlags: i64) void {
+    pub fn DeleteGroup1(self: ?*anyopaque, pFlags: i32) void {
         qtc.KConfigGroup_DeleteGroup1(@ptrCast(self), @intCast(pFlags));
     }
 
@@ -1434,7 +1434,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: QtC.QVariant, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry32(self: ?*anyopaque, key: []const u8, value: ?*anyopaque, pFlags: i64) void {
+    pub fn WriteEntry32(self: ?*anyopaque, key: []const u8, value: ?*anyopaque, pFlags: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1445,7 +1445,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: QtC.QVariant, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry33(self: ?*anyopaque, key: []const u8, value: ?*anyopaque, pFlags: i64) void {
+    pub fn WriteEntry33(self: ?*anyopaque, key: []const u8, value: ?*anyopaque, pFlags: i32) void {
         const key_Cstring = key.ptr;
         qtc.KConfigGroup_WriteEntry33(@ptrCast(self), key_Cstring, @ptrCast(value), @intCast(pFlags));
     }
@@ -1453,7 +1453,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: []const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry34(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i64) void {
+    pub fn WriteEntry34(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1468,7 +1468,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: []const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry35(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i64) void {
+    pub fn WriteEntry35(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -1480,7 +1480,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: []u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry36(self: ?*anyopaque, key: []const u8, value: []u8, pFlags: i64) void {
+    pub fn WriteEntry36(self: ?*anyopaque, key: []const u8, value: []u8, pFlags: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1495,7 +1495,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: []u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry37(self: ?*anyopaque, key: []const u8, value: []u8, pFlags: i64) void {
+    pub fn WriteEntry37(self: ?*anyopaque, key: []const u8, value: []u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -1507,7 +1507,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: []const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry38(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i64) void {
+    pub fn WriteEntry38(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1519,7 +1519,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: []const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry39(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i64) void {
+    pub fn WriteEntry39(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_Cstring = value.ptr;
         qtc.KConfigGroup_WriteEntry39(@ptrCast(self), key_Cstring, value_Cstring, @intCast(pFlags));
@@ -1528,7 +1528,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: [][]const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag, allocator: std.mem.Allocator ```
-    pub fn WriteEntry310(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i64, allocator: std.mem.Allocator) void {
+    pub fn WriteEntry310(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1551,7 +1551,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: [][]const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag, allocator: std.mem.Allocator ```
-    pub fn WriteEntry311(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i64, allocator: std.mem.Allocator) void {
+    pub fn WriteEntry311(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry311: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -1571,7 +1571,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: []QtC.QVariant, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry312(self: ?*anyopaque, key: []const u8, value: []QtC.QVariant, pFlags: i64) void {
+    pub fn WriteEntry312(self: ?*anyopaque, key: []const u8, value: []QtC.QVariant, pFlags: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1586,7 +1586,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: []QtC.QVariant, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteEntry313(self: ?*anyopaque, key: []const u8, value: []QtC.QVariant, pFlags: i64) void {
+    pub fn WriteEntry313(self: ?*anyopaque, key: []const u8, value: []QtC.QVariant, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_list = qtc.libqt_list{
             .len = value.len,
@@ -1598,7 +1598,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeXdgListEntry)
     ///
     /// ``` self: QtC.KConfigGroup, pKey: []const u8, value: [][]const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag, allocator: std.mem.Allocator ```
-    pub fn WriteXdgListEntry3(self: ?*anyopaque, pKey: []const u8, value: [][]const u8, pFlags: i64, allocator: std.mem.Allocator) void {
+    pub fn WriteXdgListEntry3(self: ?*anyopaque, pKey: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -1621,7 +1621,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writeXdgListEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: [][]const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag, allocator: std.mem.Allocator ```
-    pub fn WriteXdgListEntry32(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i64, allocator: std.mem.Allocator) void {
+    pub fn WriteXdgListEntry32(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry32: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -1641,7 +1641,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writePathEntry)
     ///
     /// ``` self: QtC.KConfigGroup, pKey: []const u8, path: []const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WritePathEntry32(self: ?*anyopaque, pKey: []const u8, path: []const u8, pFlags: i64) void {
+    pub fn WritePathEntry32(self: ?*anyopaque, pKey: []const u8, path: []const u8, pFlags: i32) void {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -1656,7 +1656,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writePathEntry)
     ///
     /// ``` self: QtC.KConfigGroup, Key: []const u8, path: []const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WritePathEntry33(self: ?*anyopaque, Key: []const u8, path: []const u8, pFlags: i64) void {
+    pub fn WritePathEntry33(self: ?*anyopaque, Key: []const u8, path: []const u8, pFlags: i32) void {
         const Key_Cstring = Key.ptr;
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -1668,7 +1668,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writePathEntry)
     ///
     /// ``` self: QtC.KConfigGroup, pKey: []const u8, value: [][]const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag, allocator: std.mem.Allocator ```
-    pub fn WritePathEntry34(self: ?*anyopaque, pKey: []const u8, value: [][]const u8, pFlags: i64, allocator: std.mem.Allocator) void {
+    pub fn WritePathEntry34(self: ?*anyopaque, pKey: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -1691,7 +1691,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#writePathEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, value: [][]const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag, allocator: std.mem.Allocator ```
-    pub fn WritePathEntry35(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i64, allocator: std.mem.Allocator) void {
+    pub fn WritePathEntry35(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry35: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -1711,7 +1711,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#deleteEntry)
     ///
     /// ``` self: QtC.KConfigGroup, pKey: []const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteEntry22(self: ?*anyopaque, pKey: []const u8, pFlags: i64) void {
+    pub fn DeleteEntry22(self: ?*anyopaque, pKey: []const u8, pFlags: i32) void {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -1722,7 +1722,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#deleteEntry)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, pFlags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteEntry23(self: ?*anyopaque, key: []const u8, pFlags: i64) void {
+    pub fn DeleteEntry23(self: ?*anyopaque, key: []const u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         qtc.KConfigGroup_DeleteEntry23(@ptrCast(self), key_Cstring, @intCast(pFlags));
     }
@@ -1730,7 +1730,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#revertToDefault)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, pFlag: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn RevertToDefault22(self: ?*anyopaque, key: []const u8, pFlag: i64) void {
+    pub fn RevertToDefault22(self: ?*anyopaque, key: []const u8, pFlag: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1741,7 +1741,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfiggroup.html#revertToDefault)
     ///
     /// ``` self: QtC.KConfigGroup, key: []const u8, pFlag: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn RevertToDefault23(self: ?*anyopaque, key: []const u8, pFlag: i64) void {
+    pub fn RevertToDefault23(self: ?*anyopaque, key: []const u8, pFlag: i32) void {
         const key_Cstring = key.ptr;
         qtc.KConfigGroup_RevertToDefault23(@ptrCast(self), key_Cstring, @intCast(pFlag));
     }
@@ -1803,7 +1803,7 @@ pub const kconfiggroup = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KConfigGroup, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i64) void {
+    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,

@@ -73,14 +73,14 @@ pub const qstyleoption = struct {
     /// ``` self: QtC.QStyleOption ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOption, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -253,7 +253,7 @@ pub const qstyleoptionfocusrect = struct {
     /// ``` self: QtC.QStyleOptionFocusRect ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -262,7 +262,7 @@ pub const qstyleoptionfocusrect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionFocusRect, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -435,14 +435,14 @@ pub const qstyleoptionframe = struct {
     /// ``` self: QtC.QStyleOptionFrame ```
     ///
     /// Returns: ``` flag of qstyleoption_enums.FrameFeature ```
-    pub fn Features(self: ?*anyopaque) i64 {
+    pub fn Features(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionFrame_Features(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionframe.html#features-var)
     ///
     /// ``` self: QtC.QStyleOptionFrame, features: flag of qstyleoption_enums.FrameFeature ```
-    pub fn SetFeatures(self: ?*anyopaque, features: i64) void {
+    pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
         qtc.QStyleOptionFrame_SetFeatures(@ptrCast(self), @intCast(features));
     }
 
@@ -505,7 +505,7 @@ pub const qstyleoptionframe = struct {
     /// ``` self: QtC.QStyleOptionFrame ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -514,7 +514,7 @@ pub const qstyleoptionframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionFrame, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -811,7 +811,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// ``` self: QtC.QStyleOptionTabWidgetFrame ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -820,7 +820,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionTabWidgetFrame, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -1061,7 +1061,7 @@ pub const qstyleoptiontabbarbase = struct {
     /// ``` self: QtC.QStyleOptionTabBarBase ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -1070,7 +1070,7 @@ pub const qstyleoptiontabbarbase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionTabBarBase, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -1251,14 +1251,14 @@ pub const qstyleoptionheader = struct {
     /// ``` self: QtC.QStyleOptionHeader ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn TextAlignment(self: ?*anyopaque) i64 {
+    pub fn TextAlignment(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionHeader_TextAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionheader.html#textAlignment-var)
     ///
     /// ``` self: QtC.QStyleOptionHeader, textAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i64) void {
+    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
         qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
     }
 
@@ -1281,14 +1281,14 @@ pub const qstyleoptionheader = struct {
     /// ``` self: QtC.QStyleOptionHeader ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn IconAlignment(self: ?*anyopaque) i64 {
+    pub fn IconAlignment(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionHeader_IconAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionheader.html#iconAlignment-var)
     ///
     /// ``` self: QtC.QStyleOptionHeader, iconAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetIconAlignment(self: ?*anyopaque, iconAlignment: i64) void {
+    pub fn SetIconAlignment(self: ?*anyopaque, iconAlignment: i32) void {
         qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self), @intCast(iconAlignment));
     }
 
@@ -1399,7 +1399,7 @@ pub const qstyleoptionheader = struct {
     /// ``` self: QtC.QStyleOptionHeader ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -1408,7 +1408,7 @@ pub const qstyleoptionheader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionHeader, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -1643,7 +1643,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ``` self: QtC.QStyleOptionHeaderV2 ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn TextAlignment(self: ?*anyopaque) i64 {
+    pub fn TextAlignment(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionHeader_TextAlignment(@ptrCast(self));
     }
 
@@ -1652,7 +1652,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionheader.html#textAlignment-var)
     ///
     /// ``` self: QtC.QStyleOptionHeaderV2, textAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i64) void {
+    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
         qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
     }
 
@@ -1681,7 +1681,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ``` self: QtC.QStyleOptionHeaderV2 ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn IconAlignment(self: ?*anyopaque) i64 {
+    pub fn IconAlignment(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionHeader_IconAlignment(@ptrCast(self));
     }
 
@@ -1690,7 +1690,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionheader.html#iconAlignment-var)
     ///
     /// ``` self: QtC.QStyleOptionHeaderV2, iconAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetIconAlignment(self: ?*anyopaque, iconAlignment: i64) void {
+    pub fn SetIconAlignment(self: ?*anyopaque, iconAlignment: i32) void {
         qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self), @intCast(iconAlignment));
     }
 
@@ -1817,7 +1817,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// ``` self: QtC.QStyleOptionHeaderV2 ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -1826,7 +1826,7 @@ pub const qstyleoptionheaderv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionHeaderV2, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -1971,14 +1971,14 @@ pub const qstyleoptionbutton = struct {
     /// ``` self: QtC.QStyleOptionButton ```
     ///
     /// Returns: ``` flag of qstyleoption_enums.ButtonFeature ```
-    pub fn Features(self: ?*anyopaque) i64 {
+    pub fn Features(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionButton_Features(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionbutton.html#features-var)
     ///
     /// ``` self: QtC.QStyleOptionButton, features: flag of qstyleoption_enums.ButtonFeature ```
-    pub fn SetFeatures(self: ?*anyopaque, features: i64) void {
+    pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
         qtc.QStyleOptionButton_SetFeatures(@ptrCast(self), @intCast(features));
     }
 
@@ -2075,7 +2075,7 @@ pub const qstyleoptionbutton = struct {
     /// ``` self: QtC.QStyleOptionButton ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -2084,7 +2084,7 @@ pub const qstyleoptionbutton = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionButton, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -2327,14 +2327,14 @@ pub const qstyleoptiontab = struct {
     /// ``` self: QtC.QStyleOptionTab ```
     ///
     /// Returns: ``` flag of qstyleoption_enums.CornerWidget ```
-    pub fn CornerWidgets(self: ?*anyopaque) i64 {
+    pub fn CornerWidgets(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionTab_CornerWidgets(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontab.html#cornerWidgets-var)
     ///
     /// ``` self: QtC.QStyleOptionTab, cornerWidgets: flag of qstyleoption_enums.CornerWidget ```
-    pub fn SetCornerWidgets(self: ?*anyopaque, cornerWidgets: i64) void {
+    pub fn SetCornerWidgets(self: ?*anyopaque, cornerWidgets: i32) void {
         qtc.QStyleOptionTab_SetCornerWidgets(@ptrCast(self), @intCast(cornerWidgets));
     }
 
@@ -2399,14 +2399,14 @@ pub const qstyleoptiontab = struct {
     /// ``` self: QtC.QStyleOptionTab ```
     ///
     /// Returns: ``` flag of qstyleoption_enums.TabFeature ```
-    pub fn Features(self: ?*anyopaque) i64 {
+    pub fn Features(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionTab_Features(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontab.html#features-var)
     ///
     /// ``` self: QtC.QStyleOptionTab, features: flag of qstyleoption_enums.TabFeature ```
-    pub fn SetFeatures(self: ?*anyopaque, features: i64) void {
+    pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
         qtc.QStyleOptionTab_SetFeatures(@ptrCast(self), @intCast(features));
     }
 
@@ -2467,7 +2467,7 @@ pub const qstyleoptiontab = struct {
     /// ``` self: QtC.QStyleOptionTab ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -2476,7 +2476,7 @@ pub const qstyleoptiontab = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionTab, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -2669,14 +2669,14 @@ pub const qstyleoptiontoolbar = struct {
     /// ``` self: QtC.QStyleOptionToolBar ```
     ///
     /// Returns: ``` flag of qstyleoption_enums.ToolBarFeature ```
-    pub fn Features(self: ?*anyopaque) i64 {
+    pub fn Features(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionToolBar_Features(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#features-var)
     ///
     /// ``` self: QtC.QStyleOptionToolBar, features: flag of qstyleoption_enums.ToolBarFeature ```
-    pub fn SetFeatures(self: ?*anyopaque, features: i64) void {
+    pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
         qtc.QStyleOptionToolBar_SetFeatures(@ptrCast(self), @intCast(features));
     }
 
@@ -2751,7 +2751,7 @@ pub const qstyleoptiontoolbar = struct {
     /// ``` self: QtC.QStyleOptionToolBar ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -2760,7 +2760,7 @@ pub const qstyleoptiontoolbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionToolBar, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -2969,14 +2969,14 @@ pub const qstyleoptionprogressbar = struct {
     /// ``` self: QtC.QStyleOptionProgressBar ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn TextAlignment(self: ?*anyopaque) i64 {
+    pub fn TextAlignment(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionProgressBar_TextAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#textAlignment-var)
     ///
     /// ``` self: QtC.QStyleOptionProgressBar, textAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i64) void {
+    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
         qtc.QStyleOptionProgressBar_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
     }
 
@@ -3065,7 +3065,7 @@ pub const qstyleoptionprogressbar = struct {
     /// ``` self: QtC.QStyleOptionProgressBar ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -3074,7 +3074,7 @@ pub const qstyleoptionprogressbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionProgressBar, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -3409,7 +3409,7 @@ pub const qstyleoptionmenuitem = struct {
     /// ``` self: QtC.QStyleOptionMenuItem ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -3418,7 +3418,7 @@ pub const qstyleoptionmenuitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionMenuItem, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -3679,7 +3679,7 @@ pub const qstyleoptiondockwidget = struct {
     /// ``` self: QtC.QStyleOptionDockWidget ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -3688,7 +3688,7 @@ pub const qstyleoptiondockwidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionDockWidget, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -3833,14 +3833,14 @@ pub const qstyleoptionviewitem = struct {
     /// ``` self: QtC.QStyleOptionViewItem ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn DisplayAlignment(self: ?*anyopaque) i64 {
+    pub fn DisplayAlignment(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionViewItem_DisplayAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#displayAlignment-var)
     ///
     /// ``` self: QtC.QStyleOptionViewItem, displayAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetDisplayAlignment(self: ?*anyopaque, displayAlignment: i64) void {
+    pub fn SetDisplayAlignment(self: ?*anyopaque, displayAlignment: i32) void {
         qtc.QStyleOptionViewItem_SetDisplayAlignment(@ptrCast(self), @intCast(displayAlignment));
     }
 
@@ -3849,14 +3849,14 @@ pub const qstyleoptionviewitem = struct {
     /// ``` self: QtC.QStyleOptionViewItem ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn DecorationAlignment(self: ?*anyopaque) i64 {
+    pub fn DecorationAlignment(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionViewItem_DecorationAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationAlignment-var)
     ///
     /// ``` self: QtC.QStyleOptionViewItem, decorationAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetDecorationAlignment(self: ?*anyopaque, decorationAlignment: i64) void {
+    pub fn SetDecorationAlignment(self: ?*anyopaque, decorationAlignment: i32) void {
         qtc.QStyleOptionViewItem_SetDecorationAlignment(@ptrCast(self), @intCast(decorationAlignment));
     }
 
@@ -3939,14 +3939,14 @@ pub const qstyleoptionviewitem = struct {
     /// ``` self: QtC.QStyleOptionViewItem ```
     ///
     /// Returns: ``` flag of qstyleoption_enums.ViewItemFeature ```
-    pub fn Features(self: ?*anyopaque) i64 {
+    pub fn Features(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionViewItem_Features(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#features-var)
     ///
     /// ``` self: QtC.QStyleOptionViewItem, features: flag of qstyleoption_enums.ViewItemFeature ```
-    pub fn SetFeatures(self: ?*anyopaque, features: i64) void {
+    pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
         qtc.QStyleOptionViewItem_SetFeatures(@ptrCast(self), @intCast(features));
     }
 
@@ -4117,7 +4117,7 @@ pub const qstyleoptionviewitem = struct {
     /// ``` self: QtC.QStyleOptionViewItem ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -4126,7 +4126,7 @@ pub const qstyleoptionviewitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionViewItem, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -4377,7 +4377,7 @@ pub const qstyleoptiontoolbox = struct {
     /// ``` self: QtC.QStyleOptionToolBox ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -4386,7 +4386,7 @@ pub const qstyleoptiontoolbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionToolBox, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -4599,7 +4599,7 @@ pub const qstyleoptionrubberband = struct {
     /// ``` self: QtC.QStyleOptionRubberBand ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -4608,7 +4608,7 @@ pub const qstyleoptionrubberband = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionRubberBand, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -4837,7 +4837,7 @@ pub const qstyleoptioncomplex = struct {
     /// ``` self: QtC.QStyleOptionComplex ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -4846,7 +4846,7 @@ pub const qstyleoptioncomplex = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionComplex, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -5257,7 +5257,7 @@ pub const qstyleoptionslider = struct {
     /// ``` self: QtC.QStyleOptionSlider ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -5266,7 +5266,7 @@ pub const qstyleoptionslider = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionSlider, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -5427,14 +5427,14 @@ pub const qstyleoptionspinbox = struct {
     /// ``` self: QtC.QStyleOptionSpinBox ```
     ///
     /// Returns: ``` flag of qabstractspinbox_enums.StepEnabledFlag ```
-    pub fn StepEnabled(self: ?*anyopaque) i64 {
+    pub fn StepEnabled(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionSpinBox_StepEnabled(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#stepEnabled-var)
     ///
     /// ``` self: QtC.QStyleOptionSpinBox, stepEnabled: flag of qabstractspinbox_enums.StepEnabledFlag ```
-    pub fn SetStepEnabled(self: ?*anyopaque, stepEnabled: i64) void {
+    pub fn SetStepEnabled(self: ?*anyopaque, stepEnabled: i32) void {
         qtc.QStyleOptionSpinBox_SetStepEnabled(@ptrCast(self), @intCast(stepEnabled));
     }
 
@@ -5535,7 +5535,7 @@ pub const qstyleoptionspinbox = struct {
     /// ``` self: QtC.QStyleOptionSpinBox ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -5544,7 +5544,7 @@ pub const qstyleoptionspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionSpinBox, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -5689,14 +5689,14 @@ pub const qstyleoptiontoolbutton = struct {
     /// ``` self: QtC.QStyleOptionToolButton ```
     ///
     /// Returns: ``` flag of qstyleoption_enums.ToolButtonFeature ```
-    pub fn Features(self: ?*anyopaque) i64 {
+    pub fn Features(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionToolButton_Features(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#features-var)
     ///
     /// ``` self: QtC.QStyleOptionToolButton, features: flag of qstyleoption_enums.ToolButtonFeature ```
-    pub fn SetFeatures(self: ?*anyopaque, features: i64) void {
+    pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
         qtc.QStyleOptionToolButton_SetFeatures(@ptrCast(self), @intCast(features));
     }
 
@@ -5893,7 +5893,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// ``` self: QtC.QStyleOptionToolButton ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -5902,7 +5902,7 @@ pub const qstyleoptiontoolbutton = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionToolButton, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -6139,14 +6139,14 @@ pub const qstyleoptioncombobox = struct {
     /// ``` self: QtC.QStyleOptionComboBox ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn TextAlignment(self: ?*anyopaque) i64 {
+    pub fn TextAlignment(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComboBox_TextAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#textAlignment-var)
     ///
     /// ``` self: QtC.QStyleOptionComboBox, textAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i64) void {
+    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
         qtc.QStyleOptionComboBox_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
     }
 
@@ -6233,7 +6233,7 @@ pub const qstyleoptioncombobox = struct {
     /// ``` self: QtC.QStyleOptionComboBox ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -6242,7 +6242,7 @@ pub const qstyleoptioncombobox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionComboBox, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -6531,7 +6531,7 @@ pub const qstyleoptiontitlebar = struct {
     /// ``` self: QtC.QStyleOptionTitleBar ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -6540,7 +6540,7 @@ pub const qstyleoptiontitlebar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionTitleBar, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -6685,14 +6685,14 @@ pub const qstyleoptiongroupbox = struct {
     /// ``` self: QtC.QStyleOptionGroupBox ```
     ///
     /// Returns: ``` flag of qstyleoption_enums.FrameFeature ```
-    pub fn Features(self: ?*anyopaque) i64 {
+    pub fn Features(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionGroupBox_Features(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#features-var)
     ///
     /// ``` self: QtC.QStyleOptionGroupBox, features: flag of qstyleoption_enums.FrameFeature ```
-    pub fn SetFeatures(self: ?*anyopaque, features: i64) void {
+    pub fn SetFeatures(self: ?*anyopaque, features: i32) void {
         qtc.QStyleOptionGroupBox_SetFeatures(@ptrCast(self), @intCast(features));
     }
 
@@ -6723,14 +6723,14 @@ pub const qstyleoptiongroupbox = struct {
     /// ``` self: QtC.QStyleOptionGroupBox ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn TextAlignment(self: ?*anyopaque) i64 {
+    pub fn TextAlignment(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionGroupBox_TextAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#textAlignment-var)
     ///
     /// ``` self: QtC.QStyleOptionGroupBox, textAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i64) void {
+    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
         qtc.QStyleOptionGroupBox_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
     }
 
@@ -6859,7 +6859,7 @@ pub const qstyleoptiongroupbox = struct {
     /// ``` self: QtC.QStyleOptionGroupBox ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -6868,7 +6868,7 @@ pub const qstyleoptiongroupbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionGroupBox, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -7107,7 +7107,7 @@ pub const qstyleoptionsizegrip = struct {
     /// ``` self: QtC.QStyleOptionSizeGrip ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -7116,7 +7116,7 @@ pub const qstyleoptionsizegrip = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionSizeGrip, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -7320,7 +7320,7 @@ pub const qstyleoptiongraphicsitem = struct {
     /// ``` self: QtC.QStyleOptionGraphicsItem ```
     ///
     /// Returns: ``` flag of qstyle_enums.StateFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QStyleOption_State(@ptrCast(self));
     }
 
@@ -7329,7 +7329,7 @@ pub const qstyleoptiongraphicsitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
     /// ``` self: QtC.QStyleOptionGraphicsItem, state: flag of qstyle_enums.StateFlag ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QStyleOption_SetState(@ptrCast(self), @intCast(state));
     }
 

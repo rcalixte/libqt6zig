@@ -441,7 +441,7 @@ pub const qimageioplugin = struct {
     /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
     ///
     /// Returns: ``` flag of qimageiohandler_enums.Capability ```
-    pub fn Capabilities(self: ?*anyopaque, device: ?*anyopaque, format: []u8) i64 {
+    pub fn Capabilities(self: ?*anyopaque, device: ?*anyopaque, format: []u8) i32 {
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,

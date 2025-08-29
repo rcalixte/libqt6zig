@@ -67,7 +67,7 @@ pub const qwebenginefilesystemaccessrequest = struct {
     /// ``` self: QtC.QWebEngineFileSystemAccessRequest ```
     ///
     /// Returns: ``` flag of qwebenginefilesystemaccessrequest_enums.AccessFlag ```
-    pub fn AccessFlags(self: ?*anyopaque) i64 {
+    pub fn AccessFlags(self: ?*anyopaque) i32 {
         return qtc.QWebEngineFileSystemAccessRequest_AccessFlags(@ptrCast(self));
     }
 

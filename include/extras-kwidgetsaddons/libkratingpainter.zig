@@ -30,7 +30,7 @@ pub const kratingpainter = struct {
     /// ``` self: QtC.KRatingPainter ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.KRatingPainter_Alignment(@ptrCast(self));
     }
 
@@ -88,7 +88,7 @@ pub const kratingpainter = struct {
     /// [Qt documentation](https://api-staging.kde.org/kratingpainter.html#setAlignment)
     ///
     /// ``` self: QtC.KRatingPainter, alignVal: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, alignVal: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, alignVal: i32) void {
         qtc.KRatingPainter_SetAlignment(@ptrCast(self), @intCast(alignVal));
     }
 
@@ -144,14 +144,14 @@ pub const kratingpainter = struct {
     /// [Qt documentation](https://api-staging.kde.org/kratingpainter.html#paintRating)
     ///
     /// ``` p: QtC.QPainter, rect: QtC.QRect, alignVal: flag of qnamespace_enums.AlignmentFlag, rating: i32 ```
-    pub fn PaintRating(p: ?*anyopaque, rect: ?*anyopaque, alignVal: i64, rating: i32) void {
+    pub fn PaintRating(p: ?*anyopaque, rect: ?*anyopaque, alignVal: i32, rating: i32) void {
         qtc.KRatingPainter_PaintRating(@ptrCast(p), @ptrCast(rect), @intCast(alignVal), @intCast(rating));
     }
 
     /// [Qt documentation](https://api-staging.kde.org/kratingpainter.html#getRatingFromPosition)
     ///
     /// ``` rect: QtC.QRect, alignVal: flag of qnamespace_enums.AlignmentFlag, direction: qnamespace_enums.LayoutDirection, pos: QtC.QPoint ```
-    pub fn GetRatingFromPosition(rect: ?*anyopaque, alignVal: i64, direction: i32, pos: ?*anyopaque) i32 {
+    pub fn GetRatingFromPosition(rect: ?*anyopaque, alignVal: i32, direction: i32, pos: ?*anyopaque) i32 {
         return qtc.KRatingPainter_GetRatingFromPosition(@ptrCast(rect), @intCast(alignVal), @intCast(direction), @ptrCast(pos));
     }
 
@@ -165,7 +165,7 @@ pub const kratingpainter = struct {
     /// [Qt documentation](https://api-staging.kde.org/kratingpainter.html#paintRating)
     ///
     /// ``` p: QtC.QPainter, rect: QtC.QRect, alignVal: flag of qnamespace_enums.AlignmentFlag, rating: i32, hoverRating: i32 ```
-    pub fn PaintRating5(p: ?*anyopaque, rect: ?*anyopaque, alignVal: i64, rating: i32, hoverRating: i32) void {
+    pub fn PaintRating5(p: ?*anyopaque, rect: ?*anyopaque, alignVal: i32, rating: i32, hoverRating: i32) void {
         qtc.KRatingPainter_PaintRating5(@ptrCast(p), @ptrCast(rect), @intCast(alignVal), @intCast(rating), @intCast(hoverRating));
     }
 

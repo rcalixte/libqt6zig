@@ -347,7 +347,7 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#isEqual)
     ///
     /// ``` self: QtC.QHostAddress, address: QtC.QHostAddress, mode: flag of qhostaddress_enums.ConversionModeFlag ```
-    pub fn IsEqual2(self: ?*anyopaque, address: ?*anyopaque, mode: i64) bool {
+    pub fn IsEqual2(self: ?*anyopaque, address: ?*anyopaque, mode: i32) bool {
         return qtc.QHostAddress_IsEqual2(@ptrCast(self), @ptrCast(address), @intCast(mode));
     }
 

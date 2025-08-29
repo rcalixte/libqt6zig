@@ -168,7 +168,7 @@ pub const qcamera = struct {
     /// ``` self: QtC.QCamera ```
     ///
     /// Returns: ``` flag of qcamera_enums.Feature ```
-    pub fn SupportedFeatures(self: ?*anyopaque) i64 {
+    pub fn SupportedFeatures(self: ?*anyopaque) i32 {
         return qtc.QCamera_SupportedFeatures(@ptrCast(self));
     }
 

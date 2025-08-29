@@ -16,7 +16,7 @@ pub const qtextoption = struct {
     /// New2 constructs a new QTextOption object.
     ///
     /// ``` alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn New2(alignment: i64) QtC.QTextOption {
+    pub fn New2(alignment: i32) QtC.QTextOption {
         return qtc.QTextOption_new2(@intCast(alignment));
     }
 
@@ -37,7 +37,7 @@ pub const qtextoption = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setAlignment)
     ///
     /// ``` self: QtC.QTextOption, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QTextOption_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -46,7 +46,7 @@ pub const qtextoption = struct {
     /// ``` self: QtC.QTextOption ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QTextOption_Alignment(@ptrCast(self));
     }
 

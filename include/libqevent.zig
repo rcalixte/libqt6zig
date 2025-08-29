@@ -4,6 +4,7 @@ const qcoreevent_enums = @import("libqcoreevent.zig").enums;
 const qevent_enums = enums;
 const qeventpoint_enums = @import("libqeventpoint.zig").enums;
 const qinputdevice_enums = @import("libqinputdevice.zig").enums;
+const qiodevicebase_enums = @import("libqiodevicebase.zig").enums;
 const qkeysequence_enums = @import("libqkeysequence.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qpointingdevice_enums = @import("libqpointingdevice.zig").enums;
@@ -1823,7 +1824,7 @@ pub const qmouseevent = struct {
     /// ``` self: QtC.QMouseEvent ```
     ///
     /// Returns: ``` flag of qnamespace_enums.MouseEventFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QMouseEvent_Flags(@ptrCast(self));
     }
 
@@ -7765,14 +7766,14 @@ pub const qdropevent = struct {
     /// New constructs a new QDropEvent object.
     ///
     /// ``` pos: QtC.QPointF, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64) QtC.QDropEvent {
+    pub fn New(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i64, modifiers: i64) QtC.QDropEvent {
         return qtc.QDropEvent_new(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New2 constructs a new QDropEvent object.
     ///
     /// ``` pos: QtC.QPointF, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, typeVal: qcoreevent_enums.Type ```
-    pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i32) QtC.QDropEvent {
+    pub fn New2(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i32) QtC.QDropEvent {
         return qtc.QDropEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
     }
 
@@ -7863,7 +7864,7 @@ pub const qdropevent = struct {
     /// ``` self: QtC.QDropEvent ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn PossibleActions(self: ?*anyopaque) i64 {
+    pub fn PossibleActions(self: ?*anyopaque) i32 {
         return qtc.QDropEvent_PossibleActions(@ptrCast(self));
     }
 
@@ -8053,14 +8054,14 @@ pub const qdragmoveevent = struct {
     /// New constructs a new QDragMoveEvent object.
     ///
     /// ``` pos: QtC.QPoint, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64) QtC.QDragMoveEvent {
+    pub fn New(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i64, modifiers: i64) QtC.QDragMoveEvent {
         return qtc.QDragMoveEvent_new(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New2 constructs a new QDragMoveEvent object.
     ///
     /// ``` pos: QtC.QPoint, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, typeVal: qcoreevent_enums.Type ```
-    pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i32) QtC.QDragMoveEvent {
+    pub fn New2(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i32) QtC.QDragMoveEvent {
         return qtc.QDragMoveEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
     }
 
@@ -8202,7 +8203,7 @@ pub const qdragmoveevent = struct {
     /// ``` self: QtC.QDragMoveEvent ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn PossibleActions(self: ?*anyopaque) i64 {
+    pub fn PossibleActions(self: ?*anyopaque) i32 {
         return qtc.QDropEvent_PossibleActions(@ptrCast(self));
     }
 
@@ -8386,7 +8387,7 @@ pub const qdragenterevent = struct {
     /// New constructs a new QDragEnterEvent object.
     ///
     /// ``` pos: QtC.QPoint, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64) QtC.QDragEnterEvent {
+    pub fn New(pos: ?*anyopaque, actions: i32, data: ?*anyopaque, buttons: i64, modifiers: i64) QtC.QDragEnterEvent {
         return qtc.QDragEnterEvent_new(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers));
     }
 
@@ -8538,7 +8539,7 @@ pub const qdragenterevent = struct {
     /// ``` self: QtC.QDragEnterEvent ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn PossibleActions(self: ?*anyopaque) i64 {
+    pub fn PossibleActions(self: ?*anyopaque) i32 {
         return qtc.QDropEvent_PossibleActions(@ptrCast(self));
     }
 
@@ -9724,7 +9725,7 @@ pub const qfileopenevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileopenevent.html#openFile)
     ///
     /// ``` self: QtC.QFileOpenEvent, file: QtC.QFile, flags: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn OpenFile(self: ?*anyopaque, file: ?*anyopaque, flags: i64) bool {
+    pub fn OpenFile(self: ?*anyopaque, file: ?*anyopaque, flags: i32) bool {
         return qtc.QFileOpenEvent_OpenFile(@ptrCast(self), @ptrCast(file), @intCast(flags));
     }
 
@@ -10262,14 +10263,14 @@ pub const qwindowstatechangeevent = struct {
     /// New constructs a new QWindowStateChangeEvent object.
     ///
     /// ``` oldState: flag of qnamespace_enums.WindowState ```
-    pub fn New(oldState: i64) QtC.QWindowStateChangeEvent {
+    pub fn New(oldState: i32) QtC.QWindowStateChangeEvent {
         return qtc.QWindowStateChangeEvent_new(@intCast(oldState));
     }
 
     /// New2 constructs a new QWindowStateChangeEvent object.
     ///
     /// ``` oldState: flag of qnamespace_enums.WindowState, isOverride: bool ```
-    pub fn New2(oldState: i64, isOverride: bool) QtC.QWindowStateChangeEvent {
+    pub fn New2(oldState: i32, isOverride: bool) QtC.QWindowStateChangeEvent {
         return qtc.QWindowStateChangeEvent_new2(@intCast(oldState), isOverride);
     }
 
@@ -10303,7 +10304,7 @@ pub const qwindowstatechangeevent = struct {
     /// ``` self: QtC.QWindowStateChangeEvent ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn OldState(self: ?*anyopaque) i64 {
+    pub fn OldState(self: ?*anyopaque) i32 {
         return qtc.QWindowStateChangeEvent_OldState(@ptrCast(self));
     }
 
@@ -10461,7 +10462,7 @@ pub const qtouchevent = struct {
     /// New2 constructs a new QTouchEvent object.
     ///
     /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, touchPointStates: flag of qeventpoint_enums.State ```
-    pub fn New2(eventType: i32, device: ?*anyopaque, modifiers: i64, touchPointStates: i64) QtC.QTouchEvent {
+    pub fn New2(eventType: i32, device: ?*anyopaque, modifiers: i64, touchPointStates: u8) QtC.QTouchEvent {
         return qtc.QTouchEvent_new2(@intCast(eventType), @ptrCast(device), @intCast(modifiers), @intCast(touchPointStates));
     }
 
@@ -10494,7 +10495,7 @@ pub const qtouchevent = struct {
     /// New6 constructs a new QTouchEvent object.
     ///
     /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, touchPointStates: flag of qeventpoint_enums.State, touchPoints: []QtC.QEventPoint ```
-    pub fn New6(eventType: i32, device: ?*anyopaque, modifiers: i64, touchPointStates: i64, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
+    pub fn New6(eventType: i32, device: ?*anyopaque, modifiers: i64, touchPointStates: u8, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
         const touchPoints_list = qtc.libqt_list{
             .len = touchPoints.len,
             .data = @ptrCast(touchPoints.ptr),
@@ -10540,7 +10541,7 @@ pub const qtouchevent = struct {
     /// ``` self: QtC.QTouchEvent ```
     ///
     /// Returns: ``` flag of qeventpoint_enums.State ```
-    pub fn TouchPointStates(self: ?*anyopaque) i64 {
+    pub fn TouchPointStates(self: ?*anyopaque) u8 {
         return qtc.QTouchEvent_TouchPointStates(@ptrCast(self));
     }
 

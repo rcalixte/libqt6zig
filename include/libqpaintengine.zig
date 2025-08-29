@@ -565,7 +565,7 @@ pub const qpaintengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
     ///
     /// ``` self: QtC.QPaintEngine, r: QtC.QRectF, pm: QtC.QImage, sr: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn DrawImage(self: ?*anyopaque, r: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque, flags: i64) void {
+    pub fn DrawImage(self: ?*anyopaque, r: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque, flags: i32) void {
         qtc.QPaintEngine_DrawImage(@ptrCast(self), @ptrCast(r), @ptrCast(pm), @ptrCast(sr), @intCast(flags));
     }
 
@@ -574,7 +574,7 @@ pub const qpaintengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, r: QtC.QRectF, pm: QtC.QImage, sr: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) void ```
-    pub fn OnDrawImage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnDrawImage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawImage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -583,7 +583,7 @@ pub const qpaintengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPaintEngine, r: QtC.QRectF, pm: QtC.QImage, sr: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn QBaseDrawImage(self: ?*anyopaque, r: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque, flags: i64) void {
+    pub fn QBaseDrawImage(self: ?*anyopaque, r: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque, flags: i32) void {
         qtc.QPaintEngine_QBaseDrawImage(@ptrCast(self), @ptrCast(r), @ptrCast(pm), @ptrCast(sr), @intCast(flags));
     }
 
@@ -693,21 +693,21 @@ pub const qpaintengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#testDirty)
     ///
     /// ``` self: QtC.QPaintEngine, df: flag of qpaintengine_enums.DirtyFlag ```
-    pub fn TestDirty(self: ?*anyopaque, df: i64) bool {
+    pub fn TestDirty(self: ?*anyopaque, df: i32) bool {
         return qtc.QPaintEngine_TestDirty(@ptrCast(self), @intCast(df));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#setDirty)
     ///
     /// ``` self: QtC.QPaintEngine, df: flag of qpaintengine_enums.DirtyFlag ```
-    pub fn SetDirty(self: ?*anyopaque, df: i64) void {
+    pub fn SetDirty(self: ?*anyopaque, df: i32) void {
         qtc.QPaintEngine_SetDirty(@ptrCast(self), @intCast(df));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#clearDirty)
     ///
     /// ``` self: QtC.QPaintEngine, df: flag of qpaintengine_enums.DirtyFlag ```
-    pub fn ClearDirty(self: ?*anyopaque, df: i64) void {
+    pub fn ClearDirty(self: ?*anyopaque, df: i32) void {
         qtc.QPaintEngine_ClearDirty(@ptrCast(self), @intCast(df));
     }
 
@@ -767,7 +767,7 @@ pub const qpaintengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
     ///
     /// ``` self: QtC.QPaintEngine, image: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn CreatePixmapFromImage(self: ?*anyopaque, image: QtC.QImage, flags: i64) QtC.QPixmap {
+    pub fn CreatePixmapFromImage(self: ?*anyopaque, image: QtC.QImage, flags: i32) QtC.QPixmap {
         return qtc.QPaintEngine_CreatePixmapFromImage(@ptrCast(self), @ptrCast(image), @intCast(flags));
     }
 
@@ -776,7 +776,7 @@ pub const qpaintengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, image: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QtC.QPixmap ```
-    pub fn OnCreatePixmapFromImage(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QImage, i64) callconv(.c) QtC.QPixmap) void {
+    pub fn OnCreatePixmapFromImage(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QImage, i32) callconv(.c) QtC.QPixmap) void {
         qtc.QPaintEngine_OnCreatePixmapFromImage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -785,7 +785,7 @@ pub const qpaintengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPaintEngine, image: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn QBaseCreatePixmapFromImage(self: ?*anyopaque, image: QtC.QImage, flags: i64) QtC.QPixmap {
+    pub fn QBaseCreatePixmapFromImage(self: ?*anyopaque, image: QtC.QImage, flags: i32) QtC.QPixmap {
         return qtc.QPaintEngine_QBaseCreatePixmapFromImage(@ptrCast(self), @ptrCast(image), @intCast(flags));
     }
 
@@ -834,7 +834,7 @@ pub const qpaintenginestate = struct {
     /// ``` self: QtC.QPaintEngineState ```
     ///
     /// Returns: ``` flag of qpaintengine_enums.DirtyFlag ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QPaintEngineState_State(@ptrCast(self));
     }
 
@@ -924,7 +924,7 @@ pub const qpaintenginestate = struct {
     /// ``` self: QtC.QPaintEngineState ```
     ///
     /// Returns: ``` flag of qpainter_enums.RenderHint ```
-    pub fn RenderHints(self: ?*anyopaque) i64 {
+    pub fn RenderHints(self: ?*anyopaque) i32 {
         return qtc.QPaintEngineState_RenderHints(@ptrCast(self));
     }
 

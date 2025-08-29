@@ -1028,7 +1028,7 @@ pub const ktwofingerswiperecognizer = struct {
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qgesturerecognizer_enums.ResultFlag ```
-    pub fn Recognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn Recognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.KTwoFingerSwipeRecognizer_Recognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 
@@ -1036,8 +1036,8 @@ pub const ktwofingerswiperecognizer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KTwoFingerSwipeRecognizer, slot: fn (self: QtC.KTwoFingerSwipeRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i64 ```
-    pub fn OnRecognize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.KTwoFingerSwipeRecognizer, slot: fn (self: QtC.KTwoFingerSwipeRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i32 ```
+    pub fn OnRecognize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.KTwoFingerSwipeRecognizer_OnRecognize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1048,7 +1048,7 @@ pub const ktwofingerswiperecognizer = struct {
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qgesturerecognizer_enums.ResultFlag ```
-    pub fn QBaseRecognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn QBaseRecognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.KTwoFingerSwipeRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 

@@ -98,7 +98,7 @@ pub const qabstractfileiconprovider = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option ```
-    pub fn SetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QAbstractFileIconProvider_SetOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -107,7 +107,7 @@ pub const qabstractfileiconprovider = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, slot: fn (self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void ```
-    pub fn OnSetOptions(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOptions(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractFileIconProvider_OnSetOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -116,7 +116,7 @@ pub const qabstractfileiconprovider = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option ```
-    pub fn QBaseSetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn QBaseSetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QAbstractFileIconProvider_QBaseSetOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -125,7 +125,7 @@ pub const qabstractfileiconprovider = struct {
     /// ``` self: QtC.QAbstractFileIconProvider ```
     ///
     /// Returns: ``` flag of qabstractfileiconprovider_enums.Option ```
-    pub fn Options(self: ?*anyopaque) i64 {
+    pub fn Options(self: ?*anyopaque) i32 {
         return qtc.QAbstractFileIconProvider_Options(@ptrCast(self));
     }
 
@@ -133,8 +133,8 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, slot: fn () callconv(.c) i64 ```
-    pub fn OnOptions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractFileIconProvider, slot: fn () callconv(.c) i32 ```
+    pub fn OnOptions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractFileIconProvider_OnOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -145,7 +145,7 @@ pub const qabstractfileiconprovider = struct {
     /// ``` self: QtC.QAbstractFileIconProvider ```
     ///
     /// Returns: ``` flag of qabstractfileiconprovider_enums.Option ```
-    pub fn QBaseOptions(self: ?*anyopaque) i64 {
+    pub fn QBaseOptions(self: ?*anyopaque) i32 {
         return qtc.QAbstractFileIconProvider_QBaseOptions(@ptrCast(self));
     }
 

@@ -188,7 +188,7 @@ pub const kformat = struct {
     /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatDuration)
     ///
     /// ``` self: QtC.KFormat, msecs: u64, options: flag of kformat_enums.DurationFormatOption, allocator: std.mem.Allocator ```
-    pub fn FormatDuration2(self: ?*anyopaque, msecs: u64, options: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn FormatDuration2(self: ?*anyopaque, msecs: u64, options: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KFormat_FormatDuration2(@ptrCast(self), @intCast(msecs), @intCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatDuration2: Memory allocation failed");
@@ -273,7 +273,7 @@ pub const kformat = struct {
     /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatDistance)
     ///
     /// ``` self: QtC.KFormat, distance: f64, param2: flag of kformat_enums.DistanceFormatOption, allocator: std.mem.Allocator ```
-    pub fn FormatDistance2(self: ?*anyopaque, distance: f64, param2: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn FormatDistance2(self: ?*anyopaque, distance: f64, param2: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KFormat_FormatDistance2(@ptrCast(self), @floatCast(distance), @intCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatDistance2: Memory allocation failed");

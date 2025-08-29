@@ -8,7 +8,7 @@ pub const kshell = struct {
     /// [Qt documentation](https://api-staging.kde.org/kshell.html#splitArgs)
     ///
     /// ``` param1: []const u8, param2: flag of kshell_enums.Option, param3: *kshell_enums.Errors, allocator: std.mem.Allocator ```
-    pub fn SplitArgs(param1: []const u8, param2: i64, param3: *i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SplitArgs(param1: []const u8, param2: i32, param3: *i32, allocator: std.mem.Allocator) [][]const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

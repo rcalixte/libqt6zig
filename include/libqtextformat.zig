@@ -1611,7 +1611,7 @@ pub const qtextblockformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setAlignment)
     ///
     /// ``` self: QtC.QTextBlockFormat, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QTextBlockFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -1620,7 +1620,7 @@ pub const qtextblockformat = struct {
     /// ``` self: QtC.QTextBlockFormat ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QTextBlockFormat_Alignment(@ptrCast(self));
     }
 
@@ -1767,7 +1767,7 @@ pub const qtextblockformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setPageBreakPolicy)
     ///
     /// ``` self: QtC.QTextBlockFormat, flags: flag of qtextformat_enums.PageBreakFlag ```
-    pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i64) void {
+    pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i32) void {
         qtc.QTextBlockFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
     }
 
@@ -1776,7 +1776,7 @@ pub const qtextblockformat = struct {
     /// ``` self: QtC.QTextBlockFormat ```
     ///
     /// Returns: ``` flag of qtextformat_enums.PageBreakFlag ```
-    pub fn PageBreakPolicy(self: ?*anyopaque) i64 {
+    pub fn PageBreakPolicy(self: ?*anyopaque) i32 {
         return qtc.QTextBlockFormat_PageBreakPolicy(@ptrCast(self));
     }
 
@@ -4389,7 +4389,7 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPageBreakPolicy)
     ///
     /// ``` self: QtC.QTextFrameFormat, flags: flag of qtextformat_enums.PageBreakFlag ```
-    pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i64) void {
+    pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i32) void {
         qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
     }
 
@@ -4398,7 +4398,7 @@ pub const qtextframeformat = struct {
     /// ``` self: QtC.QTextFrameFormat ```
     ///
     /// Returns: ``` flag of qtextformat_enums.PageBreakFlag ```
-    pub fn PageBreakPolicy(self: ?*anyopaque) i64 {
+    pub fn PageBreakPolicy(self: ?*anyopaque) i32 {
         return qtc.QTextFrameFormat_PageBreakPolicy(@ptrCast(self));
     }
 
@@ -4982,7 +4982,7 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#setAlignment)
     ///
     /// ``` self: QtC.QTextTableFormat, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QTextTableFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -4991,7 +4991,7 @@ pub const qtexttableformat = struct {
     /// ``` self: QtC.QTextTableFormat ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QTextTableFormat_Alignment(@ptrCast(self));
     }
 
@@ -5266,7 +5266,7 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPageBreakPolicy)
     ///
     /// ``` self: QtC.QTextTableFormat, flags: flag of qtextformat_enums.PageBreakFlag ```
-    pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i64) void {
+    pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i32) void {
         qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
     }
 
@@ -5277,7 +5277,7 @@ pub const qtexttableformat = struct {
     /// ``` self: QtC.QTextTableFormat ```
     ///
     /// Returns: ``` flag of qtextformat_enums.PageBreakFlag ```
-    pub fn PageBreakPolicy(self: ?*anyopaque) i64 {
+    pub fn PageBreakPolicy(self: ?*anyopaque) i32 {
         return qtc.QTextFrameFormat_PageBreakPolicy(@ptrCast(self));
     }
 

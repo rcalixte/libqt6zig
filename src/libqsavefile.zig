@@ -137,7 +137,7 @@ pub const qsavefile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#open)
     ///
     /// ``` self: QtC.QSaveFile, flags: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn Open(self: ?*anyopaque, flags: i64) bool {
+    pub fn Open(self: ?*anyopaque, flags: i32) bool {
         return qtc.QSaveFile_Open(@ptrCast(self), @intCast(flags));
     }
 
@@ -146,7 +146,7 @@ pub const qsavefile = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, flags: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QSaveFile_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -155,7 +155,7 @@ pub const qsavefile = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSaveFile, flags: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseOpen(self: ?*anyopaque, flags: i64) bool {
+    pub fn QBaseOpen(self: ?*anyopaque, flags: i32) bool {
         return qtc.QSaveFile_QBaseOpen(@ptrCast(self), @intCast(flags));
     }
 
@@ -328,7 +328,7 @@ pub const qsavefile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
     /// ``` self: QtC.QSaveFile, offset: i64, size: i64, flags: flag of qfiledevice_enums.MemoryMapFlag ```
-    pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i64) ?*u8 {
+    pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i32) ?*u8 {
         return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self), @intCast(offset), @intCast(size), @intCast(flags)));
     }
 
@@ -339,7 +339,7 @@ pub const qsavefile = struct {
     /// ``` self: QtC.QSaveFile ```
     ///
     /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn OpenMode(self: ?*anyopaque) i64 {
+    pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
@@ -1348,7 +1348,7 @@ pub const qsavefile = struct {
     /// ``` self: QtC.QSaveFile ```
     ///
     /// Returns: ``` flag of qfiledevice_enums.Permission ```
-    pub fn Permissions(self: ?*anyopaque) i64 {
+    pub fn Permissions(self: ?*anyopaque) i32 {
         return qtc.QSaveFile_Permissions(@ptrCast(self));
     }
 
@@ -1361,7 +1361,7 @@ pub const qsavefile = struct {
     /// ``` self: QtC.QSaveFile ```
     ///
     /// Returns: ``` flag of qfiledevice_enums.Permission ```
-    pub fn QBasePermissions(self: ?*anyopaque) i64 {
+    pub fn QBasePermissions(self: ?*anyopaque) i32 {
         return qtc.QSaveFile_QBasePermissions(@ptrCast(self));
     }
 
@@ -1371,8 +1371,8 @@ pub const qsavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSaveFile, slot: fn () callconv(.c) i64 ```
-    pub fn OnPermissions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QSaveFile, slot: fn () callconv(.c) i32 ```
+    pub fn OnPermissions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QSaveFile_OnPermissions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1383,7 +1383,7 @@ pub const qsavefile = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSaveFile, permissionSpec: flag of qfiledevice_enums.Permission ```
-    pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i64) bool {
+    pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
         return qtc.QSaveFile_SetPermissions(@ptrCast(self), @intCast(permissionSpec));
     }
 
@@ -1394,7 +1394,7 @@ pub const qsavefile = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSaveFile, permissionSpec: flag of qfiledevice_enums.Permission ```
-    pub fn QBaseSetPermissions(self: ?*anyopaque, permissionSpec: i64) bool {
+    pub fn QBaseSetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
         return qtc.QSaveFile_QBaseSetPermissions(@ptrCast(self), @intCast(permissionSpec));
     }
 
@@ -1405,7 +1405,7 @@ pub const qsavefile = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool ```
-    pub fn OnSetPermissions(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSetPermissions(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QSaveFile_OnSetPermissions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1948,7 +1948,7 @@ pub const qsavefile = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QSaveFile_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -1959,7 +1959,7 @@ pub const qsavefile = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QSaveFile_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -1970,7 +1970,7 @@ pub const qsavefile = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSaveFile_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -597,7 +597,7 @@ pub const qcommonstyle = struct {
     /// ``` direction: qnamespace_enums.LayoutDirection, alignment: flag of qnamespace_enums.AlignmentFlag ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn VisualAlignment(direction: i32, alignment: i64) i64 {
+    pub fn VisualAlignment(direction: i32, alignment: i32) i32 {
         return qtc.QStyle_VisualAlignment(@intCast(direction), @intCast(alignment));
     }
 
@@ -606,7 +606,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#alignedRect)
     ///
     /// ``` direction: qnamespace_enums.LayoutDirection, alignment: flag of qnamespace_enums.AlignmentFlag, size: QtC.QSize, rectangle: QtC.QRect ```
-    pub fn AlignedRect(direction: i32, alignment: i64, size: ?*anyopaque, rectangle: ?*anyopaque) QtC.QRect {
+    pub fn AlignedRect(direction: i32, alignment: i32, size: ?*anyopaque, rectangle: ?*anyopaque) QtC.QRect {
         return qtc.QStyle_AlignedRect(@intCast(direction), @intCast(alignment), @ptrCast(size), @ptrCast(rectangle));
     }
 
@@ -615,7 +615,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
     /// ``` self: QtC.QCommonStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation ```
-    pub fn CombinedLayoutSpacing(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i32) i32 {
+    pub fn CombinedLayoutSpacing(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32) i32 {
         return qtc.QStyle_CombinedLayoutSpacing(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation));
     }
 
@@ -651,7 +651,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
     /// ``` self: QtC.QCommonStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption ```
-    pub fn CombinedLayoutSpacing4(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i32, option: ?*anyopaque) i32 {
+    pub fn CombinedLayoutSpacing4(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32, option: ?*anyopaque) i32 {
         return qtc.QStyle_CombinedLayoutSpacing4(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation), @ptrCast(option));
     }
 
@@ -660,7 +660,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
     /// ``` self: QtC.QCommonStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget ```
-    pub fn CombinedLayoutSpacing5(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
+    pub fn CombinedLayoutSpacing5(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
         return qtc.QStyle_CombinedLayoutSpacing5(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
 

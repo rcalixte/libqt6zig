@@ -39,7 +39,7 @@ pub const ksharedconfig = struct {
     /// ``` self: QtC.KSharedConfig ```
     ///
     /// Returns: ``` flag of kconfig_enums.OpenFlag ```
-    pub fn OpenFlags(self: ?*anyopaque) i64 {
+    pub fn OpenFlags(self: ?*anyopaque) i32 {
         return qtc.KConfig_OpenFlags(@ptrCast(self));
     }
 
@@ -420,7 +420,7 @@ pub const ksharedconfig = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KSharedConfig, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i64) void {
+    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,

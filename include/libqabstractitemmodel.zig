@@ -304,7 +304,7 @@ pub const qmodelindex = struct {
     /// ``` self: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QModelIndex_Flags(@ptrCast(self));
     }
 
@@ -458,7 +458,7 @@ pub const qpersistentmodelindex = struct {
     /// ``` self: QtC.QPersistentModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QPersistentModelIndex_Flags(@ptrCast(self));
     }
 
@@ -1090,7 +1090,7 @@ pub const qabstractitemmodel = struct {
     /// ``` self: QtC.QAbstractItemModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_SupportedDropActions(@ptrCast(self));
     }
 
@@ -1098,8 +1098,8 @@ pub const qabstractitemmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractItemModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractItemModel_OnSupportedDropActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1110,7 +1110,7 @@ pub const qabstractitemmodel = struct {
     /// ``` self: QtC.QAbstractItemModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_QBaseSupportedDropActions(@ptrCast(self));
     }
 
@@ -1119,7 +1119,7 @@ pub const qabstractitemmodel = struct {
     /// ``` self: QtC.QAbstractItemModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_SupportedDragActions(@ptrCast(self));
     }
 
@@ -1127,8 +1127,8 @@ pub const qabstractitemmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractItemModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractItemModel_OnSupportedDragActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1139,7 +1139,7 @@ pub const qabstractitemmodel = struct {
     /// ``` self: QtC.QAbstractItemModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_QBaseSupportedDragActions(@ptrCast(self));
     }
 
@@ -1390,7 +1390,7 @@ pub const qabstractitemmodel = struct {
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -1398,8 +1398,8 @@ pub const qabstractitemmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) i64 ```
-    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractItemModel_OnFlags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1410,7 +1410,7 @@ pub const qabstractitemmodel = struct {
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -1467,7 +1467,7 @@ pub const qabstractitemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// ``` self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.Match: Memory allocation failed");
@@ -1481,7 +1481,7 @@ pub const qabstractitemmodel = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex ```
-    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) [*:null]QtC.QModelIndex) void {
+    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
         qtc.QAbstractItemModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1490,7 +1490,7 @@ pub const qabstractitemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QAbstractItemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.Match: Memory allocation failed");
@@ -2363,7 +2363,7 @@ pub const qabstractitemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
+    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
 
@@ -3502,7 +3502,7 @@ pub const qabstracttablemodel = struct {
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QAbstractTableModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -3510,8 +3510,8 @@ pub const qabstracttablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractTableModel, slot: fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex) callconv(.c) i64 ```
-    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractTableModel, slot: fn (self: QtC.QAbstractTableModel, index: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractTableModel_OnFlags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3522,7 +3522,7 @@ pub const qabstracttablemodel = struct {
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QAbstractTableModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -3808,7 +3808,7 @@ pub const qabstracttablemodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
+    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
 
@@ -4795,7 +4795,7 @@ pub const qabstracttablemodel = struct {
     /// ``` self: QtC.QAbstractTableModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractTableModel_SupportedDropActions(@ptrCast(self));
     }
 
@@ -4808,7 +4808,7 @@ pub const qabstracttablemodel = struct {
     /// ``` self: QtC.QAbstractTableModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractTableModel_QBaseSupportedDropActions(@ptrCast(self));
     }
 
@@ -4818,8 +4818,8 @@ pub const qabstracttablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTableModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractTableModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractTableModel_OnSupportedDropActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4832,7 +4832,7 @@ pub const qabstracttablemodel = struct {
     /// ``` self: QtC.QAbstractTableModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractTableModel_SupportedDragActions(@ptrCast(self));
     }
 
@@ -4845,7 +4845,7 @@ pub const qabstracttablemodel = struct {
     /// ``` self: QtC.QAbstractTableModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractTableModel_QBaseSupportedDragActions(@ptrCast(self));
     }
 
@@ -4855,8 +4855,8 @@ pub const qabstracttablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTableModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractTableModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractTableModel_OnSupportedDragActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5197,7 +5197,7 @@ pub const qabstracttablemodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QAbstractTableModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.Match: Memory allocation failed");
@@ -5213,7 +5213,7 @@ pub const qabstracttablemodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QAbstractTableModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.Match: Memory allocation failed");
@@ -5229,7 +5229,7 @@ pub const qabstracttablemodel = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractTableModel, slot: fn (self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex ```
-    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) [*:null]QtC.QModelIndex) void {
+    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
         qtc.QAbstractTableModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6833,7 +6833,7 @@ pub const qabstractlistmodel = struct {
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QAbstractListModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -6841,8 +6841,8 @@ pub const qabstractlistmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractListModel, slot: fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex) callconv(.c) i64 ```
-    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractListModel, slot: fn (self: QtC.QAbstractListModel, index: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractListModel_OnFlags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6853,7 +6853,7 @@ pub const qabstractlistmodel = struct {
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QAbstractListModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -7170,7 +7170,7 @@ pub const qabstractlistmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
+    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
 
@@ -8124,7 +8124,7 @@ pub const qabstractlistmodel = struct {
     /// ``` self: QtC.QAbstractListModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractListModel_SupportedDropActions(@ptrCast(self));
     }
 
@@ -8137,7 +8137,7 @@ pub const qabstractlistmodel = struct {
     /// ``` self: QtC.QAbstractListModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractListModel_QBaseSupportedDropActions(@ptrCast(self));
     }
 
@@ -8147,8 +8147,8 @@ pub const qabstractlistmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractListModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractListModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractListModel_OnSupportedDropActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -8161,7 +8161,7 @@ pub const qabstractlistmodel = struct {
     /// ``` self: QtC.QAbstractListModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractListModel_SupportedDragActions(@ptrCast(self));
     }
 
@@ -8174,7 +8174,7 @@ pub const qabstractlistmodel = struct {
     /// ``` self: QtC.QAbstractListModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractListModel_QBaseSupportedDragActions(@ptrCast(self));
     }
 
@@ -8184,8 +8184,8 @@ pub const qabstractlistmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractListModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractListModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractListModel_OnSupportedDragActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -8526,7 +8526,7 @@ pub const qabstractlistmodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QAbstractListModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.Match: Memory allocation failed");
@@ -8542,7 +8542,7 @@ pub const qabstractlistmodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QAbstractListModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.Match: Memory allocation failed");
@@ -8558,7 +8558,7 @@ pub const qabstractlistmodel = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractListModel, slot: fn (self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex ```
-    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) [*:null]QtC.QModelIndex) void {
+    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
         qtc.QAbstractListModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

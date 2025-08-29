@@ -1,5 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qdir_enums = @import("libqdir.zig").enums;
+const qdiriterator_enums = enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qdiriterator.html
@@ -26,7 +28,7 @@ pub const qdiriterator = struct {
     /// New3 constructs a new QDirIterator object.
     ///
     /// ``` path: []const u8, filter: flag of qdir_enums.Filter ```
-    pub fn New3(path: []const u8, filter: i64) QtC.QDirIterator {
+    pub fn New3(path: []const u8, filter: i32) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -62,14 +64,14 @@ pub const qdiriterator = struct {
     /// New5 constructs a new QDirIterator object.
     ///
     /// ``` dir: QtC.QDir, flags: flag of qdiriterator_enums.IteratorFlag ```
-    pub fn New5(dir: ?*anyopaque, flags: i64) QtC.QDirIterator {
+    pub fn New5(dir: ?*anyopaque, flags: i32) QtC.QDirIterator {
         return qtc.QDirIterator_new5(@ptrCast(dir), @intCast(flags));
     }
 
     /// New6 constructs a new QDirIterator object.
     ///
     /// ``` path: []const u8, flags: flag of qdiriterator_enums.IteratorFlag ```
-    pub fn New6(path: []const u8, flags: i64) QtC.QDirIterator {
+    pub fn New6(path: []const u8, flags: i32) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -81,7 +83,7 @@ pub const qdiriterator = struct {
     /// New7 constructs a new QDirIterator object.
     ///
     /// ``` path: []const u8, filter: flag of qdir_enums.Filter, flags: flag of qdiriterator_enums.IteratorFlag ```
-    pub fn New7(path: []const u8, filter: i64, flags: i64) QtC.QDirIterator {
+    pub fn New7(path: []const u8, filter: i32, flags: i32) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -93,7 +95,7 @@ pub const qdiriterator = struct {
     /// New8 constructs a new QDirIterator object.
     ///
     /// ``` path: []const u8, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
-    pub fn New8(path: []const u8, nameFilters: [][]const u8, filters: i64, allocator: std.mem.Allocator) QtC.QDirIterator {
+    pub fn New8(path: []const u8, nameFilters: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -117,7 +119,7 @@ pub const qdiriterator = struct {
     /// New9 constructs a new QDirIterator object.
     ///
     /// ``` path: []const u8, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, flags: flag of qdiriterator_enums.IteratorFlag, allocator: std.mem.Allocator ```
-    pub fn New9(path: []const u8, nameFilters: [][]const u8, filters: i64, flags: i64, allocator: std.mem.Allocator) QtC.QDirIterator {
+    pub fn New9(path: []const u8, nameFilters: [][]const u8, filters: i32, flags: i32, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,

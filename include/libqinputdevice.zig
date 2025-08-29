@@ -134,7 +134,7 @@ pub const qinputdevice = struct {
     /// ``` self: QtC.QInputDevice ```
     ///
     /// Returns: ``` flag of qinputdevice_enums.Capability ```
-    pub fn Capabilities(self: ?*anyopaque) i64 {
+    pub fn Capabilities(self: ?*anyopaque) i32 {
         return qtc.QInputDevice_Capabilities(@ptrCast(self));
     }
 

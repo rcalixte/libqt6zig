@@ -160,7 +160,7 @@ pub const qgraphicseffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// ``` self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -169,7 +169,7 @@ pub const qgraphicseffect = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QGraphicsEffect, slot: fn (self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
-    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -178,7 +178,7 @@ pub const qgraphicseffect = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -1834,7 +1834,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsColorizeEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -1845,7 +1845,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsColorizeEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -1856,7 +1856,7 @@ pub const qgraphicscolorizeeffect = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, slot: fn (self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
-    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2508,7 +2508,7 @@ pub const qgraphicsblureffect = struct {
     /// ``` self: QtC.QGraphicsBlurEffect ```
     ///
     /// Returns: ``` flag of qgraphicseffect_enums.BlurHint ```
-    pub fn BlurHints(self: ?*anyopaque) i64 {
+    pub fn BlurHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsBlurEffect_BlurHints(@ptrCast(self));
     }
 
@@ -2522,7 +2522,7 @@ pub const qgraphicsblureffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurHints)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint ```
-    pub fn SetBlurHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetBlurHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsBlurEffect_SetBlurHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -2543,14 +2543,14 @@ pub const qgraphicsblureffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint ```
-    pub fn BlurHintsChanged(self: ?*anyopaque, hints: i64) void {
+    pub fn BlurHintsChanged(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsBlurEffect_BlurHintsChanged(@ptrCast(self), @intCast(hints));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, slot: fn (self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint) callconv(.c) void ```
-    pub fn OnBlurHintsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnBlurHintsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurHintsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3043,7 +3043,7 @@ pub const qgraphicsblureffect = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsBlurEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -3054,7 +3054,7 @@ pub const qgraphicsblureffect = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsBlurEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -3065,7 +3065,7 @@ pub const qgraphicsblureffect = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, slot: fn (self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
-    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4320,7 +4320,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsDropShadowEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -4331,7 +4331,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsDropShadowEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -4342,7 +4342,7 @@ pub const qgraphicsdropshadoweffect = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, slot: fn (self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
-    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5535,7 +5535,7 @@ pub const qgraphicsopacityeffect = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn SourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsOpacityEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -5546,7 +5546,7 @@ pub const qgraphicsopacityeffect = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
+    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsOpacityEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
 
@@ -5557,7 +5557,7 @@ pub const qgraphicsopacityeffect = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, slot: fn (self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
-    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

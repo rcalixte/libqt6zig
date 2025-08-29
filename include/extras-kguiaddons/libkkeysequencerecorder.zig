@@ -152,7 +152,7 @@ pub const kkeysequencerecorder = struct {
     /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#setPatterns)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, patterns: flag of kkeysequencerecorder_enums.Pattern ```
-    pub fn SetPatterns(self: ?*anyopaque, patterns: i64) void {
+    pub fn SetPatterns(self: ?*anyopaque, patterns: i32) void {
         qtc.KKeySequenceRecorder_SetPatterns(@ptrCast(self), @intCast(patterns));
     }
 
@@ -161,7 +161,7 @@ pub const kkeysequencerecorder = struct {
     /// ``` self: QtC.KKeySequenceRecorder ```
     ///
     /// Returns: ``` flag of kkeysequencerecorder_enums.Pattern ```
-    pub fn Patterns(self: ?*anyopaque) i64 {
+    pub fn Patterns(self: ?*anyopaque) i32 {
         return qtc.KKeySequenceRecorder_Patterns(@ptrCast(self));
     }
 

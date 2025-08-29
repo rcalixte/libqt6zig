@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qitemselectionmodel_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -351,7 +352,7 @@ pub const qitemselectionmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
     ///
     /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i64) void {
+    pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
         qtc.QItemSelectionModel_SetCurrentIndex(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
@@ -360,7 +361,7 @@ pub const qitemselectionmodel = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QItemSelectionModel, slot: fn (self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
-    pub fn OnSetCurrentIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetCurrentIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QItemSelectionModel_OnSetCurrentIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -369,14 +370,14 @@ pub const qitemselectionmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i64) void {
+    pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
         qtc.QItemSelectionModel_QBaseSetCurrentIndex(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
     ///
     /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn Select(self: ?*anyopaque, index: ?*anyopaque, command: i64) void {
+    pub fn Select(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
         qtc.QItemSelectionModel_Select(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
@@ -385,7 +386,7 @@ pub const qitemselectionmodel = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QItemSelectionModel, slot: fn (self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
-    pub fn OnSelect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSelect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QItemSelectionModel_OnSelect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -394,14 +395,14 @@ pub const qitemselectionmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn QBaseSelect(self: ?*anyopaque, index: ?*anyopaque, command: i64) void {
+    pub fn QBaseSelect(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
         qtc.QItemSelectionModel_QBaseSelect(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
     ///
     /// ``` self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn Select2(self: ?*anyopaque, selection: ?*anyopaque, command: i64) void {
+    pub fn Select2(self: ?*anyopaque, selection: ?*anyopaque, command: i32) void {
         qtc.QItemSelectionModel_Select2(@ptrCast(self), @ptrCast(selection), @intCast(command));
     }
 
@@ -410,7 +411,7 @@ pub const qitemselectionmodel = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QItemSelectionModel, slot: fn (self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
-    pub fn OnSelect2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSelect2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QItemSelectionModel_OnSelect2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -419,7 +420,7 @@ pub const qitemselectionmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn QBaseSelect2(self: ?*anyopaque, selection: ?*anyopaque, command: i64) void {
+    pub fn QBaseSelect2(self: ?*anyopaque, selection: ?*anyopaque, command: i32) void {
         qtc.QItemSelectionModel_QBaseSelect2(@ptrCast(self), @ptrCast(selection), @intCast(command));
     }
 
@@ -1495,7 +1496,7 @@ pub const qitemselection = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselection.html#merge)
     ///
     /// ``` self: QtC.QItemSelection, other: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn Merge(self: ?*anyopaque, other: ?*anyopaque, command: i64) void {
+    pub fn Merge(self: ?*anyopaque, other: ?*anyopaque, command: i32) void {
         qtc.QItemSelection_Merge(@ptrCast(self), @ptrCast(other), @intCast(command));
     }
 

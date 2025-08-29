@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qurl_enums = @import("libqurl.zig").enums;
 const std = @import("std");
 pub const struct_constu8_constu8 = extern struct { first: []const u8, second: []const u8 };
 
@@ -252,7 +253,7 @@ pub const qurlquery = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#query)
     ///
     /// ``` self: QtC.QUrlQuery, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
-    pub fn Query1(self: ?*anyopaque, encoding: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Query1(self: ?*anyopaque, encoding: u32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrlQuery_Query1(@ptrCast(self), @intCast(encoding));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurlquery.Query1: Memory allocation failed");
@@ -263,7 +264,7 @@ pub const qurlquery = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#toString)
     ///
     /// ``` self: QtC.QUrlQuery, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
-    pub fn ToString1(self: ?*anyopaque, encoding: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString1(self: ?*anyopaque, encoding: u32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrlQuery_ToString1(@ptrCast(self), @intCast(encoding));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qurlquery.ToString1: Memory allocation failed");
@@ -274,7 +275,7 @@ pub const qurlquery = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryItems)
     ///
     /// ``` self: QtC.QUrlQuery, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
-    pub fn QueryItems1(self: ?*anyopaque, encoding: i64, allocator: std.mem.Allocator) []struct_constu8_constu8 {
+    pub fn QueryItems1(self: ?*anyopaque, encoding: u32, allocator: std.mem.Allocator) []struct_constu8_constu8 {
         const _arr: qtc.libqt_list = qtc.QUrlQuery_QueryItems1(@ptrCast(self), @intCast(encoding));
         defer {
             const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
@@ -296,7 +297,7 @@ pub const qurlquery = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryItemValue)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
-    pub fn QueryItemValue2(self: ?*anyopaque, key: []const u8, encoding: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn QueryItemValue2(self: ?*anyopaque, key: []const u8, encoding: u32, allocator: std.mem.Allocator) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -311,7 +312,7 @@ pub const qurlquery = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#allQueryItemValues)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
-    pub fn AllQueryItemValues2(self: ?*anyopaque, key: []const u8, encoding: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllQueryItemValues2(self: ?*anyopaque, key: []const u8, encoding: u32, allocator: std.mem.Allocator) [][]const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

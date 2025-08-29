@@ -7,6 +7,7 @@ const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 const qpalette_enums = @import("libqpalette.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const qvalidator_enums = @import("libqvalidator.zig").enums;
+const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qabstractspinbox.html
@@ -186,7 +187,7 @@ pub const qabstractspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#setAlignment)
     ///
     /// ``` self: QtC.QAbstractSpinBox, flag: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, flag: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, flag: i32) void {
         qtc.QAbstractSpinBox_SetAlignment(@ptrCast(self), @intCast(flag));
     }
 
@@ -195,7 +196,7 @@ pub const qabstractspinbox = struct {
     /// ``` self: QtC.QAbstractSpinBox ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_Alignment(@ptrCast(self));
     }
 
@@ -969,7 +970,7 @@ pub const qabstractspinbox = struct {
     /// ``` self: QtC.QAbstractSpinBox ```
     ///
     /// Returns: ``` flag of qabstractspinbox_enums.StepEnabledFlag ```
-    pub fn StepEnabled(self: ?*anyopaque) i64 {
+    pub fn StepEnabled(self: ?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_StepEnabled(@ptrCast(self));
     }
 
@@ -977,8 +978,8 @@ pub const qabstractspinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn () callconv(.c) i64 ```
-    pub fn OnStepEnabled(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractSpinBox, slot: fn () callconv(.c) i32 ```
+    pub fn OnStepEnabled(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnStepEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -989,7 +990,7 @@ pub const qabstractspinbox = struct {
     /// ``` self: QtC.QAbstractSpinBox ```
     ///
     /// Returns: ``` flag of qabstractspinbox_enums.StepEnabledFlag ```
-    pub fn QBaseStepEnabled(self: ?*anyopaque) i64 {
+    pub fn QBaseStepEnabled(self: ?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_QBaseStepEnabled(@ptrCast(self));
     }
 
@@ -2877,7 +2878,7 @@ pub const qabstractspinbox = struct {
     /// ``` self: QtC.QAbstractSpinBox ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -2886,7 +2887,7 @@ pub const qabstractspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QAbstractSpinBox, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2895,7 +2896,7 @@ pub const qabstractspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QAbstractSpinBox, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -3514,7 +3515,7 @@ pub const qabstractspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractSpinBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3541,7 +3542,7 @@ pub const qabstractspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractSpinBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3559,7 +3560,7 @@ pub const qabstractspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QAbstractSpinBox, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

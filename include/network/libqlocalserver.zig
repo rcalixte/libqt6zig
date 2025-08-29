@@ -253,7 +253,7 @@ pub const qlocalserver = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#setSocketOptions)
     ///
     /// ``` self: QtC.QLocalServer, options: flag of qlocalserver_enums.SocketOption ```
-    pub fn SetSocketOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetSocketOptions(self: ?*anyopaque, options: i32) void {
         qtc.QLocalServer_SetSocketOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -262,7 +262,7 @@ pub const qlocalserver = struct {
     /// ``` self: QtC.QLocalServer ```
     ///
     /// Returns: ``` flag of qlocalserver_enums.SocketOption ```
-    pub fn SocketOptions(self: ?*anyopaque) i64 {
+    pub fn SocketOptions(self: ?*anyopaque) i32 {
         return qtc.QLocalServer_SocketOptions(@ptrCast(self));
     }
 

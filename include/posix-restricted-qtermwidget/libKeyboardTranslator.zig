@@ -112,7 +112,7 @@ pub const konsole__keyboardtranslator = struct {
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator, keyCode: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, state: flag of KeyboardTranslator_enums.State ```
-    pub fn FindEntry3(self: ?*anyopaque, keyCode: i32, modifiers: i64, state: i64) QtC.Konsole__KeyboardTranslator__Entry {
+    pub fn FindEntry3(self: ?*anyopaque, keyCode: i32, modifiers: i64, state: i32) QtC.Konsole__KeyboardTranslator__Entry {
         return qtc.Konsole__KeyboardTranslator_FindEntry3(@ptrCast(self), @intCast(keyCode), @intCast(modifiers), @intCast(state));
     }
 
@@ -438,7 +438,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry ```
     ///
     /// Returns: ``` flag of KeyboardTranslator_enums.State ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.Konsole__KeyboardTranslator__Entry_State(@ptrCast(self));
     }
 
@@ -447,21 +447,21 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry ```
     ///
     /// Returns: ``` flag of KeyboardTranslator_enums.State ```
-    pub fn StateMask(self: ?*anyopaque) i64 {
+    pub fn StateMask(self: ?*anyopaque) i32 {
         return qtc.Konsole__KeyboardTranslator__Entry_StateMask(@ptrCast(self));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, state: flag of KeyboardTranslator_enums.State ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetState(@ptrCast(self), @intCast(state));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, mask: flag of KeyboardTranslator_enums.State ```
-    pub fn SetStateMask(self: ?*anyopaque, mask: i64) void {
+    pub fn SetStateMask(self: ?*anyopaque, mask: i32) void {
         qtc.Konsole__KeyboardTranslator__Entry_SetStateMask(@ptrCast(self), @intCast(mask));
     }
 
@@ -490,7 +490,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__KeyboardTranslator__Entry, keyCode: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, flags: flag of KeyboardTranslator_enums.State ```
-    pub fn Matches(self: ?*anyopaque, keyCode: i32, modifiers: i64, flags: i64) bool {
+    pub fn Matches(self: ?*anyopaque, keyCode: i32, modifiers: i64, flags: i32) bool {
         return qtc.Konsole__KeyboardTranslator__Entry_Matches(@ptrCast(self), @intCast(keyCode), @intCast(modifiers), @intCast(flags));
     }
 

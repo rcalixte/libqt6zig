@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qtextcursor_enums = enums;
+const qtextdocument_enums = @import("libqtextdocument.zig").enums;
 const qtextformat_enums = @import("libqtextformat.zig").enums;
 const std = @import("std");
 
@@ -614,7 +615,7 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertMarkdown)
     ///
     /// ``` self: QtC.QTextCursor, markdown: []const u8, features: flag of qtextdocument_enums.MarkdownFeature ```
-    pub fn InsertMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i64) void {
+    pub fn InsertMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i32) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,

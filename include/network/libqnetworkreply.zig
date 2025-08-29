@@ -457,7 +457,7 @@ pub const qnetworkreply = struct {
     /// ``` self: QtC.QNetworkReply ```
     ///
     /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn OpenMode(self: ?*anyopaque) i64 {
+    pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
@@ -565,7 +565,7 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// ``` self: QtC.QNetworkReply, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn Open(self: ?*anyopaque, mode: i64) bool {
+    pub fn Open(self: ?*anyopaque, mode: i32) bool {
         return qtc.QIODevice_Open(@ptrCast(self), @intCast(mode));
     }
 

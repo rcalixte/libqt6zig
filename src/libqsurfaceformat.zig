@@ -15,7 +15,7 @@ pub const qsurfaceformat = struct {
     /// New2 constructs a new QSurfaceFormat object.
     ///
     /// ``` options: flag of qsurfaceformat_enums.FormatOption ```
-    pub fn New2(options: i64) QtC.QSurfaceFormat {
+    pub fn New2(options: i32) QtC.QSurfaceFormat {
         return qtc.QSurfaceFormat_new2(@intCast(options));
     }
 
@@ -249,7 +249,7 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setOptions)
     ///
     /// ``` self: QtC.QSurfaceFormat, options: flag of qsurfaceformat_enums.FormatOption ```
-    pub fn SetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QSurfaceFormat_SetOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -272,7 +272,7 @@ pub const qsurfaceformat = struct {
     /// ``` self: QtC.QSurfaceFormat ```
     ///
     /// Returns: ``` flag of qsurfaceformat_enums.FormatOption ```
-    pub fn Options(self: ?*anyopaque) i64 {
+    pub fn Options(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_Options(@ptrCast(self));
     }
 

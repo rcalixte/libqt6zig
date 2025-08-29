@@ -104,7 +104,7 @@ pub const qmetatype = struct {
     /// ``` typeVal: i32 ```
     ///
     /// Returns: ``` flag of qmetatype_enums.TypeFlag ```
-    pub fn TypeFlags(typeVal: i32) i64 {
+    pub fn TypeFlags(typeVal: i32) i32 {
         return qtc.QMetaType_TypeFlags(@intCast(typeVal));
     }
 
@@ -197,7 +197,7 @@ pub const qmetatype = struct {
     /// ``` self: QtC.QMetaType ```
     ///
     /// Returns: ``` flag of qmetatype_enums.TypeFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QMetaType_Flags(@ptrCast(self));
     }
 

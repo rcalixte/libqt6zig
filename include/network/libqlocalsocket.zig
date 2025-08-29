@@ -234,7 +234,7 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalsocket.html#open)
     ///
     /// ``` self: QtC.QLocalSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn Open(self: ?*anyopaque, openMode: i64) bool {
+    pub fn Open(self: ?*anyopaque, openMode: i32) bool {
         return qtc.QLocalSocket_Open(@ptrCast(self), @intCast(openMode));
     }
 
@@ -243,7 +243,7 @@ pub const qlocalsocket = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QLocalSocket_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -252,7 +252,7 @@ pub const qlocalsocket = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QLocalSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseOpen(self: ?*anyopaque, openMode: i64) bool {
+    pub fn QBaseOpen(self: ?*anyopaque, openMode: i32) bool {
         return qtc.QLocalSocket_QBaseOpen(@ptrCast(self), @intCast(openMode));
     }
 
@@ -335,7 +335,7 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalsocket.html#setSocketOptions)
     ///
     /// ``` self: QtC.QLocalSocket, option: flag of qlocalsocket_enums.SocketOption ```
-    pub fn SetSocketOptions(self: ?*anyopaque, option: i64) void {
+    pub fn SetSocketOptions(self: ?*anyopaque, option: i32) void {
         qtc.QLocalSocket_SetSocketOptions(@ptrCast(self), @intCast(option));
     }
 
@@ -344,7 +344,7 @@ pub const qlocalsocket = struct {
     /// ``` self: QtC.QLocalSocket ```
     ///
     /// Returns: ``` flag of qlocalsocket_enums.SocketOption ```
-    pub fn SocketOptions(self: ?*anyopaque) i64 {
+    pub fn SocketOptions(self: ?*anyopaque) i32 {
         return qtc.QLocalSocket_SocketOptions(@ptrCast(self));
     }
 
@@ -612,14 +612,14 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalsocket.html#connectToServer)
     ///
     /// ``` self: QtC.QLocalSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn ConnectToServer1(self: ?*anyopaque, openMode: i64) void {
+    pub fn ConnectToServer1(self: ?*anyopaque, openMode: i32) void {
         qtc.QLocalSocket_ConnectToServer1(@ptrCast(self), @intCast(openMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalsocket.html#connectToServer)
     ///
     /// ``` self: QtC.QLocalSocket, name: []const u8, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn ConnectToServer22(self: ?*anyopaque, name: []const u8, openMode: i64) void {
+    pub fn ConnectToServer22(self: ?*anyopaque, name: []const u8, openMode: i32) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -637,7 +637,7 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalsocket.html#setSocketDescriptor)
     ///
     /// ``` self: QtC.QLocalSocket, socketDescriptor: isize, socketState: qlocalsocket_enums.LocalSocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetSocketDescriptor3(self: ?*anyopaque, socketDescriptor: isize, socketState: i32, openMode: i64) bool {
+    pub fn SetSocketDescriptor3(self: ?*anyopaque, socketDescriptor: isize, socketState: i32, openMode: i32) bool {
         return qtc.QLocalSocket_SetSocketDescriptor3(@ptrCast(self), @intCast(socketDescriptor), @intCast(socketState), @intCast(openMode));
     }
 
@@ -662,7 +662,7 @@ pub const qlocalsocket = struct {
     /// ``` self: QtC.QLocalSocket ```
     ///
     /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn OpenMode(self: ?*anyopaque) i64 {
+    pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
@@ -1867,7 +1867,7 @@ pub const qlocalsocket = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QLocalSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QLocalSocket_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -1878,7 +1878,7 @@ pub const qlocalsocket = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QLocalSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QLocalSocket_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -1889,7 +1889,7 @@ pub const qlocalsocket = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QLocalSocket_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

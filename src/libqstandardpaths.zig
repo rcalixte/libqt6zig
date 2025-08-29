@@ -122,7 +122,7 @@ pub const qstandardpaths = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locate)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: flag of qstandardpaths_enums.LocateOption, allocator: std.mem.Allocator ```
-    pub fn Locate3(typeVal: i32, fileName: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Locate3(typeVal: i32, fileName: []const u8, options: i32, allocator: std.mem.Allocator) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -137,7 +137,7 @@ pub const qstandardpaths = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locateAll)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: flag of qstandardpaths_enums.LocateOption, allocator: std.mem.Allocator ```
-    pub fn LocateAll3(typeVal: i32, fileName: []const u8, options: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn LocateAll3(typeVal: i32, fileName: []const u8, options: i32, allocator: std.mem.Allocator) [][]const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,

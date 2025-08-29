@@ -6,6 +6,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
 const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
+const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://api-staging.kde.org/ksqueezedtextlabel.html
@@ -159,7 +160,7 @@ pub const ksqueezedtextlabel = struct {
     /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#setAlignment)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.KSqueezedTextLabel_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -168,7 +169,7 @@ pub const ksqueezedtextlabel = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.KSqueezedTextLabel, slot: fn (self: QtC.KSqueezedTextLabel, alignment: flag of qnamespace_enums.AlignmentFlag) callconv(.c) void ```
-    pub fn OnSetAlignment(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetAlignment(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnSetAlignment(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -177,7 +178,7 @@ pub const ksqueezedtextlabel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.KSqueezedTextLabel, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn QBaseSetAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn QBaseSetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.KSqueezedTextLabel_QBaseSetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -451,7 +452,7 @@ pub const ksqueezedtextlabel = struct {
     /// ``` self: QtC.KSqueezedTextLabel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QLabel_Alignment(@ptrCast(self));
     }
 
@@ -550,7 +551,7 @@ pub const ksqueezedtextlabel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#setTextInteractionFlags)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, flags: flag of qnamespace_enums.TextInteractionFlag ```
-    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QLabel_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -561,7 +562,7 @@ pub const ksqueezedtextlabel = struct {
     /// ``` self: QtC.KSqueezedTextLabel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.TextInteractionFlag ```
-    pub fn TextInteractionFlags(self: ?*anyopaque) i64 {
+    pub fn TextInteractionFlags(self: ?*anyopaque) i32 {
         return qtc.QLabel_TextInteractionFlags(@ptrCast(self));
     }
 
@@ -2659,7 +2660,7 @@ pub const ksqueezedtextlabel = struct {
     /// ``` self: QtC.KSqueezedTextLabel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -2668,7 +2669,7 @@ pub const ksqueezedtextlabel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2677,7 +2678,7 @@ pub const ksqueezedtextlabel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -3287,7 +3288,7 @@ pub const ksqueezedtextlabel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3314,7 +3315,7 @@ pub const ksqueezedtextlabel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3332,7 +3333,7 @@ pub const ksqueezedtextlabel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

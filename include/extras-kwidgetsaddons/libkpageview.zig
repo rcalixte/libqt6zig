@@ -6,6 +6,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
 const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
+const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://api-staging.kde.org/kpageview.html
@@ -230,7 +231,7 @@ pub const kpageview = struct {
     /// ``` self: QtC.KPageView ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn ViewPosition(self: ?*anyopaque) i64 {
+    pub fn ViewPosition(self: ?*anyopaque) i32 {
         return qtc.KPageView_ViewPosition(@ptrCast(self));
     }
 
@@ -238,8 +239,8 @@ pub const kpageview = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KPageView, slot: fn () callconv(.c) i64 ```
-    pub fn OnViewPosition(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.KPageView, slot: fn () callconv(.c) i32 ```
+    pub fn OnViewPosition(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.KPageView_OnViewPosition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -250,7 +251,7 @@ pub const kpageview = struct {
     /// ``` self: QtC.KPageView ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn QBaseViewPosition(self: ?*anyopaque) i64 {
+    pub fn QBaseViewPosition(self: ?*anyopaque) i32 {
         return qtc.KPageView_QBaseViewPosition(@ptrCast(self));
     }
 
@@ -2124,7 +2125,7 @@ pub const kpageview = struct {
     /// ``` self: QtC.KPageView ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -2133,7 +2134,7 @@ pub const kpageview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KPageView, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2142,7 +2143,7 @@ pub const kpageview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KPageView, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2761,7 +2762,7 @@ pub const kpageview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KPageView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -2788,7 +2789,7 @@ pub const kpageview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KPageView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -2806,7 +2807,7 @@ pub const kpageview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KPageView, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qeventloop_enums = @import("libqeventloop.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -46,7 +47,7 @@ pub const qabstracteventdispatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, flags: flag of qeventloop_enums.ProcessEventsFlag ```
-    pub fn ProcessEvents(self: ?*anyopaque, flags: i64) bool {
+    pub fn ProcessEvents(self: ?*anyopaque, flags: i32) bool {
         return qtc.QAbstractEventDispatcher_ProcessEvents(@ptrCast(self), @intCast(flags));
     }
 
@@ -714,7 +715,7 @@ pub const qabstracteventdispatcherv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#processEventsWithDeadline)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, flags: flag of qeventloop_enums.ProcessEventsFlag, deadline: QtC.QDeadlineTimer ```
-    pub fn ProcessEventsWithDeadline(self: ?*anyopaque, flags: i64, deadline: QtC.QDeadlineTimer) bool {
+    pub fn ProcessEventsWithDeadline(self: ?*anyopaque, flags: i32, deadline: QtC.QDeadlineTimer) bool {
         return qtc.QAbstractEventDispatcherV2_ProcessEventsWithDeadline(@ptrCast(self), @intCast(flags), @ptrCast(deadline));
     }
 
@@ -758,7 +759,7 @@ pub const qabstracteventdispatcherv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, flags: flag of qeventloop_enums.ProcessEventsFlag ```
-    pub fn ProcessEvents(self: ?*anyopaque, flags: i64) bool {
+    pub fn ProcessEvents(self: ?*anyopaque, flags: i32) bool {
         return qtc.QAbstractEventDispatcher_ProcessEvents(@ptrCast(self), @intCast(flags));
     }
 

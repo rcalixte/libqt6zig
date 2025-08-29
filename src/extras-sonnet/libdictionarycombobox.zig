@@ -6,6 +6,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
 const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
+const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://api-staging.kde.org/sonnet-dictionarycombobox.html
@@ -975,7 +976,7 @@ pub const sonnet__dictionarycombobox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#findText)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, text: []const u8, flags: flag of qnamespace_enums.MatchFlag ```
-    pub fn FindText2(self: ?*anyopaque, text: []const u8, flags: i64) i32 {
+    pub fn FindText2(self: ?*anyopaque, text: []const u8, flags: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -997,7 +998,7 @@ pub const sonnet__dictionarycombobox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#findData)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, data: QtC.QVariant, role: i32, flags: flag of qnamespace_enums.MatchFlag ```
-    pub fn FindData3(self: ?*anyopaque, data: ?*anyopaque, role: i32, flags: i64) i32 {
+    pub fn FindData3(self: ?*anyopaque, data: ?*anyopaque, role: i32, flags: i32) i32 {
         return qtc.QComboBox_FindData3(@ptrCast(self), @ptrCast(data), @intCast(role), @intCast(flags));
     }
 
@@ -2924,7 +2925,7 @@ pub const sonnet__dictionarycombobox = struct {
     /// ``` self: QtC.Sonnet__DictionaryComboBox ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -2933,7 +2934,7 @@ pub const sonnet__dictionarycombobox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2942,7 +2943,7 @@ pub const sonnet__dictionarycombobox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -3561,7 +3562,7 @@ pub const sonnet__dictionarycombobox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3588,7 +3589,7 @@ pub const sonnet__dictionarycombobox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3606,7 +3607,7 @@ pub const sonnet__dictionarycombobox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

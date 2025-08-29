@@ -34,14 +34,14 @@ pub const qstringencoder = struct {
     /// New4 constructs a new QStringEncoder object.
     ///
     /// ``` encoding: qstringconverter_base_enums.Encoding, flags: flag of qstringconverter_base_enums.Flag ```
-    pub fn New4(encoding: i32, flags: i64) QtC.QStringEncoder {
+    pub fn New4(encoding: i32, flags: i32) QtC.QStringEncoder {
         return qtc.QStringEncoder_new4(@intCast(encoding), @intCast(flags));
     }
 
     /// New5 constructs a new QStringEncoder object.
     ///
     /// ``` name: []const u8, flags: flag of qstringconverter_base_enums.Flag ```
-    pub fn New5(name: []const u8, flags: i64) QtC.QStringEncoder {
+    pub fn New5(name: []const u8, flags: i32) QtC.QStringEncoder {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -169,14 +169,14 @@ pub const qstringdecoder = struct {
     /// New4 constructs a new QStringDecoder object.
     ///
     /// ``` encoding: qstringconverter_base_enums.Encoding, flags: flag of qstringconverter_base_enums.Flag ```
-    pub fn New4(encoding: i32, flags: i64) QtC.QStringDecoder {
+    pub fn New4(encoding: i32, flags: i32) QtC.QStringDecoder {
         return qtc.QStringDecoder_new4(@intCast(encoding), @intCast(flags));
     }
 
     /// New5 constructs a new QStringDecoder object.
     ///
     /// ``` name: []const u8, f: flag of qstringconverter_base_enums.Flag ```
-    pub fn New5(name: []const u8, f: i64) QtC.QStringDecoder {
+    pub fn New5(name: []const u8, f: i32) QtC.QStringDecoder {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,

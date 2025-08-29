@@ -1742,7 +1742,7 @@ pub const qgraphicsproxywidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -2288,7 +2288,7 @@ pub const qgraphicsproxywidget = struct {
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -2306,7 +2306,7 @@ pub const qgraphicsproxywidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 

@@ -7,6 +7,7 @@ const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 const qpalette_enums = @import("libqpalette.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
+const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qfiledialog.html
@@ -357,14 +358,14 @@ pub const qfiledialog = struct {
     /// ``` self: QtC.QFileDialog ```
     ///
     /// Returns: ``` flag of qdir_enums.Filter ```
-    pub fn Filter(self: ?*anyopaque) i64 {
+    pub fn Filter(self: ?*anyopaque) i32 {
         return qtc.QFileDialog_Filter(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#setFilter)
     ///
     /// ``` self: QtC.QFileDialog, filters: flag of qdir_enums.Filter ```
-    pub fn SetFilter(self: ?*anyopaque, filters: i64) void {
+    pub fn SetFilter(self: ?*anyopaque, filters: i32) void {
         qtc.QFileDialog_SetFilter(@ptrCast(self), @intCast(filters));
     }
 
@@ -646,7 +647,7 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#setOptions)
     ///
     /// ``` self: QtC.QFileDialog, options: flag of qfiledialog_enums.Option ```
-    pub fn SetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QFileDialog_SetOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -655,7 +656,7 @@ pub const qfiledialog = struct {
     /// ``` self: QtC.QFileDialog ```
     ///
     /// Returns: ``` flag of qfiledialog_enums.Option ```
-    pub fn Options(self: ?*anyopaque) i64 {
+    pub fn Options(self: ?*anyopaque) i32 {
         return qtc.QFileDialog_Options(@ptrCast(self));
     }
 
@@ -1325,7 +1326,7 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectory)
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, options: flag of qfiledialog_enums.Option, allocator: std.mem.Allocator ```
-    pub fn GetExistingDirectory4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetExistingDirectory4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, options: i32, allocator: std.mem.Allocator) []const u8 {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -1373,7 +1374,7 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl)
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, options: flag of qfiledialog_enums.Option ```
-    pub fn GetExistingDirectoryUrl4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i64) QtC.QUrl {
+    pub fn GetExistingDirectoryUrl4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i32) QtC.QUrl {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -1384,7 +1385,7 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl)
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, options: flag of qfiledialog_enums.Option, supportedSchemes: [][]const u8, allocator: std.mem.Allocator ```
-    pub fn GetExistingDirectoryUrl5(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i64, supportedSchemes: [][]const u8, allocator: std.mem.Allocator) QtC.QUrl {
+    pub fn GetExistingDirectoryUrl5(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i32, supportedSchemes: [][]const u8, allocator: std.mem.Allocator) QtC.QUrl {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -3538,7 +3539,7 @@ pub const qfiledialog = struct {
     /// ``` self: QtC.QFileDialog ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -3547,7 +3548,7 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QFileDialog, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -3556,7 +3557,7 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QFileDialog, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -4175,7 +4176,7 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QFileDialog, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -4202,7 +4203,7 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QFileDialog, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -4220,7 +4221,7 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QFileDialog, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qicon_enums = enums;
+const qnamespace_enums = @import("libqnamespace.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qicon.html
@@ -493,42 +494,42 @@ pub const qicon = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ``` self: QtC.QIcon, painter: QtC.QPainter, rect: QtC.QRect, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Paint3(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i64) void {
+    pub fn Paint3(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i32) void {
         qtc.QIcon_Paint3(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ``` self: QtC.QIcon, painter: QtC.QPainter, rect: QtC.QRect, alignment: flag of qnamespace_enums.AlignmentFlag, mode: qicon_enums.Mode ```
-    pub fn Paint4(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i64, mode: i32) void {
+    pub fn Paint4(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i32, mode: i32) void {
         qtc.QIcon_Paint4(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ``` self: QtC.QIcon, painter: QtC.QPainter, rect: QtC.QRect, alignment: flag of qnamespace_enums.AlignmentFlag, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn Paint5(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i64, mode: i32, state: i32) void {
+    pub fn Paint5(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i32, mode: i32, state: i32) void {
         qtc.QIcon_Paint5(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment), @intCast(mode), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ``` self: QtC.QIcon, painter: QtC.QPainter, x: i32, y: i32, w: i32, h: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Paint6(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, alignment: i64) void {
+    pub fn Paint6(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, alignment: i32) void {
         qtc.QIcon_Paint6(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ``` self: QtC.QIcon, painter: QtC.QPainter, x: i32, y: i32, w: i32, h: i32, alignment: flag of qnamespace_enums.AlignmentFlag, mode: qicon_enums.Mode ```
-    pub fn Paint7(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, alignment: i64, mode: i32) void {
+    pub fn Paint7(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, alignment: i32, mode: i32) void {
         qtc.QIcon_Paint7(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(alignment), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ``` self: QtC.QIcon, painter: QtC.QPainter, x: i32, y: i32, w: i32, h: i32, alignment: flag of qnamespace_enums.AlignmentFlag, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn Paint8(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, alignment: i64, mode: i32, state: i32) void {
+    pub fn Paint8(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, alignment: i32, mode: i32, state: i32) void {
         qtc.QIcon_Paint8(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(alignment), @intCast(mode), @intCast(state));
     }
 

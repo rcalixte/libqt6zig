@@ -77,7 +77,7 @@ pub const qstringconverterbase__state = struct {
     /// New2 constructs a new QStringConverterBase::State object.
     ///
     /// ``` f: flag of qstringconverter_base_enums.Flag ```
-    pub fn New2(f: i64) QtC.QStringConverterBase__State {
+    pub fn New2(f: i32) QtC.QStringConverterBase__State {
         return qtc.QStringConverterBase__State_new2(@intCast(f));
     }
 
@@ -100,14 +100,14 @@ pub const qstringconverterbase__state = struct {
     /// ``` self: QtC.QStringConverterBase__State ```
     ///
     /// Returns: ``` flag of qstringconverter_base_enums.Flag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QStringConverterBase__State_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#flags-var)
     ///
     /// ``` self: QtC.QStringConverterBase__State, flags: flag of qstringconverter_base_enums.Flag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QStringConverterBase__State_SetFlags(@ptrCast(self), @intCast(flags));
     }
 

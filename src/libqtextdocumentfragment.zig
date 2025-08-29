@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qtextdocument_enums = @import("libqtextdocument.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qtextdocumentfragment.html
@@ -126,7 +127,7 @@ pub const qtextdocumentfragment = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toMarkdown)
     ///
     /// ``` self: QtC.QTextDocumentFragment, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
-    pub fn ToMarkdown1(self: ?*anyopaque, features: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocumentFragment_ToMarkdown1(@ptrCast(self), @intCast(features));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocumentfragment.ToMarkdown1: Memory allocation failed");
@@ -148,7 +149,7 @@ pub const qtextdocumentfragment = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromMarkdown)
     ///
     /// ``` markdown: []const u8, features: flag of qtextdocument_enums.MarkdownFeature ```
-    pub fn FromMarkdown2(markdown: []const u8, features: i64) QtC.QTextDocumentFragment {
+    pub fn FromMarkdown2(markdown: []const u8, features: i32) QtC.QTextDocumentFragment {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,

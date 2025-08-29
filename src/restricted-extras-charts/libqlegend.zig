@@ -147,7 +147,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#setAlignment)
     ///
     /// ``` self: QtC.QLegend, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QLegend_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -156,7 +156,7 @@ pub const qlegend = struct {
     /// ``` self: QtC.QLegend ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QLegend_Alignment(@ptrCast(self));
     }
 
@@ -1283,7 +1283,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QLegend, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -1838,7 +1838,7 @@ pub const qlegend = struct {
     /// ``` self: QtC.QLegend ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -1856,7 +1856,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QLegend, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 

@@ -1,10 +1,12 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const kcharselect_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
 const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
+const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://api-staging.kde.org/kcharselect.html
@@ -26,14 +28,14 @@ pub const kcharselect = struct {
     /// New3 constructs a new KCharSelect object.
     ///
     /// ``` parent: QtC.QWidget, controls: flag of kcharselect_enums.Control ```
-    pub fn New3(parent: ?*anyopaque, controls: i64) QtC.KCharSelect {
+    pub fn New3(parent: ?*anyopaque, controls: i32) QtC.KCharSelect {
         return qtc.KCharSelect_new3(@ptrCast(parent), @intCast(controls));
     }
 
     /// New4 constructs a new KCharSelect object.
     ///
     /// ``` parent: QtC.QWidget, actionParent: QtC.QObject, controls: flag of kcharselect_enums.Control ```
-    pub fn New4(parent: ?*anyopaque, actionParent: ?*anyopaque, controls: i64) QtC.KCharSelect {
+    pub fn New4(parent: ?*anyopaque, actionParent: ?*anyopaque, controls: i32) QtC.KCharSelect {
         return qtc.KCharSelect_new4(@ptrCast(parent), @ptrCast(actionParent), @intCast(controls));
     }
 
@@ -2140,7 +2142,7 @@ pub const kcharselect = struct {
     /// ``` self: QtC.KCharSelect ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -2149,7 +2151,7 @@ pub const kcharselect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KCharSelect, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2158,7 +2160,7 @@ pub const kcharselect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KCharSelect, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2777,7 +2779,7 @@ pub const kcharselect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCharSelect, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -2804,7 +2806,7 @@ pub const kcharselect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCharSelect, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -2822,7 +2824,7 @@ pub const kcharselect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KCharSelect, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

@@ -46,7 +46,7 @@ pub const kconfig = struct {
     /// New4 constructs a new KConfig object.
     ///
     /// ``` file: []const u8, mode: flag of kconfig_enums.OpenFlag ```
-    pub fn New4(file: []const u8, mode: i64) QtC.KConfig {
+    pub fn New4(file: []const u8, mode: i32) QtC.KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -58,7 +58,7 @@ pub const kconfig = struct {
     /// New5 constructs a new KConfig object.
     ///
     /// ``` file: []const u8, mode: flag of kconfig_enums.OpenFlag, typeVal: qstandardpaths_enums.StandardLocation ```
-    pub fn New5(file: []const u8, mode: i64, typeVal: i32) QtC.KConfig {
+    pub fn New5(file: []const u8, mode: i32, typeVal: i32) QtC.KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -108,7 +108,7 @@ pub const kconfig = struct {
     /// ``` self: QtC.KConfig ```
     ///
     /// Returns: ``` flag of kconfig_enums.OpenFlag ```
-    pub fn OpenFlags(self: ?*anyopaque) i64 {
+    pub fn OpenFlags(self: ?*anyopaque) i32 {
         return qtc.KConfig_OpenFlags(@ptrCast(self));
     }
 
@@ -545,7 +545,7 @@ pub const kconfig = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfig.html#deleteGroupImpl)
     ///
     /// ``` self: QtC.KConfig, groupName: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i64) void {
+    pub fn DeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -558,7 +558,7 @@ pub const kconfig = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.KConfig, slot: fn (self: QtC.KConfig, groupName: [*:0]const u8, flags: flag of kconfigbase_enums.WriteConfigFlag) callconv(.c) void ```
-    pub fn OnDeleteGroupImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) void) void {
+    pub fn OnDeleteGroupImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.KConfig_OnDeleteGroupImpl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -567,7 +567,7 @@ pub const kconfig = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.KConfig, groupName: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn QBaseDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i64) void {
+    pub fn QBaseDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -744,7 +744,7 @@ pub const kconfig = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KConfig, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i64) void {
+    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,

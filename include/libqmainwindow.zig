@@ -7,6 +7,7 @@ const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 const qpalette_enums = @import("libqpalette.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const qtabwidget_enums = @import("libqtabwidget.zig").enums;
+const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qmainwindow.html
@@ -162,14 +163,14 @@ pub const qmainwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setTabPosition)
     ///
     /// ``` self: QtC.QMainWindow, areas: flag of qnamespace_enums.DockWidgetArea, tabPosition: qtabwidget_enums.TabPosition ```
-    pub fn SetTabPosition(self: ?*anyopaque, areas: i64, tabPosition: i32) void {
+    pub fn SetTabPosition(self: ?*anyopaque, areas: i32, tabPosition: i32) void {
         qtc.QMainWindow_SetTabPosition(@ptrCast(self), @intCast(areas), @intCast(tabPosition));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#setDockOptions)
     ///
     /// ``` self: QtC.QMainWindow, options: flag of qmainwindow_enums.DockOption ```
-    pub fn SetDockOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetDockOptions(self: ?*anyopaque, options: i32) void {
         qtc.QMainWindow_SetDockOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -178,7 +179,7 @@ pub const qmainwindow = struct {
     /// ``` self: QtC.QMainWindow ```
     ///
     /// Returns: ``` flag of qmainwindow_enums.DockOption ```
-    pub fn DockOptions(self: ?*anyopaque) i64 {
+    pub fn DockOptions(self: ?*anyopaque) i32 {
         return qtc.QMainWindow_DockOptions(@ptrCast(self));
     }
 
@@ -2488,7 +2489,7 @@ pub const qmainwindow = struct {
     /// ``` self: QtC.QMainWindow ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -2497,7 +2498,7 @@ pub const qmainwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QMainWindow, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2506,7 +2507,7 @@ pub const qmainwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QMainWindow, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -3125,7 +3126,7 @@ pub const qmainwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMainWindow, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3152,7 +3153,7 @@ pub const qmainwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMainWindow, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3170,7 +3171,7 @@ pub const qmainwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QMainWindow, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

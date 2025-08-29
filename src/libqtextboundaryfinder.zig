@@ -140,7 +140,7 @@ pub const qtextboundaryfinder = struct {
     /// ``` self: QtC.QTextBoundaryFinder ```
     ///
     /// Returns: ``` flag of qtextboundaryfinder_enums.BoundaryReason ```
-    pub fn BoundaryReasons(self: ?*anyopaque) i64 {
+    pub fn BoundaryReasons(self: ?*anyopaque) i32 {
         return qtc.QTextBoundaryFinder_BoundaryReasons(@ptrCast(self));
     }
 

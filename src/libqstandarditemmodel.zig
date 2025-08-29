@@ -271,14 +271,14 @@ pub const qstandarditem = struct {
     /// ``` self: QtC.QStandardItem ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn TextAlignment(self: ?*anyopaque) i64 {
+    pub fn TextAlignment(self: ?*anyopaque) i32 {
         return qtc.QStandardItem_TextAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#setTextAlignment)
     ///
     /// ``` self: QtC.QStandardItem, textAlignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i64) void {
+    pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
         qtc.QStandardItem_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
     }
 
@@ -375,14 +375,14 @@ pub const qstandarditem = struct {
     /// ``` self: QtC.QStandardItem ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QStandardItem_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#setFlags)
     ///
     /// ``` self: QtC.QStandardItem, flags: flag of qnamespace_enums.ItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QStandardItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -1486,7 +1486,7 @@ pub const qstandarditemmodel = struct {
     /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QStandardItemModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -1494,8 +1494,8 @@ pub const qstandarditemmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, index: QtC.QModelIndex) callconv(.c) i64 ```
-    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, index: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QStandardItemModel_OnFlags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1506,7 +1506,7 @@ pub const qstandarditemmodel = struct {
     /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QStandardItemModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -1515,7 +1515,7 @@ pub const qstandarditemmodel = struct {
     /// ``` self: QtC.QStandardItemModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QStandardItemModel_SupportedDropActions(@ptrCast(self));
     }
 
@@ -1523,8 +1523,8 @@ pub const qstandarditemmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QStandardItemModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QStandardItemModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QStandardItemModel_OnSupportedDropActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1535,7 +1535,7 @@ pub const qstandarditemmodel = struct {
     /// ``` self: QtC.QStandardItemModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QStandardItemModel_QBaseSupportedDropActions(@ptrCast(self));
     }
 
@@ -2150,7 +2150,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#findItems)
     ///
     /// ``` self: QtC.QStandardItemModel, text: []const u8, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn FindItems2(self: ?*anyopaque, text: []const u8, flags: i64, allocator: std.mem.Allocator) []QtC.QStandardItem {
+    pub fn FindItems2(self: ?*anyopaque, text: []const u8, flags: i32, allocator: std.mem.Allocator) []QtC.QStandardItem {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2166,7 +2166,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#findItems)
     ///
     /// ``` self: QtC.QStandardItemModel, text: []const u8, flags: flag of qnamespace_enums.MatchFlag, column: i32, allocator: std.mem.Allocator ```
-    pub fn FindItems3(self: ?*anyopaque, text: []const u8, flags: i64, column: i32, allocator: std.mem.Allocator) []QtC.QStandardItem {
+    pub fn FindItems3(self: ?*anyopaque, text: []const u8, flags: i32, column: i32, allocator: std.mem.Allocator) []QtC.QStandardItem {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2337,7 +2337,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
+    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
 
@@ -2894,7 +2894,7 @@ pub const qstandarditemmodel = struct {
     /// ``` self: QtC.QStandardItemModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QStandardItemModel_SupportedDragActions(@ptrCast(self));
     }
 
@@ -2907,7 +2907,7 @@ pub const qstandarditemmodel = struct {
     /// ``` self: QtC.QStandardItemModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QStandardItemModel_QBaseSupportedDragActions(@ptrCast(self));
     }
 
@@ -2917,8 +2917,8 @@ pub const qstandarditemmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QStandardItemModel, slot: fn () callconv(.c) i64 ```
-    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QStandardItemModel, slot: fn () callconv(.c) i32 ```
+    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QStandardItemModel_OnSupportedDragActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3094,7 +3094,7 @@ pub const qstandarditemmodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QStandardItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qstandarditemmodel.Match: Memory allocation failed");
@@ -3110,7 +3110,7 @@ pub const qstandarditemmodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QStandardItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qstandarditemmodel.Match: Memory allocation failed");
@@ -3126,7 +3126,7 @@ pub const qstandarditemmodel = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex ```
-    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) [*:null]QtC.QModelIndex) void {
+    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
         qtc.QStandardItemModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

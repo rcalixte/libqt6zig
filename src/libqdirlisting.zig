@@ -45,7 +45,7 @@ pub const qdirlisting = struct {
     /// New3 constructs a new QDirListing object.
     ///
     /// ``` path: []const u8, flags: flag of qdirlisting_enums.IteratorFlag ```
-    pub fn New3(path: []const u8, flags: i64) QtC.QDirListing {
+    pub fn New3(path: []const u8, flags: i32) QtC.QDirListing {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -57,7 +57,7 @@ pub const qdirlisting = struct {
     /// New4 constructs a new QDirListing object.
     ///
     /// ``` path: []const u8, nameFilters: [][]const u8, flags: flag of qdirlisting_enums.IteratorFlag, allocator: std.mem.Allocator ```
-    pub fn New4(path: []const u8, nameFilters: [][]const u8, flags: i64, allocator: std.mem.Allocator) QtC.QDirListing {
+    pub fn New4(path: []const u8, nameFilters: [][]const u8, flags: i32, allocator: std.mem.Allocator) QtC.QDirListing {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -101,7 +101,7 @@ pub const qdirlisting = struct {
     /// ``` self: QtC.QDirListing ```
     ///
     /// Returns: ``` flag of qdirlisting_enums.IteratorFlag ```
-    pub fn IteratorFlags(self: ?*anyopaque) i64 {
+    pub fn IteratorFlags(self: ?*anyopaque) i32 {
         return qtc.QDirListing_IteratorFlags(@ptrCast(self));
     }
 

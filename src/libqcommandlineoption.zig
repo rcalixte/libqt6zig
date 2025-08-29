@@ -325,14 +325,14 @@ pub const qcommandlineoption = struct {
     /// ``` self: QtC.QCommandLineOption ```
     ///
     /// Returns: ``` flag of qcommandlineoption_enums.Flag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QCommandLineOption_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#setFlags)
     ///
     /// ``` self: QtC.QCommandLineOption, aflags: flag of qcommandlineoption_enums.Flag ```
-    pub fn SetFlags(self: ?*anyopaque, aflags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, aflags: i32) void {
         qtc.QCommandLineOption_SetFlags(@ptrCast(self), @intCast(aflags));
     }
 

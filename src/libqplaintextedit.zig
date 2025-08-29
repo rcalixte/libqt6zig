@@ -9,7 +9,9 @@ const qpalette_enums = @import("libqpalette.zig").enums;
 const qplaintextedit_enums = enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const qtextcursor_enums = @import("libqtextcursor.zig").enums;
+const qtextdocument_enums = @import("libqtextdocument.zig").enums;
 const qtextoption_enums = @import("libqtextoption.zig").enums;
+const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qplaintextedit.html
@@ -163,7 +165,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qplaintextedit.html#setTextInteractionFlags)
     ///
     /// ``` self: QtC.QPlainTextEdit, flags: flag of qnamespace_enums.TextInteractionFlag ```
-    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QPlainTextEdit_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -172,7 +174,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` flag of qnamespace_enums.TextInteractionFlag ```
-    pub fn TextInteractionFlags(self: ?*anyopaque) i64 {
+    pub fn TextInteractionFlags(self: ?*anyopaque) i32 {
         return qtc.QPlainTextEdit_TextInteractionFlags(@ptrCast(self));
     }
 
@@ -1647,7 +1649,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qplaintextedit.html#find)
     ///
     /// ``` self: QtC.QPlainTextEdit, exp: []const u8, options: flag of qtextdocument_enums.FindFlag ```
-    pub fn Find22(self: ?*anyopaque, exp: []const u8, options: i64) bool {
+    pub fn Find22(self: ?*anyopaque, exp: []const u8, options: i32) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
@@ -1658,7 +1660,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qplaintextedit.html#find)
     ///
     /// ``` self: QtC.QPlainTextEdit, exp: QtC.QRegularExpression, options: flag of qtextdocument_enums.FindFlag ```
-    pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i64) bool {
+    pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i32) bool {
         return qtc.QPlainTextEdit_Find23(@ptrCast(self), @ptrCast(exp), @intCast(options));
     }
 
@@ -1782,7 +1784,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QPlainTextEdit, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
+    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
 
@@ -1791,7 +1793,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QPlainTextEdit, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
+    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qplaintextedit.ScrollBarWidgets: Memory allocation failed");
@@ -3812,7 +3814,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -3821,7 +3823,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QPlainTextEdit, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -3830,7 +3832,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QPlainTextEdit, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -4440,7 +4442,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QPlainTextEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -4467,7 +4469,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QPlainTextEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -4485,7 +4487,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QPlainTextEdit, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

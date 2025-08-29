@@ -302,7 +302,7 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#open)
     ///
     /// ``` self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn Open(self: ?*anyopaque, mode: i64) bool {
+    pub fn Open(self: ?*anyopaque, mode: i32) bool {
         return qtc.QProcess_Open(@ptrCast(self), @intCast(mode));
     }
 
@@ -311,7 +311,7 @@ pub const qprocess = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QProcess_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -320,7 +320,7 @@ pub const qprocess = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseOpen(self: ?*anyopaque, mode: i64) bool {
+    pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
         return qtc.QProcess_QBaseOpen(@ptrCast(self), @intCast(mode));
     }
 
@@ -514,7 +514,7 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters)
     ///
     /// ``` self: QtC.QProcess, flagsOnly: flag of qprocess_enums.UnixProcessFlag ```
-    pub fn SetUnixProcessParameters2(self: ?*anyopaque, flagsOnly: i64) void {
+    pub fn SetUnixProcessParameters2(self: ?*anyopaque, flagsOnly: u32) void {
         qtc.QProcess_SetUnixProcessParameters2(@ptrCast(self), @intCast(flagsOnly));
     }
 
@@ -1025,7 +1025,7 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#start)
     ///
     /// ``` self: QtC.QProcess, program: []const u8, arguments: [][]const u8, mode: flag of qiodevicebase_enums.OpenModeFlag, allocator: std.mem.Allocator ```
-    pub fn Start3(self: ?*anyopaque, program: []const u8, arguments: [][]const u8, mode: i64, allocator: std.mem.Allocator) void {
+    pub fn Start3(self: ?*anyopaque, program: []const u8, arguments: [][]const u8, mode: i32, allocator: std.mem.Allocator) void {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
@@ -1048,14 +1048,14 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#start)
     ///
     /// ``` self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn Start1(self: ?*anyopaque, mode: i64) void {
+    pub fn Start1(self: ?*anyopaque, mode: i32) void {
         qtc.QProcess_Start1(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startCommand)
     ///
     /// ``` self: QtC.QProcess, command: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn StartCommand2(self: ?*anyopaque, command: []const u8, mode: i64) void {
+    pub fn StartCommand2(self: ?*anyopaque, command: []const u8, mode: i32) void {
         const command_str = qtc.libqt_string{
             .len = command.len,
             .data = command.ptr,
@@ -1073,7 +1073,7 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardOutputFile)
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetStandardOutputFile2(self: ?*anyopaque, fileName: []const u8, mode: i64) void {
+    pub fn SetStandardOutputFile2(self: ?*anyopaque, fileName: []const u8, mode: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -1084,7 +1084,7 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardErrorFile)
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetStandardErrorFile2(self: ?*anyopaque, fileName: []const u8, mode: i64) void {
+    pub fn SetStandardErrorFile2(self: ?*anyopaque, fileName: []const u8, mode: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -1235,7 +1235,7 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess ```
     ///
     /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn OpenMode(self: ?*anyopaque) i64 {
+    pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
@@ -2574,7 +2574,7 @@ pub const qprocess = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QProcess_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -2585,7 +2585,7 @@ pub const qprocess = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QProcess_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -2596,7 +2596,7 @@ pub const qprocess = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProcess_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2867,14 +2867,14 @@ pub const qprocess__unixprocessparameters = struct {
     /// ``` self: QtC.QProcess__UnixProcessParameters ```
     ///
     /// Returns: ``` flag of qprocess_enums.UnixProcessFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) u32 {
         return qtc.QProcess__UnixProcessParameters_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#flags-var)
     ///
     /// ``` self: QtC.QProcess__UnixProcessParameters, flags: flag of qprocess_enums.UnixProcessFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: u32) void {
         qtc.QProcess__UnixProcessParameters_SetFlags(@ptrCast(self), @intCast(flags));
     }
 

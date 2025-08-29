@@ -104,7 +104,7 @@ pub const kpixmapsequenceoverlaypainter = struct {
     /// ``` self: QtC.KPixmapSequenceOverlayPainter ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.KPixmapSequenceOverlayPainter_Alignment(@ptrCast(self));
     }
 
@@ -146,7 +146,7 @@ pub const kpixmapsequenceoverlaypainter = struct {
     /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#setAlignment)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter, alignVal: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, alignVal: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, alignVal: i32) void {
         qtc.KPixmapSequenceOverlayPainter_SetAlignment(@ptrCast(self), @intCast(alignVal));
     }
 

@@ -114,7 +114,7 @@ pub const qsizepolicy = struct {
     /// ``` self: QtC.QSizePolicy ```
     ///
     /// Returns: ``` flag of qnamespace_enums.Orientation ```
-    pub fn ExpandingDirections(self: ?*anyopaque) i64 {
+    pub fn ExpandingDirections(self: ?*anyopaque) i32 {
         return qtc.QSizePolicy_ExpandingDirections(@ptrCast(self));
     }
 

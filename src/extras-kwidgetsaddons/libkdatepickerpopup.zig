@@ -6,6 +6,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
 const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
+const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 pub const map_qtcqdate_constu8 = std.AutoHashMapUnmanaged(QtC.QDate, []const u8);
 
@@ -21,21 +22,21 @@ pub const kdatepickerpopup = struct {
     /// New2 constructs a new KDatePickerPopup object.
     ///
     /// ``` modes: flag of kdatepickerpopup_enums.Mode ```
-    pub fn New2(modes: i64) QtC.KDatePickerPopup {
+    pub fn New2(modes: i32) QtC.KDatePickerPopup {
         return qtc.KDatePickerPopup_new2(@intCast(modes));
     }
 
     /// New3 constructs a new KDatePickerPopup object.
     ///
     /// ``` modes: flag of kdatepickerpopup_enums.Mode, date: QtC.QDate ```
-    pub fn New3(modes: i64, date: QtC.QDate) QtC.KDatePickerPopup {
+    pub fn New3(modes: i32, date: QtC.QDate) QtC.KDatePickerPopup {
         return qtc.KDatePickerPopup_new3(@intCast(modes), @ptrCast(date));
     }
 
     /// New4 constructs a new KDatePickerPopup object.
     ///
     /// ``` modes: flag of kdatepickerpopup_enums.Mode, date: QtC.QDate, parent: QtC.QWidget ```
-    pub fn New4(modes: i64, date: QtC.QDate, parent: ?*anyopaque) QtC.KDatePickerPopup {
+    pub fn New4(modes: i32, date: QtC.QDate, parent: ?*anyopaque) QtC.KDatePickerPopup {
         return qtc.KDatePickerPopup_new4(@intCast(modes), @ptrCast(date), @ptrCast(parent));
     }
 
@@ -88,14 +89,14 @@ pub const kdatepickerpopup = struct {
     /// ``` self: QtC.KDatePickerPopup ```
     ///
     /// Returns: ``` flag of kdatepickerpopup_enums.Mode ```
-    pub fn Modes(self: ?*anyopaque) i64 {
+    pub fn Modes(self: ?*anyopaque) i32 {
         return qtc.KDatePickerPopup_Modes(@ptrCast(self));
     }
 
     /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#setModes)
     ///
     /// ``` self: QtC.KDatePickerPopup, modes: flag of kdatepickerpopup_enums.Mode ```
-    pub fn SetModes(self: ?*anyopaque, modes: i64) void {
+    pub fn SetModes(self: ?*anyopaque, modes: i32) void {
         qtc.KDatePickerPopup_SetModes(@ptrCast(self), @intCast(modes));
     }
 
@@ -2552,7 +2553,7 @@ pub const kdatepickerpopup = struct {
     /// ``` self: QtC.KDatePickerPopup ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -2561,7 +2562,7 @@ pub const kdatepickerpopup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KDatePickerPopup, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -2570,7 +2571,7 @@ pub const kdatepickerpopup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KDatePickerPopup, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -3189,7 +3190,7 @@ pub const kdatepickerpopup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDatePickerPopup, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3216,7 +3217,7 @@ pub const kdatepickerpopup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KDatePickerPopup, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -3234,7 +3235,7 @@ pub const kdatepickerpopup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KDatePickerPopup, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

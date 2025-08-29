@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 
 /// https://api-staging.kde.org/ksandbox.html
 pub const ksandbox = struct {
@@ -34,7 +35,7 @@ pub const ksandbox = struct {
     /// [Qt documentation](https://api-staging.kde.org/ksandbox.html#startHostProcess)
     ///
     /// ``` param1: QtC.QProcess, param2: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn StartHostProcess(param1: ?*anyopaque, param2: i64) void {
+    pub fn StartHostProcess(param1: ?*anyopaque, param2: i32) void {
         qtc.KSandbox_StartHostProcess(@ptrCast(param1), @intCast(param2));
     }
 };

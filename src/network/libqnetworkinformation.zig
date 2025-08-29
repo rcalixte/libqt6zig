@@ -83,7 +83,7 @@ pub const qnetworkinformation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#supports)
     ///
     /// ``` self: QtC.QNetworkInformation, features: flag of qnetworkinformation_enums.Feature ```
-    pub fn Supports(self: ?*anyopaque, features: i64) bool {
+    pub fn Supports(self: ?*anyopaque, features: i32) bool {
         return qtc.QNetworkInformation_Supports(@ptrCast(self), @intCast(features));
     }
 
@@ -92,7 +92,7 @@ pub const qnetworkinformation = struct {
     /// ``` self: QtC.QNetworkInformation ```
     ///
     /// Returns: ``` flag of qnetworkinformation_enums.Feature ```
-    pub fn SupportedFeatures(self: ?*anyopaque) i64 {
+    pub fn SupportedFeatures(self: ?*anyopaque) i32 {
         return qtc.QNetworkInformation_SupportedFeatures(@ptrCast(self));
     }
 
@@ -106,14 +106,14 @@ pub const qnetworkinformation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#loadBackendByFeatures)
     ///
     /// ``` features: flag of qnetworkinformation_enums.Feature ```
-    pub fn LoadBackendByFeatures(features: i64) bool {
+    pub fn LoadBackendByFeatures(features: i32) bool {
         return qtc.QNetworkInformation_LoadBackendByFeatures(@intCast(features));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#load)
     ///
     /// ``` features: flag of qnetworkinformation_enums.Feature ```
-    pub fn Load2(features: i64) bool {
+    pub fn Load2(features: i32) bool {
         return qtc.QNetworkInformation_Load2(@intCast(features));
     }
 

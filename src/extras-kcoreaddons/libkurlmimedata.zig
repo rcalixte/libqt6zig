@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const kurlmimedata_enums = enums;
 const std = @import("std");
 pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
@@ -79,7 +80,7 @@ pub const kurlmimedata = struct {
     /// [Qt documentation](https://api-staging.kde.org/kurlmimedata.html#urlsFromMimeData)
     ///
     /// ``` param1: QtC.QMimeData, param2: flag of kurlmimedata_enums.DecodeOption, param3: *map_constu8_constu8, allocator: std.mem.Allocator ```
-    pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i64, param3: *map_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i32, param3: *map_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
         const param3_keys = allocator.alloc(qtc.libqt_string, param3.count()) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         defer allocator.free(param3_keys);
         const param3_values = allocator.alloc([]const u8, param3.count()) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");

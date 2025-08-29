@@ -109,14 +109,14 @@ pub const qwebengineurlscheme = struct {
     /// ``` self: QtC.QWebEngineUrlScheme ```
     ///
     /// Returns: ``` flag of qwebengineurlscheme_enums.Flag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QWebEngineUrlScheme_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setFlags)
     ///
     /// ``` self: QtC.QWebEngineUrlScheme, newValue: flag of qwebengineurlscheme_enums.Flag ```
-    pub fn SetFlags(self: ?*anyopaque, newValue: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, newValue: i32) void {
         qtc.QWebEngineUrlScheme_SetFlags(@ptrCast(self), @intCast(newValue));
     }
 

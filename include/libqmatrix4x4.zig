@@ -465,7 +465,7 @@ pub const qmatrix4x4 = struct {
     /// ``` self: QtC.QMatrix4x4 ```
     ///
     /// Returns: ``` flag of qmatrix4x4_enums.Flag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QMatrix4x4_Flags(@ptrCast(self));
     }
 

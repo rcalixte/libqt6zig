@@ -338,7 +338,7 @@ pub const kdirwatch = struct {
     /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#addDir)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8, watchModes: flag of kdirwatch_enums.WatchMode ```
-    pub fn AddDir2(self: ?*anyopaque, path: []const u8, watchModes: i64) void {
+    pub fn AddDir2(self: ?*anyopaque, path: []const u8, watchModes: i32) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,

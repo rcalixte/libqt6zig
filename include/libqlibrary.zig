@@ -239,7 +239,7 @@ pub const qlibrary = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlibrary.html#setLoadHints)
     ///
     /// ``` self: QtC.QLibrary, hints: flag of qlibrary_enums.LoadHint ```
-    pub fn SetLoadHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetLoadHints(self: ?*anyopaque, hints: i32) void {
         qtc.QLibrary_SetLoadHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -248,7 +248,7 @@ pub const qlibrary = struct {
     /// ``` self: QtC.QLibrary ```
     ///
     /// Returns: ``` flag of qlibrary_enums.LoadHint ```
-    pub fn LoadHints(self: ?*anyopaque) i64 {
+    pub fn LoadHints(self: ?*anyopaque) i32 {
         return qtc.QLibrary_LoadHints(@ptrCast(self));
     }
 

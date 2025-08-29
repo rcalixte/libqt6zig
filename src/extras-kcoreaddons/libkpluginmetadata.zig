@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const kpluginmetadata_enums = enums;
 const std = @import("std");
 
 /// https://api-staging.kde.org/kpluginmetadata.html
@@ -52,14 +53,14 @@ pub const kpluginmetadata = struct {
     /// New6 constructs a new KPluginMetaData object.
     ///
     /// ``` loader: QtC.QPluginLoader, options: flag of kpluginmetadata_enums.KPluginMetaDataOption ```
-    pub fn New6(loader: ?*anyopaque, options: i64) QtC.KPluginMetaData {
+    pub fn New6(loader: ?*anyopaque, options: i32) QtC.KPluginMetaData {
         return qtc.KPluginMetaData_new6(@ptrCast(loader), @intCast(options));
     }
 
     /// New7 constructs a new KPluginMetaData object.
     ///
     /// ``` pluginFile: []const u8, options: flag of kpluginmetadata_enums.KPluginMetaDataOption ```
-    pub fn New7(pluginFile: []const u8, options: i64) QtC.KPluginMetaData {
+    pub fn New7(pluginFile: []const u8, options: i32) QtC.KPluginMetaData {
         const pluginFile_str = qtc.libqt_string{
             .len = pluginFile.len,
             .data = pluginFile.ptr,
@@ -451,7 +452,7 @@ pub const kpluginmetadata = struct {
     /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#findPluginById)
     ///
     /// ``` directory: []const u8, pluginId: []const u8, options: flag of kpluginmetadata_enums.KPluginMetaDataOption ```
-    pub fn FindPluginById3(directory: []const u8, pluginId: []const u8, options: i64) QtC.KPluginMetaData {
+    pub fn FindPluginById3(directory: []const u8, pluginId: []const u8, options: i32) QtC.KPluginMetaData {
         const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,

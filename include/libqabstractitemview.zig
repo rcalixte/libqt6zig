@@ -10,6 +10,7 @@ const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 const qpalette_enums = @import("libqpalette.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
+const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qabstractitemview.html
@@ -199,7 +200,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
     /// ``` self: QtC.QAbstractItemView, triggers: flag of qabstractitemview_enums.EditTrigger ```
-    pub fn SetEditTriggers(self: ?*anyopaque, triggers: i64) void {
+    pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
         qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @intCast(triggers));
     }
 
@@ -208,7 +209,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` flag of qabstractitemview_enums.EditTrigger ```
-    pub fn EditTriggers(self: ?*anyopaque) i64 {
+    pub fn EditTriggers(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_EditTriggers(@ptrCast(self));
     }
 
@@ -1429,7 +1430,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
     ///
     /// ``` self: QtC.QAbstractItemView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i64) void {
+    pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
         qtc.QAbstractItemView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
     }
 
@@ -1438,7 +1439,7 @@ pub const qabstractitemview = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
-    pub fn OnSetSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemView_OnSetSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1447,7 +1448,7 @@ pub const qabstractitemview = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i64) void {
+    pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
         qtc.QAbstractItemView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
     }
 
@@ -1541,7 +1542,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn SelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn SelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
@@ -1549,8 +1550,8 @@ pub const qabstractitemview = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i64 ```
-    pub fn OnSelectionCommand(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 ```
+    pub fn OnSelectionCommand(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractItemView_OnSelectionCommand(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1561,14 +1562,14 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, event: QtC.QEvent ```
     ///
     /// Returns: ``` flag of qitemselectionmodel_enums.SelectionFlag ```
-    pub fn QBaseSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i64 {
+    pub fn QBaseSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_QBaseSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// ``` self: QtC.QAbstractItemView, supportedActions: flag of qnamespace_enums.DropAction ```
-    pub fn StartDrag(self: ?*anyopaque, supportedActions: i64) void {
+    pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
         qtc.QAbstractItemView_StartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
@@ -1577,7 +1578,7 @@ pub const qabstractitemview = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void ```
-    pub fn OnStartDrag(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnStartDrag(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemView_OnStartDrag(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1586,7 +1587,7 @@ pub const qabstractitemview = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemView, supportedActions: flag of qnamespace_enums.DropAction ```
-    pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i64) void {
+    pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i32) void {
         qtc.QAbstractItemView_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
@@ -2498,7 +2499,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QAbstractItemView, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
+    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
 
@@ -2507,7 +2508,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QAbstractItemView, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
+    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qabstractitemview.ScrollBarWidgets: Memory allocation failed");
@@ -4519,7 +4520,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -4528,7 +4529,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QAbstractItemView, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -4537,7 +4538,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QAbstractItemView, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -5156,7 +5157,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -5183,7 +5184,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -5201,7 +5202,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QAbstractItemView, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

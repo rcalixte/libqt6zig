@@ -748,7 +748,7 @@ pub const qgraphicsanchorlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#addAnchors)
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, firstItem: QtC.QGraphicsLayoutItem, secondItem: QtC.QGraphicsLayoutItem, orientations: flag of qnamespace_enums.Orientation ```
-    pub fn AddAnchors3(self: ?*anyopaque, firstItem: ?*anyopaque, secondItem: ?*anyopaque, orientations: i64) void {
+    pub fn AddAnchors3(self: ?*anyopaque, firstItem: ?*anyopaque, secondItem: ?*anyopaque, orientations: i32) void {
         qtc.QGraphicsAnchorLayout_AddAnchors3(@ptrCast(self), @ptrCast(firstItem), @ptrCast(secondItem), @intCast(orientations));
     }
 

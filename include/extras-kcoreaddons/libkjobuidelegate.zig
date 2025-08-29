@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const kjobuidelegate_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -16,7 +17,7 @@ pub const kjobuidelegate = struct {
     /// New2 constructs a new KJobUiDelegate object.
     ///
     /// ``` flags: flag of kjobuidelegate_enums.Flag ```
-    pub fn New2(flags: i64) QtC.KJobUiDelegate {
+    pub fn New2(flags: i32) QtC.KJobUiDelegate {
         return qtc.KJobUiDelegate_new2(@intCast(flags));
     }
 

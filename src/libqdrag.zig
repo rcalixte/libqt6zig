@@ -127,7 +127,7 @@ pub const qdrag = struct {
     /// ``` self: QtC.QDrag, supportedActions: flag of qnamespace_enums.DropAction, defaultAction: qnamespace_enums.DropAction ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn Exec2(self: ?*anyopaque, supportedActions: i64, defaultAction: i32) i32 {
+    pub fn Exec2(self: ?*anyopaque, supportedActions: i32, defaultAction: i32) i32 {
         return qtc.QDrag_Exec2(@ptrCast(self), @intCast(supportedActions), @intCast(defaultAction));
     }
 
@@ -150,7 +150,7 @@ pub const qdrag = struct {
     /// ``` self: QtC.QDrag ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedActions(self: ?*anyopaque) i64 {
+    pub fn SupportedActions(self: ?*anyopaque) i32 {
         return qtc.QDrag_SupportedActions(@ptrCast(self));
     }
 
@@ -229,7 +229,7 @@ pub const qdrag = struct {
     /// ``` self: QtC.QDrag, supportedActions: flag of qnamespace_enums.DropAction ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn Exec1(self: ?*anyopaque, supportedActions: i64) i32 {
+    pub fn Exec1(self: ?*anyopaque, supportedActions: i32) i32 {
         return qtc.QDrag_Exec1(@ptrCast(self), @intCast(supportedActions));
     }
 

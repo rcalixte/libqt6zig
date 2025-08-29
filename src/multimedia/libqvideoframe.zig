@@ -395,14 +395,14 @@ pub const qvideoframe__paintoptions = struct {
     /// ``` self: QtC.QVideoFrame__PaintOptions ```
     ///
     /// Returns: ``` flag of qvideoframe_enums.PaintFlag ```
-    pub fn PaintFlags(self: ?*anyopaque) i64 {
+    pub fn PaintFlags(self: ?*anyopaque) i32 {
         return qtc.QVideoFrame__PaintOptions_PaintFlags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe-paintoptions.html#paintFlags-var)
     ///
     /// ``` self: QtC.QVideoFrame__PaintOptions, paintFlags: flag of qvideoframe_enums.PaintFlag ```
-    pub fn SetPaintFlags(self: ?*anyopaque, paintFlags: i64) void {
+    pub fn SetPaintFlags(self: ?*anyopaque, paintFlags: i32) void {
         qtc.QVideoFrame__PaintOptions_SetPaintFlags(@ptrCast(self), @intCast(paintFlags));
     }
 

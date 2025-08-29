@@ -10,14 +10,14 @@ pub const qarraydata = struct {
     /// ``` self: QtC.QArrayData ```
     ///
     /// Returns: ``` flag of qarraydata_enums.ArrayOption ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QArrayData_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#flags-var)
     ///
     /// ``` self: QtC.QArrayData, flags: flag of qarraydata_enums.ArrayOption ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QArrayData_SetFlags(@ptrCast(self), @intCast(flags));
     }
 

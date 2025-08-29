@@ -115,7 +115,7 @@ pub const kconfigbase = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KConfigBase, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i64) void {
+    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,

@@ -179,7 +179,7 @@ pub const kconfigskeletonitem = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfigskeletonitem.html#setWriteFlags)
     ///
     /// ``` self: QtC.KConfigSkeletonItem, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn SetWriteFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetWriteFlags(self: ?*anyopaque, flags: i32) void {
         qtc.KConfigSkeletonItem_SetWriteFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -188,7 +188,7 @@ pub const kconfigskeletonitem = struct {
     /// ``` self: QtC.KConfigSkeletonItem ```
     ///
     /// Returns: ``` flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteFlags(self: ?*anyopaque) i64 {
+    pub fn WriteFlags(self: ?*anyopaque) i32 {
         return qtc.KConfigSkeletonItem_WriteFlags(@ptrCast(self));
     }
 
@@ -905,7 +905,7 @@ pub const kpropertyskeletonitem = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfigskeletonitem.html#setWriteFlags)
     ///
     /// ``` self: QtC.KPropertySkeletonItem, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn SetWriteFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetWriteFlags(self: ?*anyopaque, flags: i32) void {
         qtc.KConfigSkeletonItem_SetWriteFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -916,7 +916,7 @@ pub const kpropertyskeletonitem = struct {
     /// ``` self: QtC.KPropertySkeletonItem ```
     ///
     /// Returns: ``` flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteFlags(self: ?*anyopaque) i64 {
+    pub fn WriteFlags(self: ?*anyopaque) i32 {
         return qtc.KConfigSkeletonItem_WriteFlags(@ptrCast(self));
     }
 
@@ -1140,7 +1140,7 @@ pub const kconfigcompilersignallingitem = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfigcompilersignallingitem.html#setWriteFlags)
     ///
     /// ``` self: QtC.KConfigCompilerSignallingItem, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn SetWriteFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetWriteFlags(self: ?*anyopaque, flags: i32) void {
         qtc.KConfigCompilerSignallingItem_SetWriteFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -1149,7 +1149,7 @@ pub const kconfigcompilersignallingitem = struct {
     /// ``` self: QtC.KConfigCompilerSignallingItem ```
     ///
     /// Returns: ``` flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn WriteFlags(self: ?*anyopaque) i64 {
+    pub fn WriteFlags(self: ?*anyopaque) i32 {
         return qtc.KConfigCompilerSignallingItem_WriteFlags(@ptrCast(self));
     }
 

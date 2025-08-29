@@ -225,7 +225,7 @@ pub const qgraphicsgridlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setRowAlignment)
     ///
     /// ``` self: QtC.QGraphicsGridLayout, row: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetRowAlignment(self: ?*anyopaque, row: i32, alignment: i64) void {
+    pub fn SetRowAlignment(self: ?*anyopaque, row: i32, alignment: i32) void {
         qtc.QGraphicsGridLayout_SetRowAlignment(@ptrCast(self), @intCast(row), @intCast(alignment));
     }
 
@@ -234,14 +234,14 @@ pub const qgraphicsgridlayout = struct {
     /// ``` self: QtC.QGraphicsGridLayout, row: i32 ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn RowAlignment(self: ?*anyopaque, row: i32) i64 {
+    pub fn RowAlignment(self: ?*anyopaque, row: i32) i32 {
         return qtc.QGraphicsGridLayout_RowAlignment(@ptrCast(self), @intCast(row));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setColumnAlignment)
     ///
     /// ``` self: QtC.QGraphicsGridLayout, column: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetColumnAlignment(self: ?*anyopaque, column: i32, alignment: i64) void {
+    pub fn SetColumnAlignment(self: ?*anyopaque, column: i32, alignment: i32) void {
         qtc.QGraphicsGridLayout_SetColumnAlignment(@ptrCast(self), @intCast(column), @intCast(alignment));
     }
 
@@ -250,14 +250,14 @@ pub const qgraphicsgridlayout = struct {
     /// ``` self: QtC.QGraphicsGridLayout, column: i32 ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn ColumnAlignment(self: ?*anyopaque, column: i32) i64 {
+    pub fn ColumnAlignment(self: ?*anyopaque, column: i32) i32 {
         return qtc.QGraphicsGridLayout_ColumnAlignment(@ptrCast(self), @intCast(column));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QGraphicsGridLayout, item: QtC.QGraphicsLayoutItem, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, item: ?*anyopaque, alignment: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, item: ?*anyopaque, alignment: i32) void {
         qtc.QGraphicsGridLayout_SetAlignment(@ptrCast(self), @ptrCast(item), @intCast(alignment));
     }
 
@@ -266,7 +266,7 @@ pub const qgraphicsgridlayout = struct {
     /// ``` self: QtC.QGraphicsGridLayout, item: QtC.QGraphicsLayoutItem ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque, item: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque, item: ?*anyopaque) i32 {
         return qtc.QGraphicsGridLayout_Alignment(@ptrCast(self), @ptrCast(item));
     }
 
@@ -451,14 +451,14 @@ pub const qgraphicsgridlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#addItem)
     ///
     /// ``` self: QtC.QGraphicsGridLayout, item: QtC.QGraphicsLayoutItem, row: i32, column: i32, rowSpan: i32, columnSpan: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn AddItem6(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32, alignment: i64) void {
+    pub fn AddItem6(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32, alignment: i32) void {
         qtc.QGraphicsGridLayout_AddItem6(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#addItem)
     ///
     /// ``` self: QtC.QGraphicsGridLayout, item: QtC.QGraphicsLayoutItem, row: i32, column: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn AddItem4(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, alignment: i64) void {
+    pub fn AddItem4(self: ?*anyopaque, item: ?*anyopaque, row: i32, column: i32, alignment: i32) void {
         qtc.QGraphicsGridLayout_AddItem4(@ptrCast(self), @ptrCast(item), @intCast(row), @intCast(column), @intCast(alignment));
     }
 

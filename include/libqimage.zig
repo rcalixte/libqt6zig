@@ -1062,7 +1062,7 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat_helper)
     ///
     /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ConvertToFormatHelper(self: ?*anyopaque, format: i32, flags: i64) QtC.QImage {
+    pub fn ConvertToFormatHelper(self: ?*anyopaque, format: i32, flags: i32) QtC.QImage {
         return qtc.QImage_ConvertToFormatHelper(@ptrCast(self), @intCast(format), @intCast(flags));
     }
 
@@ -1071,7 +1071,7 @@ pub const qimage = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QtC.QImage ```
-    pub fn OnConvertToFormatHelper(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) QtC.QImage) void {
+    pub fn OnConvertToFormatHelper(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) QtC.QImage) void {
         qtc.QImage_OnConvertToFormatHelper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1080,14 +1080,14 @@ pub const qimage = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn QBaseConvertToFormatHelper(self: ?*anyopaque, format: i32, flags: i64) QtC.QImage {
+    pub fn QBaseConvertToFormatHelper(self: ?*anyopaque, format: i32, flags: i32) QtC.QImage {
         return qtc.QImage_QBaseConvertToFormatHelper(@ptrCast(self), @intCast(format), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat_inplace)
     ///
     /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ConvertToFormatInplace(self: ?*anyopaque, format: i32, flags: i64) bool {
+    pub fn ConvertToFormatInplace(self: ?*anyopaque, format: i32, flags: i32) bool {
         return qtc.QImage_ConvertToFormatInplace(@ptrCast(self), @intCast(format), @intCast(flags));
     }
 
@@ -1096,7 +1096,7 @@ pub const qimage = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) bool ```
-    pub fn OnConvertToFormatInplace(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) bool) void {
+    pub fn OnConvertToFormatInplace(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) bool) void {
         qtc.QImage_OnConvertToFormatInplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1105,7 +1105,7 @@ pub const qimage = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn QBaseConvertToFormatInplace(self: ?*anyopaque, format: i32, flags: i64) bool {
+    pub fn QBaseConvertToFormatInplace(self: ?*anyopaque, format: i32, flags: i32) bool {
         return qtc.QImage_QBaseConvertToFormatInplace(@ptrCast(self), @intCast(format), @intCast(flags));
     }
 
@@ -1169,14 +1169,14 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat)
     ///
     /// ``` self: QtC.QImage, f: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ConvertToFormat22(self: ?*anyopaque, f: i32, flags: i64) QtC.QImage {
+    pub fn ConvertToFormat22(self: ?*anyopaque, f: i32, flags: i32) QtC.QImage {
         return qtc.QImage_ConvertToFormat22(@ptrCast(self), @intCast(f), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat)
     ///
     /// ``` self: QtC.QImage, f: qimage_enums.Format, colorTable: []u32, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ConvertToFormat3(self: ?*anyopaque, f: i32, colorTable: []u32, flags: i64) QtC.QImage {
+    pub fn ConvertToFormat3(self: ?*anyopaque, f: i32, colorTable: []u32, flags: i32) QtC.QImage {
         const colorTable_list = qtc.libqt_list{
             .len = colorTable.len,
             .data = colorTable.ptr,
@@ -1187,21 +1187,21 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertedTo)
     ///
     /// ``` self: QtC.QImage, f: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ConvertedTo2(self: ?*anyopaque, f: i32, flags: i64) QtC.QImage {
+    pub fn ConvertedTo2(self: ?*anyopaque, f: i32, flags: i32) QtC.QImage {
         return qtc.QImage_ConvertedTo2(@ptrCast(self), @intCast(f), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertTo)
     ///
     /// ``` self: QtC.QImage, f: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ConvertTo2(self: ?*anyopaque, f: i32, flags: i64) void {
+    pub fn ConvertTo2(self: ?*anyopaque, f: i32, flags: i32) void {
         qtc.QImage_ConvertTo2(@ptrCast(self), @intCast(f), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#createAlphaMask)
     ///
     /// ``` self: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn CreateAlphaMask1(self: ?*anyopaque, flags: i64) QtC.QImage {
+    pub fn CreateAlphaMask1(self: ?*anyopaque, flags: i32) QtC.QImage {
         return qtc.QImage_CreateAlphaMask1(@ptrCast(self), @intCast(flags));
     }
 
@@ -1306,28 +1306,28 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertedToColorSpace)
     ///
     /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ConvertedToColorSpace3(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i32, flags: i64) QtC.QImage {
+    pub fn ConvertedToColorSpace3(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i32, flags: i32) QtC.QImage {
         return qtc.QImage_ConvertedToColorSpace3(@ptrCast(self), @ptrCast(colorSpace), @intCast(format), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToColorSpace)
     ///
     /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ConvertToColorSpace3(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i32, flags: i64) void {
+    pub fn ConvertToColorSpace3(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i32, flags: i32) void {
         qtc.QImage_ConvertToColorSpace3(@ptrCast(self), @ptrCast(colorSpace), @intCast(format), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#colorTransformed)
     ///
     /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ColorTransformed3(self: ?*anyopaque, transform: ?*anyopaque, format: i32, flags: i64) QtC.QImage {
+    pub fn ColorTransformed3(self: ?*anyopaque, transform: ?*anyopaque, format: i32, flags: i32) QtC.QImage {
         return qtc.QImage_ColorTransformed3(@ptrCast(self), @ptrCast(transform), @intCast(format), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#applyColorTransform)
     ///
     /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
-    pub fn ApplyColorTransform3(self: ?*anyopaque, transform: ?*anyopaque, format: i32, flags: i64) void {
+    pub fn ApplyColorTransform3(self: ?*anyopaque, transform: ?*anyopaque, format: i32, flags: i32) void {
         qtc.QImage_ApplyColorTransform3(@ptrCast(self), @ptrCast(transform), @intCast(format), @intCast(flags));
     }
 

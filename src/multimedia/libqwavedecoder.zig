@@ -110,7 +110,7 @@ pub const qwavedecoder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwavedecoder.html#open)
     ///
     /// ``` self: QtC.QWaveDecoder, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn Open(self: ?*anyopaque, mode: i64) bool {
+    pub fn Open(self: ?*anyopaque, mode: i32) bool {
         return qtc.QWaveDecoder_Open(@ptrCast(self), @intCast(mode));
     }
 
@@ -119,7 +119,7 @@ pub const qwavedecoder = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QWaveDecoder_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -128,7 +128,7 @@ pub const qwavedecoder = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWaveDecoder, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseOpen(self: ?*anyopaque, mode: i64) bool {
+    pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
         return qtc.QWaveDecoder_QBaseOpen(@ptrCast(self), @intCast(mode));
     }
 
@@ -343,7 +343,7 @@ pub const qwavedecoder = struct {
     /// ``` self: QtC.QWaveDecoder ```
     ///
     /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn OpenMode(self: ?*anyopaque) i64 {
+    pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
@@ -1649,7 +1649,7 @@ pub const qwavedecoder = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QWaveDecoder, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QWaveDecoder_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -1660,7 +1660,7 @@ pub const qwavedecoder = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QWaveDecoder, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i64) void {
+    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
         qtc.QWaveDecoder_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
 
@@ -1671,7 +1671,7 @@ pub const qwavedecoder = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWaveDecoder_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

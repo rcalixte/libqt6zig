@@ -166,7 +166,7 @@ pub const qcompleter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcompleter.html#setFilterMode)
     ///
     /// ``` self: QtC.QCompleter, filterMode: flag of qnamespace_enums.MatchFlag ```
-    pub fn SetFilterMode(self: ?*anyopaque, filterMode: i64) void {
+    pub fn SetFilterMode(self: ?*anyopaque, filterMode: i32) void {
         qtc.QCompleter_SetFilterMode(@ptrCast(self), @intCast(filterMode));
     }
 
@@ -175,7 +175,7 @@ pub const qcompleter = struct {
     /// ``` self: QtC.QCompleter ```
     ///
     /// Returns: ``` flag of qnamespace_enums.MatchFlag ```
-    pub fn FilterMode(self: ?*anyopaque) i64 {
+    pub fn FilterMode(self: ?*anyopaque) i32 {
         return qtc.QCompleter_FilterMode(@ptrCast(self));
     }
 

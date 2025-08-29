@@ -184,7 +184,7 @@ pub const qpluginloader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpluginloader.html#setLoadHints)
     ///
     /// ``` self: QtC.QPluginLoader, loadHints: flag of qlibrary_enums.LoadHint ```
-    pub fn SetLoadHints(self: ?*anyopaque, loadHints: i64) void {
+    pub fn SetLoadHints(self: ?*anyopaque, loadHints: i32) void {
         qtc.QPluginLoader_SetLoadHints(@ptrCast(self), @intCast(loadHints));
     }
 
@@ -193,7 +193,7 @@ pub const qpluginloader = struct {
     /// ``` self: QtC.QPluginLoader ```
     ///
     /// Returns: ``` flag of qlibrary_enums.LoadHint ```
-    pub fn LoadHints(self: ?*anyopaque) i64 {
+    pub fn LoadHints(self: ?*anyopaque) i32 {
         return qtc.QPluginLoader_LoadHints(@ptrCast(self));
     }
 

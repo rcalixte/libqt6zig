@@ -341,7 +341,7 @@ pub const kdesktopfile = struct {
     /// ``` self: QtC.KDesktopFile ```
     ///
     /// Returns: ``` flag of kconfig_enums.OpenFlag ```
-    pub fn OpenFlags(self: ?*anyopaque) i64 {
+    pub fn OpenFlags(self: ?*anyopaque) i32 {
         return qtc.KConfig_OpenFlags(@ptrCast(self));
     }
 
@@ -647,7 +647,7 @@ pub const kdesktopfile = struct {
     /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i64) void {
+    pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,
@@ -943,7 +943,7 @@ pub const kdesktopfile = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.KDesktopFile, groupName: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn DeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i64) void {
+    pub fn DeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -958,7 +958,7 @@ pub const kdesktopfile = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.KDesktopFile, groupName: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
-    pub fn QBaseDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i64) void {
+    pub fn QBaseDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -973,7 +973,7 @@ pub const kdesktopfile = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.KDesktopFile, slot: fn (self: QtC.KDesktopFile, groupName: [*:0]const u8, flags: flag of kconfigbase_enums.WriteConfigFlag) callconv(.c) void ```
-    pub fn OnDeleteGroupImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) void) void {
+    pub fn OnDeleteGroupImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.KDesktopFile_OnDeleteGroupImpl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

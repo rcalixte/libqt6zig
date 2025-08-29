@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qabstractscrollarea_enums = @import("libqabstractscrollarea.zig").enums;
 const qframe_enums = @import("libqframe.zig").enums;
+const qgraphicsscene_enums = @import("libqgraphicsscene.zig").enums;
 const qgraphicsview_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -9,6 +10,7 @@ const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 const qpainter_enums = @import("libqpainter.zig").enums;
 const qpalette_enums = @import("libqpalette.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
+const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qgraphicsview.html
@@ -115,7 +117,7 @@ pub const qgraphicsview = struct {
     /// ``` self: QtC.QGraphicsView ```
     ///
     /// Returns: ``` flag of qpainter_enums.RenderHint ```
-    pub fn RenderHints(self: ?*anyopaque) i64 {
+    pub fn RenderHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsView_RenderHints(@ptrCast(self));
     }
 
@@ -129,7 +131,7 @@ pub const qgraphicsview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsview.html#setRenderHints)
     ///
     /// ``` self: QtC.QGraphicsView, hints: flag of qpainter_enums.RenderHint ```
-    pub fn SetRenderHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetRenderHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsView_SetRenderHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -138,14 +140,14 @@ pub const qgraphicsview = struct {
     /// ``` self: QtC.QGraphicsView ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn Alignment(self: ?*anyopaque) i64 {
+    pub fn Alignment(self: ?*anyopaque) i32 {
         return qtc.QGraphicsView_Alignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsview.html#setAlignment)
     ///
     /// ``` self: QtC.QGraphicsView, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QGraphicsView_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -202,7 +204,7 @@ pub const qgraphicsview = struct {
     /// ``` self: QtC.QGraphicsView ```
     ///
     /// Returns: ``` flag of qgraphicsview_enums.OptimizationFlag ```
-    pub fn OptimizationFlags(self: ?*anyopaque) i64 {
+    pub fn OptimizationFlags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsView_OptimizationFlags(@ptrCast(self));
     }
 
@@ -216,7 +218,7 @@ pub const qgraphicsview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsview.html#setOptimizationFlags)
     ///
     /// ``` self: QtC.QGraphicsView, flags: flag of qgraphicsview_enums.OptimizationFlag ```
-    pub fn SetOptimizationFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetOptimizationFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsView_SetOptimizationFlags(@ptrCast(self), @intCast(flags));
     }
 
@@ -264,14 +266,14 @@ pub const qgraphicsview = struct {
     /// ``` self: QtC.QGraphicsView ```
     ///
     /// Returns: ``` flag of qgraphicsview_enums.CacheModeFlag ```
-    pub fn CacheMode(self: ?*anyopaque) i64 {
+    pub fn CacheMode(self: ?*anyopaque) i32 {
         return qtc.QGraphicsView_CacheMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsview.html#setCacheMode)
     ///
     /// ``` self: QtC.QGraphicsView, mode: flag of qgraphicsview_enums.CacheModeFlag ```
-    pub fn SetCacheMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGraphicsView_SetCacheMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -1486,7 +1488,7 @@ pub const qgraphicsview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsview.html#invalidateScene)
     ///
     /// ``` self: QtC.QGraphicsView, rect: QtC.QRectF, layers: flag of qgraphicsscene_enums.SceneLayer ```
-    pub fn InvalidateScene2(self: ?*anyopaque, rect: ?*anyopaque, layers: i64) void {
+    pub fn InvalidateScene2(self: ?*anyopaque, rect: ?*anyopaque, layers: i32) void {
         qtc.QGraphicsView_InvalidateScene2(@ptrCast(self), @ptrCast(rect), @intCast(layers));
     }
 
@@ -1589,7 +1591,7 @@ pub const qgraphicsview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QGraphicsView, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
+    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
 
@@ -1598,7 +1600,7 @@ pub const qgraphicsview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QGraphicsView, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
+    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qgraphicsview.ScrollBarWidgets: Memory allocation failed");
@@ -3601,7 +3603,7 @@ pub const qgraphicsview = struct {
     /// ``` self: QtC.QGraphicsView ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
 
@@ -3610,7 +3612,7 @@ pub const qgraphicsview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QGraphicsView, state: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -3619,7 +3621,7 @@ pub const qgraphicsview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QGraphicsView, state: flag of qnamespace_enums.WindowState ```
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -4247,7 +4249,7 @@ pub const qgraphicsview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QGraphicsView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
+    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
 
@@ -4265,7 +4267,7 @@ pub const qgraphicsview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QGraphicsView, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 

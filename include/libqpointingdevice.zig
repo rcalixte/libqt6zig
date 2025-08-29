@@ -93,7 +93,7 @@ pub const qpointingdevice = struct {
     /// New2 constructs a new QPointingDevice object.
     ///
     /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32 ```
-    pub fn New2(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i64, maxPoints: i32, buttonCount: i32) QtC.QPointingDevice {
+    pub fn New2(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i32, maxPoints: i32, buttonCount: i32) QtC.QPointingDevice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -112,7 +112,7 @@ pub const qpointingdevice = struct {
     /// New4 constructs a new QPointingDevice object.
     ///
     /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32, seatName: []const u8 ```
-    pub fn New4(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8) QtC.QPointingDevice {
+    pub fn New4(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i32, maxPoints: i32, buttonCount: i32, seatName: []const u8) QtC.QPointingDevice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -128,7 +128,7 @@ pub const qpointingdevice = struct {
     /// New5 constructs a new QPointingDevice object.
     ///
     /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId ```
-    pub fn New5(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId) QtC.QPointingDevice {
+    pub fn New5(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i32, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId) QtC.QPointingDevice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -144,7 +144,7 @@ pub const qpointingdevice = struct {
     /// New6 constructs a new QPointingDevice object.
     ///
     /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId, parent: QtC.QObject ```
-    pub fn New6(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId, parent: ?*anyopaque) QtC.QPointingDevice {
+    pub fn New6(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i32, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId, parent: ?*anyopaque) QtC.QPointingDevice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -211,7 +211,7 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#setCapabilities)
     ///
     /// ``` self: QtC.QPointingDevice, caps: flag of qinputdevice_enums.Capability ```
-    pub fn SetCapabilities(self: ?*anyopaque, caps: i64) void {
+    pub fn SetCapabilities(self: ?*anyopaque, caps: i32) void {
         qtc.QPointingDevice_SetCapabilities(@ptrCast(self), @intCast(caps));
     }
 
@@ -348,7 +348,7 @@ pub const qpointingdevice = struct {
     /// ``` self: QtC.QPointingDevice ```
     ///
     /// Returns: ``` flag of qinputdevice_enums.Capability ```
-    pub fn Capabilities(self: ?*anyopaque) i64 {
+    pub fn Capabilities(self: ?*anyopaque) i32 {
         return qtc.QInputDevice_Capabilities(@ptrCast(self));
     }
 

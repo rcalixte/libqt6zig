@@ -310,7 +310,7 @@ pub const kcompositejob = struct {
     /// ``` self: QtC.KCompositeJob ```
     ///
     /// Returns: ``` flag of kjob_enums.Capability ```
-    pub fn Capabilities(self: ?*anyopaque) i64 {
+    pub fn Capabilities(self: ?*anyopaque) i32 {
         return qtc.KJob_Capabilities(@ptrCast(self));
     }
 
@@ -1444,7 +1444,7 @@ pub const kcompositejob = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.KCompositeJob, capabilities: flag of kjob_enums.Capability ```
-    pub fn SetCapabilities(self: ?*anyopaque, capabilities: i64) void {
+    pub fn SetCapabilities(self: ?*anyopaque, capabilities: i32) void {
         qtc.KCompositeJob_SetCapabilities(@ptrCast(self), @intCast(capabilities));
     }
 
@@ -1455,7 +1455,7 @@ pub const kcompositejob = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.KCompositeJob, capabilities: flag of kjob_enums.Capability ```
-    pub fn QBaseSetCapabilities(self: ?*anyopaque, capabilities: i64) void {
+    pub fn QBaseSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
         qtc.KCompositeJob_QBaseSetCapabilities(@ptrCast(self), @intCast(capabilities));
     }
 
@@ -1466,7 +1466,7 @@ pub const kcompositejob = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.KCompositeJob, slot: fn (self: QtC.KCompositeJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void ```
-    pub fn OnSetCapabilities(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetCapabilities(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KCompositeJob_OnSetCapabilities(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

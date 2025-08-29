@@ -220,7 +220,7 @@ pub const qwebenginehistorymodel = struct {
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex ```
     ///
     /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
         return qtc.QAbstractListModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
@@ -398,7 +398,7 @@ pub const qwebenginehistorymodel = struct {
     /// ``` self: QtC.QWebEngineHistoryModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDropActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_SupportedDropActions(@ptrCast(self));
     }
 
@@ -409,7 +409,7 @@ pub const qwebenginehistorymodel = struct {
     /// ``` self: QtC.QWebEngineHistoryModel ```
     ///
     /// Returns: ``` flag of qnamespace_enums.DropAction ```
-    pub fn SupportedDragActions(self: ?*anyopaque) i64 {
+    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemModel_SupportedDragActions(@ptrCast(self));
     }
 
@@ -562,7 +562,7 @@ pub const qwebenginehistorymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
+    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qwebenginehistorymodel.Match: Memory allocation failed");
@@ -738,7 +738,7 @@ pub const qwebenginehistorymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
+    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
 

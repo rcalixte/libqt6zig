@@ -470,7 +470,7 @@ pub const qrasterwindow = struct {
     /// ``` self: QtC.QRasterWindow ```
     ///
     /// Returns: ``` flag of qnamespace_enums.WindowState ```
-    pub fn WindowStates(self: ?*anyopaque) i64 {
+    pub fn WindowStates(self: ?*anyopaque) i32 {
         return qtc.QWindow_WindowStates(@ptrCast(self));
     }
 
@@ -488,7 +488,7 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setWindowStates)
     ///
     /// ``` self: QtC.QRasterWindow, states: flag of qnamespace_enums.WindowState ```
-    pub fn SetWindowStates(self: ?*anyopaque, states: i64) void {
+    pub fn SetWindowStates(self: ?*anyopaque, states: i32) void {
         qtc.QWindow_SetWindowStates(@ptrCast(self), @intCast(states));
     }
 
@@ -1027,7 +1027,7 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#startSystemResize)
     ///
     /// ``` self: QtC.QRasterWindow, edges: flag of qnamespace_enums.Edge ```
-    pub fn StartSystemResize(self: ?*anyopaque, edges: i64) bool {
+    pub fn StartSystemResize(self: ?*anyopaque, edges: i32) bool {
         return qtc.QWindow_StartSystemResize(@ptrCast(self), @intCast(edges));
     }
 

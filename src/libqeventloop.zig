@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qeventloop_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -74,14 +75,14 @@ pub const qeventloop = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#processEvents)
     ///
     /// ``` self: QtC.QEventLoop, flags: flag of qeventloop_enums.ProcessEventsFlag, maximumTime: i32 ```
-    pub fn ProcessEvents2(self: ?*anyopaque, flags: i64, maximumTime: i32) void {
+    pub fn ProcessEvents2(self: ?*anyopaque, flags: i32, maximumTime: i32) void {
         qtc.QEventLoop_ProcessEvents2(@ptrCast(self), @intCast(flags), @intCast(maximumTime));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#processEvents)
     ///
     /// ``` self: QtC.QEventLoop, flags: flag of qeventloop_enums.ProcessEventsFlag, deadline: QtC.QDeadlineTimer ```
-    pub fn ProcessEvents3(self: ?*anyopaque, flags: i64, deadline: QtC.QDeadlineTimer) void {
+    pub fn ProcessEvents3(self: ?*anyopaque, flags: i32, deadline: QtC.QDeadlineTimer) void {
         qtc.QEventLoop_ProcessEvents3(@ptrCast(self), @intCast(flags), @ptrCast(deadline));
     }
 
@@ -174,14 +175,14 @@ pub const qeventloop = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#processEvents)
     ///
     /// ``` self: QtC.QEventLoop, flags: flag of qeventloop_enums.ProcessEventsFlag ```
-    pub fn ProcessEvents1(self: ?*anyopaque, flags: i64) bool {
+    pub fn ProcessEvents1(self: ?*anyopaque, flags: i32) bool {
         return qtc.QEventLoop_ProcessEvents1(@ptrCast(self), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#exec)
     ///
     /// ``` self: QtC.QEventLoop, flags: flag of qeventloop_enums.ProcessEventsFlag ```
-    pub fn Exec1(self: ?*anyopaque, flags: i64) i32 {
+    pub fn Exec1(self: ?*anyopaque, flags: i32) i32 {
         return qtc.QEventLoop_Exec1(@ptrCast(self), @intCast(flags));
     }
 

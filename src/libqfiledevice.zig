@@ -133,14 +133,14 @@ pub const qfiledevice = struct {
     /// ``` self: QtC.QFileDevice ```
     ///
     /// Returns: ``` flag of qfiledevice_enums.Permission ```
-    pub fn Permissions(self: ?*anyopaque) i64 {
+    pub fn Permissions(self: ?*anyopaque) i32 {
         return qtc.QFileDevice_Permissions(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
     ///
     /// ``` self: QtC.QFileDevice, permissionSpec: flag of qfiledevice_enums.Permission ```
-    pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i64) bool {
+    pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
         return qtc.QFileDevice_SetPermissions(@ptrCast(self), @intCast(permissionSpec));
     }
 
@@ -201,7 +201,7 @@ pub const qfiledevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
     /// ``` self: QtC.QFileDevice, offset: i64, size: i64, flags: flag of qfiledevice_enums.MemoryMapFlag ```
-    pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i64) ?*u8 {
+    pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i32) ?*u8 {
         return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self), @intCast(offset), @intCast(size), @intCast(flags)));
     }
 
@@ -212,7 +212,7 @@ pub const qfiledevice = struct {
     /// ``` self: QtC.QFileDevice ```
     ///
     /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn OpenMode(self: ?*anyopaque) i64 {
+    pub fn OpenMode(self: ?*anyopaque) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
 
@@ -320,7 +320,7 @@ pub const qfiledevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// ``` self: QtC.QFileDevice, mode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn Open(self: ?*anyopaque, mode: i64) bool {
+    pub fn Open(self: ?*anyopaque, mode: i32) bool {
         return qtc.QIODevice_Open(@ptrCast(self), @intCast(mode));
     }
 

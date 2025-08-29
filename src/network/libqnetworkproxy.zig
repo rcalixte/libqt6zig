@@ -379,7 +379,7 @@ pub const qnetworkproxy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#setCapabilities)
     ///
     /// ``` self: QtC.QNetworkProxy, capab: flag of qnetworkproxy_enums.Capability ```
-    pub fn SetCapabilities(self: ?*anyopaque, capab: i64) void {
+    pub fn SetCapabilities(self: ?*anyopaque, capab: i32) void {
         qtc.QNetworkProxy_SetCapabilities(@ptrCast(self), @intCast(capab));
     }
 
@@ -388,7 +388,7 @@ pub const qnetworkproxy = struct {
     /// ``` self: QtC.QNetworkProxy ```
     ///
     /// Returns: ``` flag of qnetworkproxy_enums.Capability ```
-    pub fn Capabilities(self: ?*anyopaque) i64 {
+    pub fn Capabilities(self: ?*anyopaque) i32 {
         return qtc.QNetworkProxy_Capabilities(@ptrCast(self));
     }
 

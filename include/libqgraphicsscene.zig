@@ -1617,7 +1617,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#invalidate)
     ///
     /// ``` self: QtC.QGraphicsScene, x: f64, y: f64, w: f64, h: f64, layers: flag of qgraphicsscene_enums.SceneLayer ```
-    pub fn Invalidate5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, layers: i64) void {
+    pub fn Invalidate5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, layers: i32) void {
         qtc.QGraphicsScene_Invalidate5(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(layers));
     }
 
@@ -1638,7 +1638,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#invalidate)
     ///
     /// ``` self: QtC.QGraphicsScene, rect: QtC.QRectF, layers: flag of qgraphicsscene_enums.SceneLayer ```
-    pub fn Invalidate22(self: ?*anyopaque, rect: ?*anyopaque, layers: i64) void {
+    pub fn Invalidate22(self: ?*anyopaque, rect: ?*anyopaque, layers: i32) void {
         qtc.QGraphicsScene_Invalidate22(@ptrCast(self), @ptrCast(rect), @intCast(layers));
     }
 

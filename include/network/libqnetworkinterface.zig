@@ -256,7 +256,7 @@ pub const qnetworkinterface = struct {
     /// ``` self: QtC.QNetworkInterface ```
     ///
     /// Returns: ``` flag of qnetworkinterface_enums.InterfaceFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QNetworkInterface_Flags(@ptrCast(self));
     }
 

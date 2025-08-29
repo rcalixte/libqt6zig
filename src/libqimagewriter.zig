@@ -228,14 +228,14 @@ pub const qimagewriter = struct {
     /// ``` self: QtC.QImageWriter ```
     ///
     /// Returns: ``` flag of qimageiohandler_enums.Transformation ```
-    pub fn Transformation(self: ?*anyopaque) i64 {
+    pub fn Transformation(self: ?*anyopaque) i32 {
         return qtc.QImageWriter_Transformation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setTransformation)
     ///
     /// ``` self: QtC.QImageWriter, orientation: flag of qimageiohandler_enums.Transformation ```
-    pub fn SetTransformation(self: ?*anyopaque, orientation: i64) void {
+    pub fn SetTransformation(self: ?*anyopaque, orientation: i32) void {
         qtc.QImageWriter_SetTransformation(@ptrCast(self), @intCast(orientation));
     }
 

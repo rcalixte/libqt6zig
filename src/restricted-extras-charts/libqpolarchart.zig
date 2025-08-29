@@ -132,7 +132,7 @@ pub const qpolarchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axes)
     ///
     /// ``` self: QtC.QPolarChart, polarOrientation: flag of qpolarchart_enums.PolarOrientation, allocator: std.mem.Allocator ```
-    pub fn Axes1(self: ?*anyopaque, polarOrientation: i64, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
+    pub fn Axes1(self: ?*anyopaque, polarOrientation: i32, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QPolarChart_Axes1(@ptrCast(self), @intCast(polarOrientation));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractAxis, _arr.len) catch @panic("qpolarchart.Axes1: Memory allocation failed");
@@ -144,7 +144,7 @@ pub const qpolarchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axes)
     ///
     /// ``` self: QtC.QPolarChart, polarOrientation: flag of qpolarchart_enums.PolarOrientation, series: QtC.QAbstractSeries, allocator: std.mem.Allocator ```
-    pub fn Axes2(self: ?*anyopaque, polarOrientation: i64, series: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
+    pub fn Axes2(self: ?*anyopaque, polarOrientation: i32, series: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QPolarChart_Axes2(@ptrCast(self), @intCast(polarOrientation), @ptrCast(series));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractAxis, _arr.len) catch @panic("qpolarchart.Axes2: Memory allocation failed");
@@ -425,7 +425,7 @@ pub const qpolarchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setAnimationOptions)
     ///
     /// ``` self: QtC.QPolarChart, options: flag of qchart_enums.AnimationOption ```
-    pub fn SetAnimationOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetAnimationOptions(self: ?*anyopaque, options: i32) void {
         qtc.QChart_SetAnimationOptions(@ptrCast(self), @intCast(options));
     }
 
@@ -436,7 +436,7 @@ pub const qpolarchart = struct {
     /// ``` self: QtC.QPolarChart ```
     ///
     /// Returns: ``` flag of qchart_enums.AnimationOption ```
-    pub fn AnimationOptions(self: ?*anyopaque) i64 {
+    pub fn AnimationOptions(self: ?*anyopaque) i32 {
         return qtc.QChart_AnimationOptions(@ptrCast(self));
     }
 
@@ -1592,7 +1592,7 @@ pub const qpolarchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QPolarChart, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
         qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -2138,7 +2138,7 @@ pub const qpolarchart = struct {
     /// ``` self: QtC.QPolarChart ```
     ///
     /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn Flags(self: ?*anyopaque) i64 {
+    pub fn Flags(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
 
@@ -2156,7 +2156,7 @@ pub const qpolarchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QPolarChart, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
 

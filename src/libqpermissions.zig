@@ -248,7 +248,7 @@ pub const qbluetoothpermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbluetoothpermission.html#setCommunicationModes)
     ///
     /// ``` self: QtC.QBluetoothPermission, modes: flag of qpermissions_enums.CommunicationMode ```
-    pub fn SetCommunicationModes(self: ?*anyopaque, modes: i64) void {
+    pub fn SetCommunicationModes(self: ?*anyopaque, modes: u8) void {
         qtc.QBluetoothPermission_SetCommunicationModes(@ptrCast(self), @intCast(modes));
     }
 
@@ -257,7 +257,7 @@ pub const qbluetoothpermission = struct {
     /// ``` self: QtC.QBluetoothPermission ```
     ///
     /// Returns: ``` flag of qpermissions_enums.CommunicationMode ```
-    pub fn CommunicationModes(self: ?*anyopaque) i64 {
+    pub fn CommunicationModes(self: ?*anyopaque) u8 {
         return qtc.QBluetoothPermission_CommunicationModes(@ptrCast(self));
     }
 

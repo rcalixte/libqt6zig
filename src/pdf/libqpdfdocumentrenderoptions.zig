@@ -67,14 +67,14 @@ pub const qpdfdocumentrenderoptions = struct {
     /// ``` self: QtC.QPdfDocumentRenderOptions ```
     ///
     /// Returns: ``` flag of qpdfdocumentrenderoptions_enums.RenderFlag ```
-    pub fn RenderFlags(self: ?*anyopaque) i64 {
+    pub fn RenderFlags(self: ?*anyopaque) i32 {
         return qtc.QPdfDocumentRenderOptions_RenderFlags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setRenderFlags)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions, r: flag of qpdfdocumentrenderoptions_enums.RenderFlag ```
-    pub fn SetRenderFlags(self: ?*anyopaque, r: i64) void {
+    pub fn SetRenderFlags(self: ?*anyopaque, r: i32) void {
         qtc.QPdfDocumentRenderOptions_SetRenderFlags(@ptrCast(self), @intCast(r));
     }
 
