@@ -520,6 +520,7 @@ class VirtualKCompositeJob final : public KCompositeJob {
         } else if (kcompositejob_subjobs_callback != nullptr) {
             KJob** callback_ret = kcompositejob_subjobs_callback();
             QList<KJob*>* callback_ret_QList;
+            callback_ret_QList = new QList<KJob*>;
             // Iterate until null pointer sentinel
             for (KJob** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
                 callback_ret_QList->push_back(*ptridx);
