@@ -244,8 +244,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 				} else {
 					e, ok := KnownEnums[p.ParameterType]
 					if ok {
-						_, flagType := e.Enum.getEnumTypeZig()
-						ret = ifv(p.Pointer || p.ByRef, "*", "") + ifv(p.Const && (p.Pointer || p.ByRef), "const ", "") + flagType
+						ret = ifv(p.Pointer || p.ByRef, "*", "") + ifv(p.Const && (p.Pointer || p.ByRef), "const ", "") + e.EnumTypeZig
 					} else {
 						ret = ifv(p.Pointer || p.ByRef, "*", "") + ifv(p.Const && (p.Pointer || p.ByRef), "const ", "") + "i64"
 					}
