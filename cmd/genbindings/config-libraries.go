@@ -267,6 +267,28 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// KColorScheme
+		// Depends on Qt Core, GUI, KConfig, KWidgetsAddons
+		{
+			path: "extras-kcolorscheme",
+			dirs: []string{
+				"/usr/include/KF6/KColorScheme",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KColorScheme -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore " + pkgConfigCflags("Qt6Gui"),
+		},
+
+		// KConfigWidgets
+		// Depends on Qt Core, GUI, Widgets, KConfig, KGuiAddons, KWidgetsAddons
+		{
+			path: "extras-kconfigwidgets",
+			dirs: []string{
+				"/usr/include/KF6/KConfigWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KConfigWidgets -I/usr/include/KF6/KColorScheme -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KConfigGui -I/usr/include/KF6/KGuiAddons -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// posix-restricted
 
 		// QTermWidget
