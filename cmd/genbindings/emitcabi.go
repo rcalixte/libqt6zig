@@ -247,8 +247,10 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 	nameprefix := makeNamePrefix(p.ParameterName)
 
 	if p.ParameterType == "QString" {
+		var maybePointer string
 		if isSlot {
-			if p.Pointer {
+			if p.Pointer || p.ByRef {
+				maybePointer = ifv(p.ByRef, "*", "")
 				preamble += indent + "QString* " + nameprefix + "_QString = new QString(QString::fromUtf8(" + p.ParameterName + "));\n"
 			} else {
 				preamble += indent + "QString " + nameprefix + "_QString = QString::fromUtf8(" + p.ParameterName + ");\n"
@@ -259,7 +261,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			// The caller will free the libqt_string
 			preamble += indent + "QString " + nameprefix + "_QString = QString::fromUtf8(" + p.ParameterName + ".data, " + p.ParameterName + ".len);\n"
 		}
-		return preamble, nameprefix + "_QString"
+		return preamble, maybePointer + nameprefix + "_QString"
 
 	} else if p.ParameterType == "QByteArray" {
 		if isSlot {
@@ -319,6 +321,9 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 				dataField = ""
 				iterField = "_len"
 			} else if isSlot && IsKnownClass(strings.TrimSuffix(lType, "*")) {
+				if p.ByRef {
+					preamble += indent + nameprefix + "_" + containerType + " = new " + containerQtType + ";\n"
+				}
 			} else {
 				preamble += indent + nameprefix + "_" + containerType + refType + "reserve(" + p.ParameterName + ".len);\n"
 			}
