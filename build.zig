@@ -177,6 +177,10 @@ pub fn build(b: *std.Build) !void {
         "SonnetUi/sonnet",
         // Qt 6 KWidgetsAddons
         "KWidgetsAddons",
+        // Qt 6 KColorScheme
+        "KColorScheme",
+        // Qt 6 KConfigWidgets
+        "KConfigWidgets",
         // Qt 6 QScintilla
         "Qsci",
         // Qt 6 QTermWidget
