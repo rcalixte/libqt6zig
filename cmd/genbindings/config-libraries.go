@@ -243,6 +243,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KItemViews " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// KPlotting
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "extras-kplotting",
+			dirs: []string{
+				"/usr/include/KF6/KPlotting",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KPlotting " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// Sonnet
 		// Depends on Qt Core, GUI, Widgets
 		{
