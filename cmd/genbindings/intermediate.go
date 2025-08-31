@@ -76,7 +76,7 @@ func (p CppParameter) QFlagsOf() (QFlagsInfo, bool) {
 		if e, ok := KnownEnums[ret.ParameterType]; ok {
 			return QFlagsInfo{
 				UnderlyingEnum: e.Enum.UnderlyingType,
-				CABIType:       ret.ParameterType,
+				CABIType:       e.EnumTypeCABI,
 			}, true
 		}
 
@@ -94,7 +94,7 @@ func (p CppParameter) QFlagsOf() (QFlagsInfo, bool) {
 			if e, ok := KnownEnums[ret.ParameterType]; ok {
 				return QFlagsInfo{
 					UnderlyingEnum: e.Enum.UnderlyingType,
-					CABIType:       ret.ParameterType,
+					CABIType:       e.EnumTypeCABI,
 				}, true
 			}
 
