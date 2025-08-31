@@ -57,7 +57,7 @@ func (e CppEnum) getEnumTypeZig() (string, string) {
 				// need to use i64 to avoid overflow
 				return "i64", "i64"
 			}
-			if float64(num) > math.MinInt16 || float64(num) < math.MaxUint16 {
+			if float64(num) >= math.MinInt16 && float64(num) <= math.MaxInt32 {
 				// it should be safe to use i32
 				flagType = "i32"
 			}
