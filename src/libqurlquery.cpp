@@ -199,7 +199,7 @@ void QUrlQuery_RemoveAllQueryItems(QUrlQuery* self, const libqt_string key) {
     self->removeAllQueryItems(key_QString);
 }
 
-libqt_string QUrlQuery_Query1(const QUrlQuery* self, int encoding) {
+libqt_string QUrlQuery_Query1(const QUrlQuery* self, unsigned int encoding) {
     QString _ret = self->query(static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -211,7 +211,7 @@ libqt_string QUrlQuery_Query1(const QUrlQuery* self, int encoding) {
     return _str;
 }
 
-libqt_string QUrlQuery_ToString1(const QUrlQuery* self, int encoding) {
+libqt_string QUrlQuery_ToString1(const QUrlQuery* self, unsigned int encoding) {
     QString _ret = self->toString(static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -223,7 +223,7 @@ libqt_string QUrlQuery_ToString1(const QUrlQuery* self, int encoding) {
     return _str;
 }
 
-libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuery_QueryItems1(const QUrlQuery* self, int encoding) {
+libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuery_QueryItems1(const QUrlQuery* self, unsigned int encoding) {
     QList<QPair<QString, QString>> _ret = self->queryItems(static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size() + 1)));
@@ -261,7 +261,7 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuer
     return _out;
 }
 
-libqt_string QUrlQuery_QueryItemValue2(const QUrlQuery* self, const libqt_string key, int encoding) {
+libqt_string QUrlQuery_QueryItemValue2(const QUrlQuery* self, const libqt_string key, unsigned int encoding) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString _ret = self->queryItemValue(key_QString, static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -274,7 +274,7 @@ libqt_string QUrlQuery_QueryItemValue2(const QUrlQuery* self, const libqt_string
     return _str;
 }
 
-libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues2(const QUrlQuery* self, const libqt_string key, int encoding) {
+libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues2(const QUrlQuery* self, const libqt_string key, unsigned int encoding) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QList<QString> _ret = self->allQueryItemValues(key_QString, static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QList<> from C++ memory to manually-managed C memory

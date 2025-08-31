@@ -323,7 +323,7 @@ void QProcess_SetUnixProcessParameters(QProcess* self, const QProcess__UnixProce
     self->setUnixProcessParameters(*params);
 }
 
-void QProcess_SetUnixProcessParameters2(QProcess* self, int flagsOnly) {
+void QProcess_SetUnixProcessParameters2(QProcess* self, uint32_t flagsOnly) {
     self->setUnixProcessParameters(static_cast<QProcess::UnixProcessFlags>(flagsOnly));
 }
 
@@ -1603,11 +1603,11 @@ void QProcess__UnixProcessParameters_MoveAssign(QProcess__UnixProcessParameters*
     *self = std::move(*other);
 }
 
-int QProcess__UnixProcessParameters_Flags(const QProcess__UnixProcessParameters* self) {
-    return static_cast<int>(self->flags);
+uint32_t QProcess__UnixProcessParameters_Flags(const QProcess__UnixProcessParameters* self) {
+    return static_cast<uint32_t>(self->flags);
 }
 
-void QProcess__UnixProcessParameters_SetFlags(QProcess__UnixProcessParameters* self, int flags) {
+void QProcess__UnixProcessParameters_SetFlags(QProcess__UnixProcessParameters* self, uint32_t flags) {
     self->flags = static_cast<QFlags<QProcess::UnixProcessFlag>>(flags);
 }
 

@@ -4114,7 +4114,7 @@ QTouchEvent* QTouchEvent_new(int eventType) {
     return new VirtualQTouchEvent(static_cast<QEvent::Type>(eventType));
 }
 
-QTouchEvent* QTouchEvent_new2(int eventType, const QPointingDevice* device, int modifiers, int touchPointStates) {
+QTouchEvent* QTouchEvent_new2(int eventType, const QPointingDevice* device, int modifiers, uint8_t touchPointStates) {
     return new VirtualQTouchEvent(static_cast<QEvent::Type>(eventType), device, static_cast<Qt::KeyboardModifiers>(modifiers), static_cast<QEventPoint::States>(touchPointStates));
 }
 
@@ -4136,7 +4136,7 @@ QTouchEvent* QTouchEvent_new5(int eventType, const QPointingDevice* device, int 
     return new VirtualQTouchEvent(static_cast<QEvent::Type>(eventType), device, static_cast<Qt::KeyboardModifiers>(modifiers), touchPoints_QList);
 }
 
-QTouchEvent* QTouchEvent_new6(int eventType, const QPointingDevice* device, int modifiers, int touchPointStates, const libqt_list /* of QEventPoint* */ touchPoints) {
+QTouchEvent* QTouchEvent_new6(int eventType, const QPointingDevice* device, int modifiers, uint8_t touchPointStates, const libqt_list /* of QEventPoint* */ touchPoints) {
     QList<QEventPoint> touchPoints_QList;
     touchPoints_QList.reserve(touchPoints.len);
     QEventPoint** touchPoints_arr = static_cast<QEventPoint**>(touchPoints.data);
@@ -4159,8 +4159,8 @@ QObject* QTouchEvent_Target(const QTouchEvent* self) {
     return self->target();
 }
 
-int QTouchEvent_TouchPointStates(const QTouchEvent* self) {
-    return static_cast<int>(self->touchPointStates());
+uint8_t QTouchEvent_TouchPointStates(const QTouchEvent* self) {
+    return static_cast<uint8_t>(self->touchPointStates());
 }
 
 libqt_list /* of QEventPoint* */ QTouchEvent_TouchPoints(const QTouchEvent* self) {

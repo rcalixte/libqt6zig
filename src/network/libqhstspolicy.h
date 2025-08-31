@@ -33,7 +33,7 @@ void QHstsPolicy_SetIncludesSubDomains(QHstsPolicy* self, bool include);
 bool QHstsPolicy_IncludesSubDomains(const QHstsPolicy* self);
 bool QHstsPolicy_IsExpired(const QHstsPolicy* self);
 void QHstsPolicy_SetHost2(QHstsPolicy* self, const libqt_string host, int mode);
-libqt_string QHstsPolicy_Host1(const QHstsPolicy* self, int options);
+libqt_string QHstsPolicy_Host1(const QHstsPolicy* self, unsigned int options);
 void QHstsPolicy_Delete(QHstsPolicy* self);
 
 #ifdef __cplusplus

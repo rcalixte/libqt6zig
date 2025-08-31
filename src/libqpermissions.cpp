@@ -128,12 +128,12 @@ QBluetoothPermission* QBluetoothPermission_new2(const QBluetoothPermission* othe
     return new QBluetoothPermission(*other);
 }
 
-void QBluetoothPermission_SetCommunicationModes(QBluetoothPermission* self, int modes) {
+void QBluetoothPermission_SetCommunicationModes(QBluetoothPermission* self, uint8_t modes) {
     self->setCommunicationModes(static_cast<QBluetoothPermission::CommunicationModes>(modes));
 }
 
-int QBluetoothPermission_CommunicationModes(const QBluetoothPermission* self) {
-    return static_cast<int>(self->communicationModes());
+uint8_t QBluetoothPermission_CommunicationModes(const QBluetoothPermission* self) {
+    return static_cast<uint8_t>(self->communicationModes());
 }
 
 void QBluetoothPermission_OperatorAssign(QBluetoothPermission* self, const QBluetoothPermission* other) {

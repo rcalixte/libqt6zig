@@ -691,14 +691,14 @@ void QWindowStateChangeEvent_QBaseSetAccepted(QWindowStateChangeEvent* self, boo
 void QWindowStateChangeEvent_Delete(QWindowStateChangeEvent* self);
 
 QTouchEvent* QTouchEvent_new(int eventType);
-QTouchEvent* QTouchEvent_new2(int eventType, const QPointingDevice* device, int modifiers, int touchPointStates);
+QTouchEvent* QTouchEvent_new2(int eventType, const QPointingDevice* device, int modifiers, uint8_t touchPointStates);
 QTouchEvent* QTouchEvent_new3(int eventType, const QPointingDevice* device);
 QTouchEvent* QTouchEvent_new4(int eventType, const QPointingDevice* device, int modifiers);
 QTouchEvent* QTouchEvent_new5(int eventType, const QPointingDevice* device, int modifiers, const libqt_list /* of QEventPoint* */ touchPoints);
-QTouchEvent* QTouchEvent_new6(int eventType, const QPointingDevice* device, int modifiers, int touchPointStates, const libqt_list /* of QEventPoint* */ touchPoints);
+QTouchEvent* QTouchEvent_new6(int eventType, const QPointingDevice* device, int modifiers, uint8_t touchPointStates, const libqt_list /* of QEventPoint* */ touchPoints);
 QTouchEvent* QTouchEvent_Clone(const QTouchEvent* self);
 QObject* QTouchEvent_Target(const QTouchEvent* self);
-int QTouchEvent_TouchPointStates(const QTouchEvent* self);
+uint8_t QTouchEvent_TouchPointStates(const QTouchEvent* self);
 libqt_list /* of QEventPoint* */ QTouchEvent_TouchPoints(const QTouchEvent* self);
 bool QTouchEvent_IsBeginEvent(const QTouchEvent* self);
 bool QTouchEvent_IsUpdateEvent(const QTouchEvent* self);

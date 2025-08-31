@@ -59,8 +59,8 @@ void QContactsPermission_Delete(QContactsPermission* self);
 
 QBluetoothPermission* QBluetoothPermission_new();
 QBluetoothPermission* QBluetoothPermission_new2(const QBluetoothPermission* other);
-void QBluetoothPermission_SetCommunicationModes(QBluetoothPermission* self, int modes);
-int QBluetoothPermission_CommunicationModes(const QBluetoothPermission* self);
+void QBluetoothPermission_SetCommunicationModes(QBluetoothPermission* self, uint8_t modes);
+uint8_t QBluetoothPermission_CommunicationModes(const QBluetoothPermission* self);
 void QBluetoothPermission_OperatorAssign(QBluetoothPermission* self, const QBluetoothPermission* other);
 void QBluetoothPermission_Swap(QBluetoothPermission* self, QBluetoothPermission* other);
 void QBluetoothPermission_Delete(QBluetoothPermission* self);

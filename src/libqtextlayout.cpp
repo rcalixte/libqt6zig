@@ -303,7 +303,7 @@ double QTextLayout_MaximumWidth(const QTextLayout* self) {
     return static_cast<double>(self->maximumWidth());
 }
 
-libqt_list /* of QGlyphRun* */ QTextLayout_GlyphRuns(const QTextLayout* self, int from, int length, int flags) {
+libqt_list /* of QGlyphRun* */ QTextLayout_GlyphRuns(const QTextLayout* self, int from, int length, uint16_t flags) {
     QList<QGlyphRun> _ret = self->glyphRuns(static_cast<int>(from), static_cast<int>(length), static_cast<QTextLayout::GlyphRunRetrievalFlags>(flags));
     // Convert QList<> from C++ memory to manually-managed C memory
     QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * (_ret.size() + 1)));
@@ -515,7 +515,7 @@ void QTextLine_Draw(const QTextLine* self, QPainter* painter, const QPointF* pos
     self->draw(painter, *position);
 }
 
-libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns(const QTextLine* self, int from, int length, int flags) {
+libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns(const QTextLine* self, int from, int length, uint16_t flags) {
     QList<QGlyphRun> _ret = self->glyphRuns(static_cast<int>(from), static_cast<int>(length), static_cast<QTextLayout::GlyphRunRetrievalFlags>(flags));
     // Convert QList<> from C++ memory to manually-managed C memory
     QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * (_ret.size() + 1)));

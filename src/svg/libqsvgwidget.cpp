@@ -100,11 +100,11 @@ QSize* QSvgWidget_SizeHint(const QSvgWidget* self) {
     }
 }
 
-int QSvgWidget_Options(const QSvgWidget* self) {
-    return static_cast<int>(self->options());
+uint32_t QSvgWidget_Options(const QSvgWidget* self) {
+    return static_cast<uint32_t>(self->options());
 }
 
-void QSvgWidget_SetOptions(QSvgWidget* self, int options) {
+void QSvgWidget_SetOptions(QSvgWidget* self, uint32_t options) {
     self->setOptions(static_cast<QtSvg::Options>(options));
 }
 

@@ -116,11 +116,11 @@ void QSvgRenderer_SetAspectRatioMode(QSvgRenderer* self, int mode) {
     self->setAspectRatioMode(static_cast<Qt::AspectRatioMode>(mode));
 }
 
-int QSvgRenderer_Options(const QSvgRenderer* self) {
-    return static_cast<int>(self->options());
+uint32_t QSvgRenderer_Options(const QSvgRenderer* self) {
+    return static_cast<uint32_t>(self->options());
 }
 
-void QSvgRenderer_SetOptions(QSvgRenderer* self, int flags) {
+void QSvgRenderer_SetOptions(QSvgRenderer* self, uint32_t flags) {
     self->setOptions(static_cast<QtSvg::Options>(flags));
 }
 
@@ -171,7 +171,7 @@ QTransform* QSvgRenderer_TransformForElement(const QSvgRenderer* self, const lib
     return new QTransform(self->transformForElement(id_QString));
 }
 
-void QSvgRenderer_SetDefaultOptions(int flags) {
+void QSvgRenderer_SetDefaultOptions(uint32_t flags) {
     QSvgRenderer::setDefaultOptions(static_cast<QtSvg::Options>(flags));
 }
 

@@ -61,8 +61,8 @@ int QSvgWidget_Metacall(QSvgWidget* self, int param1, int param2, void** param3)
 libqt_string QSvgWidget_Tr(const char* s);
 QSvgRenderer* QSvgWidget_Renderer(const QSvgWidget* self);
 QSize* QSvgWidget_SizeHint(const QSvgWidget* self);
-int QSvgWidget_Options(const QSvgWidget* self);
-void QSvgWidget_SetOptions(QSvgWidget* self, int options);
+uint32_t QSvgWidget_Options(const QSvgWidget* self);
+void QSvgWidget_SetOptions(QSvgWidget* self, uint32_t options);
 void QSvgWidget_Load(QSvgWidget* self, const libqt_string file);
 void QSvgWidget_Load2(QSvgWidget* self, const libqt_string contents);
 void QSvgWidget_PaintEvent(QSvgWidget* self, QPaintEvent* event);

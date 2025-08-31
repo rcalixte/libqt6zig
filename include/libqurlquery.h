@@ -43,11 +43,11 @@ void QUrlQuery_RemoveQueryItem(QUrlQuery* self, const libqt_string key);
 libqt_string QUrlQuery_QueryItemValue(const QUrlQuery* self, const libqt_string key);
 libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues(const QUrlQuery* self, const libqt_string key);
 void QUrlQuery_RemoveAllQueryItems(QUrlQuery* self, const libqt_string key);
-libqt_string QUrlQuery_Query1(const QUrlQuery* self, int encoding);
-libqt_string QUrlQuery_ToString1(const QUrlQuery* self, int encoding);
-libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuery_QueryItems1(const QUrlQuery* self, int encoding);
-libqt_string QUrlQuery_QueryItemValue2(const QUrlQuery* self, const libqt_string key, int encoding);
-libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues2(const QUrlQuery* self, const libqt_string key, int encoding);
+libqt_string QUrlQuery_Query1(const QUrlQuery* self, unsigned int encoding);
+libqt_string QUrlQuery_ToString1(const QUrlQuery* self, unsigned int encoding);
+libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuery_QueryItems1(const QUrlQuery* self, unsigned int encoding);
+libqt_string QUrlQuery_QueryItemValue2(const QUrlQuery* self, const libqt_string key, unsigned int encoding);
+libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues2(const QUrlQuery* self, const libqt_string key, unsigned int encoding);
 void QUrlQuery_Delete(QUrlQuery* self);
 
 #ifdef __cplusplus
