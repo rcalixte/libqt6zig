@@ -1384,6 +1384,11 @@ func (fn *functionInfo) createMethod() CppMethod {
 }
 
 func addMethodToClass(classes *[]CppClass, className string, method CppMethod) error {
+	err := AllowMethod(className, method)
+	if err != nil {
+		return nil
+	}
+
 	// Find existing class or create new one
 	for i := range *classes {
 		if (*classes)[i].ClassName == className {
