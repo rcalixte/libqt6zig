@@ -188,6 +188,7 @@ func AllowClass(className string) bool {
 		"KConfigSkeleton::ItemFont",                          // Qt 6 kconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QFont>
 		"KGroupId",                                           // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
 		"KUserId",                                            // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
+		"KCompletionMatches",                                 // Qt 6 kcompletionmatches.h, inherits from KSortableList<QString>
 		"____last____":
 		return false
 	}
