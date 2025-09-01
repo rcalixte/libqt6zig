@@ -185,6 +185,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KCodecs " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// KCompletion
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "extras-kcompletion",
+			dirs: []string{
+				"/usr/include/KF6/KCompletion",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KCompletion " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// KConfig
 		// Depends on Qt Core, GUI, Widgets
 		{
