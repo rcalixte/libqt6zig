@@ -157,6 +157,8 @@ pub fn build(b: *std.Build) !void {
         "QtWebEngineWidgets",
         // Qt 6 KCodecs
         "KCodecs",
+        // Qt 6 KCompletion
+        "KCompletion",
         // Qt 6 KConfig
         "KConfig",
         "KConfigCore",
