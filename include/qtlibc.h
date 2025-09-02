@@ -6,6 +6,13 @@
 #include <string.h>
 #include <stdint.h>
 
+#ifdef _WIN32
+typedef unsigned int uid_t;
+typedef unsigned int gid_t;
+#else
+#include <unistd.h>
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
