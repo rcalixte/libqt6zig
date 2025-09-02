@@ -57,10 +57,11 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 		return "libqt_pair " + cppComment("tuple of "+inner1.RenderTypeCabi(false)+" and "+inner2.RenderTypeCabi(false))
 
 	} else if (p.Pointer || p.ByRef) && p.QtClassType() {
+		maybeSecondPointer := ifv(p.ByRef && p.Pointer, "*", "")
 		if p.PointerCount > 1 {
-			return cabiClassName(p.ParameterType) + strings.Repeat("*", p.PointerCount)
+			return cabiClassName(p.ParameterType) + strings.Repeat("*", p.PointerCount) + maybeSecondPointer
 		}
-		return cabiClassName(p.ParameterType) + "*"
+		return cabiClassName(p.ParameterType) + "*" + maybeSecondPointer
 
 	} else if p.QtClassType() && !p.Pointer {
 		// Even if C++ returns by value, CABI is returning a heap copy (new'd, not malloc'd)
@@ -120,7 +121,7 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 	}
 
 	if p.Pointer {
-		ret += strings.Repeat("*", p.PointerCount)
+		ret += strings.Repeat("*", p.PointerCount) + ifv(p.ByRef && !strings.Contains(p.ParameterType, "char"), "*", "")
 	} else if p.ByRef {
 		ret += "*"
 	}
@@ -450,7 +451,9 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			// By ref and by pointer
 			// This happens for QDataStream &QDataStream::operator>>(char *&s)
 			// We are only using one level of indirection
-			return preamble, p.ParameterName
+			// For class types, we need to dereference the pointer
+			maybePointer := ifv(IsKnownClass(p.ParameterType), "*", "")
+			return preamble, maybePointer + p.ParameterName
 		} else {
 			// By ref and not by pointer
 			// We changed RenderTypeCabi() to render this as a pointer
