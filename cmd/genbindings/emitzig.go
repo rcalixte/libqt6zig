@@ -387,7 +387,8 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 				ret = "QtC." + ret
 			}
 		} else if p.QtClassType() {
-			ret = "?*anyopaque"
+			maybeExtraPointer := ifv(p.ByRef && p.Pointer, "*", "")
+			ret = "?*" + maybeExtraPointer + "anyopaque"
 		} else {
 			ret = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + ret
 		}
@@ -529,7 +530,8 @@ func (p CppParameter) parameterTypeZig() string {
 	}
 
 	if p.QtClassType() || p.Pointer || p.ByRef {
-		return "?*anyopaque"
+		maybeExtraPointer := ifv(p.ByRef && p.Pointer, "*", "")
+		return "?*" + maybeExtraPointer + "anyopaque"
 	} else {
 		return tmp
 	}
@@ -1466,9 +1468,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			mSafeMethodName := m.SafeMethodName()
 
 			if _, ok := skippedMethods[c.ClassName+"_"+mSafeMethodName]; ok {
-				if m.InheritedFrom == "" {
-					continue
-				}
+				continue
 			}
 
 			var showHiddenParams bool
@@ -1682,9 +1682,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			mSafeMethodName := m.SafeMethodName()
 
 			if _, ok := skippedMethods[c.ClassName+"_"+mSafeMethodName]; ok {
-				if m.InheritedFrom == "" {
-					continue
-				}
+				continue
 			}
 
 			var showHiddenParams bool
