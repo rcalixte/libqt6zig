@@ -430,6 +430,12 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
+	// Qt 6 KTextWidgets
+	if className == "KRichTextWidget" && mm.MethodName == "setRichTextSupport" {
+		// Skip this method due to it being poorly implemented (a chance to engage with upstream)
+		return ErrTooComplex
+	}
+
 	// Skip functions that return ints-by-reference since the ergonomics don't
 	// go through the binding
 	if mm.ReturnType.IntType() && mm.ReturnType.ByRef {
