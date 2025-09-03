@@ -125,6 +125,7 @@ func ImportHeaderForClass(className string) bool {
 		"KUserGroup",                     // Qt 6 kuser.h
 		"KLocalImageCacheImplementation", // Qt 6 klocalimagecacheimpl.h
 		"KModifierKeyInfoProvider",       // Qt 6 kmodifierkeyinfoprovider_p.h
+		"KDE",                            // Qt 6 kiconloader.h
 		"____last____":
 		return false
 	}
@@ -189,6 +190,7 @@ func AllowClass(className string) bool {
 		"KGroupId",                                           // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
 		"KUserId",                                            // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
 		"KCompletionMatches",                                 // Qt 6 kcompletionmatches.h, inherits from KSortableList<QString>
+		"KQuickIconProvider",                                 // Qt 6 kquickiconprovider.h, inherits from QQuickImageProvider
 		"____last____":
 		return false
 	}
@@ -433,6 +435,12 @@ func AllowMethod(className string, mm CppMethod) error {
 	// Qt 6 KTextWidgets
 	if className == "KRichTextWidget" && mm.MethodName == "setRichTextSupport" {
 		// Skip this method due to it being poorly implemented (a chance to engage with upstream)
+		return ErrTooComplex
+	}
+
+	// Qt 6 KIconThemes
+	if className == "KIconLoader" && (mm.SafeMethodName() == "LoadScaledIcon" || mm.SafeMethodName() == "LoadScaledIcon2") {
+		// Qt 6 kiconloader.h: there are multiple definitions and two broken overload combinations
 		return ErrTooComplex
 	}
 
