@@ -129,10 +129,12 @@ pub fn build(b: *std.Build) !void {
     const qt_modules = &.{
         // Qt 6 Core, GUI, Widgets
         "QtCore",
-        "QtWidgets",
         "QtGui",
+        "QtWidgets",
         // Qt 6 Charts
         "QtCharts",
+        // Qt 6 D-Bus
+        "QtDBus",
         // Qt 6 Multimedia
         "QtMultimedia",
         "QtMultimediaWidgets",
