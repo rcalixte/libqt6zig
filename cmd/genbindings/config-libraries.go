@@ -334,6 +334,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KIconThemes -I/usr/include/KF6/KIconWidgets -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets") + pkgConfigCflags("Qt6Quick"),
 		},
 
+		// posix-extras
+
+		// Qt 6 D-Bus
+		// Depends on Qt Core
+		{
+			path: "posix-extras-dbus",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtDBus",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6DBus"),
+		},
+
 		// posix-restricted
 
 		// QTermWidget
