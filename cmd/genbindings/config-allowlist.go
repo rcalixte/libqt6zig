@@ -107,6 +107,7 @@ func ImportHeaderForClass(className string) bool {
 		"QGenericRunnable",               // Qt 6.8 qrunnable.h
 		"QCameraPermission",              // Qt 6.8 qpermissions.h
 		"QMicrophonePermission",          // Qt 6.8 qpermissions.h
+		"QDBusPendingReplyTypes",         // Qt 6 qdbuspendingreply.h
 		"QtVideo",                        // Qt 6 qtvideo.h
 		"q20",                            // Qt 6 q20type_traits.h
 		"Kuit",                           // Qt 6 kuitsetup.h
@@ -228,6 +229,16 @@ func AllowVirtualForClass(className string) bool {
 	}
 
 	if className == "QAccessibleTableInterface" {
+		return false
+	}
+
+	if className == "QDBusAbstractAdaptor" {
+		return false
+	}
+	if className == "QDBusAbstractInterface" {
+		return false
+	}
+	if className == "QDBusConnectionInterface" {
 		return false
 	}
 
@@ -382,6 +393,10 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
+	if className == "QDBusPendingReplyTypes" && mm.MethodName == "metaTypeFor" {
+		return ErrTooComplex // Qt 6.8: qdbuspendingreply.h, templated method
+	}
+
 	if className == "QGradient" && mm.MethodName == "setStops" {
 		return ErrTooComplex // Qt 6.4: undefined symbol error during compilation
 	}
@@ -521,6 +536,9 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	}
 	if strings.Contains(p.ParameterType, "QJSValue") { // callback function pointer
 		return ErrTooComplex // e.g. QWebEngineFrame_RunJavaScript2
+	}
+	if strings.HasPrefix(p.ParameterType, "QDBusReply<") {
+		return ErrTooComplex // Qt 6 qdbusconnectioninterface.h, this could probably be made to work
 	}
 	if strings.HasPrefix(p.ParameterType, "StringResult<") {
 		return ErrTooComplex // e.g. qcborstreamreader.h
@@ -725,6 +743,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QList<bool>",                     // Qt 6 qsqlindex.h, this can probably be implemented at some point
 		"group",                           // Qt 6 kuser.h
 		"passwd",                          // Qt 6 kuser.h
+		"DBusError",                       // Qt 6 qdbuserror.h, this is an external type forward declaration
 		"____last____":
 		return ErrTooComplex
 	}
