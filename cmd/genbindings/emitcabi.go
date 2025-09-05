@@ -458,7 +458,6 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			// By ref and not by pointer
 			// We changed RenderTypeCabi() to render this as a pointer
 			// Need to dereference so we can pass as reference to the actual Qt C++ function
-			//tmp = append(tmp, "*"+p.ParameterName)
 			return preamble, "*" + p.ParameterName
 		}
 
@@ -933,7 +932,8 @@ var (
 	}
 
 	skippedMethods = map[string]struct{}{
-		"QHostAddress_IsInSubnet2": {}, // linker error
+		"QHostAddress_IsInSubnet2":  {}, // linker error
+		"KXmlGuiWindow_VirtualHook": {}, // this method is found in multiple base classes of different types and undocumented
 	}
 
 	cTypes = map[string]struct{}{
