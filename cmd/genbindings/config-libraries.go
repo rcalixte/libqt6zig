@@ -146,6 +146,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6SvgWidgets"),
 		},
 
+		// Qt 6 XML
+		// Depends on Qt Core
+		{
+			path: "xml",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtXml",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Xml"),
+		},
+
 		// Qt 6 WebChannel
 		// Depends on Qt Core
 		{
@@ -332,6 +343,30 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 -I/usr/include/KF6/KIconThemes -I/usr/include/KF6/KIconWidgets -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets") + pkgConfigCflags("Qt6Quick"),
+		},
+
+		// KXmlGui
+		// Depends on Qt Core, Gui, Widgets, XML, KConfig, KConfigWidgets, KGuiAddons, KWidgetsAddons
+		{
+			path: "extras-kxmlgui",
+			dirs: []string{
+				"/usr/include/KF6/KXmlGui",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KXmlGui -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KConfigGui -I/usr/include/KF6/KConfigWidgets -I/usr/include/KF6/KGuiAddons -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets"),
+		},
+
+		// foss-extras
+
+		// KGlobalAccel
+		// Depends on Qt Core, Gui, D-Bus
+		{
+			path: "foss-extras-kglobalaccel",
+			dirs: []string{
+				"/usr/include/KF6/KGlobalAccel",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KGlobalAccel " + pkgConfigCflags("Qt6Gui") + pkgConfigCflags("Qt6DBus"),
 		},
 
 		// posix-extras
