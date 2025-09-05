@@ -1,0 +1,262 @@
+#pragma once
+#ifndef SRC_EXTRAS_KXMLGUIC_LIBKABOUTAPPLICATIONDIALOG_H
+#define SRC_EXTRAS_KXMLGUIC_LIBKABOUTAPPLICATIONDIALOG_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KAboutApplicationDialog KAboutApplicationDialog;
+typedef struct KAboutData KAboutData;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDialog QDialog;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KAboutApplicationDialog* KAboutApplicationDialog_new(const KAboutData* aboutData, int opts);
+KAboutApplicationDialog* KAboutApplicationDialog_new2(const KAboutData* aboutData);
+KAboutApplicationDialog* KAboutApplicationDialog_new3(const KAboutData* aboutData, int opts, QWidget* parent);
+KAboutApplicationDialog* KAboutApplicationDialog_new4(const KAboutData* aboutData, QWidget* parent);
+QMetaObject* KAboutApplicationDialog_MetaObject(const KAboutApplicationDialog* self);
+void* KAboutApplicationDialog_Metacast(KAboutApplicationDialog* self, const char* param1);
+int KAboutApplicationDialog_Metacall(KAboutApplicationDialog* self, int param1, int param2, void** param3);
+libqt_string KAboutApplicationDialog_Tr(const char* s);
+libqt_string KAboutApplicationDialog_Tr2(const char* s, const char* c);
+libqt_string KAboutApplicationDialog_Tr3(const char* s, const char* c, int n);
+void KAboutApplicationDialog_OnMetacall(KAboutApplicationDialog* self, intptr_t slot);
+int KAboutApplicationDialog_QBaseMetacall(KAboutApplicationDialog* self, int param1, int param2, void** param3);
+void KAboutApplicationDialog_SetVisible(KAboutApplicationDialog* self, bool visible);
+void KAboutApplicationDialog_OnSetVisible(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseSetVisible(KAboutApplicationDialog* self, bool visible);
+QSize* KAboutApplicationDialog_SizeHint(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnSizeHint(const KAboutApplicationDialog* self, intptr_t slot);
+QSize* KAboutApplicationDialog_QBaseSizeHint(const KAboutApplicationDialog* self);
+QSize* KAboutApplicationDialog_MinimumSizeHint(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnMinimumSizeHint(const KAboutApplicationDialog* self, intptr_t slot);
+QSize* KAboutApplicationDialog_QBaseMinimumSizeHint(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_Open(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnOpen(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseOpen(KAboutApplicationDialog* self);
+int KAboutApplicationDialog_Exec(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnExec(KAboutApplicationDialog* self, intptr_t slot);
+int KAboutApplicationDialog_QBaseExec(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_Done(KAboutApplicationDialog* self, int param1);
+void KAboutApplicationDialog_OnDone(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseDone(KAboutApplicationDialog* self, int param1);
+void KAboutApplicationDialog_Accept(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnAccept(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseAccept(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_Reject(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnReject(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseReject(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_KeyPressEvent(KAboutApplicationDialog* self, QKeyEvent* param1);
+void KAboutApplicationDialog_OnKeyPressEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseKeyPressEvent(KAboutApplicationDialog* self, QKeyEvent* param1);
+void KAboutApplicationDialog_CloseEvent(KAboutApplicationDialog* self, QCloseEvent* param1);
+void KAboutApplicationDialog_OnCloseEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseCloseEvent(KAboutApplicationDialog* self, QCloseEvent* param1);
+void KAboutApplicationDialog_ShowEvent(KAboutApplicationDialog* self, QShowEvent* param1);
+void KAboutApplicationDialog_OnShowEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseShowEvent(KAboutApplicationDialog* self, QShowEvent* param1);
+void KAboutApplicationDialog_ResizeEvent(KAboutApplicationDialog* self, QResizeEvent* param1);
+void KAboutApplicationDialog_OnResizeEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseResizeEvent(KAboutApplicationDialog* self, QResizeEvent* param1);
+void KAboutApplicationDialog_ContextMenuEvent(KAboutApplicationDialog* self, QContextMenuEvent* param1);
+void KAboutApplicationDialog_OnContextMenuEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseContextMenuEvent(KAboutApplicationDialog* self, QContextMenuEvent* param1);
+bool KAboutApplicationDialog_EventFilter(KAboutApplicationDialog* self, QObject* param1, QEvent* param2);
+void KAboutApplicationDialog_OnEventFilter(KAboutApplicationDialog* self, intptr_t slot);
+bool KAboutApplicationDialog_QBaseEventFilter(KAboutApplicationDialog* self, QObject* param1, QEvent* param2);
+int KAboutApplicationDialog_DevType(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnDevType(const KAboutApplicationDialog* self, intptr_t slot);
+int KAboutApplicationDialog_QBaseDevType(const KAboutApplicationDialog* self);
+int KAboutApplicationDialog_HeightForWidth(const KAboutApplicationDialog* self, int param1);
+void KAboutApplicationDialog_OnHeightForWidth(const KAboutApplicationDialog* self, intptr_t slot);
+int KAboutApplicationDialog_QBaseHeightForWidth(const KAboutApplicationDialog* self, int param1);
+bool KAboutApplicationDialog_HasHeightForWidth(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnHasHeightForWidth(const KAboutApplicationDialog* self, intptr_t slot);
+bool KAboutApplicationDialog_QBaseHasHeightForWidth(const KAboutApplicationDialog* self);
+QPaintEngine* KAboutApplicationDialog_PaintEngine(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnPaintEngine(const KAboutApplicationDialog* self, intptr_t slot);
+QPaintEngine* KAboutApplicationDialog_QBasePaintEngine(const KAboutApplicationDialog* self);
+bool KAboutApplicationDialog_Event(KAboutApplicationDialog* self, QEvent* event);
+void KAboutApplicationDialog_OnEvent(KAboutApplicationDialog* self, intptr_t slot);
+bool KAboutApplicationDialog_QBaseEvent(KAboutApplicationDialog* self, QEvent* event);
+void KAboutApplicationDialog_MousePressEvent(KAboutApplicationDialog* self, QMouseEvent* event);
+void KAboutApplicationDialog_OnMousePressEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseMousePressEvent(KAboutApplicationDialog* self, QMouseEvent* event);
+void KAboutApplicationDialog_MouseReleaseEvent(KAboutApplicationDialog* self, QMouseEvent* event);
+void KAboutApplicationDialog_OnMouseReleaseEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseMouseReleaseEvent(KAboutApplicationDialog* self, QMouseEvent* event);
+void KAboutApplicationDialog_MouseDoubleClickEvent(KAboutApplicationDialog* self, QMouseEvent* event);
+void KAboutApplicationDialog_OnMouseDoubleClickEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseMouseDoubleClickEvent(KAboutApplicationDialog* self, QMouseEvent* event);
+void KAboutApplicationDialog_MouseMoveEvent(KAboutApplicationDialog* self, QMouseEvent* event);
+void KAboutApplicationDialog_OnMouseMoveEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseMouseMoveEvent(KAboutApplicationDialog* self, QMouseEvent* event);
+void KAboutApplicationDialog_WheelEvent(KAboutApplicationDialog* self, QWheelEvent* event);
+void KAboutApplicationDialog_OnWheelEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseWheelEvent(KAboutApplicationDialog* self, QWheelEvent* event);
+void KAboutApplicationDialog_KeyReleaseEvent(KAboutApplicationDialog* self, QKeyEvent* event);
+void KAboutApplicationDialog_OnKeyReleaseEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseKeyReleaseEvent(KAboutApplicationDialog* self, QKeyEvent* event);
+void KAboutApplicationDialog_FocusInEvent(KAboutApplicationDialog* self, QFocusEvent* event);
+void KAboutApplicationDialog_OnFocusInEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseFocusInEvent(KAboutApplicationDialog* self, QFocusEvent* event);
+void KAboutApplicationDialog_FocusOutEvent(KAboutApplicationDialog* self, QFocusEvent* event);
+void KAboutApplicationDialog_OnFocusOutEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseFocusOutEvent(KAboutApplicationDialog* self, QFocusEvent* event);
+void KAboutApplicationDialog_EnterEvent(KAboutApplicationDialog* self, QEnterEvent* event);
+void KAboutApplicationDialog_OnEnterEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseEnterEvent(KAboutApplicationDialog* self, QEnterEvent* event);
+void KAboutApplicationDialog_LeaveEvent(KAboutApplicationDialog* self, QEvent* event);
+void KAboutApplicationDialog_OnLeaveEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseLeaveEvent(KAboutApplicationDialog* self, QEvent* event);
+void KAboutApplicationDialog_PaintEvent(KAboutApplicationDialog* self, QPaintEvent* event);
+void KAboutApplicationDialog_OnPaintEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBasePaintEvent(KAboutApplicationDialog* self, QPaintEvent* event);
+void KAboutApplicationDialog_MoveEvent(KAboutApplicationDialog* self, QMoveEvent* event);
+void KAboutApplicationDialog_OnMoveEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseMoveEvent(KAboutApplicationDialog* self, QMoveEvent* event);
+void KAboutApplicationDialog_TabletEvent(KAboutApplicationDialog* self, QTabletEvent* event);
+void KAboutApplicationDialog_OnTabletEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseTabletEvent(KAboutApplicationDialog* self, QTabletEvent* event);
+void KAboutApplicationDialog_ActionEvent(KAboutApplicationDialog* self, QActionEvent* event);
+void KAboutApplicationDialog_OnActionEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseActionEvent(KAboutApplicationDialog* self, QActionEvent* event);
+void KAboutApplicationDialog_DragEnterEvent(KAboutApplicationDialog* self, QDragEnterEvent* event);
+void KAboutApplicationDialog_OnDragEnterEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseDragEnterEvent(KAboutApplicationDialog* self, QDragEnterEvent* event);
+void KAboutApplicationDialog_DragMoveEvent(KAboutApplicationDialog* self, QDragMoveEvent* event);
+void KAboutApplicationDialog_OnDragMoveEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseDragMoveEvent(KAboutApplicationDialog* self, QDragMoveEvent* event);
+void KAboutApplicationDialog_DragLeaveEvent(KAboutApplicationDialog* self, QDragLeaveEvent* event);
+void KAboutApplicationDialog_OnDragLeaveEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseDragLeaveEvent(KAboutApplicationDialog* self, QDragLeaveEvent* event);
+void KAboutApplicationDialog_DropEvent(KAboutApplicationDialog* self, QDropEvent* event);
+void KAboutApplicationDialog_OnDropEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseDropEvent(KAboutApplicationDialog* self, QDropEvent* event);
+void KAboutApplicationDialog_HideEvent(KAboutApplicationDialog* self, QHideEvent* event);
+void KAboutApplicationDialog_OnHideEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseHideEvent(KAboutApplicationDialog* self, QHideEvent* event);
+bool KAboutApplicationDialog_NativeEvent(KAboutApplicationDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KAboutApplicationDialog_OnNativeEvent(KAboutApplicationDialog* self, intptr_t slot);
+bool KAboutApplicationDialog_QBaseNativeEvent(KAboutApplicationDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KAboutApplicationDialog_ChangeEvent(KAboutApplicationDialog* self, QEvent* param1);
+void KAboutApplicationDialog_OnChangeEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseChangeEvent(KAboutApplicationDialog* self, QEvent* param1);
+int KAboutApplicationDialog_Metric(const KAboutApplicationDialog* self, int param1);
+void KAboutApplicationDialog_OnMetric(const KAboutApplicationDialog* self, intptr_t slot);
+int KAboutApplicationDialog_QBaseMetric(const KAboutApplicationDialog* self, int param1);
+void KAboutApplicationDialog_InitPainter(const KAboutApplicationDialog* self, QPainter* painter);
+void KAboutApplicationDialog_OnInitPainter(const KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseInitPainter(const KAboutApplicationDialog* self, QPainter* painter);
+QPaintDevice* KAboutApplicationDialog_Redirected(const KAboutApplicationDialog* self, QPoint* offset);
+void KAboutApplicationDialog_OnRedirected(const KAboutApplicationDialog* self, intptr_t slot);
+QPaintDevice* KAboutApplicationDialog_QBaseRedirected(const KAboutApplicationDialog* self, QPoint* offset);
+QPainter* KAboutApplicationDialog_SharedPainter(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnSharedPainter(const KAboutApplicationDialog* self, intptr_t slot);
+QPainter* KAboutApplicationDialog_QBaseSharedPainter(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_InputMethodEvent(KAboutApplicationDialog* self, QInputMethodEvent* param1);
+void KAboutApplicationDialog_OnInputMethodEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseInputMethodEvent(KAboutApplicationDialog* self, QInputMethodEvent* param1);
+QVariant* KAboutApplicationDialog_InputMethodQuery(const KAboutApplicationDialog* self, int param1);
+void KAboutApplicationDialog_OnInputMethodQuery(const KAboutApplicationDialog* self, intptr_t slot);
+QVariant* KAboutApplicationDialog_QBaseInputMethodQuery(const KAboutApplicationDialog* self, int param1);
+bool KAboutApplicationDialog_FocusNextPrevChild(KAboutApplicationDialog* self, bool next);
+void KAboutApplicationDialog_OnFocusNextPrevChild(KAboutApplicationDialog* self, intptr_t slot);
+bool KAboutApplicationDialog_QBaseFocusNextPrevChild(KAboutApplicationDialog* self, bool next);
+void KAboutApplicationDialog_TimerEvent(KAboutApplicationDialog* self, QTimerEvent* event);
+void KAboutApplicationDialog_OnTimerEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseTimerEvent(KAboutApplicationDialog* self, QTimerEvent* event);
+void KAboutApplicationDialog_ChildEvent(KAboutApplicationDialog* self, QChildEvent* event);
+void KAboutApplicationDialog_OnChildEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseChildEvent(KAboutApplicationDialog* self, QChildEvent* event);
+void KAboutApplicationDialog_CustomEvent(KAboutApplicationDialog* self, QEvent* event);
+void KAboutApplicationDialog_OnCustomEvent(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseCustomEvent(KAboutApplicationDialog* self, QEvent* event);
+void KAboutApplicationDialog_ConnectNotify(KAboutApplicationDialog* self, const QMetaMethod* signal);
+void KAboutApplicationDialog_OnConnectNotify(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseConnectNotify(KAboutApplicationDialog* self, const QMetaMethod* signal);
+void KAboutApplicationDialog_DisconnectNotify(KAboutApplicationDialog* self, const QMetaMethod* signal);
+void KAboutApplicationDialog_OnDisconnectNotify(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseDisconnectNotify(KAboutApplicationDialog* self, const QMetaMethod* signal);
+void KAboutApplicationDialog_AdjustPosition(KAboutApplicationDialog* self, QWidget* param1);
+void KAboutApplicationDialog_OnAdjustPosition(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseAdjustPosition(KAboutApplicationDialog* self, QWidget* param1);
+void KAboutApplicationDialog_UpdateMicroFocus(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnUpdateMicroFocus(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseUpdateMicroFocus(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_Create(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnCreate(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseCreate(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_Destroy(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnDestroy(KAboutApplicationDialog* self, intptr_t slot);
+void KAboutApplicationDialog_QBaseDestroy(KAboutApplicationDialog* self);
+bool KAboutApplicationDialog_FocusNextChild(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnFocusNextChild(KAboutApplicationDialog* self, intptr_t slot);
+bool KAboutApplicationDialog_QBaseFocusNextChild(KAboutApplicationDialog* self);
+bool KAboutApplicationDialog_FocusPreviousChild(KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnFocusPreviousChild(KAboutApplicationDialog* self, intptr_t slot);
+bool KAboutApplicationDialog_QBaseFocusPreviousChild(KAboutApplicationDialog* self);
+QObject* KAboutApplicationDialog_Sender(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnSender(const KAboutApplicationDialog* self, intptr_t slot);
+QObject* KAboutApplicationDialog_QBaseSender(const KAboutApplicationDialog* self);
+int KAboutApplicationDialog_SenderSignalIndex(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnSenderSignalIndex(const KAboutApplicationDialog* self, intptr_t slot);
+int KAboutApplicationDialog_QBaseSenderSignalIndex(const KAboutApplicationDialog* self);
+int KAboutApplicationDialog_Receivers(const KAboutApplicationDialog* self, const char* signal);
+void KAboutApplicationDialog_OnReceivers(const KAboutApplicationDialog* self, intptr_t slot);
+int KAboutApplicationDialog_QBaseReceivers(const KAboutApplicationDialog* self, const char* signal);
+bool KAboutApplicationDialog_IsSignalConnected(const KAboutApplicationDialog* self, const QMetaMethod* signal);
+void KAboutApplicationDialog_OnIsSignalConnected(const KAboutApplicationDialog* self, intptr_t slot);
+bool KAboutApplicationDialog_QBaseIsSignalConnected(const KAboutApplicationDialog* self, const QMetaMethod* signal);
+double KAboutApplicationDialog_GetDecodedMetricF(const KAboutApplicationDialog* self, int metricA, int metricB);
+void KAboutApplicationDialog_OnGetDecodedMetricF(const KAboutApplicationDialog* self, intptr_t slot);
+double KAboutApplicationDialog_QBaseGetDecodedMetricF(const KAboutApplicationDialog* self, int metricA, int metricB);
+void KAboutApplicationDialog_Delete(KAboutApplicationDialog* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

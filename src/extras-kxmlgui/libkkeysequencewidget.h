@@ -1,0 +1,267 @@
+#pragma once
+#ifndef SRC_EXTRAS_KXMLGUIC_LIBKKEYSEQUENCEWIDGET_H
+#define SRC_EXTRAS_KXMLGUIC_LIBKKEYSEQUENCEWIDGET_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KActionCollection KActionCollection;
+typedef struct KKeySequenceWidget KKeySequenceWidget;
+typedef struct QAction QAction;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QKeySequence QKeySequence;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KKeySequenceWidget* KKeySequenceWidget_new(QWidget* parent);
+KKeySequenceWidget* KKeySequenceWidget_new2();
+QMetaObject* KKeySequenceWidget_MetaObject(const KKeySequenceWidget* self);
+void* KKeySequenceWidget_Metacast(KKeySequenceWidget* self, const char* param1);
+int KKeySequenceWidget_Metacall(KKeySequenceWidget* self, int param1, int param2, void** param3);
+libqt_string KKeySequenceWidget_Tr(const char* s);
+void KKeySequenceWidget_SetCheckForConflictsAgainst(KKeySequenceWidget* self, int types);
+int KKeySequenceWidget_CheckForConflictsAgainst(const KKeySequenceWidget* self);
+void KKeySequenceWidget_SetMultiKeyShortcutsAllowed(KKeySequenceWidget* self, bool multiKeyShortcutsAllowed);
+bool KKeySequenceWidget_MultiKeyShortcutsAllowed(const KKeySequenceWidget* self);
+void KKeySequenceWidget_SetModifierlessAllowed(KKeySequenceWidget* self, bool allow);
+bool KKeySequenceWidget_IsModifierlessAllowed(KKeySequenceWidget* self);
+void KKeySequenceWidget_SetModifierOnlyAllowed(KKeySequenceWidget* self, bool allow);
+bool KKeySequenceWidget_ModifierOnlyAllowed(const KKeySequenceWidget* self);
+void KKeySequenceWidget_SetClearButtonShown(KKeySequenceWidget* self, bool show);
+bool KKeySequenceWidget_IsKeySequenceAvailable(const KKeySequenceWidget* self, const QKeySequence* seq);
+QKeySequence* KKeySequenceWidget_KeySequence(const KKeySequenceWidget* self);
+void KKeySequenceWidget_SetCheckActionCollections(KKeySequenceWidget* self, const libqt_list /* of KActionCollection* */ actionCollections);
+void KKeySequenceWidget_SetComponentName(KKeySequenceWidget* self, const libqt_string componentName);
+bool KKeySequenceWidget_IsRecording(const KKeySequenceWidget* self);
+void KKeySequenceWidget_SetPatterns(KKeySequenceWidget* self, int patterns);
+int KKeySequenceWidget_Patterns(const KKeySequenceWidget* self);
+void KKeySequenceWidget_KeySequenceChanged(KKeySequenceWidget* self, const QKeySequence* seq);
+void KKeySequenceWidget_Connect_KeySequenceChanged(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_StealShortcut(KKeySequenceWidget* self, const QKeySequence* seq, QAction* action);
+void KKeySequenceWidget_Connect_StealShortcut(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_RecordingChanged(KKeySequenceWidget* self);
+void KKeySequenceWidget_Connect_RecordingChanged(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_CaptureKeySequence(KKeySequenceWidget* self);
+void KKeySequenceWidget_SetKeySequence(KKeySequenceWidget* self, const QKeySequence* seq);
+void KKeySequenceWidget_ClearKeySequence(KKeySequenceWidget* self);
+void KKeySequenceWidget_ApplyStealShortcut(KKeySequenceWidget* self);
+libqt_string KKeySequenceWidget_Tr2(const char* s, const char* c);
+libqt_string KKeySequenceWidget_Tr3(const char* s, const char* c, int n);
+void KKeySequenceWidget_SetKeySequence2(KKeySequenceWidget* self, const QKeySequence* seq, int val);
+void KKeySequenceWidget_OnMetacall(KKeySequenceWidget* self, intptr_t slot);
+int KKeySequenceWidget_QBaseMetacall(KKeySequenceWidget* self, int param1, int param2, void** param3);
+int KKeySequenceWidget_DevType(const KKeySequenceWidget* self);
+void KKeySequenceWidget_OnDevType(const KKeySequenceWidget* self, intptr_t slot);
+int KKeySequenceWidget_QBaseDevType(const KKeySequenceWidget* self);
+void KKeySequenceWidget_SetVisible(KKeySequenceWidget* self, bool visible);
+void KKeySequenceWidget_OnSetVisible(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseSetVisible(KKeySequenceWidget* self, bool visible);
+QSize* KKeySequenceWidget_SizeHint(const KKeySequenceWidget* self);
+void KKeySequenceWidget_OnSizeHint(const KKeySequenceWidget* self, intptr_t slot);
+QSize* KKeySequenceWidget_QBaseSizeHint(const KKeySequenceWidget* self);
+QSize* KKeySequenceWidget_MinimumSizeHint(const KKeySequenceWidget* self);
+void KKeySequenceWidget_OnMinimumSizeHint(const KKeySequenceWidget* self, intptr_t slot);
+QSize* KKeySequenceWidget_QBaseMinimumSizeHint(const KKeySequenceWidget* self);
+int KKeySequenceWidget_HeightForWidth(const KKeySequenceWidget* self, int param1);
+void KKeySequenceWidget_OnHeightForWidth(const KKeySequenceWidget* self, intptr_t slot);
+int KKeySequenceWidget_QBaseHeightForWidth(const KKeySequenceWidget* self, int param1);
+bool KKeySequenceWidget_HasHeightForWidth(const KKeySequenceWidget* self);
+void KKeySequenceWidget_OnHasHeightForWidth(const KKeySequenceWidget* self, intptr_t slot);
+bool KKeySequenceWidget_QBaseHasHeightForWidth(const KKeySequenceWidget* self);
+QPaintEngine* KKeySequenceWidget_PaintEngine(const KKeySequenceWidget* self);
+void KKeySequenceWidget_OnPaintEngine(const KKeySequenceWidget* self, intptr_t slot);
+QPaintEngine* KKeySequenceWidget_QBasePaintEngine(const KKeySequenceWidget* self);
+void KKeySequenceWidget_MousePressEvent(KKeySequenceWidget* self, QMouseEvent* event);
+void KKeySequenceWidget_OnMousePressEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseMousePressEvent(KKeySequenceWidget* self, QMouseEvent* event);
+void KKeySequenceWidget_MouseReleaseEvent(KKeySequenceWidget* self, QMouseEvent* event);
+void KKeySequenceWidget_OnMouseReleaseEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseMouseReleaseEvent(KKeySequenceWidget* self, QMouseEvent* event);
+void KKeySequenceWidget_MouseDoubleClickEvent(KKeySequenceWidget* self, QMouseEvent* event);
+void KKeySequenceWidget_OnMouseDoubleClickEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseMouseDoubleClickEvent(KKeySequenceWidget* self, QMouseEvent* event);
+void KKeySequenceWidget_MouseMoveEvent(KKeySequenceWidget* self, QMouseEvent* event);
+void KKeySequenceWidget_OnMouseMoveEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseMouseMoveEvent(KKeySequenceWidget* self, QMouseEvent* event);
+void KKeySequenceWidget_WheelEvent(KKeySequenceWidget* self, QWheelEvent* event);
+void KKeySequenceWidget_OnWheelEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseWheelEvent(KKeySequenceWidget* self, QWheelEvent* event);
+void KKeySequenceWidget_KeyPressEvent(KKeySequenceWidget* self, QKeyEvent* event);
+void KKeySequenceWidget_OnKeyPressEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseKeyPressEvent(KKeySequenceWidget* self, QKeyEvent* event);
+void KKeySequenceWidget_KeyReleaseEvent(KKeySequenceWidget* self, QKeyEvent* event);
+void KKeySequenceWidget_OnKeyReleaseEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseKeyReleaseEvent(KKeySequenceWidget* self, QKeyEvent* event);
+void KKeySequenceWidget_FocusInEvent(KKeySequenceWidget* self, QFocusEvent* event);
+void KKeySequenceWidget_OnFocusInEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseFocusInEvent(KKeySequenceWidget* self, QFocusEvent* event);
+void KKeySequenceWidget_FocusOutEvent(KKeySequenceWidget* self, QFocusEvent* event);
+void KKeySequenceWidget_OnFocusOutEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseFocusOutEvent(KKeySequenceWidget* self, QFocusEvent* event);
+void KKeySequenceWidget_EnterEvent(KKeySequenceWidget* self, QEnterEvent* event);
+void KKeySequenceWidget_OnEnterEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseEnterEvent(KKeySequenceWidget* self, QEnterEvent* event);
+void KKeySequenceWidget_LeaveEvent(KKeySequenceWidget* self, QEvent* event);
+void KKeySequenceWidget_OnLeaveEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseLeaveEvent(KKeySequenceWidget* self, QEvent* event);
+void KKeySequenceWidget_PaintEvent(KKeySequenceWidget* self, QPaintEvent* event);
+void KKeySequenceWidget_OnPaintEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBasePaintEvent(KKeySequenceWidget* self, QPaintEvent* event);
+void KKeySequenceWidget_MoveEvent(KKeySequenceWidget* self, QMoveEvent* event);
+void KKeySequenceWidget_OnMoveEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseMoveEvent(KKeySequenceWidget* self, QMoveEvent* event);
+void KKeySequenceWidget_ResizeEvent(KKeySequenceWidget* self, QResizeEvent* event);
+void KKeySequenceWidget_OnResizeEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseResizeEvent(KKeySequenceWidget* self, QResizeEvent* event);
+void KKeySequenceWidget_CloseEvent(KKeySequenceWidget* self, QCloseEvent* event);
+void KKeySequenceWidget_OnCloseEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseCloseEvent(KKeySequenceWidget* self, QCloseEvent* event);
+void KKeySequenceWidget_ContextMenuEvent(KKeySequenceWidget* self, QContextMenuEvent* event);
+void KKeySequenceWidget_OnContextMenuEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseContextMenuEvent(KKeySequenceWidget* self, QContextMenuEvent* event);
+void KKeySequenceWidget_TabletEvent(KKeySequenceWidget* self, QTabletEvent* event);
+void KKeySequenceWidget_OnTabletEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseTabletEvent(KKeySequenceWidget* self, QTabletEvent* event);
+void KKeySequenceWidget_ActionEvent(KKeySequenceWidget* self, QActionEvent* event);
+void KKeySequenceWidget_OnActionEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseActionEvent(KKeySequenceWidget* self, QActionEvent* event);
+void KKeySequenceWidget_DragEnterEvent(KKeySequenceWidget* self, QDragEnterEvent* event);
+void KKeySequenceWidget_OnDragEnterEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseDragEnterEvent(KKeySequenceWidget* self, QDragEnterEvent* event);
+void KKeySequenceWidget_DragMoveEvent(KKeySequenceWidget* self, QDragMoveEvent* event);
+void KKeySequenceWidget_OnDragMoveEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseDragMoveEvent(KKeySequenceWidget* self, QDragMoveEvent* event);
+void KKeySequenceWidget_DragLeaveEvent(KKeySequenceWidget* self, QDragLeaveEvent* event);
+void KKeySequenceWidget_OnDragLeaveEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseDragLeaveEvent(KKeySequenceWidget* self, QDragLeaveEvent* event);
+void KKeySequenceWidget_DropEvent(KKeySequenceWidget* self, QDropEvent* event);
+void KKeySequenceWidget_OnDropEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseDropEvent(KKeySequenceWidget* self, QDropEvent* event);
+void KKeySequenceWidget_ShowEvent(KKeySequenceWidget* self, QShowEvent* event);
+void KKeySequenceWidget_OnShowEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseShowEvent(KKeySequenceWidget* self, QShowEvent* event);
+void KKeySequenceWidget_HideEvent(KKeySequenceWidget* self, QHideEvent* event);
+void KKeySequenceWidget_OnHideEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseHideEvent(KKeySequenceWidget* self, QHideEvent* event);
+bool KKeySequenceWidget_NativeEvent(KKeySequenceWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KKeySequenceWidget_OnNativeEvent(KKeySequenceWidget* self, intptr_t slot);
+bool KKeySequenceWidget_QBaseNativeEvent(KKeySequenceWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KKeySequenceWidget_ChangeEvent(KKeySequenceWidget* self, QEvent* param1);
+void KKeySequenceWidget_OnChangeEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseChangeEvent(KKeySequenceWidget* self, QEvent* param1);
+int KKeySequenceWidget_Metric(const KKeySequenceWidget* self, int param1);
+void KKeySequenceWidget_OnMetric(const KKeySequenceWidget* self, intptr_t slot);
+int KKeySequenceWidget_QBaseMetric(const KKeySequenceWidget* self, int param1);
+void KKeySequenceWidget_InitPainter(const KKeySequenceWidget* self, QPainter* painter);
+void KKeySequenceWidget_OnInitPainter(const KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseInitPainter(const KKeySequenceWidget* self, QPainter* painter);
+QPaintDevice* KKeySequenceWidget_Redirected(const KKeySequenceWidget* self, QPoint* offset);
+void KKeySequenceWidget_OnRedirected(const KKeySequenceWidget* self, intptr_t slot);
+QPaintDevice* KKeySequenceWidget_QBaseRedirected(const KKeySequenceWidget* self, QPoint* offset);
+QPainter* KKeySequenceWidget_SharedPainter(const KKeySequenceWidget* self);
+void KKeySequenceWidget_OnSharedPainter(const KKeySequenceWidget* self, intptr_t slot);
+QPainter* KKeySequenceWidget_QBaseSharedPainter(const KKeySequenceWidget* self);
+void KKeySequenceWidget_InputMethodEvent(KKeySequenceWidget* self, QInputMethodEvent* param1);
+void KKeySequenceWidget_OnInputMethodEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseInputMethodEvent(KKeySequenceWidget* self, QInputMethodEvent* param1);
+QVariant* KKeySequenceWidget_InputMethodQuery(const KKeySequenceWidget* self, int param1);
+void KKeySequenceWidget_OnInputMethodQuery(const KKeySequenceWidget* self, intptr_t slot);
+QVariant* KKeySequenceWidget_QBaseInputMethodQuery(const KKeySequenceWidget* self, int param1);
+bool KKeySequenceWidget_FocusNextPrevChild(KKeySequenceWidget* self, bool next);
+void KKeySequenceWidget_OnFocusNextPrevChild(KKeySequenceWidget* self, intptr_t slot);
+bool KKeySequenceWidget_QBaseFocusNextPrevChild(KKeySequenceWidget* self, bool next);
+bool KKeySequenceWidget_EventFilter(KKeySequenceWidget* self, QObject* watched, QEvent* event);
+void KKeySequenceWidget_OnEventFilter(KKeySequenceWidget* self, intptr_t slot);
+bool KKeySequenceWidget_QBaseEventFilter(KKeySequenceWidget* self, QObject* watched, QEvent* event);
+void KKeySequenceWidget_TimerEvent(KKeySequenceWidget* self, QTimerEvent* event);
+void KKeySequenceWidget_OnTimerEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseTimerEvent(KKeySequenceWidget* self, QTimerEvent* event);
+void KKeySequenceWidget_ChildEvent(KKeySequenceWidget* self, QChildEvent* event);
+void KKeySequenceWidget_OnChildEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseChildEvent(KKeySequenceWidget* self, QChildEvent* event);
+void KKeySequenceWidget_CustomEvent(KKeySequenceWidget* self, QEvent* event);
+void KKeySequenceWidget_OnCustomEvent(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseCustomEvent(KKeySequenceWidget* self, QEvent* event);
+void KKeySequenceWidget_ConnectNotify(KKeySequenceWidget* self, const QMetaMethod* signal);
+void KKeySequenceWidget_OnConnectNotify(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseConnectNotify(KKeySequenceWidget* self, const QMetaMethod* signal);
+void KKeySequenceWidget_DisconnectNotify(KKeySequenceWidget* self, const QMetaMethod* signal);
+void KKeySequenceWidget_OnDisconnectNotify(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseDisconnectNotify(KKeySequenceWidget* self, const QMetaMethod* signal);
+void KKeySequenceWidget_UpdateMicroFocus(KKeySequenceWidget* self);
+void KKeySequenceWidget_OnUpdateMicroFocus(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseUpdateMicroFocus(KKeySequenceWidget* self);
+void KKeySequenceWidget_Create(KKeySequenceWidget* self);
+void KKeySequenceWidget_OnCreate(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseCreate(KKeySequenceWidget* self);
+void KKeySequenceWidget_Destroy(KKeySequenceWidget* self);
+void KKeySequenceWidget_OnDestroy(KKeySequenceWidget* self, intptr_t slot);
+void KKeySequenceWidget_QBaseDestroy(KKeySequenceWidget* self);
+bool KKeySequenceWidget_FocusNextChild(KKeySequenceWidget* self);
+void KKeySequenceWidget_OnFocusNextChild(KKeySequenceWidget* self, intptr_t slot);
+bool KKeySequenceWidget_QBaseFocusNextChild(KKeySequenceWidget* self);
+bool KKeySequenceWidget_FocusPreviousChild(KKeySequenceWidget* self);
+void KKeySequenceWidget_OnFocusPreviousChild(KKeySequenceWidget* self, intptr_t slot);
+bool KKeySequenceWidget_QBaseFocusPreviousChild(KKeySequenceWidget* self);
+QObject* KKeySequenceWidget_Sender(const KKeySequenceWidget* self);
+void KKeySequenceWidget_OnSender(const KKeySequenceWidget* self, intptr_t slot);
+QObject* KKeySequenceWidget_QBaseSender(const KKeySequenceWidget* self);
+int KKeySequenceWidget_SenderSignalIndex(const KKeySequenceWidget* self);
+void KKeySequenceWidget_OnSenderSignalIndex(const KKeySequenceWidget* self, intptr_t slot);
+int KKeySequenceWidget_QBaseSenderSignalIndex(const KKeySequenceWidget* self);
+int KKeySequenceWidget_Receivers(const KKeySequenceWidget* self, const char* signal);
+void KKeySequenceWidget_OnReceivers(const KKeySequenceWidget* self, intptr_t slot);
+int KKeySequenceWidget_QBaseReceivers(const KKeySequenceWidget* self, const char* signal);
+bool KKeySequenceWidget_IsSignalConnected(const KKeySequenceWidget* self, const QMetaMethod* signal);
+void KKeySequenceWidget_OnIsSignalConnected(const KKeySequenceWidget* self, intptr_t slot);
+bool KKeySequenceWidget_QBaseIsSignalConnected(const KKeySequenceWidget* self, const QMetaMethod* signal);
+double KKeySequenceWidget_GetDecodedMetricF(const KKeySequenceWidget* self, int metricA, int metricB);
+void KKeySequenceWidget_OnGetDecodedMetricF(const KKeySequenceWidget* self, intptr_t slot);
+double KKeySequenceWidget_QBaseGetDecodedMetricF(const KKeySequenceWidget* self, int metricA, int metricB);
+void KKeySequenceWidget_Delete(KKeySequenceWidget* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

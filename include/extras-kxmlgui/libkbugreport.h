@@ -1,0 +1,263 @@
+#pragma once
+#ifndef SRC_EXTRAS_KXMLGUIC_LIBKBUGREPORT_H
+#define SRC_EXTRAS_KXMLGUIC_LIBKBUGREPORT_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KAboutData KAboutData;
+typedef struct KBugReport KBugReport;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDialog QDialog;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KBugReport* KBugReport_new(const KAboutData* aboutData);
+KBugReport* KBugReport_new2(const KAboutData* aboutData, QWidget* parent);
+QMetaObject* KBugReport_MetaObject(const KBugReport* self);
+void* KBugReport_Metacast(KBugReport* self, const char* param1);
+int KBugReport_Metacall(KBugReport* self, int param1, int param2, void** param3);
+libqt_string KBugReport_Tr(const char* s);
+void KBugReport_Accept(KBugReport* self);
+libqt_string KBugReport_Tr2(const char* s, const char* c);
+libqt_string KBugReport_Tr3(const char* s, const char* c, int n);
+void KBugReport_OnMetacall(KBugReport* self, intptr_t slot);
+int KBugReport_QBaseMetacall(KBugReport* self, int param1, int param2, void** param3);
+void KBugReport_OnAccept(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseAccept(KBugReport* self);
+void KBugReport_SetVisible(KBugReport* self, bool visible);
+void KBugReport_OnSetVisible(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseSetVisible(KBugReport* self, bool visible);
+QSize* KBugReport_SizeHint(const KBugReport* self);
+void KBugReport_OnSizeHint(const KBugReport* self, intptr_t slot);
+QSize* KBugReport_QBaseSizeHint(const KBugReport* self);
+QSize* KBugReport_MinimumSizeHint(const KBugReport* self);
+void KBugReport_OnMinimumSizeHint(const KBugReport* self, intptr_t slot);
+QSize* KBugReport_QBaseMinimumSizeHint(const KBugReport* self);
+void KBugReport_Open(KBugReport* self);
+void KBugReport_OnOpen(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseOpen(KBugReport* self);
+int KBugReport_Exec(KBugReport* self);
+void KBugReport_OnExec(KBugReport* self, intptr_t slot);
+int KBugReport_QBaseExec(KBugReport* self);
+void KBugReport_Done(KBugReport* self, int param1);
+void KBugReport_OnDone(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseDone(KBugReport* self, int param1);
+void KBugReport_Reject(KBugReport* self);
+void KBugReport_OnReject(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseReject(KBugReport* self);
+void KBugReport_KeyPressEvent(KBugReport* self, QKeyEvent* param1);
+void KBugReport_OnKeyPressEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseKeyPressEvent(KBugReport* self, QKeyEvent* param1);
+void KBugReport_CloseEvent(KBugReport* self, QCloseEvent* param1);
+void KBugReport_OnCloseEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseCloseEvent(KBugReport* self, QCloseEvent* param1);
+void KBugReport_ShowEvent(KBugReport* self, QShowEvent* param1);
+void KBugReport_OnShowEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseShowEvent(KBugReport* self, QShowEvent* param1);
+void KBugReport_ResizeEvent(KBugReport* self, QResizeEvent* param1);
+void KBugReport_OnResizeEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseResizeEvent(KBugReport* self, QResizeEvent* param1);
+void KBugReport_ContextMenuEvent(KBugReport* self, QContextMenuEvent* param1);
+void KBugReport_OnContextMenuEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseContextMenuEvent(KBugReport* self, QContextMenuEvent* param1);
+bool KBugReport_EventFilter(KBugReport* self, QObject* param1, QEvent* param2);
+void KBugReport_OnEventFilter(KBugReport* self, intptr_t slot);
+bool KBugReport_QBaseEventFilter(KBugReport* self, QObject* param1, QEvent* param2);
+int KBugReport_DevType(const KBugReport* self);
+void KBugReport_OnDevType(const KBugReport* self, intptr_t slot);
+int KBugReport_QBaseDevType(const KBugReport* self);
+int KBugReport_HeightForWidth(const KBugReport* self, int param1);
+void KBugReport_OnHeightForWidth(const KBugReport* self, intptr_t slot);
+int KBugReport_QBaseHeightForWidth(const KBugReport* self, int param1);
+bool KBugReport_HasHeightForWidth(const KBugReport* self);
+void KBugReport_OnHasHeightForWidth(const KBugReport* self, intptr_t slot);
+bool KBugReport_QBaseHasHeightForWidth(const KBugReport* self);
+QPaintEngine* KBugReport_PaintEngine(const KBugReport* self);
+void KBugReport_OnPaintEngine(const KBugReport* self, intptr_t slot);
+QPaintEngine* KBugReport_QBasePaintEngine(const KBugReport* self);
+bool KBugReport_Event(KBugReport* self, QEvent* event);
+void KBugReport_OnEvent(KBugReport* self, intptr_t slot);
+bool KBugReport_QBaseEvent(KBugReport* self, QEvent* event);
+void KBugReport_MousePressEvent(KBugReport* self, QMouseEvent* event);
+void KBugReport_OnMousePressEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseMousePressEvent(KBugReport* self, QMouseEvent* event);
+void KBugReport_MouseReleaseEvent(KBugReport* self, QMouseEvent* event);
+void KBugReport_OnMouseReleaseEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseMouseReleaseEvent(KBugReport* self, QMouseEvent* event);
+void KBugReport_MouseDoubleClickEvent(KBugReport* self, QMouseEvent* event);
+void KBugReport_OnMouseDoubleClickEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseMouseDoubleClickEvent(KBugReport* self, QMouseEvent* event);
+void KBugReport_MouseMoveEvent(KBugReport* self, QMouseEvent* event);
+void KBugReport_OnMouseMoveEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseMouseMoveEvent(KBugReport* self, QMouseEvent* event);
+void KBugReport_WheelEvent(KBugReport* self, QWheelEvent* event);
+void KBugReport_OnWheelEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseWheelEvent(KBugReport* self, QWheelEvent* event);
+void KBugReport_KeyReleaseEvent(KBugReport* self, QKeyEvent* event);
+void KBugReport_OnKeyReleaseEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseKeyReleaseEvent(KBugReport* self, QKeyEvent* event);
+void KBugReport_FocusInEvent(KBugReport* self, QFocusEvent* event);
+void KBugReport_OnFocusInEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseFocusInEvent(KBugReport* self, QFocusEvent* event);
+void KBugReport_FocusOutEvent(KBugReport* self, QFocusEvent* event);
+void KBugReport_OnFocusOutEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseFocusOutEvent(KBugReport* self, QFocusEvent* event);
+void KBugReport_EnterEvent(KBugReport* self, QEnterEvent* event);
+void KBugReport_OnEnterEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseEnterEvent(KBugReport* self, QEnterEvent* event);
+void KBugReport_LeaveEvent(KBugReport* self, QEvent* event);
+void KBugReport_OnLeaveEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseLeaveEvent(KBugReport* self, QEvent* event);
+void KBugReport_PaintEvent(KBugReport* self, QPaintEvent* event);
+void KBugReport_OnPaintEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBasePaintEvent(KBugReport* self, QPaintEvent* event);
+void KBugReport_MoveEvent(KBugReport* self, QMoveEvent* event);
+void KBugReport_OnMoveEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseMoveEvent(KBugReport* self, QMoveEvent* event);
+void KBugReport_TabletEvent(KBugReport* self, QTabletEvent* event);
+void KBugReport_OnTabletEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseTabletEvent(KBugReport* self, QTabletEvent* event);
+void KBugReport_ActionEvent(KBugReport* self, QActionEvent* event);
+void KBugReport_OnActionEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseActionEvent(KBugReport* self, QActionEvent* event);
+void KBugReport_DragEnterEvent(KBugReport* self, QDragEnterEvent* event);
+void KBugReport_OnDragEnterEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseDragEnterEvent(KBugReport* self, QDragEnterEvent* event);
+void KBugReport_DragMoveEvent(KBugReport* self, QDragMoveEvent* event);
+void KBugReport_OnDragMoveEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseDragMoveEvent(KBugReport* self, QDragMoveEvent* event);
+void KBugReport_DragLeaveEvent(KBugReport* self, QDragLeaveEvent* event);
+void KBugReport_OnDragLeaveEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseDragLeaveEvent(KBugReport* self, QDragLeaveEvent* event);
+void KBugReport_DropEvent(KBugReport* self, QDropEvent* event);
+void KBugReport_OnDropEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseDropEvent(KBugReport* self, QDropEvent* event);
+void KBugReport_HideEvent(KBugReport* self, QHideEvent* event);
+void KBugReport_OnHideEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseHideEvent(KBugReport* self, QHideEvent* event);
+bool KBugReport_NativeEvent(KBugReport* self, const libqt_string eventType, void* message, intptr_t* result);
+void KBugReport_OnNativeEvent(KBugReport* self, intptr_t slot);
+bool KBugReport_QBaseNativeEvent(KBugReport* self, const libqt_string eventType, void* message, intptr_t* result);
+void KBugReport_ChangeEvent(KBugReport* self, QEvent* param1);
+void KBugReport_OnChangeEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseChangeEvent(KBugReport* self, QEvent* param1);
+int KBugReport_Metric(const KBugReport* self, int param1);
+void KBugReport_OnMetric(const KBugReport* self, intptr_t slot);
+int KBugReport_QBaseMetric(const KBugReport* self, int param1);
+void KBugReport_InitPainter(const KBugReport* self, QPainter* painter);
+void KBugReport_OnInitPainter(const KBugReport* self, intptr_t slot);
+void KBugReport_QBaseInitPainter(const KBugReport* self, QPainter* painter);
+QPaintDevice* KBugReport_Redirected(const KBugReport* self, QPoint* offset);
+void KBugReport_OnRedirected(const KBugReport* self, intptr_t slot);
+QPaintDevice* KBugReport_QBaseRedirected(const KBugReport* self, QPoint* offset);
+QPainter* KBugReport_SharedPainter(const KBugReport* self);
+void KBugReport_OnSharedPainter(const KBugReport* self, intptr_t slot);
+QPainter* KBugReport_QBaseSharedPainter(const KBugReport* self);
+void KBugReport_InputMethodEvent(KBugReport* self, QInputMethodEvent* param1);
+void KBugReport_OnInputMethodEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseInputMethodEvent(KBugReport* self, QInputMethodEvent* param1);
+QVariant* KBugReport_InputMethodQuery(const KBugReport* self, int param1);
+void KBugReport_OnInputMethodQuery(const KBugReport* self, intptr_t slot);
+QVariant* KBugReport_QBaseInputMethodQuery(const KBugReport* self, int param1);
+bool KBugReport_FocusNextPrevChild(KBugReport* self, bool next);
+void KBugReport_OnFocusNextPrevChild(KBugReport* self, intptr_t slot);
+bool KBugReport_QBaseFocusNextPrevChild(KBugReport* self, bool next);
+void KBugReport_TimerEvent(KBugReport* self, QTimerEvent* event);
+void KBugReport_OnTimerEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseTimerEvent(KBugReport* self, QTimerEvent* event);
+void KBugReport_ChildEvent(KBugReport* self, QChildEvent* event);
+void KBugReport_OnChildEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseChildEvent(KBugReport* self, QChildEvent* event);
+void KBugReport_CustomEvent(KBugReport* self, QEvent* event);
+void KBugReport_OnCustomEvent(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseCustomEvent(KBugReport* self, QEvent* event);
+void KBugReport_ConnectNotify(KBugReport* self, const QMetaMethod* signal);
+void KBugReport_OnConnectNotify(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseConnectNotify(KBugReport* self, const QMetaMethod* signal);
+void KBugReport_DisconnectNotify(KBugReport* self, const QMetaMethod* signal);
+void KBugReport_OnDisconnectNotify(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseDisconnectNotify(KBugReport* self, const QMetaMethod* signal);
+bool KBugReport_SendBugReport(KBugReport* self);
+void KBugReport_OnSendBugReport(KBugReport* self, intptr_t slot);
+bool KBugReport_QBaseSendBugReport(KBugReport* self);
+void KBugReport_AdjustPosition(KBugReport* self, QWidget* param1);
+void KBugReport_OnAdjustPosition(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseAdjustPosition(KBugReport* self, QWidget* param1);
+void KBugReport_UpdateMicroFocus(KBugReport* self);
+void KBugReport_OnUpdateMicroFocus(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseUpdateMicroFocus(KBugReport* self);
+void KBugReport_Create(KBugReport* self);
+void KBugReport_OnCreate(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseCreate(KBugReport* self);
+void KBugReport_Destroy(KBugReport* self);
+void KBugReport_OnDestroy(KBugReport* self, intptr_t slot);
+void KBugReport_QBaseDestroy(KBugReport* self);
+bool KBugReport_FocusNextChild(KBugReport* self);
+void KBugReport_OnFocusNextChild(KBugReport* self, intptr_t slot);
+bool KBugReport_QBaseFocusNextChild(KBugReport* self);
+bool KBugReport_FocusPreviousChild(KBugReport* self);
+void KBugReport_OnFocusPreviousChild(KBugReport* self, intptr_t slot);
+bool KBugReport_QBaseFocusPreviousChild(KBugReport* self);
+QObject* KBugReport_Sender(const KBugReport* self);
+void KBugReport_OnSender(const KBugReport* self, intptr_t slot);
+QObject* KBugReport_QBaseSender(const KBugReport* self);
+int KBugReport_SenderSignalIndex(const KBugReport* self);
+void KBugReport_OnSenderSignalIndex(const KBugReport* self, intptr_t slot);
+int KBugReport_QBaseSenderSignalIndex(const KBugReport* self);
+int KBugReport_Receivers(const KBugReport* self, const char* signal);
+void KBugReport_OnReceivers(const KBugReport* self, intptr_t slot);
+int KBugReport_QBaseReceivers(const KBugReport* self, const char* signal);
+bool KBugReport_IsSignalConnected(const KBugReport* self, const QMetaMethod* signal);
+void KBugReport_OnIsSignalConnected(const KBugReport* self, intptr_t slot);
+bool KBugReport_QBaseIsSignalConnected(const KBugReport* self, const QMetaMethod* signal);
+double KBugReport_GetDecodedMetricF(const KBugReport* self, int metricA, int metricB);
+void KBugReport_OnGetDecodedMetricF(const KBugReport* self, intptr_t slot);
+double KBugReport_QBaseGetDecodedMetricF(const KBugReport* self, int metricA, int metricB);
+void KBugReport_Delete(KBugReport* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -1,0 +1,262 @@
+#pragma once
+#ifndef SRC_EXTRAS_KXMLGUIC_LIBKABOUTPLUGINDIALOG_H
+#define SRC_EXTRAS_KXMLGUIC_LIBKABOUTPLUGINDIALOG_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KAboutPluginDialog KAboutPluginDialog;
+typedef struct KPluginMetaData KPluginMetaData;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDialog QDialog;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KAboutPluginDialog* KAboutPluginDialog_new(const KPluginMetaData* pluginMetaData, int options);
+KAboutPluginDialog* KAboutPluginDialog_new2(const KPluginMetaData* pluginMetaData);
+KAboutPluginDialog* KAboutPluginDialog_new3(const KPluginMetaData* pluginMetaData, int options, QWidget* parent);
+KAboutPluginDialog* KAboutPluginDialog_new4(const KPluginMetaData* pluginMetaData, QWidget* parent);
+QMetaObject* KAboutPluginDialog_MetaObject(const KAboutPluginDialog* self);
+void* KAboutPluginDialog_Metacast(KAboutPluginDialog* self, const char* param1);
+int KAboutPluginDialog_Metacall(KAboutPluginDialog* self, int param1, int param2, void** param3);
+libqt_string KAboutPluginDialog_Tr(const char* s);
+libqt_string KAboutPluginDialog_Tr2(const char* s, const char* c);
+libqt_string KAboutPluginDialog_Tr3(const char* s, const char* c, int n);
+void KAboutPluginDialog_OnMetacall(KAboutPluginDialog* self, intptr_t slot);
+int KAboutPluginDialog_QBaseMetacall(KAboutPluginDialog* self, int param1, int param2, void** param3);
+void KAboutPluginDialog_SetVisible(KAboutPluginDialog* self, bool visible);
+void KAboutPluginDialog_OnSetVisible(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseSetVisible(KAboutPluginDialog* self, bool visible);
+QSize* KAboutPluginDialog_SizeHint(const KAboutPluginDialog* self);
+void KAboutPluginDialog_OnSizeHint(const KAboutPluginDialog* self, intptr_t slot);
+QSize* KAboutPluginDialog_QBaseSizeHint(const KAboutPluginDialog* self);
+QSize* KAboutPluginDialog_MinimumSizeHint(const KAboutPluginDialog* self);
+void KAboutPluginDialog_OnMinimumSizeHint(const KAboutPluginDialog* self, intptr_t slot);
+QSize* KAboutPluginDialog_QBaseMinimumSizeHint(const KAboutPluginDialog* self);
+void KAboutPluginDialog_Open(KAboutPluginDialog* self);
+void KAboutPluginDialog_OnOpen(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseOpen(KAboutPluginDialog* self);
+int KAboutPluginDialog_Exec(KAboutPluginDialog* self);
+void KAboutPluginDialog_OnExec(KAboutPluginDialog* self, intptr_t slot);
+int KAboutPluginDialog_QBaseExec(KAboutPluginDialog* self);
+void KAboutPluginDialog_Done(KAboutPluginDialog* self, int param1);
+void KAboutPluginDialog_OnDone(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseDone(KAboutPluginDialog* self, int param1);
+void KAboutPluginDialog_Accept(KAboutPluginDialog* self);
+void KAboutPluginDialog_OnAccept(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseAccept(KAboutPluginDialog* self);
+void KAboutPluginDialog_Reject(KAboutPluginDialog* self);
+void KAboutPluginDialog_OnReject(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseReject(KAboutPluginDialog* self);
+void KAboutPluginDialog_KeyPressEvent(KAboutPluginDialog* self, QKeyEvent* param1);
+void KAboutPluginDialog_OnKeyPressEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseKeyPressEvent(KAboutPluginDialog* self, QKeyEvent* param1);
+void KAboutPluginDialog_CloseEvent(KAboutPluginDialog* self, QCloseEvent* param1);
+void KAboutPluginDialog_OnCloseEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseCloseEvent(KAboutPluginDialog* self, QCloseEvent* param1);
+void KAboutPluginDialog_ShowEvent(KAboutPluginDialog* self, QShowEvent* param1);
+void KAboutPluginDialog_OnShowEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseShowEvent(KAboutPluginDialog* self, QShowEvent* param1);
+void KAboutPluginDialog_ResizeEvent(KAboutPluginDialog* self, QResizeEvent* param1);
+void KAboutPluginDialog_OnResizeEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseResizeEvent(KAboutPluginDialog* self, QResizeEvent* param1);
+void KAboutPluginDialog_ContextMenuEvent(KAboutPluginDialog* self, QContextMenuEvent* param1);
+void KAboutPluginDialog_OnContextMenuEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseContextMenuEvent(KAboutPluginDialog* self, QContextMenuEvent* param1);
+bool KAboutPluginDialog_EventFilter(KAboutPluginDialog* self, QObject* param1, QEvent* param2);
+void KAboutPluginDialog_OnEventFilter(KAboutPluginDialog* self, intptr_t slot);
+bool KAboutPluginDialog_QBaseEventFilter(KAboutPluginDialog* self, QObject* param1, QEvent* param2);
+int KAboutPluginDialog_DevType(const KAboutPluginDialog* self);
+void KAboutPluginDialog_OnDevType(const KAboutPluginDialog* self, intptr_t slot);
+int KAboutPluginDialog_QBaseDevType(const KAboutPluginDialog* self);
+int KAboutPluginDialog_HeightForWidth(const KAboutPluginDialog* self, int param1);
+void KAboutPluginDialog_OnHeightForWidth(const KAboutPluginDialog* self, intptr_t slot);
+int KAboutPluginDialog_QBaseHeightForWidth(const KAboutPluginDialog* self, int param1);
+bool KAboutPluginDialog_HasHeightForWidth(const KAboutPluginDialog* self);
+void KAboutPluginDialog_OnHasHeightForWidth(const KAboutPluginDialog* self, intptr_t slot);
+bool KAboutPluginDialog_QBaseHasHeightForWidth(const KAboutPluginDialog* self);
+QPaintEngine* KAboutPluginDialog_PaintEngine(const KAboutPluginDialog* self);
+void KAboutPluginDialog_OnPaintEngine(const KAboutPluginDialog* self, intptr_t slot);
+QPaintEngine* KAboutPluginDialog_QBasePaintEngine(const KAboutPluginDialog* self);
+bool KAboutPluginDialog_Event(KAboutPluginDialog* self, QEvent* event);
+void KAboutPluginDialog_OnEvent(KAboutPluginDialog* self, intptr_t slot);
+bool KAboutPluginDialog_QBaseEvent(KAboutPluginDialog* self, QEvent* event);
+void KAboutPluginDialog_MousePressEvent(KAboutPluginDialog* self, QMouseEvent* event);
+void KAboutPluginDialog_OnMousePressEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseMousePressEvent(KAboutPluginDialog* self, QMouseEvent* event);
+void KAboutPluginDialog_MouseReleaseEvent(KAboutPluginDialog* self, QMouseEvent* event);
+void KAboutPluginDialog_OnMouseReleaseEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseMouseReleaseEvent(KAboutPluginDialog* self, QMouseEvent* event);
+void KAboutPluginDialog_MouseDoubleClickEvent(KAboutPluginDialog* self, QMouseEvent* event);
+void KAboutPluginDialog_OnMouseDoubleClickEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseMouseDoubleClickEvent(KAboutPluginDialog* self, QMouseEvent* event);
+void KAboutPluginDialog_MouseMoveEvent(KAboutPluginDialog* self, QMouseEvent* event);
+void KAboutPluginDialog_OnMouseMoveEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseMouseMoveEvent(KAboutPluginDialog* self, QMouseEvent* event);
+void KAboutPluginDialog_WheelEvent(KAboutPluginDialog* self, QWheelEvent* event);
+void KAboutPluginDialog_OnWheelEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseWheelEvent(KAboutPluginDialog* self, QWheelEvent* event);
+void KAboutPluginDialog_KeyReleaseEvent(KAboutPluginDialog* self, QKeyEvent* event);
+void KAboutPluginDialog_OnKeyReleaseEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseKeyReleaseEvent(KAboutPluginDialog* self, QKeyEvent* event);
+void KAboutPluginDialog_FocusInEvent(KAboutPluginDialog* self, QFocusEvent* event);
+void KAboutPluginDialog_OnFocusInEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseFocusInEvent(KAboutPluginDialog* self, QFocusEvent* event);
+void KAboutPluginDialog_FocusOutEvent(KAboutPluginDialog* self, QFocusEvent* event);
+void KAboutPluginDialog_OnFocusOutEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseFocusOutEvent(KAboutPluginDialog* self, QFocusEvent* event);
+void KAboutPluginDialog_EnterEvent(KAboutPluginDialog* self, QEnterEvent* event);
+void KAboutPluginDialog_OnEnterEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseEnterEvent(KAboutPluginDialog* self, QEnterEvent* event);
+void KAboutPluginDialog_LeaveEvent(KAboutPluginDialog* self, QEvent* event);
+void KAboutPluginDialog_OnLeaveEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseLeaveEvent(KAboutPluginDialog* self, QEvent* event);
+void KAboutPluginDialog_PaintEvent(KAboutPluginDialog* self, QPaintEvent* event);
+void KAboutPluginDialog_OnPaintEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBasePaintEvent(KAboutPluginDialog* self, QPaintEvent* event);
+void KAboutPluginDialog_MoveEvent(KAboutPluginDialog* self, QMoveEvent* event);
+void KAboutPluginDialog_OnMoveEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseMoveEvent(KAboutPluginDialog* self, QMoveEvent* event);
+void KAboutPluginDialog_TabletEvent(KAboutPluginDialog* self, QTabletEvent* event);
+void KAboutPluginDialog_OnTabletEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseTabletEvent(KAboutPluginDialog* self, QTabletEvent* event);
+void KAboutPluginDialog_ActionEvent(KAboutPluginDialog* self, QActionEvent* event);
+void KAboutPluginDialog_OnActionEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseActionEvent(KAboutPluginDialog* self, QActionEvent* event);
+void KAboutPluginDialog_DragEnterEvent(KAboutPluginDialog* self, QDragEnterEvent* event);
+void KAboutPluginDialog_OnDragEnterEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseDragEnterEvent(KAboutPluginDialog* self, QDragEnterEvent* event);
+void KAboutPluginDialog_DragMoveEvent(KAboutPluginDialog* self, QDragMoveEvent* event);
+void KAboutPluginDialog_OnDragMoveEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseDragMoveEvent(KAboutPluginDialog* self, QDragMoveEvent* event);
+void KAboutPluginDialog_DragLeaveEvent(KAboutPluginDialog* self, QDragLeaveEvent* event);
+void KAboutPluginDialog_OnDragLeaveEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseDragLeaveEvent(KAboutPluginDialog* self, QDragLeaveEvent* event);
+void KAboutPluginDialog_DropEvent(KAboutPluginDialog* self, QDropEvent* event);
+void KAboutPluginDialog_OnDropEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseDropEvent(KAboutPluginDialog* self, QDropEvent* event);
+void KAboutPluginDialog_HideEvent(KAboutPluginDialog* self, QHideEvent* event);
+void KAboutPluginDialog_OnHideEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseHideEvent(KAboutPluginDialog* self, QHideEvent* event);
+bool KAboutPluginDialog_NativeEvent(KAboutPluginDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KAboutPluginDialog_OnNativeEvent(KAboutPluginDialog* self, intptr_t slot);
+bool KAboutPluginDialog_QBaseNativeEvent(KAboutPluginDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KAboutPluginDialog_ChangeEvent(KAboutPluginDialog* self, QEvent* param1);
+void KAboutPluginDialog_OnChangeEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseChangeEvent(KAboutPluginDialog* self, QEvent* param1);
+int KAboutPluginDialog_Metric(const KAboutPluginDialog* self, int param1);
+void KAboutPluginDialog_OnMetric(const KAboutPluginDialog* self, intptr_t slot);
+int KAboutPluginDialog_QBaseMetric(const KAboutPluginDialog* self, int param1);
+void KAboutPluginDialog_InitPainter(const KAboutPluginDialog* self, QPainter* painter);
+void KAboutPluginDialog_OnInitPainter(const KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseInitPainter(const KAboutPluginDialog* self, QPainter* painter);
+QPaintDevice* KAboutPluginDialog_Redirected(const KAboutPluginDialog* self, QPoint* offset);
+void KAboutPluginDialog_OnRedirected(const KAboutPluginDialog* self, intptr_t slot);
+QPaintDevice* KAboutPluginDialog_QBaseRedirected(const KAboutPluginDialog* self, QPoint* offset);
+QPainter* KAboutPluginDialog_SharedPainter(const KAboutPluginDialog* self);
+void KAboutPluginDialog_OnSharedPainter(const KAboutPluginDialog* self, intptr_t slot);
+QPainter* KAboutPluginDialog_QBaseSharedPainter(const KAboutPluginDialog* self);
+void KAboutPluginDialog_InputMethodEvent(KAboutPluginDialog* self, QInputMethodEvent* param1);
+void KAboutPluginDialog_OnInputMethodEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseInputMethodEvent(KAboutPluginDialog* self, QInputMethodEvent* param1);
+QVariant* KAboutPluginDialog_InputMethodQuery(const KAboutPluginDialog* self, int param1);
+void KAboutPluginDialog_OnInputMethodQuery(const KAboutPluginDialog* self, intptr_t slot);
+QVariant* KAboutPluginDialog_QBaseInputMethodQuery(const KAboutPluginDialog* self, int param1);
+bool KAboutPluginDialog_FocusNextPrevChild(KAboutPluginDialog* self, bool next);
+void KAboutPluginDialog_OnFocusNextPrevChild(KAboutPluginDialog* self, intptr_t slot);
+bool KAboutPluginDialog_QBaseFocusNextPrevChild(KAboutPluginDialog* self, bool next);
+void KAboutPluginDialog_TimerEvent(KAboutPluginDialog* self, QTimerEvent* event);
+void KAboutPluginDialog_OnTimerEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseTimerEvent(KAboutPluginDialog* self, QTimerEvent* event);
+void KAboutPluginDialog_ChildEvent(KAboutPluginDialog* self, QChildEvent* event);
+void KAboutPluginDialog_OnChildEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseChildEvent(KAboutPluginDialog* self, QChildEvent* event);
+void KAboutPluginDialog_CustomEvent(KAboutPluginDialog* self, QEvent* event);
+void KAboutPluginDialog_OnCustomEvent(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseCustomEvent(KAboutPluginDialog* self, QEvent* event);
+void KAboutPluginDialog_ConnectNotify(KAboutPluginDialog* self, const QMetaMethod* signal);
+void KAboutPluginDialog_OnConnectNotify(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseConnectNotify(KAboutPluginDialog* self, const QMetaMethod* signal);
+void KAboutPluginDialog_DisconnectNotify(KAboutPluginDialog* self, const QMetaMethod* signal);
+void KAboutPluginDialog_OnDisconnectNotify(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseDisconnectNotify(KAboutPluginDialog* self, const QMetaMethod* signal);
+void KAboutPluginDialog_AdjustPosition(KAboutPluginDialog* self, QWidget* param1);
+void KAboutPluginDialog_OnAdjustPosition(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseAdjustPosition(KAboutPluginDialog* self, QWidget* param1);
+void KAboutPluginDialog_UpdateMicroFocus(KAboutPluginDialog* self);
+void KAboutPluginDialog_OnUpdateMicroFocus(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseUpdateMicroFocus(KAboutPluginDialog* self);
+void KAboutPluginDialog_Create(KAboutPluginDialog* self);
+void KAboutPluginDialog_OnCreate(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseCreate(KAboutPluginDialog* self);
+void KAboutPluginDialog_Destroy(KAboutPluginDialog* self);
+void KAboutPluginDialog_OnDestroy(KAboutPluginDialog* self, intptr_t slot);
+void KAboutPluginDialog_QBaseDestroy(KAboutPluginDialog* self);
+bool KAboutPluginDialog_FocusNextChild(KAboutPluginDialog* self);
+void KAboutPluginDialog_OnFocusNextChild(KAboutPluginDialog* self, intptr_t slot);
+bool KAboutPluginDialog_QBaseFocusNextChild(KAboutPluginDialog* self);
+bool KAboutPluginDialog_FocusPreviousChild(KAboutPluginDialog* self);
+void KAboutPluginDialog_OnFocusPreviousChild(KAboutPluginDialog* self, intptr_t slot);
+bool KAboutPluginDialog_QBaseFocusPreviousChild(KAboutPluginDialog* self);
+QObject* KAboutPluginDialog_Sender(const KAboutPluginDialog* self);
+void KAboutPluginDialog_OnSender(const KAboutPluginDialog* self, intptr_t slot);
+QObject* KAboutPluginDialog_QBaseSender(const KAboutPluginDialog* self);
+int KAboutPluginDialog_SenderSignalIndex(const KAboutPluginDialog* self);
+void KAboutPluginDialog_OnSenderSignalIndex(const KAboutPluginDialog* self, intptr_t slot);
+int KAboutPluginDialog_QBaseSenderSignalIndex(const KAboutPluginDialog* self);
+int KAboutPluginDialog_Receivers(const KAboutPluginDialog* self, const char* signal);
+void KAboutPluginDialog_OnReceivers(const KAboutPluginDialog* self, intptr_t slot);
+int KAboutPluginDialog_QBaseReceivers(const KAboutPluginDialog* self, const char* signal);
+bool KAboutPluginDialog_IsSignalConnected(const KAboutPluginDialog* self, const QMetaMethod* signal);
+void KAboutPluginDialog_OnIsSignalConnected(const KAboutPluginDialog* self, intptr_t slot);
+bool KAboutPluginDialog_QBaseIsSignalConnected(const KAboutPluginDialog* self, const QMetaMethod* signal);
+double KAboutPluginDialog_GetDecodedMetricF(const KAboutPluginDialog* self, int metricA, int metricB);
+void KAboutPluginDialog_OnGetDecodedMetricF(const KAboutPluginDialog* self, intptr_t slot);
+double KAboutPluginDialog_QBaseGetDecodedMetricF(const KAboutPluginDialog* self, int metricA, int metricB);
+void KAboutPluginDialog_Delete(KAboutPluginDialog* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
