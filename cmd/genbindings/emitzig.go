@@ -90,7 +90,8 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 	}
 
 	qtUrl := "https://doc.qt.io/qt-6/"
-	if len(className) > 0 && className[0] == 'K' || className[0] == 'k' ||
+	if len(className) > 0 && pageName != "qobject" &&
+		className[0] == 'K' || className[0] == 'k' ||
 		strings.HasPrefix(className, "Sonnet") || strings.HasPrefix(pageName, "sonnet") {
 		qtUrl = "https://api-staging.kde.org/"
 	}
