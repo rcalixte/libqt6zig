@@ -85,7 +85,8 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 		return ""
 	}
 
-	if strings.HasPrefix(pageName, "qtermwidget") || strings.HasPrefix(className, "Konsole") {
+	if strings.HasPrefix(pageName, "qtermwidget") || strings.HasPrefix(className, "Keyboard") ||
+		strings.HasPrefix(className, "Konsole") {
 		return "https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api"
 	}
 
@@ -93,7 +94,7 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 	if len(className) > 0 && pageName != "qobject" &&
 		className[0] == 'K' || className[0] == 'k' ||
 		strings.HasPrefix(className, "Sonnet") || strings.HasPrefix(pageName, "sonnet") {
-		qtUrl = "https://api-staging.kde.org/"
+		qtUrl = "https://api.kde.org/"
 	}
 
 	pageName = strings.ReplaceAll(pageName, "__", "-")
