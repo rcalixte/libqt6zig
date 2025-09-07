@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/keditlistwidget.html
+/// https://api.kde.org/keditlistwidget.html
 pub const keditlistwidget = struct {
     /// New constructs a new KEditListWidget object.
     ///
@@ -97,56 +97,56 @@ pub const keditlistwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#listView)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#listView)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn ListView(self: ?*anyopaque) QtC.QListView {
         return qtc.KEditListWidget_ListView(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#lineEdit)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#lineEdit)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn LineEdit(self: ?*anyopaque) QtC.QLineEdit {
         return qtc.KEditListWidget_LineEdit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#addButton)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#addButton)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn AddButton(self: ?*anyopaque) QtC.QPushButton {
         return qtc.KEditListWidget_AddButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#removeButton)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#removeButton)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn RemoveButton(self: ?*anyopaque) QtC.QPushButton {
         return qtc.KEditListWidget_RemoveButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#upButton)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#upButton)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn UpButton(self: ?*anyopaque) QtC.QPushButton {
         return qtc.KEditListWidget_UpButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#downButton)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#downButton)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn DownButton(self: ?*anyopaque) QtC.QPushButton {
         return qtc.KEditListWidget_DownButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#count)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#count)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.KEditListWidget_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#insertStringList)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#insertStringList)
     ///
     /// ``` self: QtC.KEditListWidget, list: [][]const u8, allocator: std.mem.Allocator ```
     pub fn InsertStringList(self: ?*anyopaque, list: [][]const u8, allocator: std.mem.Allocator) void {
@@ -165,7 +165,7 @@ pub const keditlistwidget = struct {
         qtc.KEditListWidget_InsertStringList(@ptrCast(self), list_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#insertItem)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#insertItem)
     ///
     /// ``` self: QtC.KEditListWidget, text: []const u8 ```
     pub fn InsertItem(self: ?*anyopaque, text: []const u8) void {
@@ -176,14 +176,14 @@ pub const keditlistwidget = struct {
         qtc.KEditListWidget_InsertItem(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#clear)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#clear)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KEditListWidget_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#text)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#text)
     ///
     /// ``` self: QtC.KEditListWidget, index: i32, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
@@ -194,14 +194,14 @@ pub const keditlistwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#currentItem)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#currentItem)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn CurrentItem(self: ?*anyopaque) i32 {
         return qtc.KEditListWidget_CurrentItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#currentText)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#currentText)
     ///
     /// ``` self: QtC.KEditListWidget, allocator: std.mem.Allocator ```
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -212,7 +212,7 @@ pub const keditlistwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#items)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#items)
     ///
     /// ``` self: QtC.KEditListWidget, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -234,7 +234,7 @@ pub const keditlistwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#setItems)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#setItems)
     ///
     /// ``` self: QtC.KEditListWidget, items: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
@@ -253,7 +253,7 @@ pub const keditlistwidget = struct {
         qtc.KEditListWidget_SetItems(@ptrCast(self), items_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#buttons)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#buttons)
     ///
     /// ``` self: QtC.KEditListWidget ```
     ///
@@ -262,42 +262,42 @@ pub const keditlistwidget = struct {
         return qtc.KEditListWidget_Buttons(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#setButtons)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#setButtons)
     ///
     /// ``` self: QtC.KEditListWidget, buttons: flag of keditlistwidget_enums.Button ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.KEditListWidget_SetButtons(@ptrCast(self), @intCast(buttons));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#setCheckAtEntering)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#setCheckAtEntering)
     ///
     /// ``` self: QtC.KEditListWidget, check: bool ```
     pub fn SetCheckAtEntering(self: ?*anyopaque, check: bool) void {
         qtc.KEditListWidget_SetCheckAtEntering(@ptrCast(self), check);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#checkAtEntering)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#checkAtEntering)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn CheckAtEntering(self: ?*anyopaque) bool {
         return qtc.KEditListWidget_CheckAtEntering(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#setCustomEditor)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#setCustomEditor)
     ///
     /// ``` self: QtC.KEditListWidget, editor: QtC.KEditListWidget__CustomEditor ```
     pub fn SetCustomEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
         qtc.KEditListWidget_SetCustomEditor(@ptrCast(self), @ptrCast(editor));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#eventFilter)
     ///
     /// ``` self: QtC.KEditListWidget, o: QtC.QObject, e: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, o: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.KEditListWidget_EventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -306,7 +306,7 @@ pub const keditlistwidget = struct {
         qtc.KEditListWidget_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -315,21 +315,21 @@ pub const keditlistwidget = struct {
         return qtc.KEditListWidget_QBaseEventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#changed)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#changed)
     ///
     /// ``` self: QtC.KEditListWidget ```
     pub fn Changed(self: ?*anyopaque) void {
         qtc.KEditListWidget_Changed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#changed)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#changed)
     ///
     /// ``` self: QtC.KEditListWidget, slot: fn (self: QtC.KEditListWidget) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KEditListWidget_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#added)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#added)
     ///
     /// ``` self: QtC.KEditListWidget, text: []const u8 ```
     pub fn Added(self: ?*anyopaque, text: []const u8) void {
@@ -340,14 +340,14 @@ pub const keditlistwidget = struct {
         qtc.KEditListWidget_Added(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#added)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#added)
     ///
     /// ``` self: QtC.KEditListWidget, slot: fn (self: QtC.KEditListWidget, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnAdded(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KEditListWidget_Connect_Added(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#removed)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#removed)
     ///
     /// ``` self: QtC.KEditListWidget, text: []const u8 ```
     pub fn Removed(self: ?*anyopaque, text: []const u8) void {
@@ -358,7 +358,7 @@ pub const keditlistwidget = struct {
         qtc.KEditListWidget_Removed(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#removed)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#removed)
     ///
     /// ``` self: QtC.KEditListWidget, slot: fn (self: QtC.KEditListWidget, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -391,7 +391,7 @@ pub const keditlistwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#insertStringList)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#insertStringList)
     ///
     /// ``` self: QtC.KEditListWidget, list: [][]const u8, index: i32, allocator: std.mem.Allocator ```
     pub fn InsertStringList2(self: ?*anyopaque, list: [][]const u8, index: i32, allocator: std.mem.Allocator) void {
@@ -410,7 +410,7 @@ pub const keditlistwidget = struct {
         qtc.KEditListWidget_InsertStringList2(@ptrCast(self), list_list, @intCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#insertItem)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#insertItem)
     ///
     /// ``` self: QtC.KEditListWidget, text: []const u8, index: i32 ```
     pub fn InsertItem2(self: ?*anyopaque, text: []const u8, index: i32) void {
@@ -5368,7 +5368,7 @@ pub const keditlistwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget.html#dtor.KEditListWidget)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget.html#dtor.KEditListWidget)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5378,7 +5378,7 @@ pub const keditlistwidget = struct {
     }
 };
 
-/// https://api-staging.kde.org/keditlistwidget-customeditor.html
+/// https://api.kde.org/keditlistwidget-customeditor.html
 pub const keditlistwidget__customeditor = struct {
     /// New constructs a new KEditListWidget::CustomEditor object.
     ///
@@ -5401,28 +5401,28 @@ pub const keditlistwidget__customeditor = struct {
         return qtc.KEditListWidget__CustomEditor_new3(@ptrCast(combo));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget-customeditor.html#setRepresentationWidget)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget-customeditor.html#setRepresentationWidget)
     ///
     /// ``` self: QtC.KEditListWidget__CustomEditor, repWidget: QtC.QWidget ```
     pub fn SetRepresentationWidget(self: ?*anyopaque, repWidget: ?*anyopaque) void {
         qtc.KEditListWidget__CustomEditor_SetRepresentationWidget(@ptrCast(self), @ptrCast(repWidget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget-customeditor.html#setLineEdit)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget-customeditor.html#setLineEdit)
     ///
     /// ``` self: QtC.KEditListWidget__CustomEditor, edit: QtC.QLineEdit ```
     pub fn SetLineEdit(self: ?*anyopaque, edit: ?*anyopaque) void {
         qtc.KEditListWidget__CustomEditor_SetLineEdit(@ptrCast(self), @ptrCast(edit));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget-customeditor.html#representationWidget)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget-customeditor.html#representationWidget)
     ///
     /// ``` self: QtC.KEditListWidget__CustomEditor ```
     pub fn RepresentationWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KEditListWidget__CustomEditor_RepresentationWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget-customeditor.html#representationWidget)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget-customeditor.html#representationWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -5431,7 +5431,7 @@ pub const keditlistwidget__customeditor = struct {
         qtc.KEditListWidget__CustomEditor_OnRepresentationWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget-customeditor.html#representationWidget)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget-customeditor.html#representationWidget)
     ///
     /// Base class method implementation
     ///
@@ -5440,14 +5440,14 @@ pub const keditlistwidget__customeditor = struct {
         return qtc.KEditListWidget__CustomEditor_QBaseRepresentationWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget-customeditor.html#lineEdit)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget-customeditor.html#lineEdit)
     ///
     /// ``` self: QtC.KEditListWidget__CustomEditor ```
     pub fn LineEdit(self: ?*anyopaque) QtC.QLineEdit {
         return qtc.KEditListWidget__CustomEditor_LineEdit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget-customeditor.html#lineEdit)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget-customeditor.html#lineEdit)
     ///
     /// Allows for overriding the related default method
     ///
@@ -5456,7 +5456,7 @@ pub const keditlistwidget__customeditor = struct {
         qtc.KEditListWidget__CustomEditor_OnLineEdit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/keditlistwidget-customeditor.html#lineEdit)
+    /// [Qt documentation](https://api.kde.org/keditlistwidget-customeditor.html#lineEdit)
     ///
     /// Base class method implementation
     ///
@@ -5473,7 +5473,7 @@ pub const keditlistwidget__customeditor = struct {
     }
 };
 
-/// https://api-staging.kde.org/keditlistwidget.html#types
+/// https://api.kde.org/keditlistwidget.html#types
 pub const enums = struct {
     pub const Button = enum {
         pub const Add: i32 = 1;

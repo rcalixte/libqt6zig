@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpopupframe.html
+/// https://api.kde.org/kpopupframe.html
 pub const kpopupframe = struct {
     /// New constructs a new KPopupFrame object.
     ///
@@ -69,14 +69,14 @@ pub const kpopupframe = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#keyPressEvent)
     ///
     /// ``` self: QtC.KPopupFrame, e: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KPopupFrame_KeyPressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -85,7 +85,7 @@ pub const kpopupframe = struct {
         qtc.KPopupFrame_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -94,14 +94,14 @@ pub const kpopupframe = struct {
         qtc.KPopupFrame_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#hideEvent)
     ///
     /// ``` self: QtC.KPopupFrame, e: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KPopupFrame_HideEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#hideEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -110,7 +110,7 @@ pub const kpopupframe = struct {
         qtc.KPopupFrame_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#hideEvent)
     ///
     /// Base class method implementation
     ///
@@ -119,28 +119,28 @@ pub const kpopupframe = struct {
         qtc.KPopupFrame_QBaseHideEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#close)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#close)
     ///
     /// ``` self: QtC.KPopupFrame, r: i32 ```
     pub fn Close(self: ?*anyopaque, r: i32) void {
         qtc.KPopupFrame_Close(@ptrCast(self), @intCast(r));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#setMainWidget)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#setMainWidget)
     ///
     /// ``` self: QtC.KPopupFrame, m: QtC.QWidget ```
     pub fn SetMainWidget(self: ?*anyopaque, m: ?*anyopaque) void {
         qtc.KPopupFrame_SetMainWidget(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#resizeEvent)
     ///
     /// ``` self: QtC.KPopupFrame, resize: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, resize: ?*anyopaque) void {
         qtc.KPopupFrame_ResizeEvent(@ptrCast(self), @ptrCast(resize));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -149,7 +149,7 @@ pub const kpopupframe = struct {
         qtc.KPopupFrame_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -158,35 +158,35 @@ pub const kpopupframe = struct {
         qtc.KPopupFrame_QBaseResizeEvent(@ptrCast(self), @ptrCast(resize));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#popup)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#popup)
     ///
     /// ``` self: QtC.KPopupFrame, pos: QtC.QPoint ```
     pub fn Popup(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.KPopupFrame_Popup(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#exec)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#exec)
     ///
     /// ``` self: QtC.KPopupFrame, p: QtC.QPoint ```
     pub fn Exec(self: ?*anyopaque, p: ?*anyopaque) i32 {
         return qtc.KPopupFrame_Exec(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#exec)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#exec)
     ///
     /// ``` self: QtC.KPopupFrame, x: i32, y: i32 ```
     pub fn Exec2(self: ?*anyopaque, x: i32, y: i32) i32 {
         return qtc.KPopupFrame_Exec2(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#leaveModality)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#leaveModality)
     ///
     /// ``` self: QtC.KPopupFrame ```
     pub fn LeaveModality(self: ?*anyopaque) void {
         qtc.KPopupFrame_LeaveModality(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#leaveModality)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#leaveModality)
     ///
     /// ``` self: QtC.KPopupFrame, slot: fn (self: QtC.KPopupFrame) callconv(.c) void ```
     pub fn OnLeaveModality(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -5278,7 +5278,7 @@ pub const kpopupframe = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpopupframe.html#dtor.KPopupFrame)
+    /// [Qt documentation](https://api.kde.org/kpopupframe.html#dtor.KPopupFrame)
     ///
     /// Delete this object from C++ memory.
     ///

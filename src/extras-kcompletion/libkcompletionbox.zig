@@ -14,7 +14,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcompletionbox.html
+/// https://api.kde.org/kcompletionbox.html
 pub const kcompletionbox = struct {
     /// New constructs a new KCompletionBox object.
     ///
@@ -74,14 +74,14 @@ pub const kcompletionbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#sizeHint)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KCompletionBox_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -90,7 +90,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -99,14 +99,14 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#activateOnSelect)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#activateOnSelect)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ActivateOnSelect(self: ?*anyopaque) bool {
         return qtc.KCompletionBox_ActivateOnSelect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#items)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#items)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -128,14 +128,14 @@ pub const kcompletionbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#isTabHandling)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#isTabHandling)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn IsTabHandling(self: ?*anyopaque) bool {
         return qtc.KCompletionBox_IsTabHandling(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#cancelledText)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#cancelledText)
     ///
     /// ``` self: QtC.KCompletionBox, allocator: std.mem.Allocator ```
     pub fn CancelledText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -146,7 +146,7 @@ pub const kcompletionbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#insertItems)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#insertItems)
     ///
     /// ``` self: QtC.KCompletionBox, items: [][]const u8, allocator: std.mem.Allocator ```
     pub fn InsertItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
@@ -165,7 +165,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_InsertItems(@ptrCast(self), items_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#setItems)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setItems)
     ///
     /// ``` self: QtC.KCompletionBox, items: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
@@ -184,14 +184,14 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_SetItems(@ptrCast(self), items_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#popup)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#popup)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Popup(self: ?*anyopaque) void {
         qtc.KCompletionBox_Popup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#popup)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#popup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -200,7 +200,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnPopup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#popup)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#popup)
     ///
     /// Base class method implementation
     ///
@@ -209,14 +209,14 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_QBasePopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#setTabHandling)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setTabHandling)
     ///
     /// ``` self: QtC.KCompletionBox, enable: bool ```
     pub fn SetTabHandling(self: ?*anyopaque, enable: bool) void {
         qtc.KCompletionBox_SetTabHandling(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#setCancelledText)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setCancelledText)
     ///
     /// ``` self: QtC.KCompletionBox, text: []const u8 ```
     pub fn SetCancelledText(self: ?*anyopaque, text: []const u8) void {
@@ -227,63 +227,63 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_SetCancelledText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#setActivateOnSelect)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setActivateOnSelect)
     ///
     /// ``` self: QtC.KCompletionBox, doEmit: bool ```
     pub fn SetActivateOnSelect(self: ?*anyopaque, doEmit: bool) void {
         qtc.KCompletionBox_SetActivateOnSelect(@ptrCast(self), doEmit);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#down)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#down)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Down(self: ?*anyopaque) void {
         qtc.KCompletionBox_Down(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#up)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#up)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Up(self: ?*anyopaque) void {
         qtc.KCompletionBox_Up(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#pageDown)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#pageDown)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn PageDown(self: ?*anyopaque) void {
         qtc.KCompletionBox_PageDown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#pageUp)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#pageUp)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn PageUp(self: ?*anyopaque) void {
         qtc.KCompletionBox_PageUp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#home)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#home)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn Home(self: ?*anyopaque) void {
         qtc.KCompletionBox_Home(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#end)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#end)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn End(self: ?*anyopaque) void {
         qtc.KCompletionBox_End(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#setVisible)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setVisible)
     ///
     /// ``` self: QtC.KCompletionBox, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KCompletionBox_SetVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#setVisible)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setVisible)
     ///
     /// Allows for overriding the related default method
     ///
@@ -292,7 +292,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#setVisible)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#setVisible)
     ///
     /// Base class method implementation
     ///
@@ -301,7 +301,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_QBaseSetVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#textActivated)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#textActivated)
     ///
     /// ``` self: QtC.KCompletionBox, text: []const u8 ```
     pub fn TextActivated(self: ?*anyopaque, text: []const u8) void {
@@ -312,14 +312,14 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_TextActivated(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#textActivated)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#textActivated)
     ///
     /// ``` self: QtC.KCompletionBox, slot: fn (self: QtC.KCompletionBox, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextActivated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletionBox_Connect_TextActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#userCancelled)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#userCancelled)
     ///
     /// ``` self: QtC.KCompletionBox, param1: []const u8 ```
     pub fn UserCancelled(self: ?*anyopaque, param1: []const u8) void {
@@ -330,21 +330,21 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_UserCancelled(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#userCancelled)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#userCancelled)
     ///
     /// ``` self: QtC.KCompletionBox, slot: fn (self: QtC.KCompletionBox, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnUserCancelled(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletionBox_Connect_UserCancelled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#calculateGeometry)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#calculateGeometry)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn CalculateGeometry(self: ?*anyopaque) QtC.QRect {
         return qtc.KCompletionBox_CalculateGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#calculateGeometry)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#calculateGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -353,7 +353,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnCalculateGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#calculateGeometry)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#calculateGeometry)
     ///
     /// Base class method implementation
     ///
@@ -362,14 +362,14 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_QBaseCalculateGeometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#resizeAndReposition)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn ResizeAndReposition(self: ?*anyopaque) void {
         qtc.KCompletionBox_ResizeAndReposition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#resizeAndReposition)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
     ///
     /// Allows for overriding the related default method
     ///
@@ -378,7 +378,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnResizeAndReposition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#resizeAndReposition)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
     ///
     /// Base class method implementation
     ///
@@ -387,14 +387,14 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_QBaseResizeAndReposition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#eventFilter)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QObject, param2: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
         return qtc.KCompletionBox_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -403,7 +403,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -412,14 +412,14 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#globalPositionHint)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#globalPositionHint)
     ///
     /// ``` self: QtC.KCompletionBox ```
     pub fn GlobalPositionHint(self: ?*anyopaque) QtC.QPoint {
         return qtc.KCompletionBox_GlobalPositionHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#globalPositionHint)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#globalPositionHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -428,7 +428,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnGlobalPositionHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#globalPositionHint)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#globalPositionHint)
     ///
     /// Base class method implementation
     ///
@@ -437,14 +437,14 @@ pub const kcompletionbox = struct {
         return qtc.KCompletionBox_QBaseGlobalPositionHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#slotActivated)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#slotActivated)
     ///
     /// ``` self: QtC.KCompletionBox, param1: QtC.QListWidgetItem ```
     pub fn SlotActivated(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCompletionBox_SlotActivated(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#slotActivated)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#slotActivated)
     ///
     /// Allows for overriding the related default method
     ///
@@ -453,7 +453,7 @@ pub const kcompletionbox = struct {
         qtc.KCompletionBox_OnSlotActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#slotActivated)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#slotActivated)
     ///
     /// Base class method implementation
     ///
@@ -488,7 +488,7 @@ pub const kcompletionbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#insertItems)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#insertItems)
     ///
     /// ``` self: QtC.KCompletionBox, items: [][]const u8, index: i32, allocator: std.mem.Allocator ```
     pub fn InsertItems2(self: ?*anyopaque, items: [][]const u8, index: i32, allocator: std.mem.Allocator) void {
@@ -9403,7 +9403,7 @@ pub const kcompletionbox = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbox.html#dtor.KCompletionBox)
+    /// [Qt documentation](https://api.kde.org/kcompletionbox.html#dtor.KCompletionBox)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -14,7 +14,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcategorizedview.html
+/// https://api.kde.org/kcategorizedview.html
 pub const kcategorizedview = struct {
     /// New constructs a new KCategorizedView object.
     ///
@@ -74,14 +74,14 @@ pub const kcategorizedview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setModel)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setModel)
     ///
     /// ``` self: QtC.KCategorizedView, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.KCategorizedView_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setModel)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setModel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -90,7 +90,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnSetModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setModel)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setModel)
     ///
     /// Base class method implementation
     ///
@@ -99,28 +99,28 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseSetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setGridSize)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setGridSize)
     ///
     /// ``` self: QtC.KCategorizedView, size: QtC.QSize ```
     pub fn SetGridSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.KCategorizedView_SetGridSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setGridSizeOwn)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setGridSizeOwn)
     ///
     /// ``` self: QtC.KCategorizedView, size: QtC.QSize ```
     pub fn SetGridSizeOwn(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.KCategorizedView_SetGridSizeOwn(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#visualRect)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#visualRect)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
         return qtc.KCategorizedView_VisualRect(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#visualRect)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#visualRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -129,7 +129,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnVisualRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#visualRect)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#visualRect)
     ///
     /// Base class method implementation
     ///
@@ -138,63 +138,63 @@ pub const kcategorizedview = struct {
         return qtc.KCategorizedView_QBaseVisualRect(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#categoryDrawer)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#categoryDrawer)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn CategoryDrawer(self: ?*anyopaque) QtC.KCategoryDrawer {
         return qtc.KCategorizedView_CategoryDrawer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setCategoryDrawer)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setCategoryDrawer)
     ///
     /// ``` self: QtC.KCategorizedView, categoryDrawer: QtC.KCategoryDrawer ```
     pub fn SetCategoryDrawer(self: ?*anyopaque, categoryDrawer: ?*anyopaque) void {
         qtc.KCategorizedView_SetCategoryDrawer(@ptrCast(self), @ptrCast(categoryDrawer));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#categorySpacing)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#categorySpacing)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn CategorySpacing(self: ?*anyopaque) i32 {
         return qtc.KCategorizedView_CategorySpacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setCategorySpacing)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setCategorySpacing)
     ///
     /// ``` self: QtC.KCategorizedView, categorySpacing: i32 ```
     pub fn SetCategorySpacing(self: ?*anyopaque, categorySpacing: i32) void {
         qtc.KCategorizedView_SetCategorySpacing(@ptrCast(self), @intCast(categorySpacing));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#alternatingBlockColors)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#alternatingBlockColors)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn AlternatingBlockColors(self: ?*anyopaque) bool {
         return qtc.KCategorizedView_AlternatingBlockColors(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setAlternatingBlockColors)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setAlternatingBlockColors)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetAlternatingBlockColors(self: ?*anyopaque, enable: bool) void {
         qtc.KCategorizedView_SetAlternatingBlockColors(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#collapsibleBlocks)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#collapsibleBlocks)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn CollapsibleBlocks(self: ?*anyopaque) bool {
         return qtc.KCategorizedView_CollapsibleBlocks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setCollapsibleBlocks)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setCollapsibleBlocks)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetCollapsibleBlocks(self: ?*anyopaque, enable: bool) void {
         qtc.KCategorizedView_SetCollapsibleBlocks(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#block)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#block)
     ///
     /// ``` self: QtC.KCategorizedView, category: []const u8, allocator: std.mem.Allocator ```
     pub fn Block(self: ?*anyopaque, category: []const u8, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -210,7 +210,7 @@ pub const kcategorizedview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#block)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#block)
     ///
     /// ``` self: QtC.KCategorizedView, representative: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn Block2(self: ?*anyopaque, representative: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -222,14 +222,14 @@ pub const kcategorizedview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#indexAt)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#indexAt)
     ///
     /// ``` self: QtC.KCategorizedView, point: QtC.QPoint ```
     pub fn IndexAt(self: ?*anyopaque, point: ?*anyopaque) QtC.QModelIndex {
         return qtc.KCategorizedView_IndexAt(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#indexAt)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#indexAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -238,7 +238,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnIndexAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#indexAt)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#indexAt)
     ///
     /// Base class method implementation
     ///
@@ -247,14 +247,14 @@ pub const kcategorizedview = struct {
         return qtc.KCategorizedView_QBaseIndexAt(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#reset)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#reset)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.KCategorizedView_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#reset)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#reset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -263,7 +263,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#reset)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#reset)
     ///
     /// Base class method implementation
     ///
@@ -272,56 +272,56 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseReset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#categorySpacingChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#categorySpacingChanged)
     ///
     /// ``` self: QtC.KCategorizedView, spacing: i32 ```
     pub fn CategorySpacingChanged(self: ?*anyopaque, spacing: i32) void {
         qtc.KCategorizedView_CategorySpacingChanged(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#categorySpacingChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#categorySpacingChanged)
     ///
     /// ``` self: QtC.KCategorizedView, slot: fn (self: QtC.KCategorizedView, spacing: i32) callconv(.c) void ```
     pub fn OnCategorySpacingChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KCategorizedView_Connect_CategorySpacingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#alternatingBlockColorsChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#alternatingBlockColorsChanged)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn AlternatingBlockColorsChanged(self: ?*anyopaque, enable: bool) void {
         qtc.KCategorizedView_AlternatingBlockColorsChanged(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#alternatingBlockColorsChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#alternatingBlockColorsChanged)
     ///
     /// ``` self: QtC.KCategorizedView, slot: fn (self: QtC.KCategorizedView, enable: bool) callconv(.c) void ```
     pub fn OnAlternatingBlockColorsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KCategorizedView_Connect_AlternatingBlockColorsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#collapsibleBlocksChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#collapsibleBlocksChanged)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn CollapsibleBlocksChanged(self: ?*anyopaque, enable: bool) void {
         qtc.KCategorizedView_CollapsibleBlocksChanged(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#collapsibleBlocksChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#collapsibleBlocksChanged)
     ///
     /// ``` self: QtC.KCategorizedView, slot: fn (self: QtC.KCategorizedView, enable: bool) callconv(.c) void ```
     pub fn OnCollapsibleBlocksChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KCategorizedView_Connect_CollapsibleBlocksChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#paintEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -330,7 +330,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -339,14 +339,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#resizeEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -355,7 +355,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -364,14 +364,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setSelection)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setSelection)
     ///
     /// ``` self: QtC.KCategorizedView, rect: QtC.QRect, flags: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, flags: i32) void {
         qtc.KCategorizedView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setSelection)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setSelection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -380,7 +380,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnSetSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#setSelection)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setSelection)
     ///
     /// Base class method implementation
     ///
@@ -389,14 +389,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -405,7 +405,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -414,14 +414,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mousePressEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -430,7 +430,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -439,14 +439,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -455,7 +455,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -464,14 +464,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#leaveEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#leaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -480,7 +480,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#leaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -489,14 +489,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#startDrag)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#startDrag)
     ///
     /// ``` self: QtC.KCategorizedView, supportedActions: flag of qnamespace_enums.DropAction ```
     pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
         qtc.KCategorizedView_StartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#startDrag)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#startDrag)
     ///
     /// Allows for overriding the related default method
     ///
@@ -505,7 +505,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnStartDrag(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#startDrag)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#startDrag)
     ///
     /// Base class method implementation
     ///
@@ -514,14 +514,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dragMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragMoveEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QDragMoveEvent ```
     pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dragMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -530,7 +530,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dragMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -539,14 +539,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dragEnterEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragEnterEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QDragEnterEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dragEnterEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragEnterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -555,7 +555,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dragEnterEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragEnterEvent)
     ///
     /// Base class method implementation
     ///
@@ -564,14 +564,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dragLeaveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragLeaveEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QDragLeaveEvent ```
     pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dragLeaveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragLeaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -580,7 +580,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dragLeaveEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragLeaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -589,14 +589,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dropEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dropEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dropEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dropEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -605,7 +605,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dropEvent)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dropEvent)
     ///
     /// Base class method implementation
     ///
@@ -614,14 +614,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#moveCursor)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#moveCursor)
     ///
     /// ``` self: QtC.KCategorizedView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i64) QtC.QModelIndex {
         return qtc.KCategorizedView_MoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#moveCursor)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#moveCursor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -630,7 +630,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnMoveCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#moveCursor)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#moveCursor)
     ///
     /// Base class method implementation
     ///
@@ -639,14 +639,14 @@ pub const kcategorizedview = struct {
         return qtc.KCategorizedView_QBaseMoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
     ///
     /// ``` self: QtC.KCategorizedView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
         qtc.KCategorizedView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
     ///
     /// Allows for overriding the related default method
     ///
@@ -655,7 +655,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnRowsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
     ///
     /// Base class method implementation
     ///
@@ -664,14 +664,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#updateGeometries)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#updateGeometries)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn UpdateGeometries(self: ?*anyopaque) void {
         qtc.KCategorizedView_UpdateGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#updateGeometries)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#updateGeometries)
     ///
     /// Allows for overriding the related default method
     ///
@@ -680,7 +680,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnUpdateGeometries(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#updateGeometries)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#updateGeometries)
     ///
     /// Base class method implementation
     ///
@@ -689,14 +689,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseUpdateGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#currentChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#currentChanged)
     ///
     /// ``` self: QtC.KCategorizedView, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
     pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
         qtc.KCategorizedView_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#currentChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#currentChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -705,7 +705,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnCurrentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#currentChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#currentChanged)
     ///
     /// Base class method implementation
     ///
@@ -714,7 +714,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dataChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dataChanged)
     ///
     /// ``` self: QtC.KCategorizedView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -725,7 +725,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dataChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dataChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -734,7 +734,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dataChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dataChanged)
     ///
     /// Base class method implementation
     ///
@@ -747,14 +747,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#rowsInserted)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsInserted)
     ///
     /// ``` self: QtC.KCategorizedView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
         qtc.KCategorizedView_RowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#rowsInserted)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsInserted)
     ///
     /// Allows for overriding the related default method
     ///
@@ -763,7 +763,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnRowsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#rowsInserted)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsInserted)
     ///
     /// Base class method implementation
     ///
@@ -772,14 +772,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#slotLayoutChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#slotLayoutChanged)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn SlotLayoutChanged(self: ?*anyopaque) void {
         qtc.KCategorizedView_SlotLayoutChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#slotLayoutChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#slotLayoutChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -788,7 +788,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnSlotLayoutChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#slotLayoutChanged)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#slotLayoutChanged)
     ///
     /// Base class method implementation
     ///
@@ -8388,7 +8388,7 @@ pub const kcategorizedview = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedview.html#dtor.KCategorizedView)
+    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dtor.KCategorizedView)
     ///
     /// Delete this object from C++ memory.
     ///

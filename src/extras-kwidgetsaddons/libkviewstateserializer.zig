@@ -5,7 +5,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
-/// https://api-staging.kde.org/kviewstateserializer.html
+/// https://api.kde.org/kviewstateserializer.html
 pub const kviewstateserializer = struct {
     /// New constructs a new KViewStateSerializer object.
     ///
@@ -65,35 +65,35 @@ pub const kviewstateserializer = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#view)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#view)
     ///
     /// ``` self: QtC.KViewStateSerializer ```
     pub fn View(self: ?*anyopaque) QtC.QAbstractItemView {
         return qtc.KViewStateSerializer_View(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#setView)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#setView)
     ///
     /// ``` self: QtC.KViewStateSerializer, view: QtC.QAbstractItemView ```
     pub fn SetView(self: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KViewStateSerializer_SetView(@ptrCast(self), @ptrCast(view));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#selectionModel)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#selectionModel)
     ///
     /// ``` self: QtC.KViewStateSerializer ```
     pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
         return qtc.KViewStateSerializer_SelectionModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#setSelectionModel)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#setSelectionModel)
     ///
     /// ``` self: QtC.KViewStateSerializer, selectionModel: QtC.QItemSelectionModel ```
     pub fn SetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
         qtc.KViewStateSerializer_SetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#selectionKeys)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#selectionKeys)
     ///
     /// ``` self: QtC.KViewStateSerializer, allocator: std.mem.Allocator ```
     pub fn SelectionKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -115,7 +115,7 @@ pub const kviewstateserializer = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#expansionKeys)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#expansionKeys)
     ///
     /// ``` self: QtC.KViewStateSerializer, allocator: std.mem.Allocator ```
     pub fn ExpansionKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -137,7 +137,7 @@ pub const kviewstateserializer = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#currentIndexKey)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#currentIndexKey)
     ///
     /// ``` self: QtC.KViewStateSerializer, allocator: std.mem.Allocator ```
     pub fn CurrentIndexKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -148,7 +148,7 @@ pub const kviewstateserializer = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#scrollState)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#scrollState)
     ///
     /// ``` self: QtC.KViewStateSerializer ```
     pub fn ScrollState(self: ?*anyopaque) struct_i32_i32 {
@@ -159,7 +159,7 @@ pub const kviewstateserializer = struct {
         };
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreSelection)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreSelection)
     ///
     /// ``` self: QtC.KViewStateSerializer, indexStrings: [][]const u8, allocator: std.mem.Allocator ```
     pub fn RestoreSelection(self: ?*anyopaque, indexStrings: [][]const u8, allocator: std.mem.Allocator) void {
@@ -178,7 +178,7 @@ pub const kviewstateserializer = struct {
         qtc.KViewStateSerializer_RestoreSelection(@ptrCast(self), indexStrings_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreCurrentItem)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreCurrentItem)
     ///
     /// ``` self: QtC.KViewStateSerializer, indexString: []const u8 ```
     pub fn RestoreCurrentItem(self: ?*anyopaque, indexString: []const u8) void {
@@ -189,7 +189,7 @@ pub const kviewstateserializer = struct {
         qtc.KViewStateSerializer_RestoreCurrentItem(@ptrCast(self), indexString_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreExpanded)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreExpanded)
     ///
     /// ``` self: QtC.KViewStateSerializer, indexStrings: [][]const u8, allocator: std.mem.Allocator ```
     pub fn RestoreExpanded(self: ?*anyopaque, indexStrings: [][]const u8, allocator: std.mem.Allocator) void {
@@ -208,14 +208,14 @@ pub const kviewstateserializer = struct {
         qtc.KViewStateSerializer_RestoreExpanded(@ptrCast(self), indexStrings_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreScrollState)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreScrollState)
     ///
     /// ``` self: QtC.KViewStateSerializer, verticalScoll: i32, horizontalScroll: i32 ```
     pub fn RestoreScrollState(self: ?*anyopaque, verticalScoll: i32, horizontalScroll: i32) void {
         qtc.KViewStateSerializer_RestoreScrollState(@ptrCast(self), @intCast(verticalScoll), @intCast(horizontalScroll));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexFromConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
     ///
     /// ``` self: QtC.KViewStateSerializer, model: QtC.QAbstractItemModel, key: []const u8 ```
     pub fn IndexFromConfigString(self: ?*anyopaque, model: ?*anyopaque, key: []const u8) QtC.QModelIndex {
@@ -226,7 +226,7 @@ pub const kviewstateserializer = struct {
         return qtc.KViewStateSerializer_IndexFromConfigString(@ptrCast(self), @ptrCast(model), key_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexFromConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
     ///
     /// Allows for overriding the related default method
     ///
@@ -235,7 +235,7 @@ pub const kviewstateserializer = struct {
         qtc.KViewStateSerializer_OnIndexFromConfigString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexFromConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
     ///
     /// Base class method implementation
     ///
@@ -248,7 +248,7 @@ pub const kviewstateserializer = struct {
         return qtc.KViewStateSerializer_QBaseIndexFromConfigString(@ptrCast(self), @ptrCast(model), key_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexToConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
     ///
     /// ``` self: QtC.KViewStateSerializer, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn IndexToConfigString(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -259,7 +259,7 @@ pub const kviewstateserializer = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexToConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
     ///
     /// Allows for overriding the related default method
     ///
@@ -268,7 +268,7 @@ pub const kviewstateserializer = struct {
         qtc.KViewStateSerializer_OnIndexToConfigString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexToConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
     ///
     /// Base class method implementation
     ///
@@ -281,14 +281,14 @@ pub const kviewstateserializer = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreState)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreState)
     ///
     /// ``` self: QtC.KViewStateSerializer ```
     pub fn RestoreState(self: ?*anyopaque) void {
         qtc.KViewStateSerializer_RestoreState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreState)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -297,7 +297,7 @@ pub const kviewstateserializer = struct {
         qtc.KViewStateSerializer_OnRestoreState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreState)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreState)
     ///
     /// Base class method implementation
     ///
@@ -1085,7 +1085,7 @@ pub const kviewstateserializer = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#dtor.KViewStateSerializer)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#dtor.KViewStateSerializer)
     ///
     /// Delete this object from C++ memory.
     ///

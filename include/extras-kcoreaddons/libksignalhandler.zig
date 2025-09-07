@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ksignalhandler.html
+/// https://api.kde.org/ksignalhandler.html
 pub const ksignalhandler = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -36,28 +36,28 @@ pub const ksignalhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksignalhandler.html#watchSignal)
+    /// [Qt documentation](https://api.kde.org/ksignalhandler.html#watchSignal)
     ///
     /// ``` self: QtC.KSignalHandler, signal: i32 ```
     pub fn WatchSignal(self: ?*anyopaque, signal: i32) void {
         qtc.KSignalHandler_WatchSignal(@ptrCast(self), @intCast(signal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksignalhandler.html#self)
+    /// [Qt documentation](https://api.kde.org/ksignalhandler.html#self)
     ///
     ///
     pub fn Self() QtC.KSignalHandler {
         return qtc.KSignalHandler_Self();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksignalhandler.html#signalReceived)
+    /// [Qt documentation](https://api.kde.org/ksignalhandler.html#signalReceived)
     ///
     /// ``` self: QtC.KSignalHandler, signal: i32 ```
     pub fn SignalReceived(self: ?*anyopaque, signal: i32) void {
         qtc.KSignalHandler_SignalReceived(@ptrCast(self), @intCast(signal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksignalhandler.html#signalReceived)
+    /// [Qt documentation](https://api.kde.org/ksignalhandler.html#signalReceived)
     ///
     /// ``` self: QtC.KSignalHandler, slot: fn (self: QtC.KSignalHandler, signal: i32) callconv(.c) void ```
     pub fn OnSignalReceived(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -496,7 +496,7 @@ pub const ksignalhandler = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksignalhandler.html#dtor.KSignalHandler)
+    /// [Qt documentation](https://api.kde.org/ksignalhandler.html#dtor.KSignalHandler)
     ///
     /// Delete this object from C++ memory.
     ///

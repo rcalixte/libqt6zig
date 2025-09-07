@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kmessagewidget.html
+/// https://api.kde.org/kmessagewidget.html
 pub const kmessagewidget = struct {
     /// New constructs a new KMessageWidget object.
     ///
@@ -94,7 +94,7 @@ pub const kmessagewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#position)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#position)
     ///
     /// ``` self: QtC.KMessageWidget ```
     ///
@@ -103,7 +103,7 @@ pub const kmessagewidget = struct {
         return qtc.KMessageWidget_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#text)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#text)
     ///
     /// ``` self: QtC.KMessageWidget, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -114,7 +114,7 @@ pub const kmessagewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#textFormat)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#textFormat)
     ///
     /// ``` self: QtC.KMessageWidget ```
     ///
@@ -123,28 +123,28 @@ pub const kmessagewidget = struct {
         return qtc.KMessageWidget_TextFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#setTextFormat)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#setTextFormat)
     ///
     /// ``` self: QtC.KMessageWidget, textFormat: qnamespace_enums.TextFormat ```
     pub fn SetTextFormat(self: ?*anyopaque, textFormat: i32) void {
         qtc.KMessageWidget_SetTextFormat(@ptrCast(self), @intCast(textFormat));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#wordWrap)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#wordWrap)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn WordWrap(self: ?*anyopaque) bool {
         return qtc.KMessageWidget_WordWrap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#isCloseButtonVisible)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#isCloseButtonVisible)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn IsCloseButtonVisible(self: ?*anyopaque) bool {
         return qtc.KMessageWidget_IsCloseButtonVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#messageType)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#messageType)
     ///
     /// ``` self: QtC.KMessageWidget ```
     ///
@@ -153,35 +153,35 @@ pub const kmessagewidget = struct {
         return qtc.KMessageWidget_MessageType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#addAction)
     ///
     /// ``` self: QtC.KMessageWidget, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KMessageWidget_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#removeAction)
     ///
     /// ``` self: QtC.KMessageWidget, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KMessageWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#clearActions)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#clearActions)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn ClearActions(self: ?*anyopaque) void {
         qtc.KMessageWidget_ClearActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#sizeHint)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KMessageWidget_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -190,7 +190,7 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -199,14 +199,14 @@ pub const kmessagewidget = struct {
         return qtc.KMessageWidget_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KMessageWidget_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -215,7 +215,7 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -224,14 +224,14 @@ pub const kmessagewidget = struct {
         return qtc.KMessageWidget_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#heightForWidth)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#heightForWidth)
     ///
     /// ``` self: QtC.KMessageWidget, width: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, width: i32) i32 {
         return qtc.KMessageWidget_HeightForWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#heightForWidth)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -240,7 +240,7 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#heightForWidth)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -249,28 +249,28 @@ pub const kmessagewidget = struct {
         return qtc.KMessageWidget_QBaseHeightForWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#icon)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#icon)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KMessageWidget_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#isHideAnimationRunning)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#isHideAnimationRunning)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn IsHideAnimationRunning(self: ?*anyopaque) bool {
         return qtc.KMessageWidget_IsHideAnimationRunning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#isShowAnimationRunning)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#isShowAnimationRunning)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn IsShowAnimationRunning(self: ?*anyopaque) bool {
         return qtc.KMessageWidget_IsShowAnimationRunning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#setText)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#setText)
     ///
     /// ``` self: QtC.KMessageWidget, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -281,56 +281,56 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#setPosition)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#setPosition)
     ///
     /// ``` self: QtC.KMessageWidget, position: kmessagewidget_enums.Position ```
     pub fn SetPosition(self: ?*anyopaque, position: i32) void {
         qtc.KMessageWidget_SetPosition(@ptrCast(self), @intCast(position));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#setWordWrap)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#setWordWrap)
     ///
     /// ``` self: QtC.KMessageWidget, wordWrap: bool ```
     pub fn SetWordWrap(self: ?*anyopaque, wordWrap: bool) void {
         qtc.KMessageWidget_SetWordWrap(@ptrCast(self), wordWrap);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#setCloseButtonVisible)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#setCloseButtonVisible)
     ///
     /// ``` self: QtC.KMessageWidget, visible: bool ```
     pub fn SetCloseButtonVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KMessageWidget_SetCloseButtonVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#setMessageType)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#setMessageType)
     ///
     /// ``` self: QtC.KMessageWidget, typeVal: kmessagewidget_enums.MessageType ```
     pub fn SetMessageType(self: ?*anyopaque, typeVal: i32) void {
         qtc.KMessageWidget_SetMessageType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#animatedShow)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#animatedShow)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn AnimatedShow(self: ?*anyopaque) void {
         qtc.KMessageWidget_AnimatedShow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#animatedHide)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#animatedHide)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn AnimatedHide(self: ?*anyopaque) void {
         qtc.KMessageWidget_AnimatedHide(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#setIcon)
     ///
     /// ``` self: QtC.KMessageWidget, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KMessageWidget_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#linkActivated)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#linkActivated)
     ///
     /// ``` self: QtC.KMessageWidget, contents: []const u8 ```
     pub fn LinkActivated(self: ?*anyopaque, contents: []const u8) void {
@@ -341,14 +341,14 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_LinkActivated(@ptrCast(self), contents_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#linkActivated)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#linkActivated)
     ///
     /// ``` self: QtC.KMessageWidget, slot: fn (self: QtC.KMessageWidget, contents: [*:0]const u8) callconv(.c) void ```
     pub fn OnLinkActivated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KMessageWidget_Connect_LinkActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#linkHovered)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#linkHovered)
     ///
     /// ``` self: QtC.KMessageWidget, contents: []const u8 ```
     pub fn LinkHovered(self: ?*anyopaque, contents: []const u8) void {
@@ -359,49 +359,49 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_LinkHovered(@ptrCast(self), contents_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#linkHovered)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#linkHovered)
     ///
     /// ``` self: QtC.KMessageWidget, slot: fn (self: QtC.KMessageWidget, contents: [*:0]const u8) callconv(.c) void ```
     pub fn OnLinkHovered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KMessageWidget_Connect_LinkHovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#hideAnimationFinished)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#hideAnimationFinished)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn HideAnimationFinished(self: ?*anyopaque) void {
         qtc.KMessageWidget_HideAnimationFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#hideAnimationFinished)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#hideAnimationFinished)
     ///
     /// ``` self: QtC.KMessageWidget, slot: fn (self: QtC.KMessageWidget) callconv(.c) void ```
     pub fn OnHideAnimationFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KMessageWidget_Connect_HideAnimationFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#showAnimationFinished)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#showAnimationFinished)
     ///
     /// ``` self: QtC.KMessageWidget ```
     pub fn ShowAnimationFinished(self: ?*anyopaque) void {
         qtc.KMessageWidget_ShowAnimationFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#showAnimationFinished)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#showAnimationFinished)
     ///
     /// ``` self: QtC.KMessageWidget, slot: fn (self: QtC.KMessageWidget) callconv(.c) void ```
     pub fn OnShowAnimationFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KMessageWidget_Connect_ShowAnimationFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#paintEvent)
     ///
     /// ``` self: QtC.KMessageWidget, event: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KMessageWidget_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -410,7 +410,7 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -419,14 +419,14 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#event)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#event)
     ///
     /// ``` self: QtC.KMessageWidget, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KMessageWidget_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#event)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -435,7 +435,7 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#event)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#event)
     ///
     /// Base class method implementation
     ///
@@ -444,14 +444,14 @@ pub const kmessagewidget = struct {
         return qtc.KMessageWidget_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#resizeEvent)
     ///
     /// ``` self: QtC.KMessageWidget, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KMessageWidget_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -460,7 +460,7 @@ pub const kmessagewidget = struct {
         qtc.KMessageWidget_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -5446,7 +5446,7 @@ pub const kmessagewidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagewidget.html#dtor.KMessageWidget)
+    /// [Qt documentation](https://api.kde.org/kmessagewidget.html#dtor.KMessageWidget)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5456,7 +5456,7 @@ pub const kmessagewidget = struct {
     }
 };
 
-/// https://api-staging.kde.org/kmessagewidget.html#types
+/// https://api.kde.org/kmessagewidget.html#types
 pub const enums = struct {
     pub const MessageType = enum {
         pub const Positive: i32 = 0;

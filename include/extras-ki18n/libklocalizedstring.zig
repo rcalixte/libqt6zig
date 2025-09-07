@@ -4,7 +4,7 @@ const kuitsetup_enums = @import("libkuitsetup.zig").enums;
 const std = @import("std");
 pub const set_constu8 = std.StringHashMapUnmanaged(void);
 
-/// https://api-staging.kde.org/klocalizedstring.html
+/// https://api.kde.org/klocalizedstring.html
 pub const klocalizedstring = struct {
     /// New constructs a new KLocalizedString object.
     ///
@@ -20,21 +20,21 @@ pub const klocalizedstring = struct {
         return qtc.KLocalizedString_new2(@ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#operator-eq)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#operator-eq)
     ///
     /// ``` self: QtC.KLocalizedString, rhs: QtC.KLocalizedString ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
         qtc.KLocalizedString_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#isEmpty)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#isEmpty)
     ///
     /// ``` self: QtC.KLocalizedString ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.KLocalizedString_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#toString)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#toString)
     ///
     /// ``` self: QtC.KLocalizedString, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -45,7 +45,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#toString)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#toString)
     ///
     /// ``` self: QtC.KLocalizedString, languages: [][]const u8, allocator: std.mem.Allocator ```
     pub fn ToString2(self: ?*anyopaque, languages: [][]const u8, allocator: std.mem.Allocator) []const u8 {
@@ -68,7 +68,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#toString)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#toString)
     ///
     /// ``` self: QtC.KLocalizedString, domain: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString3(self: ?*anyopaque, domain: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -80,7 +80,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#toString)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#toString)
     ///
     /// ``` self: QtC.KLocalizedString, format: kuitsetup_enums.VisualFormat, allocator: std.mem.Allocator ```
     pub fn ToString4(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
@@ -91,7 +91,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#withLanguages)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#withLanguages)
     ///
     /// ``` self: QtC.KLocalizedString, languages: [][]const u8, allocator: std.mem.Allocator ```
     pub fn WithLanguages(self: ?*anyopaque, languages: [][]const u8, allocator: std.mem.Allocator) QtC.KLocalizedString {
@@ -110,7 +110,7 @@ pub const klocalizedstring = struct {
         return qtc.KLocalizedString_WithLanguages(@ptrCast(self), languages_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#withDomain)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#withDomain)
     ///
     /// ``` self: QtC.KLocalizedString, domain: []const u8 ```
     pub fn WithDomain(self: ?*anyopaque, domain: []const u8) QtC.KLocalizedString {
@@ -118,70 +118,70 @@ pub const klocalizedstring = struct {
         return qtc.KLocalizedString_WithDomain(@ptrCast(self), domain_Cstring);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#withFormat)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#withFormat)
     ///
     /// ``` self: QtC.KLocalizedString, format: kuitsetup_enums.VisualFormat ```
     pub fn WithFormat(self: ?*anyopaque, format: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_WithFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i32 ```
     pub fn Subs(self: ?*anyopaque, a: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs(@ptrCast(self), @intCast(a));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u32 ```
     pub fn Subs2(self: ?*anyopaque, a: u32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs2(@ptrCast(self), @intCast(a));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i64 ```
     pub fn Subs3(self: ?*anyopaque, a: i64) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs3(@ptrCast(self), @intCast(a));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u64 ```
     pub fn Subs4(self: ?*anyopaque, a: u64) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs4(@ptrCast(self), @intCast(a));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i64 ```
     pub fn Subs5(self: ?*anyopaque, a: i64) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs5(@ptrCast(self), @intCast(a));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u64 ```
     pub fn Subs6(self: ?*anyopaque, a: u64) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs6(@ptrCast(self), @intCast(a));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: f64 ```
     pub fn Subs7(self: ?*anyopaque, a: f64) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs7(@ptrCast(self), @floatCast(a));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: QtC.QChar ```
     pub fn Subs8(self: ?*anyopaque, a: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs8(@ptrCast(self), @ptrCast(a));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: []const u8 ```
     pub fn Subs9(self: ?*anyopaque, a: []const u8) QtC.KLocalizedString {
@@ -192,14 +192,14 @@ pub const klocalizedstring = struct {
         return qtc.KLocalizedString_Subs9(@ptrCast(self), a_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: QtC.KLocalizedString ```
     pub fn Subs10(self: ?*anyopaque, a: ?*anyopaque) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs10(@ptrCast(self), @ptrCast(a));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#inContext)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#inContext)
     ///
     /// ``` self: QtC.KLocalizedString, key: []const u8, value: []const u8 ```
     pub fn InContext(self: ?*anyopaque, key: []const u8, value: []const u8) QtC.KLocalizedString {
@@ -214,21 +214,21 @@ pub const klocalizedstring = struct {
         return qtc.KLocalizedString_InContext(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#relaxSubs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#relaxSubs)
     ///
     /// ``` self: QtC.KLocalizedString ```
     pub fn RelaxSubs(self: ?*anyopaque) QtC.KLocalizedString {
         return qtc.KLocalizedString_RelaxSubs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#ignoreMarkup)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#ignoreMarkup)
     ///
     /// ``` self: QtC.KLocalizedString ```
     pub fn IgnoreMarkup(self: ?*anyopaque) QtC.KLocalizedString {
         return qtc.KLocalizedString_IgnoreMarkup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#untranslatedText)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#untranslatedText)
     ///
     /// ``` self: QtC.KLocalizedString, allocator: std.mem.Allocator ```
     pub fn UntranslatedText(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -239,7 +239,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#setApplicationDomain)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#setApplicationDomain)
     ///
     /// ``` domain: []u8 ```
     pub fn SetApplicationDomain(domain: []u8) void {
@@ -250,7 +250,7 @@ pub const klocalizedstring = struct {
         qtc.KLocalizedString_SetApplicationDomain(domain_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#applicationDomain)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#applicationDomain)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationDomain(allocator: std.mem.Allocator) []u8 {
@@ -261,7 +261,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#languages)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#languages)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Languages(allocator: std.mem.Allocator) [][]const u8 {
@@ -283,7 +283,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#setLanguages)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#setLanguages)
     ///
     /// ``` languages: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetLanguages(languages: [][]const u8, allocator: std.mem.Allocator) void {
@@ -302,14 +302,14 @@ pub const klocalizedstring = struct {
         qtc.KLocalizedString_SetLanguages(languages_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#clearLanguages)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#clearLanguages)
     ///
     ///
     pub fn ClearLanguages() void {
         qtc.KLocalizedString_ClearLanguages();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#isApplicationTranslatedInto)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#isApplicationTranslatedInto)
     ///
     /// ``` language: []const u8 ```
     pub fn IsApplicationTranslatedInto(language: []const u8) bool {
@@ -320,7 +320,7 @@ pub const klocalizedstring = struct {
         return qtc.KLocalizedString_IsApplicationTranslatedInto(language_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#availableApplicationTranslations)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#availableApplicationTranslations)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableApplicationTranslations(allocator: std.mem.Allocator) set_constu8 {
@@ -333,7 +333,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#availableDomainTranslations)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#availableDomainTranslations)
     ///
     /// ``` domain: []u8, allocator: std.mem.Allocator ```
     pub fn AvailableDomainTranslations(domain: []u8, allocator: std.mem.Allocator) set_constu8 {
@@ -350,7 +350,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#addDomainLocaleDir)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#addDomainLocaleDir)
     ///
     /// ``` domain: []u8, path: []const u8 ```
     pub fn AddDomainLocaleDir(domain: []u8, path: []const u8) void {
@@ -365,7 +365,7 @@ pub const klocalizedstring = struct {
         qtc.KLocalizedString_AddDomainLocaleDir(domain_str, path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#localizedFilePath)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#localizedFilePath)
     ///
     /// ``` filePath: []const u8, allocator: std.mem.Allocator ```
     pub fn LocalizedFilePath(filePath: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -380,7 +380,7 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#removeAcceleratorMarker)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#removeAcceleratorMarker)
     ///
     /// ``` label: []const u8, allocator: std.mem.Allocator ```
     pub fn RemoveAcceleratorMarker(label: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -395,175 +395,175 @@ pub const klocalizedstring = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i32, fieldWidth: i32 ```
     pub fn Subs22(self: ?*anyopaque, a: i32, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs22(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i32, fieldWidth: i32, base: i32 ```
     pub fn Subs32(self: ?*anyopaque, a: i32, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs32(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i32, fieldWidth: i32, base: i32, fillChar: QtC.QChar ```
     pub fn Subs42(self: ?*anyopaque, a: i32, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs42(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u32, fieldWidth: i32 ```
     pub fn Subs23(self: ?*anyopaque, a: u32, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs23(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u32, fieldWidth: i32, base: i32 ```
     pub fn Subs33(self: ?*anyopaque, a: u32, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs33(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u32, fieldWidth: i32, base: i32, fillChar: QtC.QChar ```
     pub fn Subs43(self: ?*anyopaque, a: u32, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs43(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i64, fieldWidth: i32 ```
     pub fn Subs24(self: ?*anyopaque, a: i64, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs24(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i64, fieldWidth: i32, base: i32 ```
     pub fn Subs34(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs34(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i64, fieldWidth: i32, base: i32, fillChar: QtC.QChar ```
     pub fn Subs44(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs44(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u64, fieldWidth: i32 ```
     pub fn Subs25(self: ?*anyopaque, a: u64, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs25(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u64, fieldWidth: i32, base: i32 ```
     pub fn Subs35(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs35(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u64, fieldWidth: i32, base: i32, fillChar: QtC.QChar ```
     pub fn Subs45(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs45(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i64, fieldWidth: i32 ```
     pub fn Subs26(self: ?*anyopaque, a: i64, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs26(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i64, fieldWidth: i32, base: i32 ```
     pub fn Subs36(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs36(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: i64, fieldWidth: i32, base: i32, fillChar: QtC.QChar ```
     pub fn Subs46(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs46(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u64, fieldWidth: i32 ```
     pub fn Subs27(self: ?*anyopaque, a: u64, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs27(@ptrCast(self), @intCast(a), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u64, fieldWidth: i32, base: i32 ```
     pub fn Subs37(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs37(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: u64, fieldWidth: i32, base: i32, fillChar: QtC.QChar ```
     pub fn Subs47(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs47(@ptrCast(self), @intCast(a), @intCast(fieldWidth), @intCast(base), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32 ```
     pub fn Subs28(self: ?*anyopaque, a: f64, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs28(@ptrCast(self), @floatCast(a), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32, format: i8 ```
     pub fn Subs38(self: ?*anyopaque, a: f64, fieldWidth: i32, format: i8) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs38(@ptrCast(self), @floatCast(a), @intCast(fieldWidth), @intCast(format));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32, format: i8, precision: i32 ```
     pub fn Subs48(self: ?*anyopaque, a: f64, fieldWidth: i32, format: i8, precision: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs48(@ptrCast(self), @floatCast(a), @intCast(fieldWidth), @intCast(format), @intCast(precision));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32, format: i8, precision: i32, fillChar: QtC.QChar ```
     pub fn Subs52(self: ?*anyopaque, a: f64, fieldWidth: i32, format: i8, precision: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs52(@ptrCast(self), @floatCast(a), @intCast(fieldWidth), @intCast(format), @intCast(precision), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: QtC.QChar, fieldWidth: i32 ```
     pub fn Subs29(self: ?*anyopaque, a: QtC.QChar, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs29(@ptrCast(self), @ptrCast(a), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: QtC.QChar, fieldWidth: i32, fillChar: QtC.QChar ```
     pub fn Subs39(self: ?*anyopaque, a: QtC.QChar, fieldWidth: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs39(@ptrCast(self), @ptrCast(a), @intCast(fieldWidth), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: []const u8, fieldWidth: i32 ```
     pub fn Subs210(self: ?*anyopaque, a: []const u8, fieldWidth: i32) QtC.KLocalizedString {
@@ -574,7 +574,7 @@ pub const klocalizedstring = struct {
         return qtc.KLocalizedString_Subs210(@ptrCast(self), a_str, @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: []const u8, fieldWidth: i32, fillChar: QtC.QChar ```
     pub fn Subs310(self: ?*anyopaque, a: []const u8, fieldWidth: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
@@ -585,21 +585,21 @@ pub const klocalizedstring = struct {
         return qtc.KLocalizedString_Subs310(@ptrCast(self), a_str, @intCast(fieldWidth), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: QtC.KLocalizedString, fieldWidth: i32 ```
     pub fn Subs211(self: ?*anyopaque, a: ?*anyopaque, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs211(@ptrCast(self), @ptrCast(a), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#subs)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
     /// ``` self: QtC.KLocalizedString, a: QtC.KLocalizedString, fieldWidth: i32, fillChar: QtC.QChar ```
     pub fn Subs311(self: ?*anyopaque, a: ?*anyopaque, fieldWidth: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs311(@ptrCast(self), @ptrCast(a), @intCast(fieldWidth), @ptrCast(fillChar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedstring.html#dtor.KLocalizedString)
+    /// [Qt documentation](https://api.kde.org/klocalizedstring.html#dtor.KLocalizedString)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcompletion.html
+/// https://api.kde.org/kcompletion.html
 pub const kcompletion = struct {
     /// New constructs a new KCompletion object.
     ///
@@ -58,7 +58,7 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#substringCompletion)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#substringCompletion)
     ///
     /// ``` self: QtC.KCompletion, stringVal: []const u8, allocator: std.mem.Allocator ```
     pub fn SubstringCompletion(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -84,7 +84,7 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#lastMatch)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#lastMatch)
     ///
     /// ``` self: QtC.KCompletion, allocator: std.mem.Allocator ```
     pub fn LastMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -95,7 +95,7 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#lastMatch)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#lastMatch)
     ///
     /// Allows for overriding the related default method
     ///
@@ -104,7 +104,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnLastMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#lastMatch)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#lastMatch)
     ///
     /// Base class method implementation
     ///
@@ -117,7 +117,7 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#items)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#items)
     ///
     /// ``` self: QtC.KCompletion, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -139,21 +139,21 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#isEmpty)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#isEmpty)
     ///
     /// ``` self: QtC.KCompletion ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.KCompletion_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setCompletionMode)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setCompletionMode)
     ///
     /// ``` self: QtC.KCompletion, mode: kcompletion_enums.CompletionMode ```
     pub fn SetCompletionMode(self: ?*anyopaque, mode: i32) void {
         qtc.KCompletion_SetCompletionMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setCompletionMode)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setCompletionMode)
     ///
     /// Allows for overriding the related default method
     ///
@@ -162,7 +162,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnSetCompletionMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setCompletionMode)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setCompletionMode)
     ///
     /// Base class method implementation
     ///
@@ -171,7 +171,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_QBaseSetCompletionMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#completionMode)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#completionMode)
     ///
     /// ``` self: QtC.KCompletion ```
     ///
@@ -180,14 +180,14 @@ pub const kcompletion = struct {
         return qtc.KCompletion_CompletionMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setOrder)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setOrder)
     ///
     /// ``` self: QtC.KCompletion, order: kcompletion_enums.CompOrder ```
     pub fn SetOrder(self: ?*anyopaque, order: i32) void {
         qtc.KCompletion_SetOrder(@ptrCast(self), @intCast(order));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setOrder)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setOrder)
     ///
     /// Allows for overriding the related default method
     ///
@@ -196,7 +196,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnSetOrder(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setOrder)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setOrder)
     ///
     /// Base class method implementation
     ///
@@ -205,7 +205,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_QBaseSetOrder(@ptrCast(self), @intCast(order));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#order)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#order)
     ///
     /// ``` self: QtC.KCompletion ```
     ///
@@ -214,14 +214,14 @@ pub const kcompletion = struct {
         return qtc.KCompletion_Order(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setIgnoreCase)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setIgnoreCase)
     ///
     /// ``` self: QtC.KCompletion, ignoreCase: bool ```
     pub fn SetIgnoreCase(self: ?*anyopaque, ignoreCase: bool) void {
         qtc.KCompletion_SetIgnoreCase(@ptrCast(self), ignoreCase);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setIgnoreCase)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setIgnoreCase)
     ///
     /// Allows for overriding the related default method
     ///
@@ -230,7 +230,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnSetIgnoreCase(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setIgnoreCase)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setIgnoreCase)
     ///
     /// Base class method implementation
     ///
@@ -239,21 +239,21 @@ pub const kcompletion = struct {
         qtc.KCompletion_QBaseSetIgnoreCase(@ptrCast(self), ignoreCase);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#ignoreCase)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#ignoreCase)
     ///
     /// ``` self: QtC.KCompletion ```
     pub fn IgnoreCase(self: ?*anyopaque) bool {
         return qtc.KCompletion_IgnoreCase(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#shouldAutoSuggest)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#shouldAutoSuggest)
     ///
     /// ``` self: QtC.KCompletion ```
     pub fn ShouldAutoSuggest(self: ?*anyopaque) bool {
         return qtc.KCompletion_ShouldAutoSuggest(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#allMatches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#allMatches)
     ///
     /// ``` self: QtC.KCompletion, allocator: std.mem.Allocator ```
     pub fn AllMatches(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -275,7 +275,7 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#allMatches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#allMatches)
     ///
     /// ``` self: QtC.KCompletion, stringVal: []const u8, allocator: std.mem.Allocator ```
     pub fn AllMatches2(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -301,14 +301,14 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setSoundsEnabled)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
     /// ``` self: QtC.KCompletion, enable: bool ```
     pub fn SetSoundsEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KCompletion_SetSoundsEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setSoundsEnabled)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -317,7 +317,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnSetSoundsEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setSoundsEnabled)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
     /// Base class method implementation
     ///
@@ -326,21 +326,21 @@ pub const kcompletion = struct {
         qtc.KCompletion_QBaseSetSoundsEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#soundsEnabled)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#soundsEnabled)
     ///
     /// ``` self: QtC.KCompletion ```
     pub fn SoundsEnabled(self: ?*anyopaque) bool {
         return qtc.KCompletion_SoundsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#hasMultipleMatches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#hasMultipleMatches)
     ///
     /// ``` self: QtC.KCompletion ```
     pub fn HasMultipleMatches(self: ?*anyopaque) bool {
         return qtc.KCompletion_HasMultipleMatches(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#makeCompletion)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#makeCompletion)
     ///
     /// ``` self: QtC.KCompletion, stringVal: []const u8, allocator: std.mem.Allocator ```
     pub fn MakeCompletion(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -355,7 +355,7 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#makeCompletion)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#makeCompletion)
     ///
     /// Allows for overriding the related default method
     ///
@@ -364,7 +364,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnMakeCompletion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#makeCompletion)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#makeCompletion)
     ///
     /// Base class method implementation
     ///
@@ -381,7 +381,7 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#previousMatch)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#previousMatch)
     ///
     /// ``` self: QtC.KCompletion, allocator: std.mem.Allocator ```
     pub fn PreviousMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -392,7 +392,7 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#nextMatch)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#nextMatch)
     ///
     /// ``` self: QtC.KCompletion, allocator: std.mem.Allocator ```
     pub fn NextMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -403,7 +403,7 @@ pub const kcompletion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#insertItems)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#insertItems)
     ///
     /// ``` self: QtC.KCompletion, items: [][]const u8, allocator: std.mem.Allocator ```
     pub fn InsertItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
@@ -422,7 +422,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_InsertItems(@ptrCast(self), items_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setItems)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setItems)
     ///
     /// ``` self: QtC.KCompletion, itemList: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, itemList: [][]const u8, allocator: std.mem.Allocator) void {
@@ -441,7 +441,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_SetItems(@ptrCast(self), itemList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setItems)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setItems)
     ///
     /// Allows for overriding the related default method
     ///
@@ -450,7 +450,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnSetItems(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setItems)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setItems)
     ///
     /// Base class method implementation
     ///
@@ -471,7 +471,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_QBaseSetItems(@ptrCast(self), itemList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#addItem)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#addItem)
     ///
     /// ``` self: QtC.KCompletion, item: []const u8 ```
     pub fn AddItem(self: ?*anyopaque, item: []const u8) void {
@@ -482,7 +482,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_AddItem(@ptrCast(self), item_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#addItem)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#addItem)
     ///
     /// ``` self: QtC.KCompletion, item: []const u8, weight: u32 ```
     pub fn AddItem2(self: ?*anyopaque, item: []const u8, weight: u32) void {
@@ -493,7 +493,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_AddItem2(@ptrCast(self), item_str, @intCast(weight));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#removeItem)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#removeItem)
     ///
     /// ``` self: QtC.KCompletion, item: []const u8 ```
     pub fn RemoveItem(self: ?*anyopaque, item: []const u8) void {
@@ -504,14 +504,14 @@ pub const kcompletion = struct {
         qtc.KCompletion_RemoveItem(@ptrCast(self), item_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#clear)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#clear)
     ///
     /// ``` self: QtC.KCompletion ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KCompletion_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#clear)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#clear)
     ///
     /// Allows for overriding the related default method
     ///
@@ -520,7 +520,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#clear)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#clear)
     ///
     /// Base class method implementation
     ///
@@ -529,7 +529,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_QBaseClear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#match)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#match)
     ///
     /// ``` self: QtC.KCompletion, item: []const u8 ```
     pub fn Match(self: ?*anyopaque, item: []const u8) void {
@@ -540,14 +540,14 @@ pub const kcompletion = struct {
         qtc.KCompletion_Match(@ptrCast(self), item_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#match)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#match)
     ///
     /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, item: [*:0]const u8) callconv(.c) void ```
     pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Match(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#matches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#matches)
     ///
     /// ``` self: QtC.KCompletion, matchlist: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Matches(self: ?*anyopaque, matchlist: [][]const u8, allocator: std.mem.Allocator) void {
@@ -566,28 +566,28 @@ pub const kcompletion = struct {
         qtc.KCompletion_Matches(@ptrCast(self), matchlist_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#matches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#matches)
     ///
     /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, matchlist: [*][*:0]const u8) callconv(.c) void ```
     pub fn OnMatches(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Matches(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#multipleMatches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#multipleMatches)
     ///
     /// ``` self: QtC.KCompletion ```
     pub fn MultipleMatches(self: ?*anyopaque) void {
         qtc.KCompletion_MultipleMatches(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#multipleMatches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#multipleMatches)
     ///
     /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion) callconv(.c) void ```
     pub fn OnMultipleMatches(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KCompletion_Connect_MultipleMatches(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#postProcessMatches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#postProcessMatches)
     ///
     /// ``` self: QtC.KCompletion, matchList: [][]const u8, allocator: std.mem.Allocator ```
     pub fn PostProcessMatches(self: ?*anyopaque, matchList: [][]const u8, allocator: std.mem.Allocator) void {
@@ -606,7 +606,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_PostProcessMatches(@ptrCast(self), matchList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#postProcessMatches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#postProcessMatches)
     ///
     /// Allows for overriding the related default method
     ///
@@ -615,7 +615,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnPostProcessMatches(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#postProcessMatches)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#postProcessMatches)
     ///
     /// Base class method implementation
     ///
@@ -636,14 +636,14 @@ pub const kcompletion = struct {
         qtc.KCompletion_QBasePostProcessMatches(@ptrCast(self), matchList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setShouldAutoSuggest)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
     ///
     /// ``` self: QtC.KCompletion, shouldAutosuggest: bool ```
     pub fn SetShouldAutoSuggest(self: ?*anyopaque, shouldAutosuggest: bool) void {
         qtc.KCompletion_SetShouldAutoSuggest(@ptrCast(self), shouldAutosuggest);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setShouldAutoSuggest)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
     ///
     /// Allows for overriding the related default method
     ///
@@ -652,7 +652,7 @@ pub const kcompletion = struct {
         qtc.KCompletion_OnSetShouldAutoSuggest(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#setShouldAutoSuggest)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
     ///
     /// Base class method implementation
     ///
@@ -1440,7 +1440,7 @@ pub const kcompletion = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompletion.html#dtor.KCompletion)
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#dtor.KCompletion)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1450,7 +1450,7 @@ pub const kcompletion = struct {
     }
 };
 
-/// https://api-staging.kde.org/kcompletion.html#types
+/// https://api.kde.org/kcompletion.html#types
 pub const enums = struct {
     pub const CompletionMode = enum {
         pub const CompletionNone: i32 = 1;

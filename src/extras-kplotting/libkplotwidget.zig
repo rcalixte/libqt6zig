@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kplotwidget.html
+/// https://api.kde.org/kplotwidget.html
 pub const kplotwidget = struct {
     /// New constructs a new KPlotWidget object.
     ///
@@ -70,14 +70,14 @@ pub const kplotwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KPlotWidget_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -86,7 +86,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -95,14 +95,14 @@ pub const kplotwidget = struct {
         return qtc.KPlotWidget_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#sizeHint)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KPlotWidget_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -111,7 +111,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -120,56 +120,56 @@ pub const kplotwidget = struct {
         return qtc.KPlotWidget_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setLimits)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setLimits)
     ///
     /// ``` self: QtC.KPlotWidget, x1: f64, x2: f64, y1: f64, y2: f64 ```
     pub fn SetLimits(self: ?*anyopaque, x1: f64, x2: f64, y1: f64, y2: f64) void {
         qtc.KPlotWidget_SetLimits(@ptrCast(self), @floatCast(x1), @floatCast(x2), @floatCast(y1), @floatCast(y2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setSecondaryLimits)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setSecondaryLimits)
     ///
     /// ``` self: QtC.KPlotWidget, x1: f64, x2: f64, y1: f64, y2: f64 ```
     pub fn SetSecondaryLimits(self: ?*anyopaque, x1: f64, x2: f64, y1: f64, y2: f64) void {
         qtc.KPlotWidget_SetSecondaryLimits(@ptrCast(self), @floatCast(x1), @floatCast(x2), @floatCast(y1), @floatCast(y2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#clearSecondaryLimits)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#clearSecondaryLimits)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn ClearSecondaryLimits(self: ?*anyopaque) void {
         qtc.KPlotWidget_ClearSecondaryLimits(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#dataRect)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#dataRect)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn DataRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.KPlotWidget_DataRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#secondaryDataRect)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#secondaryDataRect)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn SecondaryDataRect(self: ?*anyopaque) QtC.QRectF {
         return qtc.KPlotWidget_SecondaryDataRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#pixRect)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#pixRect)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn PixRect(self: ?*anyopaque) QtC.QRect {
         return qtc.KPlotWidget_PixRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#addPlotObject)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#addPlotObject)
     ///
     /// ``` self: QtC.KPlotWidget, object: QtC.KPlotObject ```
     pub fn AddPlotObject(self: ?*anyopaque, object: ?*anyopaque) void {
         qtc.KPlotWidget_AddPlotObject(@ptrCast(self), @ptrCast(object));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#addPlotObjects)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#addPlotObjects)
     ///
     /// ``` self: QtC.KPlotWidget, objects: []QtC.KPlotObject ```
     pub fn AddPlotObjects(self: ?*anyopaque, objects: []?*anyopaque) void {
@@ -180,7 +180,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_AddPlotObjects(@ptrCast(self), objects_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#plotObjects)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#plotObjects)
     ///
     /// ``` self: QtC.KPlotWidget, allocator: std.mem.Allocator ```
     pub fn PlotObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KPlotObject {
@@ -192,238 +192,238 @@ pub const kplotwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setAutoDeletePlotObjects)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setAutoDeletePlotObjects)
     ///
     /// ``` self: QtC.KPlotWidget, autoDelete: bool ```
     pub fn SetAutoDeletePlotObjects(self: ?*anyopaque, autoDelete: bool) void {
         qtc.KPlotWidget_SetAutoDeletePlotObjects(@ptrCast(self), autoDelete);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#removeAllPlotObjects)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#removeAllPlotObjects)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn RemoveAllPlotObjects(self: ?*anyopaque) void {
         qtc.KPlotWidget_RemoveAllPlotObjects(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#resetPlotMask)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#resetPlotMask)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn ResetPlotMask(self: ?*anyopaque) void {
         qtc.KPlotWidget_ResetPlotMask(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#resetPlot)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#resetPlot)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn ResetPlot(self: ?*anyopaque) void {
         qtc.KPlotWidget_ResetPlot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#replacePlotObject)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#replacePlotObject)
     ///
     /// ``` self: QtC.KPlotWidget, i: i32, o: QtC.KPlotObject ```
     pub fn ReplacePlotObject(self: ?*anyopaque, i: i32, o: ?*anyopaque) void {
         qtc.KPlotWidget_ReplacePlotObject(@ptrCast(self), @intCast(i), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#backgroundColor)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#backgroundColor)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KPlotWidget_BackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#foregroundColor)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#foregroundColor)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn ForegroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KPlotWidget_ForegroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#gridColor)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#gridColor)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn GridColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KPlotWidget_GridColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setBackgroundColor)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setBackgroundColor)
     ///
     /// ``` self: QtC.KPlotWidget, bg: QtC.QColor ```
     pub fn SetBackgroundColor(self: ?*anyopaque, bg: ?*anyopaque) void {
         qtc.KPlotWidget_SetBackgroundColor(@ptrCast(self), @ptrCast(bg));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setForegroundColor)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setForegroundColor)
     ///
     /// ``` self: QtC.KPlotWidget, fg: QtC.QColor ```
     pub fn SetForegroundColor(self: ?*anyopaque, fg: ?*anyopaque) void {
         qtc.KPlotWidget_SetForegroundColor(@ptrCast(self), @ptrCast(fg));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setGridColor)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setGridColor)
     ///
     /// ``` self: QtC.KPlotWidget, gc: QtC.QColor ```
     pub fn SetGridColor(self: ?*anyopaque, gc: ?*anyopaque) void {
         qtc.KPlotWidget_SetGridColor(@ptrCast(self), @ptrCast(gc));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#isGridShown)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#isGridShown)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn IsGridShown(self: ?*anyopaque) bool {
         return qtc.KPlotWidget_IsGridShown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#isObjectToolTipShown)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#isObjectToolTipShown)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn IsObjectToolTipShown(self: ?*anyopaque) bool {
         return qtc.KPlotWidget_IsObjectToolTipShown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#antialiasing)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#antialiasing)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn Antialiasing(self: ?*anyopaque) bool {
         return qtc.KPlotWidget_Antialiasing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setAntialiasing)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setAntialiasing)
     ///
     /// ``` self: QtC.KPlotWidget, b: bool ```
     pub fn SetAntialiasing(self: ?*anyopaque, b: bool) void {
         qtc.KPlotWidget_SetAntialiasing(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#leftPadding)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#leftPadding)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn LeftPadding(self: ?*anyopaque) i32 {
         return qtc.KPlotWidget_LeftPadding(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#rightPadding)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#rightPadding)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn RightPadding(self: ?*anyopaque) i32 {
         return qtc.KPlotWidget_RightPadding(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#topPadding)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#topPadding)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn TopPadding(self: ?*anyopaque) i32 {
         return qtc.KPlotWidget_TopPadding(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#bottomPadding)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#bottomPadding)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn BottomPadding(self: ?*anyopaque) i32 {
         return qtc.KPlotWidget_BottomPadding(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setLeftPadding)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setLeftPadding)
     ///
     /// ``` self: QtC.KPlotWidget, padding: i32 ```
     pub fn SetLeftPadding(self: ?*anyopaque, padding: i32) void {
         qtc.KPlotWidget_SetLeftPadding(@ptrCast(self), @intCast(padding));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setRightPadding)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setRightPadding)
     ///
     /// ``` self: QtC.KPlotWidget, padding: i32 ```
     pub fn SetRightPadding(self: ?*anyopaque, padding: i32) void {
         qtc.KPlotWidget_SetRightPadding(@ptrCast(self), @intCast(padding));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setTopPadding)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setTopPadding)
     ///
     /// ``` self: QtC.KPlotWidget, padding: i32 ```
     pub fn SetTopPadding(self: ?*anyopaque, padding: i32) void {
         qtc.KPlotWidget_SetTopPadding(@ptrCast(self), @intCast(padding));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setBottomPadding)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setBottomPadding)
     ///
     /// ``` self: QtC.KPlotWidget, padding: i32 ```
     pub fn SetBottomPadding(self: ?*anyopaque, padding: i32) void {
         qtc.KPlotWidget_SetBottomPadding(@ptrCast(self), @intCast(padding));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setDefaultPaddings)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setDefaultPaddings)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn SetDefaultPaddings(self: ?*anyopaque) void {
         qtc.KPlotWidget_SetDefaultPaddings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#mapToWidget)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#mapToWidget)
     ///
     /// ``` self: QtC.KPlotWidget, p: QtC.QPointF ```
     pub fn MapToWidget(self: ?*anyopaque, p: ?*anyopaque) QtC.QPointF {
         return qtc.KPlotWidget_MapToWidget(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#maskRect)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#maskRect)
     ///
     /// ``` self: QtC.KPlotWidget, r: QtC.QRectF ```
     pub fn MaskRect(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.KPlotWidget_MaskRect(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#maskAlongLine)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#maskAlongLine)
     ///
     /// ``` self: QtC.KPlotWidget, p1: QtC.QPointF, p2: QtC.QPointF ```
     pub fn MaskAlongLine(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
         qtc.KPlotWidget_MaskAlongLine(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#placeLabel)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#placeLabel)
     ///
     /// ``` self: QtC.KPlotWidget, painter: QtC.QPainter, pp: QtC.KPlotPoint ```
     pub fn PlaceLabel(self: ?*anyopaque, painter: ?*anyopaque, pp: ?*anyopaque) void {
         qtc.KPlotWidget_PlaceLabel(@ptrCast(self), @ptrCast(painter), @ptrCast(pp));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#axis)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#axis)
     ///
     /// ``` self: QtC.KPlotWidget, typeVal: kplotwidget_enums.Axis ```
     pub fn Axis(self: ?*anyopaque, typeVal: i32) QtC.KPlotAxis {
         return qtc.KPlotWidget_Axis(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#axis)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#axis)
     ///
     /// ``` self: QtC.KPlotWidget, typeVal: kplotwidget_enums.Axis ```
     pub fn Axis2(self: ?*anyopaque, typeVal: i32) QtC.KPlotAxis {
         return qtc.KPlotWidget_Axis2(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setShowGrid)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setShowGrid)
     ///
     /// ``` self: QtC.KPlotWidget, show: bool ```
     pub fn SetShowGrid(self: ?*anyopaque, show: bool) void {
         qtc.KPlotWidget_SetShowGrid(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setObjectToolTipShown)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setObjectToolTipShown)
     ///
     /// ``` self: QtC.KPlotWidget, show: bool ```
     pub fn SetObjectToolTipShown(self: ?*anyopaque, show: bool) void {
         qtc.KPlotWidget_SetObjectToolTipShown(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#event)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#event)
     ///
     /// ``` self: QtC.KPlotWidget, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KPlotWidget_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#event)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -432,7 +432,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#event)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#event)
     ///
     /// Base class method implementation
     ///
@@ -441,14 +441,14 @@ pub const kplotwidget = struct {
         return qtc.KPlotWidget_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#paintEvent)
     ///
     /// ``` self: QtC.KPlotWidget, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KPlotWidget_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -457,7 +457,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -466,14 +466,14 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#resizeEvent)
     ///
     /// ``` self: QtC.KPlotWidget, param1: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KPlotWidget_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -482,7 +482,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -491,14 +491,14 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#drawAxes)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#drawAxes)
     ///
     /// ``` self: QtC.KPlotWidget, p: QtC.QPainter ```
     pub fn DrawAxes(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KPlotWidget_DrawAxes(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#drawAxes)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#drawAxes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -507,7 +507,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_OnDrawAxes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#drawAxes)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#drawAxes)
     ///
     /// Base class method implementation
     ///
@@ -516,14 +516,14 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_QBaseDrawAxes(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setPixRect)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setPixRect)
     ///
     /// ``` self: QtC.KPlotWidget ```
     pub fn SetPixRect(self: ?*anyopaque) void {
         qtc.KPlotWidget_SetPixRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setPixRect)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setPixRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -532,7 +532,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_OnSetPixRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#setPixRect)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#setPixRect)
     ///
     /// Base class method implementation
     ///
@@ -541,7 +541,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_QBaseSetPixRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#pointsUnderPoint)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#pointsUnderPoint)
     ///
     /// ``` self: QtC.KPlotWidget, p: QtC.QPoint, allocator: std.mem.Allocator ```
     pub fn PointsUnderPoint(self: ?*anyopaque, p: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KPlotPoint {
@@ -553,7 +553,7 @@ pub const kplotwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#pointsUnderPoint)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#pointsUnderPoint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -562,7 +562,7 @@ pub const kplotwidget = struct {
         qtc.KPlotWidget_OnPointsUnderPoint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#pointsUnderPoint)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#pointsUnderPoint)
     ///
     /// Base class method implementation
     ///
@@ -602,14 +602,14 @@ pub const kplotwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#maskRect)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#maskRect)
     ///
     /// ``` self: QtC.KPlotWidget, r: QtC.QRectF, value: f32 ```
     pub fn MaskRect2(self: ?*anyopaque, r: ?*anyopaque, value: f32) void {
         qtc.KPlotWidget_MaskRect2(@ptrCast(self), @ptrCast(r), @floatCast(value));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#maskAlongLine)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#maskAlongLine)
     ///
     /// ``` self: QtC.KPlotWidget, p1: QtC.QPointF, p2: QtC.QPointF, value: f32 ```
     pub fn MaskAlongLine3(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque, value: f32) void {
@@ -5618,7 +5618,7 @@ pub const kplotwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotwidget.html#dtor.KPlotWidget)
+    /// [Qt documentation](https://api.kde.org/kplotwidget.html#dtor.KPlotWidget)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5628,7 +5628,7 @@ pub const kplotwidget = struct {
     }
 };
 
-/// https://api-staging.kde.org/kplotwidget.html#types
+/// https://api.kde.org/kplotwidget.html#types
 pub const enums = struct {
     pub const Axis = enum {
         pub const LeftAxis: i32 = 0;

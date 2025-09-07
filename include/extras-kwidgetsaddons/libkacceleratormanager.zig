@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/kacceleratormanager.html
+/// https://api.kde.org/kacceleratormanager.html
 pub const kacceleratormanager = struct {
     /// New constructs a new KAcceleratorManager object.
     ///
@@ -32,14 +32,14 @@ pub const kacceleratormanager = struct {
         qtc.KAcceleratorManager_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kacceleratormanager.html#manage)
+    /// [Qt documentation](https://api.kde.org/kacceleratormanager.html#manage)
     ///
     /// ``` widget: QtC.QWidget ```
     pub fn Manage(widget: ?*anyopaque) void {
         qtc.KAcceleratorManager_Manage(@ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kacceleratormanager.html#last_manage)
+    /// [Qt documentation](https://api.kde.org/kacceleratormanager.html#last_manage)
     ///
     /// ``` added: []const u8, changed: []const u8, removed: []const u8 ```
     pub fn LastManage(added: []const u8, changed: []const u8, removed: []const u8) void {
@@ -58,14 +58,14 @@ pub const kacceleratormanager = struct {
         qtc.KAcceleratorManager_LastManage(added_str, changed_str, removed_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kacceleratormanager.html#setNoAccel)
+    /// [Qt documentation](https://api.kde.org/kacceleratormanager.html#setNoAccel)
     ///
     /// ``` widget: QtC.QWidget ```
     pub fn SetNoAccel(widget: ?*anyopaque) void {
         qtc.KAcceleratorManager_SetNoAccel(@ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kacceleratormanager.html#addStandardActionNames)
+    /// [Qt documentation](https://api.kde.org/kacceleratormanager.html#addStandardActionNames)
     ///
     /// ``` names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn AddStandardActionNames(names: [][]const u8, allocator: std.mem.Allocator) void {
@@ -84,14 +84,14 @@ pub const kacceleratormanager = struct {
         qtc.KAcceleratorManager_AddStandardActionNames(names_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kacceleratormanager.html#manage)
+    /// [Qt documentation](https://api.kde.org/kacceleratormanager.html#manage)
     ///
     /// ``` widget: QtC.QWidget, programmers_mode: bool ```
     pub fn Manage2(widget: ?*anyopaque, programmers_mode: bool) void {
         qtc.KAcceleratorManager_Manage2(@ptrCast(widget), programmers_mode);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kacceleratormanager.html#dtor.KAcceleratorManager)
+    /// [Qt documentation](https://api.kde.org/kacceleratormanager.html#dtor.KAcceleratorManager)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -4,7 +4,7 @@ const kstandardactions_enums = @import("libkstandardactions.zig").enums;
 const kstandardshortcut_enums = @import("libkstandardshortcut.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kstandardactions-rawstringdata.html
+/// https://api.kde.org/kstandardactions-rawstringdata.html
 pub const kstandardactions__rawstringdata = struct {
     /// New constructs a new KStandardActions::RawStringData object.
     ///
@@ -34,7 +34,7 @@ pub const kstandardactions__rawstringdata = struct {
         return qtc.KStandardActions__RawStringData_new4(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions-rawstringdata.html#toString)
+    /// [Qt documentation](https://api.kde.org/kstandardactions-rawstringdata.html#toString)
     ///
     /// ``` self: QtC.KStandardActions__RawStringData, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -53,7 +53,7 @@ pub const kstandardactions__rawstringdata = struct {
     }
 };
 
-/// https://api-staging.kde.org/kstandardactions-kstandardactionsinfo.html
+/// https://api.kde.org/kstandardactions-kstandardactionsinfo.html
 pub const kstandardactions__kstandardactionsinfo = struct {
     /// New constructs a new KStandardActions::KStandardActionsInfo object.
     ///
@@ -62,7 +62,7 @@ pub const kstandardactions__kstandardactionsinfo = struct {
         return qtc.KStandardActions__KStandardActionsInfo_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions-kstandardactionsinfo.html#id-var)
+    /// [Qt documentation](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#id-var)
     ///
     /// ``` self: QtC.KStandardActions__KStandardActionsInfo ```
     ///
@@ -71,14 +71,14 @@ pub const kstandardactions__kstandardactionsinfo = struct {
         return qtc.KStandardActions__KStandardActionsInfo_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions-kstandardactionsinfo.html#id-var)
+    /// [Qt documentation](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#id-var)
     ///
     /// ``` self: QtC.KStandardActions__KStandardActionsInfo, id: kstandardactions_enums.StandardAction ```
     pub fn SetId(self: ?*anyopaque, id: i32) void {
         qtc.KStandardActions__KStandardActionsInfo_SetId(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions-kstandardactionsinfo.html#idAccel-var)
+    /// [Qt documentation](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#idAccel-var)
     ///
     /// ``` self: QtC.KStandardActions__KStandardActionsInfo ```
     ///
@@ -87,14 +87,14 @@ pub const kstandardactions__kstandardactionsinfo = struct {
         return qtc.KStandardActions__KStandardActionsInfo_IdAccel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions-kstandardactionsinfo.html#idAccel-var)
+    /// [Qt documentation](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#idAccel-var)
     ///
     /// ``` self: QtC.KStandardActions__KStandardActionsInfo, idAccel: kstandardshortcut_enums.StandardShortcut ```
     pub fn SetIdAccel(self: ?*anyopaque, idAccel: i32) void {
         qtc.KStandardActions__KStandardActionsInfo_SetIdAccel(@ptrCast(self), @intCast(idAccel));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions-kstandardactionsinfo.html#psLabel-var)
+    /// [Qt documentation](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#psLabel-var)
     ///
     /// ``` self: QtC.KStandardActions__KStandardActionsInfo ```
     pub fn PsLabel(self: ?*anyopaque) []const u8 {
@@ -102,7 +102,7 @@ pub const kstandardactions__kstandardactionsinfo = struct {
         return std.mem.span(psLabel_ret);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions-kstandardactionsinfo.html#psLabel-var)
+    /// [Qt documentation](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#psLabel-var)
     ///
     /// ``` self: QtC.KStandardActions__KStandardActionsInfo, psLabel: []const u8 ```
     pub fn SetPsLabel(self: ?*anyopaque, psLabel: []const u8) void {
@@ -110,7 +110,7 @@ pub const kstandardactions__kstandardactionsinfo = struct {
         qtc.KStandardActions__KStandardActionsInfo_SetPsLabel(@ptrCast(self), psLabel_Cstring);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions-kstandardactionsinfo.html#psToolTip-var)
+    /// [Qt documentation](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#psToolTip-var)
     ///
     /// ``` self: QtC.KStandardActions__KStandardActionsInfo ```
     pub fn PsToolTip(self: ?*anyopaque) []const u8 {
@@ -118,7 +118,7 @@ pub const kstandardactions__kstandardactionsinfo = struct {
         return std.mem.span(psToolTip_ret);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions-kstandardactionsinfo.html#psToolTip-var)
+    /// [Qt documentation](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#psToolTip-var)
     ///
     /// ``` self: QtC.KStandardActions__KStandardActionsInfo, psToolTip: []const u8 ```
     pub fn SetPsToolTip(self: ?*anyopaque, psToolTip: []const u8) void {
@@ -134,16 +134,16 @@ pub const kstandardactions__kstandardactionsinfo = struct {
     }
 };
 
-/// https://api-staging.kde.org/kstandardactions.html
+/// https://api.kde.org/kstandardactions.html
 pub const kstandardactions = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions.html#infoPtr)
+    /// [Qt documentation](https://api.kde.org/kstandardactions.html#infoPtr)
     ///
     /// ``` param1: kstandardactions_enums.StandardAction ```
     pub fn InfoPtr(param1: i32) QtC.KStandardActions__KStandardActionsInfo {
         return qtc.KStandardActions_InfoPtr(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions.html#internal_stdNames)
+    /// [Qt documentation](https://api.kde.org/kstandardactions.html#internal_stdNames)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn InternalStdNames(allocator: std.mem.Allocator) [][]const u8 {

@@ -6,7 +6,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const struct_constu8_constu8 = extern struct { first: []const u8, second: []const u8 };
 
-/// https://api-staging.kde.org/kjob.html
+/// https://api.kde.org/kjob.html
 pub const kjob = struct {
     /// New constructs a new KJob object.
     ///
@@ -66,21 +66,21 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setUiDelegate)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setUiDelegate)
     ///
     /// ``` self: QtC.KJob, delegate: QtC.KJobUiDelegate ```
     pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
         qtc.KJob_SetUiDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#uiDelegate)
+    /// [Qt documentation](https://api.kde.org/kjob.html#uiDelegate)
     ///
     /// ``` self: QtC.KJob ```
     pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
         return qtc.KJob_UiDelegate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#capabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#capabilities)
     ///
     /// ``` self: QtC.KJob ```
     ///
@@ -89,21 +89,21 @@ pub const kjob = struct {
         return qtc.KJob_Capabilities(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isSuspended)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isSuspended)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsSuspended(self: ?*anyopaque) bool {
         return qtc.KJob_IsSuspended(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#start)
+    /// [Qt documentation](https://api.kde.org/kjob.html#start)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.KJob_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#start)
+    /// [Qt documentation](https://api.kde.org/kjob.html#start)
     ///
     /// Allows for overriding the related default method
     ///
@@ -112,7 +112,7 @@ pub const kjob = struct {
         qtc.KJob_OnStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#start)
+    /// [Qt documentation](https://api.kde.org/kjob.html#start)
     ///
     /// Base class method implementation
     ///
@@ -121,35 +121,35 @@ pub const kjob = struct {
         qtc.KJob_QBaseStart(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#kill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Kill(self: ?*anyopaque) bool {
         return qtc.KJob_Kill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#suspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#suspend)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Suspend(self: ?*anyopaque) bool {
         return qtc.KJob_Suspend(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#resume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#resume)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Resume(self: ?*anyopaque) bool {
         return qtc.KJob_Resume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doKill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
     ///
     /// ``` self: QtC.KJob ```
     pub fn DoKill(self: ?*anyopaque) bool {
         return qtc.KJob_DoKill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doKill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
     ///
     /// Allows for overriding the related default method
     ///
@@ -158,7 +158,7 @@ pub const kjob = struct {
         qtc.KJob_OnDoKill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doKill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
     ///
     /// Base class method implementation
     ///
@@ -167,14 +167,14 @@ pub const kjob = struct {
         return qtc.KJob_QBaseDoKill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doSuspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// ``` self: QtC.KJob ```
     pub fn DoSuspend(self: ?*anyopaque) bool {
         return qtc.KJob_DoSuspend(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doSuspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Allows for overriding the related default method
     ///
@@ -183,7 +183,7 @@ pub const kjob = struct {
         qtc.KJob_OnDoSuspend(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doSuspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Base class method implementation
     ///
@@ -192,14 +192,14 @@ pub const kjob = struct {
         return qtc.KJob_QBaseDoSuspend(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doResume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
     ///
     /// ``` self: QtC.KJob ```
     pub fn DoResume(self: ?*anyopaque) bool {
         return qtc.KJob_DoResume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doResume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
     ///
     /// Allows for overriding the related default method
     ///
@@ -208,7 +208,7 @@ pub const kjob = struct {
         qtc.KJob_OnDoResume(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doResume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
     ///
     /// Base class method implementation
     ///
@@ -217,14 +217,14 @@ pub const kjob = struct {
         return qtc.KJob_QBaseDoResume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// ``` self: QtC.KJob, capabilities: flag of kjob_enums.Capability ```
     pub fn SetCapabilities(self: ?*anyopaque, capabilities: i32) void {
         qtc.KJob_SetCapabilities(@ptrCast(self), @intCast(capabilities));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Allows for overriding the related default method
     ///
@@ -233,7 +233,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetCapabilities(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Base class method implementation
     ///
@@ -242,21 +242,21 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetCapabilities(@ptrCast(self), @intCast(capabilities));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#exec)
+    /// [Qt documentation](https://api.kde.org/kjob.html#exec)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Exec(self: ?*anyopaque) bool {
         return qtc.KJob_Exec(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#error)
+    /// [Qt documentation](https://api.kde.org/kjob.html#error)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.KJob_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorText)
     ///
     /// ``` self: QtC.KJob, allocator: std.mem.Allocator ```
     pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -267,7 +267,7 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorString)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
     ///
     /// ``` self: QtC.KJob, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -278,7 +278,7 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorString)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
     ///
     /// Allows for overriding the related default method
     ///
@@ -287,7 +287,7 @@ pub const kjob = struct {
         qtc.KJob_OnErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorString)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
     ///
     /// Base class method implementation
     ///
@@ -300,70 +300,70 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmount)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit ```
     pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
         return qtc.KJob_ProcessedAmount(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmount)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit ```
     pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
         return qtc.KJob_TotalAmount(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#percent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#percent)
     ///
     /// ``` self: QtC.KJob ```
     pub fn Percent(self: ?*anyopaque) u64 {
         return qtc.KJob_Percent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setAutoDelete)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setAutoDelete)
     ///
     /// ``` self: QtC.KJob, autodelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
         qtc.KJob_SetAutoDelete(@ptrCast(self), autodelete);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isAutoDelete)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isAutoDelete)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsAutoDelete(self: ?*anyopaque) bool {
         return qtc.KJob_IsAutoDelete(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KJob ```
     pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
         qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinishedNotificationHidden)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
         return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isStartedWithExec)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isStartedWithExec)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsStartedWithExec(self: ?*anyopaque) bool {
         return qtc.KJob_IsStartedWithExec(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#elapsedTime)
+    /// [Qt documentation](https://api.kde.org/kjob.html#elapsedTime)
     ///
     /// ``` self: QtC.KJob ```
     pub fn ElapsedTime(self: ?*anyopaque) i64 {
         return qtc.KJob_ElapsedTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, title: []const u8 ```
     pub fn Description(self: ?*anyopaque, job: ?*anyopaque, title: []const u8) void {
@@ -374,14 +374,14 @@ pub const kjob = struct {
         qtc.KJob_Description(@ptrCast(self), @ptrCast(job), title_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KJob, slot: fn (self: QtC.KJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_Description(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#infoMessage)
+    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, message: []const u8 ```
     pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -392,14 +392,14 @@ pub const kjob = struct {
         qtc.KJob_InfoMessage(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#infoMessage)
+    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KJob, slot: fn (self: QtC.KJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_InfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#warning)
+    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, message: []const u8 ```
     pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -410,63 +410,63 @@ pub const kjob = struct {
         qtc.KJob_Warning(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#warning)
+    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KJob, slot: fn (self: QtC.KJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnWarning(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_Warning(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, size: u64 ```
     pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
         qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KJob, slot: fn (self: QtC.KJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnTotalSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, size: u64 ```
     pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
         qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KJob, slot: fn (self: QtC.KJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnProcessedSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#speed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, speed: u64 ```
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
         qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @intCast(speed));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#speed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KJob, slot: fn (self: QtC.KJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
     pub fn OnSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
     ///
     /// ``` self: QtC.KJob ```
     pub fn IsFinished(self: ?*anyopaque) bool {
         return qtc.KJob_IsFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Allows for overriding the related default method
     ///
@@ -475,7 +475,7 @@ pub const kjob = struct {
         qtc.KJob_OnIsFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Base class method implementation
     ///
@@ -484,14 +484,14 @@ pub const kjob = struct {
         return qtc.KJob_QBaseIsFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setError)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
     ///
     /// ``` self: QtC.KJob, errorCode: i32 ```
     pub fn SetError(self: ?*anyopaque, errorCode: i32) void {
         qtc.KJob_SetError(@ptrCast(self), @intCast(errorCode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setError)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
     ///
     /// Allows for overriding the related default method
     ///
@@ -500,7 +500,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setError)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
     ///
     /// Base class method implementation
     ///
@@ -509,7 +509,7 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetError(@ptrCast(self), @intCast(errorCode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setErrorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// ``` self: QtC.KJob, errorText: []const u8 ```
     pub fn SetErrorText(self: ?*anyopaque, errorText: []const u8) void {
@@ -520,7 +520,7 @@ pub const kjob = struct {
         qtc.KJob_SetErrorText(@ptrCast(self), errorText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setErrorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -529,7 +529,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetErrorText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setErrorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Base class method implementation
     ///
@@ -542,14 +542,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetErrorText(@ptrCast(self), errorText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProcessedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit, amount: u64 ```
     pub fn SetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
         qtc.KJob_SetProcessedAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProcessedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -558,7 +558,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetProcessedAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProcessedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Base class method implementation
     ///
@@ -567,14 +567,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetProcessedAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setTotalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit, amount: u64 ```
     pub fn SetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
         qtc.KJob_SetTotalAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setTotalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -583,7 +583,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetTotalAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setTotalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Base class method implementation
     ///
@@ -592,14 +592,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetTotalAmount(@ptrCast(self), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProgressUnit)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// ``` self: QtC.KJob, unit: kjob_enums.Unit ```
     pub fn SetProgressUnit(self: ?*anyopaque, unit: i32) void {
         qtc.KJob_SetProgressUnit(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProgressUnit)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Allows for overriding the related default method
     ///
@@ -608,7 +608,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetProgressUnit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProgressUnit)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Base class method implementation
     ///
@@ -617,14 +617,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetProgressUnit(@ptrCast(self), @intCast(unit));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
     ///
     /// ``` self: QtC.KJob, percentage: u64 ```
     pub fn SetPercent(self: ?*anyopaque, percentage: u64) void {
         qtc.KJob_SetPercent(@ptrCast(self), @intCast(percentage));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -633,7 +633,7 @@ pub const kjob = struct {
         qtc.KJob_OnSetPercent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Base class method implementation
     ///
@@ -642,14 +642,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseSetPercent(@ptrCast(self), @intCast(percentage));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitResult)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
     ///
     /// ``` self: QtC.KJob ```
     pub fn EmitResult(self: ?*anyopaque) void {
         qtc.KJob_EmitResult(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitResult)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Allows for overriding the related default method
     ///
@@ -658,7 +658,7 @@ pub const kjob = struct {
         qtc.KJob_OnEmitResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitResult)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Base class method implementation
     ///
@@ -667,14 +667,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseEmitResult(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// ``` self: QtC.KJob, processedAmount: u64, totalAmount: u64 ```
     pub fn EmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
         qtc.KJob_EmitPercent(@ptrCast(self), @intCast(processedAmount), @intCast(totalAmount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -683,7 +683,7 @@ pub const kjob = struct {
         qtc.KJob_OnEmitPercent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Base class method implementation
     ///
@@ -692,14 +692,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseEmitPercent(@ptrCast(self), @intCast(processedAmount), @intCast(totalAmount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitSpeed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// ``` self: QtC.KJob, speed: u64 ```
     pub fn EmitSpeed(self: ?*anyopaque, speed: u64) void {
         qtc.KJob_EmitSpeed(@ptrCast(self), @intCast(speed));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitSpeed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -708,7 +708,7 @@ pub const kjob = struct {
         qtc.KJob_OnEmitSpeed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitSpeed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Base class method implementation
     ///
@@ -717,14 +717,14 @@ pub const kjob = struct {
         qtc.KJob_QBaseEmitSpeed(@ptrCast(self), @intCast(speed));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#startElapsedTimer)
+    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// ``` self: QtC.KJob ```
     pub fn StartElapsedTimer(self: ?*anyopaque) void {
         qtc.KJob_StartElapsedTimer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#startElapsedTimer)
+    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Allows for overriding the related default method
     ///
@@ -733,7 +733,7 @@ pub const kjob = struct {
         qtc.KJob_OnStartElapsedTimer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#startElapsedTimer)
+    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Base class method implementation
     ///
@@ -768,21 +768,21 @@ pub const kjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#kill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KJob, verbosity: kjob_enums.KillVerbosity ```
     pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
         return qtc.KJob_Kill1(@ptrCast(self), @intCast(verbosity));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KJob, hide: bool ```
     pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
         qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self), hide);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, title: []const u8, field1: struct_constu8_constu8 ```
     pub fn Description3(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, field1: struct_constu8_constu8) void {
@@ -797,14 +797,14 @@ pub const kjob = struct {
         qtc.KJob_Description3(@ptrCast(self), @ptrCast(job), title_str, field1_pair);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KJob, slot: fn (self: QtC.KJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
     pub fn OnDescription3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
         qtc.KJob_Connect_Description3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KJob, job: QtC.KJob, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8 ```
     pub fn Description4(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) void {
@@ -823,7 +823,7 @@ pub const kjob = struct {
         qtc.KJob_Description4(@ptrCast(self), @ptrCast(job), title_str, field1_pair, field2_pair);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KJob, slot: fn (self: QtC.KJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
     pub fn OnDescription4(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
@@ -1572,7 +1572,7 @@ pub const kjob = struct {
         qtc.KJob_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#finished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#finished)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1581,7 +1581,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#suspended)
+    /// [Qt documentation](https://api.kde.org/kjob.html#suspended)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1590,7 +1590,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_Suspended(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#resumed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#resumed)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1599,7 +1599,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_Resumed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#result)
+    /// [Qt documentation](https://api.kde.org/kjob.html#result)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1608,7 +1608,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_Result(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalAmountChanged)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1617,7 +1617,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedAmountChanged)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1626,7 +1626,7 @@ pub const kjob = struct {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#percentChanged)
+    /// [Qt documentation](https://api.kde.org/kjob.html#percentChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1646,7 +1646,7 @@ pub const kjob = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#dtor.KJob)
+    /// [Qt documentation](https://api.kde.org/kjob.html#dtor.KJob)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1656,7 +1656,7 @@ pub const kjob = struct {
     }
 };
 
-/// https://api-staging.kde.org/kjob.html#types
+/// https://api.kde.org/kjob.html#types
 pub const enums = struct {
     pub const Unit = enum {
         pub const Bytes: i32 = 0;

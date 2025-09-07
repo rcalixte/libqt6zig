@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kreplace.html
+/// https://api.kde.org/kreplace.html
 pub const kreplace = struct {
     /// New constructs a new KReplace object.
     ///
@@ -99,21 +99,21 @@ pub const kreplace = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#numReplacements)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#numReplacements)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn NumReplacements(self: ?*anyopaque) i32 {
         return qtc.KReplace_NumReplacements(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#resetCounts)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#resetCounts)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn ResetCounts(self: ?*anyopaque) void {
         qtc.KReplace_ResetCounts(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#resetCounts)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#resetCounts)
     ///
     /// Allows for overriding the related default method
     ///
@@ -122,7 +122,7 @@ pub const kreplace = struct {
         qtc.KReplace_OnResetCounts(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#resetCounts)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#resetCounts)
     ///
     /// Base class method implementation
     ///
@@ -131,7 +131,7 @@ pub const kreplace = struct {
         qtc.KReplace_QBaseResetCounts(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#replace)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#replace)
     ///
     /// ``` self: QtC.KReplace ```
     ///
@@ -140,21 +140,21 @@ pub const kreplace = struct {
         return qtc.KReplace_Replace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#replaceNextDialog)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#replaceNextDialog)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn ReplaceNextDialog(self: ?*anyopaque) QtC.QDialog {
         return qtc.KReplace_ReplaceNextDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#closeReplaceNextDialog)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#closeReplaceNextDialog)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn CloseReplaceNextDialog(self: ?*anyopaque) void {
         qtc.KReplace_CloseReplaceNextDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#replace)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#replace)
     ///
     /// ``` text: []const u8, pattern: []const u8, replacement: []const u8, index: i32, options: i64, replacedLength: *i32 ```
     pub fn Replace2(text: []const u8, pattern: []const u8, replacement: []const u8, index: i32, options: i64, replacedLength: *i32) i32 {
@@ -173,14 +173,14 @@ pub const kreplace = struct {
         return qtc.KReplace_Replace2(text_str, pattern_str, replacement_str, @intCast(index), @intCast(options), @ptrCast(replacedLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#shouldRestart)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#shouldRestart)
     ///
     /// ``` self: QtC.KReplace, forceAsking: bool, showNumMatches: bool ```
     pub fn ShouldRestart(self: ?*anyopaque, forceAsking: bool, showNumMatches: bool) bool {
         return qtc.KReplace_ShouldRestart(@ptrCast(self), forceAsking, showNumMatches);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#shouldRestart)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#shouldRestart)
     ///
     /// Allows for overriding the related default method
     ///
@@ -189,7 +189,7 @@ pub const kreplace = struct {
         qtc.KReplace_OnShouldRestart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#shouldRestart)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#shouldRestart)
     ///
     /// Base class method implementation
     ///
@@ -198,14 +198,14 @@ pub const kreplace = struct {
         return qtc.KReplace_QBaseShouldRestart(@ptrCast(self), forceAsking, showNumMatches);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#displayFinalDialog)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#displayFinalDialog)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn DisplayFinalDialog(self: ?*anyopaque) void {
         qtc.KReplace_DisplayFinalDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#displayFinalDialog)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#displayFinalDialog)
     ///
     /// Allows for overriding the related default method
     ///
@@ -214,7 +214,7 @@ pub const kreplace = struct {
         qtc.KReplace_OnDisplayFinalDialog(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#displayFinalDialog)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#displayFinalDialog)
     ///
     /// Base class method implementation
     ///
@@ -223,7 +223,7 @@ pub const kreplace = struct {
         qtc.KReplace_QBaseDisplayFinalDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#textReplaced)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#textReplaced)
     ///
     /// ``` self: QtC.KReplace, text: []const u8, replacementIndex: i32, replacedLength: i32, matchedLength: i32 ```
     pub fn TextReplaced(self: ?*anyopaque, text: []const u8, replacementIndex: i32, replacedLength: i32, matchedLength: i32) void {
@@ -234,7 +234,7 @@ pub const kreplace = struct {
         qtc.KReplace_TextReplaced(@ptrCast(self), text_str, @intCast(replacementIndex), @intCast(replacedLength), @intCast(matchedLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#textReplaced)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#textReplaced)
     ///
     /// ``` self: QtC.KReplace, slot: fn (self: QtC.KReplace, text: [*:0]const u8, replacementIndex: i32, replacedLength: i32, matchedLength: i32) callconv(.c) void ```
     pub fn OnTextReplaced(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, i32, i32) callconv(.c) void) void {
@@ -267,7 +267,7 @@ pub const kreplace = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#replaceNextDialog)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#replaceNextDialog)
     ///
     /// ``` self: QtC.KReplace, create: bool ```
     pub fn ReplaceNextDialog1(self: ?*anyopaque, create: bool) QtC.QDialog {
@@ -276,7 +276,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#needData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#needData)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn NeedData(self: ?*anyopaque) bool {
@@ -285,7 +285,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setData)
     ///
     /// ``` self: QtC.KReplace, data: []const u8 ```
     pub fn SetData(self: ?*anyopaque, data: []const u8) void {
@@ -298,7 +298,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setData)
     ///
     /// ``` self: QtC.KReplace, id: i32, data: []const u8 ```
     pub fn SetData2(self: ?*anyopaque, id: i32, data: []const u8) void {
@@ -311,7 +311,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#find)
+    /// [Qt documentation](https://api.kde.org/kfind.html#find)
     ///
     /// ``` self: QtC.KReplace ```
     ///
@@ -322,7 +322,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#options)
+    /// [Qt documentation](https://api.kde.org/kfind.html#options)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn Options(self: ?*anyopaque) i64 {
@@ -331,7 +331,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#pattern)
+    /// [Qt documentation](https://api.kde.org/kfind.html#pattern)
     ///
     /// ``` self: QtC.KReplace, allocator: std.mem.Allocator ```
     pub fn Pattern(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -344,7 +344,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setPattern)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setPattern)
     ///
     /// ``` self: QtC.KReplace, pattern: []const u8 ```
     pub fn SetPattern(self: ?*anyopaque, pattern: []const u8) void {
@@ -357,7 +357,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#numMatches)
+    /// [Qt documentation](https://api.kde.org/kfind.html#numMatches)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn NumMatches(self: ?*anyopaque) i32 {
@@ -366,7 +366,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#find)
+    /// [Qt documentation](https://api.kde.org/kfind.html#find)
     ///
     /// ``` text: []const u8, pattern: []const u8, index: i32, options: i64, matchedLength: *i32, rmatch: QtC.QRegularExpressionMatch ```
     pub fn Find2(text: []const u8, pattern: []const u8, index: i32, options: i64, matchedLength: *i32, rmatch: ?*anyopaque) i32 {
@@ -383,7 +383,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#findNextDialog)
+    /// [Qt documentation](https://api.kde.org/kfind.html#findNextDialog)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn FindNextDialog(self: ?*anyopaque) QtC.QDialog {
@@ -392,7 +392,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#closeFindNextDialog)
+    /// [Qt documentation](https://api.kde.org/kfind.html#closeFindNextDialog)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn CloseFindNextDialog(self: ?*anyopaque) void {
@@ -401,7 +401,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#index)
+    /// [Qt documentation](https://api.kde.org/kfind.html#index)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn Index(self: ?*anyopaque) i32 {
@@ -410,7 +410,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#textFound)
+    /// [Qt documentation](https://api.kde.org/kfind.html#textFound)
     ///
     /// ``` self: QtC.KReplace, text: []const u8, matchingIndex: i32, matchedLength: i32 ```
     pub fn TextFound(self: ?*anyopaque, text: []const u8, matchingIndex: i32, matchedLength: i32) void {
@@ -423,7 +423,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#textFound)
+    /// [Qt documentation](https://api.kde.org/kfind.html#textFound)
     ///
     /// ``` self: QtC.KReplace, slot: fn (self: QtC.KReplace, text: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void ```
     pub fn OnTextFound(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) void) void {
@@ -432,7 +432,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#textFoundAtId)
+    /// [Qt documentation](https://api.kde.org/kfind.html#textFoundAtId)
     ///
     /// ``` self: QtC.KReplace, id: i32, matchingIndex: i32, matchedLength: i32 ```
     pub fn TextFoundAtId(self: ?*anyopaque, id: i32, matchingIndex: i32, matchedLength: i32) void {
@@ -441,7 +441,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#textFoundAtId)
+    /// [Qt documentation](https://api.kde.org/kfind.html#textFoundAtId)
     ///
     /// ``` self: QtC.KReplace, slot: fn (self: QtC.KReplace, id: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void ```
     pub fn OnTextFoundAtId(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
@@ -450,7 +450,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#findNext)
+    /// [Qt documentation](https://api.kde.org/kfind.html#findNext)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn FindNext(self: ?*anyopaque) void {
@@ -459,7 +459,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#findNext)
+    /// [Qt documentation](https://api.kde.org/kfind.html#findNext)
     ///
     /// ``` self: QtC.KReplace, slot: fn (self: QtC.KReplace) callconv(.c) void ```
     pub fn OnFindNext(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -468,7 +468,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#optionsChanged)
+    /// [Qt documentation](https://api.kde.org/kfind.html#optionsChanged)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn OptionsChanged(self: ?*anyopaque) void {
@@ -477,7 +477,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#optionsChanged)
+    /// [Qt documentation](https://api.kde.org/kfind.html#optionsChanged)
     ///
     /// ``` self: QtC.KReplace, slot: fn (self: QtC.KReplace) callconv(.c) void ```
     pub fn OnOptionsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -486,7 +486,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogClosed)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogClosed)
     ///
     /// ``` self: QtC.KReplace ```
     pub fn DialogClosed(self: ?*anyopaque) void {
@@ -495,7 +495,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogClosed)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogClosed)
     ///
     /// ``` self: QtC.KReplace, slot: fn (self: QtC.KReplace) callconv(.c) void ```
     pub fn OnDialogClosed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -504,7 +504,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setData)
     ///
     /// ``` self: QtC.KReplace, data: []const u8, startPos: i32 ```
     pub fn SetData22(self: ?*anyopaque, data: []const u8, startPos: i32) void {
@@ -517,7 +517,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setData)
     ///
     /// ``` self: QtC.KReplace, id: i32, data: []const u8, startPos: i32 ```
     pub fn SetData3(self: ?*anyopaque, id: i32, data: []const u8, startPos: i32) void {
@@ -530,7 +530,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#findNextDialog)
+    /// [Qt documentation](https://api.kde.org/kfind.html#findNextDialog)
     ///
     /// ``` self: QtC.KReplace, create: bool ```
     pub fn FindNextDialog1(self: ?*anyopaque, create: bool) QtC.QDialog {
@@ -916,7 +916,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setOptions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -927,7 +927,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setOptions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -938,7 +938,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setOptions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -949,7 +949,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#validateMatch)
+    /// [Qt documentation](https://api.kde.org/kfind.html#validateMatch)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -964,7 +964,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#validateMatch)
+    /// [Qt documentation](https://api.kde.org/kfind.html#validateMatch)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -979,7 +979,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#validateMatch)
+    /// [Qt documentation](https://api.kde.org/kfind.html#validateMatch)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1221,7 +1221,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#parentWidget)
+    /// [Qt documentation](https://api.kde.org/kfind.html#parentWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1232,7 +1232,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#parentWidget)
+    /// [Qt documentation](https://api.kde.org/kfind.html#parentWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1243,7 +1243,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#parentWidget)
+    /// [Qt documentation](https://api.kde.org/kfind.html#parentWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1254,7 +1254,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogsParent)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogsParent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1265,7 +1265,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogsParent)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogsParent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1276,7 +1276,7 @@ pub const kreplace = struct {
 
     /// Inherited from KFind
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogsParent)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogsParent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1430,7 +1430,7 @@ pub const kreplace = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplace.html#dtor.KReplace)
+    /// [Qt documentation](https://api.kde.org/kreplace.html#dtor.KReplace)
     ///
     /// Delete this object from C++ memory.
     ///

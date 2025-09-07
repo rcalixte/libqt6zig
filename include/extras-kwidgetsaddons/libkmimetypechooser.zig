@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kmimetypechooser.html
+/// https://api.kde.org/kmimetypechooser.html
 pub const kmimetypechooser = struct {
     /// New constructs a new KMimeTypeChooser object.
     ///
@@ -245,7 +245,7 @@ pub const kmimetypechooser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmimetypechooser.html#mimeTypes)
+    /// [Qt documentation](https://api.kde.org/kmimetypechooser.html#mimeTypes)
     ///
     /// ``` self: QtC.KMimeTypeChooser, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -267,7 +267,7 @@ pub const kmimetypechooser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmimetypechooser.html#patterns)
+    /// [Qt documentation](https://api.kde.org/kmimetypechooser.html#patterns)
     ///
     /// ``` self: QtC.KMimeTypeChooser, allocator: std.mem.Allocator ```
     pub fn Patterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -5295,7 +5295,7 @@ pub const kmimetypechooser = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmimetypechooser.html#dtor.KMimeTypeChooser)
+    /// [Qt documentation](https://api.kde.org/kmimetypechooser.html#dtor.KMimeTypeChooser)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5305,7 +5305,7 @@ pub const kmimetypechooser = struct {
     }
 };
 
-/// https://api-staging.kde.org/kmimetypechooserdialog.html
+/// https://api.kde.org/kmimetypechooserdialog.html
 pub const kmimetypechooserdialog = struct {
     /// New constructs a new KMimeTypeChooserDialog object.
     ///
@@ -5642,21 +5642,21 @@ pub const kmimetypechooserdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmimetypechooserdialog.html#chooser)
+    /// [Qt documentation](https://api.kde.org/kmimetypechooserdialog.html#chooser)
     ///
     /// ``` self: QtC.KMimeTypeChooserDialog ```
     pub fn Chooser(self: ?*anyopaque) QtC.KMimeTypeChooser {
         return qtc.KMimeTypeChooserDialog_Chooser(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmimetypechooserdialog.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kmimetypechooserdialog.html#sizeHint)
     ///
     /// ``` self: QtC.KMimeTypeChooserDialog ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KMimeTypeChooserDialog_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmimetypechooserdialog.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kmimetypechooserdialog.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -5665,7 +5665,7 @@ pub const kmimetypechooserdialog = struct {
         qtc.KMimeTypeChooserDialog_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmimetypechooserdialog.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kmimetypechooserdialog.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -10944,7 +10944,7 @@ pub const kmimetypechooserdialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmimetypechooserdialog.html#dtor.KMimeTypeChooserDialog)
+    /// [Qt documentation](https://api.kde.org/kmimetypechooserdialog.html#dtor.KMimeTypeChooserDialog)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -10954,7 +10954,7 @@ pub const kmimetypechooserdialog = struct {
     }
 };
 
-/// https://api-staging.kde.org/kmimetypechooser.html#types
+/// https://api.kde.org/kmimetypechooser.html#types
 pub const enums = struct {
     pub const Visuals = enum {
         pub const Comments: i32 = 1;

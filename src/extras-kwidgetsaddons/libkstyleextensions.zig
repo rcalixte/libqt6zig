@@ -2,9 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qstyle_enums = @import("../libqstyle.zig").enums;
 
-/// https://api-staging.kde.org/kstyleextensions.html
+/// https://api.kde.org/kstyleextensions.html
 pub const kstyleextensions = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kstyleextensions.html#customControlElement)
+    /// [Qt documentation](https://api.kde.org/kstyleextensions.html#customControlElement)
     ///
     /// ``` param1: []const u8, param2: QtC.QWidget ```
     ///
@@ -17,7 +17,7 @@ pub const kstyleextensions = struct {
         return qtc.KStyleExtensions_CustomControlElement(param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstyleextensions.html#customStyleHint)
+    /// [Qt documentation](https://api.kde.org/kstyleextensions.html#customStyleHint)
     ///
     /// ``` param1: []const u8, param2: QtC.QWidget ```
     ///
@@ -30,7 +30,7 @@ pub const kstyleextensions = struct {
         return qtc.KStyleExtensions_CustomStyleHint(param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstyleextensions.html#customSubElement)
+    /// [Qt documentation](https://api.kde.org/kstyleextensions.html#customSubElement)
     ///
     /// ``` param1: []const u8, param2: QtC.QWidget ```
     ///

@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const kmessagebox_enums = @import("libkmessagebox.zig").enums;
 
-/// https://api-staging.kde.org/kmessageboxdontaskagaininterface.html
+/// https://api.kde.org/kmessageboxdontaskagaininterface.html
 pub const kmessageboxdontaskagaininterface = struct {
     /// New constructs a new KMessageBoxDontAskAgainInterface object.
     ///
@@ -11,7 +11,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         return qtc.KMessageBoxDontAskAgainInterface_new();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
     ///
     /// ``` self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: *kmessagebox_enums.ButtonCode ```
     pub fn ShouldBeShownTwoActions(self: ?*anyopaque, dontShowAgainName: []const u8, result: *i32) bool {
@@ -22,7 +22,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         return qtc.KMessageBoxDontAskAgainInterface_ShouldBeShownTwoActions(@ptrCast(self), dontShowAgainName_str, @ptrCast(result));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -31,7 +31,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
     ///
     /// Base class method implementation
     ///
@@ -44,7 +44,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         return qtc.KMessageBoxDontAskAgainInterface_QBaseShouldBeShownTwoActions(@ptrCast(self), dontShowAgainName_str, @ptrCast(result));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
     ///
     /// ``` self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8 ```
     pub fn ShouldBeShownContinue(self: ?*anyopaque, dontShowAgainName: []const u8) bool {
@@ -55,7 +55,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         return qtc.KMessageBoxDontAskAgainInterface_ShouldBeShownContinue(@ptrCast(self), dontShowAgainName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
     ///
     /// Allows for overriding the related default method
     ///
@@ -64,7 +64,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownContinue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
     ///
     /// Base class method implementation
     ///
@@ -77,7 +77,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         return qtc.KMessageBoxDontAskAgainInterface_QBaseShouldBeShownContinue(@ptrCast(self), dontShowAgainName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
     ///
     /// ``` self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: kmessagebox_enums.ButtonCode ```
     pub fn SaveDontShowAgainTwoActions(self: ?*anyopaque, dontShowAgainName: []const u8, result: i32) void {
@@ -88,7 +88,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_SaveDontShowAgainTwoActions(@ptrCast(self), dontShowAgainName_str, @intCast(result));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -97,7 +97,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainTwoActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
     ///
     /// Base class method implementation
     ///
@@ -110,7 +110,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_QBaseSaveDontShowAgainTwoActions(@ptrCast(self), dontShowAgainName_str, @intCast(result));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
     ///
     /// ``` self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8 ```
     pub fn SaveDontShowAgainContinue(self: ?*anyopaque, dontShowAgainName: []const u8) void {
@@ -121,7 +121,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_SaveDontShowAgainContinue(@ptrCast(self), dontShowAgainName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
     ///
     /// Allows for overriding the related default method
     ///
@@ -130,7 +130,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainContinue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
     ///
     /// Base class method implementation
     ///
@@ -143,14 +143,14 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_QBaseSaveDontShowAgainContinue(@ptrCast(self), dontShowAgainName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
     ///
     /// ``` self: QtC.KMessageBoxDontAskAgainInterface ```
     pub fn EnableAllMessages(self: ?*anyopaque) void {
         qtc.KMessageBoxDontAskAgainInterface_EnableAllMessages(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
     ///
     /// Allows for overriding the related default method
     ///
@@ -159,7 +159,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_OnEnableAllMessages(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
     ///
     /// Base class method implementation
     ///
@@ -168,7 +168,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_QBaseEnableAllMessages(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
     ///
     /// ``` self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8 ```
     pub fn EnableMessage(self: ?*anyopaque, dontShowAgainName: []const u8) void {
@@ -179,7 +179,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_EnableMessage(@ptrCast(self), dontShowAgainName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
     ///
     /// Allows for overriding the related default method
     ///
@@ -188,7 +188,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_OnEnableMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
     ///
     /// Base class method implementation
     ///
@@ -201,14 +201,14 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_QBaseEnableMessage(@ptrCast(self), dontShowAgainName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#setConfig)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#setConfig)
     ///
     /// ``` self: QtC.KMessageBoxDontAskAgainInterface, config: QtC.KConfig ```
     pub fn SetConfig(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KMessageBoxDontAskAgainInterface_SetConfig(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#setConfig)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#setConfig)
     ///
     /// Allows for overriding the related default method
     ///
@@ -217,7 +217,7 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_OnSetConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#setConfig)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#setConfig)
     ///
     /// Base class method implementation
     ///
@@ -226,14 +226,14 @@ pub const kmessageboxdontaskagaininterface = struct {
         qtc.KMessageBoxDontAskAgainInterface_QBaseSetConfig(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#operator-eq)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#operator-eq)
     ///
     /// ``` self: QtC.KMessageBoxDontAskAgainInterface, param1: QtC.KMessageBoxDontAskAgainInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KMessageBoxDontAskAgainInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxdontaskagaininterface.html#dtor.KMessageBoxDontAskAgainInterface)
+    /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#dtor.KMessageBoxDontAskAgainInterface)
     ///
     /// Delete this object from C++ memory.
     ///

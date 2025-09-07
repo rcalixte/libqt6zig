@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/klineediturldropeventfilter.html
+/// https://api.kde.org/klineediturldropeventfilter.html
 pub const klineediturldropeventfilter = struct {
     /// New constructs a new KLineEditUrlDropEventFilter object.
     ///
@@ -64,14 +64,14 @@ pub const klineediturldropeventfilter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineediturldropeventfilter.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/klineediturldropeventfilter.html#eventFilter)
     ///
     /// ``` self: QtC.KLineEditUrlDropEventFilter, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KLineEditUrlDropEventFilter_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineediturldropeventfilter.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/klineediturldropeventfilter.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -80,7 +80,7 @@ pub const klineediturldropeventfilter = struct {
         qtc.KLineEditUrlDropEventFilter_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineediturldropeventfilter.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/klineediturldropeventfilter.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -835,7 +835,7 @@ pub const klineediturldropeventfilter = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineediturldropeventfilter.html#dtor.KLineEditUrlDropEventFilter)
+    /// [Qt documentation](https://api.kde.org/klineediturldropeventfilter.html#dtor.KLineEditUrlDropEventFilter)
     ///
     /// Delete this object from C++ memory.
     ///

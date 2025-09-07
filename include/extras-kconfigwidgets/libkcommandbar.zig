@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcommandbar.html
+/// https://api.kde.org/kcommandbar.html
 pub const kcommandbar = struct {
     /// New constructs a new KCommandBar object.
     ///
@@ -62,7 +62,7 @@ pub const kcommandbar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar.html#setActions)
+    /// [Qt documentation](https://api.kde.org/kcommandbar.html#setActions)
     ///
     /// ``` self: QtC.KCommandBar, actions: []QtC.KCommandBar__ActionGroup ```
     pub fn SetActions(self: ?*anyopaque, actions: []QtC.KCommandBar__ActionGroup) void {
@@ -73,21 +73,21 @@ pub const kcommandbar = struct {
         qtc.KCommandBar_SetActions(@ptrCast(self), actions_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar.html#show)
+    /// [Qt documentation](https://api.kde.org/kcommandbar.html#show)
     ///
     /// ``` self: QtC.KCommandBar ```
     pub fn Show(self: ?*anyopaque) void {
         qtc.KCommandBar_Show(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kcommandbar.html#eventFilter)
     ///
     /// ``` self: QtC.KCommandBar, obj: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, obj: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KCommandBar_EventFilter(@ptrCast(self), @ptrCast(obj), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kcommandbar.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -96,7 +96,7 @@ pub const kcommandbar = struct {
         qtc.KCommandBar_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kcommandbar.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -5256,7 +5256,7 @@ pub const kcommandbar = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar.html#dtor.KCommandBar)
+    /// [Qt documentation](https://api.kde.org/kcommandbar.html#dtor.KCommandBar)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5266,7 +5266,7 @@ pub const kcommandbar = struct {
     }
 };
 
-/// https://api-staging.kde.org/kcommandbar-actiongroup.html
+/// https://api.kde.org/kcommandbar-actiongroup.html
 pub const kcommandbar__actiongroup = struct {
     /// New constructs a new KCommandBar::ActionGroup object.
     ///
@@ -5282,7 +5282,7 @@ pub const kcommandbar__actiongroup = struct {
         return qtc.KCommandBar__ActionGroup_new2();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar-actiongroup.html#name-var)
+    /// [Qt documentation](https://api.kde.org/kcommandbar-actiongroup.html#name-var)
     ///
     /// ``` self: QtC.KCommandBar__ActionGroup, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5293,7 +5293,7 @@ pub const kcommandbar__actiongroup = struct {
         return name_ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar-actiongroup.html#name-var)
+    /// [Qt documentation](https://api.kde.org/kcommandbar-actiongroup.html#name-var)
     ///
     /// ``` self: QtC.KCommandBar__ActionGroup, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -5304,7 +5304,7 @@ pub const kcommandbar__actiongroup = struct {
         qtc.KCommandBar__ActionGroup_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar-actiongroup.html#actions-var)
+    /// [Qt documentation](https://api.kde.org/kcommandbar-actiongroup.html#actions-var)
     ///
     /// ``` self: QtC.KCommandBar__ActionGroup, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -5316,7 +5316,7 @@ pub const kcommandbar__actiongroup = struct {
         return actions_ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar-actiongroup.html#actions-var)
+    /// [Qt documentation](https://api.kde.org/kcommandbar-actiongroup.html#actions-var)
     ///
     /// ``` self: QtC.KCommandBar__ActionGroup, actions: []QtC.QAction ```
     pub fn SetActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -5327,7 +5327,7 @@ pub const kcommandbar__actiongroup = struct {
         qtc.KCommandBar__ActionGroup_SetActions(@ptrCast(self), actions_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcommandbar-actiongroup.html#operator-eq)
+    /// [Qt documentation](https://api.kde.org/kcommandbar-actiongroup.html#operator-eq)
     ///
     /// ``` self: QtC.KCommandBar__ActionGroup, param1: QtC.KCommandBar__ActionGroup ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

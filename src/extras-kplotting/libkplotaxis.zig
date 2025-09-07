@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/kplotaxis.html
+/// https://api.kde.org/kplotaxis.html
 pub const kplotaxis = struct {
     /// New constructs a new KPlotAxis object.
     ///
@@ -23,35 +23,35 @@ pub const kplotaxis = struct {
         return qtc.KPlotAxis_new2(label_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#isVisible)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#isVisible)
     ///
     /// ``` self: QtC.KPlotAxis ```
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.KPlotAxis_IsVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#setVisible)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#setVisible)
     ///
     /// ``` self: QtC.KPlotAxis, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KPlotAxis_SetVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#areTickLabelsShown)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#areTickLabelsShown)
     ///
     /// ``` self: QtC.KPlotAxis ```
     pub fn AreTickLabelsShown(self: ?*anyopaque) bool {
         return qtc.KPlotAxis_AreTickLabelsShown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#setTickLabelsShown)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#setTickLabelsShown)
     ///
     /// ``` self: QtC.KPlotAxis, b: bool ```
     pub fn SetTickLabelsShown(self: ?*anyopaque, b: bool) void {
         qtc.KPlotAxis_SetTickLabelsShown(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#setLabel)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#setLabel)
     ///
     /// ``` self: QtC.KPlotAxis, label: []const u8 ```
     pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
@@ -62,7 +62,7 @@ pub const kplotaxis = struct {
         qtc.KPlotAxis_SetLabel(@ptrCast(self), label_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#label)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#label)
     ///
     /// ``` self: QtC.KPlotAxis, allocator: std.mem.Allocator ```
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -73,7 +73,7 @@ pub const kplotaxis = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#tickLabel)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#tickLabel)
     ///
     /// ``` self: QtC.KPlotAxis, value: f64, allocator: std.mem.Allocator ```
     pub fn TickLabel(self: ?*anyopaque, value: f64, allocator: std.mem.Allocator) []const u8 {
@@ -84,42 +84,42 @@ pub const kplotaxis = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#setTickLabelFormat)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#setTickLabelFormat)
     ///
     /// ``` self: QtC.KPlotAxis ```
     pub fn SetTickLabelFormat(self: ?*anyopaque) void {
         qtc.KPlotAxis_SetTickLabelFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#tickLabelWidth)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#tickLabelWidth)
     ///
     /// ``` self: QtC.KPlotAxis ```
     pub fn TickLabelWidth(self: ?*anyopaque) i32 {
         return qtc.KPlotAxis_TickLabelWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#tickLabelFormat)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#tickLabelFormat)
     ///
     /// ``` self: QtC.KPlotAxis ```
     pub fn TickLabelFormat(self: ?*anyopaque) i8 {
         return qtc.KPlotAxis_TickLabelFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#tickLabelPrecision)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#tickLabelPrecision)
     ///
     /// ``` self: QtC.KPlotAxis ```
     pub fn TickLabelPrecision(self: ?*anyopaque) i32 {
         return qtc.KPlotAxis_TickLabelPrecision(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#setTickMarks)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#setTickMarks)
     ///
     /// ``` self: QtC.KPlotAxis, x0: f64, length: f64 ```
     pub fn SetTickMarks(self: ?*anyopaque, x0: f64, length: f64) void {
         qtc.KPlotAxis_SetTickMarks(@ptrCast(self), @floatCast(x0), @floatCast(length));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#majorTickMarks)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#majorTickMarks)
     ///
     /// ``` self: QtC.KPlotAxis, allocator: std.mem.Allocator ```
     pub fn MajorTickMarks(self: ?*anyopaque, allocator: std.mem.Allocator) []f64 {
@@ -131,7 +131,7 @@ pub const kplotaxis = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#minorTickMarks)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#minorTickMarks)
     ///
     /// ``` self: QtC.KPlotAxis, allocator: std.mem.Allocator ```
     pub fn MinorTickMarks(self: ?*anyopaque, allocator: std.mem.Allocator) []f64 {
@@ -143,28 +143,28 @@ pub const kplotaxis = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#setTickLabelFormat)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#setTickLabelFormat)
     ///
     /// ``` self: QtC.KPlotAxis, format: i8 ```
     pub fn SetTickLabelFormat1(self: ?*anyopaque, format: i8) void {
         qtc.KPlotAxis_SetTickLabelFormat1(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#setTickLabelFormat)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#setTickLabelFormat)
     ///
     /// ``` self: QtC.KPlotAxis, format: i8, fieldWidth: i32 ```
     pub fn SetTickLabelFormat2(self: ?*anyopaque, format: i8, fieldWidth: i32) void {
         qtc.KPlotAxis_SetTickLabelFormat2(@ptrCast(self), @intCast(format), @intCast(fieldWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#setTickLabelFormat)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#setTickLabelFormat)
     ///
     /// ``` self: QtC.KPlotAxis, format: i8, fieldWidth: i32, precision: i32 ```
     pub fn SetTickLabelFormat3(self: ?*anyopaque, format: i8, fieldWidth: i32, precision: i32) void {
         qtc.KPlotAxis_SetTickLabelFormat3(@ptrCast(self), @intCast(format), @intCast(fieldWidth), @intCast(precision));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotaxis.html#dtor.KPlotAxis)
+    /// [Qt documentation](https://api.kde.org/kplotaxis.html#dtor.KPlotAxis)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -7,7 +7,7 @@ const std = @import("std");
 pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
 pub const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
-/// https://api-staging.kde.org/kpagemodel.html
+/// https://api.kde.org/kpagemodel.html
 pub const kpagemodel = struct {
     /// New constructs a new KPageModel object.
     ///
@@ -3364,7 +3364,7 @@ pub const kpagemodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagemodel.html#dtor.KPageModel)
+    /// [Qt documentation](https://api.kde.org/kpagemodel.html#dtor.KPageModel)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -3374,7 +3374,7 @@ pub const kpagemodel = struct {
     }
 };
 
-/// https://api-staging.kde.org/kpagemodel.html#types
+/// https://api.kde.org/kpagemodel.html#types
 pub const enums = struct {
     pub const Role = enum {
         pub const HeaderRole: i32 = 257;

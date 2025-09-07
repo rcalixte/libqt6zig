@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpasswordlineedit.html
+/// https://api.kde.org/kpasswordlineedit.html
 pub const kpasswordlineedit = struct {
     /// New constructs a new KPasswordLineEdit object.
     ///
@@ -70,7 +70,7 @@ pub const kpasswordlineedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#setPassword)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#setPassword)
     ///
     /// ``` self: QtC.KPasswordLineEdit, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
@@ -81,7 +81,7 @@ pub const kpasswordlineedit = struct {
         qtc.KPasswordLineEdit_SetPassword(@ptrCast(self), password_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#password)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#password)
     ///
     /// ``` self: QtC.KPasswordLineEdit, allocator: std.mem.Allocator ```
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -92,35 +92,35 @@ pub const kpasswordlineedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#clear)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#clear)
     ///
     /// ``` self: QtC.KPasswordLineEdit ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KPasswordLineEdit_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#setClearButtonEnabled)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#setClearButtonEnabled)
     ///
     /// ``` self: QtC.KPasswordLineEdit, clear: bool ```
     pub fn SetClearButtonEnabled(self: ?*anyopaque, clear: bool) void {
         qtc.KPasswordLineEdit_SetClearButtonEnabled(@ptrCast(self), clear);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#isClearButtonEnabled)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#isClearButtonEnabled)
     ///
     /// ``` self: QtC.KPasswordLineEdit ```
     pub fn IsClearButtonEnabled(self: ?*anyopaque) bool {
         return qtc.KPasswordLineEdit_IsClearButtonEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#setEchoMode)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#setEchoMode)
     ///
     /// ``` self: QtC.KPasswordLineEdit, mode: qlineedit_enums.EchoMode ```
     pub fn SetEchoMode(self: ?*anyopaque, mode: i32) void {
         qtc.KPasswordLineEdit_SetEchoMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#echoMode)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#echoMode)
     ///
     /// ``` self: QtC.KPasswordLineEdit ```
     ///
@@ -129,21 +129,21 @@ pub const kpasswordlineedit = struct {
         return qtc.KPasswordLineEdit_EchoMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#setReadOnly)
     ///
     /// ``` self: QtC.KPasswordLineEdit, readOnly: bool ```
     pub fn SetReadOnly(self: ?*anyopaque, readOnly: bool) void {
         qtc.KPasswordLineEdit_SetReadOnly(@ptrCast(self), readOnly);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#isReadOnly)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#isReadOnly)
     ///
     /// ``` self: QtC.KPasswordLineEdit ```
     pub fn IsReadOnly(self: ?*anyopaque) bool {
         return qtc.KPasswordLineEdit_IsReadOnly(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#revealPasswordMode)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#revealPasswordMode)
     ///
     /// ``` self: QtC.KPasswordLineEdit ```
     ///
@@ -152,56 +152,56 @@ pub const kpasswordlineedit = struct {
         return qtc.KPasswordLineEdit_RevealPasswordMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#setRevealPasswordMode)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#setRevealPasswordMode)
     ///
     /// ``` self: QtC.KPasswordLineEdit, revealPasswordMode: kpassword_enums.RevealMode ```
     pub fn SetRevealPasswordMode(self: ?*anyopaque, revealPasswordMode: i32) void {
         qtc.KPasswordLineEdit_SetRevealPasswordMode(@ptrCast(self), @intCast(revealPasswordMode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#setRevealPasswordAvailable)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#setRevealPasswordAvailable)
     ///
     /// ``` self: QtC.KPasswordLineEdit, reveal: bool ```
     pub fn SetRevealPasswordAvailable(self: ?*anyopaque, reveal: bool) void {
         qtc.KPasswordLineEdit_SetRevealPasswordAvailable(@ptrCast(self), reveal);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#isRevealPasswordAvailable)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#isRevealPasswordAvailable)
     ///
     /// ``` self: QtC.KPasswordLineEdit ```
     pub fn IsRevealPasswordAvailable(self: ?*anyopaque) bool {
         return qtc.KPasswordLineEdit_IsRevealPasswordAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#toggleEchoModeAction)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#toggleEchoModeAction)
     ///
     /// ``` self: QtC.KPasswordLineEdit ```
     pub fn ToggleEchoModeAction(self: ?*anyopaque) QtC.QAction {
         return qtc.KPasswordLineEdit_ToggleEchoModeAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#lineEdit)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#lineEdit)
     ///
     /// ``` self: QtC.KPasswordLineEdit ```
     pub fn LineEdit(self: ?*anyopaque) QtC.QLineEdit {
         return qtc.KPasswordLineEdit_LineEdit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#echoModeChanged)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#echoModeChanged)
     ///
     /// ``` self: QtC.KPasswordLineEdit, echoMode: qlineedit_enums.EchoMode ```
     pub fn EchoModeChanged(self: ?*anyopaque, echoMode: i32) void {
         qtc.KPasswordLineEdit_EchoModeChanged(@ptrCast(self), @intCast(echoMode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#echoModeChanged)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#echoModeChanged)
     ///
     /// ``` self: QtC.KPasswordLineEdit, slot: fn (self: QtC.KPasswordLineEdit, echoMode: qlineedit_enums.EchoMode) callconv(.c) void ```
     pub fn OnEchoModeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KPasswordLineEdit_Connect_EchoModeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#passwordChanged)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#passwordChanged)
     ///
     /// ``` self: QtC.KPasswordLineEdit, password: []const u8 ```
     pub fn PasswordChanged(self: ?*anyopaque, password: []const u8) void {
@@ -212,7 +212,7 @@ pub const kpasswordlineedit = struct {
         qtc.KPasswordLineEdit_PasswordChanged(@ptrCast(self), password_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#passwordChanged)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#passwordChanged)
     ///
     /// ``` self: QtC.KPasswordLineEdit, slot: fn (self: QtC.KPasswordLineEdit, password: [*:0]const u8) callconv(.c) void ```
     pub fn OnPasswordChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -5225,7 +5225,7 @@ pub const kpasswordlineedit = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpasswordlineedit.html#dtor.KPasswordLineEdit)
+    /// [Qt documentation](https://api.kde.org/kpasswordlineedit.html#dtor.KPasswordLineEdit)
     ///
     /// Delete this object from C++ memory.
     ///

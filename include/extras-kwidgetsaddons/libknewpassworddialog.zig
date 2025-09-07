@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/knewpassworddialog.html
+/// https://api.kde.org/knewpassworddialog.html
 pub const knewpassworddialog = struct {
     /// New constructs a new KNewPasswordDialog object.
     ///
@@ -69,7 +69,7 @@ pub const knewpassworddialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setPrompt)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setPrompt)
     ///
     /// ``` self: QtC.KNewPasswordDialog, prompt: []const u8 ```
     pub fn SetPrompt(self: ?*anyopaque, prompt: []const u8) void {
@@ -80,7 +80,7 @@ pub const knewpassworddialog = struct {
         qtc.KNewPasswordDialog_SetPrompt(@ptrCast(self), prompt_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#prompt)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#prompt)
     ///
     /// ``` self: QtC.KNewPasswordDialog, allocator: std.mem.Allocator ```
     pub fn Prompt(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -91,105 +91,105 @@ pub const knewpassworddialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setIcon)
     ///
     /// ``` self: QtC.KNewPasswordDialog, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KNewPasswordDialog_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#icon)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#icon)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KNewPasswordDialog_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setAllowEmptyPasswords)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setAllowEmptyPasswords)
     ///
     /// ``` self: QtC.KNewPasswordDialog, allowed: bool ```
     pub fn SetAllowEmptyPasswords(self: ?*anyopaque, allowed: bool) void {
         qtc.KNewPasswordDialog_SetAllowEmptyPasswords(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#allowEmptyPasswords)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#allowEmptyPasswords)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     pub fn AllowEmptyPasswords(self: ?*anyopaque) bool {
         return qtc.KNewPasswordDialog_AllowEmptyPasswords(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setMinimumPasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setMinimumPasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordDialog, minLength: i32 ```
     pub fn SetMinimumPasswordLength(self: ?*anyopaque, minLength: i32) void {
         qtc.KNewPasswordDialog_SetMinimumPasswordLength(@ptrCast(self), @intCast(minLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#minimumPasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#minimumPasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     pub fn MinimumPasswordLength(self: ?*anyopaque) i32 {
         return qtc.KNewPasswordDialog_MinimumPasswordLength(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setMaximumPasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setMaximumPasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordDialog, maxLength: i32 ```
     pub fn SetMaximumPasswordLength(self: ?*anyopaque, maxLength: i32) void {
         qtc.KNewPasswordDialog_SetMaximumPasswordLength(@ptrCast(self), @intCast(maxLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#maximumPasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#maximumPasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     pub fn MaximumPasswordLength(self: ?*anyopaque) i32 {
         return qtc.KNewPasswordDialog_MaximumPasswordLength(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setReasonablePasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setReasonablePasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordDialog, reasonableLength: i32 ```
     pub fn SetReasonablePasswordLength(self: ?*anyopaque, reasonableLength: i32) void {
         qtc.KNewPasswordDialog_SetReasonablePasswordLength(@ptrCast(self), @intCast(reasonableLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#reasonablePasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#reasonablePasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     pub fn ReasonablePasswordLength(self: ?*anyopaque) i32 {
         return qtc.KNewPasswordDialog_ReasonablePasswordLength(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setPasswordStrengthWarningLevel)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setPasswordStrengthWarningLevel)
     ///
     /// ``` self: QtC.KNewPasswordDialog, warningLevel: i32 ```
     pub fn SetPasswordStrengthWarningLevel(self: ?*anyopaque, warningLevel: i32) void {
         qtc.KNewPasswordDialog_SetPasswordStrengthWarningLevel(@ptrCast(self), @intCast(warningLevel));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#passwordStrengthWarningLevel)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#passwordStrengthWarningLevel)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     pub fn PasswordStrengthWarningLevel(self: ?*anyopaque) i32 {
         return qtc.KNewPasswordDialog_PasswordStrengthWarningLevel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setBackgroundWarningColor)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setBackgroundWarningColor)
     ///
     /// ``` self: QtC.KNewPasswordDialog, color: QtC.QColor ```
     pub fn SetBackgroundWarningColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KNewPasswordDialog_SetBackgroundWarningColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#backgroundWarningColor)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#backgroundWarningColor)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     pub fn BackgroundWarningColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KNewPasswordDialog_BackgroundWarningColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#password)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#password)
     ///
     /// ``` self: QtC.KNewPasswordDialog, allocator: std.mem.Allocator ```
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -200,21 +200,21 @@ pub const knewpassworddialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setRevealPasswordAvailable)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setRevealPasswordAvailable)
     ///
     /// ``` self: QtC.KNewPasswordDialog, reveal: bool ```
     pub fn SetRevealPasswordAvailable(self: ?*anyopaque, reveal: bool) void {
         qtc.KNewPasswordDialog_SetRevealPasswordAvailable(@ptrCast(self), reveal);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#isRevealPasswordAvailable)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#isRevealPasswordAvailable)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     pub fn IsRevealPasswordAvailable(self: ?*anyopaque) bool {
         return qtc.KNewPasswordDialog_IsRevealPasswordAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#revealPasswordMode)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#revealPasswordMode)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     ///
@@ -223,21 +223,21 @@ pub const knewpassworddialog = struct {
         return qtc.KNewPasswordDialog_RevealPasswordMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#setRevealPasswordMode)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#setRevealPasswordMode)
     ///
     /// ``` self: QtC.KNewPasswordDialog, revealPasswordMode: kpassword_enums.RevealMode ```
     pub fn SetRevealPasswordMode(self: ?*anyopaque, revealPasswordMode: i32) void {
         qtc.KNewPasswordDialog_SetRevealPasswordMode(@ptrCast(self), @intCast(revealPasswordMode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#accept)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#accept)
     ///
     /// ``` self: QtC.KNewPasswordDialog ```
     pub fn Accept(self: ?*anyopaque) void {
         qtc.KNewPasswordDialog_Accept(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#accept)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#accept)
     ///
     /// Allows for overriding the related default method
     ///
@@ -246,7 +246,7 @@ pub const knewpassworddialog = struct {
         qtc.KNewPasswordDialog_OnAccept(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#accept)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#accept)
     ///
     /// Base class method implementation
     ///
@@ -255,7 +255,7 @@ pub const knewpassworddialog = struct {
         qtc.KNewPasswordDialog_QBaseAccept(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#checkPassword)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#checkPassword)
     ///
     /// ``` self: QtC.KNewPasswordDialog, param1: []const u8 ```
     pub fn CheckPassword(self: ?*anyopaque, param1: []const u8) bool {
@@ -266,7 +266,7 @@ pub const knewpassworddialog = struct {
         return qtc.KNewPasswordDialog_CheckPassword(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#checkPassword)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#checkPassword)
     ///
     /// Allows for overriding the related default method
     ///
@@ -275,7 +275,7 @@ pub const knewpassworddialog = struct {
         qtc.KNewPasswordDialog_OnCheckPassword(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#checkPassword)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#checkPassword)
     ///
     /// Base class method implementation
     ///
@@ -288,7 +288,7 @@ pub const knewpassworddialog = struct {
         return qtc.KNewPasswordDialog_QBaseCheckPassword(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#newPassword)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#newPassword)
     ///
     /// ``` self: QtC.KNewPasswordDialog, password: []const u8 ```
     pub fn NewPassword(self: ?*anyopaque, password: []const u8) void {
@@ -299,7 +299,7 @@ pub const knewpassworddialog = struct {
         qtc.KNewPasswordDialog_NewPassword(@ptrCast(self), password_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#newPassword)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#newPassword)
     ///
     /// ``` self: QtC.KNewPasswordDialog, slot: fn (self: QtC.KNewPasswordDialog, password: [*:0]const u8) callconv(.c) void ```
     pub fn OnNewPassword(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -5576,7 +5576,7 @@ pub const knewpassworddialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpassworddialog.html#dtor.KNewPasswordDialog)
+    /// [Qt documentation](https://api.kde.org/knewpassworddialog.html#dtor.KNewPasswordDialog)
     ///
     /// Delete this object from C++ memory.
     ///

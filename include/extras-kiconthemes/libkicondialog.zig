@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kicondialog.html
+/// https://api.kde.org/kicondialog.html
 pub const kicondialog = struct {
     /// New constructs a new KIconDialog object.
     ///
@@ -69,21 +69,21 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setStrictIconSize)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setStrictIconSize)
     ///
     /// ``` self: QtC.KIconDialog, policy: bool ```
     pub fn SetStrictIconSize(self: ?*anyopaque, policy: bool) void {
         qtc.KIconDialog_SetStrictIconSize(@ptrCast(self), policy);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#strictIconSize)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#strictIconSize)
     ///
     /// ``` self: QtC.KIconDialog ```
     pub fn StrictIconSize(self: ?*anyopaque) bool {
         return qtc.KIconDialog_StrictIconSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setCustomLocation)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setCustomLocation)
     ///
     /// ``` self: QtC.KIconDialog, location: []const u8 ```
     pub fn SetCustomLocation(self: ?*anyopaque, location: []const u8) void {
@@ -94,21 +94,21 @@ pub const kicondialog = struct {
         qtc.KIconDialog_SetCustomLocation(@ptrCast(self), location_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setIconSize)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setIconSize)
     ///
     /// ``` self: QtC.KIconDialog, size: i32 ```
     pub fn SetIconSize(self: ?*anyopaque, size: i32) void {
         qtc.KIconDialog_SetIconSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#iconSize)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#iconSize)
     ///
     /// ``` self: QtC.KIconDialog ```
     pub fn IconSize(self: ?*anyopaque) i32 {
         return qtc.KIconDialog_IconSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setSelectedIcon)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setSelectedIcon)
     ///
     /// ``` self: QtC.KIconDialog, iconName: []const u8 ```
     pub fn SetSelectedIcon(self: ?*anyopaque, iconName: []const u8) void {
@@ -119,14 +119,14 @@ pub const kicondialog = struct {
         qtc.KIconDialog_SetSelectedIcon(@ptrCast(self), iconName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setup)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ``` self: QtC.KIconDialog, group: kiconloader_enums.Group ```
     pub fn Setup(self: ?*anyopaque, group: i32) void {
         qtc.KIconDialog_Setup(@ptrCast(self), @intCast(group));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#openDialog)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#openDialog)
     ///
     /// ``` self: QtC.KIconDialog, allocator: std.mem.Allocator ```
     pub fn OpenDialog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -137,14 +137,14 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#showDialog)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#showDialog)
     ///
     /// ``` self: QtC.KIconDialog ```
     pub fn ShowDialog(self: ?*anyopaque) void {
         qtc.KIconDialog_ShowDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#getIcon)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#getIcon)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn GetIcon(allocator: std.mem.Allocator) []const u8 {
@@ -155,7 +155,7 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#newIconName)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#newIconName)
     ///
     /// ``` self: QtC.KIconDialog, iconName: []const u8 ```
     pub fn NewIconName(self: ?*anyopaque, iconName: []const u8) void {
@@ -166,21 +166,21 @@ pub const kicondialog = struct {
         qtc.KIconDialog_NewIconName(@ptrCast(self), iconName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#newIconName)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#newIconName)
     ///
     /// ``` self: QtC.KIconDialog, slot: fn (self: QtC.KIconDialog, iconName: [*:0]const u8) callconv(.c) void ```
     pub fn OnNewIconName(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KIconDialog_Connect_NewIconName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#showEvent)
     ///
     /// ``` self: QtC.KIconDialog, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KIconDialog_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -189,7 +189,7 @@ pub const kicondialog = struct {
         qtc.KIconDialog_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -198,14 +198,14 @@ pub const kicondialog = struct {
         qtc.KIconDialog_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#slotOk)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#slotOk)
     ///
     /// ``` self: QtC.KIconDialog ```
     pub fn SlotOk(self: ?*anyopaque) void {
         qtc.KIconDialog_SlotOk(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#slotOk)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#slotOk)
     ///
     /// Allows for overriding the related default method
     ///
@@ -214,7 +214,7 @@ pub const kicondialog = struct {
         qtc.KIconDialog_OnSlotOk(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#slotOk)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#slotOk)
     ///
     /// Base class method implementation
     ///
@@ -249,49 +249,49 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setup)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ``` self: QtC.KIconDialog, group: kiconloader_enums.Group, context: kiconloader_enums.Context ```
     pub fn Setup2(self: ?*anyopaque, group: i32, context: i32) void {
         qtc.KIconDialog_Setup2(@ptrCast(self), @intCast(group), @intCast(context));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setup)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ``` self: QtC.KIconDialog, group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool ```
     pub fn Setup3(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool) void {
         qtc.KIconDialog_Setup3(@ptrCast(self), @intCast(group), @intCast(context), strictIconSize);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setup)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ``` self: QtC.KIconDialog, group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool, iconSize: i32 ```
     pub fn Setup4(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool, iconSize: i32) void {
         qtc.KIconDialog_Setup4(@ptrCast(self), @intCast(group), @intCast(context), strictIconSize, @intCast(iconSize));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setup)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ``` self: QtC.KIconDialog, group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool, iconSize: i32, user: bool ```
     pub fn Setup5(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool) void {
         qtc.KIconDialog_Setup5(@ptrCast(self), @intCast(group), @intCast(context), strictIconSize, @intCast(iconSize), user);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setup)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ``` self: QtC.KIconDialog, group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool, iconSize: i32, user: bool, lockUser: bool ```
     pub fn Setup6(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, lockUser: bool) void {
         qtc.KIconDialog_Setup6(@ptrCast(self), @intCast(group), @intCast(context), strictIconSize, @intCast(iconSize), user, lockUser);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#setup)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ``` self: QtC.KIconDialog, group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool, iconSize: i32, user: bool, lockUser: bool, lockCustomDir: bool ```
     pub fn Setup7(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, lockUser: bool, lockCustomDir: bool) void {
         qtc.KIconDialog_Setup7(@ptrCast(self), @intCast(group), @intCast(context), strictIconSize, @intCast(iconSize), user, lockUser, lockCustomDir);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#getIcon)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#getIcon)
     ///
     /// ``` group: kiconloader_enums.Group, allocator: std.mem.Allocator ```
     pub fn GetIcon1(group: i32, allocator: std.mem.Allocator) []const u8 {
@@ -302,7 +302,7 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#getIcon)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#getIcon)
     ///
     /// ``` group: kiconloader_enums.Group, context: kiconloader_enums.Context, allocator: std.mem.Allocator ```
     pub fn GetIcon2(group: i32, context: i32, allocator: std.mem.Allocator) []const u8 {
@@ -313,7 +313,7 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#getIcon)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#getIcon)
     ///
     /// ``` group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool, allocator: std.mem.Allocator ```
     pub fn GetIcon3(group: i32, context: i32, strictIconSize: bool, allocator: std.mem.Allocator) []const u8 {
@@ -324,7 +324,7 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#getIcon)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#getIcon)
     ///
     /// ``` group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool, iconSize: i32, allocator: std.mem.Allocator ```
     pub fn GetIcon4(group: i32, context: i32, strictIconSize: bool, iconSize: i32, allocator: std.mem.Allocator) []const u8 {
@@ -335,7 +335,7 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#getIcon)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#getIcon)
     ///
     /// ``` group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool, iconSize: i32, user: bool, allocator: std.mem.Allocator ```
     pub fn GetIcon5(group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, allocator: std.mem.Allocator) []const u8 {
@@ -346,7 +346,7 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#getIcon)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#getIcon)
     ///
     /// ``` group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool, iconSize: i32, user: bool, parent: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn GetIcon6(group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, parent: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -357,7 +357,7 @@ pub const kicondialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#getIcon)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#getIcon)
     ///
     /// ``` group: kiconloader_enums.Group, context: kiconloader_enums.Context, strictIconSize: bool, iconSize: i32, user: bool, parent: QtC.QWidget, title: []const u8, allocator: std.mem.Allocator ```
     pub fn GetIcon7(group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, parent: ?*anyopaque, title: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -5616,7 +5616,7 @@ pub const kicondialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kicondialog.html#dtor.KIconDialog)
+    /// [Qt documentation](https://api.kde.org/kicondialog.html#dtor.KIconDialog)
     ///
     /// Delete this object from C++ memory.
     ///

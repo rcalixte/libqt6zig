@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ksystemclipboard.html
+/// https://api.kde.org/ksystemclipboard.html
 pub const ksystemclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -37,35 +37,35 @@ pub const ksystemclipboard = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksystemclipboard.html#instance)
+    /// [Qt documentation](https://api.kde.org/ksystemclipboard.html#instance)
     ///
     ///
     pub fn Instance() QtC.KSystemClipboard {
         return qtc.KSystemClipboard_Instance();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksystemclipboard.html#setMimeData)
+    /// [Qt documentation](https://api.kde.org/ksystemclipboard.html#setMimeData)
     ///
     /// ``` self: QtC.KSystemClipboard, mime: QtC.QMimeData, mode: qclipboard_enums.Mode ```
     pub fn SetMimeData(self: ?*anyopaque, mime: ?*anyopaque, mode: i32) void {
         qtc.KSystemClipboard_SetMimeData(@ptrCast(self), @ptrCast(mime), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksystemclipboard.html#clear)
+    /// [Qt documentation](https://api.kde.org/ksystemclipboard.html#clear)
     ///
     /// ``` self: QtC.KSystemClipboard, mode: qclipboard_enums.Mode ```
     pub fn Clear(self: ?*anyopaque, mode: i32) void {
         qtc.KSystemClipboard_Clear(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksystemclipboard.html#mimeData)
+    /// [Qt documentation](https://api.kde.org/ksystemclipboard.html#mimeData)
     ///
     /// ``` self: QtC.KSystemClipboard, mode: qclipboard_enums.Mode ```
     pub fn MimeData(self: ?*anyopaque, mode: i32) QtC.QMimeData {
         return qtc.KSystemClipboard_MimeData(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksystemclipboard.html#text)
+    /// [Qt documentation](https://api.kde.org/ksystemclipboard.html#text)
     ///
     /// ``` self: QtC.KSystemClipboard, mode: qclipboard_enums.Mode, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []const u8 {
@@ -76,14 +76,14 @@ pub const ksystemclipboard = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksystemclipboard.html#changed)
+    /// [Qt documentation](https://api.kde.org/ksystemclipboard.html#changed)
     ///
     /// ``` self: QtC.KSystemClipboard, mode: qclipboard_enums.Mode ```
     pub fn Changed(self: ?*anyopaque, mode: i32) void {
         qtc.KSystemClipboard_Changed(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksystemclipboard.html#changed)
+    /// [Qt documentation](https://api.kde.org/ksystemclipboard.html#changed)
     ///
     /// ``` self: QtC.KSystemClipboard, slot: fn (self: QtC.KSystemClipboard, mode: qclipboard_enums.Mode) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -522,7 +522,7 @@ pub const ksystemclipboard = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksystemclipboard.html#dtor.KSystemClipboard)
+    /// [Qt documentation](https://api.kde.org/ksystemclipboard.html#dtor.KSystemClipboard)
     ///
     /// Delete this object from C++ memory.
     ///

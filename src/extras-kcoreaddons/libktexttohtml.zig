@@ -3,9 +3,9 @@ const qtc = @import("qt6c");
 const ktexttohtml_enums = enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktexttohtml.html
+/// https://api.kde.org/ktexttohtml.html
 pub const ktexttohtml = struct {
-    /// [Qt documentation](https://api-staging.kde.org/ktexttohtml.html#convertToHtml)
+    /// [Qt documentation](https://api.kde.org/ktexttohtml.html#convertToHtml)
     ///
     /// ``` param1: []const u8, param2: *const flag of ktexttohtml_enums.Option, param3: i32, param4: i32, allocator: std.mem.Allocator ```
     pub fn ConvertToHtml(param1: []const u8, param2: *const i32, param3: i32, param4: i32, allocator: std.mem.Allocator) []const u8 {
@@ -21,7 +21,7 @@ pub const ktexttohtml = struct {
     }
 };
 
-/// https://api-staging.kde.org/ktexttohtml.html#types
+/// https://api.kde.org/ktexttohtml.html#types
 pub const enums = struct {
     pub const Option = enum {
         pub const PreserveSpaces: i32 = 2;

@@ -6,7 +6,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const struct_constu8_constu8 = extern struct { first: []const u8, second: []const u8 };
 
-/// https://api-staging.kde.org/kjobtrackerinterface.html
+/// https://api.kde.org/kjobtrackerinterface.html
 pub const kjobtrackerinterface = struct {
     /// New constructs a new KJobTrackerInterface object.
     ///
@@ -66,14 +66,14 @@ pub const kjobtrackerinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#registerJob)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#registerJob)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob ```
     pub fn RegisterJob(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KJobTrackerInterface_RegisterJob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#registerJob)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#registerJob)
     ///
     /// Allows for overriding the related default method
     ///
@@ -82,7 +82,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnRegisterJob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#registerJob)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#registerJob)
     ///
     /// Base class method implementation
     ///
@@ -91,14 +91,14 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseRegisterJob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#unregisterJob)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#unregisterJob)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob ```
     pub fn UnregisterJob(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KJobTrackerInterface_UnregisterJob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#unregisterJob)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#unregisterJob)
     ///
     /// Allows for overriding the related default method
     ///
@@ -107,7 +107,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnUnregisterJob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#unregisterJob)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#unregisterJob)
     ///
     /// Base class method implementation
     ///
@@ -116,14 +116,14 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseUnregisterJob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#finished)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#finished)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob ```
     pub fn Finished(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KJobTrackerInterface_Finished(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#finished)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#finished)
     ///
     /// Allows for overriding the related default method
     ///
@@ -132,7 +132,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#finished)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#finished)
     ///
     /// Base class method implementation
     ///
@@ -141,14 +141,14 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseFinished(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#suspended)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#suspended)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob ```
     pub fn Suspended(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KJobTrackerInterface_Suspended(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#suspended)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#suspended)
     ///
     /// Allows for overriding the related default method
     ///
@@ -157,7 +157,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnSuspended(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#suspended)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#suspended)
     ///
     /// Base class method implementation
     ///
@@ -166,14 +166,14 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseSuspended(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#resumed)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#resumed)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob ```
     pub fn Resumed(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KJobTrackerInterface_Resumed(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#resumed)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#resumed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -182,7 +182,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnResumed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#resumed)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#resumed)
     ///
     /// Base class method implementation
     ///
@@ -191,7 +191,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseResumed(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#description)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#description)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8 ```
     pub fn Description(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) void {
@@ -210,7 +210,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_Description(@ptrCast(self), @ptrCast(job), title_str, field1_pair, field2_pair);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#description)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#description)
     ///
     /// Allows for overriding the related default method
     ///
@@ -219,7 +219,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnDescription(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#description)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#description)
     ///
     /// Base class method implementation
     ///
@@ -240,7 +240,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseDescription(@ptrCast(self), @ptrCast(job), title_str, field1_pair, field2_pair);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#infoMessage)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#infoMessage)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob, message: []const u8 ```
     pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -251,7 +251,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_InfoMessage(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#infoMessage)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#infoMessage)
     ///
     /// Allows for overriding the related default method
     ///
@@ -260,7 +260,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnInfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#infoMessage)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#infoMessage)
     ///
     /// Base class method implementation
     ///
@@ -273,7 +273,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#warning)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#warning)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob, message: []const u8 ```
     pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -284,7 +284,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_Warning(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#warning)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#warning)
     ///
     /// Allows for overriding the related default method
     ///
@@ -293,7 +293,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnWarning(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#warning)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#warning)
     ///
     /// Base class method implementation
     ///
@@ -306,14 +306,14 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseWarning(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#totalAmount)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#totalAmount)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64 ```
     pub fn TotalAmount(self: ?*anyopaque, job: ?*anyopaque, unit: i32, amount: u64) void {
         qtc.KJobTrackerInterface_TotalAmount(@ptrCast(self), @ptrCast(job), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#totalAmount)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#totalAmount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -322,7 +322,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnTotalAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#totalAmount)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#totalAmount)
     ///
     /// Base class method implementation
     ///
@@ -331,14 +331,14 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseTotalAmount(@ptrCast(self), @ptrCast(job), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#processedAmount)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#processedAmount)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64 ```
     pub fn ProcessedAmount(self: ?*anyopaque, job: ?*anyopaque, unit: i32, amount: u64) void {
         qtc.KJobTrackerInterface_ProcessedAmount(@ptrCast(self), @ptrCast(job), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#processedAmount)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#processedAmount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -347,7 +347,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnProcessedAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#processedAmount)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#processedAmount)
     ///
     /// Base class method implementation
     ///
@@ -356,14 +356,14 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBaseProcessedAmount(@ptrCast(self), @ptrCast(job), @intCast(unit), @intCast(amount));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#percent)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#percent)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob, percent: u64 ```
     pub fn Percent(self: ?*anyopaque, job: ?*anyopaque, percent: u64) void {
         qtc.KJobTrackerInterface_Percent(@ptrCast(self), @ptrCast(job), @intCast(percent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#percent)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#percent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -372,7 +372,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnPercent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#percent)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#percent)
     ///
     /// Base class method implementation
     ///
@@ -381,14 +381,14 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_QBasePercent(@ptrCast(self), @ptrCast(job), @intCast(percent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#speed)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#speed)
     ///
     /// ``` self: QtC.KJobTrackerInterface, job: QtC.KJob, value: u64 ```
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, value: u64) void {
         qtc.KJobTrackerInterface_Speed(@ptrCast(self), @ptrCast(job), @intCast(value));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#speed)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#speed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -397,7 +397,7 @@ pub const kjobtrackerinterface = struct {
         qtc.KJobTrackerInterface_OnSpeed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#speed)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#speed)
     ///
     /// Base class method implementation
     ///
@@ -1185,7 +1185,7 @@ pub const kjobtrackerinterface = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobtrackerinterface.html#dtor.KJobTrackerInterface)
+    /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#dtor.KJobTrackerInterface)
     ///
     /// Delete this object from C++ memory.
     ///

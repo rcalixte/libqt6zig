@@ -8,7 +8,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qtoolbutton_enums = @import("../libqtoolbutton.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcodecaction.html
+/// https://api.kde.org/kcodecaction.html
 pub const kcodecaction = struct {
     /// New constructs a new KCodecAction object.
     ///
@@ -116,7 +116,7 @@ pub const kcodecaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#currentCodecName)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#currentCodecName)
     ///
     /// ``` self: QtC.KCodecAction, allocator: std.mem.Allocator ```
     pub fn CurrentCodecName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -127,7 +127,7 @@ pub const kcodecaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#setCurrentCodec)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#setCurrentCodec)
     ///
     /// ``` self: QtC.KCodecAction, codecName: []const u8 ```
     pub fn SetCurrentCodec(self: ?*anyopaque, codecName: []const u8) bool {
@@ -138,7 +138,7 @@ pub const kcodecaction = struct {
         return qtc.KCodecAction_SetCurrentCodec(@ptrCast(self), codecName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#codecNameTriggered)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#codecNameTriggered)
     ///
     /// ``` self: QtC.KCodecAction, name: []u8 ```
     pub fn CodecNameTriggered(self: ?*anyopaque, name: []u8) void {
@@ -149,35 +149,35 @@ pub const kcodecaction = struct {
         qtc.KCodecAction_CodecNameTriggered(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#codecNameTriggered)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#codecNameTriggered)
     ///
     /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, name: [*:0]u8) callconv(.c) void ```
     pub fn OnCodecNameTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8) callconv(.c) void) void {
         qtc.KCodecAction_Connect_CodecNameTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#defaultItemTriggered)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#defaultItemTriggered)
     ///
     /// ``` self: QtC.KCodecAction ```
     pub fn DefaultItemTriggered(self: ?*anyopaque) void {
         qtc.KCodecAction_DefaultItemTriggered(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#defaultItemTriggered)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#defaultItemTriggered)
     ///
     /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction) callconv(.c) void ```
     pub fn OnDefaultItemTriggered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KCodecAction_Connect_DefaultItemTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#slotActionTriggered)
     ///
     /// ``` self: QtC.KCodecAction, param1: QtC.QAction ```
     pub fn SlotActionTriggered(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCodecAction_SlotActionTriggered(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#slotActionTriggered)
     ///
     /// Allows for overriding the related default method
     ///
@@ -186,7 +186,7 @@ pub const kcodecaction = struct {
         qtc.KCodecAction_OnSlotActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#slotActionTriggered)
     ///
     /// Base class method implementation
     ///
@@ -223,7 +223,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#toolBarMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolBarMode)
     ///
     /// ``` self: QtC.KCodecAction ```
     ///
@@ -234,7 +234,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setToolBarMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolBarMode)
     ///
     /// ``` self: QtC.KCodecAction, mode: kselectaction_enums.ToolBarMode ```
     pub fn SetToolBarMode(self: ?*anyopaque, mode: i32) void {
@@ -243,7 +243,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#toolButtonPopupMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
     ///
     /// ``` self: QtC.KCodecAction ```
     ///
@@ -254,7 +254,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setToolButtonPopupMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
     ///
     /// ``` self: QtC.KCodecAction, mode: qtoolbutton_enums.ToolButtonPopupMode ```
     pub fn SetToolButtonPopupMode(self: ?*anyopaque, mode: i32) void {
@@ -263,7 +263,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#selectableActionGroup)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#selectableActionGroup)
     ///
     /// ``` self: QtC.KCodecAction ```
     pub fn SelectableActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -272,7 +272,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentAction)
     ///
     /// ``` self: QtC.KCodecAction ```
     pub fn CurrentAction(self: ?*anyopaque) QtC.QAction {
@@ -281,7 +281,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentItem)
     ///
     /// ``` self: QtC.KCodecAction ```
     pub fn CurrentItem(self: ?*anyopaque) i32 {
@@ -290,7 +290,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentText)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentText)
     ///
     /// ``` self: QtC.KCodecAction, allocator: std.mem.Allocator ```
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -303,7 +303,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actions)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actions)
     ///
     /// ``` self: QtC.KCodecAction, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -317,7 +317,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KCodecAction, index: i32 ```
     pub fn Action(self: ?*anyopaque, index: i32) QtC.QAction {
@@ -326,7 +326,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KCodecAction, text: []const u8 ```
     pub fn Action2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -339,7 +339,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KCodecAction, action: QtC.QAction ```
     pub fn SetCurrentAction(self: ?*anyopaque, action: ?*anyopaque) bool {
@@ -348,7 +348,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentItem)
     ///
     /// ``` self: QtC.KCodecAction, index: i32 ```
     pub fn SetCurrentItem(self: ?*anyopaque, index: i32) bool {
@@ -357,7 +357,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KCodecAction, text: []const u8 ```
     pub fn SetCurrentAction2(self: ?*anyopaque, text: []const u8) bool {
@@ -370,7 +370,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KCodecAction, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -379,7 +379,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KCodecAction, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -392,7 +392,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KCodecAction, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -405,7 +405,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setItems)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setItems)
     ///
     /// ``` self: QtC.KCodecAction, lst: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, lst: [][]const u8, allocator: std.mem.Allocator) void {
@@ -426,7 +426,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#items)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#items)
     ///
     /// ``` self: QtC.KCodecAction, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -450,7 +450,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#isEditable)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#isEditable)
     ///
     /// ``` self: QtC.KCodecAction ```
     pub fn IsEditable(self: ?*anyopaque) bool {
@@ -459,7 +459,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setEditable)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setEditable)
     ///
     /// ``` self: QtC.KCodecAction, editable: bool ```
     pub fn SetEditable(self: ?*anyopaque, editable: bool) void {
@@ -468,7 +468,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#comboWidth)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#comboWidth)
     ///
     /// ``` self: QtC.KCodecAction ```
     pub fn ComboWidth(self: ?*anyopaque) i32 {
@@ -477,7 +477,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setComboWidth)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setComboWidth)
     ///
     /// ``` self: QtC.KCodecAction, width: i32 ```
     pub fn SetComboWidth(self: ?*anyopaque, width: i32) void {
@@ -486,7 +486,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setMaxComboViewCount)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
     ///
     /// ``` self: QtC.KCodecAction, n: i32 ```
     pub fn SetMaxComboViewCount(self: ?*anyopaque, n: i32) void {
@@ -495,7 +495,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#clear)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#clear)
     ///
     /// ``` self: QtC.KCodecAction ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -504,7 +504,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAllActions)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAllActions)
     ///
     /// ``` self: QtC.KCodecAction ```
     pub fn RemoveAllActions(self: ?*anyopaque) void {
@@ -513,7 +513,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setMenuAccelsEnabled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
     ///
     /// ``` self: QtC.KCodecAction, b: bool ```
     pub fn SetMenuAccelsEnabled(self: ?*anyopaque, b: bool) void {
@@ -522,7 +522,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#menuAccelsEnabled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
     ///
     /// ``` self: QtC.KCodecAction ```
     pub fn MenuAccelsEnabled(self: ?*anyopaque) bool {
@@ -531,7 +531,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#changeItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#changeItem)
     ///
     /// ``` self: QtC.KCodecAction, index: i32, text: []const u8 ```
     pub fn ChangeItem(self: ?*anyopaque, index: i32, text: []const u8) void {
@@ -544,7 +544,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KCodecAction, action: QtC.QAction ```
     pub fn ActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -553,7 +553,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, action: QtC.QAction) callconv(.c) void ```
     pub fn OnActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -562,7 +562,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#indexTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KCodecAction, index: i32 ```
     pub fn IndexTriggered(self: ?*anyopaque, index: i32) void {
@@ -571,7 +571,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#indexTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, index: i32) callconv(.c) void ```
     pub fn OnIndexTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -580,7 +580,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#textTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KCodecAction, text: []const u8 ```
     pub fn TextTriggered(self: ?*anyopaque, text: []const u8) void {
@@ -593,7 +593,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#textTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -602,7 +602,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KCodecAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Action22(self: ?*anyopaque, text: []const u8, cs: i32) QtC.QAction {
@@ -615,7 +615,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KCodecAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn SetCurrentAction22(self: ?*anyopaque, text: []const u8, cs: i32) bool {
@@ -1731,7 +1731,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1742,7 +1742,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1753,7 +1753,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1764,7 +1764,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1775,7 +1775,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1786,7 +1786,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1797,7 +1797,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1808,7 +1808,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1819,7 +1819,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1830,7 +1830,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1841,7 +1841,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1852,7 +1852,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1863,7 +1863,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1874,7 +1874,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1885,7 +1885,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1896,7 +1896,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1907,7 +1907,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1918,7 +1918,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2094,7 +2094,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2105,7 +2105,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2116,7 +2116,7 @@ pub const kcodecaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2313,7 +2313,7 @@ pub const kcodecaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcodecaction.html#dtor.KCodecAction)
+    /// [Qt documentation](https://api.kde.org/kcodecaction.html#dtor.KCodecAction)
     ///
     /// Delete this object from C++ memory.
     ///

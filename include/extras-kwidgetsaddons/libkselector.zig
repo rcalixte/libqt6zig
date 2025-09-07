@@ -10,7 +10,7 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 pub const struct_f64_qtcqcolor = extern struct { first: f64, second: QtC.QColor };
 
-/// https://api-staging.kde.org/kselector.html
+/// https://api.kde.org/kselector.html
 pub const kselector = struct {
     /// New constructs a new KSelector object.
     ///
@@ -84,35 +84,35 @@ pub const kselector = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#contentsRect)
+    /// [Qt documentation](https://api.kde.org/kselector.html#contentsRect)
     ///
     /// ``` self: QtC.KSelector ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
         return qtc.KSelector_ContentsRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#setIndent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#setIndent)
     ///
     /// ``` self: QtC.KSelector, i: bool ```
     pub fn SetIndent(self: ?*anyopaque, i: bool) void {
         qtc.KSelector_SetIndent(@ptrCast(self), i);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#indent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#indent)
     ///
     /// ``` self: QtC.KSelector ```
     pub fn Indent(self: ?*anyopaque) bool {
         return qtc.KSelector_Indent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#setArrowDirection)
+    /// [Qt documentation](https://api.kde.org/kselector.html#setArrowDirection)
     ///
     /// ``` self: QtC.KSelector, direction: qnamespace_enums.ArrowType ```
     pub fn SetArrowDirection(self: ?*anyopaque, direction: i32) void {
         qtc.KSelector_SetArrowDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#arrowDirection)
+    /// [Qt documentation](https://api.kde.org/kselector.html#arrowDirection)
     ///
     /// ``` self: QtC.KSelector ```
     ///
@@ -121,14 +121,14 @@ pub const kselector = struct {
         return qtc.KSelector_ArrowDirection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#drawContents)
+    /// [Qt documentation](https://api.kde.org/kselector.html#drawContents)
     ///
     /// ``` self: QtC.KSelector, param1: QtC.QPainter ```
     pub fn DrawContents(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KSelector_DrawContents(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#drawContents)
+    /// [Qt documentation](https://api.kde.org/kselector.html#drawContents)
     ///
     /// Allows for overriding the related default method
     ///
@@ -137,7 +137,7 @@ pub const kselector = struct {
         qtc.KSelector_OnDrawContents(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#drawContents)
+    /// [Qt documentation](https://api.kde.org/kselector.html#drawContents)
     ///
     /// Base class method implementation
     ///
@@ -146,14 +146,14 @@ pub const kselector = struct {
         qtc.KSelector_QBaseDrawContents(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#drawArrow)
+    /// [Qt documentation](https://api.kde.org/kselector.html#drawArrow)
     ///
     /// ``` self: QtC.KSelector, painter: QtC.QPainter, pos: QtC.QPoint ```
     pub fn DrawArrow(self: ?*anyopaque, painter: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.KSelector_DrawArrow(@ptrCast(self), @ptrCast(painter), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#drawArrow)
+    /// [Qt documentation](https://api.kde.org/kselector.html#drawArrow)
     ///
     /// Allows for overriding the related default method
     ///
@@ -162,7 +162,7 @@ pub const kselector = struct {
         qtc.KSelector_OnDrawArrow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#drawArrow)
+    /// [Qt documentation](https://api.kde.org/kselector.html#drawArrow)
     ///
     /// Base class method implementation
     ///
@@ -171,14 +171,14 @@ pub const kselector = struct {
         qtc.KSelector_QBaseDrawArrow(@ptrCast(self), @ptrCast(painter), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#paintEvent)
     ///
     /// ``` self: QtC.KSelector, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KSelector_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -187,7 +187,7 @@ pub const kselector = struct {
         qtc.KSelector_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -196,14 +196,14 @@ pub const kselector = struct {
         qtc.KSelector_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mousePressEvent)
     ///
     /// ``` self: QtC.KSelector, e: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KSelector_MousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -212,7 +212,7 @@ pub const kselector = struct {
         qtc.KSelector_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -221,14 +221,14 @@ pub const kselector = struct {
         qtc.KSelector_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.KSelector, e: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KSelector_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -237,7 +237,7 @@ pub const kselector = struct {
         qtc.KSelector_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -246,14 +246,14 @@ pub const kselector = struct {
         qtc.KSelector_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KSelector, e: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KSelector_MouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -262,7 +262,7 @@ pub const kselector = struct {
         qtc.KSelector_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -271,14 +271,14 @@ pub const kselector = struct {
         qtc.KSelector_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#wheelEvent)
     ///
     /// ``` self: QtC.KSelector, param1: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KSelector_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#wheelEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -287,7 +287,7 @@ pub const kselector = struct {
         qtc.KSelector_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#wheelEvent)
     ///
     /// Base class method implementation
     ///
@@ -5557,7 +5557,7 @@ pub const kselector = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#dtor.KSelector)
+    /// [Qt documentation](https://api.kde.org/kselector.html#dtor.KSelector)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5567,7 +5567,7 @@ pub const kselector = struct {
     }
 };
 
-/// https://api-staging.kde.org/kgradientselector.html
+/// https://api.kde.org/kgradientselector.html
 pub const kgradientselector = struct {
     /// New constructs a new KGradientSelector object.
     ///
@@ -5641,7 +5641,7 @@ pub const kgradientselector = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#setStops)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#setStops)
     ///
     /// ``` self: QtC.KGradientSelector, stops: []struct_f64_qtcqcolor ```
     pub fn SetStops(self: ?*anyopaque, stops: []struct_f64_qtcqcolor) void {
@@ -5652,7 +5652,7 @@ pub const kgradientselector = struct {
         qtc.KGradientSelector_SetStops(@ptrCast(self), stops_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#stops)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#stops)
     ///
     /// ``` self: QtC.KGradientSelector, allocator: std.mem.Allocator ```
     pub fn Stops(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqcolor {
@@ -5671,14 +5671,14 @@ pub const kgradientselector = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#setColors)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#setColors)
     ///
     /// ``` self: QtC.KGradientSelector, col1: QtC.QColor, col2: QtC.QColor ```
     pub fn SetColors(self: ?*anyopaque, col1: ?*anyopaque, col2: ?*anyopaque) void {
         qtc.KGradientSelector_SetColors(@ptrCast(self), @ptrCast(col1), @ptrCast(col2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#setText)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#setText)
     ///
     /// ``` self: QtC.KGradientSelector, t1: []const u8, t2: []const u8 ```
     pub fn SetText(self: ?*anyopaque, t1: []const u8, t2: []const u8) void {
@@ -5693,21 +5693,21 @@ pub const kgradientselector = struct {
         qtc.KGradientSelector_SetText(@ptrCast(self), t1_str, t2_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#setFirstColor)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#setFirstColor)
     ///
     /// ``` self: QtC.KGradientSelector, col: QtC.QColor ```
     pub fn SetFirstColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.KGradientSelector_SetFirstColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#setSecondColor)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#setSecondColor)
     ///
     /// ``` self: QtC.KGradientSelector, col: QtC.QColor ```
     pub fn SetSecondColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.KGradientSelector_SetSecondColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#setFirstText)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#setFirstText)
     ///
     /// ``` self: QtC.KGradientSelector, t: []const u8 ```
     pub fn SetFirstText(self: ?*anyopaque, t: []const u8) void {
@@ -5718,7 +5718,7 @@ pub const kgradientselector = struct {
         qtc.KGradientSelector_SetFirstText(@ptrCast(self), t_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#setSecondText)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#setSecondText)
     ///
     /// ``` self: QtC.KGradientSelector, t: []const u8 ```
     pub fn SetSecondText(self: ?*anyopaque, t: []const u8) void {
@@ -5729,21 +5729,21 @@ pub const kgradientselector = struct {
         qtc.KGradientSelector_SetSecondText(@ptrCast(self), t_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#firstColor)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#firstColor)
     ///
     /// ``` self: QtC.KGradientSelector ```
     pub fn FirstColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KGradientSelector_FirstColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#secondColor)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#secondColor)
     ///
     /// ``` self: QtC.KGradientSelector ```
     pub fn SecondColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KGradientSelector_SecondColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#firstText)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#firstText)
     ///
     /// ``` self: QtC.KGradientSelector, allocator: std.mem.Allocator ```
     pub fn FirstText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5754,7 +5754,7 @@ pub const kgradientselector = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#secondText)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#secondText)
     ///
     /// ``` self: QtC.KGradientSelector, allocator: std.mem.Allocator ```
     pub fn SecondText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5765,14 +5765,14 @@ pub const kgradientselector = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#drawContents)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#drawContents)
     ///
     /// ``` self: QtC.KGradientSelector, param1: QtC.QPainter ```
     pub fn DrawContents(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KGradientSelector_DrawContents(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#drawContents)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#drawContents)
     ///
     /// Allows for overriding the related default method
     ///
@@ -5781,7 +5781,7 @@ pub const kgradientselector = struct {
         qtc.KGradientSelector_OnDrawContents(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#drawContents)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#drawContents)
     ///
     /// Base class method implementation
     ///
@@ -5790,14 +5790,14 @@ pub const kgradientselector = struct {
         qtc.KGradientSelector_QBaseDrawContents(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#minimumSize)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#minimumSize)
     ///
     /// ``` self: QtC.KGradientSelector ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.KGradientSelector_MinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#minimumSize)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -5806,7 +5806,7 @@ pub const kgradientselector = struct {
         qtc.KGradientSelector_OnMinimumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#minimumSize)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#minimumSize)
     ///
     /// Base class method implementation
     ///
@@ -5843,7 +5843,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#contentsRect)
+    /// [Qt documentation](https://api.kde.org/kselector.html#contentsRect)
     ///
     /// ``` self: QtC.KGradientSelector ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -5852,7 +5852,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#setIndent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#setIndent)
     ///
     /// ``` self: QtC.KGradientSelector, i: bool ```
     pub fn SetIndent(self: ?*anyopaque, i: bool) void {
@@ -5861,7 +5861,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#indent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#indent)
     ///
     /// ``` self: QtC.KGradientSelector ```
     pub fn Indent(self: ?*anyopaque) bool {
@@ -5870,7 +5870,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#setArrowDirection)
+    /// [Qt documentation](https://api.kde.org/kselector.html#setArrowDirection)
     ///
     /// ``` self: QtC.KGradientSelector, direction: qnamespace_enums.ArrowType ```
     pub fn SetArrowDirection(self: ?*anyopaque, direction: i32) void {
@@ -5879,7 +5879,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#arrowDirection)
+    /// [Qt documentation](https://api.kde.org/kselector.html#arrowDirection)
     ///
     /// ``` self: QtC.KGradientSelector ```
     ///
@@ -9276,7 +9276,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#drawArrow)
+    /// [Qt documentation](https://api.kde.org/kselector.html#drawArrow)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9287,7 +9287,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#drawArrow)
+    /// [Qt documentation](https://api.kde.org/kselector.html#drawArrow)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9298,7 +9298,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#drawArrow)
+    /// [Qt documentation](https://api.kde.org/kselector.html#drawArrow)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9309,7 +9309,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9320,7 +9320,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9331,7 +9331,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9342,7 +9342,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9353,7 +9353,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9364,7 +9364,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9375,7 +9375,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9386,7 +9386,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9397,7 +9397,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9408,7 +9408,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9419,7 +9419,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9430,7 +9430,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9441,7 +9441,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9452,7 +9452,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9463,7 +9463,7 @@ pub const kgradientselector = struct {
 
     /// Inherited from KSelector
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselector.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kselector.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -11312,7 +11312,7 @@ pub const kgradientselector = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kgradientselector.html#dtor.KGradientSelector)
+    /// [Qt documentation](https://api.kde.org/kgradientselector.html#dtor.KGradientSelector)
     ///
     /// Delete this object from C++ memory.
     ///

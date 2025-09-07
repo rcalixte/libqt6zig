@@ -6,7 +6,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const struct_constu8_constu8 = extern struct { first: []const u8, second: []const u8 };
 
-/// https://api-staging.kde.org/kcompositejob.html
+/// https://api.kde.org/kcompositejob.html
 pub const kcompositejob = struct {
     /// New constructs a new KCompositeJob object.
     ///
@@ -66,14 +66,14 @@ pub const kcompositejob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#addSubjob)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#addSubjob)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob ```
     pub fn AddSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
         return qtc.KCompositeJob_AddSubjob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#addSubjob)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#addSubjob)
     ///
     /// Allows for overriding the related default method
     ///
@@ -82,7 +82,7 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_OnAddSubjob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#addSubjob)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#addSubjob)
     ///
     /// Base class method implementation
     ///
@@ -91,14 +91,14 @@ pub const kcompositejob = struct {
         return qtc.KCompositeJob_QBaseAddSubjob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#removeSubjob)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#removeSubjob)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob ```
     pub fn RemoveSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
         return qtc.KCompositeJob_RemoveSubjob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#removeSubjob)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#removeSubjob)
     ///
     /// Allows for overriding the related default method
     ///
@@ -107,7 +107,7 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_OnRemoveSubjob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#removeSubjob)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#removeSubjob)
     ///
     /// Base class method implementation
     ///
@@ -116,14 +116,14 @@ pub const kcompositejob = struct {
         return qtc.KCompositeJob_QBaseRemoveSubjob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#hasSubjobs)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#hasSubjobs)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn HasSubjobs(self: ?*anyopaque) bool {
         return qtc.KCompositeJob_HasSubjobs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#hasSubjobs)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#hasSubjobs)
     ///
     /// Allows for overriding the related default method
     ///
@@ -132,7 +132,7 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_OnHasSubjobs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#hasSubjobs)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#hasSubjobs)
     ///
     /// Base class method implementation
     ///
@@ -141,7 +141,7 @@ pub const kcompositejob = struct {
         return qtc.KCompositeJob_QBaseHasSubjobs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#subjobs)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#subjobs)
     ///
     /// ``` self: QtC.KCompositeJob, allocator: std.mem.Allocator ```
     pub fn Subjobs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KJob {
@@ -153,7 +153,7 @@ pub const kcompositejob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#subjobs)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#subjobs)
     ///
     /// Allows for overriding the related default method
     ///
@@ -162,7 +162,7 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_OnSubjobs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#subjobs)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#subjobs)
     ///
     /// Base class method implementation
     ///
@@ -176,14 +176,14 @@ pub const kcompositejob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#clearSubjobs)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#clearSubjobs)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn ClearSubjobs(self: ?*anyopaque) void {
         qtc.KCompositeJob_ClearSubjobs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#clearSubjobs)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#clearSubjobs)
     ///
     /// Allows for overriding the related default method
     ///
@@ -192,7 +192,7 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_OnClearSubjobs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#clearSubjobs)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#clearSubjobs)
     ///
     /// Base class method implementation
     ///
@@ -201,14 +201,14 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_QBaseClearSubjobs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#slotResult)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#slotResult)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob ```
     pub fn SlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KCompositeJob_SlotResult(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#slotResult)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#slotResult)
     ///
     /// Allows for overriding the related default method
     ///
@@ -217,7 +217,7 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_OnSlotResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#slotResult)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#slotResult)
     ///
     /// Base class method implementation
     ///
@@ -226,7 +226,7 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_QBaseSlotResult(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#slotInfoMessage)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#slotInfoMessage)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob, message: []const u8 ```
     pub fn SlotInfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -237,7 +237,7 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_SlotInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#slotInfoMessage)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#slotInfoMessage)
     ///
     /// Allows for overriding the related default method
     ///
@@ -246,7 +246,7 @@ pub const kcompositejob = struct {
         qtc.KCompositeJob_OnSlotInfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#slotInfoMessage)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#slotInfoMessage)
     ///
     /// Base class method implementation
     ///
@@ -287,7 +287,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setUiDelegate)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setUiDelegate)
     ///
     /// ``` self: QtC.KCompositeJob, delegate: QtC.KJobUiDelegate ```
     pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
@@ -296,7 +296,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#uiDelegate)
+    /// [Qt documentation](https://api.kde.org/kjob.html#uiDelegate)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
@@ -305,7 +305,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#capabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#capabilities)
     ///
     /// ``` self: QtC.KCompositeJob ```
     ///
@@ -316,7 +316,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isSuspended)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isSuspended)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn IsSuspended(self: ?*anyopaque) bool {
@@ -325,7 +325,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#kill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn Kill(self: ?*anyopaque) bool {
@@ -334,7 +334,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#suspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#suspend)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn Suspend(self: ?*anyopaque) bool {
@@ -343,7 +343,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#resume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#resume)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn Resume(self: ?*anyopaque) bool {
@@ -352,7 +352,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#exec)
+    /// [Qt documentation](https://api.kde.org/kjob.html#exec)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn Exec(self: ?*anyopaque) bool {
@@ -361,7 +361,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#error)
+    /// [Qt documentation](https://api.kde.org/kjob.html#error)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn Error(self: ?*anyopaque) i32 {
@@ -370,7 +370,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorText)
     ///
     /// ``` self: QtC.KCompositeJob, allocator: std.mem.Allocator ```
     pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -383,7 +383,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmount)
     ///
     /// ``` self: QtC.KCompositeJob, unit: kjob_enums.Unit ```
     pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
@@ -392,7 +392,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmount)
     ///
     /// ``` self: QtC.KCompositeJob, unit: kjob_enums.Unit ```
     pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
@@ -401,7 +401,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#percent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#percent)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn Percent(self: ?*anyopaque) u64 {
@@ -410,7 +410,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setAutoDelete)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setAutoDelete)
     ///
     /// ``` self: QtC.KCompositeJob, autodelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
@@ -419,7 +419,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isAutoDelete)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isAutoDelete)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn IsAutoDelete(self: ?*anyopaque) bool {
@@ -428,7 +428,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
@@ -437,7 +437,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinishedNotificationHidden)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
@@ -446,7 +446,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isStartedWithExec)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isStartedWithExec)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn IsStartedWithExec(self: ?*anyopaque) bool {
@@ -455,7 +455,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#elapsedTime)
+    /// [Qt documentation](https://api.kde.org/kjob.html#elapsedTime)
     ///
     /// ``` self: QtC.KCompositeJob ```
     pub fn ElapsedTime(self: ?*anyopaque) i64 {
@@ -464,7 +464,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob, title: []const u8 ```
     pub fn Description(self: ?*anyopaque, job: ?*anyopaque, title: []const u8) void {
@@ -477,7 +477,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KCompositeJob, slot: fn (self: QtC.KCompositeJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -486,7 +486,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#infoMessage)
+    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob, message: []const u8 ```
     pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -499,7 +499,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#infoMessage)
+    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KCompositeJob, slot: fn (self: QtC.KCompositeJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -508,7 +508,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#warning)
+    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob, message: []const u8 ```
     pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -521,7 +521,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#warning)
+    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KCompositeJob, slot: fn (self: QtC.KCompositeJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnWarning(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -530,7 +530,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob, size: u64 ```
     pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
@@ -539,7 +539,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KCompositeJob, slot: fn (self: QtC.KCompositeJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnTotalSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -548,7 +548,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob, size: u64 ```
     pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
@@ -557,7 +557,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KCompositeJob, slot: fn (self: QtC.KCompositeJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnProcessedSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -566,7 +566,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#speed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob, speed: u64 ```
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
@@ -575,7 +575,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#speed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KCompositeJob, slot: fn (self: QtC.KCompositeJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
     pub fn OnSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -584,7 +584,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#kill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KCompositeJob, verbosity: kjob_enums.KillVerbosity ```
     pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
@@ -593,7 +593,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KCompositeJob, hide: bool ```
     pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
@@ -602,7 +602,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob, title: []const u8, field1: struct_constu8_constu8 ```
     pub fn Description3(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, field1: struct_constu8_constu8) void {
@@ -619,7 +619,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KCompositeJob, slot: fn (self: QtC.KCompositeJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
     pub fn OnDescription3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
@@ -628,7 +628,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KCompositeJob, job: QtC.KJob, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8 ```
     pub fn Description4(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) void {
@@ -649,7 +649,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KCompositeJob, slot: fn (self: QtC.KCompositeJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
     pub fn OnDescription4(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
@@ -1035,7 +1035,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#start)
+    /// [Qt documentation](https://api.kde.org/kjob.html#start)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1046,7 +1046,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#start)
+    /// [Qt documentation](https://api.kde.org/kjob.html#start)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1057,7 +1057,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#start)
+    /// [Qt documentation](https://api.kde.org/kjob.html#start)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1068,7 +1068,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doKill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1079,7 +1079,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doKill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1090,7 +1090,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doKill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1101,7 +1101,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doSuspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1112,7 +1112,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doSuspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1123,7 +1123,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doSuspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1134,7 +1134,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doResume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1145,7 +1145,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doResume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1156,7 +1156,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doResume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1167,7 +1167,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorString)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1182,7 +1182,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorString)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1197,7 +1197,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorString)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1439,7 +1439,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1450,7 +1450,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1461,7 +1461,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1472,7 +1472,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1483,7 +1483,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1494,7 +1494,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1505,7 +1505,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setError)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1516,7 +1516,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setError)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1527,7 +1527,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setError)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1538,7 +1538,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setErrorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1553,7 +1553,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setErrorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1568,7 +1568,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setErrorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1579,7 +1579,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProcessedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1590,7 +1590,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProcessedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1601,7 +1601,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProcessedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1612,7 +1612,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setTotalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1623,7 +1623,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setTotalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1634,7 +1634,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setTotalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1645,7 +1645,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProgressUnit)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1656,7 +1656,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProgressUnit)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1667,7 +1667,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProgressUnit)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1678,7 +1678,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1689,7 +1689,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1700,7 +1700,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1711,7 +1711,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitResult)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1722,7 +1722,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitResult)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1733,7 +1733,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitResult)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1744,7 +1744,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1755,7 +1755,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1766,7 +1766,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1777,7 +1777,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitSpeed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1788,7 +1788,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitSpeed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1799,7 +1799,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitSpeed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1810,7 +1810,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#startElapsedTimer)
+    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1821,7 +1821,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#startElapsedTimer)
+    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1832,7 +1832,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#startElapsedTimer)
+    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1977,7 +1977,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#finished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#finished)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1988,7 +1988,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#suspended)
+    /// [Qt documentation](https://api.kde.org/kjob.html#suspended)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1999,7 +1999,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#resumed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#resumed)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2010,7 +2010,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#result)
+    /// [Qt documentation](https://api.kde.org/kjob.html#result)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2021,7 +2021,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalAmountChanged)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2032,7 +2032,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedAmountChanged)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2043,7 +2043,7 @@ pub const kcompositejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#percentChanged)
+    /// [Qt documentation](https://api.kde.org/kjob.html#percentChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2063,7 +2063,7 @@ pub const kcompositejob = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcompositejob.html#dtor.KCompositeJob)
+    /// [Qt documentation](https://api.kde.org/kcompositejob.html#dtor.KCompositeJob)
     ///
     /// Delete this object from C++ memory.
     ///

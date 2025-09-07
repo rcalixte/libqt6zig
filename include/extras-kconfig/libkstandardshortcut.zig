@@ -3,9 +3,9 @@ const qtc = @import("qt6c");
 const kstandardshortcut_enums = enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kstandardshortcut.html
+/// https://api.kde.org/kstandardshortcut.html
 pub const kstandardshortcut = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#shortcut)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#shortcut)
     ///
     /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
     pub fn Shortcut(param1: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -17,7 +17,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#name)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#name)
     ///
     /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
     pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
@@ -28,7 +28,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#label)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#label)
     ///
     /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
     pub fn Label(param1: i32, allocator: std.mem.Allocator) []const u8 {
@@ -39,7 +39,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#whatsThis)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#whatsThis)
     ///
     /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
     pub fn WhatsThis(param1: i32, allocator: std.mem.Allocator) []const u8 {
@@ -50,7 +50,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#find)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#find)
     ///
     /// ``` param1: QtC.QKeySequence ```
     ///
@@ -59,7 +59,7 @@ pub const kstandardshortcut = struct {
         return qtc.KStandardShortcut_Find(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#findByName)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#findByName)
     ///
     /// ``` param1: []const u8 ```
     ///
@@ -72,7 +72,7 @@ pub const kstandardshortcut = struct {
         return qtc.KStandardShortcut_FindByName(param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#hardcodedDefaultShortcut)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#hardcodedDefaultShortcut)
     ///
     /// ``` param1: kstandardshortcut_enums.StandardShortcut, allocator: std.mem.Allocator ```
     pub fn HardcodedDefaultShortcut(param1: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -84,7 +84,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#saveShortcut)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#saveShortcut)
     ///
     /// ``` param1: kstandardshortcut_enums.StandardShortcut, param2: []QtC.QKeySequence ```
     pub fn SaveShortcut(param1: i32, param2: []QtC.QKeySequence) void {
@@ -95,7 +95,7 @@ pub const kstandardshortcut = struct {
         qtc.KStandardShortcut_SaveShortcut(@intCast(param1), param2_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#category)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#category)
     ///
     /// ``` param1: kstandardshortcut_enums.StandardShortcut ```
     ///
@@ -104,7 +104,7 @@ pub const kstandardshortcut = struct {
         return qtc.KStandardShortcut_Category(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#open)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#open)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Open(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -116,7 +116,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#openNew)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#openNew)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn OpenNew(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -128,7 +128,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#close)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#close)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Close(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -140,7 +140,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#save)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#save)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Save(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -152,7 +152,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#print)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#print)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Print(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -164,7 +164,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#quit)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#quit)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Quit(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -176,7 +176,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#undo)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#undo)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Undo(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -188,7 +188,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#redo)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#redo)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Redo(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -200,7 +200,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#cut)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#cut)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Cut(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -212,7 +212,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#copy)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#copy)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Copy(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -224,7 +224,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#paste)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#paste)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Paste(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -236,7 +236,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#pasteSelection)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#pasteSelection)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn PasteSelection(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -248,7 +248,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#selectAll)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#selectAll)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SelectAll(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -260,7 +260,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#deleteWordBack)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#deleteWordBack)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DeleteWordBack(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -272,7 +272,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#deleteWordForward)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#deleteWordForward)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DeleteWordForward(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -284,7 +284,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#find)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#find)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Find2(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -296,7 +296,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#findNext)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#findNext)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn FindNext(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -308,7 +308,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#findPrev)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#findPrev)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn FindPrev(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -320,7 +320,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#replace)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#replace)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Replace(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -332,7 +332,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#zoomIn)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#zoomIn)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ZoomIn(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -344,7 +344,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#zoomOut)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#zoomOut)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ZoomOut(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -356,7 +356,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#home)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#home)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Home(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -368,7 +368,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#begin)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#begin)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Begin(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -380,7 +380,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#end)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#end)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn End(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -392,7 +392,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#beginningOfLine)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#beginningOfLine)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn BeginningOfLine(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -404,7 +404,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#endOfLine)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#endOfLine)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn EndOfLine(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -416,7 +416,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#prior)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#prior)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Prior(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -428,7 +428,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#next)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#next)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Next(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -440,7 +440,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#gotoLine)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#gotoLine)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn GotoLine(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -452,7 +452,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#addBookmark)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#addBookmark)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AddBookmark(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -464,7 +464,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#tabNext)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#tabNext)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn TabNext(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -476,7 +476,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#tabPrev)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#tabPrev)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn TabPrev(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -488,7 +488,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#fullScreen)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#fullScreen)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn FullScreen(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -500,7 +500,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#help)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#help)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Help(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -512,7 +512,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#completion)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#completion)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Completion(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -524,7 +524,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#prevCompletion)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#prevCompletion)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn PrevCompletion(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -536,7 +536,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#nextCompletion)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#nextCompletion)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn NextCompletion(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -548,7 +548,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#substringCompletion)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#substringCompletion)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SubstringCompletion(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -560,7 +560,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#rotateUp)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#rotateUp)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn RotateUp(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -572,7 +572,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#rotateDown)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#rotateDown)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn RotateDown(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -584,7 +584,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#whatsThis)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#whatsThis)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn WhatsThis2(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -596,7 +596,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#reload)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#reload)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Reload(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -608,7 +608,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#up)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#up)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Up(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -620,7 +620,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#back)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#back)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Back(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -632,7 +632,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#forward)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#forward)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Forward(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -644,7 +644,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#backwardWord)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#backwardWord)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn BackwardWord(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -656,7 +656,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#forwardWord)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#forwardWord)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ForwardWord(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -668,7 +668,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#showMenubar)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#showMenubar)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ShowMenubar(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -680,7 +680,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#deleteFile)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#deleteFile)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DeleteFile(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -692,7 +692,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#renameFile)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#renameFile)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn RenameFile(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -704,7 +704,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#createFolder)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#createFolder)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn CreateFolder(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -716,7 +716,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#moveToTrash)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#moveToTrash)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MoveToTrash(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -728,7 +728,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#preferences)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#preferences)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Preferences(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -740,7 +740,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#showHideHiddenFiles)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#showHideHiddenFiles)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ShowHideHiddenFiles(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -752,7 +752,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#openMainMenu)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#openMainMenu)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn OpenMainMenu(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -764,7 +764,7 @@ pub const kstandardshortcut = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#openContextMenu)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#openContextMenu)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn OpenContextMenu(allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -777,7 +777,7 @@ pub const kstandardshortcut = struct {
     }
 };
 
-/// https://api-staging.kde.org/kstandardshortcut.html#types
+/// https://api.kde.org/kstandardshortcut.html#types
 pub const enums = struct {
     pub const StandardShortcut = enum {
         pub const AccelNone: i32 = 0;

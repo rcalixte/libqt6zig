@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kseparator.html
+/// https://api.kde.org/kseparator.html
 pub const kseparator = struct {
     /// New constructs a new KSeparator object.
     ///
@@ -97,7 +97,7 @@ pub const kseparator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kseparator.html#orientation)
+    /// [Qt documentation](https://api.kde.org/kseparator.html#orientation)
     ///
     /// ``` self: QtC.KSeparator ```
     ///
@@ -106,7 +106,7 @@ pub const kseparator = struct {
         return qtc.KSeparator_Orientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kseparator.html#setOrientation)
+    /// [Qt documentation](https://api.kde.org/kseparator.html#setOrientation)
     ///
     /// ``` self: QtC.KSeparator, orientation: qnamespace_enums.Orientation ```
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
@@ -5306,7 +5306,7 @@ pub const kseparator = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kseparator.html#dtor.KSeparator)
+    /// [Qt documentation](https://api.kde.org/kseparator.html#dtor.KSeparator)
     ///
     /// Delete this object from C++ memory.
     ///

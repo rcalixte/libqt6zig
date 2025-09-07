@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kled.html
+/// https://api.kde.org/kled.html
 pub const kled = struct {
     /// New constructs a new KLed object.
     ///
@@ -97,14 +97,14 @@ pub const kled = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#color)
+    /// [Qt documentation](https://api.kde.org/kled.html#color)
     ///
     /// ``` self: QtC.KLed ```
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.KLed_Color(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#state)
+    /// [Qt documentation](https://api.kde.org/kled.html#state)
     ///
     /// ``` self: QtC.KLed ```
     ///
@@ -113,7 +113,7 @@ pub const kled = struct {
         return qtc.KLed_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#look)
+    /// [Qt documentation](https://api.kde.org/kled.html#look)
     ///
     /// ``` self: QtC.KLed ```
     ///
@@ -122,7 +122,7 @@ pub const kled = struct {
         return qtc.KLed_Look(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#shape)
+    /// [Qt documentation](https://api.kde.org/kled.html#shape)
     ///
     /// ``` self: QtC.KLed ```
     ///
@@ -131,56 +131,56 @@ pub const kled = struct {
         return qtc.KLed_Shape(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#darkFactor)
+    /// [Qt documentation](https://api.kde.org/kled.html#darkFactor)
     ///
     /// ``` self: QtC.KLed ```
     pub fn DarkFactor(self: ?*anyopaque) i32 {
         return qtc.KLed_DarkFactor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#setColor)
+    /// [Qt documentation](https://api.kde.org/kled.html#setColor)
     ///
     /// ``` self: QtC.KLed, color: QtC.QColor ```
     pub fn SetColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KLed_SetColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#setState)
+    /// [Qt documentation](https://api.kde.org/kled.html#setState)
     ///
     /// ``` self: QtC.KLed, state: kled_enums.State ```
     pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.KLed_SetState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#setLook)
+    /// [Qt documentation](https://api.kde.org/kled.html#setLook)
     ///
     /// ``` self: QtC.KLed, look: kled_enums.Look ```
     pub fn SetLook(self: ?*anyopaque, look: i32) void {
         qtc.KLed_SetLook(@ptrCast(self), @intCast(look));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#setShape)
+    /// [Qt documentation](https://api.kde.org/kled.html#setShape)
     ///
     /// ``` self: QtC.KLed, shape: kled_enums.Shape ```
     pub fn SetShape(self: ?*anyopaque, shape: i32) void {
         qtc.KLed_SetShape(@ptrCast(self), @intCast(shape));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#setDarkFactor)
+    /// [Qt documentation](https://api.kde.org/kled.html#setDarkFactor)
     ///
     /// ``` self: QtC.KLed, darkFactor: i32 ```
     pub fn SetDarkFactor(self: ?*anyopaque, darkFactor: i32) void {
         qtc.KLed_SetDarkFactor(@ptrCast(self), @intCast(darkFactor));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kled.html#sizeHint)
     ///
     /// ``` self: QtC.KLed ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KLed_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kled.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -189,7 +189,7 @@ pub const kled = struct {
         qtc.KLed_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kled.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -198,14 +198,14 @@ pub const kled = struct {
         return qtc.KLed_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kled.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KLed ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KLed_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kled.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -214,7 +214,7 @@ pub const kled = struct {
         qtc.KLed_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kled.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -223,35 +223,35 @@ pub const kled = struct {
         return qtc.KLed_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#toggle)
+    /// [Qt documentation](https://api.kde.org/kled.html#toggle)
     ///
     /// ``` self: QtC.KLed ```
     pub fn Toggle(self: ?*anyopaque) void {
         qtc.KLed_Toggle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#on)
+    /// [Qt documentation](https://api.kde.org/kled.html#on)
     ///
     /// ``` self: QtC.KLed ```
     pub fn On(self: ?*anyopaque) void {
         qtc.KLed_On(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#off)
+    /// [Qt documentation](https://api.kde.org/kled.html#off)
     ///
     /// ``` self: QtC.KLed ```
     pub fn Off(self: ?*anyopaque) void {
         qtc.KLed_Off(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kled.html#paintEvent)
     ///
     /// ``` self: QtC.KLed, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KLed_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kled.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -260,7 +260,7 @@ pub const kled = struct {
         qtc.KLed_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kled.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -269,14 +269,14 @@ pub const kled = struct {
         qtc.KLed_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kled.html#resizeEvent)
     ///
     /// ``` self: QtC.KLed, param1: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KLed_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kled.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -285,7 +285,7 @@ pub const kled = struct {
         qtc.KLed_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kled.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -5168,7 +5168,7 @@ pub const kled = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kled.html#dtor.KLed)
+    /// [Qt documentation](https://api.kde.org/kled.html#dtor.KLed)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5178,7 +5178,7 @@ pub const kled = struct {
     }
 };
 
-/// https://api-staging.kde.org/kled.html#types
+/// https://api.kde.org/kled.html#types
 pub const enums = struct {
     pub const State = enum {
         pub const Off: i32 = 0;

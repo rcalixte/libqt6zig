@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpixmapregionselectordialog.html
+/// https://api.kde.org/kpixmapregionselectordialog.html
 pub const kpixmapregionselectordialog = struct {
     /// New constructs a new KPixmapRegionSelectorDialog object.
     ///
@@ -68,42 +68,42 @@ pub const kpixmapregionselectordialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#pixmapRegionSelectorWidget)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#pixmapRegionSelectorWidget)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorDialog ```
     pub fn PixmapRegionSelectorWidget(self: ?*anyopaque) QtC.KPixmapRegionSelectorWidget {
         return qtc.KPixmapRegionSelectorDialog_PixmapRegionSelectorWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
     ///
     /// ``` pixmap: QtC.QPixmap ```
     pub fn GetSelectedRegion(pixmap: ?*anyopaque) QtC.QRect {
         return qtc.KPixmapRegionSelectorDialog_GetSelectedRegion(@ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
     ///
     /// ``` pixmap: QtC.QPixmap, aspectRatioWidth: i32, aspectRatioHeight: i32 ```
     pub fn GetSelectedRegion2(pixmap: ?*anyopaque, aspectRatioWidth: i32, aspectRatioHeight: i32) QtC.QRect {
         return qtc.KPixmapRegionSelectorDialog_GetSelectedRegion2(@ptrCast(pixmap), @intCast(aspectRatioWidth), @intCast(aspectRatioHeight));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
     ///
     /// ``` pixmap: QtC.QPixmap ```
     pub fn GetSelectedImage(pixmap: ?*anyopaque) QtC.QImage {
         return qtc.KPixmapRegionSelectorDialog_GetSelectedImage(@ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
     ///
     /// ``` pixmap: QtC.QPixmap, aspectRatioWidth: i32, aspectRatioHeight: i32 ```
     pub fn GetSelectedImage2(pixmap: ?*anyopaque, aspectRatioWidth: i32, aspectRatioHeight: i32) QtC.QImage {
         return qtc.KPixmapRegionSelectorDialog_GetSelectedImage2(@ptrCast(pixmap), @intCast(aspectRatioWidth), @intCast(aspectRatioHeight));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#adjustRegionSelectorWidgetSizeToFitScreen)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#adjustRegionSelectorWidgetSizeToFitScreen)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorDialog ```
     pub fn AdjustRegionSelectorWidgetSizeToFitScreen(self: ?*anyopaque) void {
@@ -136,28 +136,28 @@ pub const kpixmapregionselectordialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
     ///
     /// ``` pixmap: QtC.QPixmap, parent: QtC.QWidget ```
     pub fn GetSelectedRegion22(pixmap: ?*anyopaque, parent: ?*anyopaque) QtC.QRect {
         return qtc.KPixmapRegionSelectorDialog_GetSelectedRegion22(@ptrCast(pixmap), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
     ///
     /// ``` pixmap: QtC.QPixmap, aspectRatioWidth: i32, aspectRatioHeight: i32, parent: QtC.QWidget ```
     pub fn GetSelectedRegion4(pixmap: ?*anyopaque, aspectRatioWidth: i32, aspectRatioHeight: i32, parent: ?*anyopaque) QtC.QRect {
         return qtc.KPixmapRegionSelectorDialog_GetSelectedRegion4(@ptrCast(pixmap), @intCast(aspectRatioWidth), @intCast(aspectRatioHeight), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
     ///
     /// ``` pixmap: QtC.QPixmap, parent: QtC.QWidget ```
     pub fn GetSelectedImage22(pixmap: ?*anyopaque, parent: ?*anyopaque) QtC.QImage {
         return qtc.KPixmapRegionSelectorDialog_GetSelectedImage22(@ptrCast(pixmap), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
     ///
     /// ``` pixmap: QtC.QPixmap, aspectRatioWidth: i32, aspectRatioHeight: i32, parent: QtC.QWidget ```
     pub fn GetSelectedImage4(pixmap: ?*anyopaque, aspectRatioWidth: i32, aspectRatioHeight: i32, parent: ?*anyopaque) QtC.QImage {
@@ -5441,7 +5441,7 @@ pub const kpixmapregionselectordialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectordialog.html#dtor.KPixmapRegionSelectorDialog)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectordialog.html#dtor.KPixmapRegionSelectorDialog)
     ///
     /// Delete this object from C++ memory.
     ///

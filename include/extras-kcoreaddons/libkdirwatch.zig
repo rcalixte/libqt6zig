@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kdirwatch.html
+/// https://api.kde.org/kdirwatch.html
 pub const kdirwatch = struct {
     /// New constructs a new KDirWatch object.
     ///
@@ -65,7 +65,7 @@ pub const kdirwatch = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#addDir)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#addDir)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn AddDir(self: ?*anyopaque, path: []const u8) void {
@@ -76,7 +76,7 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_AddDir(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#addFile)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#addFile)
     ///
     /// ``` self: QtC.KDirWatch, file: []const u8 ```
     pub fn AddFile(self: ?*anyopaque, file: []const u8) void {
@@ -87,7 +87,7 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_AddFile(@ptrCast(self), file_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#ctime)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#ctime)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn Ctime(self: ?*anyopaque, path: []const u8) QtC.QDateTime {
@@ -98,7 +98,7 @@ pub const kdirwatch = struct {
         return qtc.KDirWatch_Ctime(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#removeDir)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#removeDir)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn RemoveDir(self: ?*anyopaque, path: []const u8) void {
@@ -109,7 +109,7 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_RemoveDir(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#removeFile)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#removeFile)
     ///
     /// ``` self: QtC.KDirWatch, file: []const u8 ```
     pub fn RemoveFile(self: ?*anyopaque, file: []const u8) void {
@@ -120,7 +120,7 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_RemoveFile(@ptrCast(self), file_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#stopDirScan)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#stopDirScan)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn StopDirScan(self: ?*anyopaque, path: []const u8) bool {
@@ -131,7 +131,7 @@ pub const kdirwatch = struct {
         return qtc.KDirWatch_StopDirScan(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#restartDirScan)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#restartDirScan)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn RestartDirScan(self: ?*anyopaque, path: []const u8) bool {
@@ -142,28 +142,28 @@ pub const kdirwatch = struct {
         return qtc.KDirWatch_RestartDirScan(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#startScan)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#startScan)
     ///
     /// ``` self: QtC.KDirWatch ```
     pub fn StartScan(self: ?*anyopaque) void {
         qtc.KDirWatch_StartScan(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#stopScan)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#stopScan)
     ///
     /// ``` self: QtC.KDirWatch ```
     pub fn StopScan(self: ?*anyopaque) void {
         qtc.KDirWatch_StopScan(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#isStopped)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#isStopped)
     ///
     /// ``` self: QtC.KDirWatch ```
     pub fn IsStopped(self: ?*anyopaque) bool {
         return qtc.KDirWatch_IsStopped(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#contains)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#contains)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn Contains(self: ?*anyopaque, path: []const u8) bool {
@@ -174,7 +174,7 @@ pub const kdirwatch = struct {
         return qtc.KDirWatch_Contains(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#internalMethod)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#internalMethod)
     ///
     /// ``` self: QtC.KDirWatch ```
     ///
@@ -183,28 +183,28 @@ pub const kdirwatch = struct {
         return qtc.KDirWatch_InternalMethod(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#self)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#self)
     ///
     ///
     pub fn Self() QtC.KDirWatch {
         return qtc.KDirWatch_Self();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#exists)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#exists)
     ///
     ///
     pub fn Exists() bool {
         return qtc.KDirWatch_Exists();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#event)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#event)
     ///
     /// ``` self: QtC.KDirWatch, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KDirWatch_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#event)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -213,7 +213,7 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#event)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#event)
     ///
     /// Base class method implementation
     ///
@@ -222,7 +222,7 @@ pub const kdirwatch = struct {
         return qtc.KDirWatch_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#setCreated)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#setCreated)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn SetCreated(self: ?*anyopaque, path: []const u8) void {
@@ -233,7 +233,7 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_SetCreated(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#setDirty)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#setDirty)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn SetDirty(self: ?*anyopaque, path: []const u8) void {
@@ -244,7 +244,7 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_SetDirty(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#setDeleted)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#setDeleted)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn SetDeleted(self: ?*anyopaque, path: []const u8) void {
@@ -255,7 +255,7 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_SetDeleted(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#dirty)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#dirty)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn Dirty(self: ?*anyopaque, path: []const u8) void {
@@ -266,14 +266,14 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_Dirty(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#dirty)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#dirty)
     ///
     /// ``` self: QtC.KDirWatch, slot: fn (self: QtC.KDirWatch, path: [*:0]const u8) callconv(.c) void ```
     pub fn OnDirty(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirWatch_Connect_Dirty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#created)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#created)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn Created(self: ?*anyopaque, path: []const u8) void {
@@ -284,14 +284,14 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_Created(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#created)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#created)
     ///
     /// ``` self: QtC.KDirWatch, slot: fn (self: QtC.KDirWatch, path: [*:0]const u8) callconv(.c) void ```
     pub fn OnCreated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirWatch_Connect_Created(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#deleted)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#deleted)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8 ```
     pub fn Deleted(self: ?*anyopaque, path: []const u8) void {
@@ -302,7 +302,7 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_Deleted(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#deleted)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#deleted)
     ///
     /// ``` self: QtC.KDirWatch, slot: fn (self: QtC.KDirWatch, path: [*:0]const u8) callconv(.c) void ```
     pub fn OnDeleted(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -335,7 +335,7 @@ pub const kdirwatch = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#addDir)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#addDir)
     ///
     /// ``` self: QtC.KDirWatch, path: []const u8, watchModes: flag of kdirwatch_enums.WatchMode ```
     pub fn AddDir2(self: ?*anyopaque, path: []const u8, watchModes: i32) void {
@@ -346,14 +346,14 @@ pub const kdirwatch = struct {
         qtc.KDirWatch_AddDir2(@ptrCast(self), path_str, @intCast(watchModes));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#startScan)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#startScan)
     ///
     /// ``` self: QtC.KDirWatch, notify: bool ```
     pub fn StartScan1(self: ?*anyopaque, notify: bool) void {
         qtc.KDirWatch_StartScan1(@ptrCast(self), notify);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#startScan)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#startScan)
     ///
     /// ``` self: QtC.KDirWatch, notify: bool, skippedToo: bool ```
     pub fn StartScan2(self: ?*anyopaque, notify: bool, skippedToo: bool) void {
@@ -1080,7 +1080,7 @@ pub const kdirwatch = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdirwatch.html#dtor.KDirWatch)
+    /// [Qt documentation](https://api.kde.org/kdirwatch.html#dtor.KDirWatch)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1090,7 +1090,7 @@ pub const kdirwatch = struct {
     }
 };
 
-/// https://api-staging.kde.org/kdirwatch.html#types
+/// https://api.kde.org/kdirwatch.html#types
 pub const enums = struct {
     pub const WatchMode = enum {
         pub const WatchDirOnly: i32 = 0;

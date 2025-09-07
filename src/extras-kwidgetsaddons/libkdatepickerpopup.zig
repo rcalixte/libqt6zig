@@ -10,7 +10,7 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 pub const map_qtcqdate_constu8 = std.AutoHashMapUnmanaged(QtC.QDate, []const u8);
 
-/// https://api-staging.kde.org/kdatepickerpopup.html
+/// https://api.kde.org/kdatepickerpopup.html
 pub const kdatepickerpopup = struct {
     /// New constructs a new KDatePickerPopup object.
     ///
@@ -84,7 +84,7 @@ pub const kdatepickerpopup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#modes)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#modes)
     ///
     /// ``` self: QtC.KDatePickerPopup ```
     ///
@@ -93,21 +93,21 @@ pub const kdatepickerpopup = struct {
         return qtc.KDatePickerPopup_Modes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#setModes)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#setModes)
     ///
     /// ``` self: QtC.KDatePickerPopup, modes: flag of kdatepickerpopup_enums.Mode ```
     pub fn SetModes(self: ?*anyopaque, modes: i32) void {
         qtc.KDatePickerPopup_SetModes(@ptrCast(self), @intCast(modes));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#setDateRange)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#setDateRange)
     ///
     /// ``` self: QtC.KDatePickerPopup, minDate: QtC.QDate, maxDate: QtC.QDate ```
     pub fn SetDateRange(self: ?*anyopaque, minDate: ?*anyopaque, maxDate: ?*anyopaque) void {
         qtc.KDatePickerPopup_SetDateRange(@ptrCast(self), @ptrCast(minDate), @ptrCast(maxDate));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#dateMap)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#dateMap)
     ///
     /// ``` self: QtC.KDatePickerPopup, allocator: std.mem.Allocator ```
     pub fn DateMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_qtcqdate_constu8 {
@@ -128,7 +128,7 @@ pub const kdatepickerpopup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#setDateMap)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#setDateMap)
     ///
     /// ``` self: QtC.KDatePickerPopup, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator ```
     pub fn SetDateMap(self: ?*anyopaque, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator) void {
@@ -152,28 +152,28 @@ pub const kdatepickerpopup = struct {
         qtc.KDatePickerPopup_SetDateMap(@ptrCast(self), dateMap_map);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#datePicker)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#datePicker)
     ///
     /// ``` self: QtC.KDatePickerPopup ```
     pub fn DatePicker(self: ?*anyopaque) QtC.KDatePicker {
         return qtc.KDatePickerPopup_DatePicker(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#setDate)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#setDate)
     ///
     /// ``` self: QtC.KDatePickerPopup, date: QtC.QDate ```
     pub fn SetDate(self: ?*anyopaque, date: QtC.QDate) void {
         qtc.KDatePickerPopup_SetDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#dateChanged)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#dateChanged)
     ///
     /// ``` self: QtC.KDatePickerPopup, date: QtC.QDate ```
     pub fn DateChanged(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDatePickerPopup_DateChanged(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#dateChanged)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#dateChanged)
     ///
     /// ``` self: QtC.KDatePickerPopup, slot: fn (self: QtC.KDatePickerPopup, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5755,7 +5755,7 @@ pub const kdatepickerpopup = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepickerpopup.html#dtor.KDatePickerPopup)
+    /// [Qt documentation](https://api.kde.org/kdatepickerpopup.html#dtor.KDatePickerPopup)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5765,7 +5765,7 @@ pub const kdatepickerpopup = struct {
     }
 };
 
-/// https://api-staging.kde.org/kdatepickerpopup.html#types
+/// https://api.kde.org/kdatepickerpopup.html#types
 pub const enums = struct {
     pub const Mode = enum {
         pub const NoDate: i32 = 1;

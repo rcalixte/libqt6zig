@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qicon_enums = @import("../libqicon.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kiconengine.html
+/// https://api.kde.org/kiconengine.html
 pub const kiconengine = struct {
     /// New constructs a new KIconEngine object.
     ///
@@ -84,14 +84,14 @@ pub const kiconengine = struct {
         return qtc.KIconEngine_new5(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#actualSize)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#actualSize)
     ///
     /// ``` self: QtC.KIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn ActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
         return qtc.KIconEngine_ActualSize(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#actualSize)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#actualSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -100,7 +100,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnActualSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#actualSize)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#actualSize)
     ///
     /// Base class method implementation
     ///
@@ -109,14 +109,14 @@ pub const kiconengine = struct {
         return qtc.KIconEngine_QBaseActualSize(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#paint)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#paint)
     ///
     /// ``` self: QtC.KIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
         qtc.KIconEngine_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#paint)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#paint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -125,7 +125,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#paint)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#paint)
     ///
     /// Base class method implementation
     ///
@@ -134,14 +134,14 @@ pub const kiconengine = struct {
         qtc.KIconEngine_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#pixmap)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#pixmap)
     ///
     /// ``` self: QtC.KIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn Pixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
         return qtc.KIconEngine_Pixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#pixmap)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#pixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -150,7 +150,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#pixmap)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#pixmap)
     ///
     /// Base class method implementation
     ///
@@ -159,14 +159,14 @@ pub const kiconengine = struct {
         return qtc.KIconEngine_QBasePixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#scaledPixmap)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#scaledPixmap)
     ///
     /// ``` self: QtC.KIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64 ```
     pub fn ScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
         return qtc.KIconEngine_ScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#scaledPixmap)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#scaledPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -175,7 +175,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnScaledPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#scaledPixmap)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#scaledPixmap)
     ///
     /// Base class method implementation
     ///
@@ -184,7 +184,7 @@ pub const kiconengine = struct {
         return qtc.KIconEngine_QBaseScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#iconName)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#iconName)
     ///
     /// ``` self: QtC.KIconEngine, allocator: std.mem.Allocator ```
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -195,7 +195,7 @@ pub const kiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#iconName)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#iconName)
     ///
     /// Allows for overriding the related default method
     ///
@@ -204,7 +204,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnIconName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#iconName)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#iconName)
     ///
     /// Base class method implementation
     ///
@@ -217,7 +217,7 @@ pub const kiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#availableSizes)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#availableSizes)
     ///
     /// ``` self: QtC.KIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State, allocator: std.mem.Allocator ```
     pub fn AvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
@@ -229,7 +229,7 @@ pub const kiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#availableSizes)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#availableSizes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -238,7 +238,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnAvailableSizes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#availableSizes)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#availableSizes)
     ///
     /// Base class method implementation
     ///
@@ -252,14 +252,14 @@ pub const kiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#isNull)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#isNull)
     ///
     /// ``` self: QtC.KIconEngine ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.KIconEngine_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#isNull)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#isNull)
     ///
     /// Allows for overriding the related default method
     ///
@@ -268,7 +268,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnIsNull(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#isNull)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#isNull)
     ///
     /// Base class method implementation
     ///
@@ -277,7 +277,7 @@ pub const kiconengine = struct {
         return qtc.KIconEngine_QBaseIsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#key)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#key)
     ///
     /// ``` self: QtC.KIconEngine, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -288,7 +288,7 @@ pub const kiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#key)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#key)
     ///
     /// Allows for overriding the related default method
     ///
@@ -297,7 +297,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnKey(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#key)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#key)
     ///
     /// Base class method implementation
     ///
@@ -310,14 +310,14 @@ pub const kiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#clone)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#clone)
     ///
     /// ``` self: QtC.KIconEngine ```
     pub fn Clone(self: ?*anyopaque) QtC.QIconEngine {
         return qtc.KIconEngine_Clone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#clone)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#clone)
     ///
     /// Allows for overriding the related default method
     ///
@@ -326,7 +326,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#clone)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#clone)
     ///
     /// Base class method implementation
     ///
@@ -335,14 +335,14 @@ pub const kiconengine = struct {
         return qtc.KIconEngine_QBaseClone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#read)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#read)
     ///
     /// ``` self: QtC.KIconEngine, in: QtC.QDataStream ```
     pub fn Read(self: ?*anyopaque, in: ?*anyopaque) bool {
         return qtc.KIconEngine_Read(@ptrCast(self), @ptrCast(in));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#read)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#read)
     ///
     /// Allows for overriding the related default method
     ///
@@ -351,7 +351,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#read)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#read)
     ///
     /// Base class method implementation
     ///
@@ -360,14 +360,14 @@ pub const kiconengine = struct {
         return qtc.KIconEngine_QBaseRead(@ptrCast(self), @ptrCast(in));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#write)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#write)
     ///
     /// ``` self: QtC.KIconEngine, out: QtC.QDataStream ```
     pub fn Write(self: ?*anyopaque, out: ?*anyopaque) bool {
         return qtc.KIconEngine_Write(@ptrCast(self), @ptrCast(out));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#write)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#write)
     ///
     /// Allows for overriding the related default method
     ///
@@ -376,7 +376,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#write)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#write)
     ///
     /// Base class method implementation
     ///
@@ -492,7 +492,7 @@ pub const kiconengine = struct {
         qtc.KIconEngine_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconengine.html#dtor.KIconEngine)
+    /// [Qt documentation](https://api.kde.org/kiconengine.html#dtor.KIconEngine)
     ///
     /// Delete this object from C++ memory.
     ///

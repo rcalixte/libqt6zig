@@ -8,7 +8,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qtoolbutton_enums = @import("../libqtoolbutton.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kfontaction.html
+/// https://api.kde.org/kfontaction.html
 pub const kfontaction = struct {
     /// New constructs a new KFontAction object.
     ///
@@ -92,7 +92,7 @@ pub const kfontaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontaction.html#font)
+    /// [Qt documentation](https://api.kde.org/kfontaction.html#font)
     ///
     /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
     pub fn Font(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -103,7 +103,7 @@ pub const kfontaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontaction.html#setFont)
+    /// [Qt documentation](https://api.kde.org/kfontaction.html#setFont)
     ///
     /// ``` self: QtC.KFontAction, family: []const u8 ```
     pub fn SetFont(self: ?*anyopaque, family: []const u8) void {
@@ -114,14 +114,14 @@ pub const kfontaction = struct {
         qtc.KFontAction_SetFont(@ptrCast(self), family_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kfontaction.html#createWidget)
     ///
     /// ``` self: QtC.KFontAction, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KFontAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kfontaction.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -130,7 +130,7 @@ pub const kfontaction = struct {
         qtc.KFontAction_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kfontaction.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -167,7 +167,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#toolBarMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolBarMode)
     ///
     /// ``` self: QtC.KFontAction ```
     ///
@@ -178,7 +178,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setToolBarMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolBarMode)
     ///
     /// ``` self: QtC.KFontAction, mode: kselectaction_enums.ToolBarMode ```
     pub fn SetToolBarMode(self: ?*anyopaque, mode: i32) void {
@@ -187,7 +187,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#toolButtonPopupMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
     ///
     /// ``` self: QtC.KFontAction ```
     ///
@@ -198,7 +198,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setToolButtonPopupMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
     ///
     /// ``` self: QtC.KFontAction, mode: qtoolbutton_enums.ToolButtonPopupMode ```
     pub fn SetToolButtonPopupMode(self: ?*anyopaque, mode: i32) void {
@@ -207,7 +207,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#selectableActionGroup)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#selectableActionGroup)
     ///
     /// ``` self: QtC.KFontAction ```
     pub fn SelectableActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -216,7 +216,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentAction)
     ///
     /// ``` self: QtC.KFontAction ```
     pub fn CurrentAction(self: ?*anyopaque) QtC.QAction {
@@ -225,7 +225,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentItem)
     ///
     /// ``` self: QtC.KFontAction ```
     pub fn CurrentItem(self: ?*anyopaque) i32 {
@@ -234,7 +234,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentText)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentText)
     ///
     /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -247,7 +247,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actions)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actions)
     ///
     /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -261,7 +261,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KFontAction, index: i32 ```
     pub fn Action(self: ?*anyopaque, index: i32) QtC.QAction {
@@ -270,7 +270,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KFontAction, text: []const u8 ```
     pub fn Action2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -283,7 +283,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KFontAction, action: QtC.QAction ```
     pub fn SetCurrentAction(self: ?*anyopaque, action: ?*anyopaque) bool {
@@ -292,7 +292,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentItem)
     ///
     /// ``` self: QtC.KFontAction, index: i32 ```
     pub fn SetCurrentItem(self: ?*anyopaque, index: i32) bool {
@@ -301,7 +301,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KFontAction, text: []const u8 ```
     pub fn SetCurrentAction2(self: ?*anyopaque, text: []const u8) bool {
@@ -314,7 +314,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KFontAction, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -323,7 +323,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KFontAction, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -336,7 +336,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KFontAction, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -349,7 +349,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setItems)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setItems)
     ///
     /// ``` self: QtC.KFontAction, lst: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, lst: [][]const u8, allocator: std.mem.Allocator) void {
@@ -370,7 +370,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#items)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#items)
     ///
     /// ``` self: QtC.KFontAction, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -394,7 +394,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#isEditable)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#isEditable)
     ///
     /// ``` self: QtC.KFontAction ```
     pub fn IsEditable(self: ?*anyopaque) bool {
@@ -403,7 +403,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setEditable)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setEditable)
     ///
     /// ``` self: QtC.KFontAction, editable: bool ```
     pub fn SetEditable(self: ?*anyopaque, editable: bool) void {
@@ -412,7 +412,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#comboWidth)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#comboWidth)
     ///
     /// ``` self: QtC.KFontAction ```
     pub fn ComboWidth(self: ?*anyopaque) i32 {
@@ -421,7 +421,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setComboWidth)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setComboWidth)
     ///
     /// ``` self: QtC.KFontAction, width: i32 ```
     pub fn SetComboWidth(self: ?*anyopaque, width: i32) void {
@@ -430,7 +430,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setMaxComboViewCount)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
     ///
     /// ``` self: QtC.KFontAction, n: i32 ```
     pub fn SetMaxComboViewCount(self: ?*anyopaque, n: i32) void {
@@ -439,7 +439,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#clear)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#clear)
     ///
     /// ``` self: QtC.KFontAction ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -448,7 +448,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAllActions)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAllActions)
     ///
     /// ``` self: QtC.KFontAction ```
     pub fn RemoveAllActions(self: ?*anyopaque) void {
@@ -457,7 +457,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setMenuAccelsEnabled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
     ///
     /// ``` self: QtC.KFontAction, b: bool ```
     pub fn SetMenuAccelsEnabled(self: ?*anyopaque, b: bool) void {
@@ -466,7 +466,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#menuAccelsEnabled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
     ///
     /// ``` self: QtC.KFontAction ```
     pub fn MenuAccelsEnabled(self: ?*anyopaque) bool {
@@ -475,7 +475,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#changeItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#changeItem)
     ///
     /// ``` self: QtC.KFontAction, index: i32, text: []const u8 ```
     pub fn ChangeItem(self: ?*anyopaque, index: i32, text: []const u8) void {
@@ -488,7 +488,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KFontAction, action: QtC.QAction ```
     pub fn ActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -497,7 +497,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KFontAction, slot: fn (self: QtC.KFontAction, action: QtC.QAction) callconv(.c) void ```
     pub fn OnActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -506,7 +506,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#indexTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KFontAction, index: i32 ```
     pub fn IndexTriggered(self: ?*anyopaque, index: i32) void {
@@ -515,7 +515,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#indexTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KFontAction, slot: fn (self: QtC.KFontAction, index: i32) callconv(.c) void ```
     pub fn OnIndexTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -524,7 +524,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#textTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KFontAction, text: []const u8 ```
     pub fn TextTriggered(self: ?*anyopaque, text: []const u8) void {
@@ -537,7 +537,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#textTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KFontAction, slot: fn (self: QtC.KFontAction, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -546,7 +546,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KFontAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Action22(self: ?*anyopaque, text: []const u8, cs: i32) QtC.QAction {
@@ -559,7 +559,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KFontAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn SetCurrentAction22(self: ?*anyopaque, text: []const u8, cs: i32) bool {
@@ -1657,7 +1657,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1668,7 +1668,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1679,7 +1679,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1690,7 +1690,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1701,7 +1701,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1712,7 +1712,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1723,7 +1723,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1734,7 +1734,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1745,7 +1745,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1756,7 +1756,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1767,7 +1767,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1778,7 +1778,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1789,7 +1789,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1800,7 +1800,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1811,7 +1811,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1822,7 +1822,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1833,7 +1833,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1844,7 +1844,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2020,7 +2020,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2031,7 +2031,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2042,7 +2042,7 @@ pub const kfontaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2239,7 +2239,7 @@ pub const kfontaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontaction.html#dtor.KFontAction)
+    /// [Qt documentation](https://api.kde.org/kfontaction.html#dtor.KFontAction)
     ///
     /// Delete this object from C++ memory.
     ///

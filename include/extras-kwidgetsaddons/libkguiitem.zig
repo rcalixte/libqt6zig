@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/kguiitem.html
+/// https://api.kde.org/kguiitem.html
 pub const kguiitem = struct {
     /// New constructs a new KGuiItem object.
     ///
@@ -138,14 +138,14 @@ pub const kguiitem = struct {
         return qtc.KGuiItem_new9(text_str, @ptrCast(icon), toolTip_str, whatsThis_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#operator-eq)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#operator-eq)
     ///
     /// ``` self: QtC.KGuiItem, other: QtC.KGuiItem ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KGuiItem_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#setText)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#setText)
     ///
     /// ``` self: QtC.KGuiItem, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -156,7 +156,7 @@ pub const kguiitem = struct {
         qtc.KGuiItem_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#text)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#text)
     ///
     /// ``` self: QtC.KGuiItem, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -167,7 +167,7 @@ pub const kguiitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#plainText)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#plainText)
     ///
     /// ``` self: QtC.KGuiItem, allocator: std.mem.Allocator ```
     pub fn PlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -178,21 +178,21 @@ pub const kguiitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#setIcon)
     ///
     /// ``` self: QtC.KGuiItem, iconset: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, iconset: ?*anyopaque) void {
         qtc.KGuiItem_SetIcon(@ptrCast(self), @ptrCast(iconset));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#icon)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#icon)
     ///
     /// ``` self: QtC.KGuiItem ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KGuiItem_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#setIconName)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#setIconName)
     ///
     /// ``` self: QtC.KGuiItem, iconName: []const u8 ```
     pub fn SetIconName(self: ?*anyopaque, iconName: []const u8) void {
@@ -203,7 +203,7 @@ pub const kguiitem = struct {
         qtc.KGuiItem_SetIconName(@ptrCast(self), iconName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#iconName)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#iconName)
     ///
     /// ``` self: QtC.KGuiItem, allocator: std.mem.Allocator ```
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -214,14 +214,14 @@ pub const kguiitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#hasIcon)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#hasIcon)
     ///
     /// ``` self: QtC.KGuiItem ```
     pub fn HasIcon(self: ?*anyopaque) bool {
         return qtc.KGuiItem_HasIcon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#setToolTip)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#setToolTip)
     ///
     /// ``` self: QtC.KGuiItem, tooltip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tooltip: []const u8) void {
@@ -232,7 +232,7 @@ pub const kguiitem = struct {
         qtc.KGuiItem_SetToolTip(@ptrCast(self), tooltip_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#toolTip)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#toolTip)
     ///
     /// ``` self: QtC.KGuiItem, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -243,7 +243,7 @@ pub const kguiitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#setWhatsThis)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#setWhatsThis)
     ///
     /// ``` self: QtC.KGuiItem, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -254,7 +254,7 @@ pub const kguiitem = struct {
         qtc.KGuiItem_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#whatsThis)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#whatsThis)
     ///
     /// ``` self: QtC.KGuiItem, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -265,28 +265,28 @@ pub const kguiitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#setEnabled)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#setEnabled)
     ///
     /// ``` self: QtC.KGuiItem, enable: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KGuiItem_SetEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#isEnabled)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#isEnabled)
     ///
     /// ``` self: QtC.KGuiItem ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.KGuiItem_IsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#assign)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#assign)
     ///
     /// ``` button: QtC.QPushButton, item: QtC.KGuiItem ```
     pub fn Assign(button: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KGuiItem_Assign(@ptrCast(button), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kguiitem.html#dtor.KGuiItem)
+    /// [Qt documentation](https://api.kde.org/kguiitem.html#dtor.KGuiItem)
     ///
     /// Delete this object from C++ memory.
     ///

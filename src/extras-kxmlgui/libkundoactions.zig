@@ -1,9 +1,9 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api-staging.kde.org/kundoactions.html
+/// https://api.kde.org/kundoactions.html
 pub const kundoactions = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kundoactions.html#createRedoAction)
+    /// [Qt documentation](https://api.kde.org/kundoactions.html#createRedoAction)
     ///
     /// ``` param1: QtC.QUndoStack, param2: QtC.KActionCollection, param3: []const u8 ```
     pub fn CreateRedoAction(param1: ?*anyopaque, param2: ?*anyopaque, param3: []const u8) QtC.QAction {
@@ -14,7 +14,7 @@ pub const kundoactions = struct {
         return qtc.KUndoActions_CreateRedoAction(@ptrCast(param1), @ptrCast(param2), param3_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kundoactions.html#createUndoAction)
+    /// [Qt documentation](https://api.kde.org/kundoactions.html#createUndoAction)
     ///
     /// ``` param1: QtC.QUndoStack, param2: QtC.KActionCollection, param3: []const u8 ```
     pub fn CreateUndoAction(param1: ?*anyopaque, param2: ?*anyopaque, param3: []const u8) QtC.QAction {

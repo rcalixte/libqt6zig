@@ -7,7 +7,7 @@ const std = @import("std");
 pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
 pub const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
-/// https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html
+/// https://api.kde.org/kcategorizedsortfilterproxymodel.html
 pub const kcategorizedsortfilterproxymodel = struct {
     /// New constructs a new KCategorizedSortFilterProxyModel object.
     ///
@@ -67,14 +67,14 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#sort)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sort)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel, column: i32, order: qnamespace_enums.SortOrder ```
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.KCategorizedSortFilterProxyModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#sort)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sort)
     ///
     /// Allows for overriding the related default method
     ///
@@ -83,7 +83,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnSort(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#sort)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sort)
     ///
     /// Base class method implementation
     ///
@@ -92,28 +92,28 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#isCategorizedModel)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#isCategorizedModel)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel ```
     pub fn IsCategorizedModel(self: ?*anyopaque) bool {
         return qtc.KCategorizedSortFilterProxyModel_IsCategorizedModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#setCategorizedModel)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#setCategorizedModel)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel, categorizedModel: bool ```
     pub fn SetCategorizedModel(self: ?*anyopaque, categorizedModel: bool) void {
         qtc.KCategorizedSortFilterProxyModel_SetCategorizedModel(@ptrCast(self), categorizedModel);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#sortColumn)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sortColumn)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel ```
     pub fn SortColumn(self: ?*anyopaque) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SortColumn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#sortOrder)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sortOrder)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel ```
     ///
@@ -122,28 +122,28 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_SortOrder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#setSortCategoriesByNaturalComparison)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#setSortCategoriesByNaturalComparison)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel, sortCategoriesByNaturalComparison: bool ```
     pub fn SetSortCategoriesByNaturalComparison(self: ?*anyopaque, sortCategoriesByNaturalComparison: bool) void {
         qtc.KCategorizedSortFilterProxyModel_SetSortCategoriesByNaturalComparison(@ptrCast(self), sortCategoriesByNaturalComparison);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#sortCategoriesByNaturalComparison)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sortCategoriesByNaturalComparison)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel ```
     pub fn SortCategoriesByNaturalComparison(self: ?*anyopaque) bool {
         return qtc.KCategorizedSortFilterProxyModel_SortCategoriesByNaturalComparison(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel, left: QtC.QModelIndex, right: QtC.QModelIndex ```
     pub fn LessThan(self: ?*anyopaque, left: ?*anyopaque, right: ?*anyopaque) bool {
         return qtc.KCategorizedSortFilterProxyModel_LessThan(@ptrCast(self), @ptrCast(left), @ptrCast(right));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
     ///
     /// Allows for overriding the related default method
     ///
@@ -152,7 +152,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnLessThan(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
     ///
     /// Base class method implementation
     ///
@@ -161,14 +161,14 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_QBaseLessThan(@ptrCast(self), @ptrCast(left), @ptrCast(right));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel, left: QtC.QModelIndex, right: QtC.QModelIndex ```
     pub fn SubSortLessThan(self: ?*anyopaque, left: ?*anyopaque, right: ?*anyopaque) bool {
         return qtc.KCategorizedSortFilterProxyModel_SubSortLessThan(@ptrCast(self), @ptrCast(left), @ptrCast(right));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
     ///
     /// Allows for overriding the related default method
     ///
@@ -177,7 +177,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnSubSortLessThan(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
     ///
     /// Base class method implementation
     ///
@@ -186,14 +186,14 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_QBaseSubSortLessThan(@ptrCast(self), @ptrCast(left), @ptrCast(right));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
     ///
     /// ``` self: QtC.KCategorizedSortFilterProxyModel, left: QtC.QModelIndex, right: QtC.QModelIndex ```
     pub fn CompareCategories(self: ?*anyopaque, left: ?*anyopaque, right: ?*anyopaque) i32 {
         return qtc.KCategorizedSortFilterProxyModel_CompareCategories(@ptrCast(self), @ptrCast(left), @ptrCast(right));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
     ///
     /// Allows for overriding the related default method
     ///
@@ -202,7 +202,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnCompareCategories(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
     ///
     /// Base class method implementation
     ///
@@ -4234,7 +4234,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#dtor.KCategorizedSortFilterProxyModel)
+    /// [Qt documentation](https://api.kde.org/kcategorizedsortfilterproxymodel.html#dtor.KCategorizedSortFilterProxyModel)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -4244,7 +4244,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
     }
 };
 
-/// https://api-staging.kde.org/kcategorizedsortfilterproxymodel.html#types
+/// https://api.kde.org/kcategorizedsortfilterproxymodel.html#types
 pub const enums = struct {
     pub const AdditionalRoles = enum {
         pub const CategoryDisplayRole: i32 = 399415562;

@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcolorschemewatcher.html
+/// https://api.kde.org/kcolorschemewatcher.html
 pub const kcolorschemewatcher = struct {
     /// New constructs a new KColorSchemeWatcher object.
     ///
@@ -65,7 +65,7 @@ pub const kcolorschemewatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschemewatcher.html#systemPreference)
+    /// [Qt documentation](https://api.kde.org/kcolorschemewatcher.html#systemPreference)
     ///
     /// ``` self: QtC.KColorSchemeWatcher ```
     ///
@@ -74,14 +74,14 @@ pub const kcolorschemewatcher = struct {
         return qtc.KColorSchemeWatcher_SystemPreference(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschemewatcher.html#systemPreferenceChanged)
+    /// [Qt documentation](https://api.kde.org/kcolorschemewatcher.html#systemPreferenceChanged)
     ///
     /// ``` self: QtC.KColorSchemeWatcher ```
     pub fn SystemPreferenceChanged(self: ?*anyopaque) void {
         qtc.KColorSchemeWatcher_SystemPreferenceChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschemewatcher.html#systemPreferenceChanged)
+    /// [Qt documentation](https://api.kde.org/kcolorschemewatcher.html#systemPreferenceChanged)
     ///
     /// ``` self: QtC.KColorSchemeWatcher, slot: fn (self: QtC.KColorSchemeWatcher) callconv(.c) void ```
     pub fn OnSystemPreferenceChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -867,7 +867,7 @@ pub const kcolorschemewatcher = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschemewatcher.html#dtor.KColorSchemeWatcher)
+    /// [Qt documentation](https://api.kde.org/kcolorschemewatcher.html#dtor.KColorSchemeWatcher)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -877,7 +877,7 @@ pub const kcolorschemewatcher = struct {
     }
 };
 
-/// https://api-staging.kde.org/kcolorschemewatcher.html#types
+/// https://api.kde.org/kcolorschemewatcher.html#types
 pub const enums = struct {
     pub const ColorPreference = enum {
         pub const NoPreference: i32 = 0;

@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kedittoolbar.html
+/// https://api.kde.org/kedittoolbar.html
 pub const kedittoolbar = struct {
     /// New constructs a new KEditToolBar object.
     ///
@@ -82,7 +82,7 @@ pub const kedittoolbar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#setDefaultToolBar)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#setDefaultToolBar)
     ///
     /// ``` self: QtC.KEditToolBar, toolBarName: []const u8 ```
     pub fn SetDefaultToolBar(self: ?*anyopaque, toolBarName: []const u8) void {
@@ -93,7 +93,7 @@ pub const kedittoolbar = struct {
         qtc.KEditToolBar_SetDefaultToolBar(@ptrCast(self), toolBarName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#setResourceFile)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#setResourceFile)
     ///
     /// ``` self: QtC.KEditToolBar, file: []const u8 ```
     pub fn SetResourceFile(self: ?*anyopaque, file: []const u8) void {
@@ -104,7 +104,7 @@ pub const kedittoolbar = struct {
         qtc.KEditToolBar_SetResourceFile(@ptrCast(self), file_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#setGlobalDefaultToolBar)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#setGlobalDefaultToolBar)
     ///
     /// ``` toolBarName: []const u8 ```
     pub fn SetGlobalDefaultToolBar(toolBarName: []const u8) void {
@@ -115,28 +115,28 @@ pub const kedittoolbar = struct {
         qtc.KEditToolBar_SetGlobalDefaultToolBar(toolBarName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#newToolBarConfig)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#newToolBarConfig)
     ///
     /// ``` self: QtC.KEditToolBar ```
     pub fn NewToolBarConfig(self: ?*anyopaque) void {
         qtc.KEditToolBar_NewToolBarConfig(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#newToolBarConfig)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#newToolBarConfig)
     ///
     /// ``` self: QtC.KEditToolBar, slot: fn (self: QtC.KEditToolBar) callconv(.c) void ```
     pub fn OnNewToolBarConfig(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KEditToolBar_Connect_NewToolBarConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#showEvent)
     ///
     /// ``` self: QtC.KEditToolBar, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KEditToolBar_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -145,7 +145,7 @@ pub const kedittoolbar = struct {
         qtc.KEditToolBar_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -154,14 +154,14 @@ pub const kedittoolbar = struct {
         qtc.KEditToolBar_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#hideEvent)
     ///
     /// ``` self: QtC.KEditToolBar, event: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KEditToolBar_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#hideEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -170,7 +170,7 @@ pub const kedittoolbar = struct {
         qtc.KEditToolBar_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#hideEvent)
     ///
     /// Base class method implementation
     ///
@@ -205,7 +205,7 @@ pub const kedittoolbar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#setResourceFile)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#setResourceFile)
     ///
     /// ``` self: QtC.KEditToolBar, file: []const u8, global: bool ```
     pub fn SetResourceFile2(self: ?*anyopaque, file: []const u8, global: bool) void {
@@ -5427,7 +5427,7 @@ pub const kedittoolbar = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kedittoolbar.html#dtor.KEditToolBar)
+    /// [Qt documentation](https://api.kde.org/kedittoolbar.html#dtor.KEditToolBar)
     ///
     /// Delete this object from C++ memory.
     ///

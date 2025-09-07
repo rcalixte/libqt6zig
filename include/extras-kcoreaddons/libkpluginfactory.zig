@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpluginfactory.html
+/// https://api.kde.org/kpluginfactory.html
 pub const kpluginfactory = struct {
     /// New constructs a new KPluginFactory object.
     ///
@@ -57,21 +57,21 @@ pub const kpluginfactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginfactory.html#metaData)
+    /// [Qt documentation](https://api.kde.org/kpluginfactory.html#metaData)
     ///
     /// ``` self: QtC.KPluginFactory ```
     pub fn MetaData(self: ?*anyopaque) QtC.KPluginMetaData {
         return qtc.KPluginFactory_MetaData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginfactory.html#setMetaData)
+    /// [Qt documentation](https://api.kde.org/kpluginfactory.html#setMetaData)
     ///
     /// ``` self: QtC.KPluginFactory, metaData: QtC.KPluginMetaData ```
     pub fn SetMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
         qtc.KPluginFactory_SetMetaData(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginfactory.html#create)
+    /// [Qt documentation](https://api.kde.org/kpluginfactory.html#create)
     ///
     /// ``` self: QtC.KPluginFactory, iface: []const u8, parentWidget: QtC.QWidget, parent: QtC.QObject, args: []QtC.QVariant ```
     pub fn Create(self: ?*anyopaque, iface: []const u8, parentWidget: ?*anyopaque, parent: ?*anyopaque, args: []QtC.QVariant) QtC.QObject {
@@ -83,7 +83,7 @@ pub const kpluginfactory = struct {
         return qtc.KPluginFactory_Create(@ptrCast(self), iface_Cstring, @ptrCast(parentWidget), @ptrCast(parent), args_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginfactory.html#create)
+    /// [Qt documentation](https://api.kde.org/kpluginfactory.html#create)
     ///
     /// Allows for overriding the related default method
     ///
@@ -92,7 +92,7 @@ pub const kpluginfactory = struct {
         qtc.KPluginFactory_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginfactory.html#create)
+    /// [Qt documentation](https://api.kde.org/kpluginfactory.html#create)
     ///
     /// Base class method implementation
     ///
@@ -885,7 +885,7 @@ pub const kpluginfactory = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginfactory.html#dtor.KPluginFactory)
+    /// [Qt documentation](https://api.kde.org/kpluginfactory.html#dtor.KPluginFactory)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -895,7 +895,7 @@ pub const kpluginfactory = struct {
     }
 };
 
-/// https://api-staging.kde.org/kpluginfactory.html#types
+/// https://api.kde.org/kpluginfactory.html#types
 pub const enums = struct {
     pub const ResultErrorReason = enum {
         pub const NO_PLUGIN_ERROR: i32 = 0;

@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kshortcutseditor.html
+/// https://api.kde.org/kshortcutseditor.html
 pub const kshortcutseditor = struct {
     /// New constructs a new KShortcutsEditor object.
     ///
@@ -97,49 +97,49 @@ pub const kshortcutseditor = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#isModified)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#isModified)
     ///
     /// ``` self: QtC.KShortcutsEditor ```
     pub fn IsModified(self: ?*anyopaque) bool {
         return qtc.KShortcutsEditor_IsModified(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#clearCollections)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#clearCollections)
     ///
     /// ``` self: QtC.KShortcutsEditor ```
     pub fn ClearCollections(self: ?*anyopaque) void {
         qtc.KShortcutsEditor_ClearCollections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#addCollection)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#addCollection)
     ///
     /// ``` self: QtC.KShortcutsEditor, param1: QtC.KActionCollection ```
     pub fn AddCollection(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KShortcutsEditor_AddCollection(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#undo)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#undo)
     ///
     /// ``` self: QtC.KShortcutsEditor ```
     pub fn Undo(self: ?*anyopaque) void {
         qtc.KShortcutsEditor_Undo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#save)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#save)
     ///
     /// ``` self: QtC.KShortcutsEditor ```
     pub fn Save(self: ?*anyopaque) void {
         qtc.KShortcutsEditor_Save(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#setActionTypes)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#setActionTypes)
     ///
     /// ``` self: QtC.KShortcutsEditor, actionTypes: flag of kshortcutseditor_enums.ActionType ```
     pub fn SetActionTypes(self: ?*anyopaque, actionTypes: i64) void {
         qtc.KShortcutsEditor_SetActionTypes(@ptrCast(self), @intCast(actionTypes));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#actionTypes)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#actionTypes)
     ///
     /// ``` self: QtC.KShortcutsEditor ```
     ///
@@ -148,21 +148,21 @@ pub const kshortcutseditor = struct {
         return qtc.KShortcutsEditor_ActionTypes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#keyChange)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#keyChange)
     ///
     /// ``` self: QtC.KShortcutsEditor ```
     pub fn KeyChange(self: ?*anyopaque) void {
         qtc.KShortcutsEditor_KeyChange(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#keyChange)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#keyChange)
     ///
     /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor) callconv(.c) void ```
     pub fn OnKeyChange(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KShortcutsEditor_Connect_KeyChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#allDefault)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#allDefault)
     ///
     /// ``` self: QtC.KShortcutsEditor ```
     pub fn AllDefault(self: ?*anyopaque) void {
@@ -195,7 +195,7 @@ pub const kshortcutseditor = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#addCollection)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#addCollection)
     ///
     /// ``` self: QtC.KShortcutsEditor, param1: QtC.KActionCollection, title: []const u8 ```
     pub fn AddCollection2(self: ?*anyopaque, param1: ?*anyopaque, title: []const u8) void {
@@ -5186,7 +5186,7 @@ pub const kshortcutseditor = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutseditor.html#dtor.KShortcutsEditor)
+    /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#dtor.KShortcutsEditor)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5196,7 +5196,7 @@ pub const kshortcutseditor = struct {
     }
 };
 
-/// https://api-staging.kde.org/kshortcutseditor.html#types
+/// https://api.kde.org/kshortcutseditor.html#types
 pub const enums = struct {
     pub const ActionType = enum {
         pub const WidgetAction: i32 = 0;

@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktoggletoolbaraction.html
+/// https://api.kde.org/ktoggletoolbaraction.html
 pub const ktoggletoolbaraction = struct {
     /// New constructs a new KToggleToolBarAction object.
     ///
@@ -64,21 +64,21 @@ pub const ktoggletoolbaraction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggletoolbaraction.html#toolBar)
+    /// [Qt documentation](https://api.kde.org/ktoggletoolbaraction.html#toolBar)
     ///
     /// ``` self: QtC.KToggleToolBarAction ```
     pub fn ToolBar(self: ?*anyopaque) QtC.KToolBar {
         return qtc.KToggleToolBarAction_ToolBar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggletoolbaraction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktoggletoolbaraction.html#eventFilter)
     ///
     /// ``` self: QtC.KToggleToolBarAction, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KToggleToolBarAction_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggletoolbaraction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktoggletoolbaraction.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -87,7 +87,7 @@ pub const ktoggletoolbaraction = struct {
         qtc.KToggleToolBarAction_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggletoolbaraction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktoggletoolbaraction.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -124,7 +124,7 @@ pub const ktoggletoolbaraction = struct {
 
     /// Inherited from KToggleAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktoggleaction.html#setCheckedState)
+    /// [Qt documentation](https://api.kde.org/ktoggleaction.html#setCheckedState)
     ///
     /// ``` self: QtC.KToggleToolBarAction, checkedItem: QtC.KGuiItem ```
     pub fn SetCheckedState(self: ?*anyopaque, checkedItem: ?*anyopaque) void {
@@ -1541,7 +1541,7 @@ pub const ktoggletoolbaraction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggletoolbaraction.html#dtor.KToggleToolBarAction)
+    /// [Qt documentation](https://api.kde.org/ktoggletoolbaraction.html#dtor.KToggleToolBarAction)
     ///
     /// Delete this object from C++ memory.
     ///

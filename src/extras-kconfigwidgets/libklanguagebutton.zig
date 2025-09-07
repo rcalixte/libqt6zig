@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/klanguagebutton.html
+/// https://api.kde.org/klanguagebutton.html
 pub const klanguagebutton = struct {
     /// New constructs a new KLanguageButton object.
     ///
@@ -92,7 +92,7 @@ pub const klanguagebutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#setLocale)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#setLocale)
     ///
     /// ``` self: QtC.KLanguageButton, locale: []const u8 ```
     pub fn SetLocale(self: ?*anyopaque, locale: []const u8) void {
@@ -103,7 +103,7 @@ pub const klanguagebutton = struct {
         qtc.KLanguageButton_SetLocale(@ptrCast(self), locale_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#setText)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#setText)
     ///
     /// ``` self: QtC.KLanguageButton, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -114,21 +114,21 @@ pub const klanguagebutton = struct {
         qtc.KLanguageButton_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#showLanguageCodes)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#showLanguageCodes)
     ///
     /// ``` self: QtC.KLanguageButton, show: bool ```
     pub fn ShowLanguageCodes(self: ?*anyopaque, show: bool) void {
         qtc.KLanguageButton_ShowLanguageCodes(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#loadAllLanguages)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#loadAllLanguages)
     ///
     /// ``` self: QtC.KLanguageButton ```
     pub fn LoadAllLanguages(self: ?*anyopaque) void {
         qtc.KLanguageButton_LoadAllLanguages(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#insertLanguage)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#insertLanguage)
     ///
     /// ``` self: QtC.KLanguageButton, languageCode: []const u8 ```
     pub fn InsertLanguage(self: ?*anyopaque, languageCode: []const u8) void {
@@ -139,28 +139,28 @@ pub const klanguagebutton = struct {
         qtc.KLanguageButton_InsertLanguage(@ptrCast(self), languageCode_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#insertSeparator)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#insertSeparator)
     ///
     /// ``` self: QtC.KLanguageButton ```
     pub fn InsertSeparator(self: ?*anyopaque) void {
         qtc.KLanguageButton_InsertSeparator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#count)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#count)
     ///
     /// ``` self: QtC.KLanguageButton ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.KLanguageButton_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#clear)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#clear)
     ///
     /// ``` self: QtC.KLanguageButton ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KLanguageButton_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#current)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#current)
     ///
     /// ``` self: QtC.KLanguageButton, allocator: std.mem.Allocator ```
     pub fn Current(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -171,7 +171,7 @@ pub const klanguagebutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#contains)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#contains)
     ///
     /// ``` self: QtC.KLanguageButton, languageCode: []const u8 ```
     pub fn Contains(self: ?*anyopaque, languageCode: []const u8) bool {
@@ -182,7 +182,7 @@ pub const klanguagebutton = struct {
         return qtc.KLanguageButton_Contains(@ptrCast(self), languageCode_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#setCurrentItem)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#setCurrentItem)
     ///
     /// ``` self: QtC.KLanguageButton, languageCode: []const u8 ```
     pub fn SetCurrentItem(self: ?*anyopaque, languageCode: []const u8) void {
@@ -193,7 +193,7 @@ pub const klanguagebutton = struct {
         qtc.KLanguageButton_SetCurrentItem(@ptrCast(self), languageCode_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#activated)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#activated)
     ///
     /// ``` self: QtC.KLanguageButton, languageCode: []const u8 ```
     pub fn Activated(self: ?*anyopaque, languageCode: []const u8) void {
@@ -204,14 +204,14 @@ pub const klanguagebutton = struct {
         qtc.KLanguageButton_Activated(@ptrCast(self), languageCode_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#activated)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#activated)
     ///
     /// ``` self: QtC.KLanguageButton, slot: fn (self: QtC.KLanguageButton, languageCode: [*:0]const u8) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLanguageButton_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#highlighted)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#highlighted)
     ///
     /// ``` self: QtC.KLanguageButton, languageCode: []const u8 ```
     pub fn Highlighted(self: ?*anyopaque, languageCode: []const u8) void {
@@ -222,7 +222,7 @@ pub const klanguagebutton = struct {
         qtc.KLanguageButton_Highlighted(@ptrCast(self), languageCode_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#highlighted)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#highlighted)
     ///
     /// ``` self: QtC.KLanguageButton, slot: fn (self: QtC.KLanguageButton, languageCode: [*:0]const u8) callconv(.c) void ```
     pub fn OnHighlighted(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -255,7 +255,7 @@ pub const klanguagebutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#insertLanguage)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#insertLanguage)
     ///
     /// ``` self: QtC.KLanguageButton, languageCode: []const u8, name: []const u8 ```
     pub fn InsertLanguage2(self: ?*anyopaque, languageCode: []const u8, name: []const u8) void {
@@ -270,7 +270,7 @@ pub const klanguagebutton = struct {
         qtc.KLanguageButton_InsertLanguage2(@ptrCast(self), languageCode_str, name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#insertLanguage)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#insertLanguage)
     ///
     /// ``` self: QtC.KLanguageButton, languageCode: []const u8, name: []const u8, index: i32 ```
     pub fn InsertLanguage3(self: ?*anyopaque, languageCode: []const u8, name: []const u8, index: i32) void {
@@ -285,7 +285,7 @@ pub const klanguagebutton = struct {
         qtc.KLanguageButton_InsertLanguage3(@ptrCast(self), languageCode_str, name_str, @intCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#insertSeparator)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#insertSeparator)
     ///
     /// ``` self: QtC.KLanguageButton, index: i32 ```
     pub fn InsertSeparator1(self: ?*anyopaque, index: i32) void {
@@ -5263,7 +5263,7 @@ pub const klanguagebutton = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagebutton.html#dtor.KLanguageButton)
+    /// [Qt documentation](https://api.kde.org/klanguagebutton.html#dtor.KLanguageButton)
     ///
     /// Delete this object from C++ memory.
     ///

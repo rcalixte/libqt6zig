@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kadjustingscrollarea.html
+/// https://api.kde.org/kadjustingscrollarea.html
 pub const kadjustingscrollarea = struct {
     /// New constructs a new KAdjustingScrollArea object.
     ///
@@ -70,14 +70,14 @@ pub const kadjustingscrollarea = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KAdjustingScrollArea ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KAdjustingScrollArea_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -86,7 +86,7 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -95,14 +95,14 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
     ///
     /// ``` self: QtC.KAdjustingScrollArea ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KAdjustingScrollArea_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -111,7 +111,7 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -120,14 +120,14 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#event)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#event)
     ///
     /// ``` self: QtC.KAdjustingScrollArea, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KAdjustingScrollArea_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#event)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -136,7 +136,7 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#event)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#event)
     ///
     /// Base class method implementation
     ///
@@ -5687,7 +5687,7 @@ pub const kadjustingscrollarea = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kadjustingscrollarea.html#dtor.KAdjustingScrollArea)
+    /// [Qt documentation](https://api.kde.org/kadjustingscrollarea.html#dtor.KAdjustingScrollArea)
     ///
     /// Delete this object from C++ memory.
     ///

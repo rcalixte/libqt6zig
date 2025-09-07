@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcolorbutton.html
+/// https://api.kde.org/kcolorbutton.html
 pub const kcolorbutton = struct {
     /// New constructs a new KColorButton object.
     ///
@@ -96,56 +96,56 @@ pub const kcolorbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#color)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#color)
     ///
     /// ``` self: QtC.KColorButton ```
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.KColorButton_Color(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#setColor)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#setColor)
     ///
     /// ``` self: QtC.KColorButton, c: QtC.QColor ```
     pub fn SetColor(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.KColorButton_SetColor(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#setAlphaChannelEnabled)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#setAlphaChannelEnabled)
     ///
     /// ``` self: QtC.KColorButton, alpha: bool ```
     pub fn SetAlphaChannelEnabled(self: ?*anyopaque, alpha: bool) void {
         qtc.KColorButton_SetAlphaChannelEnabled(@ptrCast(self), alpha);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#isAlphaChannelEnabled)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#isAlphaChannelEnabled)
     ///
     /// ``` self: QtC.KColorButton ```
     pub fn IsAlphaChannelEnabled(self: ?*anyopaque) bool {
         return qtc.KColorButton_IsAlphaChannelEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#defaultColor)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#defaultColor)
     ///
     /// ``` self: QtC.KColorButton ```
     pub fn DefaultColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KColorButton_DefaultColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#setDefaultColor)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#setDefaultColor)
     ///
     /// ``` self: QtC.KColorButton, c: QtC.QColor ```
     pub fn SetDefaultColor(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.KColorButton_SetDefaultColor(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#sizeHint)
     ///
     /// ``` self: QtC.KColorButton ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KColorButton_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -154,7 +154,7 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -163,14 +163,14 @@ pub const kcolorbutton = struct {
         return qtc.KColorButton_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KColorButton ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KColorButton_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -179,7 +179,7 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -188,28 +188,28 @@ pub const kcolorbutton = struct {
         return qtc.KColorButton_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#changed)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#changed)
     ///
     /// ``` self: QtC.KColorButton, newColor: QtC.QColor ```
     pub fn Changed(self: ?*anyopaque, newColor: ?*anyopaque) void {
         qtc.KColorButton_Changed(@ptrCast(self), @ptrCast(newColor));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#changed)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#changed)
     ///
     /// ``` self: QtC.KColorButton, slot: fn (self: QtC.KColorButton, newColor: QtC.QColor) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KColorButton_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#paintEvent)
     ///
     /// ``` self: QtC.KColorButton, pe: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, pe: ?*anyopaque) void {
         qtc.KColorButton_PaintEvent(@ptrCast(self), @ptrCast(pe));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -218,7 +218,7 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -227,14 +227,14 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_QBasePaintEvent(@ptrCast(self), @ptrCast(pe));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#dragEnterEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#dragEnterEvent)
     ///
     /// ``` self: QtC.KColorButton, param1: QtC.QDragEnterEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KColorButton_DragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#dragEnterEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#dragEnterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -243,7 +243,7 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#dragEnterEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#dragEnterEvent)
     ///
     /// Base class method implementation
     ///
@@ -252,14 +252,14 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#dropEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#dropEvent)
     ///
     /// ``` self: QtC.KColorButton, param1: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KColorButton_DropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#dropEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#dropEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -268,7 +268,7 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#dropEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#dropEvent)
     ///
     /// Base class method implementation
     ///
@@ -277,14 +277,14 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_QBaseDropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#mousePressEvent)
     ///
     /// ``` self: QtC.KColorButton, e: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KColorButton_MousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -293,7 +293,7 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -302,14 +302,14 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.KColorButton, e: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KColorButton_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -318,7 +318,7 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -327,14 +327,14 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#keyPressEvent)
     ///
     /// ``` self: QtC.KColorButton, e: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KColorButton_KeyPressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -343,7 +343,7 @@ pub const kcolorbutton = struct {
         qtc.KColorButton_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -5639,7 +5639,7 @@ pub const kcolorbutton = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorbutton.html#dtor.KColorButton)
+    /// [Qt documentation](https://api.kde.org/kcolorbutton.html#dtor.KColorButton)
     ///
     /// Delete this object from C++ memory.
     ///

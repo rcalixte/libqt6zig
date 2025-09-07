@@ -11,7 +11,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktimecombobox.html
+/// https://api.kde.org/ktimecombobox.html
 pub const ktimecombobox = struct {
     /// New constructs a new KTimeComboBox object.
     ///
@@ -71,28 +71,28 @@ pub const ktimecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#time)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#time)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn Time(self: ?*anyopaque) QtC.QTime {
         return qtc.KTimeComboBox_Time(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#isValid)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#isValid)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KTimeComboBox_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#isNull)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#isNull)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.KTimeComboBox_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#options)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#options)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     ///
@@ -101,7 +101,7 @@ pub const ktimecombobox = struct {
         return qtc.KTimeComboBox_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#displayFormat)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#displayFormat)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     ///
@@ -110,56 +110,56 @@ pub const ktimecombobox = struct {
         return qtc.KTimeComboBox_DisplayFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#minimumTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#minimumTime)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn MinimumTime(self: ?*anyopaque) QtC.QTime {
         return qtc.KTimeComboBox_MinimumTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#resetMinimumTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#resetMinimumTime)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn ResetMinimumTime(self: ?*anyopaque) void {
         qtc.KTimeComboBox_ResetMinimumTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#maximumTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#maximumTime)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn MaximumTime(self: ?*anyopaque) QtC.QTime {
         return qtc.KTimeComboBox_MaximumTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#resetMaximumTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#resetMaximumTime)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn ResetMaximumTime(self: ?*anyopaque) void {
         qtc.KTimeComboBox_ResetMaximumTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setTimeRange)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setTimeRange)
     ///
     /// ``` self: QtC.KTimeComboBox, minTime: QtC.QTime, maxTime: QtC.QTime ```
     pub fn SetTimeRange(self: ?*anyopaque, minTime: ?*anyopaque, maxTime: ?*anyopaque) void {
         qtc.KTimeComboBox_SetTimeRange(@ptrCast(self), @ptrCast(minTime), @ptrCast(maxTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#resetTimeRange)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#resetTimeRange)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn ResetTimeRange(self: ?*anyopaque) void {
         qtc.KTimeComboBox_ResetTimeRange(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#timeListInterval)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#timeListInterval)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn TimeListInterval(self: ?*anyopaque) i32 {
         return qtc.KTimeComboBox_TimeListInterval(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#timeList)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#timeList)
     ///
     /// ``` self: QtC.KTimeComboBox, allocator: std.mem.Allocator ```
     pub fn TimeList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTime {
@@ -171,91 +171,91 @@ pub const ktimecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#timeEntered)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#timeEntered)
     ///
     /// ``` self: QtC.KTimeComboBox, time: QtC.QTime ```
     pub fn TimeEntered(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KTimeComboBox_TimeEntered(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#timeEntered)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#timeEntered)
     ///
     /// ``` self: QtC.KTimeComboBox, slot: fn (self: QtC.KTimeComboBox, time: QtC.QTime) callconv(.c) void ```
     pub fn OnTimeEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTimeComboBox_Connect_TimeEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#timeChanged)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#timeChanged)
     ///
     /// ``` self: QtC.KTimeComboBox, time: QtC.QTime ```
     pub fn TimeChanged(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KTimeComboBox_TimeChanged(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#timeChanged)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#timeChanged)
     ///
     /// ``` self: QtC.KTimeComboBox, slot: fn (self: QtC.KTimeComboBox, time: QtC.QTime) callconv(.c) void ```
     pub fn OnTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTimeComboBox_Connect_TimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#timeEdited)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#timeEdited)
     ///
     /// ``` self: QtC.KTimeComboBox, time: QtC.QTime ```
     pub fn TimeEdited(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KTimeComboBox_TimeEdited(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#timeEdited)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#timeEdited)
     ///
     /// ``` self: QtC.KTimeComboBox, slot: fn (self: QtC.KTimeComboBox, time: QtC.QTime) callconv(.c) void ```
     pub fn OnTimeEdited(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTimeComboBox_Connect_TimeEdited(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setTime)
     ///
     /// ``` self: QtC.KTimeComboBox, time: QtC.QTime ```
     pub fn SetTime(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KTimeComboBox_SetTime(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setOptions)
     ///
     /// ``` self: QtC.KTimeComboBox, options: flag of ktimecombobox_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.KTimeComboBox_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setDisplayFormat)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setDisplayFormat)
     ///
     /// ``` self: QtC.KTimeComboBox, format: qlocale_enums.FormatType ```
     pub fn SetDisplayFormat(self: ?*anyopaque, format: i32) void {
         qtc.KTimeComboBox_SetDisplayFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setMinimumTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setMinimumTime)
     ///
     /// ``` self: QtC.KTimeComboBox, minTime: QtC.QTime ```
     pub fn SetMinimumTime(self: ?*anyopaque, minTime: ?*anyopaque) void {
         qtc.KTimeComboBox_SetMinimumTime(@ptrCast(self), @ptrCast(minTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setMaximumTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setMaximumTime)
     ///
     /// ``` self: QtC.KTimeComboBox, maxTime: QtC.QTime ```
     pub fn SetMaximumTime(self: ?*anyopaque, maxTime: ?*anyopaque) void {
         qtc.KTimeComboBox_SetMaximumTime(@ptrCast(self), @ptrCast(maxTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setTimeListInterval)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setTimeListInterval)
     ///
     /// ``` self: QtC.KTimeComboBox, minutes: i32 ```
     pub fn SetTimeListInterval(self: ?*anyopaque, minutes: i32) void {
         qtc.KTimeComboBox_SetTimeListInterval(@ptrCast(self), @intCast(minutes));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setTimeList)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setTimeList)
     ///
     /// ``` self: QtC.KTimeComboBox, timeList: []QtC.QTime ```
     pub fn SetTimeList(self: ?*anyopaque, timeList: []QtC.QTime) void {
@@ -266,14 +266,14 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_SetTimeList(@ptrCast(self), timeList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#eventFilter)
     ///
     /// ``` self: QtC.KTimeComboBox, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KTimeComboBox_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -282,7 +282,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -291,14 +291,14 @@ pub const ktimecombobox = struct {
         return qtc.KTimeComboBox_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#showPopup)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#showPopup)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn ShowPopup(self: ?*anyopaque) void {
         qtc.KTimeComboBox_ShowPopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#showPopup)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#showPopup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -307,7 +307,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnShowPopup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#showPopup)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#showPopup)
     ///
     /// Base class method implementation
     ///
@@ -316,14 +316,14 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_QBaseShowPopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#hidePopup)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#hidePopup)
     ///
     /// ``` self: QtC.KTimeComboBox ```
     pub fn HidePopup(self: ?*anyopaque) void {
         qtc.KTimeComboBox_HidePopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#hidePopup)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#hidePopup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -332,7 +332,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnHidePopup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#hidePopup)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#hidePopup)
     ///
     /// Base class method implementation
     ///
@@ -341,14 +341,14 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_QBaseHidePopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#mousePressEvent)
     ///
     /// ``` self: QtC.KTimeComboBox, event: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KTimeComboBox_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -357,7 +357,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -366,14 +366,14 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#wheelEvent)
     ///
     /// ``` self: QtC.KTimeComboBox, event: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KTimeComboBox_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#wheelEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -382,7 +382,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#wheelEvent)
     ///
     /// Base class method implementation
     ///
@@ -391,14 +391,14 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#keyPressEvent)
     ///
     /// ``` self: QtC.KTimeComboBox, event: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KTimeComboBox_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -407,7 +407,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -416,14 +416,14 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#focusInEvent)
     ///
     /// ``` self: QtC.KTimeComboBox, event: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KTimeComboBox_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -432,7 +432,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -441,14 +441,14 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#focusOutEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#focusOutEvent)
     ///
     /// ``` self: QtC.KTimeComboBox, event: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KTimeComboBox_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#focusOutEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#focusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -457,7 +457,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#focusOutEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#focusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -466,14 +466,14 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#resizeEvent)
     ///
     /// ``` self: QtC.KTimeComboBox, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KTimeComboBox_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -482,7 +482,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -491,14 +491,14 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#assignTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#assignTime)
     ///
     /// ``` self: QtC.KTimeComboBox, time: QtC.QTime ```
     pub fn AssignTime(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KTimeComboBox_AssignTime(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#assignTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#assignTime)
     ///
     /// Allows for overriding the related default method
     ///
@@ -507,7 +507,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_OnAssignTime(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#assignTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#assignTime)
     ///
     /// Base class method implementation
     ///
@@ -542,7 +542,7 @@ pub const ktimecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setTimeRange)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setTimeRange)
     ///
     /// ``` self: QtC.KTimeComboBox, minTime: QtC.QTime, maxTime: QtC.QTime, minWarnMsg: []const u8 ```
     pub fn SetTimeRange3(self: ?*anyopaque, minTime: ?*anyopaque, maxTime: ?*anyopaque, minWarnMsg: []const u8) void {
@@ -553,7 +553,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_SetTimeRange3(@ptrCast(self), @ptrCast(minTime), @ptrCast(maxTime), minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setTimeRange)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setTimeRange)
     ///
     /// ``` self: QtC.KTimeComboBox, minTime: QtC.QTime, maxTime: QtC.QTime, minWarnMsg: []const u8, maxWarnMsg: []const u8 ```
     pub fn SetTimeRange4(self: ?*anyopaque, minTime: ?*anyopaque, maxTime: ?*anyopaque, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
@@ -568,7 +568,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_SetTimeRange4(@ptrCast(self), @ptrCast(minTime), @ptrCast(maxTime), minWarnMsg_str, maxWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setMinimumTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setMinimumTime)
     ///
     /// ``` self: QtC.KTimeComboBox, minTime: QtC.QTime, minWarnMsg: []const u8 ```
     pub fn SetMinimumTime2(self: ?*anyopaque, minTime: ?*anyopaque, minWarnMsg: []const u8) void {
@@ -579,7 +579,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_SetMinimumTime2(@ptrCast(self), @ptrCast(minTime), minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setMaximumTime)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setMaximumTime)
     ///
     /// ``` self: QtC.KTimeComboBox, maxTime: QtC.QTime, maxWarnMsg: []const u8 ```
     pub fn SetMaximumTime2(self: ?*anyopaque, maxTime: ?*anyopaque, maxWarnMsg: []const u8) void {
@@ -590,7 +590,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_SetMaximumTime2(@ptrCast(self), @ptrCast(maxTime), maxWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setTimeList)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setTimeList)
     ///
     /// ``` self: QtC.KTimeComboBox, timeList: []QtC.QTime, minWarnMsg: []const u8 ```
     pub fn SetTimeList2(self: ?*anyopaque, timeList: []QtC.QTime, minWarnMsg: []const u8) void {
@@ -605,7 +605,7 @@ pub const ktimecombobox = struct {
         qtc.KTimeComboBox_SetTimeList2(@ptrCast(self), timeList_list, minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#setTimeList)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#setTimeList)
     ///
     /// ``` self: QtC.KTimeComboBox, timeList: []QtC.QTime, minWarnMsg: []const u8, maxWarnMsg: []const u8 ```
     pub fn SetTimeList3(self: ?*anyopaque, timeList: []QtC.QTime, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
@@ -6316,7 +6316,7 @@ pub const ktimecombobox = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktimecombobox.html#dtor.KTimeComboBox)
+    /// [Qt documentation](https://api.kde.org/ktimecombobox.html#dtor.KTimeComboBox)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -6326,7 +6326,7 @@ pub const ktimecombobox = struct {
     }
 };
 
-/// https://api-staging.kde.org/ktimecombobox.html#types
+/// https://api.kde.org/ktimecombobox.html#types
 pub const enums = struct {
     pub const Option = enum {
         pub const EditTime: i32 = 1;

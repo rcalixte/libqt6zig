@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kurllabel.html
+/// https://api.kde.org/kurllabel.html
 pub const kurllabel = struct {
     /// New constructs a new KUrlLabel object.
     ///
@@ -113,7 +113,7 @@ pub const kurllabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#url)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#url)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -124,7 +124,7 @@ pub const kurllabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#tipText)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#tipText)
     ///
     /// ``` self: QtC.KUrlLabel, allocator: std.mem.Allocator ```
     pub fn TipText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -135,49 +135,49 @@ pub const kurllabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#useTips)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#useTips)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UseTips(self: ?*anyopaque) bool {
         return qtc.KUrlLabel_UseTips(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#useCursor)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#useCursor)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn UseCursor(self: ?*anyopaque) bool {
         return qtc.KUrlLabel_UseCursor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#isGlowEnabled)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#isGlowEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsGlowEnabled(self: ?*anyopaque) bool {
         return qtc.KUrlLabel_IsGlowEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#isFloatEnabled)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#isFloatEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn IsFloatEnabled(self: ?*anyopaque) bool {
         return qtc.KUrlLabel_IsFloatEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#alternatePixmap)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#alternatePixmap)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn AlternatePixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.KUrlLabel_AlternatePixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setUnderline)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUnderline)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SetUnderline(self: ?*anyopaque) void {
         qtc.KUrlLabel_SetUnderline(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUrl)
     ///
     /// ``` self: QtC.KUrlLabel, url: []const u8 ```
     pub fn SetUrl(self: ?*anyopaque, url: []const u8) void {
@@ -188,14 +188,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_SetUrl(@ptrCast(self), url_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setFont)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFont)
     ///
     /// ``` self: QtC.KUrlLabel, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.KUrlLabel_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setFont)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFont)
     ///
     /// Allows for overriding the related default method
     ///
@@ -204,7 +204,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnSetFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setFont)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFont)
     ///
     /// Base class method implementation
     ///
@@ -213,14 +213,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_QBaseSetFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setUseTips)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUseTips)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SetUseTips(self: ?*anyopaque) void {
         qtc.KUrlLabel_SetUseTips(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setTipText)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setTipText)
     ///
     /// ``` self: QtC.KUrlLabel, tip: []const u8 ```
     pub fn SetTipText(self: ?*anyopaque, tip: []const u8) void {
@@ -231,14 +231,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_SetTipText(@ptrCast(self), tip_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setHighlightedColor)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setHighlightedColor)
     ///
     /// ``` self: QtC.KUrlLabel, highcolor: QtC.QColor ```
     pub fn SetHighlightedColor(self: ?*anyopaque, highcolor: ?*anyopaque) void {
         qtc.KUrlLabel_SetHighlightedColor(@ptrCast(self), @ptrCast(highcolor));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setHighlightedColor)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setHighlightedColor)
     ///
     /// ``` self: QtC.KUrlLabel, highcolor: []const u8 ```
     pub fn SetHighlightedColor2(self: ?*anyopaque, highcolor: []const u8) void {
@@ -249,14 +249,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_SetHighlightedColor2(@ptrCast(self), highcolor_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setSelectedColor)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setSelectedColor)
     ///
     /// ``` self: QtC.KUrlLabel, color: QtC.QColor ```
     pub fn SetSelectedColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KUrlLabel_SetSelectedColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setSelectedColor)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setSelectedColor)
     ///
     /// ``` self: QtC.KUrlLabel, color: []const u8 ```
     pub fn SetSelectedColor2(self: ?*anyopaque, color: []const u8) void {
@@ -267,112 +267,112 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_SetSelectedColor2(@ptrCast(self), color_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setUseCursor)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUseCursor)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool ```
     pub fn SetUseCursor(self: ?*anyopaque, on: bool) void {
         qtc.KUrlLabel_SetUseCursor(@ptrCast(self), on);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setGlowEnabled)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setGlowEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SetGlowEnabled(self: ?*anyopaque) void {
         qtc.KUrlLabel_SetGlowEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setFloatEnabled)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFloatEnabled)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn SetFloatEnabled(self: ?*anyopaque) void {
         qtc.KUrlLabel_SetFloatEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setAlternatePixmap)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setAlternatePixmap)
     ///
     /// ``` self: QtC.KUrlLabel, pixmap: QtC.QPixmap ```
     pub fn SetAlternatePixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
         qtc.KUrlLabel_SetAlternatePixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#enteredUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#enteredUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn EnteredUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_EnteredUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#enteredUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#enteredUrl)
     ///
     /// ``` self: QtC.KUrlLabel, slot: fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnEnteredUrl(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_EnteredUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#leftUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#leftUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn LeftUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_LeftUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#leftUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#leftUrl)
     ///
     /// ``` self: QtC.KUrlLabel, slot: fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnLeftUrl(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_LeftUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#leftClickedUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#leftClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn LeftClickedUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_LeftClickedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#leftClickedUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#leftClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel, slot: fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnLeftClickedUrl(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_LeftClickedUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#rightClickedUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#rightClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn RightClickedUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_RightClickedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#rightClickedUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#rightClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel, slot: fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnRightClickedUrl(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_RightClickedUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#middleClickedUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#middleClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel ```
     pub fn MiddleClickedUrl(self: ?*anyopaque) void {
         qtc.KUrlLabel_MiddleClickedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#middleClickedUrl)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#middleClickedUrl)
     ///
     /// ``` self: QtC.KUrlLabel, slot: fn (self: QtC.KUrlLabel) callconv(.c) void ```
     pub fn OnMiddleClickedUrl(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_MiddleClickedUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KUrlLabel_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -381,7 +381,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -390,14 +390,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#enterEvent)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#enterEvent)
     ///
     /// ``` self: QtC.KUrlLabel, event: QtC.QEnterEvent ```
     pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KUrlLabel_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#enterEvent)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#enterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -406,7 +406,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#enterEvent)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#enterEvent)
     ///
     /// Base class method implementation
     ///
@@ -415,14 +415,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KUrlLabel_LeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -431,7 +431,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -440,14 +440,14 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_QBaseLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#event)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#event)
     ///
     /// ``` self: QtC.KUrlLabel, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KUrlLabel_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#event)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -456,7 +456,7 @@ pub const kurllabel = struct {
         qtc.KUrlLabel_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#event)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#event)
     ///
     /// Base class method implementation
     ///
@@ -491,35 +491,35 @@ pub const kurllabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setUnderline)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUnderline)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool ```
     pub fn SetUnderline1(self: ?*anyopaque, on: bool) void {
         qtc.KUrlLabel_SetUnderline1(@ptrCast(self), on);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setUseTips)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUseTips)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool ```
     pub fn SetUseTips1(self: ?*anyopaque, on: bool) void {
         qtc.KUrlLabel_SetUseTips1(@ptrCast(self), on);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setUseCursor)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setUseCursor)
     ///
     /// ``` self: QtC.KUrlLabel, on: bool, cursor: QtC.QCursor ```
     pub fn SetUseCursor2(self: ?*anyopaque, on: bool, cursor: ?*anyopaque) void {
         qtc.KUrlLabel_SetUseCursor2(@ptrCast(self), on, @ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setGlowEnabled)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setGlowEnabled)
     ///
     /// ``` self: QtC.KUrlLabel, glow: bool ```
     pub fn SetGlowEnabled1(self: ?*anyopaque, glow: bool) void {
         qtc.KUrlLabel_SetGlowEnabled1(@ptrCast(self), glow);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#setFloatEnabled)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#setFloatEnabled)
     ///
     /// ``` self: QtC.KUrlLabel, do_float: bool ```
     pub fn SetFloatEnabled1(self: ?*anyopaque, do_float: bool) void {
@@ -5929,7 +5929,7 @@ pub const kurllabel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurllabel.html#dtor.KUrlLabel)
+    /// [Qt documentation](https://api.kde.org/kurllabel.html#dtor.KUrlLabel)
     ///
     /// Delete this object from C++ memory.
     ///

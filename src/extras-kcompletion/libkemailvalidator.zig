@@ -5,7 +5,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qvalidator_enums = @import("../libqvalidator.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kemailvalidator.html
+/// https://api.kde.org/kemailvalidator.html
 pub const kemailvalidator = struct {
     /// New constructs a new KEmailValidator object.
     ///
@@ -65,7 +65,7 @@ pub const kemailvalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailvalidator.html#validate)
+    /// [Qt documentation](https://api.kde.org/kemailvalidator.html#validate)
     ///
     /// ``` self: QtC.KEmailValidator, str: []const u8, pos: *i32 ```
     ///
@@ -78,7 +78,7 @@ pub const kemailvalidator = struct {
         return qtc.KEmailValidator_Validate(@ptrCast(self), str_str, @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailvalidator.html#validate)
+    /// [Qt documentation](https://api.kde.org/kemailvalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -87,7 +87,7 @@ pub const kemailvalidator = struct {
         qtc.KEmailValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailvalidator.html#validate)
+    /// [Qt documentation](https://api.kde.org/kemailvalidator.html#validate)
     ///
     /// Base class method implementation
     ///
@@ -102,7 +102,7 @@ pub const kemailvalidator = struct {
         return qtc.KEmailValidator_QBaseValidate(@ptrCast(self), str_str, @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailvalidator.html#fixup)
+    /// [Qt documentation](https://api.kde.org/kemailvalidator.html#fixup)
     ///
     /// ``` self: QtC.KEmailValidator, str: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, str: []const u8) void {
@@ -113,7 +113,7 @@ pub const kemailvalidator = struct {
         qtc.KEmailValidator_Fixup(@ptrCast(self), str_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailvalidator.html#fixup)
+    /// [Qt documentation](https://api.kde.org/kemailvalidator.html#fixup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -122,7 +122,7 @@ pub const kemailvalidator = struct {
         qtc.KEmailValidator_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailvalidator.html#fixup)
+    /// [Qt documentation](https://api.kde.org/kemailvalidator.html#fixup)
     ///
     /// Base class method implementation
     ///
@@ -950,7 +950,7 @@ pub const kemailvalidator = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailvalidator.html#dtor.KEmailValidator)
+    /// [Qt documentation](https://api.kde.org/kemailvalidator.html#dtor.KEmailValidator)
     ///
     /// Delete this object from C++ memory.
     ///

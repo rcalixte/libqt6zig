@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kratingwidget.html
+/// https://api.kde.org/kratingwidget.html
 pub const kratingwidget = struct {
     /// New constructs a new KRatingWidget object.
     ///
@@ -69,21 +69,21 @@ pub const kratingwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#rating)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#rating)
     ///
     /// ``` self: QtC.KRatingWidget ```
     pub fn Rating(self: ?*anyopaque) i32 {
         return qtc.KRatingWidget_Rating(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#maxRating)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#maxRating)
     ///
     /// ``` self: QtC.KRatingWidget ```
     pub fn MaxRating(self: ?*anyopaque) i32 {
         return qtc.KRatingWidget_MaxRating(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#alignment)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#alignment)
     ///
     /// ``` self: QtC.KRatingWidget ```
     ///
@@ -92,7 +92,7 @@ pub const kratingwidget = struct {
         return qtc.KRatingWidget_Alignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#layoutDirection)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.KRatingWidget ```
     ///
@@ -101,21 +101,21 @@ pub const kratingwidget = struct {
         return qtc.KRatingWidget_LayoutDirection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#spacing)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#spacing)
     ///
     /// ``` self: QtC.KRatingWidget ```
     pub fn Spacing(self: ?*anyopaque) i32 {
         return qtc.KRatingWidget_Spacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#sizeHint)
     ///
     /// ``` self: QtC.KRatingWidget ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KRatingWidget_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -124,7 +124,7 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -133,105 +133,105 @@ pub const kratingwidget = struct {
         return qtc.KRatingWidget_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#halfStepsEnabled)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#halfStepsEnabled)
     ///
     /// ``` self: QtC.KRatingWidget ```
     pub fn HalfStepsEnabled(self: ?*anyopaque) bool {
         return qtc.KRatingWidget_HalfStepsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#icon)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#icon)
     ///
     /// ``` self: QtC.KRatingWidget ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KRatingWidget_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#ratingChanged)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#ratingChanged)
     ///
     /// ``` self: QtC.KRatingWidget, rating: i32 ```
     pub fn RatingChanged(self: ?*anyopaque, rating: i32) void {
         qtc.KRatingWidget_RatingChanged(@ptrCast(self), @intCast(rating));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#ratingChanged)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#ratingChanged)
     ///
     /// ``` self: QtC.KRatingWidget, slot: fn (self: QtC.KRatingWidget, rating: i32) callconv(.c) void ```
     pub fn OnRatingChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KRatingWidget_Connect_RatingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#setRating)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#setRating)
     ///
     /// ``` self: QtC.KRatingWidget, rating: i32 ```
     pub fn SetRating(self: ?*anyopaque, rating: i32) void {
         qtc.KRatingWidget_SetRating(@ptrCast(self), @intCast(rating));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#setMaxRating)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#setMaxRating)
     ///
     /// ``` self: QtC.KRatingWidget, max: i32 ```
     pub fn SetMaxRating(self: ?*anyopaque, max: i32) void {
         qtc.KRatingWidget_SetMaxRating(@ptrCast(self), @intCast(max));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#setHalfStepsEnabled)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#setHalfStepsEnabled)
     ///
     /// ``` self: QtC.KRatingWidget, enabled: bool ```
     pub fn SetHalfStepsEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.KRatingWidget_SetHalfStepsEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#setSpacing)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#setSpacing)
     ///
     /// ``` self: QtC.KRatingWidget, spacing: i32 ```
     pub fn SetSpacing(self: ?*anyopaque, spacing: i32) void {
         qtc.KRatingWidget_SetSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#setAlignment)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#setAlignment)
     ///
     /// ``` self: QtC.KRatingWidget, alignVal: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, alignVal: i32) void {
         qtc.KRatingWidget_SetAlignment(@ptrCast(self), @intCast(alignVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#setLayoutDirection)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.KRatingWidget, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.KRatingWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#setIcon)
     ///
     /// ``` self: QtC.KRatingWidget, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KRatingWidget_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#setCustomPixmap)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#setCustomPixmap)
     ///
     /// ``` self: QtC.KRatingWidget, pixmap: QtC.QPixmap ```
     pub fn SetCustomPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
         qtc.KRatingWidget_SetCustomPixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#setPixmapSize)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#setPixmapSize)
     ///
     /// ``` self: QtC.KRatingWidget, size: i32 ```
     pub fn SetPixmapSize(self: ?*anyopaque, size: i32) void {
         qtc.KRatingWidget_SetPixmapSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#mousePressEvent)
     ///
     /// ``` self: QtC.KRatingWidget, e: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRatingWidget_MousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -240,7 +240,7 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -249,14 +249,14 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.KRatingWidget, e: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRatingWidget_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -265,7 +265,7 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -274,14 +274,14 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#leaveEvent)
     ///
     /// ``` self: QtC.KRatingWidget, e: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRatingWidget_LeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#leaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -290,7 +290,7 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#leaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -299,14 +299,14 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_QBaseLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#paintEvent)
     ///
     /// ``` self: QtC.KRatingWidget, e: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRatingWidget_PaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -315,7 +315,7 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -324,14 +324,14 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#resizeEvent)
     ///
     /// ``` self: QtC.KRatingWidget, e: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KRatingWidget_ResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -340,7 +340,7 @@ pub const kratingwidget = struct {
         qtc.KRatingWidget_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -5324,7 +5324,7 @@ pub const kratingwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kratingwidget.html#dtor.KRatingWidget)
+    /// [Qt documentation](https://api.kde.org/kratingwidget.html#dtor.KRatingWidget)
     ///
     /// Delete this object from C++ memory.
     ///

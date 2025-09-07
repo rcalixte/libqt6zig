@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kshortcutwidget.html
+/// https://api.kde.org/kshortcutwidget.html
 pub const kshortcutwidget = struct {
     /// New constructs a new KShortcutWidget object.
     ///
@@ -68,28 +68,28 @@ pub const kshortcutwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#setModifierlessAllowed)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#setModifierlessAllowed)
     ///
     /// ``` self: QtC.KShortcutWidget, allow: bool ```
     pub fn SetModifierlessAllowed(self: ?*anyopaque, allow: bool) void {
         qtc.KShortcutWidget_SetModifierlessAllowed(@ptrCast(self), allow);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#isModifierlessAllowed)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#isModifierlessAllowed)
     ///
     /// ``` self: QtC.KShortcutWidget ```
     pub fn IsModifierlessAllowed(self: ?*anyopaque) bool {
         return qtc.KShortcutWidget_IsModifierlessAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#setClearButtonsShown)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#setClearButtonsShown)
     ///
     /// ``` self: QtC.KShortcutWidget, show: bool ```
     pub fn SetClearButtonsShown(self: ?*anyopaque, show: bool) void {
         qtc.KShortcutWidget_SetClearButtonsShown(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#shortcut)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#shortcut)
     ///
     /// ``` self: QtC.KShortcutWidget, allocator: std.mem.Allocator ```
     pub fn Shortcut(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -101,7 +101,7 @@ pub const kshortcutwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#setCheckActionCollections)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#setCheckActionCollections)
     ///
     /// ``` self: QtC.KShortcutWidget, actionCollections: []QtC.KActionCollection ```
     pub fn SetCheckActionCollections(self: ?*anyopaque, actionCollections: []?*anyopaque) void {
@@ -112,7 +112,7 @@ pub const kshortcutwidget = struct {
         qtc.KShortcutWidget_SetCheckActionCollections(@ptrCast(self), actionCollections_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#shortcutChanged)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#shortcutChanged)
     ///
     /// ``` self: QtC.KShortcutWidget, cut: []QtC.QKeySequence ```
     pub fn ShortcutChanged(self: ?*anyopaque, cut: []QtC.QKeySequence) void {
@@ -123,14 +123,14 @@ pub const kshortcutwidget = struct {
         qtc.KShortcutWidget_ShortcutChanged(@ptrCast(self), cut_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#shortcutChanged)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#shortcutChanged)
     ///
     /// ``` self: QtC.KShortcutWidget, slot: fn (self: QtC.KShortcutWidget, cut: [*]QtC.QKeySequence) callconv(.c) void ```
     pub fn OnShortcutChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QKeySequence) callconv(.c) void) void {
         qtc.KShortcutWidget_Connect_ShortcutChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#setShortcut)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#setShortcut)
     ///
     /// ``` self: QtC.KShortcutWidget, cut: []QtC.QKeySequence ```
     pub fn SetShortcut(self: ?*anyopaque, cut: []QtC.QKeySequence) void {
@@ -141,14 +141,14 @@ pub const kshortcutwidget = struct {
         qtc.KShortcutWidget_SetShortcut(@ptrCast(self), cut_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#clearShortcut)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#clearShortcut)
     ///
     /// ``` self: QtC.KShortcutWidget ```
     pub fn ClearShortcut(self: ?*anyopaque) void {
         qtc.KShortcutWidget_ClearShortcut(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#applyStealShortcut)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#applyStealShortcut)
     ///
     /// ``` self: QtC.KShortcutWidget ```
     pub fn ApplyStealShortcut(self: ?*anyopaque) void {
@@ -5161,7 +5161,7 @@ pub const kshortcutwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutwidget.html#dtor.KShortcutWidget)
+    /// [Qt documentation](https://api.kde.org/kshortcutwidget.html#dtor.KShortcutWidget)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -2,9 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcoreaddons.html
+/// https://api.kde.org/kcoreaddons.html
 pub const kcoreaddons = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kcoreaddons.html#versionString)
+    /// [Qt documentation](https://api.kde.org/kcoreaddons.html#versionString)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn VersionString(allocator: std.mem.Allocator) []const u8 {
@@ -15,7 +15,7 @@ pub const kcoreaddons = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcoreaddons.html#version)
+    /// [Qt documentation](https://api.kde.org/kcoreaddons.html#version)
     ///
     ///
     pub fn Version() u32 {

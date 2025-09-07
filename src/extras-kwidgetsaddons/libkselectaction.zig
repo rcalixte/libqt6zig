@@ -8,7 +8,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qtoolbutton_enums = @import("../libqtoolbutton.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kselectaction.html
+/// https://api.kde.org/kselectaction.html
 pub const kselectaction = struct {
     /// New constructs a new KSelectAction object.
     ///
@@ -85,7 +85,7 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#toolBarMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolBarMode)
     ///
     /// ``` self: QtC.KSelectAction ```
     ///
@@ -94,14 +94,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_ToolBarMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setToolBarMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolBarMode)
     ///
     /// ``` self: QtC.KSelectAction, mode: kselectaction_enums.ToolBarMode ```
     pub fn SetToolBarMode(self: ?*anyopaque, mode: i32) void {
         qtc.KSelectAction_SetToolBarMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#toolButtonPopupMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
     ///
     /// ``` self: QtC.KSelectAction ```
     ///
@@ -110,35 +110,35 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_ToolButtonPopupMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setToolButtonPopupMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
     ///
     /// ``` self: QtC.KSelectAction, mode: qtoolbutton_enums.ToolButtonPopupMode ```
     pub fn SetToolButtonPopupMode(self: ?*anyopaque, mode: i32) void {
         qtc.KSelectAction_SetToolButtonPopupMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#selectableActionGroup)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#selectableActionGroup)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn SelectableActionGroup(self: ?*anyopaque) QtC.QActionGroup {
         return qtc.KSelectAction_SelectableActionGroup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentAction)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn CurrentAction(self: ?*anyopaque) QtC.QAction {
         return qtc.KSelectAction_CurrentAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentItem)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn CurrentItem(self: ?*anyopaque) i32 {
         return qtc.KSelectAction_CurrentItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentText)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentText)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -149,7 +149,7 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actions)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actions)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -161,14 +161,14 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KSelectAction, index: i32 ```
     pub fn Action(self: ?*anyopaque, index: i32) QtC.QAction {
         return qtc.KSelectAction_Action(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn Action2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -179,21 +179,21 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_Action2(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn SetCurrentAction(self: ?*anyopaque, action: ?*anyopaque) bool {
         return qtc.KSelectAction_SetCurrentAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentItem)
     ///
     /// ``` self: QtC.KSelectAction, index: i32 ```
     pub fn SetCurrentItem(self: ?*anyopaque, index: i32) bool {
         return qtc.KSelectAction_SetCurrentItem(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn SetCurrentAction2(self: ?*anyopaque, text: []const u8) bool {
@@ -204,14 +204,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_SetCurrentAction2(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -222,7 +222,7 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_AddAction2(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KSelectAction, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -233,14 +233,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
         return qtc.KSelectAction_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -249,7 +249,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnRemoveAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Base class method implementation
     ///
@@ -258,14 +258,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_QBaseRemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// ``` self: QtC.KSelectAction, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -274,7 +274,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnInsertAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Base class method implementation
     ///
@@ -283,7 +283,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_QBaseInsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setItems)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setItems)
     ///
     /// ``` self: QtC.KSelectAction, lst: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, lst: [][]const u8, allocator: std.mem.Allocator) void {
@@ -302,7 +302,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_SetItems(@ptrCast(self), lst_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#items)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#items)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -324,70 +324,70 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#isEditable)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#isEditable)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsEditable(self: ?*anyopaque) bool {
         return qtc.KSelectAction_IsEditable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setEditable)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setEditable)
     ///
     /// ``` self: QtC.KSelectAction, editable: bool ```
     pub fn SetEditable(self: ?*anyopaque, editable: bool) void {
         qtc.KSelectAction_SetEditable(@ptrCast(self), editable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#comboWidth)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#comboWidth)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn ComboWidth(self: ?*anyopaque) i32 {
         return qtc.KSelectAction_ComboWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setComboWidth)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setComboWidth)
     ///
     /// ``` self: QtC.KSelectAction, width: i32 ```
     pub fn SetComboWidth(self: ?*anyopaque, width: i32) void {
         qtc.KSelectAction_SetComboWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setMaxComboViewCount)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
     ///
     /// ``` self: QtC.KSelectAction, n: i32 ```
     pub fn SetMaxComboViewCount(self: ?*anyopaque, n: i32) void {
         qtc.KSelectAction_SetMaxComboViewCount(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#clear)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#clear)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KSelectAction_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAllActions)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAllActions)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn RemoveAllActions(self: ?*anyopaque) void {
         qtc.KSelectAction_RemoveAllActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setMenuAccelsEnabled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
     ///
     /// ``` self: QtC.KSelectAction, b: bool ```
     pub fn SetMenuAccelsEnabled(self: ?*anyopaque, b: bool) void {
         qtc.KSelectAction_SetMenuAccelsEnabled(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#menuAccelsEnabled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn MenuAccelsEnabled(self: ?*anyopaque) bool {
         return qtc.KSelectAction_MenuAccelsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#changeItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#changeItem)
     ///
     /// ``` self: QtC.KSelectAction, index: i32, text: []const u8 ```
     pub fn ChangeItem(self: ?*anyopaque, index: i32, text: []const u8) void {
@@ -398,35 +398,35 @@ pub const kselectaction = struct {
         qtc.KSelectAction_ChangeItem(@ptrCast(self), @intCast(index), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn ActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_ActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KSelectAction, slot: fn (self: QtC.KSelectAction, action: QtC.QAction) callconv(.c) void ```
     pub fn OnActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#indexTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KSelectAction, index: i32 ```
     pub fn IndexTriggered(self: ?*anyopaque, index: i32) void {
         qtc.KSelectAction_IndexTriggered(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#indexTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KSelectAction, slot: fn (self: QtC.KSelectAction, index: i32) callconv(.c) void ```
     pub fn OnIndexTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#textTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn TextTriggered(self: ?*anyopaque, text: []const u8) void {
@@ -437,21 +437,21 @@ pub const kselectaction = struct {
         qtc.KSelectAction_TextTriggered(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#textTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KSelectAction, slot: fn (self: QtC.KSelectAction, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn SlotActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_SlotActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Allows for overriding the related default method
     ///
@@ -460,7 +460,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnSlotActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Base class method implementation
     ///
@@ -469,14 +469,14 @@ pub const kselectaction = struct {
         qtc.KSelectAction_QBaseSlotActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// ``` self: QtC.KSelectAction, param1: bool ```
     pub fn SlotToggled(self: ?*anyopaque, param1: bool) void {
         qtc.KSelectAction_SlotToggled(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -485,7 +485,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnSlotToggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Base class method implementation
     ///
@@ -494,14 +494,14 @@ pub const kselectaction = struct {
         qtc.KSelectAction_QBaseSlotToggled(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// ``` self: QtC.KSelectAction, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KSelectAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -510,7 +510,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -519,14 +519,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// ``` self: QtC.KSelectAction, widget: QtC.QWidget ```
     pub fn DeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KSelectAction_DeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -535,7 +535,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnDeleteWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Base class method implementation
     ///
@@ -544,14 +544,14 @@ pub const kselectaction = struct {
         qtc.KSelectAction_QBaseDeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// ``` self: QtC.KSelectAction, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KSelectAction_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -560,7 +560,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Base class method implementation
     ///
@@ -569,14 +569,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// ``` self: QtC.KSelectAction, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KSelectAction_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -585,7 +585,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -620,7 +620,7 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Action22(self: ?*anyopaque, text: []const u8, cs: i32) QtC.QAction {
@@ -631,7 +631,7 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_Action22(@ptrCast(self), text_str, @intCast(cs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn SetCurrentAction22(self: ?*anyopaque, text: []const u8, cs: i32) bool {
@@ -2098,7 +2098,7 @@ pub const kselectaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#dtor.KSelectAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#dtor.KSelectAction)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2108,7 +2108,7 @@ pub const kselectaction = struct {
     }
 };
 
-/// https://api-staging.kde.org/kselectaction.html#types
+/// https://api.kde.org/kselectaction.html#types
 pub const enums = struct {
     pub const ToolBarMode = enum {
         pub const MenuMode: i32 = 0;

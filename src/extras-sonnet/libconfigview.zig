@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/sonnet-configview.html
+/// https://api.kde.org/sonnet-configview.html
 pub const sonnet__configview = struct {
     /// New constructs a new Sonnet::ConfigView object.
     ///
@@ -24,7 +24,7 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_new2();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#metaObject)
+    /// [Qt documentation](https://api.kde.org/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__ConfigView ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -56,7 +56,7 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -68,21 +68,21 @@ pub const sonnet__configview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#backgroundCheckingButtonShown)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#backgroundCheckingButtonShown)
     ///
     /// ``` self: QtC.Sonnet__ConfigView ```
     pub fn BackgroundCheckingButtonShown(self: ?*anyopaque) bool {
         return qtc.Sonnet__ConfigView_BackgroundCheckingButtonShown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#noBackendFoundVisible)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#noBackendFoundVisible)
     ///
     /// ``` self: QtC.Sonnet__ConfigView ```
     pub fn NoBackendFoundVisible(self: ?*anyopaque) bool {
         return qtc.Sonnet__ConfigView_NoBackendFoundVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#preferredLanguages)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#preferredLanguages)
     ///
     /// ``` self: QtC.Sonnet__ConfigView, allocator: std.mem.Allocator ```
     pub fn PreferredLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -104,7 +104,7 @@ pub const sonnet__configview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#language)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#language)
     ///
     /// ``` self: QtC.Sonnet__ConfigView, allocator: std.mem.Allocator ```
     pub fn Language(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -115,7 +115,7 @@ pub const sonnet__configview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#ignoreList)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#ignoreList)
     ///
     /// ``` self: QtC.Sonnet__ConfigView, allocator: std.mem.Allocator ```
     pub fn IgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -137,21 +137,21 @@ pub const sonnet__configview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#setNoBackendFoundVisible)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#setNoBackendFoundVisible)
     ///
     /// ``` self: QtC.Sonnet__ConfigView, show: bool ```
     pub fn SetNoBackendFoundVisible(self: ?*anyopaque, show: bool) void {
         qtc.Sonnet__ConfigView_SetNoBackendFoundVisible(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#setBackgroundCheckingButtonShown)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#setBackgroundCheckingButtonShown)
     ///
     /// ``` self: QtC.Sonnet__ConfigView, backgroundCheckingButtonShown: bool ```
     pub fn SetBackgroundCheckingButtonShown(self: ?*anyopaque, backgroundCheckingButtonShown: bool) void {
         qtc.Sonnet__ConfigView_SetBackgroundCheckingButtonShown(@ptrCast(self), backgroundCheckingButtonShown);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#setPreferredLanguages)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#setPreferredLanguages)
     ///
     /// ``` self: QtC.Sonnet__ConfigView, ignoreList: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetPreferredLanguages(self: ?*anyopaque, ignoreList: [][]const u8, allocator: std.mem.Allocator) void {
@@ -170,7 +170,7 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_SetPreferredLanguages(@ptrCast(self), ignoreList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#setLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#setLanguage)
     ///
     /// ``` self: QtC.Sonnet__ConfigView, language: []const u8 ```
     pub fn SetLanguage(self: ?*anyopaque, language: []const u8) void {
@@ -181,7 +181,7 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_SetLanguage(@ptrCast(self), language_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#setIgnoreList)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#setIgnoreList)
     ///
     /// ``` self: QtC.Sonnet__ConfigView, ignoreList: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetIgnoreList(self: ?*anyopaque, ignoreList: [][]const u8, allocator: std.mem.Allocator) void {
@@ -200,21 +200,21 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_SetIgnoreList(@ptrCast(self), ignoreList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#configChanged)
     ///
     /// ``` self: QtC.Sonnet__ConfigView ```
     pub fn ConfigChanged(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigView_ConfigChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configview.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-configview.html#configChanged)
     ///
     /// ``` self: QtC.Sonnet__ConfigView, slot: fn (self: QtC.Sonnet__ConfigView) callconv(.c) void ```
     pub fn OnConfigChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__ConfigView_Connect_ConfigChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -227,7 +227,7 @@ pub const sonnet__configview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {

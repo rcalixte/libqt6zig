@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kdatepicker.html
+/// https://api.kde.org/kdatepicker.html
 pub const kdatepicker = struct {
     /// New constructs a new KDatePicker object.
     ///
@@ -83,14 +83,14 @@ pub const kdatepicker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#sizeHint)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KDatePicker_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -99,7 +99,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -108,63 +108,63 @@ pub const kdatepicker = struct {
         return qtc.KDatePicker_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#setDate)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#setDate)
     ///
     /// ``` self: QtC.KDatePicker, date: QtC.QDate ```
     pub fn SetDate(self: ?*anyopaque, date: ?*anyopaque) bool {
         return qtc.KDatePicker_SetDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#date)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#date)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn Date(self: ?*anyopaque) QtC.QDate {
         return qtc.KDatePicker_Date(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#setFontSize)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#setFontSize)
     ///
     /// ``` self: QtC.KDatePicker, fontSize: i32 ```
     pub fn SetFontSize(self: ?*anyopaque, fontSize: i32) void {
         qtc.KDatePicker_SetFontSize(@ptrCast(self), @intCast(fontSize));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#fontSize)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#fontSize)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn FontSize(self: ?*anyopaque) i32 {
         return qtc.KDatePicker_FontSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#setCloseButton)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#setCloseButton)
     ///
     /// ``` self: QtC.KDatePicker, enable: bool ```
     pub fn SetCloseButton(self: ?*anyopaque, enable: bool) void {
         qtc.KDatePicker_SetCloseButton(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#hasCloseButton)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#hasCloseButton)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn HasCloseButton(self: ?*anyopaque) bool {
         return qtc.KDatePicker_HasCloseButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#setDateRange)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#setDateRange)
     ///
     /// ``` self: QtC.KDatePicker, minDate: QtC.QDate ```
     pub fn SetDateRange(self: ?*anyopaque, minDate: ?*anyopaque) void {
         qtc.KDatePicker_SetDateRange(@ptrCast(self), @ptrCast(minDate));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#eventFilter)
     ///
     /// ``` self: QtC.KDatePicker, o: QtC.QObject, e: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, o: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.KDatePicker_EventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -173,7 +173,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -182,14 +182,14 @@ pub const kdatepicker = struct {
         return qtc.KDatePicker_QBaseEventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#resizeEvent)
     ///
     /// ``` self: QtC.KDatePicker, param1: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KDatePicker_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -198,7 +198,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -207,14 +207,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#changeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#changeEvent)
     ///
     /// ``` self: QtC.KDatePicker, event: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDatePicker_ChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#changeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#changeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -223,7 +223,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#changeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#changeEvent)
     ///
     /// Base class method implementation
     ///
@@ -232,14 +232,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dateChangedSlot)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dateChangedSlot)
     ///
     /// ``` self: QtC.KDatePicker, date: QtC.QDate ```
     pub fn DateChangedSlot(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDatePicker_DateChangedSlot(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dateChangedSlot)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dateChangedSlot)
     ///
     /// Allows for overriding the related default method
     ///
@@ -248,7 +248,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnDateChangedSlot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dateChangedSlot)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dateChangedSlot)
     ///
     /// Base class method implementation
     ///
@@ -257,14 +257,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseDateChangedSlot(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#tableClickedSlot)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#tableClickedSlot)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn TableClickedSlot(self: ?*anyopaque) void {
         qtc.KDatePicker_TableClickedSlot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#tableClickedSlot)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#tableClickedSlot)
     ///
     /// Allows for overriding the related default method
     ///
@@ -273,7 +273,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnTableClickedSlot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#tableClickedSlot)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#tableClickedSlot)
     ///
     /// Base class method implementation
     ///
@@ -282,14 +282,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseTableClickedSlot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#monthForwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#monthForwardClicked)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn MonthForwardClicked(self: ?*anyopaque) void {
         qtc.KDatePicker_MonthForwardClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#monthForwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#monthForwardClicked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -298,7 +298,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnMonthForwardClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#monthForwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#monthForwardClicked)
     ///
     /// Base class method implementation
     ///
@@ -307,14 +307,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseMonthForwardClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#monthBackwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#monthBackwardClicked)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn MonthBackwardClicked(self: ?*anyopaque) void {
         qtc.KDatePicker_MonthBackwardClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#monthBackwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#monthBackwardClicked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -323,7 +323,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnMonthBackwardClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#monthBackwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#monthBackwardClicked)
     ///
     /// Base class method implementation
     ///
@@ -332,14 +332,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseMonthBackwardClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#yearForwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#yearForwardClicked)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn YearForwardClicked(self: ?*anyopaque) void {
         qtc.KDatePicker_YearForwardClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#yearForwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#yearForwardClicked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -348,7 +348,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnYearForwardClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#yearForwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#yearForwardClicked)
     ///
     /// Base class method implementation
     ///
@@ -357,14 +357,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseYearForwardClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#yearBackwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#yearBackwardClicked)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn YearBackwardClicked(self: ?*anyopaque) void {
         qtc.KDatePicker_YearBackwardClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#yearBackwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#yearBackwardClicked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -373,7 +373,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnYearBackwardClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#yearBackwardClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#yearBackwardClicked)
     ///
     /// Base class method implementation
     ///
@@ -382,14 +382,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseYearBackwardClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#selectMonthClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#selectMonthClicked)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn SelectMonthClicked(self: ?*anyopaque) void {
         qtc.KDatePicker_SelectMonthClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#selectMonthClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#selectMonthClicked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -398,7 +398,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnSelectMonthClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#selectMonthClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#selectMonthClicked)
     ///
     /// Base class method implementation
     ///
@@ -407,14 +407,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseSelectMonthClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#selectYearClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#selectYearClicked)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn SelectYearClicked(self: ?*anyopaque) void {
         qtc.KDatePicker_SelectYearClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#selectYearClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#selectYearClicked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -423,7 +423,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnSelectYearClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#selectYearClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#selectYearClicked)
     ///
     /// Base class method implementation
     ///
@@ -432,14 +432,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseSelectYearClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#uncheckYearSelector)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#uncheckYearSelector)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn UncheckYearSelector(self: ?*anyopaque) void {
         qtc.KDatePicker_UncheckYearSelector(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#uncheckYearSelector)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#uncheckYearSelector)
     ///
     /// Allows for overriding the related default method
     ///
@@ -448,7 +448,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnUncheckYearSelector(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#uncheckYearSelector)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#uncheckYearSelector)
     ///
     /// Base class method implementation
     ///
@@ -457,14 +457,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseUncheckYearSelector(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#lineEnterPressed)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#lineEnterPressed)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn LineEnterPressed(self: ?*anyopaque) void {
         qtc.KDatePicker_LineEnterPressed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#lineEnterPressed)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#lineEnterPressed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -473,7 +473,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnLineEnterPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#lineEnterPressed)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#lineEnterPressed)
     ///
     /// Base class method implementation
     ///
@@ -482,14 +482,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseLineEnterPressed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#todayButtonClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#todayButtonClicked)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn TodayButtonClicked(self: ?*anyopaque) void {
         qtc.KDatePicker_TodayButtonClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#todayButtonClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#todayButtonClicked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -498,7 +498,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnTodayButtonClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#todayButtonClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#todayButtonClicked)
     ///
     /// Base class method implementation
     ///
@@ -507,14 +507,14 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseTodayButtonClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#weekSelected)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#weekSelected)
     ///
     /// ``` self: QtC.KDatePicker, param1: i32 ```
     pub fn WeekSelected(self: ?*anyopaque, param1: i32) void {
         qtc.KDatePicker_WeekSelected(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#weekSelected)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#weekSelected)
     ///
     /// Allows for overriding the related default method
     ///
@@ -523,7 +523,7 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_OnWeekSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#weekSelected)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#weekSelected)
     ///
     /// Base class method implementation
     ///
@@ -532,56 +532,56 @@ pub const kdatepicker = struct {
         qtc.KDatePicker_QBaseWeekSelected(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dateChanged)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dateChanged)
     ///
     /// ``` self: QtC.KDatePicker, date: QtC.QDate ```
     pub fn DateChanged(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDatePicker_DateChanged(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dateChanged)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dateChanged)
     ///
     /// ``` self: QtC.KDatePicker, slot: fn (self: QtC.KDatePicker, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDatePicker_Connect_DateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dateSelected)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dateSelected)
     ///
     /// ``` self: QtC.KDatePicker, date: QtC.QDate ```
     pub fn DateSelected(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDatePicker_DateSelected(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dateSelected)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dateSelected)
     ///
     /// ``` self: QtC.KDatePicker, slot: fn (self: QtC.KDatePicker, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateSelected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDatePicker_Connect_DateSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dateEntered)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dateEntered)
     ///
     /// ``` self: QtC.KDatePicker, date: QtC.QDate ```
     pub fn DateEntered(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDatePicker_DateEntered(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dateEntered)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dateEntered)
     ///
     /// ``` self: QtC.KDatePicker, slot: fn (self: QtC.KDatePicker, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDatePicker_Connect_DateEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#tableClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#tableClicked)
     ///
     /// ``` self: QtC.KDatePicker ```
     pub fn TableClicked(self: ?*anyopaque) void {
         qtc.KDatePicker_TableClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#tableClicked)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#tableClicked)
     ///
     /// ``` self: QtC.KDatePicker, slot: fn (self: QtC.KDatePicker) callconv(.c) void ```
     pub fn OnTableClicked(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -614,7 +614,7 @@ pub const kdatepicker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#setDateRange)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#setDateRange)
     ///
     /// ``` self: QtC.KDatePicker, minDate: QtC.QDate, maxDate: QtC.QDate ```
     pub fn SetDateRange2(self: ?*anyopaque, minDate: ?*anyopaque, maxDate: ?*anyopaque) void {
@@ -5656,7 +5656,7 @@ pub const kdatepicker = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatepicker.html#dtor.KDatePicker)
+    /// [Qt documentation](https://api.kde.org/kdatepicker.html#dtor.KDatePicker)
     ///
     /// Delete this object from C++ memory.
     ///

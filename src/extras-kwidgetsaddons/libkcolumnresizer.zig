@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcolumnresizer.html
+/// https://api.kde.org/kcolumnresizer.html
 pub const kcolumnresizer = struct {
     /// New constructs a new KColumnResizer object.
     ///
@@ -64,35 +64,35 @@ pub const kcolumnresizer = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolumnresizer.html#addWidgetsFromLayout)
+    /// [Qt documentation](https://api.kde.org/kcolumnresizer.html#addWidgetsFromLayout)
     ///
     /// ``` self: QtC.KColumnResizer, layout: QtC.QLayout ```
     pub fn AddWidgetsFromLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
         qtc.KColumnResizer_AddWidgetsFromLayout(@ptrCast(self), @ptrCast(layout));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolumnresizer.html#addWidget)
+    /// [Qt documentation](https://api.kde.org/kcolumnresizer.html#addWidget)
     ///
     /// ``` self: QtC.KColumnResizer, widget: QtC.QWidget ```
     pub fn AddWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KColumnResizer_AddWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolumnresizer.html#removeWidget)
+    /// [Qt documentation](https://api.kde.org/kcolumnresizer.html#removeWidget)
     ///
     /// ``` self: QtC.KColumnResizer, widget: QtC.QWidget ```
     pub fn RemoveWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KColumnResizer_RemoveWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolumnresizer.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kcolumnresizer.html#eventFilter)
     ///
     /// ``` self: QtC.KColumnResizer, param1: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KColumnResizer_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolumnresizer.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kcolumnresizer.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -101,7 +101,7 @@ pub const kcolumnresizer = struct {
         qtc.KColumnResizer_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolumnresizer.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kcolumnresizer.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -136,7 +136,7 @@ pub const kcolumnresizer = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolumnresizer.html#addWidgetsFromLayout)
+    /// [Qt documentation](https://api.kde.org/kcolumnresizer.html#addWidgetsFromLayout)
     ///
     /// ``` self: QtC.KColumnResizer, layout: QtC.QLayout, column: i32 ```
     pub fn AddWidgetsFromLayout2(self: ?*anyopaque, layout: ?*anyopaque, column: i32) void {
@@ -863,7 +863,7 @@ pub const kcolumnresizer = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolumnresizer.html#dtor.KColumnResizer)
+    /// [Qt documentation](https://api.kde.org/kcolumnresizer.html#dtor.KColumnResizer)
     ///
     /// Delete this object from C++ memory.
     ///

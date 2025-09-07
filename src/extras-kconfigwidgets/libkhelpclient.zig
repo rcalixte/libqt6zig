@@ -1,9 +1,9 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api-staging.kde.org/khelpclient.html
+/// https://api.kde.org/khelpclient.html
 pub const khelpclient = struct {
-    /// [Qt documentation](https://api-staging.kde.org/khelpclient.html#invokeHelp)
+    /// [Qt documentation](https://api.kde.org/khelpclient.html#invokeHelp)
     ///
     /// ``` param1: []const u8, param2: []const u8 ```
     pub fn InvokeHelp(param1: []const u8, param2: []const u8) void {

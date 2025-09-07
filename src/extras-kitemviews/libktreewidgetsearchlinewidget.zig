@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktreewidgetsearchlinewidget.html
+/// https://api.kde.org/ktreewidgetsearchlinewidget.html
 pub const ktreewidgetsearchlinewidget = struct {
     /// New constructs a new KTreeWidgetSearchLineWidget object.
     ///
@@ -75,21 +75,21 @@ pub const ktreewidgetsearchlinewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchlinewidget.html#searchLine)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchlinewidget.html#searchLine)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLineWidget ```
     pub fn SearchLine(self: ?*anyopaque) QtC.KTreeWidgetSearchLine {
         return qtc.KTreeWidgetSearchLineWidget_SearchLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchlinewidget.html#createWidgets)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchlinewidget.html#createWidgets)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLineWidget ```
     pub fn CreateWidgets(self: ?*anyopaque) void {
         qtc.KTreeWidgetSearchLineWidget_CreateWidgets(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchlinewidget.html#createWidgets)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchlinewidget.html#createWidgets)
     ///
     /// Allows for overriding the related default method
     ///
@@ -98,7 +98,7 @@ pub const ktreewidgetsearchlinewidget = struct {
         qtc.KTreeWidgetSearchLineWidget_OnCreateWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchlinewidget.html#createWidgets)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchlinewidget.html#createWidgets)
     ///
     /// Base class method implementation
     ///
@@ -107,14 +107,14 @@ pub const ktreewidgetsearchlinewidget = struct {
         qtc.KTreeWidgetSearchLineWidget_QBaseCreateWidgets(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchlinewidget.html#createSearchLine)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchlinewidget.html#createSearchLine)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLineWidget, treeWidget: QtC.QTreeWidget ```
     pub fn CreateSearchLine(self: ?*anyopaque, treeWidget: ?*anyopaque) QtC.KTreeWidgetSearchLine {
         return qtc.KTreeWidgetSearchLineWidget_CreateSearchLine(@ptrCast(self), @ptrCast(treeWidget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchlinewidget.html#createSearchLine)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchlinewidget.html#createSearchLine)
     ///
     /// Allows for overriding the related default method
     ///
@@ -123,7 +123,7 @@ pub const ktreewidgetsearchlinewidget = struct {
         qtc.KTreeWidgetSearchLineWidget_OnCreateSearchLine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchlinewidget.html#createSearchLine)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchlinewidget.html#createSearchLine)
     ///
     /// Base class method implementation
     ///
@@ -5138,7 +5138,7 @@ pub const ktreewidgetsearchlinewidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchlinewidget.html#dtor.KTreeWidgetSearchLineWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchlinewidget.html#dtor.KTreeWidgetSearchLineWidget)
     ///
     /// Delete this object from C++ memory.
     ///

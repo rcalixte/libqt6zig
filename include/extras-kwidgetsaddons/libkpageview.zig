@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpageview.html
+/// https://api.kde.org/kpageview.html
 pub const kpageview = struct {
     /// New constructs a new KPageView object.
     ///
@@ -69,28 +69,28 @@ pub const kpageview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#setModel)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#setModel)
     ///
     /// ``` self: QtC.KPageView, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.KPageView_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#model)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#model)
     ///
     /// ``` self: QtC.KPageView ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.KPageView_Model(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#setFaceType)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#setFaceType)
     ///
     /// ``` self: QtC.KPageView, faceType: kpageview_enums.FaceType ```
     pub fn SetFaceType(self: ?*anyopaque, faceType: i32) void {
         qtc.KPageView_SetFaceType(@ptrCast(self), @intCast(faceType));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#faceType)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#faceType)
     ///
     /// ``` self: QtC.KPageView ```
     ///
@@ -99,91 +99,91 @@ pub const kpageview = struct {
         return qtc.KPageView_FaceType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#setCurrentPage)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#setCurrentPage)
     ///
     /// ``` self: QtC.KPageView, index: QtC.QModelIndex ```
     pub fn SetCurrentPage(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KPageView_SetCurrentPage(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#currentPage)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#currentPage)
     ///
     /// ``` self: QtC.KPageView ```
     pub fn CurrentPage(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.KPageView_CurrentPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#setItemDelegate)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#setItemDelegate)
     ///
     /// ``` self: QtC.KPageView, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
         qtc.KPageView_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#itemDelegate)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#itemDelegate)
     ///
     /// ``` self: QtC.KPageView ```
     pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
         return qtc.KPageView_ItemDelegate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#setDefaultWidget)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#setDefaultWidget)
     ///
     /// ``` self: QtC.KPageView, widget: QtC.QWidget ```
     pub fn SetDefaultWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KPageView_SetDefaultWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#setPageHeader)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#setPageHeader)
     ///
     /// ``` self: QtC.KPageView, header: QtC.QWidget ```
     pub fn SetPageHeader(self: ?*anyopaque, header: ?*anyopaque) void {
         qtc.KPageView_SetPageHeader(@ptrCast(self), @ptrCast(header));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#pageHeader)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#pageHeader)
     ///
     /// ``` self: QtC.KPageView ```
     pub fn PageHeader(self: ?*anyopaque) QtC.QWidget {
         return qtc.KPageView_PageHeader(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#setPageFooter)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#setPageFooter)
     ///
     /// ``` self: QtC.KPageView, footer: QtC.QWidget ```
     pub fn SetPageFooter(self: ?*anyopaque, footer: ?*anyopaque) void {
         qtc.KPageView_SetPageFooter(@ptrCast(self), @ptrCast(footer));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#pageFooter)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#pageFooter)
     ///
     /// ``` self: QtC.KPageView ```
     pub fn PageFooter(self: ?*anyopaque) QtC.QWidget {
         return qtc.KPageView_PageFooter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#currentPageChanged)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#currentPageChanged)
     ///
     /// ``` self: QtC.KPageView, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
     pub fn CurrentPageChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
         qtc.KPageView_CurrentPageChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#currentPageChanged)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#currentPageChanged)
     ///
     /// ``` self: QtC.KPageView, slot: fn (self: QtC.KPageView, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnCurrentPageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KPageView_Connect_CurrentPageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#createView)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#createView)
     ///
     /// ``` self: QtC.KPageView ```
     pub fn CreateView(self: ?*anyopaque) QtC.QAbstractItemView {
         return qtc.KPageView_CreateView(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#createView)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#createView)
     ///
     /// Allows for overriding the related default method
     ///
@@ -192,7 +192,7 @@ pub const kpageview = struct {
         qtc.KPageView_OnCreateView(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#createView)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#createView)
     ///
     /// Base class method implementation
     ///
@@ -201,14 +201,14 @@ pub const kpageview = struct {
         return qtc.KPageView_QBaseCreateView(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#showPageHeader)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#showPageHeader)
     ///
     /// ``` self: QtC.KPageView ```
     pub fn ShowPageHeader(self: ?*anyopaque) bool {
         return qtc.KPageView_ShowPageHeader(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#showPageHeader)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#showPageHeader)
     ///
     /// Allows for overriding the related default method
     ///
@@ -217,7 +217,7 @@ pub const kpageview = struct {
         qtc.KPageView_OnShowPageHeader(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#showPageHeader)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#showPageHeader)
     ///
     /// Base class method implementation
     ///
@@ -226,7 +226,7 @@ pub const kpageview = struct {
         return qtc.KPageView_QBaseShowPageHeader(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#viewPosition)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#viewPosition)
     ///
     /// ``` self: QtC.KPageView ```
     ///
@@ -235,7 +235,7 @@ pub const kpageview = struct {
         return qtc.KPageView_ViewPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#viewPosition)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#viewPosition)
     ///
     /// Allows for overriding the related default method
     ///
@@ -244,7 +244,7 @@ pub const kpageview = struct {
         qtc.KPageView_OnViewPosition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#viewPosition)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#viewPosition)
     ///
     /// Base class method implementation
     ///
@@ -5261,7 +5261,7 @@ pub const kpageview = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpageview.html#dtor.KPageView)
+    /// [Qt documentation](https://api.kde.org/kpageview.html#dtor.KPageView)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5271,7 +5271,7 @@ pub const kpageview = struct {
     }
 };
 
-/// https://api-staging.kde.org/kpageview.html#types
+/// https://api.kde.org/kpageview.html#types
 pub const enums = struct {
     pub const FaceType = enum {
         pub const Auto: i32 = 0;

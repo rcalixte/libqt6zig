@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/sonnet-dictionarycombobox.html
+/// https://api.kde.org/sonnet-dictionarycombobox.html
 pub const sonnet__dictionarycombobox = struct {
     /// New constructs a new Sonnet::DictionaryComboBox object.
     ///
@@ -25,7 +25,7 @@ pub const sonnet__dictionarycombobox = struct {
         return qtc.Sonnet__DictionaryComboBox_new2();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#metaObject)
+    /// [Qt documentation](https://api.kde.org/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -57,7 +57,7 @@ pub const sonnet__dictionarycombobox = struct {
         return qtc.Sonnet__DictionaryComboBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -69,14 +69,14 @@ pub const sonnet__dictionarycombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#reloadCombo)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#reloadCombo)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox ```
     pub fn ReloadCombo(self: ?*anyopaque) void {
         qtc.Sonnet__DictionaryComboBox_ReloadCombo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#currentDictionaryName)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#currentDictionaryName)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, allocator: std.mem.Allocator ```
     pub fn CurrentDictionaryName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -87,7 +87,7 @@ pub const sonnet__dictionarycombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#currentDictionary)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#currentDictionary)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, allocator: std.mem.Allocator ```
     pub fn CurrentDictionary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -98,7 +98,7 @@ pub const sonnet__dictionarycombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#setCurrentByDictionaryName)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#setCurrentByDictionaryName)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, dictionaryName: []const u8 ```
     pub fn SetCurrentByDictionaryName(self: ?*anyopaque, dictionaryName: []const u8) void {
@@ -109,7 +109,7 @@ pub const sonnet__dictionarycombobox = struct {
         qtc.Sonnet__DictionaryComboBox_SetCurrentByDictionaryName(@ptrCast(self), dictionaryName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#assignByDictionnary)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#assignByDictionnary)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, dictionary: []const u8 ```
     pub fn AssignByDictionnary(self: ?*anyopaque, dictionary: []const u8) bool {
@@ -120,7 +120,7 @@ pub const sonnet__dictionarycombobox = struct {
         return qtc.Sonnet__DictionaryComboBox_AssignByDictionnary(@ptrCast(self), dictionary_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#assignDictionnaryName)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#assignDictionnaryName)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, name: []const u8 ```
     pub fn AssignDictionnaryName(self: ?*anyopaque, name: []const u8) bool {
@@ -131,7 +131,7 @@ pub const sonnet__dictionarycombobox = struct {
         return qtc.Sonnet__DictionaryComboBox_AssignDictionnaryName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#setCurrentByDictionary)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#setCurrentByDictionary)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, dictionary: []const u8 ```
     pub fn SetCurrentByDictionary(self: ?*anyopaque, dictionary: []const u8) void {
@@ -142,7 +142,7 @@ pub const sonnet__dictionarycombobox = struct {
         qtc.Sonnet__DictionaryComboBox_SetCurrentByDictionary(@ptrCast(self), dictionary_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#dictionaryChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#dictionaryChanged)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, dictionary: []const u8 ```
     pub fn DictionaryChanged(self: ?*anyopaque, dictionary: []const u8) void {
@@ -153,14 +153,14 @@ pub const sonnet__dictionarycombobox = struct {
         qtc.Sonnet__DictionaryComboBox_DictionaryChanged(@ptrCast(self), dictionary_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#dictionaryChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#dictionaryChanged)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, slot: fn (self: QtC.Sonnet__DictionaryComboBox, dictionary: [*:0]const u8) callconv(.c) void ```
     pub fn OnDictionaryChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_Connect_DictionaryChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#dictionaryNameChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#dictionaryNameChanged)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, dictionaryName: []const u8 ```
     pub fn DictionaryNameChanged(self: ?*anyopaque, dictionaryName: []const u8) void {
@@ -171,14 +171,14 @@ pub const sonnet__dictionarycombobox = struct {
         qtc.Sonnet__DictionaryComboBox_DictionaryNameChanged(@ptrCast(self), dictionaryName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dictionarycombobox.html#dictionaryNameChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-dictionarycombobox.html#dictionaryNameChanged)
     ///
     /// ``` self: QtC.Sonnet__DictionaryComboBox, slot: fn (self: QtC.Sonnet__DictionaryComboBox, dictionaryName: [*:0]const u8) callconv(.c) void ```
     pub fn OnDictionaryNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_Connect_DictionaryNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -191,7 +191,7 @@ pub const sonnet__dictionarycombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {

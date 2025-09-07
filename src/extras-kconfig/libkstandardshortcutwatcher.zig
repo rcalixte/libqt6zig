@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kstandardshortcut-standardshortcutwatcher.html
+/// https://api.kde.org/kstandardshortcut-standardshortcutwatcher.html
 pub const kstandardshortcut__standardshortcutwatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -37,7 +37,7 @@ pub const kstandardshortcut__standardshortcutwatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut-standardshortcutwatcher.html#shortcutChanged)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut-standardshortcutwatcher.html#shortcutChanged)
     ///
     /// ``` self: QtC.KStandardShortcut__StandardShortcutWatcher, id: kstandardshortcut_enums.StandardShortcut, shortcut: []QtC.QKeySequence ```
     pub fn ShortcutChanged(self: ?*anyopaque, id: i32, shortcut: []QtC.QKeySequence) void {
@@ -48,7 +48,7 @@ pub const kstandardshortcut__standardshortcutwatcher = struct {
         qtc.KStandardShortcut__StandardShortcutWatcher_ShortcutChanged(@ptrCast(self), @intCast(id), shortcut_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut-standardshortcutwatcher.html#shortcutChanged)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut-standardshortcutwatcher.html#shortcutChanged)
     ///
     /// ``` self: QtC.KStandardShortcut__StandardShortcutWatcher, slot: fn (self: QtC.KStandardShortcut__StandardShortcutWatcher, id: kstandardshortcut_enums.StandardShortcut, shortcut: [*]QtC.QKeySequence) callconv(.c) void ```
     pub fn OnShortcutChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*]QtC.QKeySequence) callconv(.c) void) void {
@@ -495,9 +495,9 @@ pub const kstandardshortcut__standardshortcutwatcher = struct {
     }
 };
 
-/// https://api-staging.kde.org/kstandardshortcut.html
+/// https://api.kde.org/kstandardshortcut.html
 pub const kstandardshortcut = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kstandardshortcut.html#shortcutWatcher)
+    /// [Qt documentation](https://api.kde.org/kstandardshortcut.html#shortcutWatcher)
     ///
     ///
     pub fn ShortcutWatcher() QtC.KStandardShortcut__StandardShortcutWatcher {

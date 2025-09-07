@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kassistantdialog.html
+/// https://api.kde.org/kassistantdialog.html
 pub const kassistantdialog = struct {
     /// New constructs a new KAssistantDialog object.
     ///
@@ -77,63 +77,63 @@ pub const kassistantdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#setValid)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#setValid)
     ///
     /// ``` self: QtC.KAssistantDialog, page: QtC.KPageWidgetItem, enable: bool ```
     pub fn SetValid(self: ?*anyopaque, page: ?*anyopaque, enable: bool) void {
         qtc.KAssistantDialog_SetValid(@ptrCast(self), @ptrCast(page), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#isValid)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#isValid)
     ///
     /// ``` self: QtC.KAssistantDialog, page: QtC.KPageWidgetItem ```
     pub fn IsValid(self: ?*anyopaque, page: ?*anyopaque) bool {
         return qtc.KAssistantDialog_IsValid(@ptrCast(self), @ptrCast(page));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#setAppropriate)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#setAppropriate)
     ///
     /// ``` self: QtC.KAssistantDialog, page: QtC.KPageWidgetItem, appropriate: bool ```
     pub fn SetAppropriate(self: ?*anyopaque, page: ?*anyopaque, appropriate: bool) void {
         qtc.KAssistantDialog_SetAppropriate(@ptrCast(self), @ptrCast(page), appropriate);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#isAppropriate)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#isAppropriate)
     ///
     /// ``` self: QtC.KAssistantDialog, page: QtC.KPageWidgetItem ```
     pub fn IsAppropriate(self: ?*anyopaque, page: ?*anyopaque) bool {
         return qtc.KAssistantDialog_IsAppropriate(@ptrCast(self), @ptrCast(page));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#nextButton)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#nextButton)
     ///
     /// ``` self: QtC.KAssistantDialog ```
     pub fn NextButton(self: ?*anyopaque) QtC.QPushButton {
         return qtc.KAssistantDialog_NextButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#backButton)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#backButton)
     ///
     /// ``` self: QtC.KAssistantDialog ```
     pub fn BackButton(self: ?*anyopaque) QtC.QPushButton {
         return qtc.KAssistantDialog_BackButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#finishButton)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#finishButton)
     ///
     /// ``` self: QtC.KAssistantDialog ```
     pub fn FinishButton(self: ?*anyopaque) QtC.QPushButton {
         return qtc.KAssistantDialog_FinishButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#back)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#back)
     ///
     /// ``` self: QtC.KAssistantDialog ```
     pub fn Back(self: ?*anyopaque) void {
         qtc.KAssistantDialog_Back(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#back)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#back)
     ///
     /// Allows for overriding the related default method
     ///
@@ -142,7 +142,7 @@ pub const kassistantdialog = struct {
         qtc.KAssistantDialog_OnBack(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#back)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#back)
     ///
     /// Base class method implementation
     ///
@@ -151,14 +151,14 @@ pub const kassistantdialog = struct {
         qtc.KAssistantDialog_QBaseBack(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#next)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#next)
     ///
     /// ``` self: QtC.KAssistantDialog ```
     pub fn Next(self: ?*anyopaque) void {
         qtc.KAssistantDialog_Next(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#next)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#next)
     ///
     /// Allows for overriding the related default method
     ///
@@ -167,7 +167,7 @@ pub const kassistantdialog = struct {
         qtc.KAssistantDialog_OnNext(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#next)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#next)
     ///
     /// Base class method implementation
     ///
@@ -176,14 +176,14 @@ pub const kassistantdialog = struct {
         qtc.KAssistantDialog_QBaseNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#showEvent)
     ///
     /// ``` self: QtC.KAssistantDialog, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KAssistantDialog_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -192,7 +192,7 @@ pub const kassistantdialog = struct {
         qtc.KAssistantDialog_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -229,7 +229,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setFaceType)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setFaceType)
     ///
     /// ``` self: QtC.KAssistantDialog, faceType: kpagedialog_enums.FaceType ```
     pub fn SetFaceType(self: ?*anyopaque, faceType: i32) void {
@@ -238,7 +238,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addPage)
     ///
     /// ``` self: QtC.KAssistantDialog, widget: QtC.QWidget, name: []const u8 ```
     pub fn AddPage(self: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -251,7 +251,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addPage)
     ///
     /// ``` self: QtC.KAssistantDialog, item: QtC.KPageWidgetItem ```
     pub fn AddPage2(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -260,7 +260,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#insertPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#insertPage)
     ///
     /// ``` self: QtC.KAssistantDialog, before: QtC.KPageWidgetItem, widget: QtC.QWidget, name: []const u8 ```
     pub fn InsertPage(self: ?*anyopaque, before: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -273,7 +273,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#insertPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#insertPage)
     ///
     /// ``` self: QtC.KAssistantDialog, before: QtC.KPageWidgetItem, item: QtC.KPageWidgetItem ```
     pub fn InsertPage2(self: ?*anyopaque, before: ?*anyopaque, item: ?*anyopaque) void {
@@ -282,7 +282,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addSubPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addSubPage)
     ///
     /// ``` self: QtC.KAssistantDialog, parent: QtC.KPageWidgetItem, widget: QtC.QWidget, name: []const u8 ```
     pub fn AddSubPage(self: ?*anyopaque, parent: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -295,7 +295,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addSubPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addSubPage)
     ///
     /// ``` self: QtC.KAssistantDialog, parent: QtC.KPageWidgetItem, item: QtC.KPageWidgetItem ```
     pub fn AddSubPage2(self: ?*anyopaque, parent: ?*anyopaque, item: ?*anyopaque) void {
@@ -304,7 +304,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#removePage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#removePage)
     ///
     /// ``` self: QtC.KAssistantDialog, item: QtC.KPageWidgetItem ```
     pub fn RemovePage(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -313,7 +313,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setCurrentPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setCurrentPage)
     ///
     /// ``` self: QtC.KAssistantDialog, item: QtC.KPageWidgetItem ```
     pub fn SetCurrentPage(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -322,7 +322,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#currentPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#currentPage)
     ///
     /// ``` self: QtC.KAssistantDialog ```
     pub fn CurrentPage(self: ?*anyopaque) QtC.KPageWidgetItem {
@@ -331,7 +331,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setStandardButtons)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setStandardButtons)
     ///
     /// ``` self: QtC.KAssistantDialog, buttons: flag of qdialogbuttonbox_enums.StandardButton ```
     pub fn SetStandardButtons(self: ?*anyopaque, buttons: i32) void {
@@ -340,7 +340,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#button)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#button)
     ///
     /// ``` self: QtC.KAssistantDialog, which: qdialogbuttonbox_enums.StandardButton ```
     pub fn Button(self: ?*anyopaque, which: i32) QtC.QPushButton {
@@ -349,7 +349,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addActionButton)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addActionButton)
     ///
     /// ``` self: QtC.KAssistantDialog, button: QtC.QAbstractButton ```
     pub fn AddActionButton(self: ?*anyopaque, button: ?*anyopaque) void {
@@ -358,7 +358,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#currentPageChanged)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#currentPageChanged)
     ///
     /// ``` self: QtC.KAssistantDialog, current: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem ```
     pub fn CurrentPageChanged(self: ?*anyopaque, current: ?*anyopaque, before: ?*anyopaque) void {
@@ -367,7 +367,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#currentPageChanged)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#currentPageChanged)
     ///
     /// ``` self: QtC.KAssistantDialog, slot: fn (self: QtC.KAssistantDialog, current: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem) callconv(.c) void ```
     pub fn OnCurrentPageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -376,7 +376,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageRemoved)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageRemoved)
     ///
     /// ``` self: QtC.KAssistantDialog, page: QtC.KPageWidgetItem ```
     pub fn PageRemoved(self: ?*anyopaque, page: ?*anyopaque) void {
@@ -385,7 +385,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageRemoved)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageRemoved)
     ///
     /// ``` self: QtC.KAssistantDialog, slot: fn (self: QtC.KAssistantDialog, page: QtC.KPageWidgetItem) callconv(.c) void ```
     pub fn OnPageRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5262,7 +5262,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5273,7 +5273,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5284,7 +5284,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5295,7 +5295,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setPageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setPageWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5306,7 +5306,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setPageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setPageWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5317,7 +5317,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setPageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setPageWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5328,7 +5328,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5339,7 +5339,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5350,7 +5350,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5361,7 +5361,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setButtonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setButtonBox)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5372,7 +5372,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setButtonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setButtonBox)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5383,7 +5383,7 @@ pub const kassistantdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setButtonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setButtonBox)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5768,7 +5768,7 @@ pub const kassistantdialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kassistantdialog.html#dtor.KAssistantDialog)
+    /// [Qt documentation](https://api.kde.org/kassistantdialog.html#dtor.KAssistantDialog)
     ///
     /// Delete this object from C++ memory.
     ///

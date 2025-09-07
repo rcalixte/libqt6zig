@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/sonnet-highlighter.html
+/// https://api.kde.org/sonnet-highlighter.html
 pub const sonnet__highlighter = struct {
     /// New constructs a new Sonnet::Highlighter object.
     ///
@@ -34,7 +34,7 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_new4(@ptrCast(textEdit), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#metaObject)
+    /// [Qt documentation](https://api.kde.org/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -66,7 +66,7 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -78,14 +78,14 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#spellCheckerFound)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#spellCheckerFound)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn SpellCheckerFound(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_SpellCheckerFound(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#currentLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#currentLanguage)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, allocator: std.mem.Allocator ```
     pub fn CurrentLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -96,49 +96,49 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setActive)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setActive)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, active: bool ```
     pub fn SetActive(self: ?*anyopaque, active: bool) void {
         qtc.Sonnet__Highlighter_SetActive(@ptrCast(self), active);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#isActive)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#isActive)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn IsActive(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_IsActive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#automatic)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#automatic)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn Automatic(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_Automatic(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setAutomatic)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setAutomatic)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, automatic: bool ```
     pub fn SetAutomatic(self: ?*anyopaque, automatic: bool) void {
         qtc.Sonnet__Highlighter_SetAutomatic(@ptrCast(self), automatic);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#autoDetectLanguageDisabled)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#autoDetectLanguageDisabled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn AutoDetectLanguageDisabled(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_AutoDetectLanguageDisabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setAutoDetectLanguageDisabled)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setAutoDetectLanguageDisabled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, autoDetectDisabled: bool ```
     pub fn SetAutoDetectLanguageDisabled(self: ?*anyopaque, autoDetectDisabled: bool) void {
         qtc.Sonnet__Highlighter_SetAutoDetectLanguageDisabled(@ptrCast(self), autoDetectDisabled);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#addWordToDictionary)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#addWordToDictionary)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8 ```
     pub fn AddWordToDictionary(self: ?*anyopaque, word: []const u8) void {
@@ -149,7 +149,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_AddWordToDictionary(@ptrCast(self), word_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#ignoreWord)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#ignoreWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8 ```
     pub fn IgnoreWord(self: ?*anyopaque, word: []const u8) void {
@@ -160,7 +160,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_IgnoreWord(@ptrCast(self), word_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#suggestionsForWord)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8, allocator: std.mem.Allocator ```
     pub fn SuggestionsForWord(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -186,7 +186,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#suggestionsForWord)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8, cursor: QtC.QTextCursor, allocator: std.mem.Allocator ```
     pub fn SuggestionsForWord2(self: ?*anyopaque, word: []const u8, cursor: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -212,7 +212,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#isWordMisspelled)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#isWordMisspelled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8 ```
     pub fn IsWordMisspelled(self: ?*anyopaque, word: []const u8) bool {
@@ -223,28 +223,28 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_IsWordMisspelled(@ptrCast(self), word_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setMisspelledColor)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setMisspelledColor)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, color: QtC.QColor ```
     pub fn SetMisspelledColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.Sonnet__Highlighter_SetMisspelledColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#checkerEnabledByDefault)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#checkerEnabledByDefault)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn CheckerEnabledByDefault(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_CheckerEnabledByDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setDocument)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setDocument)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, document: QtC.QTextDocument ```
     pub fn SetDocument(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.Sonnet__Highlighter_SetDocument(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#activeChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#activeChanged)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, description: []const u8 ```
     pub fn ActiveChanged(self: ?*anyopaque, description: []const u8) void {
@@ -255,14 +255,14 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_ActiveChanged(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#activeChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#activeChanged)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, description: [*:0]const u8) callconv(.c) void ```
     pub fn OnActiveChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Highlighter_Connect_ActiveChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#highlightBlock)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, text: []const u8 ```
     pub fn HighlightBlock(self: ?*anyopaque, text: []const u8) void {
@@ -273,7 +273,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_HighlightBlock(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#highlightBlock)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
     ///
     /// Allows for overriding the related default method
     ///
@@ -282,7 +282,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnHighlightBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#highlightBlock)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
     ///
     /// Base class method implementation
     ///
@@ -295,14 +295,14 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_QBaseHighlightBlock(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setMisspelled)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, start: i32, count: i32 ```
     pub fn SetMisspelled(self: ?*anyopaque, start: i32, count: i32) void {
         qtc.Sonnet__Highlighter_SetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setMisspelled)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -311,7 +311,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnSetMisspelled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setMisspelled)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
     ///
     /// Base class method implementation
     ///
@@ -320,14 +320,14 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_QBaseSetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#unsetMisspelled)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, start: i32, count: i32 ```
     pub fn UnsetMisspelled(self: ?*anyopaque, start: i32, count: i32) void {
         qtc.Sonnet__Highlighter_UnsetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#unsetMisspelled)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -336,7 +336,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnUnsetMisspelled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#unsetMisspelled)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
     ///
     /// Base class method implementation
     ///
@@ -345,14 +345,14 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_QBaseUnsetMisspelled(@ptrCast(self), @intCast(start), @intCast(count));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#eventFilter)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, o: QtC.QObject, e: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, o: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_EventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -361,7 +361,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -370,14 +370,14 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_QBaseEventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#intraWordEditing)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn IntraWordEditing(self: ?*anyopaque) bool {
         return qtc.Sonnet__Highlighter_IntraWordEditing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#intraWordEditing)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
     ///
     /// Allows for overriding the related default method
     ///
@@ -386,7 +386,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnIntraWordEditing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#intraWordEditing)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
     ///
     /// Base class method implementation
     ///
@@ -395,14 +395,14 @@ pub const sonnet__highlighter = struct {
         return qtc.Sonnet__Highlighter_QBaseIntraWordEditing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setIntraWordEditing)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, editing: bool ```
     pub fn SetIntraWordEditing(self: ?*anyopaque, editing: bool) void {
         qtc.Sonnet__Highlighter_SetIntraWordEditing(@ptrCast(self), editing);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setIntraWordEditing)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
     ///
     /// Allows for overriding the related default method
     ///
@@ -411,7 +411,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_OnSetIntraWordEditing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setIntraWordEditing)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
     ///
     /// Base class method implementation
     ///
@@ -420,7 +420,7 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_QBaseSetIntraWordEditing(@ptrCast(self), editing);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#setCurrentLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setCurrentLanguage)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, language: []const u8 ```
     pub fn SetCurrentLanguage(self: ?*anyopaque, language: []const u8) void {
@@ -431,21 +431,21 @@ pub const sonnet__highlighter = struct {
         qtc.Sonnet__Highlighter_SetCurrentLanguage(@ptrCast(self), language_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#slotAutoDetection)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#slotAutoDetection)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn SlotAutoDetection(self: ?*anyopaque) void {
         qtc.Sonnet__Highlighter_SlotAutoDetection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#slotRehighlight)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#slotRehighlight)
     ///
     /// ``` self: QtC.Sonnet__Highlighter ```
     pub fn SlotRehighlight(self: ?*anyopaque) void {
         qtc.Sonnet__Highlighter_SlotRehighlight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -458,7 +458,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -471,7 +471,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#suggestionsForWord)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8, max: i32, allocator: std.mem.Allocator ```
     pub fn SuggestionsForWord22(self: ?*anyopaque, word: []const u8, max: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -497,7 +497,7 @@ pub const sonnet__highlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-highlighter.html#suggestionsForWord)
+    /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#suggestionsForWord)
     ///
     /// ``` self: QtC.Sonnet__Highlighter, word: []const u8, cursor: QtC.QTextCursor, max: i32, allocator: std.mem.Allocator ```
     pub fn SuggestionsForWord3(self: ?*anyopaque, word: []const u8, cursor: ?*anyopaque, max: i32, allocator: std.mem.Allocator) [][]const u8 {

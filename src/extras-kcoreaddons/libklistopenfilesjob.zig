@@ -6,7 +6,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const struct_constu8_constu8 = extern struct { first: []const u8, second: []const u8 };
 
-/// https://api-staging.kde.org/klistopenfilesjob.html
+/// https://api.kde.org/klistopenfilesjob.html
 pub const klistopenfilesjob = struct {
     /// New constructs a new KListOpenFilesJob object.
     ///
@@ -64,14 +64,14 @@ pub const klistopenfilesjob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistopenfilesjob.html#start)
+    /// [Qt documentation](https://api.kde.org/klistopenfilesjob.html#start)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.KListOpenFilesJob_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistopenfilesjob.html#start)
+    /// [Qt documentation](https://api.kde.org/klistopenfilesjob.html#start)
     ///
     /// Allows for overriding the related default method
     ///
@@ -80,7 +80,7 @@ pub const klistopenfilesjob = struct {
         qtc.KListOpenFilesJob_OnStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistopenfilesjob.html#start)
+    /// [Qt documentation](https://api.kde.org/klistopenfilesjob.html#start)
     ///
     /// Base class method implementation
     ///
@@ -89,7 +89,7 @@ pub const klistopenfilesjob = struct {
         qtc.KListOpenFilesJob_QBaseStart(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistopenfilesjob.html#processInfoList)
+    /// [Qt documentation](https://api.kde.org/klistopenfilesjob.html#processInfoList)
     ///
     /// ``` self: QtC.KListOpenFilesJob, allocator: std.mem.Allocator ```
     pub fn ProcessInfoList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KProcessList__KProcessInfo {
@@ -129,7 +129,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setUiDelegate)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setUiDelegate)
     ///
     /// ``` self: QtC.KListOpenFilesJob, delegate: QtC.KJobUiDelegate ```
     pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
@@ -138,7 +138,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#uiDelegate)
+    /// [Qt documentation](https://api.kde.org/kjob.html#uiDelegate)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
@@ -147,7 +147,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#capabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#capabilities)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     ///
@@ -158,7 +158,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isSuspended)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isSuspended)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn IsSuspended(self: ?*anyopaque) bool {
@@ -167,7 +167,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#kill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn Kill(self: ?*anyopaque) bool {
@@ -176,7 +176,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#suspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#suspend)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn Suspend(self: ?*anyopaque) bool {
@@ -185,7 +185,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#resume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#resume)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn Resume(self: ?*anyopaque) bool {
@@ -194,7 +194,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#exec)
+    /// [Qt documentation](https://api.kde.org/kjob.html#exec)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn Exec(self: ?*anyopaque) bool {
@@ -203,7 +203,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#error)
+    /// [Qt documentation](https://api.kde.org/kjob.html#error)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn Error(self: ?*anyopaque) i32 {
@@ -212,7 +212,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorText)
     ///
     /// ``` self: QtC.KListOpenFilesJob, allocator: std.mem.Allocator ```
     pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -225,7 +225,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmount)
     ///
     /// ``` self: QtC.KListOpenFilesJob, unit: kjob_enums.Unit ```
     pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
@@ -234,7 +234,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmount)
     ///
     /// ``` self: QtC.KListOpenFilesJob, unit: kjob_enums.Unit ```
     pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
@@ -243,7 +243,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#percent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#percent)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn Percent(self: ?*anyopaque) u64 {
@@ -252,7 +252,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setAutoDelete)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setAutoDelete)
     ///
     /// ``` self: QtC.KListOpenFilesJob, autodelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
@@ -261,7 +261,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isAutoDelete)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isAutoDelete)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn IsAutoDelete(self: ?*anyopaque) bool {
@@ -270,7 +270,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
@@ -279,7 +279,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinishedNotificationHidden)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
@@ -288,7 +288,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isStartedWithExec)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isStartedWithExec)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn IsStartedWithExec(self: ?*anyopaque) bool {
@@ -297,7 +297,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#elapsedTime)
+    /// [Qt documentation](https://api.kde.org/kjob.html#elapsedTime)
     ///
     /// ``` self: QtC.KListOpenFilesJob ```
     pub fn ElapsedTime(self: ?*anyopaque) i64 {
@@ -306,7 +306,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KListOpenFilesJob, job: QtC.KJob, title: []const u8 ```
     pub fn Description(self: ?*anyopaque, job: ?*anyopaque, title: []const u8) void {
@@ -319,7 +319,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KListOpenFilesJob, slot: fn (self: QtC.KListOpenFilesJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -328,7 +328,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#infoMessage)
+    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KListOpenFilesJob, job: QtC.KJob, message: []const u8 ```
     pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -341,7 +341,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#infoMessage)
+    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KListOpenFilesJob, slot: fn (self: QtC.KListOpenFilesJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -350,7 +350,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#warning)
+    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KListOpenFilesJob, job: QtC.KJob, message: []const u8 ```
     pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -363,7 +363,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#warning)
+    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KListOpenFilesJob, slot: fn (self: QtC.KListOpenFilesJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnWarning(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -372,7 +372,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KListOpenFilesJob, job: QtC.KJob, size: u64 ```
     pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
@@ -381,7 +381,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KListOpenFilesJob, slot: fn (self: QtC.KListOpenFilesJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnTotalSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -390,7 +390,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KListOpenFilesJob, job: QtC.KJob, size: u64 ```
     pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
@@ -399,7 +399,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedSize)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KListOpenFilesJob, slot: fn (self: QtC.KListOpenFilesJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnProcessedSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -408,7 +408,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#speed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KListOpenFilesJob, job: QtC.KJob, speed: u64 ```
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
@@ -417,7 +417,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#speed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KListOpenFilesJob, slot: fn (self: QtC.KListOpenFilesJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
     pub fn OnSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -426,7 +426,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#kill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KListOpenFilesJob, verbosity: kjob_enums.KillVerbosity ```
     pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
@@ -435,7 +435,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KListOpenFilesJob, hide: bool ```
     pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
@@ -444,7 +444,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KListOpenFilesJob, job: QtC.KJob, title: []const u8, field1: struct_constu8_constu8 ```
     pub fn Description3(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, field1: struct_constu8_constu8) void {
@@ -461,7 +461,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KListOpenFilesJob, slot: fn (self: QtC.KListOpenFilesJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
     pub fn OnDescription3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
@@ -470,7 +470,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KListOpenFilesJob, job: QtC.KJob, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8 ```
     pub fn Description4(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) void {
@@ -491,7 +491,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#description)
+    /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
     /// ``` self: QtC.KListOpenFilesJob, slot: fn (self: QtC.KListOpenFilesJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
     pub fn OnDescription4(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
@@ -877,7 +877,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doKill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -888,7 +888,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doKill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -899,7 +899,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doKill)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doKill)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -910,7 +910,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doSuspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -921,7 +921,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doSuspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -932,7 +932,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doSuspend)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doSuspend)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -943,7 +943,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doResume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -954,7 +954,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doResume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -965,7 +965,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#doResume)
+    /// [Qt documentation](https://api.kde.org/kjob.html#doResume)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -976,7 +976,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorString)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -991,7 +991,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorString)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1006,7 +1006,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#errorString)
+    /// [Qt documentation](https://api.kde.org/kjob.html#errorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1248,7 +1248,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1259,7 +1259,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1270,7 +1270,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setCapabilities)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setCapabilities)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1281,7 +1281,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1292,7 +1292,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1303,7 +1303,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#isFinished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#isFinished)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1314,7 +1314,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setError)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1325,7 +1325,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setError)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1336,7 +1336,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setError)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setError)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1347,7 +1347,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setErrorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1362,7 +1362,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setErrorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1377,7 +1377,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setErrorText)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setErrorText)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1388,7 +1388,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProcessedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1399,7 +1399,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProcessedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1410,7 +1410,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProcessedAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProcessedAmount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1421,7 +1421,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setTotalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1432,7 +1432,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setTotalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1443,7 +1443,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setTotalAmount)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setTotalAmount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1454,7 +1454,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProgressUnit)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1465,7 +1465,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProgressUnit)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1476,7 +1476,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setProgressUnit)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setProgressUnit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1487,7 +1487,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1498,7 +1498,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1509,7 +1509,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#setPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#setPercent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1520,7 +1520,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitResult)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1531,7 +1531,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitResult)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1542,7 +1542,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitResult)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitResult)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1553,7 +1553,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1564,7 +1564,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1575,7 +1575,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitPercent)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitPercent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1586,7 +1586,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitSpeed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1597,7 +1597,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitSpeed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1608,7 +1608,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#emitSpeed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#emitSpeed)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1619,7 +1619,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#startElapsedTimer)
+    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1630,7 +1630,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#startElapsedTimer)
+    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1641,7 +1641,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#startElapsedTimer)
+    /// [Qt documentation](https://api.kde.org/kjob.html#startElapsedTimer)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1786,7 +1786,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#finished)
+    /// [Qt documentation](https://api.kde.org/kjob.html#finished)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1797,7 +1797,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#suspended)
+    /// [Qt documentation](https://api.kde.org/kjob.html#suspended)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1808,7 +1808,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#resumed)
+    /// [Qt documentation](https://api.kde.org/kjob.html#resumed)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1819,7 +1819,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#result)
+    /// [Qt documentation](https://api.kde.org/kjob.html#result)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1830,7 +1830,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#totalAmountChanged)
+    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1841,7 +1841,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#processedAmountChanged)
+    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1852,7 +1852,7 @@ pub const klistopenfilesjob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kjob.html#percentChanged)
+    /// [Qt documentation](https://api.kde.org/kjob.html#percentChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1872,7 +1872,7 @@ pub const klistopenfilesjob = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistopenfilesjob.html#dtor.KListOpenFilesJob)
+    /// [Qt documentation](https://api.kde.org/klistopenfilesjob.html#dtor.KListOpenFilesJob)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1882,7 +1882,7 @@ pub const klistopenfilesjob = struct {
     }
 };
 
-/// https://api-staging.kde.org/klistopenfilesjob.html#types
+/// https://api.kde.org/klistopenfilesjob.html#types
 pub const enums = struct {
     pub const Error = enum {
         pub const NotSupported: i32 = 101;

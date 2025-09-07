@@ -10,7 +10,7 @@ const qstyle_enums = @import("../libqstyle.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcapacitybar.html
+/// https://api.kde.org/kcapacitybar.html
 pub const kcapacitybar = struct {
     /// New constructs a new KCapacityBar object.
     ///
@@ -84,21 +84,21 @@ pub const kcapacitybar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#setValue)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#setValue)
     ///
     /// ``` self: QtC.KCapacityBar, value: i32 ```
     pub fn SetValue(self: ?*anyopaque, value: i32) void {
         qtc.KCapacityBar_SetValue(@ptrCast(self), @intCast(value));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#value)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#value)
     ///
     /// ``` self: QtC.KCapacityBar ```
     pub fn Value(self: ?*anyopaque) i32 {
         return qtc.KCapacityBar_Value(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#setText)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#setText)
     ///
     /// ``` self: QtC.KCapacityBar, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -109,7 +109,7 @@ pub const kcapacitybar = struct {
         qtc.KCapacityBar_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#text)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#text)
     ///
     /// ``` self: QtC.KCapacityBar, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -120,56 +120,56 @@ pub const kcapacitybar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#setFillFullBlocks)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#setFillFullBlocks)
     ///
     /// ``` self: QtC.KCapacityBar, fillFullBlocks: bool ```
     pub fn SetFillFullBlocks(self: ?*anyopaque, fillFullBlocks: bool) void {
         qtc.KCapacityBar_SetFillFullBlocks(@ptrCast(self), fillFullBlocks);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#fillFullBlocks)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#fillFullBlocks)
     ///
     /// ``` self: QtC.KCapacityBar ```
     pub fn FillFullBlocks(self: ?*anyopaque) bool {
         return qtc.KCapacityBar_FillFullBlocks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#setContinuous)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#setContinuous)
     ///
     /// ``` self: QtC.KCapacityBar, continuous: bool ```
     pub fn SetContinuous(self: ?*anyopaque, continuous: bool) void {
         qtc.KCapacityBar_SetContinuous(@ptrCast(self), continuous);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#continuous)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#continuous)
     ///
     /// ``` self: QtC.KCapacityBar ```
     pub fn Continuous(self: ?*anyopaque) bool {
         return qtc.KCapacityBar_Continuous(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#setBarHeight)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#setBarHeight)
     ///
     /// ``` self: QtC.KCapacityBar, barHeight: i32 ```
     pub fn SetBarHeight(self: ?*anyopaque, barHeight: i32) void {
         qtc.KCapacityBar_SetBarHeight(@ptrCast(self), @intCast(barHeight));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#barHeight)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#barHeight)
     ///
     /// ``` self: QtC.KCapacityBar ```
     pub fn BarHeight(self: ?*anyopaque) i32 {
         return qtc.KCapacityBar_BarHeight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#setHorizontalTextAlignment)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#setHorizontalTextAlignment)
     ///
     /// ``` self: QtC.KCapacityBar, textAlignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetHorizontalTextAlignment(self: ?*anyopaque, textAlignment: i32) void {
         qtc.KCapacityBar_SetHorizontalTextAlignment(@ptrCast(self), @intCast(textAlignment));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#horizontalTextAlignment)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#horizontalTextAlignment)
     ///
     /// ``` self: QtC.KCapacityBar ```
     ///
@@ -178,14 +178,14 @@ pub const kcapacitybar = struct {
         return qtc.KCapacityBar_HorizontalTextAlignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#setDrawTextMode)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#setDrawTextMode)
     ///
     /// ``` self: QtC.KCapacityBar, mode: kcapacitybar_enums.DrawTextMode ```
     pub fn SetDrawTextMode(self: ?*anyopaque, mode: i32) void {
         qtc.KCapacityBar_SetDrawTextMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#drawTextMode)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#drawTextMode)
     ///
     /// ``` self: QtC.KCapacityBar ```
     ///
@@ -194,28 +194,28 @@ pub const kcapacitybar = struct {
         return qtc.KCapacityBar_DrawTextMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#drawCapacityBar)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#drawCapacityBar)
     ///
     /// ``` self: QtC.KCapacityBar, p: QtC.QPainter, rect: QtC.QRect ```
     pub fn DrawCapacityBar(self: ?*anyopaque, p: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.KCapacityBar_DrawCapacityBar(@ptrCast(self), @ptrCast(p), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#drawCapacityBar)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#drawCapacityBar)
     ///
     /// ``` self: QtC.KCapacityBar, p: QtC.QPainter, rect: QtC.QRect, state: flag of qstyle_enums.StateFlag ```
     pub fn DrawCapacityBar2(self: ?*anyopaque, p: ?*anyopaque, rect: ?*anyopaque, state: i32) void {
         qtc.KCapacityBar_DrawCapacityBar2(@ptrCast(self), @ptrCast(p), @ptrCast(rect), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KCapacityBar ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KCapacityBar_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -224,7 +224,7 @@ pub const kcapacitybar = struct {
         qtc.KCapacityBar_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -233,14 +233,14 @@ pub const kcapacitybar = struct {
         return qtc.KCapacityBar_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#paintEvent)
     ///
     /// ``` self: QtC.KCapacityBar, event: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCapacityBar_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -249,7 +249,7 @@ pub const kcapacitybar = struct {
         qtc.KCapacityBar_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -258,14 +258,14 @@ pub const kcapacitybar = struct {
         qtc.KCapacityBar_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#changeEvent)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#changeEvent)
     ///
     /// ``` self: QtC.KCapacityBar, event: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCapacityBar_ChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#changeEvent)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#changeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -274,7 +274,7 @@ pub const kcapacitybar = struct {
         qtc.KCapacityBar_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#changeEvent)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#changeEvent)
     ///
     /// Base class method implementation
     ///
@@ -5190,7 +5190,7 @@ pub const kcapacitybar = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcapacitybar.html#dtor.KCapacityBar)
+    /// [Qt documentation](https://api.kde.org/kcapacitybar.html#dtor.KCapacityBar)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5200,7 +5200,7 @@ pub const kcapacitybar = struct {
     }
 };
 
-/// https://api-staging.kde.org/kcapacitybar.html#types
+/// https://api.kde.org/kcapacitybar.html#types
 pub const enums = struct {
     pub const DrawTextMode = enum {
         pub const DrawTextInline: i32 = 0;

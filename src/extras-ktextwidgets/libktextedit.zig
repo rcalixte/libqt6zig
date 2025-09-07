@@ -14,7 +14,7 @@ const qtextoption_enums = @import("../libqtextoption.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktextedit.html
+/// https://api.kde.org/ktextedit.html
 pub const ktextedit = struct {
     /// New constructs a new KTextEdit object.
     ///
@@ -98,14 +98,14 @@ pub const ktextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// ``` self: QtC.KTextEdit, readOnly: bool ```
     pub fn SetReadOnly(self: ?*anyopaque, readOnly: bool) void {
         qtc.KTextEdit_SetReadOnly(@ptrCast(self), readOnly);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Allows for overriding the related default method
     ///
@@ -114,7 +114,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSetReadOnly(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Base class method implementation
     ///
@@ -123,14 +123,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSetReadOnly(@ptrCast(self), readOnly);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// ``` self: QtC.KTextEdit, check: bool ```
     pub fn SetCheckSpellingEnabled(self: ?*anyopaque, check: bool) void {
         qtc.KTextEdit_SetCheckSpellingEnabled(@ptrCast(self), check);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -139,7 +139,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSetCheckSpellingEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Base class method implementation
     ///
@@ -148,14 +148,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSetCheckSpellingEnabled(@ptrCast(self), check);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn CheckSpellingEnabled(self: ?*anyopaque) bool {
         return qtc.KTextEdit_CheckSpellingEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -164,7 +164,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnCheckSpellingEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Base class method implementation
     ///
@@ -173,7 +173,7 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_QBaseCheckSpellingEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// ``` self: QtC.KTextEdit, block: []const u8 ```
     pub fn ShouldBlockBeSpellChecked(self: ?*anyopaque, block: []const u8) bool {
@@ -184,7 +184,7 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_ShouldBlockBeSpellChecked(@ptrCast(self), block_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -193,7 +193,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnShouldBlockBeSpellChecked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Base class method implementation
     ///
@@ -206,21 +206,21 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_QBaseShouldBlockBeSpellChecked(@ptrCast(self), block_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#highlightWord)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#highlightWord)
     ///
     /// ``` self: QtC.KTextEdit, length: i32, pos: i32 ```
     pub fn HighlightWord(self: ?*anyopaque, length: i32, pos: i32) void {
         qtc.KTextEdit_HighlightWord(@ptrCast(self), @intCast(length), @intCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#createHighlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn CreateHighlighter(self: ?*anyopaque) void {
         qtc.KTextEdit_CreateHighlighter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#createHighlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -229,7 +229,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnCreateHighlighter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#createHighlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Base class method implementation
     ///
@@ -238,28 +238,28 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseCreateHighlighter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#highlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#highlighter)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn Highlighter(self: ?*anyopaque) QtC.Sonnet__Highlighter {
         return qtc.KTextEdit_Highlighter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setHighlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setHighlighter)
     ///
     /// ``` self: QtC.KTextEdit, _highLighter: QtC.Sonnet__Highlighter ```
     pub fn SetHighlighter(self: ?*anyopaque, _highLighter: ?*anyopaque) void {
         qtc.KTextEdit_SetHighlighter(@ptrCast(self), @ptrCast(_highLighter));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#mousePopupMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn MousePopupMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KTextEdit_MousePopupMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#mousePopupMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Allows for overriding the related default method
     ///
@@ -268,7 +268,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnMousePopupMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#mousePopupMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Base class method implementation
     ///
@@ -277,14 +277,14 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_QBaseMousePopupMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#enableFindReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#enableFindReplace)
     ///
     /// ``` self: QtC.KTextEdit, enabled: bool ```
     pub fn EnableFindReplace(self: ?*anyopaque, enabled: bool) void {
         qtc.KTextEdit_EnableFindReplace(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingLanguage)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingLanguage)
     ///
     /// ``` self: QtC.KTextEdit, allocator: std.mem.Allocator ```
     pub fn SpellCheckingLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -295,42 +295,42 @@ pub const ktextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#showTabAction)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#showTabAction)
     ///
     /// ``` self: QtC.KTextEdit, show: bool ```
     pub fn ShowTabAction(self: ?*anyopaque, show: bool) void {
         qtc.KTextEdit_ShowTabAction(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#showAutoCorrectButton)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#showAutoCorrectButton)
     ///
     /// ``` self: QtC.KTextEdit, show: bool ```
     pub fn ShowAutoCorrectButton(self: ?*anyopaque, show: bool) void {
         qtc.KTextEdit_ShowAutoCorrectButton(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#forceSpellChecking)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#forceSpellChecking)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn ForceSpellChecking(self: ?*anyopaque) void {
         qtc.KTextEdit_ForceSpellChecking(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingChanged)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingChanged)
     ///
     /// ``` self: QtC.KTextEdit, param1: bool ```
     pub fn CheckSpellingChanged(self: ?*anyopaque, param1: bool) void {
         qtc.KTextEdit_CheckSpellingChanged(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingChanged)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingChanged)
     ///
     /// ``` self: QtC.KTextEdit, slot: fn (self: QtC.KTextEdit, param1: bool) callconv(.c) void ```
     pub fn OnCheckSpellingChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTextEdit_Connect_CheckSpellingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckStatus)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckStatus)
     ///
     /// ``` self: QtC.KTextEdit, param1: []const u8 ```
     pub fn SpellCheckStatus(self: ?*anyopaque, param1: []const u8) void {
@@ -341,14 +341,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_SpellCheckStatus(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckStatus)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckStatus)
     ///
     /// ``` self: QtC.KTextEdit, slot: fn (self: QtC.KTextEdit, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnSpellCheckStatus(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckStatus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#languageChanged)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#languageChanged)
     ///
     /// ``` self: QtC.KTextEdit, language: []const u8 ```
     pub fn LanguageChanged(self: ?*anyopaque, language: []const u8) void {
@@ -359,28 +359,28 @@ pub const ktextedit = struct {
         qtc.KTextEdit_LanguageChanged(@ptrCast(self), language_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#languageChanged)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#languageChanged)
     ///
     /// ``` self: QtC.KTextEdit, slot: fn (self: QtC.KTextEdit, language: [*:0]const u8) callconv(.c) void ```
     pub fn OnLanguageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEdit_Connect_LanguageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#aboutToShowContextMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KTextEdit, menu: QtC.QMenu ```
     pub fn AboutToShowContextMenu(self: ?*anyopaque, menu: ?*anyopaque) void {
         qtc.KTextEdit_AboutToShowContextMenu(@ptrCast(self), @ptrCast(menu));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#aboutToShowContextMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KTextEdit, slot: fn (self: QtC.KTextEdit, menu: QtC.QMenu) callconv(.c) void ```
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTextEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckerAutoCorrect)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
     ///
     /// ``` self: QtC.KTextEdit, currentWord: []const u8, autoCorrectWord: []const u8 ```
     pub fn SpellCheckerAutoCorrect(self: ?*anyopaque, currentWord: []const u8, autoCorrectWord: []const u8) void {
@@ -395,42 +395,42 @@ pub const ktextedit = struct {
         qtc.KTextEdit_SpellCheckerAutoCorrect(@ptrCast(self), currentWord_str, autoCorrectWord_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckerAutoCorrect)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
     ///
     /// ``` self: QtC.KTextEdit, slot: fn (self: QtC.KTextEdit, currentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void ```
     pub fn OnSpellCheckerAutoCorrect(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckerAutoCorrect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingFinished)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingFinished)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SpellCheckingFinished(self: ?*anyopaque) void {
         qtc.KTextEdit_SpellCheckingFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingFinished)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingFinished)
     ///
     /// ``` self: QtC.KTextEdit, slot: fn (self: QtC.KTextEdit) callconv(.c) void ```
     pub fn OnSpellCheckingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingCanceled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SpellCheckingCanceled(self: ?*anyopaque) void {
         qtc.KTextEdit_SpellCheckingCanceled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingCanceled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
     ///
     /// ``` self: QtC.KTextEdit, slot: fn (self: QtC.KTextEdit) callconv(.c) void ```
     pub fn OnSpellCheckingCanceled(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KTextEdit_Connect_SpellCheckingCanceled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setSpellCheckingLanguage)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setSpellCheckingLanguage)
     ///
     /// ``` self: QtC.KTextEdit, language: []const u8 ```
     pub fn SetSpellCheckingLanguage(self: ?*anyopaque, language: []const u8) void {
@@ -441,49 +441,49 @@ pub const ktextedit = struct {
         qtc.KTextEdit_SetSpellCheckingLanguage(@ptrCast(self), language_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpelling)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpelling)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn CheckSpelling(self: ?*anyopaque) void {
         qtc.KTextEdit_CheckSpelling(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#showSpellConfigDialog)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn ShowSpellConfigDialog(self: ?*anyopaque) void {
         qtc.KTextEdit_ShowSpellConfigDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#replace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#replace)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn Replace(self: ?*anyopaque) void {
         qtc.KTextEdit_Replace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#addTextDecorator)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#addTextDecorator)
     ///
     /// ``` self: QtC.KTextEdit, decorator: QtC.Sonnet__SpellCheckDecorator ```
     pub fn AddTextDecorator(self: ?*anyopaque, decorator: ?*anyopaque) void {
         qtc.KTextEdit_AddTextDecorator(@ptrCast(self), @ptrCast(decorator));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#clearDecorator)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#clearDecorator)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn ClearDecorator(self: ?*anyopaque) void {
         qtc.KTextEdit_ClearDecorator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SlotDoReplace(self: ?*anyopaque) void {
         qtc.KTextEdit_SlotDoReplace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Allows for overriding the related default method
     ///
@@ -492,7 +492,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotDoReplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Base class method implementation
     ///
@@ -501,14 +501,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSlotDoReplace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplaceNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SlotReplaceNext(self: ?*anyopaque) void {
         qtc.KTextEdit_SlotReplaceNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplaceNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Allows for overriding the related default method
     ///
@@ -517,7 +517,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotReplaceNext(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplaceNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Base class method implementation
     ///
@@ -526,14 +526,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSlotReplaceNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SlotDoFind(self: ?*anyopaque) void {
         qtc.KTextEdit_SlotDoFind(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Allows for overriding the related default method
     ///
@@ -542,7 +542,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotDoFind(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Base class method implementation
     ///
@@ -551,14 +551,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSlotDoFind(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SlotFind(self: ?*anyopaque) void {
         qtc.KTextEdit_SlotFind(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Allows for overriding the related default method
     ///
@@ -567,7 +567,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotFind(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Base class method implementation
     ///
@@ -576,14 +576,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSlotFind(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SlotFindNext(self: ?*anyopaque) void {
         qtc.KTextEdit_SlotFindNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Allows for overriding the related default method
     ///
@@ -592,7 +592,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotFindNext(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Base class method implementation
     ///
@@ -601,14 +601,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSlotFindNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindPrevious)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SlotFindPrevious(self: ?*anyopaque) void {
         qtc.KTextEdit_SlotFindPrevious(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindPrevious)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Allows for overriding the related default method
     ///
@@ -617,7 +617,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotFindPrevious(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindPrevious)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Base class method implementation
     ///
@@ -626,14 +626,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSlotFindPrevious(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SlotReplace(self: ?*anyopaque) void {
         qtc.KTextEdit_SlotReplace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Allows for overriding the related default method
     ///
@@ -642,7 +642,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotReplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Base class method implementation
     ///
@@ -651,14 +651,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSlotReplace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotSpeakText)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn SlotSpeakText(self: ?*anyopaque) void {
         qtc.KTextEdit_SlotSpeakText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotSpeakText)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -667,7 +667,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotSpeakText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotSpeakText)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Base class method implementation
     ///
@@ -676,14 +676,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseSlotSpeakText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#event)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#event)
     ///
     /// ``` self: QtC.KTextEdit, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KTextEdit_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#event)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -692,7 +692,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#event)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#event)
     ///
     /// Base class method implementation
     ///
@@ -701,14 +701,14 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#keyPressEvent)
     ///
     /// ``` self: QtC.KTextEdit, param1: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KTextEdit_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -717,7 +717,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -726,14 +726,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// ``` self: QtC.KTextEdit, param1: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KTextEdit_FocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -742,7 +742,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -751,14 +751,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseFocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordBack)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn DeleteWordBack(self: ?*anyopaque) void {
         qtc.KTextEdit_DeleteWordBack(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordBack)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Allows for overriding the related default method
     ///
@@ -767,7 +767,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnDeleteWordBack(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordBack)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Base class method implementation
     ///
@@ -776,14 +776,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseDeleteWordBack(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordForward)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// ``` self: QtC.KTextEdit ```
     pub fn DeleteWordForward(self: ?*anyopaque) void {
         qtc.KTextEdit_DeleteWordForward(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordForward)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Allows for overriding the related default method
     ///
@@ -792,7 +792,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnDeleteWordForward(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordForward)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Base class method implementation
     ///
@@ -801,14 +801,14 @@ pub const ktextedit = struct {
         qtc.KTextEdit_QBaseDeleteWordForward(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// ``` self: QtC.KTextEdit, param1: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KTextEdit_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -817,7 +817,7 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Base class method implementation
     ///
@@ -852,7 +852,7 @@ pub const ktextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#showSpellConfigDialog)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
     ///
     /// ``` self: QtC.KTextEdit, windowIcon: []const u8 ```
     pub fn ShowSpellConfigDialog1(self: ?*anyopaque, windowIcon: []const u8) void {
@@ -7515,7 +7515,7 @@ pub const ktextedit = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#dtor.KTextEdit)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#dtor.KTextEdit)
     ///
     /// Delete this object from C++ memory.
     ///

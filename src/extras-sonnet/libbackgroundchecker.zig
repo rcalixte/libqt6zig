@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/sonnet-backgroundchecker.html
+/// https://api.kde.org/sonnet-backgroundchecker.html
 pub const sonnet__backgroundchecker = struct {
     /// New constructs a new Sonnet::BackgroundChecker object.
     ///
@@ -34,7 +34,7 @@ pub const sonnet__backgroundchecker = struct {
         return qtc.Sonnet__BackgroundChecker_new4(@ptrCast(speller), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#metaObject)
+    /// [Qt documentation](https://api.kde.org/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -66,7 +66,7 @@ pub const sonnet__backgroundchecker = struct {
         return qtc.Sonnet__BackgroundChecker_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -78,7 +78,7 @@ pub const sonnet__backgroundchecker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#setText)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#setText)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -89,7 +89,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#text)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#text)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -100,7 +100,7 @@ pub const sonnet__backgroundchecker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#currentContext)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#currentContext)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, allocator: std.mem.Allocator ```
     pub fn CurrentContext(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -111,21 +111,21 @@ pub const sonnet__backgroundchecker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#speller)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#speller)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker ```
     pub fn Speller(self: ?*anyopaque) QtC.Sonnet__Speller {
         return qtc.Sonnet__BackgroundChecker_Speller(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#setSpeller)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#setSpeller)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, speller: QtC.Sonnet__Speller ```
     pub fn SetSpeller(self: ?*anyopaque, speller: ?*anyopaque) void {
         qtc.Sonnet__BackgroundChecker_SetSpeller(@ptrCast(self), @ptrCast(speller));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#checkWord)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#checkWord)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, word: []const u8 ```
     pub fn CheckWord(self: ?*anyopaque, word: []const u8) bool {
@@ -136,7 +136,7 @@ pub const sonnet__backgroundchecker = struct {
         return qtc.Sonnet__BackgroundChecker_CheckWord(@ptrCast(self), word_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#suggest)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#suggest)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, word: []const u8, allocator: std.mem.Allocator ```
     pub fn Suggest(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -162,7 +162,7 @@ pub const sonnet__backgroundchecker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#addWordToPersonal)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#addWordToPersonal)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, word: []const u8 ```
     pub fn AddWordToPersonal(self: ?*anyopaque, word: []const u8) bool {
@@ -173,7 +173,7 @@ pub const sonnet__backgroundchecker = struct {
         return qtc.Sonnet__BackgroundChecker_AddWordToPersonal(@ptrCast(self), word_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#addWordToSession)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#addWordToSession)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, word: []const u8 ```
     pub fn AddWordToSession(self: ?*anyopaque, word: []const u8) bool {
@@ -184,28 +184,28 @@ pub const sonnet__backgroundchecker = struct {
         return qtc.Sonnet__BackgroundChecker_AddWordToSession(@ptrCast(self), word_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#autoDetectLanguageDisabled)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#autoDetectLanguageDisabled)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker ```
     pub fn AutoDetectLanguageDisabled(self: ?*anyopaque) bool {
         return qtc.Sonnet__BackgroundChecker_AutoDetectLanguageDisabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#setAutoDetectLanguageDisabled)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#setAutoDetectLanguageDisabled)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, autoDetectDisabled: bool ```
     pub fn SetAutoDetectLanguageDisabled(self: ?*anyopaque, autoDetectDisabled: bool) void {
         qtc.Sonnet__BackgroundChecker_SetAutoDetectLanguageDisabled(@ptrCast(self), autoDetectDisabled);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#start)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#start)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.Sonnet__BackgroundChecker_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#start)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#start)
     ///
     /// Allows for overriding the related default method
     ///
@@ -214,7 +214,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_OnStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#start)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#start)
     ///
     /// Base class method implementation
     ///
@@ -223,14 +223,14 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_QBaseStart(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#stop)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#stop)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.Sonnet__BackgroundChecker_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#stop)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#stop)
     ///
     /// Allows for overriding the related default method
     ///
@@ -239,7 +239,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_OnStop(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#stop)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#stop)
     ///
     /// Base class method implementation
     ///
@@ -248,7 +248,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_QBaseStop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#replace)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#replace)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, start: i32, oldText: []const u8, newText: []const u8 ```
     pub fn Replace(self: ?*anyopaque, start: i32, oldText: []const u8, newText: []const u8) void {
@@ -263,7 +263,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_Replace(@ptrCast(self), @intCast(start), oldText_str, newText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#changeLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#changeLanguage)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, lang: []const u8 ```
     pub fn ChangeLanguage(self: ?*anyopaque, lang: []const u8) void {
@@ -274,14 +274,14 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_ChangeLanguage(@ptrCast(self), lang_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#continueChecking)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#continueChecking)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker ```
     pub fn ContinueChecking(self: ?*anyopaque) void {
         qtc.Sonnet__BackgroundChecker_ContinueChecking(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#continueChecking)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#continueChecking)
     ///
     /// Allows for overriding the related default method
     ///
@@ -290,7 +290,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_OnContinueChecking(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#continueChecking)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#continueChecking)
     ///
     /// Base class method implementation
     ///
@@ -299,7 +299,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_QBaseContinueChecking(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#misspelling)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#misspelling)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, word: []const u8, start: i32 ```
     pub fn Misspelling(self: ?*anyopaque, word: []const u8, start: i32) void {
@@ -310,28 +310,28 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_Misspelling(@ptrCast(self), word_str, @intCast(start));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#misspelling)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#misspelling)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, word: [*:0]const u8, start: i32) callconv(.c) void ```
     pub fn OnMisspelling(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.Sonnet__BackgroundChecker_Connect_Misspelling(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#done)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#done)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker ```
     pub fn Done(self: ?*anyopaque) void {
         qtc.Sonnet__BackgroundChecker_Done(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#done)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#done)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker) callconv(.c) void ```
     pub fn OnDone(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__BackgroundChecker_Connect_Done(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#fetchMoreText)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#fetchMoreText)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker, allocator: std.mem.Allocator ```
     pub fn FetchMoreText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -342,7 +342,7 @@ pub const sonnet__backgroundchecker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#fetchMoreText)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#fetchMoreText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -351,7 +351,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_OnFetchMoreText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#fetchMoreText)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#fetchMoreText)
     ///
     /// Base class method implementation
     ///
@@ -364,14 +364,14 @@ pub const sonnet__backgroundchecker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#finishedCurrentFeed)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#finishedCurrentFeed)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker ```
     pub fn FinishedCurrentFeed(self: ?*anyopaque) void {
         qtc.Sonnet__BackgroundChecker_FinishedCurrentFeed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#finishedCurrentFeed)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#finishedCurrentFeed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -380,7 +380,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_OnFinishedCurrentFeed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#finishedCurrentFeed)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#finishedCurrentFeed)
     ///
     /// Base class method implementation
     ///
@@ -389,14 +389,14 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_QBaseFinishedCurrentFeed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#slotEngineDone)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#slotEngineDone)
     ///
     /// ``` self: QtC.Sonnet__BackgroundChecker ```
     pub fn SlotEngineDone(self: ?*anyopaque) void {
         qtc.Sonnet__BackgroundChecker_SlotEngineDone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#slotEngineDone)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#slotEngineDone)
     ///
     /// Allows for overriding the related default method
     ///
@@ -405,7 +405,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_OnSlotEngineDone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-backgroundchecker.html#slotEngineDone)
+    /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#slotEngineDone)
     ///
     /// Base class method implementation
     ///
@@ -414,7 +414,7 @@ pub const sonnet__backgroundchecker = struct {
         qtc.Sonnet__BackgroundChecker_QBaseSlotEngineDone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -427,7 +427,7 @@ pub const sonnet__backgroundchecker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {

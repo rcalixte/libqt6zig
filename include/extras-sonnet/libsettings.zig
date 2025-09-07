@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/sonnet-settings.html
+/// https://api.kde.org/sonnet-settings.html
 pub const sonnet__settings = struct {
     /// New constructs a new Sonnet::Settings object.
     ///
@@ -20,7 +20,7 @@ pub const sonnet__settings = struct {
         return qtc.Sonnet__Settings_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#metaObject)
+    /// [Qt documentation](https://api.kde.org/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -52,7 +52,7 @@ pub const sonnet__settings = struct {
         return qtc.Sonnet__Settings_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -64,7 +64,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#setDefaultLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setDefaultLanguage)
     ///
     /// ``` self: QtC.Sonnet__Settings, lang: []const u8 ```
     pub fn SetDefaultLanguage(self: ?*anyopaque, lang: []const u8) void {
@@ -75,7 +75,7 @@ pub const sonnet__settings = struct {
         qtc.Sonnet__Settings_SetDefaultLanguage(@ptrCast(self), lang_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultLanguage)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn DefaultLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -86,7 +86,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#setPreferredLanguages)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setPreferredLanguages)
     ///
     /// ``` self: QtC.Sonnet__Settings, lang: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetPreferredLanguages(self: ?*anyopaque, lang: [][]const u8, allocator: std.mem.Allocator) void {
@@ -105,7 +105,7 @@ pub const sonnet__settings = struct {
         qtc.Sonnet__Settings_SetPreferredLanguages(@ptrCast(self), lang_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#preferredLanguages)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#preferredLanguages)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn PreferredLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -127,7 +127,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#setDefaultClient)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setDefaultClient)
     ///
     /// ``` self: QtC.Sonnet__Settings, client: []const u8 ```
     pub fn SetDefaultClient(self: ?*anyopaque, client: []const u8) void {
@@ -138,7 +138,7 @@ pub const sonnet__settings = struct {
         qtc.Sonnet__Settings_SetDefaultClient(@ptrCast(self), client_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultClient)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultClient)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn DefaultClient(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -149,77 +149,77 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#setSkipUppercase)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setSkipUppercase)
     ///
     /// ``` self: QtC.Sonnet__Settings, skipUppercase: bool ```
     pub fn SetSkipUppercase(self: ?*anyopaque, skipUppercase: bool) void {
         qtc.Sonnet__Settings_SetSkipUppercase(@ptrCast(self), skipUppercase);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#skipUppercase)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipUppercase)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn SkipUppercase(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_SkipUppercase(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#setAutodetectLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setAutodetectLanguage)
     ///
     /// ``` self: QtC.Sonnet__Settings, autodetectLanguage: bool ```
     pub fn SetAutodetectLanguage(self: ?*anyopaque, autodetectLanguage: bool) void {
         qtc.Sonnet__Settings_SetAutodetectLanguage(@ptrCast(self), autodetectLanguage);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#autodetectLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#autodetectLanguage)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn AutodetectLanguage(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_AutodetectLanguage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#setSkipRunTogether)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setSkipRunTogether)
     ///
     /// ``` self: QtC.Sonnet__Settings, skipRunTogether: bool ```
     pub fn SetSkipRunTogether(self: ?*anyopaque, skipRunTogether: bool) void {
         qtc.Sonnet__Settings_SetSkipRunTogether(@ptrCast(self), skipRunTogether);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#skipRunTogether)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipRunTogether)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn SkipRunTogether(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_SkipRunTogether(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#setBackgroundCheckerEnabled)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setBackgroundCheckerEnabled)
     ///
     /// ``` self: QtC.Sonnet__Settings, backgroundCheckerEnabled: bool ```
     pub fn SetBackgroundCheckerEnabled(self: ?*anyopaque, backgroundCheckerEnabled: bool) void {
         qtc.Sonnet__Settings_SetBackgroundCheckerEnabled(@ptrCast(self), backgroundCheckerEnabled);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#backgroundCheckerEnabled)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabled)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn BackgroundCheckerEnabled(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_BackgroundCheckerEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#setCheckerEnabledByDefault)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setCheckerEnabledByDefault)
     ///
     /// ``` self: QtC.Sonnet__Settings, checkerEnabledByDefault: bool ```
     pub fn SetCheckerEnabledByDefault(self: ?*anyopaque, checkerEnabledByDefault: bool) void {
         qtc.Sonnet__Settings_SetCheckerEnabledByDefault(@ptrCast(self), checkerEnabledByDefault);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#checkerEnabledByDefault)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefault)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn CheckerEnabledByDefault(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_CheckerEnabledByDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#setCurrentIgnoreList)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#setCurrentIgnoreList)
     ///
     /// ``` self: QtC.Sonnet__Settings, ignores: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetCurrentIgnoreList(self: ?*anyopaque, ignores: [][]const u8, allocator: std.mem.Allocator) void {
@@ -238,7 +238,7 @@ pub const sonnet__settings = struct {
         qtc.Sonnet__Settings_SetCurrentIgnoreList(@ptrCast(self), ignores_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#currentIgnoreList)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#currentIgnoreList)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn CurrentIgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -260,7 +260,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#clients)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#clients)
     ///
     /// ``` self: QtC.Sonnet__Settings, allocator: std.mem.Allocator ```
     pub fn Clients(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -282,28 +282,28 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#modified)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#modified)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn Modified(self: ?*anyopaque) bool {
         return qtc.Sonnet__Settings_Modified(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#dictionaryModel)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#dictionaryModel)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn DictionaryModel(self: ?*anyopaque) QtC.QAbstractListModel {
         return qtc.Sonnet__Settings_DictionaryModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#save)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#save)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn Save(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_Save(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultIgnoreList)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultIgnoreList)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DefaultIgnoreList(allocator: std.mem.Allocator) [][]const u8 {
@@ -325,42 +325,42 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultSkipUppercase)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultSkipUppercase)
     ///
     ///
     pub fn DefaultSkipUppercase() bool {
         return qtc.Sonnet__Settings_DefaultSkipUppercase();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultAutodetectLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultAutodetectLanguage)
     ///
     ///
     pub fn DefaultAutodetectLanguage() bool {
         return qtc.Sonnet__Settings_DefaultAutodetectLanguage();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultBackgroundCheckerEnabled)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultBackgroundCheckerEnabled)
     ///
     ///
     pub fn DefaultBackgroundCheckerEnabled() bool {
         return qtc.Sonnet__Settings_DefaultBackgroundCheckerEnabled();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultCheckerEnabledByDefault)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultCheckerEnabledByDefault)
     ///
     ///
     pub fn DefaultCheckerEnabledByDefault() bool {
         return qtc.Sonnet__Settings_DefaultCheckerEnabledByDefault();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defauktSkipRunTogether)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defauktSkipRunTogether)
     ///
     ///
     pub fn DefauktSkipRunTogether() bool {
         return qtc.Sonnet__Settings_DefauktSkipRunTogether();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultDefaultLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultDefaultLanguage)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DefaultDefaultLanguage(allocator: std.mem.Allocator) []const u8 {
@@ -371,7 +371,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultPreferredLanguages)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultPreferredLanguages)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DefaultPreferredLanguages(allocator: std.mem.Allocator) [][]const u8 {
@@ -393,147 +393,147 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#skipUppercaseChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipUppercaseChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn SkipUppercaseChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_SkipUppercaseChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#skipUppercaseChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipUppercaseChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnSkipUppercaseChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_SkipUppercaseChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#autodetectLanguageChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn AutodetectLanguageChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_AutodetectLanguageChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#autodetectLanguageChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnAutodetectLanguageChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_AutodetectLanguageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn BackgroundCheckerEnabledChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_BackgroundCheckerEnabledChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnBackgroundCheckerEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_BackgroundCheckerEnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultClientChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn DefaultClientChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_DefaultClientChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultClientChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnDefaultClientChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_DefaultClientChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultLanguageChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn DefaultLanguageChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_DefaultLanguageChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#defaultLanguageChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnDefaultLanguageChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_DefaultLanguageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#preferredLanguagesChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn PreferredLanguagesChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_PreferredLanguagesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#preferredLanguagesChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnPreferredLanguagesChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_PreferredLanguagesChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#skipRunTogetherChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn SkipRunTogetherChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_SkipRunTogetherChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#skipRunTogetherChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnSkipRunTogetherChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_SkipRunTogetherChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn CheckerEnabledByDefaultChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_CheckerEnabledByDefaultChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnCheckerEnabledByDefaultChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_CheckerEnabledByDefaultChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#currentIgnoreListChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn CurrentIgnoreListChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_CurrentIgnoreListChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#currentIgnoreListChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnCurrentIgnoreListChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_CurrentIgnoreListChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#modifiedChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#modifiedChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings ```
     pub fn ModifiedChanged(self: ?*anyopaque) void {
         qtc.Sonnet__Settings_ModifiedChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-settings.html#modifiedChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-settings.html#modifiedChanged)
     ///
     /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
     pub fn OnModifiedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_ModifiedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -546,7 +546,7 @@ pub const sonnet__settings = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1320,7 +1320,7 @@ pub const sonnet__settings = struct {
     }
 };
 
-/// https://api-staging.kde.org/sonnet-settings.html#types
+/// https://api.kde.org/sonnet-settings.html#types
 pub const enums = struct {
     pub const DictionaryRoles = enum {
         pub const LanguageCodeRole: i32 = 257;

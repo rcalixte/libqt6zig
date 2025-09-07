@@ -2,9 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/krandom.html
+/// https://api.kde.org/krandom.html
 pub const krandom = struct {
-    /// [Qt documentation](https://api-staging.kde.org/krandom.html#randomString)
+    /// [Qt documentation](https://api.kde.org/krandom.html#randomString)
     ///
     /// ``` param1: i32, allocator: std.mem.Allocator ```
     pub fn RandomString(param1: i32, allocator: std.mem.Allocator) []const u8 {

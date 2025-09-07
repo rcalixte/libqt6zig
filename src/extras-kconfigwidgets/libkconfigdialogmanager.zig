@@ -5,7 +5,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const map_constu8_u8 = std.StringHashMapUnmanaged([]u8);
 
-/// https://api-staging.kde.org/kconfigdialogmanager.html
+/// https://api.kde.org/kconfigdialogmanager.html
 pub const kconfigdialogmanager = struct {
     /// New constructs a new KConfigDialogManager object.
     ///
@@ -58,56 +58,56 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#settingsChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#settingsChanged)
     ///
     /// ``` self: QtC.KConfigDialogManager ```
     pub fn SettingsChanged(self: ?*anyopaque) void {
         qtc.KConfigDialogManager_SettingsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#settingsChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#settingsChanged)
     ///
     /// ``` self: QtC.KConfigDialogManager, slot: fn (self: QtC.KConfigDialogManager) callconv(.c) void ```
     pub fn OnSettingsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KConfigDialogManager_Connect_SettingsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#widgetModified)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#widgetModified)
     ///
     /// ``` self: QtC.KConfigDialogManager ```
     pub fn WidgetModified(self: ?*anyopaque) void {
         qtc.KConfigDialogManager_WidgetModified(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#widgetModified)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#widgetModified)
     ///
     /// ``` self: QtC.KConfigDialogManager, slot: fn (self: QtC.KConfigDialogManager) callconv(.c) void ```
     pub fn OnWidgetModified(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KConfigDialogManager_Connect_WidgetModified(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#addWidget)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#addWidget)
     ///
     /// ``` self: QtC.KConfigDialogManager, widget: QtC.QWidget ```
     pub fn AddWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KConfigDialogManager_AddWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#hasChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#hasChanged)
     ///
     /// ``` self: QtC.KConfigDialogManager ```
     pub fn HasChanged(self: ?*anyopaque) bool {
         return qtc.KConfigDialogManager_HasChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#isDefault)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#isDefault)
     ///
     /// ``` self: QtC.KConfigDialogManager ```
     pub fn IsDefault(self: ?*anyopaque) bool {
         return qtc.KConfigDialogManager_IsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#propertyMap)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#propertyMap)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn PropertyMap(allocator: std.mem.Allocator) *map_constu8_u8 {
@@ -133,42 +133,42 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#updateSettings)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#updateSettings)
     ///
     /// ``` self: QtC.KConfigDialogManager ```
     pub fn UpdateSettings(self: ?*anyopaque) void {
         qtc.KConfigDialogManager_UpdateSettings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#updateWidgets)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#updateWidgets)
     ///
     /// ``` self: QtC.KConfigDialogManager ```
     pub fn UpdateWidgets(self: ?*anyopaque) void {
         qtc.KConfigDialogManager_UpdateWidgets(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#updateWidgetsDefault)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#updateWidgetsDefault)
     ///
     /// ``` self: QtC.KConfigDialogManager ```
     pub fn UpdateWidgetsDefault(self: ?*anyopaque) void {
         qtc.KConfigDialogManager_UpdateWidgetsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#setDefaultsIndicatorsVisible)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#setDefaultsIndicatorsVisible)
     ///
     /// ``` self: QtC.KConfigDialogManager, enabled: bool ```
     pub fn SetDefaultsIndicatorsVisible(self: ?*anyopaque, enabled: bool) void {
         qtc.KConfigDialogManager_SetDefaultsIndicatorsVisible(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#init)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#init)
     ///
     /// ``` self: QtC.KConfigDialogManager, trackChanges: bool ```
     pub fn Init(self: ?*anyopaque, trackChanges: bool) void {
         qtc.KConfigDialogManager_Init(@ptrCast(self), trackChanges);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#init)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#init)
     ///
     /// Allows for overriding the related default method
     ///
@@ -177,7 +177,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnInit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#init)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#init)
     ///
     /// Base class method implementation
     ///
@@ -186,14 +186,14 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_QBaseInit(@ptrCast(self), trackChanges);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#parseChildren)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#parseChildren)
     ///
     /// ``` self: QtC.KConfigDialogManager, widget: QtC.QWidget, trackChanges: bool ```
     pub fn ParseChildren(self: ?*anyopaque, widget: ?*anyopaque, trackChanges: bool) bool {
         return qtc.KConfigDialogManager_ParseChildren(@ptrCast(self), @ptrCast(widget), trackChanges);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#parseChildren)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#parseChildren)
     ///
     /// Allows for overriding the related default method
     ///
@@ -202,7 +202,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnParseChildren(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#parseChildren)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#parseChildren)
     ///
     /// Base class method implementation
     ///
@@ -211,7 +211,7 @@ pub const kconfigdialogmanager = struct {
         return qtc.KConfigDialogManager_QBaseParseChildren(@ptrCast(self), @ptrCast(widget), trackChanges);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getUserProperty)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getUserProperty)
     ///
     /// ``` self: QtC.KConfigDialogManager, widget: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn GetUserProperty(self: ?*anyopaque, widget: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -222,7 +222,7 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getUserProperty)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getUserProperty)
     ///
     /// Allows for overriding the related default method
     ///
@@ -231,7 +231,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnGetUserProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getUserProperty)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getUserProperty)
     ///
     /// Base class method implementation
     ///
@@ -244,7 +244,7 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getCustomProperty)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getCustomProperty)
     ///
     /// ``` self: QtC.KConfigDialogManager, widget: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn GetCustomProperty(self: ?*anyopaque, widget: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -255,7 +255,7 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getCustomProperty)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getCustomProperty)
     ///
     /// Allows for overriding the related default method
     ///
@@ -264,7 +264,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnGetCustomProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getCustomProperty)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getCustomProperty)
     ///
     /// Base class method implementation
     ///
@@ -277,7 +277,7 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getUserPropertyChangedSignal)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getUserPropertyChangedSignal)
     ///
     /// ``` self: QtC.KConfigDialogManager, widget: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn GetUserPropertyChangedSignal(self: ?*anyopaque, widget: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -288,7 +288,7 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getUserPropertyChangedSignal)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getUserPropertyChangedSignal)
     ///
     /// Allows for overriding the related default method
     ///
@@ -297,7 +297,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnGetUserPropertyChangedSignal(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getUserPropertyChangedSignal)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getUserPropertyChangedSignal)
     ///
     /// Base class method implementation
     ///
@@ -310,7 +310,7 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getCustomPropertyChangedSignal)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getCustomPropertyChangedSignal)
     ///
     /// ``` self: QtC.KConfigDialogManager, widget: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn GetCustomPropertyChangedSignal(self: ?*anyopaque, widget: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -321,7 +321,7 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getCustomPropertyChangedSignal)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getCustomPropertyChangedSignal)
     ///
     /// Allows for overriding the related default method
     ///
@@ -330,7 +330,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnGetCustomPropertyChangedSignal(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#getCustomPropertyChangedSignal)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#getCustomPropertyChangedSignal)
     ///
     /// Base class method implementation
     ///
@@ -343,14 +343,14 @@ pub const kconfigdialogmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#setProperty)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#setProperty)
     ///
     /// ``` self: QtC.KConfigDialogManager, w: QtC.QWidget, v: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, w: ?*anyopaque, v: ?*anyopaque) void {
         qtc.KConfigDialogManager_SetProperty(@ptrCast(self), @ptrCast(w), @ptrCast(v));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#setProperty)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#setProperty)
     ///
     /// Allows for overriding the related default method
     ///
@@ -359,7 +359,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnSetProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#setProperty)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#setProperty)
     ///
     /// Base class method implementation
     ///
@@ -368,14 +368,14 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_QBaseSetProperty(@ptrCast(self), @ptrCast(w), @ptrCast(v));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#property)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#property)
     ///
     /// ``` self: QtC.KConfigDialogManager, w: QtC.QWidget ```
     pub fn Property(self: ?*anyopaque, w: ?*anyopaque) QtC.QVariant {
         return qtc.KConfigDialogManager_Property(@ptrCast(self), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#property)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#property)
     ///
     /// Allows for overriding the related default method
     ///
@@ -384,7 +384,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#property)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#property)
     ///
     /// Base class method implementation
     ///
@@ -393,14 +393,14 @@ pub const kconfigdialogmanager = struct {
         return qtc.KConfigDialogManager_QBaseProperty(@ptrCast(self), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#setupWidget)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#setupWidget)
     ///
     /// ``` self: QtC.KConfigDialogManager, widget: QtC.QWidget, item: QtC.KConfigSkeletonItem ```
     pub fn SetupWidget(self: ?*anyopaque, widget: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KConfigDialogManager_SetupWidget(@ptrCast(self), @ptrCast(widget), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#setupWidget)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#setupWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -409,7 +409,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnSetupWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#setupWidget)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#setupWidget)
     ///
     /// Base class method implementation
     ///
@@ -418,14 +418,14 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_QBaseSetupWidget(@ptrCast(self), @ptrCast(widget), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#initMaps)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#initMaps)
     ///
     /// ``` self: QtC.KConfigDialogManager ```
     pub fn InitMaps(self: ?*anyopaque) void {
         qtc.KConfigDialogManager_InitMaps(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#initMaps)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#initMaps)
     ///
     /// Allows for overriding the related default method
     ///
@@ -434,7 +434,7 @@ pub const kconfigdialogmanager = struct {
         qtc.KConfigDialogManager_OnInitMaps(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#initMaps)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#initMaps)
     ///
     /// Base class method implementation
     ///
@@ -1202,7 +1202,7 @@ pub const kconfigdialogmanager = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialogmanager.html#dtor.KConfigDialogManager)
+    /// [Qt documentation](https://api.kde.org/kconfigdialogmanager.html#dtor.KConfigDialogManager)
     ///
     /// Delete this object from C++ memory.
     ///

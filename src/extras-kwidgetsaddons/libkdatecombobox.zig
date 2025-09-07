@@ -12,7 +12,7 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 pub const map_qtcqdate_constu8 = std.AutoHashMapUnmanaged(QtC.QDate, []const u8);
 
-/// https://api-staging.kde.org/kdatecombobox.html
+/// https://api.kde.org/kdatecombobox.html
 pub const kdatecombobox = struct {
     /// New constructs a new KDateComboBox object.
     ///
@@ -72,28 +72,28 @@ pub const kdatecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#date)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#date)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn Date(self: ?*anyopaque) QtC.QDate {
         return qtc.KDateComboBox_Date(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#isValid)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#isValid)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KDateComboBox_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#isNull)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#isNull)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.KDateComboBox_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#options)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#options)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -102,7 +102,7 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#displayFormat)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#displayFormat)
     ///
     /// ``` self: QtC.KDateComboBox ```
     ///
@@ -111,21 +111,21 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_DisplayFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#minimumDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#minimumDate)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MinimumDate(self: ?*anyopaque) QtC.QDate {
         return qtc.KDateComboBox_MinimumDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#maximumDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#maximumDate)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn MaximumDate(self: ?*anyopaque) QtC.QDate {
         return qtc.KDateComboBox_MaximumDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#dateMap)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateMap)
     ///
     /// ``` self: QtC.KDateComboBox, allocator: std.mem.Allocator ```
     pub fn DateMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_qtcqdate_constu8 {
@@ -146,112 +146,112 @@ pub const kdatecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#dateEntered)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateEntered)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn DateEntered(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_DateEntered(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#dateEntered)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateEntered)
     ///
     /// ``` self: QtC.KDateComboBox, slot: fn (self: QtC.KDateComboBox, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateComboBox_Connect_DateEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#dateChanged)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateChanged)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn DateChanged(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_DateChanged(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#dateChanged)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateChanged)
     ///
     /// ``` self: QtC.KDateComboBox, slot: fn (self: QtC.KDateComboBox, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateComboBox_Connect_DateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#dateEdited)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateEdited)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn DateEdited(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_DateEdited(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#dateEdited)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dateEdited)
     ///
     /// ``` self: QtC.KDateComboBox, slot: fn (self: QtC.KDateComboBox, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateEdited(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateComboBox_Connect_DateEdited(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDate)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn SetDate(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_SetDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setOptions)
     ///
     /// ``` self: QtC.KDateComboBox, options: flag of kdatecombobox_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.KDateComboBox_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setDisplayFormat)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDisplayFormat)
     ///
     /// ``` self: QtC.KDateComboBox, format: qlocale_enums.FormatType ```
     pub fn SetDisplayFormat(self: ?*anyopaque, format: i32) void {
         qtc.KDateComboBox_SetDisplayFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setDateRange)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDateRange)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate, maxDate: QtC.QDate ```
     pub fn SetDateRange(self: ?*anyopaque, minDate: ?*anyopaque, maxDate: ?*anyopaque) void {
         qtc.KDateComboBox_SetDateRange(@ptrCast(self), @ptrCast(minDate), @ptrCast(maxDate));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#resetDateRange)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resetDateRange)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ResetDateRange(self: ?*anyopaque) void {
         qtc.KDateComboBox_ResetDateRange(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setMinimumDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setMinimumDate)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate ```
     pub fn SetMinimumDate(self: ?*anyopaque, minDate: ?*anyopaque) void {
         qtc.KDateComboBox_SetMinimumDate(@ptrCast(self), @ptrCast(minDate));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#resetMinimumDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resetMinimumDate)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ResetMinimumDate(self: ?*anyopaque) void {
         qtc.KDateComboBox_ResetMinimumDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setMaximumDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setMaximumDate)
     ///
     /// ``` self: QtC.KDateComboBox, maxDate: QtC.QDate ```
     pub fn SetMaximumDate(self: ?*anyopaque, maxDate: ?*anyopaque) void {
         qtc.KDateComboBox_SetMaximumDate(@ptrCast(self), @ptrCast(maxDate));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#resetMaximumDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resetMaximumDate)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ResetMaximumDate(self: ?*anyopaque) void {
         qtc.KDateComboBox_ResetMaximumDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setDateMap)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDateMap)
     ///
     /// ``` self: QtC.KDateComboBox, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator ```
     pub fn SetDateMap(self: ?*anyopaque, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator) void {
@@ -275,14 +275,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetDateMap(@ptrCast(self), dateMap_map);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#eventFilter)
     ///
     /// ``` self: QtC.KDateComboBox, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KDateComboBox_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -291,7 +291,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -300,14 +300,14 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#showPopup)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#showPopup)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn ShowPopup(self: ?*anyopaque) void {
         qtc.KDateComboBox_ShowPopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#showPopup)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#showPopup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -316,7 +316,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnShowPopup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#showPopup)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#showPopup)
     ///
     /// Base class method implementation
     ///
@@ -325,14 +325,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseShowPopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#hidePopup)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#hidePopup)
     ///
     /// ``` self: QtC.KDateComboBox ```
     pub fn HidePopup(self: ?*anyopaque) void {
         qtc.KDateComboBox_HidePopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#hidePopup)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#hidePopup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -341,7 +341,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnHidePopup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#hidePopup)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#hidePopup)
     ///
     /// Base class method implementation
     ///
@@ -350,14 +350,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseHidePopup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#mousePressEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -366,7 +366,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -375,14 +375,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#wheelEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#wheelEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -391,7 +391,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#wheelEvent)
     ///
     /// Base class method implementation
     ///
@@ -400,14 +400,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#keyPressEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -416,7 +416,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -425,14 +425,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusInEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -441,7 +441,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -450,14 +450,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#focusOutEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusOutEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#focusOutEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -466,7 +466,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#focusOutEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#focusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -475,14 +475,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resizeEvent)
     ///
     /// ``` self: QtC.KDateComboBox, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateComboBox_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -491,7 +491,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -500,14 +500,14 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#assignDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#assignDate)
     ///
     /// ``` self: QtC.KDateComboBox, date: QtC.QDate ```
     pub fn AssignDate(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateComboBox_AssignDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#assignDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#assignDate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -516,7 +516,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnAssignDate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#assignDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#assignDate)
     ///
     /// Base class method implementation
     ///
@@ -551,7 +551,7 @@ pub const kdatecombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setDateRange)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDateRange)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate, maxDate: QtC.QDate, minWarnMsg: []const u8 ```
     pub fn SetDateRange3(self: ?*anyopaque, minDate: ?*anyopaque, maxDate: ?*anyopaque, minWarnMsg: []const u8) void {
@@ -562,7 +562,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetDateRange3(@ptrCast(self), @ptrCast(minDate), @ptrCast(maxDate), minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setDateRange)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setDateRange)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate, maxDate: QtC.QDate, minWarnMsg: []const u8, maxWarnMsg: []const u8 ```
     pub fn SetDateRange4(self: ?*anyopaque, minDate: ?*anyopaque, maxDate: ?*anyopaque, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
@@ -577,7 +577,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetDateRange4(@ptrCast(self), @ptrCast(minDate), @ptrCast(maxDate), minWarnMsg_str, maxWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setMinimumDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setMinimumDate)
     ///
     /// ``` self: QtC.KDateComboBox, minDate: QtC.QDate, minWarnMsg: []const u8 ```
     pub fn SetMinimumDate2(self: ?*anyopaque, minDate: ?*anyopaque, minWarnMsg: []const u8) void {
@@ -588,7 +588,7 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetMinimumDate2(@ptrCast(self), @ptrCast(minDate), minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#setMaximumDate)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#setMaximumDate)
     ///
     /// ``` self: QtC.KDateComboBox, maxDate: QtC.QDate, maxWarnMsg: []const u8 ```
     pub fn SetMaximumDate2(self: ?*anyopaque, maxDate: ?*anyopaque, maxWarnMsg: []const u8) void {
@@ -6291,7 +6291,7 @@ pub const kdatecombobox = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatecombobox.html#dtor.KDateComboBox)
+    /// [Qt documentation](https://api.kde.org/kdatecombobox.html#dtor.KDateComboBox)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -6301,7 +6301,7 @@ pub const kdatecombobox = struct {
     }
 };
 
-/// https://api-staging.kde.org/kdatecombobox.html#types
+/// https://api.kde.org/kdatecombobox.html#types
 pub const enums = struct {
     pub const Option = enum {
         pub const EditDate: i32 = 1;

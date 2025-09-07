@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const kpluginmetadata_enums = enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpluginmetadata.html
+/// https://api.kde.org/kpluginmetadata.html
 pub const kpluginmetadata = struct {
     /// New constructs a new KPluginMetaData object.
     ///
@@ -69,14 +69,14 @@ pub const kpluginmetadata = struct {
         return qtc.KPluginMetaData_new7(pluginFile_str, @intCast(options));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#operator-eq)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#operator-eq)
     ///
     /// ``` self: QtC.KPluginMetaData, param1: QtC.KPluginMetaData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KPluginMetaData_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#fromJsonFile)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#fromJsonFile)
     ///
     /// ``` jsonFile: []const u8 ```
     pub fn FromJsonFile(jsonFile: []const u8) QtC.KPluginMetaData {
@@ -87,7 +87,7 @@ pub const kpluginmetadata = struct {
         return qtc.KPluginMetaData_FromJsonFile(jsonFile_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#findPluginById)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#findPluginById)
     ///
     /// ``` directory: []const u8, pluginId: []const u8 ```
     pub fn FindPluginById(directory: []const u8, pluginId: []const u8) QtC.KPluginMetaData {
@@ -102,21 +102,21 @@ pub const kpluginmetadata = struct {
         return qtc.KPluginMetaData_FindPluginById(directory_str, pluginId_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#isValid)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#isValid)
     ///
     /// ``` self: QtC.KPluginMetaData ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KPluginMetaData_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#isHidden)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#isHidden)
     ///
     /// ``` self: QtC.KPluginMetaData ```
     pub fn IsHidden(self: ?*anyopaque) bool {
         return qtc.KPluginMetaData_IsHidden(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#fileName)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#fileName)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -127,14 +127,14 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#rawData)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#rawData)
     ///
     /// ``` self: QtC.KPluginMetaData ```
     pub fn RawData(self: ?*anyopaque) QtC.QJsonObject {
         return qtc.KPluginMetaData_RawData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#name)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#name)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -145,7 +145,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#description)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#description)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -156,7 +156,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#authors)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#authors)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn Authors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAboutPerson {
@@ -168,7 +168,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#translators)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#translators)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn Translators(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAboutPerson {
@@ -180,7 +180,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#otherContributors)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#otherContributors)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn OtherContributors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAboutPerson {
@@ -192,7 +192,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#category)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#category)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn Category(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -203,7 +203,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#iconName)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#iconName)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -214,7 +214,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#license)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#license)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -225,7 +225,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#licenseText)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#licenseText)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn LicenseText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -236,7 +236,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#copyrightText)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#copyrightText)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn CopyrightText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -247,7 +247,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#pluginId)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#pluginId)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn PluginId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -258,7 +258,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#version)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#version)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -269,7 +269,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#website)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#website)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn Website(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -280,7 +280,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#bugReportUrl)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#bugReportUrl)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn BugReportUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -291,7 +291,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#mimeTypes)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#mimeTypes)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -313,7 +313,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#supportsMimeType)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#supportsMimeType)
     ///
     /// ``` self: QtC.KPluginMetaData, mimeType: []const u8 ```
     pub fn SupportsMimeType(self: ?*anyopaque, mimeType: []const u8) bool {
@@ -324,7 +324,7 @@ pub const kpluginmetadata = struct {
         return qtc.KPluginMetaData_SupportsMimeType(@ptrCast(self), mimeType_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#formFactors)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#formFactors)
     ///
     /// ``` self: QtC.KPluginMetaData, allocator: std.mem.Allocator ```
     pub fn FormFactors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -346,14 +346,14 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#isEnabledByDefault)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#isEnabledByDefault)
     ///
     /// ``` self: QtC.KPluginMetaData ```
     pub fn IsEnabledByDefault(self: ?*anyopaque) bool {
         return qtc.KPluginMetaData_IsEnabledByDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#value)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#value)
     ///
     /// ``` self: QtC.KPluginMetaData, key: []const u8, allocator: std.mem.Allocator ```
     pub fn Value2(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -368,7 +368,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#value)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#value)
     ///
     /// ``` self: QtC.KPluginMetaData, key: []const u8, defaultValue: bool ```
     pub fn Value4(self: ?*anyopaque, key: []const u8, defaultValue: bool) bool {
@@ -379,7 +379,7 @@ pub const kpluginmetadata = struct {
         return qtc.KPluginMetaData_Value4(@ptrCast(self), key_str, defaultValue);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#value)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#value)
     ///
     /// ``` self: QtC.KPluginMetaData, key: []const u8, defaultValue: i32 ```
     pub fn Value6(self: ?*anyopaque, key: []const u8, defaultValue: i32) i32 {
@@ -390,7 +390,7 @@ pub const kpluginmetadata = struct {
         return qtc.KPluginMetaData_Value6(@ptrCast(self), key_str, @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#value)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#value)
     ///
     /// ``` self: QtC.KPluginMetaData, key: []const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Value8(self: ?*anyopaque, key: []const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -428,28 +428,28 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#operator-eq-eq)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KPluginMetaData, other: QtC.KPluginMetaData ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KPluginMetaData_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#operator-not-eq)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#operator-not-eq)
     ///
     /// ``` self: QtC.KPluginMetaData, other: QtC.KPluginMetaData ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KPluginMetaData_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#isStaticPlugin)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#isStaticPlugin)
     ///
     /// ``` self: QtC.KPluginMetaData ```
     pub fn IsStaticPlugin(self: ?*anyopaque) bool {
         return qtc.KPluginMetaData_IsStaticPlugin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#findPluginById)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#findPluginById)
     ///
     /// ``` directory: []const u8, pluginId: []const u8, options: flag of kpluginmetadata_enums.KPluginMetaDataOption ```
     pub fn FindPluginById3(directory: []const u8, pluginId: []const u8, options: i32) QtC.KPluginMetaData {
@@ -464,7 +464,7 @@ pub const kpluginmetadata = struct {
         return qtc.KPluginMetaData_FindPluginById3(directory_str, pluginId_str, @intCast(options));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#value)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#value)
     ///
     /// ``` self: QtC.KPluginMetaData, key: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn Value23(self: ?*anyopaque, key: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -483,7 +483,7 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluginmetadata.html#dtor.KPluginMetaData)
+    /// [Qt documentation](https://api.kde.org/kpluginmetadata.html#dtor.KPluginMetaData)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -493,7 +493,7 @@ pub const kpluginmetadata = struct {
     }
 };
 
-/// https://api-staging.kde.org/kpluginmetadata.html#types
+/// https://api.kde.org/kpluginmetadata.html#types
 pub const enums = struct {
     pub const KPluginMetaDataOption = enum {
         pub const AllowEmptyMetaData: i32 = 1;

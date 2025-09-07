@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kbugreport.html
+/// https://api.kde.org/kbugreport.html
 pub const kbugreport = struct {
     /// New constructs a new KBugReport object.
     ///
@@ -68,14 +68,14 @@ pub const kbugreport = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbugreport.html#accept)
+    /// [Qt documentation](https://api.kde.org/kbugreport.html#accept)
     ///
     /// ``` self: QtC.KBugReport ```
     pub fn Accept(self: ?*anyopaque) void {
         qtc.KBugReport_Accept(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbugreport.html#accept)
+    /// [Qt documentation](https://api.kde.org/kbugreport.html#accept)
     ///
     /// Allows for overriding the related default method
     ///
@@ -84,7 +84,7 @@ pub const kbugreport = struct {
         qtc.KBugReport_OnAccept(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbugreport.html#accept)
+    /// [Qt documentation](https://api.kde.org/kbugreport.html#accept)
     ///
     /// Base class method implementation
     ///
@@ -93,14 +93,14 @@ pub const kbugreport = struct {
         qtc.KBugReport_QBaseAccept(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbugreport.html#sendBugReport)
+    /// [Qt documentation](https://api.kde.org/kbugreport.html#sendBugReport)
     ///
     /// ``` self: QtC.KBugReport ```
     pub fn SendBugReport(self: ?*anyopaque) bool {
         return qtc.KBugReport_SendBugReport(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbugreport.html#sendBugReport)
+    /// [Qt documentation](https://api.kde.org/kbugreport.html#sendBugReport)
     ///
     /// Allows for overriding the related default method
     ///
@@ -109,7 +109,7 @@ pub const kbugreport = struct {
         qtc.KBugReport_OnSendBugReport(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbugreport.html#sendBugReport)
+    /// [Qt documentation](https://api.kde.org/kbugreport.html#sendBugReport)
     ///
     /// Base class method implementation
     ///
@@ -5388,7 +5388,7 @@ pub const kbugreport = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbugreport.html#dtor.KBugReport)
+    /// [Qt documentation](https://api.kde.org/kbugreport.html#dtor.KBugReport)
     ///
     /// Delete this object from C++ memory.
     ///

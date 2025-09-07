@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktoolbar.html
+/// https://api.kde.org/ktoolbar.html
 pub const ktoolbar = struct {
     /// New constructs a new KToolBar object.
     ///
@@ -147,77 +147,77 @@ pub const ktoolbar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mainWindow)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mainWindow)
     ///
     /// ``` self: QtC.KToolBar ```
     pub fn MainWindow(self: ?*anyopaque) QtC.KMainWindow {
         return qtc.KToolBar_MainWindow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#setIconDimensions)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#setIconDimensions)
     ///
     /// ``` self: QtC.KToolBar, size: i32 ```
     pub fn SetIconDimensions(self: ?*anyopaque, size: i32) void {
         qtc.KToolBar_SetIconDimensions(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#iconSizeDefault)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#iconSizeDefault)
     ///
     /// ``` self: QtC.KToolBar ```
     pub fn IconSizeDefault(self: ?*anyopaque) i32 {
         return qtc.KToolBar_IconSizeDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#saveSettings)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#saveSettings)
     ///
     /// ``` self: QtC.KToolBar, cg: QtC.KConfigGroup ```
     pub fn SaveSettings(self: ?*anyopaque, cg: ?*anyopaque) void {
         qtc.KToolBar_SaveSettings(@ptrCast(self), @ptrCast(cg));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#applySettings)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#applySettings)
     ///
     /// ``` self: QtC.KToolBar, cg: QtC.KConfigGroup ```
     pub fn ApplySettings(self: ?*anyopaque, cg: ?*anyopaque) void {
         qtc.KToolBar_ApplySettings(@ptrCast(self), @ptrCast(cg));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#addXMLGUIClient)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#addXMLGUIClient)
     ///
     /// ``` self: QtC.KToolBar, client: QtC.KXMLGUIClient ```
     pub fn AddXMLGUIClient(self: ?*anyopaque, client: ?*anyopaque) void {
         qtc.KToolBar_AddXMLGUIClient(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#removeXMLGUIClient)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#removeXMLGUIClient)
     ///
     /// ``` self: QtC.KToolBar, client: QtC.KXMLGUIClient ```
     pub fn RemoveXMLGUIClient(self: ?*anyopaque, client: ?*anyopaque) void {
         qtc.KToolBar_RemoveXMLGUIClient(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#loadState)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#loadState)
     ///
     /// ``` self: QtC.KToolBar, element: QtC.QDomElement ```
     pub fn LoadState(self: ?*anyopaque, element: ?*anyopaque) void {
         qtc.KToolBar_LoadState(@ptrCast(self), @ptrCast(element));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#saveState)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#saveState)
     ///
     /// ``` self: QtC.KToolBar, element: QtC.QDomElement ```
     pub fn SaveState(self: ?*anyopaque, element: ?*anyopaque) void {
         qtc.KToolBar_SaveState(@ptrCast(self), @ptrCast(element));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#eventFilter)
     ///
     /// ``` self: QtC.KToolBar, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KToolBar_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -226,7 +226,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -235,49 +235,49 @@ pub const ktoolbar = struct {
         return qtc.KToolBar_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#toolBarsEditable)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#toolBarsEditable)
     ///
     ///
     pub fn ToolBarsEditable() bool {
         return qtc.KToolBar_ToolBarsEditable();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#setToolBarsEditable)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#setToolBarsEditable)
     ///
     /// ``` editable: bool ```
     pub fn SetToolBarsEditable(editable: bool) void {
         qtc.KToolBar_SetToolBarsEditable(editable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#toolBarsLocked)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#toolBarsLocked)
     ///
     ///
     pub fn ToolBarsLocked() bool {
         return qtc.KToolBar_ToolBarsLocked();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#setToolBarsLocked)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#setToolBarsLocked)
     ///
     /// ``` locked: bool ```
     pub fn SetToolBarsLocked(locked: bool) void {
         qtc.KToolBar_SetToolBarsLocked(locked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#emitToolbarStyleChanged)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#emitToolbarStyleChanged)
     ///
     ///
     pub fn EmitToolbarStyleChanged() void {
         qtc.KToolBar_EmitToolbarStyleChanged();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#slotMovableChanged)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#slotMovableChanged)
     ///
     /// ``` self: QtC.KToolBar, movable: bool ```
     pub fn SlotMovableChanged(self: ?*anyopaque, movable: bool) void {
         qtc.KToolBar_SlotMovableChanged(@ptrCast(self), movable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#slotMovableChanged)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#slotMovableChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -286,7 +286,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnSlotMovableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#slotMovableChanged)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#slotMovableChanged)
     ///
     /// Base class method implementation
     ///
@@ -295,14 +295,14 @@ pub const ktoolbar = struct {
         qtc.KToolBar_QBaseSlotMovableChanged(@ptrCast(self), movable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#contextMenuEvent)
     ///
     /// ``` self: QtC.KToolBar, param1: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolBar_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#contextMenuEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -311,7 +311,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#contextMenuEvent)
     ///
     /// Base class method implementation
     ///
@@ -320,14 +320,14 @@ pub const ktoolbar = struct {
         qtc.KToolBar_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#actionEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#actionEvent)
     ///
     /// ``` self: QtC.KToolBar, param1: QtC.QActionEvent ```
     pub fn ActionEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolBar_ActionEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#actionEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#actionEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -336,7 +336,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#actionEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#actionEvent)
     ///
     /// Base class method implementation
     ///
@@ -345,14 +345,14 @@ pub const ktoolbar = struct {
         qtc.KToolBar_QBaseActionEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dragEnterEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dragEnterEvent)
     ///
     /// ``` self: QtC.KToolBar, param1: QtC.QDragEnterEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolBar_DragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dragEnterEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dragEnterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -361,7 +361,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dragEnterEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dragEnterEvent)
     ///
     /// Base class method implementation
     ///
@@ -370,14 +370,14 @@ pub const ktoolbar = struct {
         qtc.KToolBar_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dragMoveEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dragMoveEvent)
     ///
     /// ``` self: QtC.KToolBar, param1: QtC.QDragMoveEvent ```
     pub fn DragMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolBar_DragMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dragMoveEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dragMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -386,7 +386,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dragMoveEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dragMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -395,14 +395,14 @@ pub const ktoolbar = struct {
         qtc.KToolBar_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dragLeaveEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dragLeaveEvent)
     ///
     /// ``` self: QtC.KToolBar, param1: QtC.QDragLeaveEvent ```
     pub fn DragLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolBar_DragLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dragLeaveEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dragLeaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -411,7 +411,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dragLeaveEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dragLeaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -420,14 +420,14 @@ pub const ktoolbar = struct {
         qtc.KToolBar_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dropEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dropEvent)
     ///
     /// ``` self: QtC.KToolBar, param1: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolBar_DropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dropEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dropEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -436,7 +436,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dropEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dropEvent)
     ///
     /// Base class method implementation
     ///
@@ -445,14 +445,14 @@ pub const ktoolbar = struct {
         qtc.KToolBar_QBaseDropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mousePressEvent)
     ///
     /// ``` self: QtC.KToolBar, param1: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolBar_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -461,7 +461,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -470,14 +470,14 @@ pub const ktoolbar = struct {
         qtc.KToolBar_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.KToolBar, param1: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolBar_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -486,7 +486,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -495,14 +495,14 @@ pub const ktoolbar = struct {
         qtc.KToolBar_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KToolBar, param1: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolBar_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -511,7 +511,7 @@ pub const ktoolbar = struct {
         qtc.KToolBar_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -5595,7 +5595,7 @@ pub const ktoolbar = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbar.html#dtor.KToolBar)
+    /// [Qt documentation](https://api.kde.org/ktoolbar.html#dtor.KToolBar)
     ///
     /// Delete this object from C++ memory.
     ///

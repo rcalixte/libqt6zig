@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcolorcombo.html
+/// https://api.kde.org/kcolorcombo.html
 pub const kcolorcombo = struct {
     /// New constructs a new KColorCombo object.
     ///
@@ -69,28 +69,28 @@ pub const kcolorcombo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#setColor)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#setColor)
     ///
     /// ``` self: QtC.KColorCombo, col: QtC.QColor ```
     pub fn SetColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.KColorCombo_SetColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#color)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#color)
     ///
     /// ``` self: QtC.KColorCombo ```
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.KColorCombo_Color(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#isCustomColor)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#isCustomColor)
     ///
     /// ``` self: QtC.KColorCombo ```
     pub fn IsCustomColor(self: ?*anyopaque) bool {
         return qtc.KColorCombo_IsCustomColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#setColors)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#setColors)
     ///
     /// ``` self: QtC.KColorCombo, colors: []QtC.QColor ```
     pub fn SetColors(self: ?*anyopaque, colors: []QtC.QColor) void {
@@ -101,7 +101,7 @@ pub const kcolorcombo = struct {
         qtc.KColorCombo_SetColors(@ptrCast(self), colors_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#colors)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#colors)
     ///
     /// ``` self: QtC.KColorCombo, allocator: std.mem.Allocator ```
     pub fn Colors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QColor {
@@ -113,49 +113,49 @@ pub const kcolorcombo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#showEmptyList)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#showEmptyList)
     ///
     /// ``` self: QtC.KColorCombo ```
     pub fn ShowEmptyList(self: ?*anyopaque) void {
         qtc.KColorCombo_ShowEmptyList(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#activated)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#activated)
     ///
     /// ``` self: QtC.KColorCombo, col: QtC.QColor ```
     pub fn Activated(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.KColorCombo_Activated(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#activated)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#activated)
     ///
     /// ``` self: QtC.KColorCombo, slot: fn (self: QtC.KColorCombo, col: QtC.QColor) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KColorCombo_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#highlighted)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#highlighted)
     ///
     /// ``` self: QtC.KColorCombo, col: QtC.QColor ```
     pub fn Highlighted(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.KColorCombo_Highlighted(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#highlighted)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#highlighted)
     ///
     /// ``` self: QtC.KColorCombo, slot: fn (self: QtC.KColorCombo, col: QtC.QColor) callconv(.c) void ```
     pub fn OnHighlighted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KColorCombo_Connect_Highlighted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#paintEvent)
     ///
     /// ``` self: QtC.KColorCombo, event: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KColorCombo_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -164,7 +164,7 @@ pub const kcolorcombo = struct {
         qtc.KColorCombo_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -6119,7 +6119,7 @@ pub const kcolorcombo = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorcombo.html#dtor.KColorCombo)
+    /// [Qt documentation](https://api.kde.org/kcolorcombo.html#dtor.KColorCombo)
     ///
     /// Delete this object from C++ memory.
     ///

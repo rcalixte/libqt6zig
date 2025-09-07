@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktogglefullscreenaction.html
+/// https://api.kde.org/ktogglefullscreenaction.html
 pub const ktogglefullscreenaction = struct {
     /// New constructs a new KToggleFullScreenAction object.
     ///
@@ -66,28 +66,28 @@ pub const ktogglefullscreenaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktogglefullscreenaction.html#setWindow)
+    /// [Qt documentation](https://api.kde.org/ktogglefullscreenaction.html#setWindow)
     ///
     /// ``` self: QtC.KToggleFullScreenAction, window: QtC.QWidget ```
     pub fn SetWindow(self: ?*anyopaque, window: ?*anyopaque) void {
         qtc.KToggleFullScreenAction_SetWindow(@ptrCast(self), @ptrCast(window));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktogglefullscreenaction.html#setFullScreen)
+    /// [Qt documentation](https://api.kde.org/ktogglefullscreenaction.html#setFullScreen)
     ///
     /// ``` window: QtC.QWidget, set: bool ```
     pub fn SetFullScreen(window: ?*anyopaque, set: bool) void {
         qtc.KToggleFullScreenAction_SetFullScreen(@ptrCast(window), set);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktogglefullscreenaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktogglefullscreenaction.html#eventFilter)
     ///
     /// ``` self: QtC.KToggleFullScreenAction, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KToggleFullScreenAction_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktogglefullscreenaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktogglefullscreenaction.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -96,7 +96,7 @@ pub const ktogglefullscreenaction = struct {
         qtc.KToggleFullScreenAction_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktogglefullscreenaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktogglefullscreenaction.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -105,14 +105,14 @@ pub const ktogglefullscreenaction = struct {
         return qtc.KToggleFullScreenAction_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktogglefullscreenaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/ktogglefullscreenaction.html#slotToggled)
     ///
     /// ``` self: QtC.KToggleFullScreenAction, checked: bool ```
     pub fn SlotToggled(self: ?*anyopaque, checked: bool) void {
         qtc.KToggleFullScreenAction_SlotToggled(@ptrCast(self), checked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktogglefullscreenaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/ktogglefullscreenaction.html#slotToggled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -121,7 +121,7 @@ pub const ktogglefullscreenaction = struct {
         qtc.KToggleFullScreenAction_OnSlotToggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktogglefullscreenaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/ktogglefullscreenaction.html#slotToggled)
     ///
     /// Base class method implementation
     ///
@@ -158,7 +158,7 @@ pub const ktogglefullscreenaction = struct {
 
     /// Inherited from KToggleAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktoggleaction.html#setCheckedState)
+    /// [Qt documentation](https://api.kde.org/ktoggleaction.html#setCheckedState)
     ///
     /// ``` self: QtC.KToggleFullScreenAction, checkedItem: QtC.KGuiItem ```
     pub fn SetCheckedState(self: ?*anyopaque, checkedItem: ?*anyopaque) void {
@@ -1575,7 +1575,7 @@ pub const ktogglefullscreenaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktogglefullscreenaction.html#dtor.KToggleFullScreenAction)
+    /// [Qt documentation](https://api.kde.org/ktogglefullscreenaction.html#dtor.KToggleFullScreenAction)
     ///
     /// Delete this object from C++ memory.
     ///

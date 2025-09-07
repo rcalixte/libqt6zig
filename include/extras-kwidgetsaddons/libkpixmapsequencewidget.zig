@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpixmapsequencewidget.html
+/// https://api.kde.org/kpixmapsequencewidget.html
 pub const kpixmapsequencewidget = struct {
     /// New constructs a new KPixmapSequenceWidget object.
     ///
@@ -82,28 +82,28 @@ pub const kpixmapsequencewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequencewidget.html#sequence)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequencewidget.html#sequence)
     ///
     /// ``` self: QtC.KPixmapSequenceWidget ```
     pub fn Sequence(self: ?*anyopaque) QtC.KPixmapSequence {
         return qtc.KPixmapSequenceWidget_Sequence(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequencewidget.html#interval)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequencewidget.html#interval)
     ///
     /// ``` self: QtC.KPixmapSequenceWidget ```
     pub fn Interval(self: ?*anyopaque) i32 {
         return qtc.KPixmapSequenceWidget_Interval(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequencewidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequencewidget.html#sizeHint)
     ///
     /// ``` self: QtC.KPixmapSequenceWidget ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KPixmapSequenceWidget_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequencewidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequencewidget.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -112,7 +112,7 @@ pub const kpixmapsequencewidget = struct {
         qtc.KPixmapSequenceWidget_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequencewidget.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequencewidget.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -121,14 +121,14 @@ pub const kpixmapsequencewidget = struct {
         return qtc.KPixmapSequenceWidget_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequencewidget.html#setSequence)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequencewidget.html#setSequence)
     ///
     /// ``` self: QtC.KPixmapSequenceWidget, seq: QtC.KPixmapSequence ```
     pub fn SetSequence(self: ?*anyopaque, seq: ?*anyopaque) void {
         qtc.KPixmapSequenceWidget_SetSequence(@ptrCast(self), @ptrCast(seq));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequencewidget.html#setInterval)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequencewidget.html#setInterval)
     ///
     /// ``` self: QtC.KPixmapSequenceWidget, msecs: i32 ```
     pub fn SetInterval(self: ?*anyopaque, msecs: i32) void {
@@ -5108,7 +5108,7 @@ pub const kpixmapsequencewidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequencewidget.html#dtor.KPixmapSequenceWidget)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequencewidget.html#dtor.KPixmapSequenceWidget)
     ///
     /// Delete this object from C++ memory.
     ///

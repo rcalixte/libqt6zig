@@ -7,7 +7,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qprocess_enums = @import("../libqprocess.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kprocess.html
+/// https://api.kde.org/kprocess.html
 pub const kprocess = struct {
     /// New constructs a new KProcess object.
     ///
@@ -67,14 +67,14 @@ pub const kprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#setOutputChannelMode)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#setOutputChannelMode)
     ///
     /// ``` self: QtC.KProcess, mode: kprocess_enums.OutputChannelMode ```
     pub fn SetOutputChannelMode(self: ?*anyopaque, mode: i32) void {
         qtc.KProcess_SetOutputChannelMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#outputChannelMode)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#outputChannelMode)
     ///
     /// ``` self: QtC.KProcess ```
     ///
@@ -83,14 +83,14 @@ pub const kprocess = struct {
         return qtc.KProcess_OutputChannelMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#setNextOpenMode)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#setNextOpenMode)
     ///
     /// ``` self: QtC.KProcess, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetNextOpenMode(self: ?*anyopaque, mode: i32) void {
         qtc.KProcess_SetNextOpenMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#setEnv)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#setEnv)
     ///
     /// ``` self: QtC.KProcess, name: []const u8, value: []const u8 ```
     pub fn SetEnv(self: ?*anyopaque, name: []const u8, value: []const u8) void {
@@ -105,7 +105,7 @@ pub const kprocess = struct {
         qtc.KProcess_SetEnv(@ptrCast(self), name_str, value_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#unsetEnv)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#unsetEnv)
     ///
     /// ``` self: QtC.KProcess, name: []const u8 ```
     pub fn UnsetEnv(self: ?*anyopaque, name: []const u8) void {
@@ -116,14 +116,14 @@ pub const kprocess = struct {
         qtc.KProcess_UnsetEnv(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#clearEnvironment)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#clearEnvironment)
     ///
     /// ``` self: QtC.KProcess ```
     pub fn ClearEnvironment(self: ?*anyopaque) void {
         qtc.KProcess_ClearEnvironment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#setProgram)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#setProgram)
     ///
     /// ``` self: QtC.KProcess, exe: []const u8 ```
     pub fn SetProgram(self: ?*anyopaque, exe: []const u8) void {
@@ -134,7 +134,7 @@ pub const kprocess = struct {
         qtc.KProcess_SetProgram(@ptrCast(self), exe_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#setProgram)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#setProgram)
     ///
     /// ``` self: QtC.KProcess, argv: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetProgram2(self: ?*anyopaque, argv: [][]const u8, allocator: std.mem.Allocator) void {
@@ -153,7 +153,7 @@ pub const kprocess = struct {
         qtc.KProcess_SetProgram2(@ptrCast(self), argv_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#operator-lt-lt)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#operator-lt-lt)
     ///
     /// ``` self: QtC.KProcess, arg: []const u8 ```
     pub fn OperatorShiftLeft(self: ?*anyopaque, arg: []const u8) QtC.KProcess {
@@ -164,7 +164,7 @@ pub const kprocess = struct {
         return qtc.KProcess_OperatorShiftLeft(@ptrCast(self), arg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#operator-lt-lt)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#operator-lt-lt)
     ///
     /// ``` self: QtC.KProcess, args: [][]const u8, allocator: std.mem.Allocator ```
     pub fn OperatorShiftLeft2(self: ?*anyopaque, args: [][]const u8, allocator: std.mem.Allocator) QtC.KProcess {
@@ -183,14 +183,14 @@ pub const kprocess = struct {
         return qtc.KProcess_OperatorShiftLeft2(@ptrCast(self), args_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#clearProgram)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#clearProgram)
     ///
     /// ``` self: QtC.KProcess ```
     pub fn ClearProgram(self: ?*anyopaque) void {
         qtc.KProcess_ClearProgram(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#setShellCommand)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#setShellCommand)
     ///
     /// ``` self: QtC.KProcess, cmd: []const u8 ```
     pub fn SetShellCommand(self: ?*anyopaque, cmd: []const u8) void {
@@ -201,7 +201,7 @@ pub const kprocess = struct {
         qtc.KProcess_SetShellCommand(@ptrCast(self), cmd_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#program)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#program)
     ///
     /// ``` self: QtC.KProcess, allocator: std.mem.Allocator ```
     pub fn Program(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -223,21 +223,21 @@ pub const kprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#start)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#start)
     ///
     /// ``` self: QtC.KProcess ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.KProcess_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#execute)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#execute)
     ///
     /// ``` self: QtC.KProcess ```
     pub fn Execute(self: ?*anyopaque) i32 {
         return qtc.KProcess_Execute(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#execute)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#execute)
     ///
     /// ``` exe: []const u8 ```
     pub fn Execute2(exe: []const u8) i32 {
@@ -248,7 +248,7 @@ pub const kprocess = struct {
         return qtc.KProcess_Execute2(exe_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#execute)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#execute)
     ///
     /// ``` argv: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Execute3(argv: [][]const u8, allocator: std.mem.Allocator) i32 {
@@ -267,14 +267,14 @@ pub const kprocess = struct {
         return qtc.KProcess_Execute3(argv_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#startDetached)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#startDetached)
     ///
     /// ``` self: QtC.KProcess ```
     pub fn StartDetached(self: ?*anyopaque) i32 {
         return qtc.KProcess_StartDetached(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#startDetached)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#startDetached)
     ///
     /// ``` exe: []const u8 ```
     pub fn StartDetached2(exe: []const u8) i32 {
@@ -285,7 +285,7 @@ pub const kprocess = struct {
         return qtc.KProcess_StartDetached2(exe_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#startDetached)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#startDetached)
     ///
     /// ``` argv: [][]const u8, allocator: std.mem.Allocator ```
     pub fn StartDetached3(argv: [][]const u8, allocator: std.mem.Allocator) i32 {
@@ -330,7 +330,7 @@ pub const kprocess = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#setEnv)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#setEnv)
     ///
     /// ``` self: QtC.KProcess, name: []const u8, value: []const u8, overwrite: bool ```
     pub fn SetEnv3(self: ?*anyopaque, name: []const u8, value: []const u8, overwrite: bool) void {
@@ -345,7 +345,7 @@ pub const kprocess = struct {
         qtc.KProcess_SetEnv3(@ptrCast(self), name_str, value_str, overwrite);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#setProgram)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#setProgram)
     ///
     /// ``` self: QtC.KProcess, exe: []const u8, args: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetProgram22(self: ?*anyopaque, exe: []const u8, args: [][]const u8, allocator: std.mem.Allocator) void {
@@ -368,14 +368,14 @@ pub const kprocess = struct {
         qtc.KProcess_SetProgram22(@ptrCast(self), exe_str, args_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#execute)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#execute)
     ///
     /// ``` self: QtC.KProcess, msecs: i32 ```
     pub fn Execute1(self: ?*anyopaque, msecs: i32) i32 {
         return qtc.KProcess_Execute1(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#execute)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#execute)
     ///
     /// ``` exe: []const u8, args: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Execute22(exe: []const u8, args: [][]const u8, allocator: std.mem.Allocator) i32 {
@@ -398,7 +398,7 @@ pub const kprocess = struct {
         return qtc.KProcess_Execute22(exe_str, args_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#execute)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#execute)
     ///
     /// ``` exe: []const u8, args: [][]const u8, msecs: i32, allocator: std.mem.Allocator ```
     pub fn Execute32(exe: []const u8, args: [][]const u8, msecs: i32, allocator: std.mem.Allocator) i32 {
@@ -421,7 +421,7 @@ pub const kprocess = struct {
         return qtc.KProcess_Execute32(exe_str, args_list, @intCast(msecs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#execute)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#execute)
     ///
     /// ``` argv: [][]const u8, msecs: i32, allocator: std.mem.Allocator ```
     pub fn Execute23(argv: [][]const u8, msecs: i32, allocator: std.mem.Allocator) i32 {
@@ -440,7 +440,7 @@ pub const kprocess = struct {
         return qtc.KProcess_Execute23(argv_list, @intCast(msecs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#startDetached)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#startDetached)
     ///
     /// ``` exe: []const u8, args: [][]const u8, allocator: std.mem.Allocator ```
     pub fn StartDetached22(exe: []const u8, args: [][]const u8, allocator: std.mem.Allocator) i32 {
@@ -3053,7 +3053,7 @@ pub const kprocess = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kprocess.html#dtor.KProcess)
+    /// [Qt documentation](https://api.kde.org/kprocess.html#dtor.KProcess)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -3063,7 +3063,7 @@ pub const kprocess = struct {
     }
 };
 
-/// https://api-staging.kde.org/kprocess.html#types
+/// https://api.kde.org/kprocess.html#types
 pub const enums = struct {
     pub const OutputChannelMode = enum {
         pub const SeparateChannels: i32 = 0;

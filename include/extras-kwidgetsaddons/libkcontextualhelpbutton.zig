@@ -9,7 +9,7 @@ const qtoolbutton_enums = @import("../libqtoolbutton.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcontextualhelpbutton.html
+/// https://api.kde.org/kcontextualhelpbutton.html
 pub const kcontextualhelpbutton = struct {
     /// New constructs a new KContextualHelpButton object.
     ///
@@ -81,7 +81,7 @@ pub const kcontextualhelpbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#setContextualHelpText)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#setContextualHelpText)
     ///
     /// ``` self: QtC.KContextualHelpButton, contextualHelpText: []const u8 ```
     pub fn SetContextualHelpText(self: ?*anyopaque, contextualHelpText: []const u8) void {
@@ -92,7 +92,7 @@ pub const kcontextualhelpbutton = struct {
         qtc.KContextualHelpButton_SetContextualHelpText(@ptrCast(self), contextualHelpText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#contextualHelpText)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#contextualHelpText)
     ///
     /// ``` self: QtC.KContextualHelpButton, allocator: std.mem.Allocator ```
     pub fn ContextualHelpText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -103,28 +103,28 @@ pub const kcontextualhelpbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#setHeightHintWidget)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#setHeightHintWidget)
     ///
     /// ``` self: QtC.KContextualHelpButton, heightHintWidget: QtC.QWidget ```
     pub fn SetHeightHintWidget(self: ?*anyopaque, heightHintWidget: ?*anyopaque) void {
         qtc.KContextualHelpButton_SetHeightHintWidget(@ptrCast(self), @ptrCast(heightHintWidget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#heightHintWidget)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#heightHintWidget)
     ///
     /// ``` self: QtC.KContextualHelpButton ```
     pub fn HeightHintWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KContextualHelpButton_HeightHintWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#sizeHint)
     ///
     /// ``` self: QtC.KContextualHelpButton ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KContextualHelpButton_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -133,7 +133,7 @@ pub const kcontextualhelpbutton = struct {
         qtc.KContextualHelpButton_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -142,7 +142,7 @@ pub const kcontextualhelpbutton = struct {
         return qtc.KContextualHelpButton_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#contextualHelpTextChanged)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#contextualHelpTextChanged)
     ///
     /// ``` self: QtC.KContextualHelpButton, newContextualHelpText: []const u8 ```
     pub fn ContextualHelpTextChanged(self: ?*anyopaque, newContextualHelpText: []const u8) void {
@@ -153,7 +153,7 @@ pub const kcontextualhelpbutton = struct {
         qtc.KContextualHelpButton_ContextualHelpTextChanged(@ptrCast(self), newContextualHelpText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#contextualHelpTextChanged)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#contextualHelpTextChanged)
     ///
     /// ``` self: QtC.KContextualHelpButton, slot: fn (self: QtC.KContextualHelpButton, newContextualHelpText: [*:0]const u8) callconv(.c) void ```
     pub fn OnContextualHelpTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -5738,7 +5738,7 @@ pub const kcontextualhelpbutton = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcontextualhelpbutton.html#dtor.KContextualHelpButton)
+    /// [Qt documentation](https://api.kde.org/kcontextualhelpbutton.html#dtor.KContextualHelpButton)
     ///
     /// Delete this object from C++ memory.
     ///

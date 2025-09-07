@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/krecentfilesmenu.html
+/// https://api.kde.org/krecentfilesmenu.html
 pub const krecentfilesmenu = struct {
     /// New constructs a new KRecentFilesMenu object.
     ///
@@ -92,7 +92,7 @@ pub const krecentfilesmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#group)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#group)
     ///
     /// ``` self: QtC.KRecentFilesMenu, allocator: std.mem.Allocator ```
     pub fn Group(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -103,7 +103,7 @@ pub const krecentfilesmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#setGroup)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#setGroup)
     ///
     /// ``` self: QtC.KRecentFilesMenu, group: []const u8 ```
     pub fn SetGroup(self: ?*anyopaque, group: []const u8) void {
@@ -114,35 +114,35 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_SetGroup(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#addUrl)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#addUrl)
     ///
     /// ``` self: QtC.KRecentFilesMenu, url: QtC.QUrl ```
     pub fn AddUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KRecentFilesMenu_AddUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#removeUrl)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#removeUrl)
     ///
     /// ``` self: QtC.KRecentFilesMenu, url: QtC.QUrl ```
     pub fn RemoveUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KRecentFilesMenu_RemoveUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#maximumItems)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#maximumItems)
     ///
     /// ``` self: QtC.KRecentFilesMenu ```
     pub fn MaximumItems(self: ?*anyopaque) i32 {
         return qtc.KRecentFilesMenu_MaximumItems(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#setMaximumItems)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#setMaximumItems)
     ///
     /// ``` self: QtC.KRecentFilesMenu, maximumItems: u64 ```
     pub fn SetMaximumItems(self: ?*anyopaque, maximumItems: u64) void {
         qtc.KRecentFilesMenu_SetMaximumItems(@ptrCast(self), @intCast(maximumItems));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#recentFiles)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#recentFiles)
     ///
     /// ``` self: QtC.KRecentFilesMenu, allocator: std.mem.Allocator ```
     pub fn RecentFiles(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -154,35 +154,35 @@ pub const krecentfilesmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#clearRecentFiles)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#clearRecentFiles)
     ///
     /// ``` self: QtC.KRecentFilesMenu ```
     pub fn ClearRecentFiles(self: ?*anyopaque) void {
         qtc.KRecentFilesMenu_ClearRecentFiles(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#urlTriggered)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#urlTriggered)
     ///
     /// ``` self: QtC.KRecentFilesMenu, url: QtC.QUrl ```
     pub fn UrlTriggered(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KRecentFilesMenu_UrlTriggered(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#urlTriggered)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#urlTriggered)
     ///
     /// ``` self: QtC.KRecentFilesMenu, slot: fn (self: QtC.KRecentFilesMenu, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnUrlTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRecentFilesMenu_Connect_UrlTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#recentFilesChanged)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#recentFilesChanged)
     ///
     /// ``` self: QtC.KRecentFilesMenu ```
     pub fn RecentFilesChanged(self: ?*anyopaque) void {
         qtc.KRecentFilesMenu_RecentFilesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#recentFilesChanged)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#recentFilesChanged)
     ///
     /// ``` self: QtC.KRecentFilesMenu, slot: fn (self: QtC.KRecentFilesMenu) callconv(.c) void ```
     pub fn OnRecentFilesChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -215,7 +215,7 @@ pub const krecentfilesmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#addUrl)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#addUrl)
     ///
     /// ``` self: QtC.KRecentFilesMenu, url: QtC.QUrl, name: []const u8 ```
     pub fn AddUrl2(self: ?*anyopaque, url: ?*anyopaque, name: []const u8) void {
@@ -5775,7 +5775,7 @@ pub const krecentfilesmenu = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesmenu.html#dtor.KRecentFilesMenu)
+    /// [Qt documentation](https://api.kde.org/krecentfilesmenu.html#dtor.KRecentFilesMenu)
     ///
     /// Delete this object from C++ memory.
     ///

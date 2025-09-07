@@ -7,7 +7,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktoolbarpopupaction.html
+/// https://api.kde.org/ktoolbarpopupaction.html
 pub const ktoolbarpopupaction = struct {
     /// New constructs a new KToolBarPopupAction object.
     ///
@@ -65,14 +65,14 @@ pub const ktoolbarpopupaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarpopupaction.html#popupMenu)
+    /// [Qt documentation](https://api.kde.org/ktoolbarpopupaction.html#popupMenu)
     ///
     /// ``` self: QtC.KToolBarPopupAction ```
     pub fn PopupMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KToolBarPopupAction_PopupMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarpopupaction.html#popupMode)
+    /// [Qt documentation](https://api.kde.org/ktoolbarpopupaction.html#popupMode)
     ///
     /// ``` self: QtC.KToolBarPopupAction ```
     ///
@@ -81,21 +81,21 @@ pub const ktoolbarpopupaction = struct {
         return qtc.KToolBarPopupAction_PopupMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarpopupaction.html#setPopupMode)
+    /// [Qt documentation](https://api.kde.org/ktoolbarpopupaction.html#setPopupMode)
     ///
     /// ``` self: QtC.KToolBarPopupAction, popupMode: ktoolbarpopupaction_enums.PopupMode ```
     pub fn SetPopupMode(self: ?*anyopaque, popupMode: i32) void {
         qtc.KToolBarPopupAction_SetPopupMode(@ptrCast(self), @intCast(popupMode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarpopupaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/ktoolbarpopupaction.html#createWidget)
     ///
     /// ``` self: QtC.KToolBarPopupAction, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KToolBarPopupAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarpopupaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/ktoolbarpopupaction.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -104,7 +104,7 @@ pub const ktoolbarpopupaction = struct {
         qtc.KToolBarPopupAction_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarpopupaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/ktoolbarpopupaction.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -1694,7 +1694,7 @@ pub const ktoolbarpopupaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarpopupaction.html#dtor.KToolBarPopupAction)
+    /// [Qt documentation](https://api.kde.org/ktoolbarpopupaction.html#dtor.KToolBarPopupAction)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1704,7 +1704,7 @@ pub const ktoolbarpopupaction = struct {
     }
 };
 
-/// https://api-staging.kde.org/ktoolbarpopupaction.html#types
+/// https://api.kde.org/ktoolbarpopupaction.html#types
 pub const enums = struct {
     pub const PopupMode = enum {
         pub const NoPopup: i32 = -1;

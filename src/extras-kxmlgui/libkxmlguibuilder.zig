@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/kxmlguibuilder.html
+/// https://api.kde.org/kxmlguibuilder.html
 pub const kxmlguibuilder = struct {
     /// New constructs a new KXMLGUIBuilder object.
     ///
@@ -11,28 +11,28 @@ pub const kxmlguibuilder = struct {
         return qtc.KXMLGUIBuilder_new(@ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#builderClient)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#builderClient)
     ///
     /// ``` self: QtC.KXMLGUIBuilder ```
     pub fn BuilderClient(self: ?*anyopaque) QtC.KXMLGUIClient {
         return qtc.KXMLGUIBuilder_BuilderClient(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#setBuilderClient)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#setBuilderClient)
     ///
     /// ``` self: QtC.KXMLGUIBuilder, client: QtC.KXMLGUIClient ```
     pub fn SetBuilderClient(self: ?*anyopaque, client: ?*anyopaque) void {
         qtc.KXMLGUIBuilder_SetBuilderClient(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#widget)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#widget)
     ///
     /// ``` self: QtC.KXMLGUIBuilder ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KXMLGUIBuilder_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#containerTags)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#containerTags)
     ///
     /// ``` self: QtC.KXMLGUIBuilder, allocator: std.mem.Allocator ```
     pub fn ContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -54,7 +54,7 @@ pub const kxmlguibuilder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#containerTags)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#containerTags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -63,7 +63,7 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnContainerTags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#containerTags)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#containerTags)
     ///
     /// Base class method implementation
     ///
@@ -87,14 +87,14 @@ pub const kxmlguibuilder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#createContainer)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createContainer)
     ///
     /// ``` self: QtC.KXMLGUIBuilder, parent: QtC.QWidget, index: i32, element: QtC.QDomElement, containerAction: QtC.QAction ```
     pub fn CreateContainer(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque, containerAction: ?**anyopaque) QtC.QWidget {
         return qtc.KXMLGUIBuilder_CreateContainer(@ptrCast(self), @ptrCast(parent), @intCast(index), @ptrCast(element), @ptrCast(containerAction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#createContainer)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createContainer)
     ///
     /// Allows for overriding the related default method
     ///
@@ -103,7 +103,7 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnCreateContainer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#createContainer)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createContainer)
     ///
     /// Base class method implementation
     ///
@@ -112,14 +112,14 @@ pub const kxmlguibuilder = struct {
         return qtc.KXMLGUIBuilder_QBaseCreateContainer(@ptrCast(self), @ptrCast(parent), @intCast(index), @ptrCast(element), @ptrCast(containerAction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#removeContainer)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#removeContainer)
     ///
     /// ``` self: QtC.KXMLGUIBuilder, container: QtC.QWidget, parent: QtC.QWidget, element: QtC.QDomElement, containerAction: QtC.QAction ```
     pub fn RemoveContainer(self: ?*anyopaque, container: ?*anyopaque, parent: ?*anyopaque, element: ?*anyopaque, containerAction: ?*anyopaque) void {
         qtc.KXMLGUIBuilder_RemoveContainer(@ptrCast(self), @ptrCast(container), @ptrCast(parent), @ptrCast(element), @ptrCast(containerAction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#removeContainer)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#removeContainer)
     ///
     /// Allows for overriding the related default method
     ///
@@ -128,7 +128,7 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnRemoveContainer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#removeContainer)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#removeContainer)
     ///
     /// Base class method implementation
     ///
@@ -137,7 +137,7 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_QBaseRemoveContainer(@ptrCast(self), @ptrCast(container), @ptrCast(parent), @ptrCast(element), @ptrCast(containerAction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#customTags)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#customTags)
     ///
     /// ``` self: QtC.KXMLGUIBuilder, allocator: std.mem.Allocator ```
     pub fn CustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -159,7 +159,7 @@ pub const kxmlguibuilder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#customTags)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#customTags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -168,7 +168,7 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnCustomTags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#customTags)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#customTags)
     ///
     /// Base class method implementation
     ///
@@ -192,14 +192,14 @@ pub const kxmlguibuilder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#createCustomElement)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
     ///
     /// ``` self: QtC.KXMLGUIBuilder, parent: QtC.QWidget, index: i32, element: QtC.QDomElement ```
     pub fn CreateCustomElement(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque) QtC.QAction {
         return qtc.KXMLGUIBuilder_CreateCustomElement(@ptrCast(self), @ptrCast(parent), @intCast(index), @ptrCast(element));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#createCustomElement)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
     ///
     /// Allows for overriding the related default method
     ///
@@ -208,7 +208,7 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnCreateCustomElement(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#createCustomElement)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
     ///
     /// Base class method implementation
     ///
@@ -217,14 +217,14 @@ pub const kxmlguibuilder = struct {
         return qtc.KXMLGUIBuilder_QBaseCreateCustomElement(@ptrCast(self), @ptrCast(parent), @intCast(index), @ptrCast(element));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#finalizeGUI)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
     ///
     /// ``` self: QtC.KXMLGUIBuilder, client: QtC.KXMLGUIClient ```
     pub fn FinalizeGUI(self: ?*anyopaque, client: ?*anyopaque) void {
         qtc.KXMLGUIBuilder_FinalizeGUI(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#finalizeGUI)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
     ///
     /// Allows for overriding the related default method
     ///
@@ -233,7 +233,7 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnFinalizeGUI(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#finalizeGUI)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
     ///
     /// Base class method implementation
     ///
@@ -242,14 +242,14 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_QBaseFinalizeGUI(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#virtual_hook)
     ///
     /// ``` self: QtC.KXMLGUIBuilder, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.KXMLGUIBuilder_VirtualHook(@ptrCast(self), @intCast(id), data);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#virtual_hook)
     ///
     /// Allows for overriding the related default method
     ///
@@ -258,7 +258,7 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#virtual_hook)
     ///
     /// Base class method implementation
     ///
@@ -267,7 +267,7 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguibuilder.html#dtor.KXMLGUIBuilder)
+    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#dtor.KXMLGUIBuilder)
     ///
     /// Delete this object from C++ memory.
     ///

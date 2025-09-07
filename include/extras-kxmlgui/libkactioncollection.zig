@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kactioncollection.html
+/// https://api.kde.org/kactioncollection.html
 pub const kactioncollection = struct {
     /// New constructs a new KActionCollection object.
     ///
@@ -70,7 +70,7 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#allCollections)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#allCollections)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AllCollections(allocator: std.mem.Allocator) []QtC.KActionCollection {
@@ -82,35 +82,35 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#clear)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#clear)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KActionCollection_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#associateWidget)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#associateWidget)
     ///
     /// ``` self: QtC.KActionCollection, widget: QtC.QWidget ```
     pub fn AssociateWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KActionCollection_AssociateWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#addAssociatedWidget)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#addAssociatedWidget)
     ///
     /// ``` self: QtC.KActionCollection, widget: QtC.QWidget ```
     pub fn AddAssociatedWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KActionCollection_AddAssociatedWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#removeAssociatedWidget)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#removeAssociatedWidget)
     ///
     /// ``` self: QtC.KActionCollection, widget: QtC.QWidget ```
     pub fn RemoveAssociatedWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KActionCollection_RemoveAssociatedWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#associatedWidgets)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#associatedWidgets)
     ///
     /// ``` self: QtC.KActionCollection, allocator: std.mem.Allocator ```
     pub fn AssociatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -122,14 +122,14 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#clearAssociatedWidgets)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#clearAssociatedWidgets)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn ClearAssociatedWidgets(self: ?*anyopaque) void {
         qtc.KActionCollection_ClearAssociatedWidgets(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#configGroup)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#configGroup)
     ///
     /// ``` self: QtC.KActionCollection, allocator: std.mem.Allocator ```
     pub fn ConfigGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -140,14 +140,14 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#configIsGlobal)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#configIsGlobal)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn ConfigIsGlobal(self: ?*anyopaque) bool {
         return qtc.KActionCollection_ConfigIsGlobal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#setConfigGroup)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#setConfigGroup)
     ///
     /// ``` self: QtC.KActionCollection, group: []const u8 ```
     pub fn SetConfigGroup(self: ?*anyopaque, group: []const u8) void {
@@ -158,63 +158,63 @@ pub const kactioncollection = struct {
         qtc.KActionCollection_SetConfigGroup(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#setConfigGlobal)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#setConfigGlobal)
     ///
     /// ``` self: QtC.KActionCollection, global: bool ```
     pub fn SetConfigGlobal(self: ?*anyopaque, global: bool) void {
         qtc.KActionCollection_SetConfigGlobal(@ptrCast(self), global);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#readSettings)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#readSettings)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn ReadSettings(self: ?*anyopaque) void {
         qtc.KActionCollection_ReadSettings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#importGlobalShortcuts)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#importGlobalShortcuts)
     ///
     /// ``` self: QtC.KActionCollection, config: QtC.KConfigGroup ```
     pub fn ImportGlobalShortcuts(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KActionCollection_ImportGlobalShortcuts(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#exportGlobalShortcuts)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#exportGlobalShortcuts)
     ///
     /// ``` self: QtC.KActionCollection, config: QtC.KConfigGroup ```
     pub fn ExportGlobalShortcuts(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KActionCollection_ExportGlobalShortcuts(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#writeSettings)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#writeSettings)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn WriteSettings(self: ?*anyopaque) void {
         qtc.KActionCollection_WriteSettings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#count)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#count)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.KActionCollection_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#isEmpty)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#isEmpty)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.KActionCollection_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#action)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#action)
     ///
     /// ``` self: QtC.KActionCollection, index: i32 ```
     pub fn Action(self: ?*anyopaque, index: i32) QtC.QAction {
         return qtc.KActionCollection_Action(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#action)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#action)
     ///
     /// ``` self: QtC.KActionCollection, name: []const u8 ```
     pub fn Action2(self: ?*anyopaque, name: []const u8) QtC.QAction {
@@ -225,7 +225,7 @@ pub const kactioncollection = struct {
         return qtc.KActionCollection_Action2(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#actions)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#actions)
     ///
     /// ``` self: QtC.KActionCollection, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -237,7 +237,7 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#actionsWithoutGroup)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#actionsWithoutGroup)
     ///
     /// ``` self: QtC.KActionCollection, allocator: std.mem.Allocator ```
     pub fn ActionsWithoutGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -249,7 +249,7 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#actionGroups)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#actionGroups)
     ///
     /// ``` self: QtC.KActionCollection, allocator: std.mem.Allocator ```
     pub fn ActionGroups(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QActionGroup {
@@ -261,7 +261,7 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#setComponentName)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#setComponentName)
     ///
     /// ``` self: QtC.KActionCollection, componentName: []const u8 ```
     pub fn SetComponentName(self: ?*anyopaque, componentName: []const u8) void {
@@ -272,7 +272,7 @@ pub const kactioncollection = struct {
         qtc.KActionCollection_SetComponentName(@ptrCast(self), componentName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#componentName)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#componentName)
     ///
     /// ``` self: QtC.KActionCollection, allocator: std.mem.Allocator ```
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -283,7 +283,7 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#setComponentDisplayName)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#setComponentDisplayName)
     ///
     /// ``` self: QtC.KActionCollection, displayName: []const u8 ```
     pub fn SetComponentDisplayName(self: ?*anyopaque, displayName: []const u8) void {
@@ -294,7 +294,7 @@ pub const kactioncollection = struct {
         qtc.KActionCollection_SetComponentDisplayName(@ptrCast(self), displayName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#componentDisplayName)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#componentDisplayName)
     ///
     /// ``` self: QtC.KActionCollection, allocator: std.mem.Allocator ```
     pub fn ComponentDisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -305,77 +305,77 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#parentGUIClient)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#parentGUIClient)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn ParentGUIClient(self: ?*anyopaque) QtC.KXMLGUIClient {
         return qtc.KActionCollection_ParentGUIClient(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#inserted)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#inserted)
     ///
     /// ``` self: QtC.KActionCollection, action: QtC.QAction ```
     pub fn Inserted(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KActionCollection_Inserted(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#inserted)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#inserted)
     ///
     /// ``` self: QtC.KActionCollection, slot: fn (self: QtC.KActionCollection, action: QtC.QAction) callconv(.c) void ```
     pub fn OnInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionCollection_Connect_Inserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#changed)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#changed)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn Changed(self: ?*anyopaque) void {
         qtc.KActionCollection_Changed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#changed)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#changed)
     ///
     /// ``` self: QtC.KActionCollection, slot: fn (self: QtC.KActionCollection) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KActionCollection_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#actionHovered)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#actionHovered)
     ///
     /// ``` self: QtC.KActionCollection, action: QtC.QAction ```
     pub fn ActionHovered(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KActionCollection_ActionHovered(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#actionHovered)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#actionHovered)
     ///
     /// ``` self: QtC.KActionCollection, slot: fn (self: QtC.KActionCollection, action: QtC.QAction) callconv(.c) void ```
     pub fn OnActionHovered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionCollection_Connect_ActionHovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#actionTriggered)
     ///
     /// ``` self: QtC.KActionCollection, action: QtC.QAction ```
     pub fn ActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KActionCollection_ActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#actionTriggered)
     ///
     /// ``` self: QtC.KActionCollection, slot: fn (self: QtC.KActionCollection, action: QtC.QAction) callconv(.c) void ```
     pub fn OnActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionCollection_Connect_ActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#connectNotify)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#connectNotify)
     ///
     /// ``` self: QtC.KActionCollection, signal: QtC.QMetaMethod ```
     pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
         qtc.KActionCollection_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#connectNotify)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#connectNotify)
     ///
     /// Allows for overriding the related default method
     ///
@@ -384,7 +384,7 @@ pub const kactioncollection = struct {
         qtc.KActionCollection_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#connectNotify)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#connectNotify)
     ///
     /// Base class method implementation
     ///
@@ -393,14 +393,14 @@ pub const kactioncollection = struct {
         qtc.KActionCollection_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#slotActionTriggered)
     ///
     /// ``` self: QtC.KActionCollection ```
     pub fn SlotActionTriggered(self: ?*anyopaque) void {
         qtc.KActionCollection_SlotActionTriggered(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#slotActionTriggered)
     ///
     /// Allows for overriding the related default method
     ///
@@ -409,7 +409,7 @@ pub const kactioncollection = struct {
         qtc.KActionCollection_OnSlotActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#slotActionTriggered)
     ///
     /// Base class method implementation
     ///
@@ -418,7 +418,7 @@ pub const kactioncollection = struct {
         qtc.KActionCollection_QBaseSlotActionTriggered(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#addAction)
     ///
     /// ``` self: QtC.KActionCollection, name: []const u8, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, name: []const u8, action: ?*anyopaque) QtC.QAction {
@@ -429,7 +429,7 @@ pub const kactioncollection = struct {
         return qtc.KActionCollection_AddAction(@ptrCast(self), name_str, @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#addActions)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#addActions)
     ///
     /// ``` self: QtC.KActionCollection, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -440,35 +440,35 @@ pub const kactioncollection = struct {
         qtc.KActionCollection_AddActions(@ptrCast(self), actions_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#removeAction)
     ///
     /// ``` self: QtC.KActionCollection, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KActionCollection_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#takeAction)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#takeAction)
     ///
     /// ``` self: QtC.KActionCollection, action: QtC.QAction ```
     pub fn TakeAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
         return qtc.KActionCollection_TakeAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#addAction)
     ///
     /// ``` self: QtC.KActionCollection, actionType: kstandardactions_enums.StandardAction ```
     pub fn AddAction2(self: ?*anyopaque, actionType: i32) QtC.QAction {
         return qtc.KActionCollection_AddAction2(@ptrCast(self), @intCast(actionType));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#defaultShortcut)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#defaultShortcut)
     ///
     /// ``` action: QtC.QAction ```
     pub fn DefaultShortcut(action: ?*anyopaque) QtC.QKeySequence {
         return qtc.KActionCollection_DefaultShortcut(@ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#defaultShortcuts)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#defaultShortcuts)
     ///
     /// ``` action: QtC.QAction, allocator: std.mem.Allocator ```
     pub fn DefaultShortcuts(action: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -480,14 +480,14 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#setDefaultShortcut)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#setDefaultShortcut)
     ///
     /// ``` action: QtC.QAction, shortcut: QtC.QKeySequence ```
     pub fn SetDefaultShortcut(action: ?*anyopaque, shortcut: ?*anyopaque) void {
         qtc.KActionCollection_SetDefaultShortcut(@ptrCast(action), @ptrCast(shortcut));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#setDefaultShortcuts)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#setDefaultShortcuts)
     ///
     /// ``` action: QtC.QAction, shortcuts: []QtC.QKeySequence ```
     pub fn SetDefaultShortcuts(action: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
@@ -498,14 +498,14 @@ pub const kactioncollection = struct {
         qtc.KActionCollection_SetDefaultShortcuts(@ptrCast(action), shortcuts_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#isShortcutsConfigurable)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#isShortcutsConfigurable)
     ///
     /// ``` action: QtC.QAction ```
     pub fn IsShortcutsConfigurable(action: ?*anyopaque) bool {
         return qtc.KActionCollection_IsShortcutsConfigurable(@ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#setShortcutsConfigurable)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#setShortcutsConfigurable)
     ///
     /// ``` action: QtC.QAction, configurable: bool ```
     pub fn SetShortcutsConfigurable(action: ?*anyopaque, configurable: bool) void {
@@ -538,35 +538,35 @@ pub const kactioncollection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#readSettings)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#readSettings)
     ///
     /// ``` self: QtC.KActionCollection, config: QtC.KConfigGroup ```
     pub fn ReadSettings1(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KActionCollection_ReadSettings1(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#exportGlobalShortcuts)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#exportGlobalShortcuts)
     ///
     /// ``` self: QtC.KActionCollection, config: QtC.KConfigGroup, writeDefaults: bool ```
     pub fn ExportGlobalShortcuts2(self: ?*anyopaque, config: ?*anyopaque, writeDefaults: bool) void {
         qtc.KActionCollection_ExportGlobalShortcuts2(@ptrCast(self), @ptrCast(config), writeDefaults);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#writeSettings)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#writeSettings)
     ///
     /// ``` self: QtC.KActionCollection, config: QtC.KConfigGroup ```
     pub fn WriteSettings1(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KActionCollection_WriteSettings1(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#writeSettings)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#writeSettings)
     ///
     /// ``` self: QtC.KActionCollection, config: QtC.KConfigGroup, writeDefaults: bool ```
     pub fn WriteSettings2(self: ?*anyopaque, config: ?*anyopaque, writeDefaults: bool) void {
         qtc.KActionCollection_WriteSettings2(@ptrCast(self), @ptrCast(config), writeDefaults);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#writeSettings)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#writeSettings)
     ///
     /// ``` self: QtC.KActionCollection, config: QtC.KConfigGroup, writeDefaults: bool, oneAction: QtC.QAction ```
     pub fn WriteSettings3(self: ?*anyopaque, config: ?*anyopaque, writeDefaults: bool, oneAction: ?*anyopaque) void {
@@ -1293,7 +1293,7 @@ pub const kactioncollection = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncollection.html#dtor.KActionCollection)
+    /// [Qt documentation](https://api.kde.org/kactioncollection.html#dtor.KActionCollection)
     ///
     /// Delete this object from C++ memory.
     ///

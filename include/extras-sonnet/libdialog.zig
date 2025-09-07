@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/sonnet-dialog.html
+/// https://api.kde.org/sonnet-dialog.html
 pub const sonnet__dialog = struct {
     /// New constructs a new Sonnet::Dialog object.
     ///
@@ -17,7 +17,7 @@ pub const sonnet__dialog = struct {
         return qtc.Sonnet__Dialog_new(@ptrCast(checker), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#metaObject)
+    /// [Qt documentation](https://api.kde.org/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__Dialog ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -49,7 +49,7 @@ pub const sonnet__dialog = struct {
         return qtc.Sonnet__Dialog_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -61,7 +61,7 @@ pub const sonnet__dialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#originalBuffer)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#originalBuffer)
     ///
     /// ``` self: QtC.Sonnet__Dialog, allocator: std.mem.Allocator ```
     pub fn OriginalBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -72,7 +72,7 @@ pub const sonnet__dialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#buffer)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#buffer)
     ///
     /// ``` self: QtC.Sonnet__Dialog, allocator: std.mem.Allocator ```
     pub fn Buffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -83,42 +83,42 @@ pub const sonnet__dialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#show)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#show)
     ///
     /// ``` self: QtC.Sonnet__Dialog ```
     pub fn Show(self: ?*anyopaque) void {
         qtc.Sonnet__Dialog_Show(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#activeAutoCorrect)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#activeAutoCorrect)
     ///
     /// ``` self: QtC.Sonnet__Dialog, _active: bool ```
     pub fn ActiveAutoCorrect(self: ?*anyopaque, _active: bool) void {
         qtc.Sonnet__Dialog_ActiveAutoCorrect(@ptrCast(self), _active);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#showProgressDialog)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#showProgressDialog)
     ///
     /// ``` self: QtC.Sonnet__Dialog ```
     pub fn ShowProgressDialog(self: ?*anyopaque) void {
         qtc.Sonnet__Dialog_ShowProgressDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#showSpellCheckCompletionMessage)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#showSpellCheckCompletionMessage)
     ///
     /// ``` self: QtC.Sonnet__Dialog ```
     pub fn ShowSpellCheckCompletionMessage(self: ?*anyopaque) void {
         qtc.Sonnet__Dialog_ShowSpellCheckCompletionMessage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#setSpellCheckContinuedAfterReplacement)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#setSpellCheckContinuedAfterReplacement)
     ///
     /// ``` self: QtC.Sonnet__Dialog, b: bool ```
     pub fn SetSpellCheckContinuedAfterReplacement(self: ?*anyopaque, b: bool) void {
         qtc.Sonnet__Dialog_SetSpellCheckContinuedAfterReplacement(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#setBuffer)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#setBuffer)
     ///
     /// ``` self: QtC.Sonnet__Dialog, buffer: []const u8 ```
     pub fn SetBuffer(self: ?*anyopaque, buffer: []const u8) void {
@@ -129,7 +129,7 @@ pub const sonnet__dialog = struct {
         qtc.Sonnet__Dialog_SetBuffer(@ptrCast(self), buffer_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#spellCheckDone)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#spellCheckDone)
     ///
     /// ``` self: QtC.Sonnet__Dialog, newBuffer: []const u8 ```
     pub fn SpellCheckDone(self: ?*anyopaque, newBuffer: []const u8) void {
@@ -140,14 +140,14 @@ pub const sonnet__dialog = struct {
         qtc.Sonnet__Dialog_SpellCheckDone(@ptrCast(self), newBuffer_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#spellCheckDone)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#spellCheckDone)
     ///
     /// ``` self: QtC.Sonnet__Dialog, slot: fn (self: QtC.Sonnet__Dialog, newBuffer: [*:0]const u8) callconv(.c) void ```
     pub fn OnSpellCheckDone(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_SpellCheckDone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#misspelling)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#misspelling)
     ///
     /// ``` self: QtC.Sonnet__Dialog, word: []const u8, start: i32 ```
     pub fn Misspelling(self: ?*anyopaque, word: []const u8, start: i32) void {
@@ -158,14 +158,14 @@ pub const sonnet__dialog = struct {
         qtc.Sonnet__Dialog_Misspelling(@ptrCast(self), word_str, @intCast(start));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#misspelling)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#misspelling)
     ///
     /// ``` self: QtC.Sonnet__Dialog, slot: fn (self: QtC.Sonnet__Dialog, word: [*:0]const u8, start: i32) callconv(.c) void ```
     pub fn OnMisspelling(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_Misspelling(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#replace)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#replace)
     ///
     /// ``` self: QtC.Sonnet__Dialog, oldWord: []const u8, start: i32, newWord: []const u8 ```
     pub fn Replace(self: ?*anyopaque, oldWord: []const u8, start: i32, newWord: []const u8) void {
@@ -180,42 +180,42 @@ pub const sonnet__dialog = struct {
         qtc.Sonnet__Dialog_Replace(@ptrCast(self), oldWord_str, @intCast(start), newWord_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#replace)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#replace)
     ///
     /// ``` self: QtC.Sonnet__Dialog, slot: fn (self: QtC.Sonnet__Dialog, oldWord: [*:0]const u8, start: i32, newWord: [*:0]const u8) callconv(.c) void ```
     pub fn OnReplace(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_Replace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#stop)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#stop)
     ///
     /// ``` self: QtC.Sonnet__Dialog ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.Sonnet__Dialog_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#stop)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#stop)
     ///
     /// ``` self: QtC.Sonnet__Dialog, slot: fn (self: QtC.Sonnet__Dialog) callconv(.c) void ```
     pub fn OnStop(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_Stop(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#cancel)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#cancel)
     ///
     /// ``` self: QtC.Sonnet__Dialog ```
     pub fn Cancel(self: ?*anyopaque) void {
         qtc.Sonnet__Dialog_Cancel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#cancel)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#cancel)
     ///
     /// ``` self: QtC.Sonnet__Dialog, slot: fn (self: QtC.Sonnet__Dialog) callconv(.c) void ```
     pub fn OnCancel(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_Cancel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#autoCorrect)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#autoCorrect)
     ///
     /// ``` self: QtC.Sonnet__Dialog, currentWord: []const u8, replaceWord: []const u8 ```
     pub fn AutoCorrect(self: ?*anyopaque, currentWord: []const u8, replaceWord: []const u8) void {
@@ -230,14 +230,14 @@ pub const sonnet__dialog = struct {
         qtc.Sonnet__Dialog_AutoCorrect(@ptrCast(self), currentWord_str, replaceWord_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#autoCorrect)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#autoCorrect)
     ///
     /// ``` self: QtC.Sonnet__Dialog, slot: fn (self: QtC.Sonnet__Dialog, currentWord: [*:0]const u8, replaceWord: [*:0]const u8) callconv(.c) void ```
     pub fn OnAutoCorrect(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_AutoCorrect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#spellCheckStatus)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#spellCheckStatus)
     ///
     /// ``` self: QtC.Sonnet__Dialog, param1: []const u8 ```
     pub fn SpellCheckStatus(self: ?*anyopaque, param1: []const u8) void {
@@ -248,14 +248,14 @@ pub const sonnet__dialog = struct {
         qtc.Sonnet__Dialog_SpellCheckStatus(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#spellCheckStatus)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#spellCheckStatus)
     ///
     /// ``` self: QtC.Sonnet__Dialog, slot: fn (self: QtC.Sonnet__Dialog, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnSpellCheckStatus(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_SpellCheckStatus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#languageChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#languageChanged)
     ///
     /// ``` self: QtC.Sonnet__Dialog, language: []const u8 ```
     pub fn LanguageChanged(self: ?*anyopaque, language: []const u8) void {
@@ -266,14 +266,14 @@ pub const sonnet__dialog = struct {
         qtc.Sonnet__Dialog_LanguageChanged(@ptrCast(self), language_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#languageChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#languageChanged)
     ///
     /// ``` self: QtC.Sonnet__Dialog, slot: fn (self: QtC.Sonnet__Dialog, language: [*:0]const u8) callconv(.c) void ```
     pub fn OnLanguageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__Dialog_Connect_LanguageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -286,7 +286,7 @@ pub const sonnet__dialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -299,14 +299,14 @@ pub const sonnet__dialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#showProgressDialog)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#showProgressDialog)
     ///
     /// ``` self: QtC.Sonnet__Dialog, timeout: i32 ```
     pub fn ShowProgressDialog1(self: ?*anyopaque, timeout: i32) void {
         qtc.Sonnet__Dialog_ShowProgressDialog1(@ptrCast(self), @intCast(timeout));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-dialog.html#showSpellCheckCompletionMessage)
+    /// [Qt documentation](https://api.kde.org/sonnet-dialog.html#showSpellCheckCompletionMessage)
     ///
     /// ``` self: QtC.Sonnet__Dialog, b: bool ```
     pub fn ShowSpellCheckCompletionMessage1(self: ?*anyopaque, b: bool) void {

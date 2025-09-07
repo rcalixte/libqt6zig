@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kconfigwatcher.html
+/// https://api.kde.org/kconfigwatcher.html
 pub const kconfigwatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -36,7 +36,7 @@ pub const kconfigwatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigwatcher.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigwatcher.html#configChanged)
     ///
     /// ``` self: QtC.KConfigWatcher, group: QtC.KConfigGroup, names: [][]u8, allocator: std.mem.Allocator ```
     pub fn ConfigChanged(self: ?*anyopaque, group: ?*anyopaque, names: [][]u8, allocator: std.mem.Allocator) void {
@@ -55,7 +55,7 @@ pub const kconfigwatcher = struct {
         qtc.KConfigWatcher_ConfigChanged(@ptrCast(self), @ptrCast(group), names_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigwatcher.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigwatcher.html#configChanged)
     ///
     /// ``` self: QtC.KConfigWatcher, slot: fn (self: QtC.KConfigWatcher, group: QtC.KConfigGroup, names: [][*:0]u8) callconv(.c) void ```
     pub fn OnConfigChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [][*:0]u8) callconv(.c) void) void {
@@ -494,7 +494,7 @@ pub const kconfigwatcher = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigwatcher.html#dtor.KConfigWatcher)
+    /// [Qt documentation](https://api.kde.org/kconfigwatcher.html#dtor.KConfigWatcher)
     ///
     /// Delete this object from C++ memory.
     ///

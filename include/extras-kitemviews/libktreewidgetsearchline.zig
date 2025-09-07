@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktreewidgetsearchline.html
+/// https://api.kde.org/ktreewidgetsearchline.html
 pub const ktreewidgetsearchline = struct {
     /// New constructs a new KTreeWidgetSearchLine object.
     ///
@@ -88,7 +88,7 @@ pub const ktreewidgetsearchline = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#caseSensitivity)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#caseSensitivity)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine ```
     ///
@@ -97,7 +97,7 @@ pub const ktreewidgetsearchline = struct {
         return qtc.KTreeWidgetSearchLine_CaseSensitivity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#searchColumns)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#searchColumns)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, allocator: std.mem.Allocator ```
     pub fn SearchColumns(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
@@ -109,21 +109,21 @@ pub const ktreewidgetsearchline = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#keepParentsVisible)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#keepParentsVisible)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine ```
     pub fn KeepParentsVisible(self: ?*anyopaque) bool {
         return qtc.KTreeWidgetSearchLine_KeepParentsVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#treeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#treeWidget)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine ```
     pub fn TreeWidget(self: ?*anyopaque) QtC.QTreeWidget {
         return qtc.KTreeWidgetSearchLine_TreeWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#treeWidgets)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#treeWidgets)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, allocator: std.mem.Allocator ```
     pub fn TreeWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTreeWidget {
@@ -135,21 +135,21 @@ pub const ktreewidgetsearchline = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#hiddenChanged)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#hiddenChanged)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, param1: QtC.QTreeWidgetItem, param2: bool ```
     pub fn HiddenChanged(self: ?*anyopaque, param1: ?*anyopaque, param2: bool) void {
         qtc.KTreeWidgetSearchLine_HiddenChanged(@ptrCast(self), @ptrCast(param1), param2);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#hiddenChanged)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#hiddenChanged)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, slot: fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QTreeWidgetItem, param2: bool) callconv(.c) void ```
     pub fn OnHiddenChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTreeWidgetSearchLine_Connect_HiddenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#searchUpdated)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#searchUpdated)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, searchString: []const u8 ```
     pub fn SearchUpdated(self: ?*anyopaque, searchString: []const u8) void {
@@ -160,56 +160,56 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_SearchUpdated(@ptrCast(self), searchString_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#searchUpdated)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#searchUpdated)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, slot: fn (self: QtC.KTreeWidgetSearchLine, searchString: [*:0]const u8) callconv(.c) void ```
     pub fn OnSearchUpdated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KTreeWidgetSearchLine_Connect_SearchUpdated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#caseSensitivityChanged)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#caseSensitivityChanged)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, caseSensitivity: qnamespace_enums.CaseSensitivity ```
     pub fn CaseSensitivityChanged(self: ?*anyopaque, caseSensitivity: i32) void {
         qtc.KTreeWidgetSearchLine_CaseSensitivityChanged(@ptrCast(self), @intCast(caseSensitivity));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#caseSensitivityChanged)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#caseSensitivityChanged)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, slot: fn (self: QtC.KTreeWidgetSearchLine, caseSensitivity: qnamespace_enums.CaseSensitivity) callconv(.c) void ```
     pub fn OnCaseSensitivityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KTreeWidgetSearchLine_Connect_CaseSensitivityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#keepParentsVisibleChanged)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#keepParentsVisibleChanged)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, keepParentsVisible: bool ```
     pub fn KeepParentsVisibleChanged(self: ?*anyopaque, keepParentsVisible: bool) void {
         qtc.KTreeWidgetSearchLine_KeepParentsVisibleChanged(@ptrCast(self), keepParentsVisible);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#keepParentsVisibleChanged)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#keepParentsVisibleChanged)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, slot: fn (self: QtC.KTreeWidgetSearchLine, keepParentsVisible: bool) callconv(.c) void ```
     pub fn OnKeepParentsVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KTreeWidgetSearchLine_Connect_KeepParentsVisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#addTreeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#addTreeWidget)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, treeWidget: QtC.QTreeWidget ```
     pub fn AddTreeWidget(self: ?*anyopaque, treeWidget: ?*anyopaque) void {
         qtc.KTreeWidgetSearchLine_AddTreeWidget(@ptrCast(self), @ptrCast(treeWidget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#removeTreeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#removeTreeWidget)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, treeWidget: QtC.QTreeWidget ```
     pub fn RemoveTreeWidget(self: ?*anyopaque, treeWidget: ?*anyopaque) void {
         qtc.KTreeWidgetSearchLine_RemoveTreeWidget(@ptrCast(self), @ptrCast(treeWidget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#updateSearch)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, pattern: []const u8 ```
     pub fn UpdateSearch(self: ?*anyopaque, pattern: []const u8) void {
@@ -220,7 +220,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_UpdateSearch(@ptrCast(self), pattern_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#updateSearch)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
     ///
     /// Allows for overriding the related default method
     ///
@@ -229,7 +229,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_OnUpdateSearch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#updateSearch)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
     ///
     /// Base class method implementation
     ///
@@ -242,21 +242,21 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_QBaseUpdateSearch(@ptrCast(self), pattern_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#setCaseSensitivity)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#setCaseSensitivity)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, caseSensitivity: qnamespace_enums.CaseSensitivity ```
     pub fn SetCaseSensitivity(self: ?*anyopaque, caseSensitivity: i32) void {
         qtc.KTreeWidgetSearchLine_SetCaseSensitivity(@ptrCast(self), @intCast(caseSensitivity));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#setKeepParentsVisible)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#setKeepParentsVisible)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, value: bool ```
     pub fn SetKeepParentsVisible(self: ?*anyopaque, value: bool) void {
         qtc.KTreeWidgetSearchLine_SetKeepParentsVisible(@ptrCast(self), value);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#setSearchColumns)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#setSearchColumns)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, columns: []i32 ```
     pub fn SetSearchColumns(self: ?*anyopaque, columns: []i32) void {
@@ -267,14 +267,14 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_SetSearchColumns(@ptrCast(self), columns_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#setTreeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#setTreeWidget)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, treeWidget: QtC.QTreeWidget ```
     pub fn SetTreeWidget(self: ?*anyopaque, treeWidget: ?*anyopaque) void {
         qtc.KTreeWidgetSearchLine_SetTreeWidget(@ptrCast(self), @ptrCast(treeWidget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#setTreeWidgets)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#setTreeWidgets)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, treeWidgets: []QtC.QTreeWidget ```
     pub fn SetTreeWidgets(self: ?*anyopaque, treeWidgets: []?*anyopaque) void {
@@ -285,7 +285,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_SetTreeWidgets(@ptrCast(self), treeWidgets_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#itemMatches)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#itemMatches)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, item: QtC.QTreeWidgetItem, pattern: []const u8 ```
     pub fn ItemMatches(self: ?*anyopaque, item: ?*anyopaque, pattern: []const u8) bool {
@@ -296,7 +296,7 @@ pub const ktreewidgetsearchline = struct {
         return qtc.KTreeWidgetSearchLine_ItemMatches(@ptrCast(self), @ptrCast(item), pattern_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#itemMatches)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#itemMatches)
     ///
     /// Allows for overriding the related default method
     ///
@@ -305,7 +305,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_OnItemMatches(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#itemMatches)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#itemMatches)
     ///
     /// Base class method implementation
     ///
@@ -318,14 +318,14 @@ pub const ktreewidgetsearchline = struct {
         return qtc.KTreeWidgetSearchLine_QBaseItemMatches(@ptrCast(self), @ptrCast(item), pattern_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#contextMenuEvent)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, param1: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KTreeWidgetSearchLine_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#contextMenuEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -334,7 +334,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#contextMenuEvent)
     ///
     /// Base class method implementation
     ///
@@ -343,14 +343,14 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#updateSearch)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, treeWidget: QtC.QTreeWidget ```
     pub fn UpdateSearch2(self: ?*anyopaque, treeWidget: ?*anyopaque) void {
         qtc.KTreeWidgetSearchLine_UpdateSearch2(@ptrCast(self), @ptrCast(treeWidget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#updateSearch)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
     ///
     /// Allows for overriding the related default method
     ///
@@ -359,7 +359,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_OnUpdateSearch2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#updateSearch)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
     ///
     /// Base class method implementation
     ///
@@ -368,14 +368,14 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_QBaseUpdateSearch2(@ptrCast(self), @ptrCast(treeWidget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#connectTreeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#connectTreeWidget)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, param1: QtC.QTreeWidget ```
     pub fn ConnectTreeWidget(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KTreeWidgetSearchLine_ConnectTreeWidget(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#connectTreeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#connectTreeWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -384,7 +384,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_OnConnectTreeWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#connectTreeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#connectTreeWidget)
     ///
     /// Base class method implementation
     ///
@@ -393,14 +393,14 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_QBaseConnectTreeWidget(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#disconnectTreeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#disconnectTreeWidget)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, param1: QtC.QTreeWidget ```
     pub fn DisconnectTreeWidget(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KTreeWidgetSearchLine_DisconnectTreeWidget(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#disconnectTreeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#disconnectTreeWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -409,7 +409,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_OnDisconnectTreeWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#disconnectTreeWidget)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#disconnectTreeWidget)
     ///
     /// Base class method implementation
     ///
@@ -418,14 +418,14 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_QBaseDisconnectTreeWidget(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#canChooseColumnsCheck)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#canChooseColumnsCheck)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine ```
     pub fn CanChooseColumnsCheck(self: ?*anyopaque) bool {
         return qtc.KTreeWidgetSearchLine_CanChooseColumnsCheck(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#canChooseColumnsCheck)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#canChooseColumnsCheck)
     ///
     /// Allows for overriding the related default method
     ///
@@ -434,7 +434,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_OnCanChooseColumnsCheck(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#canChooseColumnsCheck)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#canChooseColumnsCheck)
     ///
     /// Base class method implementation
     ///
@@ -443,14 +443,14 @@ pub const ktreewidgetsearchline = struct {
         return qtc.KTreeWidgetSearchLine_QBaseCanChooseColumnsCheck(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#event)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#event)
     ///
     /// ``` self: QtC.KTreeWidgetSearchLine, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KTreeWidgetSearchLine_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#event)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -459,7 +459,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.KTreeWidgetSearchLine_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#event)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#event)
     ///
     /// Base class method implementation
     ///
@@ -6231,7 +6231,7 @@ pub const ktreewidgetsearchline = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktreewidgetsearchline.html#dtor.KTreeWidgetSearchLine)
+    /// [Qt documentation](https://api.kde.org/ktreewidgetsearchline.html#dtor.KTreeWidgetSearchLine)
     ///
     /// Delete this object from C++ memory.
     ///

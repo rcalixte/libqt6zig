@@ -12,7 +12,7 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 pub const map_i32_qtcqkeysequence = std.AutoHashMapUnmanaged(i32, []QtC.QKeySequence);
 
-/// https://api-staging.kde.org/kcombobox.html
+/// https://api.kde.org/kcombobox.html
 pub const kcombobox = struct {
     /// New constructs a new KComboBox object.
     ///
@@ -86,70 +86,70 @@ pub const kcombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setEditUrl)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setEditUrl)
     ///
     /// ``` self: QtC.KComboBox, url: QtC.QUrl ```
     pub fn SetEditUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KComboBox_SetEditUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#addUrl)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#addUrl)
     ///
     /// ``` self: QtC.KComboBox, url: QtC.QUrl ```
     pub fn AddUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KComboBox_AddUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#addUrl)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#addUrl)
     ///
     /// ``` self: QtC.KComboBox, icon: QtC.QIcon, url: QtC.QUrl ```
     pub fn AddUrl2(self: ?*anyopaque, icon: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KComboBox_AddUrl2(@ptrCast(self), @ptrCast(icon), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#insertUrl)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#insertUrl)
     ///
     /// ``` self: QtC.KComboBox, index: i32, url: QtC.QUrl ```
     pub fn InsertUrl(self: ?*anyopaque, index: i32, url: ?*anyopaque) void {
         qtc.KComboBox_InsertUrl(@ptrCast(self), @intCast(index), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#insertUrl)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#insertUrl)
     ///
     /// ``` self: QtC.KComboBox, index: i32, icon: QtC.QIcon, url: QtC.QUrl ```
     pub fn InsertUrl2(self: ?*anyopaque, index: i32, icon: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KComboBox_InsertUrl2(@ptrCast(self), @intCast(index), @ptrCast(icon), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#changeUrl)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#changeUrl)
     ///
     /// ``` self: QtC.KComboBox, index: i32, url: QtC.QUrl ```
     pub fn ChangeUrl(self: ?*anyopaque, index: i32, url: ?*anyopaque) void {
         qtc.KComboBox_ChangeUrl(@ptrCast(self), @intCast(index), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#changeUrl)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#changeUrl)
     ///
     /// ``` self: QtC.KComboBox, index: i32, icon: QtC.QIcon, url: QtC.QUrl ```
     pub fn ChangeUrl2(self: ?*anyopaque, index: i32, icon: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KComboBox_ChangeUrl2(@ptrCast(self), @intCast(index), @ptrCast(icon), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#cursorPosition)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#cursorPosition)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn CursorPosition(self: ?*anyopaque) i32 {
         return qtc.KComboBox_CursorPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setAutoCompletion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setAutoCompletion)
     ///
     /// ``` self: QtC.KComboBox, autocomplete: bool ```
     pub fn SetAutoCompletion(self: ?*anyopaque, autocomplete: bool) void {
         qtc.KComboBox_SetAutoCompletion(@ptrCast(self), autocomplete);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setAutoCompletion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setAutoCompletion)
     ///
     /// Allows for overriding the related default method
     ///
@@ -158,7 +158,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_OnSetAutoCompletion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setAutoCompletion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setAutoCompletion)
     ///
     /// Base class method implementation
     ///
@@ -167,21 +167,21 @@ pub const kcombobox = struct {
         qtc.KComboBox_QBaseSetAutoCompletion(@ptrCast(self), autocomplete);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#autoCompletion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#autoCompletion)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn AutoCompletion(self: ?*anyopaque) bool {
         return qtc.KComboBox_AutoCompletion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#urlDropsEnabled)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#urlDropsEnabled)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn UrlDropsEnabled(self: ?*anyopaque) bool {
         return qtc.KComboBox_UrlDropsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#contains)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#contains)
     ///
     /// ``` self: QtC.KComboBox, text: []const u8 ```
     pub fn Contains(self: ?*anyopaque, text: []const u8) bool {
@@ -192,35 +192,35 @@ pub const kcombobox = struct {
         return qtc.KComboBox_Contains(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setTrapReturnKey)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setTrapReturnKey)
     ///
     /// ``` self: QtC.KComboBox, trap: bool ```
     pub fn SetTrapReturnKey(self: ?*anyopaque, trap: bool) void {
         qtc.KComboBox_SetTrapReturnKey(@ptrCast(self), trap);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#trapReturnKey)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#trapReturnKey)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn TrapReturnKey(self: ?*anyopaque) bool {
         return qtc.KComboBox_TrapReturnKey(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#completionBox)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#completionBox)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn CompletionBox(self: ?*anyopaque) QtC.KCompletionBox {
         return qtc.KComboBox_CompletionBox(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setLineEdit)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setLineEdit)
     ///
     /// ``` self: QtC.KComboBox, lineEdit: QtC.QLineEdit ```
     pub fn SetLineEdit(self: ?*anyopaque, lineEdit: ?*anyopaque) void {
         qtc.KComboBox_SetLineEdit(@ptrCast(self), @ptrCast(lineEdit));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setLineEdit)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setLineEdit)
     ///
     /// Allows for overriding the related default method
     ///
@@ -229,7 +229,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_OnSetLineEdit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setLineEdit)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setLineEdit)
     ///
     /// Base class method implementation
     ///
@@ -238,28 +238,28 @@ pub const kcombobox = struct {
         qtc.KComboBox_QBaseSetLineEdit(@ptrCast(self), @ptrCast(lineEdit));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setEditable)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setEditable)
     ///
     /// ``` self: QtC.KComboBox, editable: bool ```
     pub fn SetEditable(self: ?*anyopaque, editable: bool) void {
         qtc.KComboBox_SetEditable(@ptrCast(self), editable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#contextMenu)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#contextMenu)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn ContextMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KComboBox_ContextMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KComboBox_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -268,7 +268,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -277,7 +277,7 @@ pub const kcombobox = struct {
         return qtc.KComboBox_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#returnPressed)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#returnPressed)
     ///
     /// ``` self: QtC.KComboBox, text: []const u8 ```
     pub fn ReturnPressed(self: ?*anyopaque, text: []const u8) void {
@@ -288,14 +288,14 @@ pub const kcombobox = struct {
         qtc.KComboBox_ReturnPressed(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#returnPressed)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#returnPressed)
     ///
     /// ``` self: QtC.KComboBox, slot: fn (self: QtC.KComboBox, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnReturnPressed(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KComboBox_Connect_ReturnPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#completion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#completion)
     ///
     /// ``` self: QtC.KComboBox, param1: []const u8 ```
     pub fn Completion(self: ?*anyopaque, param1: []const u8) void {
@@ -306,14 +306,14 @@ pub const kcombobox = struct {
         qtc.KComboBox_Completion(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#completion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#completion)
     ///
     /// ``` self: QtC.KComboBox, slot: fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnCompletion(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KComboBox_Connect_Completion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#substringCompletion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#substringCompletion)
     ///
     /// ``` self: QtC.KComboBox, param1: []const u8 ```
     pub fn SubstringCompletion(self: ?*anyopaque, param1: []const u8) void {
@@ -324,63 +324,63 @@ pub const kcombobox = struct {
         qtc.KComboBox_SubstringCompletion(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#substringCompletion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#substringCompletion)
     ///
     /// ``` self: QtC.KComboBox, slot: fn (self: QtC.KComboBox, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnSubstringCompletion(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KComboBox_Connect_SubstringCompletion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#textRotation)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#textRotation)
     ///
     /// ``` self: QtC.KComboBox, param1: kcompletionbase_enums.KeyBindingType ```
     pub fn TextRotation(self: ?*anyopaque, param1: i32) void {
         qtc.KComboBox_TextRotation(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#textRotation)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#textRotation)
     ///
     /// ``` self: QtC.KComboBox, slot: fn (self: QtC.KComboBox, param1: kcompletionbase_enums.KeyBindingType) callconv(.c) void ```
     pub fn OnTextRotation(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KComboBox_Connect_TextRotation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#completionModeChanged)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#completionModeChanged)
     ///
     /// ``` self: QtC.KComboBox, param1: kcompletion_enums.CompletionMode ```
     pub fn CompletionModeChanged(self: ?*anyopaque, param1: i32) void {
         qtc.KComboBox_CompletionModeChanged(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#completionModeChanged)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#completionModeChanged)
     ///
     /// ``` self: QtC.KComboBox, slot: fn (self: QtC.KComboBox, param1: kcompletion_enums.CompletionMode) callconv(.c) void ```
     pub fn OnCompletionModeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KComboBox_Connect_CompletionModeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#aboutToShowContextMenu)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KComboBox, contextMenu: QtC.QMenu ```
     pub fn AboutToShowContextMenu(self: ?*anyopaque, contextMenu: ?*anyopaque) void {
         qtc.KComboBox_AboutToShowContextMenu(@ptrCast(self), @ptrCast(contextMenu));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#aboutToShowContextMenu)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KComboBox, slot: fn (self: QtC.KComboBox, contextMenu: QtC.QMenu) callconv(.c) void ```
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KComboBox_Connect_AboutToShowContextMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#rotateText)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#rotateText)
     ///
     /// ``` self: QtC.KComboBox, typeVal: kcompletionbase_enums.KeyBindingType ```
     pub fn RotateText(self: ?*anyopaque, typeVal: i32) void {
         qtc.KComboBox_RotateText(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCompletedText)
     ///
     /// ``` self: QtC.KComboBox, completedText: []const u8 ```
     pub fn SetCompletedText(self: ?*anyopaque, completedText: []const u8) void {
@@ -391,7 +391,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_SetCompletedText(@ptrCast(self), completedText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCompletedText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -400,7 +400,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_OnSetCompletedText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCompletedText)
     ///
     /// Base class method implementation
     ///
@@ -413,7 +413,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_QBaseSetCompletedText(@ptrCast(self), completedText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCompletedItems)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCompletedItems)
     ///
     /// ``` self: QtC.KComboBox, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator ```
     pub fn SetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
@@ -432,7 +432,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_SetCompletedItems(@ptrCast(self), items_list, autoSuggest);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCompletedItems)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCompletedItems)
     ///
     /// Allows for overriding the related default method
     ///
@@ -441,7 +441,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_OnSetCompletedItems(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCompletedItems)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCompletedItems)
     ///
     /// Base class method implementation
     ///
@@ -462,7 +462,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_QBaseSetCompletedItems(@ptrCast(self), items_list, autoSuggest);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCurrentItem)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCurrentItem)
     ///
     /// ``` self: QtC.KComboBox, item: []const u8 ```
     pub fn SetCurrentItem(self: ?*anyopaque, item: []const u8) void {
@@ -473,7 +473,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_SetCurrentItem(@ptrCast(self), item_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#makeCompletion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#makeCompletion)
     ///
     /// ``` self: QtC.KComboBox, param1: []const u8 ```
     pub fn MakeCompletion(self: ?*anyopaque, param1: []const u8) void {
@@ -484,7 +484,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_MakeCompletion(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#makeCompletion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#makeCompletion)
     ///
     /// Allows for overriding the related default method
     ///
@@ -493,7 +493,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_OnMakeCompletion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#makeCompletion)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#makeCompletion)
     ///
     /// Base class method implementation
     ///
@@ -506,7 +506,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_QBaseMakeCompletion(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCompletedText)
     ///
     /// ``` self: QtC.KComboBox, text: []const u8, marked: bool ```
     pub fn SetCompletedText2(self: ?*anyopaque, text: []const u8, marked: bool) void {
@@ -517,7 +517,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_SetCompletedText2(@ptrCast(self), text_str, marked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCompletedText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -526,7 +526,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_OnSetCompletedText2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCompletedText)
     ///
     /// Base class method implementation
     ///
@@ -565,14 +565,14 @@ pub const kcombobox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#completionBox)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#completionBox)
     ///
     /// ``` self: QtC.KComboBox, create: bool ```
     pub fn CompletionBox1(self: ?*anyopaque, create: bool) QtC.KCompletionBox {
         return qtc.KComboBox_CompletionBox1(@ptrCast(self), create);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCurrentItem)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCurrentItem)
     ///
     /// ``` self: QtC.KComboBox, item: []const u8, insert: bool ```
     pub fn SetCurrentItem2(self: ?*anyopaque, item: []const u8, insert: bool) void {
@@ -583,7 +583,7 @@ pub const kcombobox = struct {
         qtc.KComboBox_SetCurrentItem2(@ptrCast(self), item_str, insert);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#setCurrentItem)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#setCurrentItem)
     ///
     /// ``` self: QtC.KComboBox, item: []const u8, insert: bool, index: i32 ```
     pub fn SetCurrentItem3(self: ?*anyopaque, item: []const u8, insert: bool, index: i32) void {
@@ -4533,7 +4533,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#completionObject)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionObject)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn CompletionObject(self: ?*anyopaque) QtC.KCompletion {
@@ -4542,7 +4542,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#isCompletionObjectAutoDeleted)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#isCompletionObjectAutoDeleted)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn IsCompletionObjectAutoDeleted(self: ?*anyopaque) bool {
@@ -4551,7 +4551,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setAutoDeleteCompletionObject)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setAutoDeleteCompletionObject)
     ///
     /// ``` self: QtC.KComboBox, autoDelete: bool ```
     pub fn SetAutoDeleteCompletionObject(self: ?*anyopaque, autoDelete: bool) void {
@@ -4560,7 +4560,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setEnableSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setEnableSignals)
     ///
     /// ``` self: QtC.KComboBox, enable: bool ```
     pub fn SetEnableSignals(self: ?*anyopaque, enable: bool) void {
@@ -4569,7 +4569,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#handleSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#handleSignals)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn HandleSignals(self: ?*anyopaque) bool {
@@ -4578,7 +4578,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#emitSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#emitSignals)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn EmitSignals(self: ?*anyopaque) bool {
@@ -4587,7 +4587,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setEmitSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setEmitSignals)
     ///
     /// ``` self: QtC.KComboBox, emitRotationSignals: bool ```
     pub fn SetEmitSignals(self: ?*anyopaque, emitRotationSignals: bool) void {
@@ -4596,7 +4596,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#completionMode)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionMode)
     ///
     /// ``` self: QtC.KComboBox ```
     ///
@@ -4607,7 +4607,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setKeyBinding)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBinding)
     ///
     /// ``` self: QtC.KComboBox, item: kcompletionbase_enums.KeyBindingType, key: []QtC.QKeySequence ```
     pub fn SetKeyBinding(self: ?*anyopaque, item: i32, key: []QtC.QKeySequence) bool {
@@ -4620,7 +4620,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#keyBinding)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBinding)
     ///
     /// ``` self: QtC.KComboBox, item: kcompletionbase_enums.KeyBindingType, allocator: std.mem.Allocator ```
     pub fn KeyBinding(self: ?*anyopaque, item: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -4634,7 +4634,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#useGlobalKeyBindings)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#useGlobalKeyBindings)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn UseGlobalKeyBindings(self: ?*anyopaque) void {
@@ -4643,7 +4643,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#compObj)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#compObj)
     ///
     /// ``` self: QtC.KComboBox ```
     pub fn CompObj(self: ?*anyopaque) QtC.KCompletion {
@@ -4652,7 +4652,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#completionObject)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionObject)
     ///
     /// ``` self: QtC.KComboBox, handleSignals: bool ```
     pub fn CompletionObject1(self: ?*anyopaque, handleSignals: bool) QtC.KCompletion {
@@ -6319,7 +6319,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setCompletionObject)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionObject)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6330,7 +6330,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setCompletionObject)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionObject)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6341,7 +6341,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setCompletionObject)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionObject)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6352,7 +6352,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setHandleSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6363,7 +6363,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setHandleSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6374,7 +6374,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setHandleSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6385,7 +6385,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setCompletionMode)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6396,7 +6396,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setCompletionMode)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6407,7 +6407,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setCompletionMode)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setCompletionMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6418,7 +6418,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6429,7 +6429,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6440,7 +6440,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6783,7 +6783,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#keyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6808,7 +6808,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#keyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6833,7 +6833,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#keyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6844,7 +6844,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setKeyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6872,7 +6872,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setKeyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6900,7 +6900,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setKeyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6911,7 +6911,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setDelegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6922,7 +6922,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setDelegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6933,7 +6933,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setDelegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6944,7 +6944,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#delegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6955,7 +6955,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#delegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6966,7 +6966,7 @@ pub const kcombobox = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#delegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6986,7 +6986,7 @@ pub const kcombobox = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcombobox.html#dtor.KComboBox)
+    /// [Qt documentation](https://api.kde.org/kcombobox.html#dtor.KComboBox)
     ///
     /// Delete this object from C++ memory.
     ///

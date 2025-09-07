@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kbusyindicatorwidget.html
+/// https://api.kde.org/kbusyindicatorwidget.html
 pub const kbusyindicatorwidget = struct {
     /// New constructs a new KBusyIndicatorWidget object.
     ///
@@ -68,14 +68,14 @@ pub const kbusyindicatorwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KBusyIndicatorWidget_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -84,7 +84,7 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -93,42 +93,42 @@ pub const kbusyindicatorwidget = struct {
         return qtc.KBusyIndicatorWidget_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#isRunning)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#isRunning)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget ```
     pub fn IsRunning(self: ?*anyopaque) bool {
         return qtc.KBusyIndicatorWidget_IsRunning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#start)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#start)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.KBusyIndicatorWidget_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#stop)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#stop)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.KBusyIndicatorWidget_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#setRunning)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#setRunning)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget ```
     pub fn SetRunning(self: ?*anyopaque) void {
         qtc.KBusyIndicatorWidget_SetRunning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#showEvent)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KBusyIndicatorWidget_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -137,7 +137,7 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -146,14 +146,14 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#hideEvent)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget, event: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KBusyIndicatorWidget_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#hideEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -162,7 +162,7 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#hideEvent)
     ///
     /// Base class method implementation
     ///
@@ -171,14 +171,14 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#resizeEvent)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KBusyIndicatorWidget_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -187,7 +187,7 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -196,14 +196,14 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#paintEvent)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KBusyIndicatorWidget_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -212,7 +212,7 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -221,14 +221,14 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#event)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#event)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KBusyIndicatorWidget_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#event)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -237,7 +237,7 @@ pub const kbusyindicatorwidget = struct {
         qtc.KBusyIndicatorWidget_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#event)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#event)
     ///
     /// Base class method implementation
     ///
@@ -272,7 +272,7 @@ pub const kbusyindicatorwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#setRunning)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#setRunning)
     ///
     /// ``` self: QtC.KBusyIndicatorWidget, enable: bool ```
     pub fn SetRunning1(self: ?*anyopaque, enable: bool) void {
@@ -5061,7 +5061,7 @@ pub const kbusyindicatorwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kbusyindicatorwidget.html#dtor.KBusyIndicatorWidget)
+    /// [Qt documentation](https://api.kde.org/kbusyindicatorwidget.html#dtor.KBusyIndicatorWidget)
     ///
     /// Delete this object from C++ memory.
     ///

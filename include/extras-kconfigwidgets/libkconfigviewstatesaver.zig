@@ -5,7 +5,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
-/// https://api-staging.kde.org/kconfigviewstatesaver.html
+/// https://api.kde.org/kconfigviewstatesaver.html
 pub const kconfigviewstatesaver = struct {
     /// New constructs a new KConfigViewStateSaver object.
     ///
@@ -65,14 +65,14 @@ pub const kconfigviewstatesaver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigviewstatesaver.html#saveState)
+    /// [Qt documentation](https://api.kde.org/kconfigviewstatesaver.html#saveState)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, configGroup: QtC.KConfigGroup ```
     pub fn SaveState(self: ?*anyopaque, configGroup: ?*anyopaque) void {
         qtc.KConfigViewStateSaver_SaveState(@ptrCast(self), @ptrCast(configGroup));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigviewstatesaver.html#restoreState)
+    /// [Qt documentation](https://api.kde.org/kconfigviewstatesaver.html#restoreState)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, configGroup: QtC.KConfigGroup ```
     pub fn RestoreState(self: ?*anyopaque, configGroup: ?*anyopaque) void {
@@ -107,7 +107,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#view)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#view)
     ///
     /// ``` self: QtC.KConfigViewStateSaver ```
     pub fn View(self: ?*anyopaque) QtC.QAbstractItemView {
@@ -116,7 +116,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#setView)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#setView)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, view: QtC.QAbstractItemView ```
     pub fn SetView(self: ?*anyopaque, view: ?*anyopaque) void {
@@ -125,7 +125,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#selectionModel)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#selectionModel)
     ///
     /// ``` self: QtC.KConfigViewStateSaver ```
     pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
@@ -134,7 +134,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#setSelectionModel)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#setSelectionModel)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, selectionModel: QtC.QItemSelectionModel ```
     pub fn SetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
@@ -143,7 +143,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#selectionKeys)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#selectionKeys)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, allocator: std.mem.Allocator ```
     pub fn SelectionKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -167,7 +167,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#expansionKeys)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#expansionKeys)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, allocator: std.mem.Allocator ```
     pub fn ExpansionKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -191,7 +191,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#currentIndexKey)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#currentIndexKey)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, allocator: std.mem.Allocator ```
     pub fn CurrentIndexKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -204,7 +204,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#scrollState)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#scrollState)
     ///
     /// ``` self: QtC.KConfigViewStateSaver ```
     pub fn ScrollState(self: ?*anyopaque) struct_i32_i32 {
@@ -217,7 +217,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreSelection)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreSelection)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, indexStrings: [][]const u8, allocator: std.mem.Allocator ```
     pub fn RestoreSelection(self: ?*anyopaque, indexStrings: [][]const u8, allocator: std.mem.Allocator) void {
@@ -238,7 +238,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreCurrentItem)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreCurrentItem)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, indexString: []const u8 ```
     pub fn RestoreCurrentItem(self: ?*anyopaque, indexString: []const u8) void {
@@ -251,7 +251,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreExpanded)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreExpanded)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, indexStrings: [][]const u8, allocator: std.mem.Allocator ```
     pub fn RestoreExpanded(self: ?*anyopaque, indexStrings: [][]const u8, allocator: std.mem.Allocator) void {
@@ -272,7 +272,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#restoreScrollState)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreScrollState)
     ///
     /// ``` self: QtC.KConfigViewStateSaver, verticalScoll: i32, horizontalScroll: i32 ```
     pub fn RestoreScrollState(self: ?*anyopaque, verticalScoll: i32, horizontalScroll: i32) void {
@@ -658,7 +658,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexFromConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -673,7 +673,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexFromConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -688,7 +688,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexFromConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -699,7 +699,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexToConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -714,7 +714,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexToConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -729,7 +729,7 @@ pub const kconfigviewstatesaver = struct {
 
     /// Inherited from KViewStateSerializer
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kviewstateserializer.html#indexToConfigString)
+    /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1114,7 +1114,7 @@ pub const kconfigviewstatesaver = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigviewstatesaver.html#dtor.KConfigViewStateSaver)
+    /// [Qt documentation](https://api.kde.org/kconfigviewstatesaver.html#dtor.KConfigViewStateSaver)
     ///
     /// Delete this object from C++ memory.
     ///

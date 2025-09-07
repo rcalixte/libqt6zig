@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktooltiphelper.html
+/// https://api.kde.org/ktooltiphelper.html
 pub const ktooltiphelper = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -36,21 +36,21 @@ pub const ktooltiphelper = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltiphelper.html#instance)
+    /// [Qt documentation](https://api.kde.org/ktooltiphelper.html#instance)
     ///
     ///
     pub fn Instance() QtC.KToolTipHelper {
         return qtc.KToolTipHelper_Instance();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltiphelper.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktooltiphelper.html#eventFilter)
     ///
     /// ``` self: QtC.KToolTipHelper, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KToolTipHelper_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltiphelper.html#whatsThisHintOnly)
+    /// [Qt documentation](https://api.kde.org/ktooltiphelper.html#whatsThisHintOnly)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn WhatsThisHintOnly(allocator: std.mem.Allocator) []const u8 {

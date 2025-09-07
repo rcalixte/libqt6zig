@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kdragwidgetdecoratorbase.html
+/// https://api.kde.org/kdragwidgetdecoratorbase.html
 pub const kdragwidgetdecoratorbase = struct {
     /// New constructs a new KDragWidgetDecoratorBase object.
     ///
@@ -64,28 +64,28 @@ pub const kdragwidgetdecoratorbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#setDragEnabled)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#setDragEnabled)
     ///
     /// ``` self: QtC.KDragWidgetDecoratorBase, enable: bool ```
     pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KDragWidgetDecoratorBase_SetDragEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#isDragEnabled)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#isDragEnabled)
     ///
     /// ``` self: QtC.KDragWidgetDecoratorBase ```
     pub fn IsDragEnabled(self: ?*anyopaque) bool {
         return qtc.KDragWidgetDecoratorBase_IsDragEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#decoratedWidget)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#decoratedWidget)
     ///
     /// ``` self: QtC.KDragWidgetDecoratorBase ```
     pub fn DecoratedWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KDragWidgetDecoratorBase_DecoratedWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#decoratedWidget)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#decoratedWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -94,7 +94,7 @@ pub const kdragwidgetdecoratorbase = struct {
         qtc.KDragWidgetDecoratorBase_OnDecoratedWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#decoratedWidget)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#decoratedWidget)
     ///
     /// Base class method implementation
     ///
@@ -103,14 +103,14 @@ pub const kdragwidgetdecoratorbase = struct {
         return qtc.KDragWidgetDecoratorBase_QBaseDecoratedWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#dragObject)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#dragObject)
     ///
     /// ``` self: QtC.KDragWidgetDecoratorBase ```
     pub fn DragObject(self: ?*anyopaque) QtC.QDrag {
         return qtc.KDragWidgetDecoratorBase_DragObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#dragObject)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#dragObject)
     ///
     /// Allows for overriding the related default method
     ///
@@ -119,7 +119,7 @@ pub const kdragwidgetdecoratorbase = struct {
         qtc.KDragWidgetDecoratorBase_OnDragObject(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#dragObject)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#dragObject)
     ///
     /// Base class method implementation
     ///
@@ -128,14 +128,14 @@ pub const kdragwidgetdecoratorbase = struct {
         return qtc.KDragWidgetDecoratorBase_QBaseDragObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#eventFilter)
     ///
     /// ``` self: QtC.KDragWidgetDecoratorBase, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KDragWidgetDecoratorBase_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -144,7 +144,7 @@ pub const kdragwidgetdecoratorbase = struct {
         qtc.KDragWidgetDecoratorBase_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -153,14 +153,14 @@ pub const kdragwidgetdecoratorbase = struct {
         return qtc.KDragWidgetDecoratorBase_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#startDrag)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#startDrag)
     ///
     /// ``` self: QtC.KDragWidgetDecoratorBase ```
     pub fn StartDrag(self: ?*anyopaque) void {
         qtc.KDragWidgetDecoratorBase_StartDrag(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#startDrag)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#startDrag)
     ///
     /// Allows for overriding the related default method
     ///
@@ -169,7 +169,7 @@ pub const kdragwidgetdecoratorbase = struct {
         qtc.KDragWidgetDecoratorBase_OnStartDrag(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#startDrag)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#startDrag)
     ///
     /// Base class method implementation
     ///
@@ -924,7 +924,7 @@ pub const kdragwidgetdecoratorbase = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdragwidgetdecoratorbase.html#dtor.KDragWidgetDecoratorBase)
+    /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#dtor.KDragWidgetDecoratorBase)
     ///
     /// Delete this object from C++ memory.
     ///

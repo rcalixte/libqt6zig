@@ -9,7 +9,7 @@ const qtoolbutton_enums = @import("../libqtoolbutton.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ksplittercollapserbutton.html
+/// https://api.kde.org/ksplittercollapserbutton.html
 pub const ksplittercollapserbutton = struct {
     /// New constructs a new KSplitterCollapserButton object.
     ///
@@ -62,21 +62,21 @@ pub const ksplittercollapserbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#isWidgetCollapsed)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#isWidgetCollapsed)
     ///
     /// ``` self: QtC.KSplitterCollapserButton ```
     pub fn IsWidgetCollapsed(self: ?*anyopaque) bool {
         return qtc.KSplitterCollapserButton_IsWidgetCollapsed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#sizeHint)
     ///
     /// ``` self: QtC.KSplitterCollapserButton ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KSplitterCollapserButton_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -85,7 +85,7 @@ pub const ksplittercollapserbutton = struct {
         qtc.KSplitterCollapserButton_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -94,35 +94,35 @@ pub const ksplittercollapserbutton = struct {
         return qtc.KSplitterCollapserButton_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#collapse)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#collapse)
     ///
     /// ``` self: QtC.KSplitterCollapserButton ```
     pub fn Collapse(self: ?*anyopaque) void {
         qtc.KSplitterCollapserButton_Collapse(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#restore)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#restore)
     ///
     /// ``` self: QtC.KSplitterCollapserButton ```
     pub fn Restore(self: ?*anyopaque) void {
         qtc.KSplitterCollapserButton_Restore(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#setCollapsed)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#setCollapsed)
     ///
     /// ``` self: QtC.KSplitterCollapserButton, collapsed: bool ```
     pub fn SetCollapsed(self: ?*anyopaque, collapsed: bool) void {
         qtc.KSplitterCollapserButton_SetCollapsed(@ptrCast(self), collapsed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#eventFilter)
     ///
     /// ``` self: QtC.KSplitterCollapserButton, param1: QtC.QObject, param2: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
         return qtc.KSplitterCollapserButton_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -131,7 +131,7 @@ pub const ksplittercollapserbutton = struct {
         qtc.KSplitterCollapserButton_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -140,14 +140,14 @@ pub const ksplittercollapserbutton = struct {
         return qtc.KSplitterCollapserButton_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#paintEvent)
     ///
     /// ``` self: QtC.KSplitterCollapserButton, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KSplitterCollapserButton_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -156,7 +156,7 @@ pub const ksplittercollapserbutton = struct {
         qtc.KSplitterCollapserButton_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -165,14 +165,14 @@ pub const ksplittercollapserbutton = struct {
         qtc.KSplitterCollapserButton_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#enterEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#enterEvent)
     ///
     /// ``` self: QtC.KSplitterCollapserButton, event: QtC.QEnterEvent ```
     pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KSplitterCollapserButton_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#enterEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#enterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -181,7 +181,7 @@ pub const ksplittercollapserbutton = struct {
         qtc.KSplitterCollapserButton_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#enterEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#enterEvent)
     ///
     /// Base class method implementation
     ///
@@ -190,14 +190,14 @@ pub const ksplittercollapserbutton = struct {
         qtc.KSplitterCollapserButton_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#leaveEvent)
     ///
     /// ``` self: QtC.KSplitterCollapserButton, event: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KSplitterCollapserButton_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#leaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -206,7 +206,7 @@ pub const ksplittercollapserbutton = struct {
         qtc.KSplitterCollapserButton_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#leaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -215,14 +215,14 @@ pub const ksplittercollapserbutton = struct {
         qtc.KSplitterCollapserButton_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#showEvent)
     ///
     /// ``` self: QtC.KSplitterCollapserButton, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KSplitterCollapserButton_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -231,7 +231,7 @@ pub const ksplittercollapserbutton = struct {
         qtc.KSplitterCollapserButton_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -5653,7 +5653,7 @@ pub const ksplittercollapserbutton = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksplittercollapserbutton.html#dtor.KSplitterCollapserButton)
+    /// [Qt documentation](https://api.kde.org/ksplittercollapserbutton.html#dtor.KSplitterCollapserButton)
     ///
     /// Delete this object from C++ memory.
     ///

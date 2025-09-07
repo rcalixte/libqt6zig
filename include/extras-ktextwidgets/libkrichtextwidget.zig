@@ -16,7 +16,7 @@ const qtextoption_enums = @import("../libqtextoption.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/krichtextwidget.html
+/// https://api.kde.org/krichtextwidget.html
 pub const krichtextwidget = struct {
     /// New constructs a new KRichTextWidget object.
     ///
@@ -93,7 +93,7 @@ pub const krichtextwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#createActions)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#createActions)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn CreateActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -105,7 +105,7 @@ pub const krichtextwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#createActions)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#createActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -114,7 +114,7 @@ pub const krichtextwidget = struct {
         qtc.KRichTextWidget_OnCreateActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#createActions)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#createActions)
     ///
     /// Base class method implementation
     ///
@@ -128,7 +128,7 @@ pub const krichtextwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#richTextSupport)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#richTextSupport)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -137,28 +137,28 @@ pub const krichtextwidget = struct {
         return qtc.KRichTextWidget_RichTextSupport(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#updateActionStates)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#updateActionStates)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn UpdateActionStates(self: ?*anyopaque) void {
         qtc.KRichTextWidget_UpdateActionStates(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#setActionsEnabled)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#setActionsEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget, enabled: bool ```
     pub fn SetActionsEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.KRichTextWidget_SetActionsEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KRichTextWidget, event: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextWidget_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -167,7 +167,7 @@ pub const krichtextwidget = struct {
         qtc.KRichTextWidget_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -204,7 +204,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#enableRichTextMode)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#enableRichTextMode)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn EnableRichTextMode(self: ?*anyopaque) void {
@@ -213,7 +213,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#textMode)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#textMode)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -224,7 +224,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#textOrHtml)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#textOrHtml)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn TextOrHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -237,7 +237,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setTextOrHtml)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextOrHtml)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8 ```
     pub fn SetTextOrHtml(self: ?*anyopaque, text: []const u8) void {
@@ -250,7 +250,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#currentLinkText)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#currentLinkText)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn CurrentLinkText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -263,7 +263,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#currentLinkUrl)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#currentLinkUrl)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn CurrentLinkUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -276,7 +276,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#selectLinkText)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#selectLinkText)
     ///
     /// ``` self: QtC.KRichTextWidget, cursor: QtC.QTextCursor ```
     pub fn SelectLinkText(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -285,7 +285,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#selectLinkText)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#selectLinkText)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SelectLinkText2(self: ?*anyopaque) void {
@@ -294,7 +294,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#updateLink)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#updateLink)
     ///
     /// ``` self: QtC.KRichTextWidget, linkUrl: []const u8, linkText: []const u8 ```
     pub fn UpdateLink(self: ?*anyopaque, linkUrl: []const u8, linkText: []const u8) void {
@@ -311,7 +311,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#canIndentList)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#canIndentList)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CanIndentList(self: ?*anyopaque) bool {
@@ -320,7 +320,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#canDedentList)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#canDedentList)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CanDedentList(self: ?*anyopaque) bool {
@@ -329,7 +329,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#alignLeft)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#alignLeft)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AlignLeft(self: ?*anyopaque) void {
@@ -338,7 +338,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#alignCenter)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#alignCenter)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AlignCenter(self: ?*anyopaque) void {
@@ -347,7 +347,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#alignRight)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#alignRight)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AlignRight(self: ?*anyopaque) void {
@@ -356,7 +356,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#alignJustify)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#alignJustify)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AlignJustify(self: ?*anyopaque) void {
@@ -365,7 +365,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#makeRightToLeft)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#makeRightToLeft)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MakeRightToLeft(self: ?*anyopaque) void {
@@ -374,7 +374,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#makeLeftToRight)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#makeLeftToRight)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MakeLeftToRight(self: ?*anyopaque) void {
@@ -383,7 +383,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setListStyle)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setListStyle)
     ///
     /// ``` self: QtC.KRichTextWidget, _styleIndex: i32 ```
     pub fn SetListStyle(self: ?*anyopaque, _styleIndex: i32) void {
@@ -392,7 +392,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#indentListMore)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#indentListMore)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IndentListMore(self: ?*anyopaque) void {
@@ -401,7 +401,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#indentListLess)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#indentListLess)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IndentListLess(self: ?*anyopaque) void {
@@ -410,7 +410,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setFontFamily)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setFontFamily)
     ///
     /// ``` self: QtC.KRichTextWidget, fontFamily: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, fontFamily: []const u8) void {
@@ -423,7 +423,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setFontSize)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setFontSize)
     ///
     /// ``` self: QtC.KRichTextWidget, size: i32 ```
     pub fn SetFontSize(self: ?*anyopaque, size: i32) void {
@@ -432,7 +432,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setFont)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setFont)
     ///
     /// ``` self: QtC.KRichTextWidget, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -441,7 +441,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setTextBold)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextBold)
     ///
     /// ``` self: QtC.KRichTextWidget, bold: bool ```
     pub fn SetTextBold(self: ?*anyopaque, bold: bool) void {
@@ -450,7 +450,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setTextItalic)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextItalic)
     ///
     /// ``` self: QtC.KRichTextWidget, italic: bool ```
     pub fn SetTextItalic(self: ?*anyopaque, italic: bool) void {
@@ -459,7 +459,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setTextUnderline)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextUnderline)
     ///
     /// ``` self: QtC.KRichTextWidget, underline: bool ```
     pub fn SetTextUnderline(self: ?*anyopaque, underline: bool) void {
@@ -468,7 +468,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setTextStrikeOut)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextStrikeOut)
     ///
     /// ``` self: QtC.KRichTextWidget, strikeOut: bool ```
     pub fn SetTextStrikeOut(self: ?*anyopaque, strikeOut: bool) void {
@@ -477,7 +477,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setTextForegroundColor)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextForegroundColor)
     ///
     /// ``` self: QtC.KRichTextWidget, color: QtC.QColor ```
     pub fn SetTextForegroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -486,7 +486,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setTextBackgroundColor)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextBackgroundColor)
     ///
     /// ``` self: QtC.KRichTextWidget, color: QtC.QColor ```
     pub fn SetTextBackgroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -495,7 +495,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#insertHorizontalRule)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#insertHorizontalRule)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn InsertHorizontalRule(self: ?*anyopaque) void {
@@ -504,7 +504,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#switchToPlainText)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#switchToPlainText)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SwitchToPlainText(self: ?*anyopaque) void {
@@ -513,7 +513,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#toCleanHtml)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#toCleanHtml)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn ToCleanHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -526,7 +526,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setTextSuperScript)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextSuperScript)
     ///
     /// ``` self: QtC.KRichTextWidget, superscript: bool ```
     pub fn SetTextSuperScript(self: ?*anyopaque, superscript: bool) void {
@@ -535,7 +535,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setTextSubScript)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextSubScript)
     ///
     /// ``` self: QtC.KRichTextWidget, subscript: bool ```
     pub fn SetTextSubScript(self: ?*anyopaque, subscript: bool) void {
@@ -544,7 +544,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#setHeadingLevel)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setHeadingLevel)
     ///
     /// ``` self: QtC.KRichTextWidget, level: i32 ```
     pub fn SetHeadingLevel(self: ?*anyopaque, level: i32) void {
@@ -553,7 +553,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#insertPlainTextImplementation)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#insertPlainTextImplementation)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn InsertPlainTextImplementation(self: ?*anyopaque) void {
@@ -562,7 +562,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#textModeChanged)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#textModeChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, mode: krichtextedit_enums.Mode ```
     pub fn TextModeChanged(self: ?*anyopaque, mode: i32) void {
@@ -571,7 +571,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#textModeChanged)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#textModeChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, slot: fn (self: QtC.KRichTextWidget, mode: krichtextedit_enums.Mode) callconv(.c) void ```
     pub fn OnTextModeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -580,7 +580,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#highlightWord)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#highlightWord)
     ///
     /// ``` self: QtC.KRichTextWidget, length: i32, pos: i32 ```
     pub fn HighlightWord(self: ?*anyopaque, length: i32, pos: i32) void {
@@ -589,7 +589,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#highlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#highlighter)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Highlighter(self: ?*anyopaque) QtC.Sonnet__Highlighter {
@@ -598,7 +598,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setHighlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setHighlighter)
     ///
     /// ``` self: QtC.KRichTextWidget, _highLighter: QtC.Sonnet__Highlighter ```
     pub fn SetHighlighter(self: ?*anyopaque, _highLighter: ?*anyopaque) void {
@@ -607,7 +607,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#enableFindReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#enableFindReplace)
     ///
     /// ``` self: QtC.KRichTextWidget, enabled: bool ```
     pub fn EnableFindReplace(self: ?*anyopaque, enabled: bool) void {
@@ -616,7 +616,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingLanguage)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingLanguage)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn SpellCheckingLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -629,7 +629,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#showTabAction)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#showTabAction)
     ///
     /// ``` self: QtC.KRichTextWidget, show: bool ```
     pub fn ShowTabAction(self: ?*anyopaque, show: bool) void {
@@ -638,7 +638,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#showAutoCorrectButton)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#showAutoCorrectButton)
     ///
     /// ``` self: QtC.KRichTextWidget, show: bool ```
     pub fn ShowAutoCorrectButton(self: ?*anyopaque, show: bool) void {
@@ -647,7 +647,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#forceSpellChecking)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#forceSpellChecking)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ForceSpellChecking(self: ?*anyopaque) void {
@@ -656,7 +656,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingChanged)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: bool ```
     pub fn CheckSpellingChanged(self: ?*anyopaque, param1: bool) void {
@@ -665,7 +665,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingChanged)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, slot: fn (self: QtC.KRichTextWidget, param1: bool) callconv(.c) void ```
     pub fn OnCheckSpellingChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -674,7 +674,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckStatus)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckStatus)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: []const u8 ```
     pub fn SpellCheckStatus(self: ?*anyopaque, param1: []const u8) void {
@@ -687,7 +687,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckStatus)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckStatus)
     ///
     /// ``` self: QtC.KRichTextWidget, slot: fn (self: QtC.KRichTextWidget, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnSpellCheckStatus(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -696,7 +696,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#languageChanged)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#languageChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, language: []const u8 ```
     pub fn LanguageChanged(self: ?*anyopaque, language: []const u8) void {
@@ -709,7 +709,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#languageChanged)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#languageChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, slot: fn (self: QtC.KRichTextWidget, language: [*:0]const u8) callconv(.c) void ```
     pub fn OnLanguageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -718,7 +718,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#aboutToShowContextMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KRichTextWidget, menu: QtC.QMenu ```
     pub fn AboutToShowContextMenu(self: ?*anyopaque, menu: ?*anyopaque) void {
@@ -727,7 +727,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#aboutToShowContextMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KRichTextWidget, slot: fn (self: QtC.KRichTextWidget, menu: QtC.QMenu) callconv(.c) void ```
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -736,7 +736,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckerAutoCorrect)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
     ///
     /// ``` self: QtC.KRichTextWidget, currentWord: []const u8, autoCorrectWord: []const u8 ```
     pub fn SpellCheckerAutoCorrect(self: ?*anyopaque, currentWord: []const u8, autoCorrectWord: []const u8) void {
@@ -753,7 +753,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckerAutoCorrect)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
     ///
     /// ``` self: QtC.KRichTextWidget, slot: fn (self: QtC.KRichTextWidget, currentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void ```
     pub fn OnSpellCheckerAutoCorrect(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
@@ -762,7 +762,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingFinished)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingFinished)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SpellCheckingFinished(self: ?*anyopaque) void {
@@ -771,7 +771,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingFinished)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingFinished)
     ///
     /// ``` self: QtC.KRichTextWidget, slot: fn (self: QtC.KRichTextWidget) callconv(.c) void ```
     pub fn OnSpellCheckingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -780,7 +780,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingCanceled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SpellCheckingCanceled(self: ?*anyopaque) void {
@@ -789,7 +789,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#spellCheckingCanceled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
     ///
     /// ``` self: QtC.KRichTextWidget, slot: fn (self: QtC.KRichTextWidget) callconv(.c) void ```
     pub fn OnSpellCheckingCanceled(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -798,7 +798,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setSpellCheckingLanguage)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setSpellCheckingLanguage)
     ///
     /// ``` self: QtC.KRichTextWidget, language: []const u8 ```
     pub fn SetSpellCheckingLanguage(self: ?*anyopaque, language: []const u8) void {
@@ -811,7 +811,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpelling)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpelling)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CheckSpelling(self: ?*anyopaque) void {
@@ -820,7 +820,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#showSpellConfigDialog)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ShowSpellConfigDialog(self: ?*anyopaque) void {
@@ -829,7 +829,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#replace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#replace)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Replace(self: ?*anyopaque) void {
@@ -838,7 +838,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#addTextDecorator)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#addTextDecorator)
     ///
     /// ``` self: QtC.KRichTextWidget, decorator: QtC.Sonnet__SpellCheckDecorator ```
     pub fn AddTextDecorator(self: ?*anyopaque, decorator: ?*anyopaque) void {
@@ -847,7 +847,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#clearDecorator)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#clearDecorator)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ClearDecorator(self: ?*anyopaque) void {
@@ -856,7 +856,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#showSpellConfigDialog)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
     ///
     /// ``` self: QtC.KRichTextWidget, windowIcon: []const u8 ```
     pub fn ShowSpellConfigDialog1(self: ?*anyopaque, windowIcon: []const u8) void {
@@ -5258,7 +5258,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5269,7 +5269,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5280,7 +5280,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/krichtextedit.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/krichtextedit.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5291,7 +5291,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5302,7 +5302,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5313,7 +5313,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5324,7 +5324,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5335,7 +5335,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5346,7 +5346,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5357,7 +5357,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5368,7 +5368,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5379,7 +5379,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5390,7 +5390,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5405,7 +5405,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5420,7 +5420,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5431,7 +5431,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#createHighlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5442,7 +5442,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#createHighlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5453,7 +5453,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#createHighlighter)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5464,7 +5464,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#mousePopupMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5475,7 +5475,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#mousePopupMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5486,7 +5486,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#mousePopupMenu)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5497,7 +5497,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#event)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5508,7 +5508,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#event)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5519,7 +5519,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#event)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5530,7 +5530,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5541,7 +5541,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5552,7 +5552,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5563,7 +5563,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordBack)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5574,7 +5574,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordBack)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5585,7 +5585,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordBack)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5596,7 +5596,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordForward)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5607,7 +5607,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordForward)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5618,7 +5618,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#deleteWordForward)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5629,7 +5629,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5640,7 +5640,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5651,7 +5651,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7386,7 +7386,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7397,7 +7397,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7408,7 +7408,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7419,7 +7419,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplaceNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7430,7 +7430,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplaceNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7441,7 +7441,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplaceNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7452,7 +7452,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7463,7 +7463,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7474,7 +7474,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotDoFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7485,7 +7485,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7496,7 +7496,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7507,7 +7507,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFind)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7518,7 +7518,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7529,7 +7529,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7540,7 +7540,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindNext)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7551,7 +7551,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindPrevious)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7562,7 +7562,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindPrevious)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7573,7 +7573,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotFindPrevious)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7584,7 +7584,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7595,7 +7595,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7606,7 +7606,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotReplace)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7617,7 +7617,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotSpeakText)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7628,7 +7628,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotSpeakText)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7639,7 +7639,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api-staging.kde.org/ktextedit.html#slotSpeakText)
+    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8123,7 +8123,7 @@ pub const krichtextwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krichtextwidget.html#dtor.KRichTextWidget)
+    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#dtor.KRichTextWidget)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -8133,7 +8133,7 @@ pub const krichtextwidget = struct {
     }
 };
 
-/// https://api-staging.kde.org/krichtextwidget.html#types
+/// https://api.kde.org/krichtextwidget.html#types
 pub const enums = struct {
     pub const RichTextSupportValues = enum {
         pub const DisableRichText: i32 = 0;

@@ -575,7 +575,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     }
 };
 
-/// https://api-staging.kde.org/keyboardtranslator.html#types
+/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
 pub const enums = struct {
     pub const State = enum {
         pub const NoState: i32 = 0;

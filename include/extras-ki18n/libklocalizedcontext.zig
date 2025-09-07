@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/klocalizedcontext.html
+/// https://api.kde.org/klocalizedcontext.html
 pub const klocalizedcontext = struct {
     /// New constructs a new KLocalizedContext object.
     ///
@@ -64,7 +64,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#translationDomain)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#translationDomain)
     ///
     /// ``` self: QtC.KLocalizedContext, allocator: std.mem.Allocator ```
     pub fn TranslationDomain(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -75,7 +75,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#setTranslationDomain)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#setTranslationDomain)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8 ```
     pub fn SetTranslationDomain(self: ?*anyopaque, domain: []const u8) void {
@@ -86,7 +86,7 @@ pub const klocalizedcontext = struct {
         qtc.KLocalizedContext_SetTranslationDomain(@ptrCast(self), domain_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, allocator: std.mem.Allocator ```
     pub fn I18n(self: ?*anyopaque, message: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -101,7 +101,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, allocator: std.mem.Allocator ```
     pub fn I18nc(self: ?*anyopaque, context: []const u8, message: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -120,7 +120,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator ```
     pub fn I18np(self: ?*anyopaque, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -139,7 +139,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator ```
     pub fn I18ncp(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -162,7 +162,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, allocator: std.mem.Allocator ```
     pub fn I18nd(self: ?*anyopaque, domain: []const u8, message: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -181,7 +181,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, allocator: std.mem.Allocator ```
     pub fn I18ndc(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -204,7 +204,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator ```
     pub fn I18ndp(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -227,7 +227,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator ```
     pub fn I18ndcp(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -254,7 +254,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, allocator: std.mem.Allocator ```
     pub fn Xi18n(self: ?*anyopaque, message: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -269,7 +269,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, allocator: std.mem.Allocator ```
     pub fn Xi18nc(self: ?*anyopaque, context: []const u8, message: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -288,7 +288,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator ```
     pub fn Xi18np(self: ?*anyopaque, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -307,7 +307,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator ```
     pub fn Xi18ncp(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -330,7 +330,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, allocator: std.mem.Allocator ```
     pub fn Xi18nd(self: ?*anyopaque, domain: []const u8, message: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -349,7 +349,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, allocator: std.mem.Allocator ```
     pub fn Xi18ndc(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -372,7 +372,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator ```
     pub fn Xi18ndp(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -395,7 +395,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -422,7 +422,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#translationDomainChanged)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#translationDomainChanged)
     ///
     /// ``` self: QtC.KLocalizedContext, translationDomain: []const u8 ```
     pub fn TranslationDomainChanged(self: ?*anyopaque, translationDomain: []const u8) void {
@@ -433,7 +433,7 @@ pub const klocalizedcontext = struct {
         qtc.KLocalizedContext_TranslationDomainChanged(@ptrCast(self), translationDomain_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#translationDomainChanged)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#translationDomainChanged)
     ///
     /// ``` self: QtC.KLocalizedContext, slot: fn (self: QtC.KLocalizedContext, translationDomain: [*:0]const u8) callconv(.c) void ```
     pub fn OnTranslationDomainChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -466,7 +466,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n2(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -481,7 +481,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n3(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -496,7 +496,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n4(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -511,7 +511,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n5(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -526,7 +526,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n6(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -541,7 +541,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n7(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -556,7 +556,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n8(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -571,7 +571,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n9(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -586,7 +586,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n10(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -601,7 +601,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18n11(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -616,7 +616,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc3(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -635,7 +635,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc4(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -654,7 +654,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc5(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -673,7 +673,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc6(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -692,7 +692,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc7(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -711,7 +711,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc8(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -730,7 +730,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc9(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -749,7 +749,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc10(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -768,7 +768,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc11(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -787,7 +787,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nc12(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -806,7 +806,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np3(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -825,7 +825,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np4(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -844,7 +844,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np5(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -863,7 +863,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np6(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -882,7 +882,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np7(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -901,7 +901,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np8(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -920,7 +920,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np9(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -939,7 +939,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np10(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -958,7 +958,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np11(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -977,7 +977,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18np12(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -996,7 +996,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp4(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1019,7 +1019,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp5(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1042,7 +1042,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp6(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1065,7 +1065,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp7(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1088,7 +1088,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp8(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1111,7 +1111,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp9(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1134,7 +1134,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp10(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1157,7 +1157,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp11(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1180,7 +1180,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp12(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1203,7 +1203,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ncp13(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1226,7 +1226,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd3(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1245,7 +1245,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd4(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1264,7 +1264,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd5(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1283,7 +1283,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd6(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1302,7 +1302,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd7(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1321,7 +1321,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd8(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1340,7 +1340,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd9(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1359,7 +1359,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd10(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1378,7 +1378,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd11(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1397,7 +1397,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18nd12(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1416,7 +1416,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc4(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1439,7 +1439,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc5(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1462,7 +1462,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc6(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1485,7 +1485,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc7(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1508,7 +1508,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc8(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1531,7 +1531,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc9(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1554,7 +1554,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc10(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1577,7 +1577,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc11(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1600,7 +1600,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc12(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1623,7 +1623,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndc13(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1646,7 +1646,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp4(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1669,7 +1669,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp5(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1692,7 +1692,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp6(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1715,7 +1715,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp7(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1738,7 +1738,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp8(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1761,7 +1761,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp9(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1784,7 +1784,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp10(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1807,7 +1807,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp11(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1830,7 +1830,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp12(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1853,7 +1853,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndp13(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1876,7 +1876,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp5(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1903,7 +1903,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp6(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1930,7 +1930,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp7(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1957,7 +1957,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp8(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1984,7 +1984,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp9(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2011,7 +2011,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp10(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2038,7 +2038,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp11(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2065,7 +2065,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp12(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2092,7 +2092,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp13(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2119,7 +2119,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#i18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#i18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn I18ndcp14(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2146,7 +2146,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n2(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2161,7 +2161,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n3(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2176,7 +2176,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n4(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2191,7 +2191,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n5(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2206,7 +2206,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n6(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2221,7 +2221,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n7(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2236,7 +2236,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n8(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2251,7 +2251,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n9(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2266,7 +2266,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n10(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2281,7 +2281,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18n)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18n)
     ///
     /// ``` self: QtC.KLocalizedContext, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18n11(self: ?*anyopaque, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2296,7 +2296,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc3(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2315,7 +2315,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc4(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2334,7 +2334,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc5(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2353,7 +2353,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc6(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2372,7 +2372,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc7(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2391,7 +2391,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc8(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2410,7 +2410,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc9(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2429,7 +2429,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc10(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2448,7 +2448,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc11(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2467,7 +2467,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nc)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nc12(self: ?*anyopaque, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2486,7 +2486,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np3(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2505,7 +2505,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np4(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2524,7 +2524,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np5(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2543,7 +2543,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np6(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2562,7 +2562,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np7(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2581,7 +2581,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np8(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2600,7 +2600,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np9(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2619,7 +2619,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np10(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2638,7 +2638,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np11(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2657,7 +2657,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18np)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18np)
     ///
     /// ``` self: QtC.KLocalizedContext, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18np12(self: ?*anyopaque, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2676,7 +2676,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp4(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2699,7 +2699,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp5(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2722,7 +2722,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp6(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2745,7 +2745,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp7(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2768,7 +2768,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp8(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2791,7 +2791,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp9(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2814,7 +2814,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp10(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2837,7 +2837,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp11(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2860,7 +2860,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp12(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2883,7 +2883,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ncp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ncp)
     ///
     /// ``` self: QtC.KLocalizedContext, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ncp13(self: ?*anyopaque, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2906,7 +2906,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd3(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2925,7 +2925,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd4(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2944,7 +2944,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd5(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2963,7 +2963,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd6(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2982,7 +2982,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd7(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3001,7 +3001,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd8(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3020,7 +3020,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd9(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3039,7 +3039,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd10(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3058,7 +3058,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd11(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3077,7 +3077,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18nd)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18nd)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18nd12(self: ?*anyopaque, domain: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3096,7 +3096,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc4(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3119,7 +3119,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc5(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3142,7 +3142,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc6(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3165,7 +3165,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc7(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3188,7 +3188,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc8(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3211,7 +3211,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc9(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3234,7 +3234,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc10(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3257,7 +3257,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc11(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3280,7 +3280,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc12(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3303,7 +3303,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndc)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndc)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, message: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndc13(self: ?*anyopaque, domain: []const u8, context: []const u8, message: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3326,7 +3326,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp4(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3349,7 +3349,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp5(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3372,7 +3372,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp6(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3395,7 +3395,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp7(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3418,7 +3418,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp8(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3441,7 +3441,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp9(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3464,7 +3464,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp10(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3487,7 +3487,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp11(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3510,7 +3510,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp12(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3533,7 +3533,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndp13(self: ?*anyopaque, domain: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3556,7 +3556,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp5(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3583,7 +3583,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp6(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3610,7 +3610,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp7(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3637,7 +3637,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp8(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3664,7 +3664,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp9(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3691,7 +3691,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp10(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3718,7 +3718,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp11(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3745,7 +3745,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp12(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3772,7 +3772,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp13(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3799,7 +3799,7 @@ pub const klocalizedcontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#xi18ndcp)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#xi18ndcp)
     ///
     /// ``` self: QtC.KLocalizedContext, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: QtC.QVariant, param2: QtC.QVariant, param3: QtC.QVariant, param4: QtC.QVariant, param5: QtC.QVariant, param6: QtC.QVariant, param7: QtC.QVariant, param8: QtC.QVariant, param9: QtC.QVariant, param10: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn Xi18ndcp14(self: ?*anyopaque, domain: []const u8, context: []const u8, singular: []const u8, plural: []const u8, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: ?*anyopaque, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: ?*anyopaque, param9: ?*anyopaque, param10: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4579,7 +4579,7 @@ pub const klocalizedcontext = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedcontext.html#dtor.KLocalizedContext)
+    /// [Qt documentation](https://api.kde.org/klocalizedcontext.html#dtor.KLocalizedContext)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -4,9 +4,9 @@ const kurlmimedata_enums = enums;
 const std = @import("std");
 pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
-/// https://api-staging.kde.org/kurlmimedata.html
+/// https://api.kde.org/kurlmimedata.html
 pub const kurlmimedata = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kurlmimedata.html#setUrls)
+    /// [Qt documentation](https://api.kde.org/kurlmimedata.html#setUrls)
     ///
     /// ``` param1: []QtC.QUrl, param2: []QtC.QUrl, param3: QtC.QMimeData ```
     pub fn SetUrls(param1: []QtC.QUrl, param2: []QtC.QUrl, param3: ?*anyopaque) void {
@@ -21,14 +21,14 @@ pub const kurlmimedata = struct {
         qtc.KUrlMimeData_SetUrls(param1_list, param2_list, @ptrCast(param3));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurlmimedata.html#exportUrlsToPortal)
+    /// [Qt documentation](https://api.kde.org/kurlmimedata.html#exportUrlsToPortal)
     ///
     /// ``` param1: QtC.QMimeData ```
     pub fn ExportUrlsToPortal(param1: ?*anyopaque) bool {
         return qtc.KUrlMimeData_ExportUrlsToPortal(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurlmimedata.html#setMetaData)
+    /// [Qt documentation](https://api.kde.org/kurlmimedata.html#setMetaData)
     ///
     /// ``` param1: map_constu8_constu8, param2: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn SetMetaData(param1: map_constu8_constu8, param2: ?*anyopaque, allocator: std.mem.Allocator) void {
@@ -55,7 +55,7 @@ pub const kurlmimedata = struct {
         qtc.KUrlMimeData_SetMetaData(param1_map, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurlmimedata.html#mimeDataTypes)
+    /// [Qt documentation](https://api.kde.org/kurlmimedata.html#mimeDataTypes)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MimeDataTypes(allocator: std.mem.Allocator) [][]const u8 {
@@ -77,7 +77,7 @@ pub const kurlmimedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kurlmimedata.html#urlsFromMimeData)
+    /// [Qt documentation](https://api.kde.org/kurlmimedata.html#urlsFromMimeData)
     ///
     /// ``` param1: QtC.QMimeData, param2: flag of kurlmimedata_enums.DecodeOption, param3: *map_constu8_constu8, allocator: std.mem.Allocator ```
     pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i32, param3: *map_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -110,7 +110,7 @@ pub const kurlmimedata = struct {
     }
 };
 
-/// https://api-staging.kde.org/kurlmimedata.html#types
+/// https://api.kde.org/kurlmimedata.html#types
 pub const enums = struct {
     pub const DecodeOption = enum {
         pub const PreferKdeUrls: i32 = 0;

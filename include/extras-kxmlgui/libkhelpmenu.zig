@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/khelpmenu.html
+/// https://api.kde.org/khelpmenu.html
 pub const khelpmenu = struct {
     /// New constructs a new KHelpMenu object.
     ///
@@ -103,84 +103,84 @@ pub const khelpmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#setShowWhatsThis)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#setShowWhatsThis)
     ///
     /// ``` self: QtC.KHelpMenu, showWhatsThis: bool ```
     pub fn SetShowWhatsThis(self: ?*anyopaque, showWhatsThis: bool) void {
         qtc.KHelpMenu_SetShowWhatsThis(@ptrCast(self), showWhatsThis);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#menu)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#menu)
     ///
     /// ``` self: QtC.KHelpMenu ```
     pub fn Menu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KHelpMenu_Menu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#action)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#action)
     ///
     /// ``` self: QtC.KHelpMenu, id: khelpmenu_enums.MenuId ```
     pub fn Action(self: ?*anyopaque, id: i32) QtC.QAction {
         return qtc.KHelpMenu_Action(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#appHelpActivated)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#appHelpActivated)
     ///
     /// ``` self: QtC.KHelpMenu ```
     pub fn AppHelpActivated(self: ?*anyopaque) void {
         qtc.KHelpMenu_AppHelpActivated(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#contextHelpActivated)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#contextHelpActivated)
     ///
     /// ``` self: QtC.KHelpMenu ```
     pub fn ContextHelpActivated(self: ?*anyopaque) void {
         qtc.KHelpMenu_ContextHelpActivated(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#aboutApplication)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#aboutApplication)
     ///
     /// ``` self: QtC.KHelpMenu ```
     pub fn AboutApplication(self: ?*anyopaque) void {
         qtc.KHelpMenu_AboutApplication(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#aboutKDE)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#aboutKDE)
     ///
     /// ``` self: QtC.KHelpMenu ```
     pub fn AboutKDE(self: ?*anyopaque) void {
         qtc.KHelpMenu_AboutKDE(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#reportBug)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#reportBug)
     ///
     /// ``` self: QtC.KHelpMenu ```
     pub fn ReportBug(self: ?*anyopaque) void {
         qtc.KHelpMenu_ReportBug(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#switchApplicationLanguage)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#switchApplicationLanguage)
     ///
     /// ``` self: QtC.KHelpMenu ```
     pub fn SwitchApplicationLanguage(self: ?*anyopaque) void {
         qtc.KHelpMenu_SwitchApplicationLanguage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#donate)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#donate)
     ///
     /// ``` self: QtC.KHelpMenu ```
     pub fn Donate(self: ?*anyopaque) void {
         qtc.KHelpMenu_Donate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#showAboutApplication)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#showAboutApplication)
     ///
     /// ``` self: QtC.KHelpMenu ```
     pub fn ShowAboutApplication(self: ?*anyopaque) void {
         qtc.KHelpMenu_ShowAboutApplication(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#showAboutApplication)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#showAboutApplication)
     ///
     /// ``` self: QtC.KHelpMenu, slot: fn (self: QtC.KHelpMenu) callconv(.c) void ```
     pub fn OnShowAboutApplication(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -966,7 +966,7 @@ pub const khelpmenu = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khelpmenu.html#dtor.KHelpMenu)
+    /// [Qt documentation](https://api.kde.org/khelpmenu.html#dtor.KHelpMenu)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -976,7 +976,7 @@ pub const khelpmenu = struct {
     }
 };
 
-/// https://api-staging.kde.org/khelpmenu.html#types
+/// https://api.kde.org/khelpmenu.html#types
 pub const enums = struct {
     pub const MenuId = enum {
         pub const MenuHelpContents: i32 = 0;

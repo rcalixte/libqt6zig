@@ -2,9 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/klanguagename.html
+/// https://api.kde.org/klanguagename.html
 pub const klanguagename = struct {
-    /// [Qt documentation](https://api-staging.kde.org/klanguagename.html#nameForCode)
+    /// [Qt documentation](https://api.kde.org/klanguagename.html#nameForCode)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn NameForCode(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -19,7 +19,7 @@ pub const klanguagename = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagename.html#nameForCodeInLocale)
+    /// [Qt documentation](https://api.kde.org/klanguagename.html#nameForCodeInLocale)
     ///
     /// ``` param1: []const u8, param2: []const u8, allocator: std.mem.Allocator ```
     pub fn NameForCodeInLocale(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -38,7 +38,7 @@ pub const klanguagename = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klanguagename.html#allLanguageCodes)
+    /// [Qt documentation](https://api.kde.org/klanguagename.html#allLanguageCodes)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AllLanguageCodes(allocator: std.mem.Allocator) [][]const u8 {

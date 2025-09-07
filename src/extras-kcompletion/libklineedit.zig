@@ -12,7 +12,7 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 pub const map_i32_qtcqkeysequence = std.AutoHashMapUnmanaged(i32, []QtC.QKeySequence);
 
-/// https://api-staging.kde.org/klineedit.html
+/// https://api.kde.org/klineedit.html
 pub const klineedit = struct {
     /// New constructs a new KLineEdit object.
     ///
@@ -96,21 +96,21 @@ pub const klineedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setUrl)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setUrl)
     ///
     /// ``` self: QtC.KLineEdit, url: QtC.QUrl ```
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KLineEdit_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletionMode)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionMode)
     ///
     /// ``` self: QtC.KLineEdit, mode: kcompletion_enums.CompletionMode ```
     pub fn SetCompletionMode(self: ?*anyopaque, mode: i32) void {
         qtc.KLineEdit_SetCompletionMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletionMode)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionMode)
     ///
     /// Allows for overriding the related default method
     ///
@@ -119,7 +119,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletionMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletionMode)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionMode)
     ///
     /// Base class method implementation
     ///
@@ -128,42 +128,42 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseSetCompletionMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletionModeDisabled)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionModeDisabled)
     ///
     /// ``` self: QtC.KLineEdit, mode: kcompletion_enums.CompletionMode ```
     pub fn SetCompletionModeDisabled(self: ?*anyopaque, mode: i32) void {
         qtc.KLineEdit_SetCompletionModeDisabled(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#urlDropsEnabled)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#urlDropsEnabled)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn UrlDropsEnabled(self: ?*anyopaque) bool {
         return qtc.KLineEdit_UrlDropsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setTrapReturnKey)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setTrapReturnKey)
     ///
     /// ``` self: QtC.KLineEdit, trap: bool ```
     pub fn SetTrapReturnKey(self: ?*anyopaque, trap: bool) void {
         qtc.KLineEdit_SetTrapReturnKey(@ptrCast(self), trap);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#trapReturnKey)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#trapReturnKey)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn TrapReturnKey(self: ?*anyopaque) bool {
         return qtc.KLineEdit_TrapReturnKey(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#completionBox)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#completionBox)
     ///
     /// ``` self: QtC.KLineEdit, create: bool ```
     pub fn CompletionBox(self: ?*anyopaque, create: bool) QtC.KCompletionBox {
         return qtc.KLineEdit_CompletionBox(@ptrCast(self), create);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#completionBox)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#completionBox)
     ///
     /// Allows for overriding the related default method
     ///
@@ -172,7 +172,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnCompletionBox(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#completionBox)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#completionBox)
     ///
     /// Base class method implementation
     ///
@@ -181,14 +181,14 @@ pub const klineedit = struct {
         return qtc.KLineEdit_QBaseCompletionBox(@ptrCast(self), create);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletionObject)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionObject)
     ///
     /// ``` self: QtC.KLineEdit, param1: QtC.KCompletion, handle: bool ```
     pub fn SetCompletionObject(self: ?*anyopaque, param1: ?*anyopaque, handle: bool) void {
         qtc.KLineEdit_SetCompletionObject(@ptrCast(self), @ptrCast(param1), handle);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletionObject)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionObject)
     ///
     /// Allows for overriding the related default method
     ///
@@ -197,7 +197,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletionObject(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletionObject)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionObject)
     ///
     /// Base class method implementation
     ///
@@ -206,14 +206,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseSetCompletionObject(@ptrCast(self), @ptrCast(param1), handle);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#copy)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#copy)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn Copy(self: ?*anyopaque) void {
         qtc.KLineEdit_Copy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#copy)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#copy)
     ///
     /// Allows for overriding the related default method
     ///
@@ -222,7 +222,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnCopy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#copy)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#copy)
     ///
     /// Base class method implementation
     ///
@@ -231,21 +231,21 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseCopy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setSqueezedTextEnabled)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setSqueezedTextEnabled)
     ///
     /// ``` self: QtC.KLineEdit, enable: bool ```
     pub fn SetSqueezedTextEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KLineEdit_SetSqueezedTextEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#isSqueezedTextEnabled)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#isSqueezedTextEnabled)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn IsSqueezedTextEnabled(self: ?*anyopaque) bool {
         return qtc.KLineEdit_IsSqueezedTextEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#originalText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#originalText)
     ///
     /// ``` self: QtC.KLineEdit, allocator: std.mem.Allocator ```
     pub fn OriginalText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -256,7 +256,7 @@ pub const klineedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#userText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#userText)
     ///
     /// ``` self: QtC.KLineEdit, allocator: std.mem.Allocator ```
     pub fn UserText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -267,21 +267,21 @@ pub const klineedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletionBox)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionBox)
     ///
     /// ``` self: QtC.KLineEdit, box: QtC.KCompletionBox ```
     pub fn SetCompletionBox(self: ?*anyopaque, box: ?*anyopaque) void {
         qtc.KLineEdit_SetCompletionBox(@ptrCast(self), @ptrCast(box));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#clearButtonUsedSize)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#clearButtonUsedSize)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn ClearButtonUsedSize(self: ?*anyopaque) QtC.QSize {
         return qtc.KLineEdit_ClearButtonUsedSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#doCompletion)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#doCompletion)
     ///
     /// ``` self: QtC.KLineEdit, text: []const u8 ```
     pub fn DoCompletion(self: ?*anyopaque, text: []const u8) void {
@@ -292,7 +292,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_DoCompletion(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#completionBoxActivated)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#completionBoxActivated)
     ///
     /// ``` self: QtC.KLineEdit, param1: []const u8 ```
     pub fn CompletionBoxActivated(self: ?*anyopaque, param1: []const u8) void {
@@ -303,14 +303,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_CompletionBoxActivated(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#completionBoxActivated)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#completionBoxActivated)
     ///
     /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnCompletionBoxActivated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_CompletionBoxActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#returnKeyPressed)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#returnKeyPressed)
     ///
     /// ``` self: QtC.KLineEdit, text: []const u8 ```
     pub fn ReturnKeyPressed(self: ?*anyopaque, text: []const u8) void {
@@ -321,14 +321,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_ReturnKeyPressed(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#returnKeyPressed)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#returnKeyPressed)
     ///
     /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnReturnKeyPressed(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_ReturnKeyPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#completion)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#completion)
     ///
     /// ``` self: QtC.KLineEdit, param1: []const u8 ```
     pub fn Completion(self: ?*anyopaque, param1: []const u8) void {
@@ -339,14 +339,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_Completion(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#completion)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#completion)
     ///
     /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnCompletion(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_Completion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#substringCompletion)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#substringCompletion)
     ///
     /// ``` self: QtC.KLineEdit, param1: []const u8 ```
     pub fn SubstringCompletion(self: ?*anyopaque, param1: []const u8) void {
@@ -357,77 +357,77 @@ pub const klineedit = struct {
         qtc.KLineEdit_SubstringCompletion(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#substringCompletion)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#substringCompletion)
     ///
     /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnSubstringCompletion(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_SubstringCompletion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#textRotation)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#textRotation)
     ///
     /// ``` self: QtC.KLineEdit, param1: kcompletionbase_enums.KeyBindingType ```
     pub fn TextRotation(self: ?*anyopaque, param1: i32) void {
         qtc.KLineEdit_TextRotation(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#textRotation)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#textRotation)
     ///
     /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: kcompletionbase_enums.KeyBindingType) callconv(.c) void ```
     pub fn OnTextRotation(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KLineEdit_Connect_TextRotation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#completionModeChanged)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#completionModeChanged)
     ///
     /// ``` self: QtC.KLineEdit, param1: kcompletion_enums.CompletionMode ```
     pub fn CompletionModeChanged(self: ?*anyopaque, param1: i32) void {
         qtc.KLineEdit_CompletionModeChanged(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#completionModeChanged)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#completionModeChanged)
     ///
     /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: kcompletion_enums.CompletionMode) callconv(.c) void ```
     pub fn OnCompletionModeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KLineEdit_Connect_CompletionModeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#aboutToShowContextMenu)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KLineEdit, contextMenu: QtC.QMenu ```
     pub fn AboutToShowContextMenu(self: ?*anyopaque, contextMenu: ?*anyopaque) void {
         qtc.KLineEdit_AboutToShowContextMenu(@ptrCast(self), @ptrCast(contextMenu));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#aboutToShowContextMenu)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, contextMenu: QtC.QMenu) callconv(.c) void ```
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KLineEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#clearButtonClicked)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#clearButtonClicked)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn ClearButtonClicked(self: ?*anyopaque) void {
         qtc.KLineEdit_ClearButtonClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#clearButtonClicked)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#clearButtonClicked)
     ///
     /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit) callconv(.c) void ```
     pub fn OnClearButtonClicked(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KLineEdit_Connect_ClearButtonClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setReadOnly)
     ///
     /// ``` self: QtC.KLineEdit, readOnly: bool ```
     pub fn SetReadOnly(self: ?*anyopaque, readOnly: bool) void {
         qtc.KLineEdit_SetReadOnly(@ptrCast(self), readOnly);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setReadOnly)
     ///
     /// Allows for overriding the related default method
     ///
@@ -436,7 +436,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetReadOnly(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setReadOnly)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setReadOnly)
     ///
     /// Base class method implementation
     ///
@@ -445,14 +445,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseSetReadOnly(@ptrCast(self), readOnly);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#rotateText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#rotateText)
     ///
     /// ``` self: QtC.KLineEdit, typeVal: kcompletionbase_enums.KeyBindingType ```
     pub fn RotateText(self: ?*anyopaque, typeVal: i32) void {
         qtc.KLineEdit_RotateText(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedText)
     ///
     /// ``` self: QtC.KLineEdit, completedText: []const u8 ```
     pub fn SetCompletedText(self: ?*anyopaque, completedText: []const u8) void {
@@ -463,7 +463,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_SetCompletedText(@ptrCast(self), completedText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -472,7 +472,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletedText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedText)
     ///
     /// Base class method implementation
     ///
@@ -485,7 +485,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseSetCompletedText(@ptrCast(self), completedText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletedItems)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedItems)
     ///
     /// ``` self: QtC.KLineEdit, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator ```
     pub fn SetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
@@ -504,7 +504,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_SetCompletedItems(@ptrCast(self), items_list, autoSuggest);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletedItems)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedItems)
     ///
     /// Allows for overriding the related default method
     ///
@@ -513,7 +513,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletedItems(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletedItems)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedItems)
     ///
     /// Base class method implementation
     ///
@@ -534,7 +534,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseSetCompletedItems(@ptrCast(self), items_list, autoSuggest);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setSqueezedText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setSqueezedText)
     ///
     /// ``` self: QtC.KLineEdit, text: []const u8 ```
     pub fn SetSqueezedText(self: ?*anyopaque, text: []const u8) void {
@@ -545,7 +545,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_SetSqueezedText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setText)
     ///
     /// ``` self: QtC.KLineEdit, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -556,7 +556,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -565,7 +565,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setText)
     ///
     /// Base class method implementation
     ///
@@ -578,7 +578,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseSetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#makeCompletion)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#makeCompletion)
     ///
     /// ``` self: QtC.KLineEdit, param1: []const u8 ```
     pub fn MakeCompletion(self: ?*anyopaque, param1: []const u8) void {
@@ -589,7 +589,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_MakeCompletion(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#makeCompletion)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#makeCompletion)
     ///
     /// Allows for overriding the related default method
     ///
@@ -598,7 +598,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMakeCompletion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#makeCompletion)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#makeCompletion)
     ///
     /// Base class method implementation
     ///
@@ -611,7 +611,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseMakeCompletion(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#userCancelled)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#userCancelled)
     ///
     /// ``` self: QtC.KLineEdit, cancelText: []const u8 ```
     pub fn UserCancelled(self: ?*anyopaque, cancelText: []const u8) void {
@@ -622,7 +622,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_UserCancelled(@ptrCast(self), cancelText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#userCancelled)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#userCancelled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -631,7 +631,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnUserCancelled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#userCancelled)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#userCancelled)
     ///
     /// Base class method implementation
     ///
@@ -644,14 +644,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseUserCancelled(@ptrCast(self), cancelText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#event)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#event)
     ///
     /// ``` self: QtC.KLineEdit, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KLineEdit_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#event)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -660,7 +660,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#event)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#event)
     ///
     /// Base class method implementation
     ///
@@ -669,14 +669,14 @@ pub const klineedit = struct {
         return qtc.KLineEdit_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#resizeEvent)
     ///
     /// ``` self: QtC.KLineEdit, param1: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KLineEdit_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -685,7 +685,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -694,14 +694,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#keyPressEvent)
     ///
     /// ``` self: QtC.KLineEdit, param1: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KLineEdit_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -710,7 +710,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -719,14 +719,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#mousePressEvent)
     ///
     /// ``` self: QtC.KLineEdit, param1: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KLineEdit_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -735,7 +735,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -744,14 +744,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KLineEdit, param1: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KLineEdit_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -760,7 +760,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -769,14 +769,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#mouseDoubleClickEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#mouseDoubleClickEvent)
     ///
     /// ``` self: QtC.KLineEdit, param1: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KLineEdit_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#mouseDoubleClickEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#mouseDoubleClickEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -785,7 +785,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#mouseDoubleClickEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
     ///
@@ -794,14 +794,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#contextMenuEvent)
     ///
     /// ``` self: QtC.KLineEdit, param1: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KLineEdit_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#contextMenuEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -810,7 +810,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#contextMenuEvent)
     ///
     /// Base class method implementation
     ///
@@ -819,14 +819,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#createStandardContextMenu)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#createStandardContextMenu)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn CreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KLineEdit_CreateStandardContextMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#createStandardContextMenu)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#createStandardContextMenu)
     ///
     /// Allows for overriding the related default method
     ///
@@ -835,7 +835,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnCreateStandardContextMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#createStandardContextMenu)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#createStandardContextMenu)
     ///
     /// Base class method implementation
     ///
@@ -844,7 +844,7 @@ pub const klineedit = struct {
         return qtc.KLineEdit_QBaseCreateStandardContextMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedText)
     ///
     /// ``` self: QtC.KLineEdit, param1: []const u8, param2: bool ```
     pub fn SetCompletedText2(self: ?*anyopaque, param1: []const u8, param2: bool) void {
@@ -855,7 +855,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_SetCompletedText2(@ptrCast(self), param1_str, param2);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -864,7 +864,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletedText2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletedText)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedText)
     ///
     /// Base class method implementation
     ///
@@ -877,14 +877,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseSetCompletedText2(@ptrCast(self), param1_str, param2);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setUserSelection)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setUserSelection)
     ///
     /// ``` self: QtC.KLineEdit, userSelection: bool ```
     pub fn SetUserSelection(self: ?*anyopaque, userSelection: bool) void {
         qtc.KLineEdit_SetUserSelection(@ptrCast(self), userSelection);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setUserSelection)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setUserSelection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -893,7 +893,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetUserSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setUserSelection)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setUserSelection)
     ///
     /// Base class method implementation
     ///
@@ -902,14 +902,14 @@ pub const klineedit = struct {
         qtc.KLineEdit_QBaseSetUserSelection(@ptrCast(self), userSelection);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#autoSuggest)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#autoSuggest)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn AutoSuggest(self: ?*anyopaque) bool {
         return qtc.KLineEdit_AutoSuggest(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#autoSuggest)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#autoSuggest)
     ///
     /// Allows for overriding the related default method
     ///
@@ -918,7 +918,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnAutoSuggest(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#autoSuggest)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#autoSuggest)
     ///
     /// Base class method implementation
     ///
@@ -927,14 +927,14 @@ pub const klineedit = struct {
         return qtc.KLineEdit_QBaseAutoSuggest(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#paintEvent)
     ///
     /// ``` self: QtC.KLineEdit, ev: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
         qtc.KLineEdit_PaintEvent(@ptrCast(self), @ptrCast(ev));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -943,7 +943,7 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -978,7 +978,7 @@ pub const klineedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#setCompletionModeDisabled)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionModeDisabled)
     ///
     /// ``` self: QtC.KLineEdit, mode: kcompletion_enums.CompletionMode, disable: bool ```
     pub fn SetCompletionModeDisabled2(self: ?*anyopaque, mode: i32, disable: bool) void {
@@ -4782,7 +4782,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#completionObject)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionObject)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn CompletionObject(self: ?*anyopaque) QtC.KCompletion {
@@ -4791,7 +4791,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#isCompletionObjectAutoDeleted)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#isCompletionObjectAutoDeleted)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn IsCompletionObjectAutoDeleted(self: ?*anyopaque) bool {
@@ -4800,7 +4800,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setAutoDeleteCompletionObject)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setAutoDeleteCompletionObject)
     ///
     /// ``` self: QtC.KLineEdit, autoDelete: bool ```
     pub fn SetAutoDeleteCompletionObject(self: ?*anyopaque, autoDelete: bool) void {
@@ -4809,7 +4809,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setEnableSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setEnableSignals)
     ///
     /// ``` self: QtC.KLineEdit, enable: bool ```
     pub fn SetEnableSignals(self: ?*anyopaque, enable: bool) void {
@@ -4818,7 +4818,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#handleSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#handleSignals)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn HandleSignals(self: ?*anyopaque) bool {
@@ -4827,7 +4827,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#emitSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#emitSignals)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn EmitSignals(self: ?*anyopaque) bool {
@@ -4836,7 +4836,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setEmitSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setEmitSignals)
     ///
     /// ``` self: QtC.KLineEdit, emitRotationSignals: bool ```
     pub fn SetEmitSignals(self: ?*anyopaque, emitRotationSignals: bool) void {
@@ -4845,7 +4845,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#completionMode)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionMode)
     ///
     /// ``` self: QtC.KLineEdit ```
     ///
@@ -4856,7 +4856,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setKeyBinding)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBinding)
     ///
     /// ``` self: QtC.KLineEdit, item: kcompletionbase_enums.KeyBindingType, key: []QtC.QKeySequence ```
     pub fn SetKeyBinding(self: ?*anyopaque, item: i32, key: []QtC.QKeySequence) bool {
@@ -4869,7 +4869,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#keyBinding)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBinding)
     ///
     /// ``` self: QtC.KLineEdit, item: kcompletionbase_enums.KeyBindingType, allocator: std.mem.Allocator ```
     pub fn KeyBinding(self: ?*anyopaque, item: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -4883,7 +4883,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#useGlobalKeyBindings)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#useGlobalKeyBindings)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn UseGlobalKeyBindings(self: ?*anyopaque) void {
@@ -4892,7 +4892,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#compObj)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#compObj)
     ///
     /// ``` self: QtC.KLineEdit ```
     pub fn CompObj(self: ?*anyopaque) QtC.KCompletion {
@@ -4901,7 +4901,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#completionObject)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionObject)
     ///
     /// ``` self: QtC.KLineEdit, handleSignals: bool ```
     pub fn CompletionObject1(self: ?*anyopaque, handleSignals: bool) QtC.KCompletion {
@@ -6238,7 +6238,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setHandleSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6249,7 +6249,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setHandleSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6260,7 +6260,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setHandleSignals)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6271,7 +6271,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6282,7 +6282,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6293,7 +6293,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6669,7 +6669,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#keyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6694,7 +6694,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#keyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6719,7 +6719,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#keyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6730,7 +6730,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setKeyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6758,7 +6758,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setKeyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6786,7 +6786,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setKeyBindingMap)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6797,7 +6797,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setDelegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6808,7 +6808,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setDelegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6819,7 +6819,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#setDelegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6830,7 +6830,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#delegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6841,7 +6841,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#delegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6852,7 +6852,7 @@ pub const klineedit = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcompletionbase.html#delegate)
+    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6872,7 +6872,7 @@ pub const klineedit = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klineedit.html#dtor.KLineEdit)
+    /// [Qt documentation](https://api.kde.org/klineedit.html#dtor.KLineEdit)
     ///
     /// Delete this object from C++ memory.
     ///

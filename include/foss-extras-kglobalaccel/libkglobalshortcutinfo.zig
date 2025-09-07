@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kglobalshortcutinfo.html
+/// https://api.kde.org/kglobalshortcutinfo.html
 pub const kglobalshortcutinfo = struct {
     /// New constructs a new KGlobalShortcutInfo object.
     ///
@@ -64,14 +64,14 @@ pub const kglobalshortcutinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#operator-eq)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#operator-eq)
     ///
     /// ``` self: QtC.KGlobalShortcutInfo, rhs: QtC.KGlobalShortcutInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
         qtc.KGlobalShortcutInfo_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#contextFriendlyName)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#contextFriendlyName)
     ///
     /// ``` self: QtC.KGlobalShortcutInfo, allocator: std.mem.Allocator ```
     pub fn ContextFriendlyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -82,7 +82,7 @@ pub const kglobalshortcutinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#contextUniqueName)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#contextUniqueName)
     ///
     /// ``` self: QtC.KGlobalShortcutInfo, allocator: std.mem.Allocator ```
     pub fn ContextUniqueName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -93,7 +93,7 @@ pub const kglobalshortcutinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#componentFriendlyName)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#componentFriendlyName)
     ///
     /// ``` self: QtC.KGlobalShortcutInfo, allocator: std.mem.Allocator ```
     pub fn ComponentFriendlyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -104,7 +104,7 @@ pub const kglobalshortcutinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#componentUniqueName)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#componentUniqueName)
     ///
     /// ``` self: QtC.KGlobalShortcutInfo, allocator: std.mem.Allocator ```
     pub fn ComponentUniqueName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -115,7 +115,7 @@ pub const kglobalshortcutinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#defaultKeys)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#defaultKeys)
     ///
     /// ``` self: QtC.KGlobalShortcutInfo, allocator: std.mem.Allocator ```
     pub fn DefaultKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -127,7 +127,7 @@ pub const kglobalshortcutinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#friendlyName)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#friendlyName)
     ///
     /// ``` self: QtC.KGlobalShortcutInfo, allocator: std.mem.Allocator ```
     pub fn FriendlyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -138,7 +138,7 @@ pub const kglobalshortcutinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#keys)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#keys)
     ///
     /// ``` self: QtC.KGlobalShortcutInfo, allocator: std.mem.Allocator ```
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -150,7 +150,7 @@ pub const kglobalshortcutinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#uniqueName)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#uniqueName)
     ///
     /// ``` self: QtC.KGlobalShortcutInfo, allocator: std.mem.Allocator ```
     pub fn UniqueName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -940,7 +940,7 @@ pub const kglobalshortcutinfo = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalshortcutinfo.html#dtor.KGlobalShortcutInfo)
+    /// [Qt documentation](https://api.kde.org/kglobalshortcutinfo.html#dtor.KGlobalShortcutInfo)
     ///
     /// Delete this object from C++ memory.
     ///

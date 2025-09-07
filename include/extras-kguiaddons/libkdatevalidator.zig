@@ -5,7 +5,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qvalidator_enums = @import("../libqvalidator.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kdatevalidator.html
+/// https://api.kde.org/kdatevalidator.html
 pub const kdatevalidator = struct {
     /// New constructs a new KDateValidator object.
     ///
@@ -65,7 +65,7 @@ pub const kdatevalidator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatevalidator.html#validate)
+    /// [Qt documentation](https://api.kde.org/kdatevalidator.html#validate)
     ///
     /// ``` self: QtC.KDateValidator, text: []const u8, e: *i32 ```
     ///
@@ -78,7 +78,7 @@ pub const kdatevalidator = struct {
         return qtc.KDateValidator_Validate(@ptrCast(self), text_str, @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatevalidator.html#validate)
+    /// [Qt documentation](https://api.kde.org/kdatevalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -87,7 +87,7 @@ pub const kdatevalidator = struct {
         qtc.KDateValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatevalidator.html#validate)
+    /// [Qt documentation](https://api.kde.org/kdatevalidator.html#validate)
     ///
     /// Base class method implementation
     ///
@@ -102,7 +102,7 @@ pub const kdatevalidator = struct {
         return qtc.KDateValidator_QBaseValidate(@ptrCast(self), text_str, @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatevalidator.html#fixup)
+    /// [Qt documentation](https://api.kde.org/kdatevalidator.html#fixup)
     ///
     /// ``` self: QtC.KDateValidator, input: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
@@ -113,7 +113,7 @@ pub const kdatevalidator = struct {
         qtc.KDateValidator_Fixup(@ptrCast(self), input_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatevalidator.html#fixup)
+    /// [Qt documentation](https://api.kde.org/kdatevalidator.html#fixup)
     ///
     /// Allows for overriding the related default method
     ///
@@ -122,7 +122,7 @@ pub const kdatevalidator = struct {
         qtc.KDateValidator_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatevalidator.html#fixup)
+    /// [Qt documentation](https://api.kde.org/kdatevalidator.html#fixup)
     ///
     /// Base class method implementation
     ///
@@ -135,7 +135,7 @@ pub const kdatevalidator = struct {
         qtc.KDateValidator_QBaseFixup(@ptrCast(self), input_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatevalidator.html#date)
+    /// [Qt documentation](https://api.kde.org/kdatevalidator.html#date)
     ///
     /// ``` self: QtC.KDateValidator, text: []const u8, date: QtC.QDate ```
     ///
@@ -963,7 +963,7 @@ pub const kdatevalidator = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatevalidator.html#dtor.KDateValidator)
+    /// [Qt documentation](https://api.kde.org/kdatevalidator.html#dtor.KDateValidator)
     ///
     /// Delete this object from C++ memory.
     ///

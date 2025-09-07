@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kdualaction.html
+/// https://api.kde.org/kdualaction.html
 pub const kdualaction = struct {
     /// New constructs a new KDualAction object.
     ///
@@ -75,63 +75,63 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setActiveGuiItem)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActiveGuiItem)
     ///
     /// ``` self: QtC.KDualAction, activeGuiItem: QtC.KGuiItem ```
     pub fn SetActiveGuiItem(self: ?*anyopaque, activeGuiItem: ?*anyopaque) void {
         qtc.KDualAction_SetActiveGuiItem(@ptrCast(self), @ptrCast(activeGuiItem));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#activeGuiItem)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeGuiItem)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn ActiveGuiItem(self: ?*anyopaque) QtC.KGuiItem {
         return qtc.KDualAction_ActiveGuiItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setInactiveGuiItem)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setInactiveGuiItem)
     ///
     /// ``` self: QtC.KDualAction, inactiveGuiItem: QtC.KGuiItem ```
     pub fn SetInactiveGuiItem(self: ?*anyopaque, inactiveGuiItem: ?*anyopaque) void {
         qtc.KDualAction_SetInactiveGuiItem(@ptrCast(self), @ptrCast(inactiveGuiItem));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#inactiveGuiItem)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#inactiveGuiItem)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn InactiveGuiItem(self: ?*anyopaque) QtC.KGuiItem {
         return qtc.KDualAction_InactiveGuiItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setActiveIcon)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActiveIcon)
     ///
     /// ``` self: QtC.KDualAction, activeIcon: QtC.QIcon ```
     pub fn SetActiveIcon(self: ?*anyopaque, activeIcon: ?*anyopaque) void {
         qtc.KDualAction_SetActiveIcon(@ptrCast(self), @ptrCast(activeIcon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#activeIcon)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeIcon)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn ActiveIcon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KDualAction_ActiveIcon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setInactiveIcon)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setInactiveIcon)
     ///
     /// ``` self: QtC.KDualAction, inactiveIcon: QtC.QIcon ```
     pub fn SetInactiveIcon(self: ?*anyopaque, inactiveIcon: ?*anyopaque) void {
         qtc.KDualAction_SetInactiveIcon(@ptrCast(self), @ptrCast(inactiveIcon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#inactiveIcon)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#inactiveIcon)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn InactiveIcon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KDualAction_InactiveIcon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setActiveText)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActiveText)
     ///
     /// ``` self: QtC.KDualAction, activeText: []const u8 ```
     pub fn SetActiveText(self: ?*anyopaque, activeText: []const u8) void {
@@ -142,7 +142,7 @@ pub const kdualaction = struct {
         qtc.KDualAction_SetActiveText(@ptrCast(self), activeText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#activeText)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeText)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn ActiveText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -153,7 +153,7 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setInactiveText)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setInactiveText)
     ///
     /// ``` self: QtC.KDualAction, inactiveText: []const u8 ```
     pub fn SetInactiveText(self: ?*anyopaque, inactiveText: []const u8) void {
@@ -164,7 +164,7 @@ pub const kdualaction = struct {
         qtc.KDualAction_SetInactiveText(@ptrCast(self), inactiveText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#inactiveText)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#inactiveText)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn InactiveText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -175,7 +175,7 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setActiveToolTip)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActiveToolTip)
     ///
     /// ``` self: QtC.KDualAction, activeToolTip: []const u8 ```
     pub fn SetActiveToolTip(self: ?*anyopaque, activeToolTip: []const u8) void {
@@ -186,7 +186,7 @@ pub const kdualaction = struct {
         qtc.KDualAction_SetActiveToolTip(@ptrCast(self), activeToolTip_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#activeToolTip)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeToolTip)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn ActiveToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -197,7 +197,7 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setInactiveToolTip)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setInactiveToolTip)
     ///
     /// ``` self: QtC.KDualAction, inactiveToolTip: []const u8 ```
     pub fn SetInactiveToolTip(self: ?*anyopaque, inactiveToolTip: []const u8) void {
@@ -208,7 +208,7 @@ pub const kdualaction = struct {
         qtc.KDualAction_SetInactiveToolTip(@ptrCast(self), inactiveToolTip_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#inactiveToolTip)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#inactiveToolTip)
     ///
     /// ``` self: QtC.KDualAction, allocator: std.mem.Allocator ```
     pub fn InactiveToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -219,63 +219,63 @@ pub const kdualaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setIconForStates)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setIconForStates)
     ///
     /// ``` self: QtC.KDualAction, icon: QtC.QIcon ```
     pub fn SetIconForStates(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KDualAction_SetIconForStates(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#isActive)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#isActive)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn IsActive(self: ?*anyopaque) bool {
         return qtc.KDualAction_IsActive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setAutoToggle)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setAutoToggle)
     ///
     /// ``` self: QtC.KDualAction, autoToggle: bool ```
     pub fn SetAutoToggle(self: ?*anyopaque, autoToggle: bool) void {
         qtc.KDualAction_SetAutoToggle(@ptrCast(self), autoToggle);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#autoToggle)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#autoToggle)
     ///
     /// ``` self: QtC.KDualAction ```
     pub fn AutoToggle(self: ?*anyopaque) bool {
         return qtc.KDualAction_AutoToggle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#setActive)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#setActive)
     ///
     /// ``` self: QtC.KDualAction, state: bool ```
     pub fn SetActive(self: ?*anyopaque, state: bool) void {
         qtc.KDualAction_SetActive(@ptrCast(self), state);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#activeChanged)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeChanged)
     ///
     /// ``` self: QtC.KDualAction, param1: bool ```
     pub fn ActiveChanged(self: ?*anyopaque, param1: bool) void {
         qtc.KDualAction_ActiveChanged(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#activeChanged)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeChanged)
     ///
     /// ``` self: QtC.KDualAction, slot: fn (self: QtC.KDualAction, param1: bool) callconv(.c) void ```
     pub fn OnActiveChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KDualAction_Connect_ActiveChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#activeChangedByUser)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeChangedByUser)
     ///
     /// ``` self: QtC.KDualAction, param1: bool ```
     pub fn ActiveChangedByUser(self: ?*anyopaque, param1: bool) void {
         qtc.KDualAction_ActiveChangedByUser(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#activeChangedByUser)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#activeChangedByUser)
     ///
     /// ``` self: QtC.KDualAction, slot: fn (self: QtC.KDualAction, param1: bool) callconv(.c) void ```
     pub fn OnActiveChangedByUser(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1751,7 +1751,7 @@ pub const kdualaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdualaction.html#dtor.KDualAction)
+    /// [Qt documentation](https://api.kde.org/kdualaction.html#dtor.KDualAction)
     ///
     /// Delete this object from C++ memory.
     ///

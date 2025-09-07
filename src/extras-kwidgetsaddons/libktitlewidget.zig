@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktitlewidget.html
+/// https://api.kde.org/ktitlewidget.html
 pub const ktitlewidget = struct {
     /// New constructs a new KTitleWidget object.
     ///
@@ -69,14 +69,14 @@ pub const ktitlewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setWidget)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setWidget)
     ///
     /// ``` self: QtC.KTitleWidget, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KTitleWidget_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#text)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#text)
     ///
     /// ``` self: QtC.KTitleWidget, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -87,7 +87,7 @@ pub const ktitlewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#comment)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#comment)
     ///
     /// ``` self: QtC.KTitleWidget, allocator: std.mem.Allocator ```
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -98,42 +98,42 @@ pub const ktitlewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#icon)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#icon)
     ///
     /// ``` self: QtC.KTitleWidget ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KTitleWidget_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#iconSize)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#iconSize)
     ///
     /// ``` self: QtC.KTitleWidget ```
     pub fn IconSize(self: ?*anyopaque) QtC.QSize {
         return qtc.KTitleWidget_IconSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setBuddy)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setBuddy)
     ///
     /// ``` self: QtC.KTitleWidget, buddy: QtC.QWidget ```
     pub fn SetBuddy(self: ?*anyopaque, buddy: ?*anyopaque) void {
         qtc.KTitleWidget_SetBuddy(@ptrCast(self), @ptrCast(buddy));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#autoHideTimeout)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#autoHideTimeout)
     ///
     /// ``` self: QtC.KTitleWidget ```
     pub fn AutoHideTimeout(self: ?*anyopaque) i32 {
         return qtc.KTitleWidget_AutoHideTimeout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#level)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#level)
     ///
     /// ``` self: QtC.KTitleWidget ```
     pub fn Level(self: ?*anyopaque) i32 {
         return qtc.KTitleWidget_Level(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setText)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setText)
     ///
     /// ``` self: QtC.KTitleWidget, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -144,7 +144,7 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setText)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setText)
     ///
     /// ``` self: QtC.KTitleWidget, text: []const u8, typeVal: ktitlewidget_enums.MessageType ```
     pub fn SetText2(self: ?*anyopaque, text: []const u8, typeVal: i32) void {
@@ -155,7 +155,7 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_SetText2(@ptrCast(self), text_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setComment)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setComment)
     ///
     /// ``` self: QtC.KTitleWidget, comment: []const u8 ```
     pub fn SetComment(self: ?*anyopaque, comment: []const u8) void {
@@ -166,49 +166,49 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_SetComment(@ptrCast(self), comment_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setIcon)
     ///
     /// ``` self: QtC.KTitleWidget, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KTitleWidget_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setIcon)
     ///
     /// ``` self: QtC.KTitleWidget, typeVal: ktitlewidget_enums.MessageType ```
     pub fn SetIcon2(self: ?*anyopaque, typeVal: i32) void {
         qtc.KTitleWidget_SetIcon2(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setIconSize)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setIconSize)
     ///
     /// ``` self: QtC.KTitleWidget, iconSize: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, iconSize: ?*anyopaque) void {
         qtc.KTitleWidget_SetIconSize(@ptrCast(self), @ptrCast(iconSize));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setAutoHideTimeout)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setAutoHideTimeout)
     ///
     /// ``` self: QtC.KTitleWidget, msecs: i32 ```
     pub fn SetAutoHideTimeout(self: ?*anyopaque, msecs: i32) void {
         qtc.KTitleWidget_SetAutoHideTimeout(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setLevel)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setLevel)
     ///
     /// ``` self: QtC.KTitleWidget, level: i32 ```
     pub fn SetLevel(self: ?*anyopaque, level: i32) void {
         qtc.KTitleWidget_SetLevel(@ptrCast(self), @intCast(level));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#changeEvent)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#changeEvent)
     ///
     /// ``` self: QtC.KTitleWidget, e: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KTitleWidget_ChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#changeEvent)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#changeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -217,7 +217,7 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#changeEvent)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#changeEvent)
     ///
     /// Base class method implementation
     ///
@@ -226,14 +226,14 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_QBaseChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#showEvent)
     ///
     /// ``` self: QtC.KTitleWidget, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KTitleWidget_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -242,7 +242,7 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -251,14 +251,14 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#eventFilter)
     ///
     /// ``` self: QtC.KTitleWidget, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KTitleWidget_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -267,7 +267,7 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -302,7 +302,7 @@ pub const ktitlewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setText)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setText)
     ///
     /// ``` self: QtC.KTitleWidget, text: []const u8, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetText22(self: ?*anyopaque, text: []const u8, alignment: i32) void {
@@ -313,7 +313,7 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_SetText22(@ptrCast(self), text_str, @intCast(alignment));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setComment)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setComment)
     ///
     /// ``` self: QtC.KTitleWidget, comment: []const u8, typeVal: ktitlewidget_enums.MessageType ```
     pub fn SetComment2(self: ?*anyopaque, comment: []const u8, typeVal: i32) void {
@@ -324,14 +324,14 @@ pub const ktitlewidget = struct {
         qtc.KTitleWidget_SetComment2(@ptrCast(self), comment_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setIcon)
     ///
     /// ``` self: QtC.KTitleWidget, icon: QtC.QIcon, alignment: ktitlewidget_enums.ImageAlignment ```
     pub fn SetIcon22(self: ?*anyopaque, icon: ?*anyopaque, alignment: i32) void {
         qtc.KTitleWidget_SetIcon22(@ptrCast(self), @ptrCast(icon), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#setIcon)
     ///
     /// ``` self: QtC.KTitleWidget, typeVal: ktitlewidget_enums.MessageType, alignment: ktitlewidget_enums.ImageAlignment ```
     pub fn SetIcon23(self: ?*anyopaque, typeVal: i32, alignment: i32) void {
@@ -5219,7 +5219,7 @@ pub const ktitlewidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktitlewidget.html#dtor.KTitleWidget)
+    /// [Qt documentation](https://api.kde.org/ktitlewidget.html#dtor.KTitleWidget)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5229,7 +5229,7 @@ pub const ktitlewidget = struct {
     }
 };
 
-/// https://api-staging.kde.org/ktitlewidget.html#types
+/// https://api.kde.org/ktitlewidget.html#types
 pub const enums = struct {
     pub const ImageAlignment = enum {
         pub const ImageLeft: i32 = 0;

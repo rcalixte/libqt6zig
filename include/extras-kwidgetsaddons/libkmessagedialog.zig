@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kmessagedialog.html
+/// https://api.kde.org/kmessagedialog.html
 pub const kmessagedialog = struct {
     /// New constructs a new KMessageDialog object.
     ///
@@ -91,7 +91,7 @@ pub const kmessagedialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setCaption)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setCaption)
     ///
     /// ``` self: QtC.KMessageDialog, caption: []const u8 ```
     pub fn SetCaption(self: ?*anyopaque, caption: []const u8) void {
@@ -102,14 +102,14 @@ pub const kmessagedialog = struct {
         qtc.KMessageDialog_SetCaption(@ptrCast(self), caption_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setIcon)
     ///
     /// ``` self: QtC.KMessageDialog, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KMessageDialog_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setListWidgetItems)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setListWidgetItems)
     ///
     /// ``` self: QtC.KMessageDialog, strlist: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetListWidgetItems(self: ?*anyopaque, strlist: [][]const u8, allocator: std.mem.Allocator) void {
@@ -128,7 +128,7 @@ pub const kmessagedialog = struct {
         qtc.KMessageDialog_SetListWidgetItems(@ptrCast(self), strlist_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setDetails)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setDetails)
     ///
     /// ``` self: QtC.KMessageDialog, details: []const u8 ```
     pub fn SetDetails(self: ?*anyopaque, details: []const u8) void {
@@ -139,7 +139,7 @@ pub const kmessagedialog = struct {
         qtc.KMessageDialog_SetDetails(@ptrCast(self), details_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setDontAskAgainText)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setDontAskAgainText)
     ///
     /// ``` self: QtC.KMessageDialog, dontAskAgainText: []const u8 ```
     pub fn SetDontAskAgainText(self: ?*anyopaque, dontAskAgainText: []const u8) void {
@@ -150,63 +150,63 @@ pub const kmessagedialog = struct {
         qtc.KMessageDialog_SetDontAskAgainText(@ptrCast(self), dontAskAgainText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setDontAskAgainChecked)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setDontAskAgainChecked)
     ///
     /// ``` self: QtC.KMessageDialog, isChecked: bool ```
     pub fn SetDontAskAgainChecked(self: ?*anyopaque, isChecked: bool) void {
         qtc.KMessageDialog_SetDontAskAgainChecked(@ptrCast(self), isChecked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#isDontAskAgainChecked)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#isDontAskAgainChecked)
     ///
     /// ``` self: QtC.KMessageDialog ```
     pub fn IsDontAskAgainChecked(self: ?*anyopaque) bool {
         return qtc.KMessageDialog_IsDontAskAgainChecked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setOpenExternalLinks)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setOpenExternalLinks)
     ///
     /// ``` self: QtC.KMessageDialog, isAllowed: bool ```
     pub fn SetOpenExternalLinks(self: ?*anyopaque, isAllowed: bool) void {
         qtc.KMessageDialog_SetOpenExternalLinks(@ptrCast(self), isAllowed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#isNotifyEnabled)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#isNotifyEnabled)
     ///
     /// ``` self: QtC.KMessageDialog ```
     pub fn IsNotifyEnabled(self: ?*anyopaque) bool {
         return qtc.KMessageDialog_IsNotifyEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setNotifyEnabled)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setNotifyEnabled)
     ///
     /// ``` self: QtC.KMessageDialog, enable: bool ```
     pub fn SetNotifyEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KMessageDialog_SetNotifyEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setButtons)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setButtons)
     ///
     /// ``` self: QtC.KMessageDialog ```
     pub fn SetButtons(self: ?*anyopaque) void {
         qtc.KMessageDialog_SetButtons(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#beep)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#beep)
     ///
     /// ``` typeVal: kmessagedialog_enums.Type ```
     pub fn Beep(typeVal: i32) void {
         qtc.KMessageDialog_Beep(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#showEvent)
     ///
     /// ``` self: QtC.KMessageDialog, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KMessageDialog_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -215,7 +215,7 @@ pub const kmessagedialog = struct {
         qtc.KMessageDialog_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -250,28 +250,28 @@ pub const kmessagedialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setButtons)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setButtons)
     ///
     /// ``` self: QtC.KMessageDialog, primaryAction: QtC.KGuiItem ```
     pub fn SetButtons1(self: ?*anyopaque, primaryAction: ?*anyopaque) void {
         qtc.KMessageDialog_SetButtons1(@ptrCast(self), @ptrCast(primaryAction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setButtons)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setButtons)
     ///
     /// ``` self: QtC.KMessageDialog, primaryAction: QtC.KGuiItem, secondaryAction: QtC.KGuiItem ```
     pub fn SetButtons2(self: ?*anyopaque, primaryAction: ?*anyopaque, secondaryAction: ?*anyopaque) void {
         qtc.KMessageDialog_SetButtons2(@ptrCast(self), @ptrCast(primaryAction), @ptrCast(secondaryAction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#setButtons)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#setButtons)
     ///
     /// ``` self: QtC.KMessageDialog, primaryAction: QtC.KGuiItem, secondaryAction: QtC.KGuiItem, cancelAction: QtC.KGuiItem ```
     pub fn SetButtons3(self: ?*anyopaque, primaryAction: ?*anyopaque, secondaryAction: ?*anyopaque, cancelAction: ?*anyopaque) void {
         qtc.KMessageDialog_SetButtons3(@ptrCast(self), @ptrCast(primaryAction), @ptrCast(secondaryAction), @ptrCast(cancelAction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#beep)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#beep)
     ///
     /// ``` typeVal: kmessagedialog_enums.Type, text: []const u8 ```
     pub fn Beep2(typeVal: i32, text: []const u8) void {
@@ -282,7 +282,7 @@ pub const kmessagedialog = struct {
         qtc.KMessageDialog_Beep2(@intCast(typeVal), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#beep)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#beep)
     ///
     /// ``` typeVal: kmessagedialog_enums.Type, text: []const u8, dialog: QtC.QWidget ```
     pub fn Beep3(typeVal: i32, text: []const u8, dialog: ?*anyopaque) void {
@@ -5537,7 +5537,7 @@ pub const kmessagedialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagedialog.html#dtor.KMessageDialog)
+    /// [Qt documentation](https://api.kde.org/kmessagedialog.html#dtor.KMessageDialog)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5547,7 +5547,7 @@ pub const kmessagedialog = struct {
     }
 };
 
-/// https://api-staging.kde.org/kmessagedialog.html#types
+/// https://api.kde.org/kmessagedialog.html#types
 pub const enums = struct {
     pub const ButtonType = enum {
         pub const Ok: i32 = 1;

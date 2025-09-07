@@ -3,9 +3,9 @@ const qtc = @import("qt6c");
 const kemailaddress_enums = enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kemailaddress.html
+/// https://api.kde.org/kemailaddress.html
 pub const kemailaddress = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#splitAddressList)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#splitAddressList)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn SplitAddressList(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -31,7 +31,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#splitAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#splitAddress)
     ///
     /// ``` param1: []u8, param2: []u8, param3: []u8, param4: []u8 ```
     ///
@@ -56,7 +56,7 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_SplitAddress(param1_str, param2_str, param3_str, param4_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#splitAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#splitAddress)
     ///
     /// ``` param1: []const u8, param2: []const u8, param3: []const u8, param4: []const u8 ```
     ///
@@ -81,7 +81,7 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_SplitAddress2(param1_str, param2_str, param3_str, param4_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#isValidAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#isValidAddress)
     ///
     /// ``` param1: []const u8 ```
     ///
@@ -94,7 +94,7 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_IsValidAddress(param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#isValidAddressList)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#isValidAddressList)
     ///
     /// ``` param1: []const u8, param2: []const u8 ```
     ///
@@ -111,7 +111,7 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_IsValidAddressList(param1_str, param2_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#emailParseResultToString)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#emailParseResultToString)
     ///
     /// ``` param1: kemailaddress_enums.EmailParseResult, allocator: std.mem.Allocator ```
     pub fn EmailParseResultToString(param1: i32, allocator: std.mem.Allocator) []const u8 {
@@ -122,7 +122,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#isValidSimpleAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#isValidSimpleAddress)
     ///
     /// ``` param1: []const u8 ```
     pub fn IsValidSimpleAddress(param1: []const u8) bool {
@@ -133,7 +133,7 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_IsValidSimpleAddress(param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#simpleEmailAddressErrorMsg)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#simpleEmailAddressErrorMsg)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SimpleEmailAddressErrorMsg(allocator: std.mem.Allocator) []const u8 {
@@ -144,7 +144,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#extractEmailAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#extractEmailAddress)
     ///
     /// ``` param1: []u8, allocator: std.mem.Allocator ```
     pub fn ExtractEmailAddress(param1: []u8, allocator: std.mem.Allocator) []u8 {
@@ -159,7 +159,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#extractEmailAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#extractEmailAddress)
     ///
     /// ``` param1: []u8, param2: []const u8, allocator: std.mem.Allocator ```
     pub fn ExtractEmailAddress2(param1: []u8, param2: []const u8, allocator: std.mem.Allocator) []u8 {
@@ -178,7 +178,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#extractEmailAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#extractEmailAddress)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn ExtractEmailAddress3(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -193,7 +193,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#extractEmailAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#extractEmailAddress)
     ///
     /// ``` param1: []const u8, param2: []const u8, allocator: std.mem.Allocator ```
     pub fn ExtractEmailAddress4(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -212,7 +212,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#firstEmailAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#firstEmailAddress)
     ///
     /// ``` param1: []u8, allocator: std.mem.Allocator ```
     pub fn FirstEmailAddress(param1: []u8, allocator: std.mem.Allocator) []u8 {
@@ -227,7 +227,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#firstEmailAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#firstEmailAddress)
     ///
     /// ``` param1: []u8, param2: []const u8, allocator: std.mem.Allocator ```
     pub fn FirstEmailAddress2(param1: []u8, param2: []const u8, allocator: std.mem.Allocator) []u8 {
@@ -246,7 +246,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#firstEmailAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#firstEmailAddress)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn FirstEmailAddress3(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -261,7 +261,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#firstEmailAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#firstEmailAddress)
     ///
     /// ``` param1: []const u8, param2: []const u8, allocator: std.mem.Allocator ```
     pub fn FirstEmailAddress4(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -280,7 +280,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#extractEmailAddressAndName)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#extractEmailAddressAndName)
     ///
     /// ``` param1: []const u8, param2: []const u8, param3: []const u8 ```
     pub fn ExtractEmailAddressAndName(param1: []const u8, param2: []const u8, param3: []const u8) bool {
@@ -299,7 +299,7 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_ExtractEmailAddressAndName(param1_str, param2_str, param3_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#compareEmail)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#compareEmail)
     ///
     /// ``` param1: []const u8, param2: []const u8, param3: bool ```
     pub fn CompareEmail(param1: []const u8, param2: []const u8, param3: bool) bool {
@@ -314,7 +314,7 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_CompareEmail(param1_str, param2_str, param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#normalizedAddress)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#normalizedAddress)
     ///
     /// ``` param1: []const u8, param2: []const u8, param3: []const u8, allocator: std.mem.Allocator ```
     pub fn NormalizedAddress(param1: []const u8, param2: []const u8, param3: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -337,7 +337,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#fromIdn)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#fromIdn)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn FromIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -352,7 +352,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#toIdn)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#toIdn)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn ToIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -367,7 +367,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#normalizeAddressesAndDecodeIdn)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#normalizeAddressesAndDecodeIdn)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn NormalizeAddressesAndDecodeIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -382,7 +382,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#normalizeAddressesAndEncodeIdn)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#normalizeAddressesAndEncodeIdn)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn NormalizeAddressesAndEncodeIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -397,7 +397,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#quoteNameIfNecessary)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#quoteNameIfNecessary)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn QuoteNameIfNecessary(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -412,7 +412,7 @@ pub const kemailaddress = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#encodeMailtoUrl)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#encodeMailtoUrl)
     ///
     /// ``` param1: []const u8 ```
     pub fn EncodeMailtoUrl(param1: []const u8) QtC.QUrl {
@@ -423,7 +423,7 @@ pub const kemailaddress = struct {
         return qtc.KEmailAddress_EncodeMailtoUrl(param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kemailaddress.html#decodeMailtoUrl)
+    /// [Qt documentation](https://api.kde.org/kemailaddress.html#decodeMailtoUrl)
     ///
     /// ``` param1: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn DecodeMailtoUrl(param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -435,7 +435,7 @@ pub const kemailaddress = struct {
     }
 };
 
-/// https://api-staging.kde.org/kemailaddress.html#types
+/// https://api.kde.org/kemailaddress.html#types
 pub const enums = struct {
     pub const EmailParseResult = enum {
         pub const AddressOk: i32 = 0;

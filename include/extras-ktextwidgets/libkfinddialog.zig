@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kfinddialog.html
+/// https://api.kde.org/kfinddialog.html
 pub const kfinddialog = struct {
     /// New constructs a new KFindDialog object.
     ///
@@ -135,7 +135,7 @@ pub const kfinddialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setFindHistory)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setFindHistory)
     ///
     /// ``` self: QtC.KFindDialog, history: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFindHistory(self: ?*anyopaque, history: [][]const u8, allocator: std.mem.Allocator) void {
@@ -154,7 +154,7 @@ pub const kfinddialog = struct {
         qtc.KFindDialog_SetFindHistory(@ptrCast(self), history_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#findHistory)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#findHistory)
     ///
     /// ``` self: QtC.KFindDialog, allocator: std.mem.Allocator ```
     pub fn FindHistory(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -176,63 +176,63 @@ pub const kfinddialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setHasSelection)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setHasSelection)
     ///
     /// ``` self: QtC.KFindDialog, hasSelection: bool ```
     pub fn SetHasSelection(self: ?*anyopaque, hasSelection: bool) void {
         qtc.KFindDialog_SetHasSelection(@ptrCast(self), hasSelection);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setHasCursor)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setHasCursor)
     ///
     /// ``` self: QtC.KFindDialog, hasCursor: bool ```
     pub fn SetHasCursor(self: ?*anyopaque, hasCursor: bool) void {
         qtc.KFindDialog_SetHasCursor(@ptrCast(self), hasCursor);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setSupportsBackwardsFind)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setSupportsBackwardsFind)
     ///
     /// ``` self: QtC.KFindDialog, supports: bool ```
     pub fn SetSupportsBackwardsFind(self: ?*anyopaque, supports: bool) void {
         qtc.KFindDialog_SetSupportsBackwardsFind(@ptrCast(self), supports);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setSupportsCaseSensitiveFind)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setSupportsCaseSensitiveFind)
     ///
     /// ``` self: QtC.KFindDialog, supports: bool ```
     pub fn SetSupportsCaseSensitiveFind(self: ?*anyopaque, supports: bool) void {
         qtc.KFindDialog_SetSupportsCaseSensitiveFind(@ptrCast(self), supports);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setSupportsWholeWordsFind)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setSupportsWholeWordsFind)
     ///
     /// ``` self: QtC.KFindDialog, supports: bool ```
     pub fn SetSupportsWholeWordsFind(self: ?*anyopaque, supports: bool) void {
         qtc.KFindDialog_SetSupportsWholeWordsFind(@ptrCast(self), supports);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setSupportsRegularExpressionFind)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setSupportsRegularExpressionFind)
     ///
     /// ``` self: QtC.KFindDialog, supports: bool ```
     pub fn SetSupportsRegularExpressionFind(self: ?*anyopaque, supports: bool) void {
         qtc.KFindDialog_SetSupportsRegularExpressionFind(@ptrCast(self), supports);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setOptions)
     ///
     /// ``` self: QtC.KFindDialog, options: i64 ```
     pub fn SetOptions(self: ?*anyopaque, options: i64) void {
         qtc.KFindDialog_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#options)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#options)
     ///
     /// ``` self: QtC.KFindDialog ```
     pub fn Options(self: ?*anyopaque) i64 {
         return qtc.KFindDialog_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#pattern)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#pattern)
     ///
     /// ``` self: QtC.KFindDialog, allocator: std.mem.Allocator ```
     pub fn Pattern(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -243,7 +243,7 @@ pub const kfinddialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setPattern)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setPattern)
     ///
     /// ``` self: QtC.KFindDialog, pattern: []const u8 ```
     pub fn SetPattern(self: ?*anyopaque, pattern: []const u8) void {
@@ -254,63 +254,63 @@ pub const kfinddialog = struct {
         qtc.KFindDialog_SetPattern(@ptrCast(self), pattern_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#findExtension)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#findExtension)
     ///
     /// ``` self: QtC.KFindDialog ```
     pub fn FindExtension(self: ?*anyopaque) QtC.QWidget {
         return qtc.KFindDialog_FindExtension(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#optionsChanged)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#optionsChanged)
     ///
     /// ``` self: QtC.KFindDialog ```
     pub fn OptionsChanged(self: ?*anyopaque) void {
         qtc.KFindDialog_OptionsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#optionsChanged)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#optionsChanged)
     ///
     /// ``` self: QtC.KFindDialog, slot: fn (self: QtC.KFindDialog) callconv(.c) void ```
     pub fn OnOptionsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KFindDialog_Connect_OptionsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#okClicked)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#okClicked)
     ///
     /// ``` self: QtC.KFindDialog ```
     pub fn OkClicked(self: ?*anyopaque) void {
         qtc.KFindDialog_OkClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#okClicked)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#okClicked)
     ///
     /// ``` self: QtC.KFindDialog, slot: fn (self: QtC.KFindDialog) callconv(.c) void ```
     pub fn OnOkClicked(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KFindDialog_Connect_OkClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#cancelClicked)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#cancelClicked)
     ///
     /// ``` self: QtC.KFindDialog ```
     pub fn CancelClicked(self: ?*anyopaque) void {
         qtc.KFindDialog_CancelClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#cancelClicked)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#cancelClicked)
     ///
     /// ``` self: QtC.KFindDialog, slot: fn (self: QtC.KFindDialog) callconv(.c) void ```
     pub fn OnCancelClicked(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KFindDialog_Connect_CancelClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#showEvent)
     ///
     /// ``` self: QtC.KFindDialog, param1: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KFindDialog_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -319,7 +319,7 @@ pub const kfinddialog = struct {
         qtc.KFindDialog_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -5598,7 +5598,7 @@ pub const kfinddialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#dtor.KFindDialog)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#dtor.KFindDialog)
     ///
     /// Delete this object from C++ memory.
     ///

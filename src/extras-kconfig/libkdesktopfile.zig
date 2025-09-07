@@ -6,7 +6,7 @@ const qstandardpaths_enums = @import("../libqstandardpaths.zig").enums;
 const std = @import("std");
 pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
-/// https://api-staging.kde.org/kdesktopfile.html
+/// https://api.kde.org/kdesktopfile.html
 pub const kdesktopfile = struct {
     /// New constructs a new KDesktopFile object.
     ///
@@ -32,7 +32,7 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_new2(fileName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#isDesktopFile)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#isDesktopFile)
     ///
     /// ``` path: []const u8 ```
     pub fn IsDesktopFile(path: []const u8) bool {
@@ -43,7 +43,7 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_IsDesktopFile(path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#isAuthorizedDesktopFile)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#isAuthorizedDesktopFile)
     ///
     /// ``` path: []const u8 ```
     pub fn IsAuthorizedDesktopFile(path: []const u8) bool {
@@ -54,7 +54,7 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_IsAuthorizedDesktopFile(path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#locateLocal)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#locateLocal)
     ///
     /// ``` path: []const u8, allocator: std.mem.Allocator ```
     pub fn LocateLocal(path: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -69,14 +69,14 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#desktopGroup)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#desktopGroup)
     ///
     /// ``` self: QtC.KDesktopFile ```
     pub fn DesktopGroup(self: ?*anyopaque) QtC.KConfigGroup {
         return qtc.KDesktopFile_DesktopGroup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readType)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readType)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -87,7 +87,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readIcon)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readIcon)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -98,7 +98,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readName)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readName)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -109,7 +109,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readComment)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readComment)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadComment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -120,7 +120,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readGenericName)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readGenericName)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadGenericName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -131,7 +131,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readPath)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readPath)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -142,7 +142,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readUrl)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readUrl)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -153,7 +153,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readActions)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readActions)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadActions(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -175,7 +175,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readMimeTypes)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readMimeTypes)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -197,7 +197,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#actionGroup)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#actionGroup)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8 ```
     pub fn ActionGroup(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -208,7 +208,7 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_ActionGroup(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#actionGroup)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#actionGroup)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8 ```
     pub fn ActionGroup2(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -219,7 +219,7 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_ActionGroup2(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#hasActionGroup)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#hasActionGroup)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8 ```
     pub fn HasActionGroup(self: ?*anyopaque, group: []const u8) bool {
@@ -230,35 +230,35 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_HasActionGroup(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#hasLinkType)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#hasLinkType)
     ///
     /// ``` self: QtC.KDesktopFile ```
     pub fn HasLinkType(self: ?*anyopaque) bool {
         return qtc.KDesktopFile_HasLinkType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#hasApplicationType)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#hasApplicationType)
     ///
     /// ``` self: QtC.KDesktopFile ```
     pub fn HasApplicationType(self: ?*anyopaque) bool {
         return qtc.KDesktopFile_HasApplicationType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#hasDeviceType)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#hasDeviceType)
     ///
     /// ``` self: QtC.KDesktopFile ```
     pub fn HasDeviceType(self: ?*anyopaque) bool {
         return qtc.KDesktopFile_HasDeviceType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#tryExec)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#tryExec)
     ///
     /// ``` self: QtC.KDesktopFile ```
     pub fn TryExec(self: ?*anyopaque) bool {
         return qtc.KDesktopFile_TryExec(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#readDocPath)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#readDocPath)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn ReadDocPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -269,14 +269,14 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#noDisplay)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#noDisplay)
     ///
     /// ``` self: QtC.KDesktopFile ```
     pub fn NoDisplay(self: ?*anyopaque) bool {
         return qtc.KDesktopFile_NoDisplay(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#copyTo)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#copyTo)
     ///
     /// ``` self: QtC.KDesktopFile, file: []const u8 ```
     pub fn CopyTo(self: ?*anyopaque, file: []const u8) QtC.KDesktopFile {
@@ -287,7 +287,7 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_CopyTo(@ptrCast(self), file_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#fileName)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#fileName)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -298,7 +298,7 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#actions)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#actions)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KDesktopFileAction {
@@ -312,7 +312,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#locationType)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#locationType)
     ///
     /// ``` self: QtC.KDesktopFile ```
     ///
@@ -323,7 +323,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#name)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#name)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -336,7 +336,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#openFlags)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#openFlags)
     ///
     /// ``` self: QtC.KDesktopFile ```
     ///
@@ -347,7 +347,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#isDirty)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#isDirty)
     ///
     /// ``` self: QtC.KDesktopFile ```
     pub fn IsDirty(self: ?*anyopaque) bool {
@@ -356,7 +356,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#isConfigWritable)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#isConfigWritable)
     ///
     /// ``` self: QtC.KDesktopFile, warnUser: bool ```
     pub fn IsConfigWritable(self: ?*anyopaque, warnUser: bool) bool {
@@ -365,7 +365,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#checkUpdate)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#checkUpdate)
     ///
     /// ``` self: QtC.KDesktopFile, id: []const u8, updateFile: []const u8 ```
     pub fn CheckUpdate(self: ?*anyopaque, id: []const u8, updateFile: []const u8) void {
@@ -382,7 +382,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#reparseConfiguration)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#reparseConfiguration)
     ///
     /// ``` self: QtC.KDesktopFile ```
     pub fn ReparseConfiguration(self: ?*anyopaque) void {
@@ -391,7 +391,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#addConfigSources)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#addConfigSources)
     ///
     /// ``` self: QtC.KDesktopFile, sources: [][]const u8, allocator: std.mem.Allocator ```
     pub fn AddConfigSources(self: ?*anyopaque, sources: [][]const u8, allocator: std.mem.Allocator) void {
@@ -412,7 +412,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#additionalConfigSources)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#additionalConfigSources)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn AdditionalConfigSources(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -436,7 +436,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#locale)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#locale)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn Locale(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -449,7 +449,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#setLocale)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#setLocale)
     ///
     /// ``` self: QtC.KDesktopFile, aLocale: []const u8 ```
     pub fn SetLocale(self: ?*anyopaque, aLocale: []const u8) bool {
@@ -462,7 +462,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#setReadDefaults)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#setReadDefaults)
     ///
     /// ``` self: QtC.KDesktopFile, b: bool ```
     pub fn SetReadDefaults(self: ?*anyopaque, b: bool) void {
@@ -471,7 +471,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#readDefaults)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#readDefaults)
     ///
     /// ``` self: QtC.KDesktopFile ```
     pub fn ReadDefaults(self: ?*anyopaque) bool {
@@ -480,7 +480,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#entryMap)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#entryMap)
     ///
     /// ``` self: QtC.KDesktopFile, allocator: std.mem.Allocator ```
     pub fn EntryMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -508,7 +508,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#setMainConfigName)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#setMainConfigName)
     ///
     /// ``` str: []const u8 ```
     pub fn SetMainConfigName(str: []const u8) void {
@@ -521,7 +521,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#mainConfigName)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#mainConfigName)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
@@ -534,7 +534,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#copyTo)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#copyTo)
     ///
     /// ``` self: QtC.KDesktopFile, file: []const u8, config: QtC.KConfig ```
     pub fn CopyTo2(self: ?*anyopaque, file: []const u8, config: ?*anyopaque) QtC.KConfig {
@@ -547,7 +547,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#entryMap)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#entryMap)
     ///
     /// ``` self: QtC.KDesktopFile, aGroup: []const u8, allocator: std.mem.Allocator ```
     pub fn EntryMap1(self: ?*anyopaque, aGroup: []const u8, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -579,7 +579,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#hasGroup)
+    /// [Qt documentation](https://api.kde.org/kconfigbase.html#hasGroup)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8 ```
     pub fn HasGroup(self: ?*anyopaque, group: []const u8) bool {
@@ -592,7 +592,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#group)
+    /// [Qt documentation](https://api.kde.org/kconfigbase.html#group)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8 ```
     pub fn Group(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -605,7 +605,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#group)
+    /// [Qt documentation](https://api.kde.org/kconfigbase.html#group)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8 ```
     pub fn Group2(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -618,7 +618,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#deleteGroup)
+    /// [Qt documentation](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8 ```
     pub fn DeleteGroup(self: ?*anyopaque, group: []const u8) void {
@@ -631,7 +631,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#isGroupImmutable)
+    /// [Qt documentation](https://api.kde.org/kconfigbase.html#isGroupImmutable)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8 ```
     pub fn IsGroupImmutable(self: ?*anyopaque, group: []const u8) bool {
@@ -644,7 +644,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfigbase.html#deleteGroup)
+    /// [Qt documentation](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KDesktopFile, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
     pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {
@@ -657,7 +657,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#sync)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#sync)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -668,7 +668,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#sync)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#sync)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -679,7 +679,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#sync)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#sync)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -690,7 +690,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#markAsClean)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#markAsClean)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -701,7 +701,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#markAsClean)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#markAsClean)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -712,7 +712,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#markAsClean)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#markAsClean)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -723,7 +723,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#accessMode)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#accessMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -736,7 +736,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#accessMode)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#accessMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -749,7 +749,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#accessMode)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#accessMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -760,7 +760,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#isImmutable)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#isImmutable)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -771,7 +771,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#isImmutable)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#isImmutable)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -782,7 +782,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#isImmutable)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#isImmutable)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -793,7 +793,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#groupList)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#groupList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -819,7 +819,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#groupList)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#groupList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -845,7 +845,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#groupList)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#groupList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -856,7 +856,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#hasGroupImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -871,7 +871,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#hasGroupImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -886,7 +886,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#hasGroupImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -897,7 +897,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#groupImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -912,7 +912,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#groupImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -927,7 +927,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#groupImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -938,7 +938,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#deleteGroupImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -953,7 +953,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#deleteGroupImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -968,7 +968,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#deleteGroupImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -979,7 +979,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#isGroupImmutableImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -994,7 +994,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#isGroupImmutableImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1009,7 +1009,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#isGroupImmutableImpl)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1020,7 +1020,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#virtual_hook)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1031,7 +1031,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#virtual_hook)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1042,7 +1042,7 @@ pub const kdesktopfile = struct {
 
     /// Inherited from KConfig
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kconfig.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kconfig.html#virtual_hook)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1051,7 +1051,7 @@ pub const kdesktopfile = struct {
         qtc.KDesktopFile_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdesktopfile.html#dtor.KDesktopFile)
+    /// [Qt documentation](https://api.kde.org/kdesktopfile.html#dtor.KDesktopFile)
     ///
     /// Delete this object from C++ memory.
     ///

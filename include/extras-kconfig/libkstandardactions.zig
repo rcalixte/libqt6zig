@@ -4,16 +4,16 @@ const kstandardactions_enums = enums;
 const kstandardshortcut_enums = @import("libkstandardshortcut.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kstandardactions.html
+/// https://api.kde.org/kstandardactions.html
 pub const kstandardactions = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions.html#_kgui_createInternal)
+    /// [Qt documentation](https://api.kde.org/kstandardactions.html#_kgui_createInternal)
     ///
     /// ``` param1: kstandardactions_enums.StandardAction, param2: QtC.QObject ```
     pub fn KguiCreateInternal(param1: i32, param2: ?*anyopaque) QtC.QAction {
         return qtc.KStandardActions_KguiCreateInternal(@intCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions.html#name)
+    /// [Qt documentation](https://api.kde.org/kstandardactions.html#name)
     ///
     /// ``` param1: kstandardactions_enums.StandardAction, allocator: std.mem.Allocator ```
     pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
@@ -24,7 +24,7 @@ pub const kstandardactions = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions.html#actionIds)
+    /// [Qt documentation](https://api.kde.org/kstandardactions.html#actionIds)
     ///
     /// ``` allocator: std.mem.Allocator ```
     ///
@@ -38,7 +38,7 @@ pub const kstandardactions = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstandardactions.html#shortcutForActionId)
+    /// [Qt documentation](https://api.kde.org/kstandardactions.html#shortcutForActionId)
     ///
     /// ``` param1: kstandardactions_enums.StandardAction ```
     ///
@@ -48,7 +48,7 @@ pub const kstandardactions = struct {
     }
 };
 
-/// https://api-staging.kde.org/kstandardactions.html#types
+/// https://api.kde.org/kstandardactions.html#types
 pub const enums = struct {
     pub const StandardAction = enum {
         pub const ActionNone: i32 = 0;

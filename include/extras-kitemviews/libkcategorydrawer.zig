@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcategorydrawer.html
+/// https://api.kde.org/kcategorydrawer.html
 pub const kcategorydrawer = struct {
     /// New constructs a new KCategoryDrawer object.
     ///
@@ -57,21 +57,21 @@ pub const kcategorydrawer = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#view)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#view)
     ///
     /// ``` self: QtC.KCategoryDrawer ```
     pub fn View(self: ?*anyopaque) QtC.KCategorizedView {
         return qtc.KCategoryDrawer_View(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#drawCategory)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#drawCategory)
     ///
     /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, sortRole: i32, option: QtC.QStyleOption, painter: QtC.QPainter ```
     pub fn DrawCategory(self: ?*anyopaque, index: ?*anyopaque, sortRole: i32, option: ?*anyopaque, painter: ?*anyopaque) void {
         qtc.KCategoryDrawer_DrawCategory(@ptrCast(self), @ptrCast(index), @intCast(sortRole), @ptrCast(option), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#drawCategory)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#drawCategory)
     ///
     /// Allows for overriding the related default method
     ///
@@ -80,7 +80,7 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnDrawCategory(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#drawCategory)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#drawCategory)
     ///
     /// Base class method implementation
     ///
@@ -89,14 +89,14 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_QBaseDrawCategory(@ptrCast(self), @ptrCast(index), @intCast(sortRole), @ptrCast(option), @ptrCast(painter));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#categoryHeight)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#categoryHeight)
     ///
     /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, option: QtC.QStyleOption ```
     pub fn CategoryHeight(self: ?*anyopaque, index: ?*anyopaque, option: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_CategoryHeight(@ptrCast(self), @ptrCast(index), @ptrCast(option));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#categoryHeight)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#categoryHeight)
     ///
     /// Allows for overriding the related default method
     ///
@@ -105,7 +105,7 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnCategoryHeight(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#categoryHeight)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#categoryHeight)
     ///
     /// Base class method implementation
     ///
@@ -114,14 +114,14 @@ pub const kcategorydrawer = struct {
         return qtc.KCategoryDrawer_QBaseCategoryHeight(@ptrCast(self), @ptrCast(index), @ptrCast(option));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#leftMargin)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#leftMargin)
     ///
     /// ``` self: QtC.KCategoryDrawer ```
     pub fn LeftMargin(self: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_LeftMargin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#leftMargin)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#leftMargin)
     ///
     /// Allows for overriding the related default method
     ///
@@ -130,7 +130,7 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnLeftMargin(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#leftMargin)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#leftMargin)
     ///
     /// Base class method implementation
     ///
@@ -139,14 +139,14 @@ pub const kcategorydrawer = struct {
         return qtc.KCategoryDrawer_QBaseLeftMargin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#rightMargin)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#rightMargin)
     ///
     /// ``` self: QtC.KCategoryDrawer ```
     pub fn RightMargin(self: ?*anyopaque) i32 {
         return qtc.KCategoryDrawer_RightMargin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#rightMargin)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#rightMargin)
     ///
     /// Allows for overriding the related default method
     ///
@@ -155,7 +155,7 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnRightMargin(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#rightMargin)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#rightMargin)
     ///
     /// Base class method implementation
     ///
@@ -164,42 +164,42 @@ pub const kcategorydrawer = struct {
         return qtc.KCategoryDrawer_QBaseRightMargin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
     ///
     /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex ```
     pub fn CollapseOrExpandClicked(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KCategoryDrawer_CollapseOrExpandClicked(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
     ///
     /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnCollapseOrExpandClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_Connect_CollapseOrExpandClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#actionRequested)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#actionRequested)
     ///
     /// ``` self: QtC.KCategoryDrawer, action: i32, index: QtC.QModelIndex ```
     pub fn ActionRequested(self: ?*anyopaque, action: i32, index: ?*anyopaque) void {
         qtc.KCategoryDrawer_ActionRequested(@ptrCast(self), @intCast(action), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#actionRequested)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#actionRequested)
     ///
     /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, action: i32, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnActionRequested(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KCategoryDrawer_Connect_ActionRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseButtonPressed)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
     ///
     /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
     pub fn MouseButtonPressed(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseButtonPressed(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseButtonPressed)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -208,7 +208,7 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseButtonPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseButtonPressed)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
     ///
     /// Base class method implementation
     ///
@@ -217,14 +217,14 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_QBaseMouseButtonPressed(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseButtonReleased)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
     ///
     /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
     pub fn MouseButtonReleased(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseButtonReleased(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseButtonReleased)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
     ///
     /// Allows for overriding the related default method
     ///
@@ -233,7 +233,7 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseButtonReleased(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseButtonReleased)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
     ///
     /// Base class method implementation
     ///
@@ -242,14 +242,14 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_QBaseMouseButtonReleased(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseMoved)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseMoved)
     ///
     /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
     pub fn MouseMoved(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseMoved(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseMoved)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseMoved)
     ///
     /// Allows for overriding the related default method
     ///
@@ -258,7 +258,7 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseMoved)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseMoved)
     ///
     /// Base class method implementation
     ///
@@ -267,14 +267,14 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_QBaseMouseMoved(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
     ///
     /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent ```
     pub fn MouseButtonDoubleClicked(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseButtonDoubleClicked(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -283,7 +283,7 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseButtonDoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
     ///
     /// Base class method implementation
     ///
@@ -292,14 +292,14 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_QBaseMouseButtonDoubleClicked(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseLeft)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseLeft)
     ///
     /// ``` self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect ```
     pub fn MouseLeft(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque) void {
         qtc.KCategoryDrawer_MouseLeft(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseLeft)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseLeft)
     ///
     /// Allows for overriding the related default method
     ///
@@ -308,7 +308,7 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseLeft(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#mouseLeft)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseLeft)
     ///
     /// Base class method implementation
     ///
@@ -1096,7 +1096,7 @@ pub const kcategorydrawer = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcategorydrawer.html#dtor.KCategoryDrawer)
+    /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#dtor.KCategoryDrawer)
     ///
     /// Delete this object from C++ memory.
     ///

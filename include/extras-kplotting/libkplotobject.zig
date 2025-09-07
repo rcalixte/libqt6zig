@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const kplotobject_enums = enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kplotobject.html
+/// https://api.kde.org/kplotobject.html
 pub const kplotobject = struct {
     /// New constructs a new KPlotObject object.
     ///
@@ -40,7 +40,7 @@ pub const kplotobject = struct {
         return qtc.KPlotObject_new5(@ptrCast(color), @intCast(otype), @floatCast(size), @intCast(ps));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#plotTypes)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#plotTypes)
     ///
     /// ``` self: QtC.KPlotObject ```
     ///
@@ -49,42 +49,42 @@ pub const kplotobject = struct {
         return qtc.KPlotObject_PlotTypes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setShowPoints)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setShowPoints)
     ///
     /// ``` self: QtC.KPlotObject, b: bool ```
     pub fn SetShowPoints(self: ?*anyopaque, b: bool) void {
         qtc.KPlotObject_SetShowPoints(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setShowLines)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setShowLines)
     ///
     /// ``` self: QtC.KPlotObject, b: bool ```
     pub fn SetShowLines(self: ?*anyopaque, b: bool) void {
         qtc.KPlotObject_SetShowLines(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setShowBars)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setShowBars)
     ///
     /// ``` self: QtC.KPlotObject, b: bool ```
     pub fn SetShowBars(self: ?*anyopaque, b: bool) void {
         qtc.KPlotObject_SetShowBars(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#size)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#size)
     ///
     /// ``` self: QtC.KPlotObject ```
     pub fn Size(self: ?*anyopaque) f64 {
         return qtc.KPlotObject_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setSize)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setSize)
     ///
     /// ``` self: QtC.KPlotObject, s: f64 ```
     pub fn SetSize(self: ?*anyopaque, s: f64) void {
         qtc.KPlotObject_SetSize(@ptrCast(self), @floatCast(s));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#pointStyle)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#pointStyle)
     ///
     /// ``` self: QtC.KPlotObject ```
     ///
@@ -93,98 +93,98 @@ pub const kplotobject = struct {
         return qtc.KPlotObject_PointStyle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setPointStyle)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setPointStyle)
     ///
     /// ``` self: QtC.KPlotObject, p: kplotobject_enums.PointStyle ```
     pub fn SetPointStyle(self: ?*anyopaque, p: i32) void {
         qtc.KPlotObject_SetPointStyle(@ptrCast(self), @intCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#pen)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#pen)
     ///
     /// ``` self: QtC.KPlotObject ```
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
         return qtc.KPlotObject_Pen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setPen)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setPen)
     ///
     /// ``` self: QtC.KPlotObject, p: QtC.QPen ```
     pub fn SetPen(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KPlotObject_SetPen(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#linePen)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#linePen)
     ///
     /// ``` self: QtC.KPlotObject ```
     pub fn LinePen(self: ?*anyopaque) QtC.QPen {
         return qtc.KPlotObject_LinePen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setLinePen)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setLinePen)
     ///
     /// ``` self: QtC.KPlotObject, p: QtC.QPen ```
     pub fn SetLinePen(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KPlotObject_SetLinePen(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#barPen)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#barPen)
     ///
     /// ``` self: QtC.KPlotObject ```
     pub fn BarPen(self: ?*anyopaque) QtC.QPen {
         return qtc.KPlotObject_BarPen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setBarPen)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setBarPen)
     ///
     /// ``` self: QtC.KPlotObject, p: QtC.QPen ```
     pub fn SetBarPen(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KPlotObject_SetBarPen(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#labelPen)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#labelPen)
     ///
     /// ``` self: QtC.KPlotObject ```
     pub fn LabelPen(self: ?*anyopaque) QtC.QPen {
         return qtc.KPlotObject_LabelPen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setLabelPen)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setLabelPen)
     ///
     /// ``` self: QtC.KPlotObject, p: QtC.QPen ```
     pub fn SetLabelPen(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KPlotObject_SetLabelPen(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#brush)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#brush)
     ///
     /// ``` self: QtC.KPlotObject ```
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
         return qtc.KPlotObject_Brush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setBrush)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setBrush)
     ///
     /// ``` self: QtC.KPlotObject, b: QtC.QBrush ```
     pub fn SetBrush(self: ?*anyopaque, b: ?*anyopaque) void {
         qtc.KPlotObject_SetBrush(@ptrCast(self), @ptrCast(b));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#barBrush)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#barBrush)
     ///
     /// ``` self: QtC.KPlotObject ```
     pub fn BarBrush(self: ?*anyopaque) QtC.QBrush {
         return qtc.KPlotObject_BarBrush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#setBarBrush)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#setBarBrush)
     ///
     /// ``` self: QtC.KPlotObject, b: QtC.QBrush ```
     pub fn SetBarBrush(self: ?*anyopaque, b: ?*anyopaque) void {
         qtc.KPlotObject_SetBarBrush(@ptrCast(self), @ptrCast(b));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#points)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#points)
     ///
     /// ``` self: QtC.KPlotObject, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KPlotPoint {
@@ -196,49 +196,49 @@ pub const kplotobject = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#addPoint)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ``` self: QtC.KPlotObject, p: QtC.QPointF ```
     pub fn AddPoint(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KPlotObject_AddPoint(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#addPoint)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ``` self: QtC.KPlotObject, p: QtC.KPlotPoint ```
     pub fn AddPoint2(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.KPlotObject_AddPoint2(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#addPoint)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ``` self: QtC.KPlotObject, x: f64, y: f64 ```
     pub fn AddPoint3(self: ?*anyopaque, x: f64, y: f64) void {
         qtc.KPlotObject_AddPoint3(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#removePoint)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#removePoint)
     ///
     /// ``` self: QtC.KPlotObject, index: i32 ```
     pub fn RemovePoint(self: ?*anyopaque, index: i32) void {
         qtc.KPlotObject_RemovePoint(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#clearPoints)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#clearPoints)
     ///
     /// ``` self: QtC.KPlotObject ```
     pub fn ClearPoints(self: ?*anyopaque) void {
         qtc.KPlotObject_ClearPoints(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#draw)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#draw)
     ///
     /// ``` self: QtC.KPlotObject, p: QtC.QPainter, pw: QtC.KPlotWidget ```
     pub fn Draw(self: ?*anyopaque, p: ?*anyopaque, pw: ?*anyopaque) void {
         qtc.KPlotObject_Draw(@ptrCast(self), @ptrCast(p), @ptrCast(pw));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#addPoint)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ``` self: QtC.KPlotObject, p: QtC.QPointF, label: []const u8 ```
     pub fn AddPoint22(self: ?*anyopaque, p: ?*anyopaque, label: []const u8) void {
@@ -249,7 +249,7 @@ pub const kplotobject = struct {
         qtc.KPlotObject_AddPoint22(@ptrCast(self), @ptrCast(p), label_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#addPoint)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ``` self: QtC.KPlotObject, p: QtC.QPointF, label: []const u8, barWidth: f64 ```
     pub fn AddPoint32(self: ?*anyopaque, p: ?*anyopaque, label: []const u8, barWidth: f64) void {
@@ -260,7 +260,7 @@ pub const kplotobject = struct {
         qtc.KPlotObject_AddPoint32(@ptrCast(self), @ptrCast(p), label_str, @floatCast(barWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#addPoint)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ``` self: QtC.KPlotObject, x: f64, y: f64, label: []const u8 ```
     pub fn AddPoint33(self: ?*anyopaque, x: f64, y: f64, label: []const u8) void {
@@ -271,7 +271,7 @@ pub const kplotobject = struct {
         qtc.KPlotObject_AddPoint33(@ptrCast(self), @floatCast(x), @floatCast(y), label_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#addPoint)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ``` self: QtC.KPlotObject, x: f64, y: f64, label: []const u8, barWidth: f64 ```
     pub fn AddPoint4(self: ?*anyopaque, x: f64, y: f64, label: []const u8, barWidth: f64) void {
@@ -282,7 +282,7 @@ pub const kplotobject = struct {
         qtc.KPlotObject_AddPoint4(@ptrCast(self), @floatCast(x), @floatCast(y), label_str, @floatCast(barWidth));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotobject.html#dtor.KPlotObject)
+    /// [Qt documentation](https://api.kde.org/kplotobject.html#dtor.KPlotObject)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -292,7 +292,7 @@ pub const kplotobject = struct {
     }
 };
 
-/// https://api-staging.kde.org/kplotobject.html#types
+/// https://api.kde.org/kplotobject.html#types
 pub const enums = struct {
     pub const PlotType = enum {
         pub const UnknownType: i32 = 0;

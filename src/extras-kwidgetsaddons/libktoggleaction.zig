@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktoggleaction.html
+/// https://api.kde.org/ktoggleaction.html
 pub const ktoggleaction = struct {
     /// New constructs a new KToggleAction object.
     ///
@@ -83,21 +83,21 @@ pub const ktoggleaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggleaction.html#setCheckedState)
+    /// [Qt documentation](https://api.kde.org/ktoggleaction.html#setCheckedState)
     ///
     /// ``` self: QtC.KToggleAction, checkedItem: QtC.KGuiItem ```
     pub fn SetCheckedState(self: ?*anyopaque, checkedItem: ?*anyopaque) void {
         qtc.KToggleAction_SetCheckedState(@ptrCast(self), @ptrCast(checkedItem));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggleaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/ktoggleaction.html#slotToggled)
     ///
     /// ``` self: QtC.KToggleAction, checked: bool ```
     pub fn SlotToggled(self: ?*anyopaque, checked: bool) void {
         qtc.KToggleAction_SlotToggled(@ptrCast(self), checked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggleaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/ktoggleaction.html#slotToggled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -106,7 +106,7 @@ pub const ktoggleaction = struct {
         qtc.KToggleAction_OnSlotToggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggleaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/ktoggleaction.html#slotToggled)
     ///
     /// Base class method implementation
     ///
@@ -1584,7 +1584,7 @@ pub const ktoggleaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoggleaction.html#dtor.KToggleAction)
+    /// [Qt documentation](https://api.kde.org/ktoggleaction.html#dtor.KToggleAction)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/klocalizedtranslator.html
+/// https://api.kde.org/klocalizedtranslator.html
 pub const klocalizedtranslator = struct {
     /// New constructs a new KLocalizedTranslator object.
     ///
@@ -64,7 +64,7 @@ pub const klocalizedtranslator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedtranslator.html#translate)
+    /// [Qt documentation](https://api.kde.org/klocalizedtranslator.html#translate)
     ///
     /// ``` self: QtC.KLocalizedTranslator, context: []const u8, sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Translate(self: ?*anyopaque, context: []const u8, sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -78,7 +78,7 @@ pub const klocalizedtranslator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedtranslator.html#translate)
+    /// [Qt documentation](https://api.kde.org/klocalizedtranslator.html#translate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -87,7 +87,7 @@ pub const klocalizedtranslator = struct {
         qtc.KLocalizedTranslator_OnTranslate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedtranslator.html#translate)
+    /// [Qt documentation](https://api.kde.org/klocalizedtranslator.html#translate)
     ///
     /// Base class method implementation
     ///
@@ -103,7 +103,7 @@ pub const klocalizedtranslator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedtranslator.html#setTranslationDomain)
+    /// [Qt documentation](https://api.kde.org/klocalizedtranslator.html#setTranslationDomain)
     ///
     /// ``` self: QtC.KLocalizedTranslator, translationDomain: []const u8 ```
     pub fn SetTranslationDomain(self: ?*anyopaque, translationDomain: []const u8) void {
@@ -114,7 +114,7 @@ pub const klocalizedtranslator = struct {
         qtc.KLocalizedTranslator_SetTranslationDomain(@ptrCast(self), translationDomain_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedtranslator.html#addContextToMonitor)
+    /// [Qt documentation](https://api.kde.org/klocalizedtranslator.html#addContextToMonitor)
     ///
     /// ``` self: QtC.KLocalizedTranslator, context: []const u8 ```
     pub fn AddContextToMonitor(self: ?*anyopaque, context: []const u8) void {
@@ -125,7 +125,7 @@ pub const klocalizedtranslator = struct {
         qtc.KLocalizedTranslator_AddContextToMonitor(@ptrCast(self), context_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedtranslator.html#removeContextToMonitor)
+    /// [Qt documentation](https://api.kde.org/klocalizedtranslator.html#removeContextToMonitor)
     ///
     /// ``` self: QtC.KLocalizedTranslator, context: []const u8 ```
     pub fn RemoveContextToMonitor(self: ?*anyopaque, context: []const u8) void {
@@ -1148,7 +1148,7 @@ pub const klocalizedtranslator = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klocalizedtranslator.html#dtor.KLocalizedTranslator)
+    /// [Qt documentation](https://api.kde.org/klocalizedtranslator.html#dtor.KLocalizedTranslator)
     ///
     /// Delete this object from C++ memory.
     ///

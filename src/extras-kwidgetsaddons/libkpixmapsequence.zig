@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api-staging.kde.org/kpixmapsequence.html
+/// https://api.kde.org/kpixmapsequence.html
 pub const kpixmapsequence = struct {
     /// New constructs a new KPixmapSequence object.
     ///
@@ -43,49 +43,49 @@ pub const kpixmapsequence = struct {
         return qtc.KPixmapSequence_new5(@ptrCast(pixmap), @ptrCast(frameSize));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequence.html#operator-eq)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequence.html#operator-eq)
     ///
     /// ``` self: QtC.KPixmapSequence, other: QtC.KPixmapSequence ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KPixmapSequence_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequence.html#isValid)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequence.html#isValid)
     ///
     /// ``` self: QtC.KPixmapSequence ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KPixmapSequence_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequence.html#isEmpty)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequence.html#isEmpty)
     ///
     /// ``` self: QtC.KPixmapSequence ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.KPixmapSequence_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequence.html#frameSize)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequence.html#frameSize)
     ///
     /// ``` self: QtC.KPixmapSequence ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
         return qtc.KPixmapSequence_FrameSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequence.html#frameCount)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequence.html#frameCount)
     ///
     /// ``` self: QtC.KPixmapSequence ```
     pub fn FrameCount(self: ?*anyopaque) i32 {
         return qtc.KPixmapSequence_FrameCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequence.html#frameAt)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequence.html#frameAt)
     ///
     /// ``` self: QtC.KPixmapSequence, index: i32 ```
     pub fn FrameAt(self: ?*anyopaque, index: i32) QtC.QPixmap {
         return qtc.KPixmapSequence_FrameAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequence.html#dtor.KPixmapSequence)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequence.html#dtor.KPixmapSequence)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kxyselector.html
+/// https://api.kde.org/kxyselector.html
 pub const kxyselector = struct {
     /// New constructs a new KXYSelector object.
     ///
@@ -68,70 +68,70 @@ pub const kxyselector = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#setValues)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#setValues)
     ///
     /// ``` self: QtC.KXYSelector, xPos: i32, yPos: i32 ```
     pub fn SetValues(self: ?*anyopaque, xPos: i32, yPos: i32) void {
         qtc.KXYSelector_SetValues(@ptrCast(self), @intCast(xPos), @intCast(yPos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#setXValue)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#setXValue)
     ///
     /// ``` self: QtC.KXYSelector, xPos: i32 ```
     pub fn SetXValue(self: ?*anyopaque, xPos: i32) void {
         qtc.KXYSelector_SetXValue(@ptrCast(self), @intCast(xPos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#setYValue)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#setYValue)
     ///
     /// ``` self: QtC.KXYSelector, yPos: i32 ```
     pub fn SetYValue(self: ?*anyopaque, yPos: i32) void {
         qtc.KXYSelector_SetYValue(@ptrCast(self), @intCast(yPos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#setRange)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#setRange)
     ///
     /// ``` self: QtC.KXYSelector, minX: i32, minY: i32, maxX: i32, maxY: i32 ```
     pub fn SetRange(self: ?*anyopaque, minX: i32, minY: i32, maxX: i32, maxY: i32) void {
         qtc.KXYSelector_SetRange(@ptrCast(self), @intCast(minX), @intCast(minY), @intCast(maxX), @intCast(maxY));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#setMarkerColor)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#setMarkerColor)
     ///
     /// ``` self: QtC.KXYSelector, col: QtC.QColor ```
     pub fn SetMarkerColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.KXYSelector_SetMarkerColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#xValue)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#xValue)
     ///
     /// ``` self: QtC.KXYSelector ```
     pub fn XValue(self: ?*anyopaque) i32 {
         return qtc.KXYSelector_XValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#yValue)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#yValue)
     ///
     /// ``` self: QtC.KXYSelector ```
     pub fn YValue(self: ?*anyopaque) i32 {
         return qtc.KXYSelector_YValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#contentsRect)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#contentsRect)
     ///
     /// ``` self: QtC.KXYSelector ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
         return qtc.KXYSelector_ContentsRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KXYSelector ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KXYSelector_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -140,7 +140,7 @@ pub const kxyselector = struct {
         qtc.KXYSelector_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -149,28 +149,28 @@ pub const kxyselector = struct {
         return qtc.KXYSelector_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#valueChanged)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#valueChanged)
     ///
     /// ``` self: QtC.KXYSelector, x: i32, y: i32 ```
     pub fn ValueChanged(self: ?*anyopaque, x: i32, y: i32) void {
         qtc.KXYSelector_ValueChanged(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#valueChanged)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#valueChanged)
     ///
     /// ``` self: QtC.KXYSelector, slot: fn (self: QtC.KXYSelector, x: i32, y: i32) callconv(.c) void ```
     pub fn OnValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.KXYSelector_Connect_ValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#drawContents)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#drawContents)
     ///
     /// ``` self: QtC.KXYSelector, param1: QtC.QPainter ```
     pub fn DrawContents(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXYSelector_DrawContents(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#drawContents)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#drawContents)
     ///
     /// Allows for overriding the related default method
     ///
@@ -179,7 +179,7 @@ pub const kxyselector = struct {
         qtc.KXYSelector_OnDrawContents(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#drawContents)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#drawContents)
     ///
     /// Base class method implementation
     ///
@@ -188,14 +188,14 @@ pub const kxyselector = struct {
         qtc.KXYSelector_QBaseDrawContents(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#drawMarker)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#drawMarker)
     ///
     /// ``` self: QtC.KXYSelector, p: QtC.QPainter, xp: i32, yp: i32 ```
     pub fn DrawMarker(self: ?*anyopaque, p: ?*anyopaque, xp: i32, yp: i32) void {
         qtc.KXYSelector_DrawMarker(@ptrCast(self), @ptrCast(p), @intCast(xp), @intCast(yp));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#drawMarker)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#drawMarker)
     ///
     /// Allows for overriding the related default method
     ///
@@ -204,7 +204,7 @@ pub const kxyselector = struct {
         qtc.KXYSelector_OnDrawMarker(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#drawMarker)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#drawMarker)
     ///
     /// Base class method implementation
     ///
@@ -213,14 +213,14 @@ pub const kxyselector = struct {
         qtc.KXYSelector_QBaseDrawMarker(@ptrCast(self), @ptrCast(p), @intCast(xp), @intCast(yp));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#paintEvent)
     ///
     /// ``` self: QtC.KXYSelector, e: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KXYSelector_PaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -229,7 +229,7 @@ pub const kxyselector = struct {
         qtc.KXYSelector_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -238,14 +238,14 @@ pub const kxyselector = struct {
         qtc.KXYSelector_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#mousePressEvent)
     ///
     /// ``` self: QtC.KXYSelector, e: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KXYSelector_MousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -254,7 +254,7 @@ pub const kxyselector = struct {
         qtc.KXYSelector_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -263,14 +263,14 @@ pub const kxyselector = struct {
         qtc.KXYSelector_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.KXYSelector, e: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KXYSelector_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -279,7 +279,7 @@ pub const kxyselector = struct {
         qtc.KXYSelector_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -288,14 +288,14 @@ pub const kxyselector = struct {
         qtc.KXYSelector_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#wheelEvent)
     ///
     /// ``` self: QtC.KXYSelector, param1: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXYSelector_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#wheelEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -304,7 +304,7 @@ pub const kxyselector = struct {
         qtc.KXYSelector_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#wheelEvent)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#wheelEvent)
     ///
     /// Base class method implementation
     ///
@@ -313,14 +313,14 @@ pub const kxyselector = struct {
         qtc.KXYSelector_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#valuesFromPosition)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#valuesFromPosition)
     ///
     /// ``` self: QtC.KXYSelector, x: i32, y: i32, xVal: *i32, yVal: *i32 ```
     pub fn ValuesFromPosition(self: ?*anyopaque, x: i32, y: i32, xVal: *i32, yVal: *i32) void {
         qtc.KXYSelector_ValuesFromPosition(@ptrCast(self), @intCast(x), @intCast(y), @ptrCast(xVal), @ptrCast(yVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#valuesFromPosition)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#valuesFromPosition)
     ///
     /// Allows for overriding the related default method
     ///
@@ -329,7 +329,7 @@ pub const kxyselector = struct {
         qtc.KXYSelector_OnValuesFromPosition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#valuesFromPosition)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#valuesFromPosition)
     ///
     /// Base class method implementation
     ///
@@ -5170,7 +5170,7 @@ pub const kxyselector = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxyselector.html#dtor.KXYSelector)
+    /// [Qt documentation](https://api.kde.org/kxyselector.html#dtor.KXYSelector)
     ///
     /// Delete this object from C++ memory.
     ///

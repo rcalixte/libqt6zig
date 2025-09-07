@@ -7,7 +7,7 @@ const std = @import("std");
 pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
 pub const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
-/// https://api-staging.kde.org/kpagewidgetitem.html
+/// https://api.kde.org/kpagewidgetitem.html
 pub const kpagewidgetitem = struct {
     /// New constructs a new KPageWidgetItem object.
     ///
@@ -72,14 +72,14 @@ pub const kpagewidgetitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#widget)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#widget)
     ///
     /// ``` self: QtC.KPageWidgetItem ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KPageWidgetItem_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#setName)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#setName)
     ///
     /// ``` self: QtC.KPageWidgetItem, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -90,7 +90,7 @@ pub const kpagewidgetitem = struct {
         qtc.KPageWidgetItem_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#name)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#name)
     ///
     /// ``` self: QtC.KPageWidgetItem, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -101,7 +101,7 @@ pub const kpagewidgetitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#setHeader)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#setHeader)
     ///
     /// ``` self: QtC.KPageWidgetItem, header: []const u8 ```
     pub fn SetHeader(self: ?*anyopaque, header: []const u8) void {
@@ -112,7 +112,7 @@ pub const kpagewidgetitem = struct {
         qtc.KPageWidgetItem_SetHeader(@ptrCast(self), header_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#header)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#header)
     ///
     /// ``` self: QtC.KPageWidgetItem, allocator: std.mem.Allocator ```
     pub fn Header(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -123,63 +123,63 @@ pub const kpagewidgetitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#setIcon)
     ///
     /// ``` self: QtC.KPageWidgetItem, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KPageWidgetItem_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#icon)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#icon)
     ///
     /// ``` self: QtC.KPageWidgetItem ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.KPageWidgetItem_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#setCheckable)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#setCheckable)
     ///
     /// ``` self: QtC.KPageWidgetItem, checkable: bool ```
     pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
         qtc.KPageWidgetItem_SetCheckable(@ptrCast(self), checkable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#isCheckable)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#isCheckable)
     ///
     /// ``` self: QtC.KPageWidgetItem ```
     pub fn IsCheckable(self: ?*anyopaque) bool {
         return qtc.KPageWidgetItem_IsCheckable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#isChecked)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#isChecked)
     ///
     /// ``` self: QtC.KPageWidgetItem ```
     pub fn IsChecked(self: ?*anyopaque) bool {
         return qtc.KPageWidgetItem_IsChecked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#isEnabled)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#isEnabled)
     ///
     /// ``` self: QtC.KPageWidgetItem ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.KPageWidgetItem_IsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#isHeaderVisible)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#isHeaderVisible)
     ///
     /// ``` self: QtC.KPageWidgetItem ```
     pub fn IsHeaderVisible(self: ?*anyopaque) bool {
         return qtc.KPageWidgetItem_IsHeaderVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#setHeaderVisible)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#setHeaderVisible)
     ///
     /// ``` self: QtC.KPageWidgetItem, visible: bool ```
     pub fn SetHeaderVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KPageWidgetItem_SetHeaderVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#actions)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#actions)
     ///
     /// ``` self: QtC.KPageWidgetItem, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -191,7 +191,7 @@ pub const kpagewidgetitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#setActions)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#setActions)
     ///
     /// ``` self: QtC.KPageWidgetItem, actions: []QtC.QAction ```
     pub fn SetActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -202,56 +202,56 @@ pub const kpagewidgetitem = struct {
         qtc.KPageWidgetItem_SetActions(@ptrCast(self), actions_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#setEnabled)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#setEnabled)
     ///
     /// ``` self: QtC.KPageWidgetItem, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.KPageWidgetItem_SetEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#setChecked)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#setChecked)
     ///
     /// ``` self: QtC.KPageWidgetItem, checked: bool ```
     pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
         qtc.KPageWidgetItem_SetChecked(@ptrCast(self), checked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#changed)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#changed)
     ///
     /// ``` self: QtC.KPageWidgetItem ```
     pub fn Changed(self: ?*anyopaque) void {
         qtc.KPageWidgetItem_Changed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#changed)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#changed)
     ///
     /// ``` self: QtC.KPageWidgetItem, slot: fn (self: QtC.KPageWidgetItem) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KPageWidgetItem_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#toggled)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#toggled)
     ///
     /// ``` self: QtC.KPageWidgetItem, checked: bool ```
     pub fn Toggled(self: ?*anyopaque, checked: bool) void {
         qtc.KPageWidgetItem_Toggled(@ptrCast(self), checked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#toggled)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#toggled)
     ///
     /// ``` self: QtC.KPageWidgetItem, slot: fn (self: QtC.KPageWidgetItem, checked: bool) callconv(.c) void ```
     pub fn OnToggled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KPageWidgetItem_Connect_Toggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#actionsChanged)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#actionsChanged)
     ///
     /// ``` self: QtC.KPageWidgetItem ```
     pub fn ActionsChanged(self: ?*anyopaque) void {
         qtc.KPageWidgetItem_ActionsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#actionsChanged)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#actionsChanged)
     ///
     /// ``` self: QtC.KPageWidgetItem, slot: fn (self: QtC.KPageWidgetItem) callconv(.c) void ```
     pub fn OnActionsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -1037,7 +1037,7 @@ pub const kpagewidgetitem = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetitem.html#dtor.KPageWidgetItem)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetitem.html#dtor.KPageWidgetItem)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1047,7 +1047,7 @@ pub const kpagewidgetitem = struct {
     }
 };
 
-/// https://api-staging.kde.org/kpagewidgetmodel.html
+/// https://api.kde.org/kpagewidgetmodel.html
 pub const kpagewidgetmodel = struct {
     /// New constructs a new KPageWidgetModel object.
     ///
@@ -1107,7 +1107,7 @@ pub const kpagewidgetmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#addPage)
     ///
     /// ``` self: QtC.KPageWidgetModel, widget: QtC.QWidget, name: []const u8 ```
     pub fn AddPage(self: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -1118,14 +1118,14 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_AddPage(@ptrCast(self), @ptrCast(widget), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#addPage)
     ///
     /// ``` self: QtC.KPageWidgetModel, item: QtC.KPageWidgetItem ```
     pub fn AddPage2(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KPageWidgetModel_AddPage2(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#insertPage)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#insertPage)
     ///
     /// ``` self: QtC.KPageWidgetModel, before: QtC.KPageWidgetItem, widget: QtC.QWidget, name: []const u8 ```
     pub fn InsertPage(self: ?*anyopaque, before: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -1136,14 +1136,14 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_InsertPage(@ptrCast(self), @ptrCast(before), @ptrCast(widget), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#insertPage)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#insertPage)
     ///
     /// ``` self: QtC.KPageWidgetModel, before: QtC.KPageWidgetItem, item: QtC.KPageWidgetItem ```
     pub fn InsertPage2(self: ?*anyopaque, before: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KPageWidgetModel_InsertPage2(@ptrCast(self), @ptrCast(before), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#addSubPage)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#addSubPage)
     ///
     /// ``` self: QtC.KPageWidgetModel, parent: QtC.KPageWidgetItem, widget: QtC.QWidget, name: []const u8 ```
     pub fn AddSubPage(self: ?*anyopaque, parent: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -1154,28 +1154,28 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_AddSubPage(@ptrCast(self), @ptrCast(parent), @ptrCast(widget), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#addSubPage)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#addSubPage)
     ///
     /// ``` self: QtC.KPageWidgetModel, parent: QtC.KPageWidgetItem, item: QtC.KPageWidgetItem ```
     pub fn AddSubPage2(self: ?*anyopaque, parent: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KPageWidgetModel_AddSubPage2(@ptrCast(self), @ptrCast(parent), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#removePage)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#removePage)
     ///
     /// ``` self: QtC.KPageWidgetModel, item: QtC.KPageWidgetItem ```
     pub fn RemovePage(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KPageWidgetModel_RemovePage(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#columnCount)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#columnCount)
     ///
     /// ``` self: QtC.KPageWidgetModel, parent: QtC.QModelIndex ```
     pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.KPageWidgetModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#columnCount)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#columnCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1184,7 +1184,7 @@ pub const kpagewidgetmodel = struct {
         qtc.KPageWidgetModel_OnColumnCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#columnCount)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#columnCount)
     ///
     /// Base class method implementation
     ///
@@ -1193,14 +1193,14 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_QBaseColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#data)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#data)
     ///
     /// ``` self: QtC.KPageWidgetModel, index: QtC.QModelIndex, role: i32 ```
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.KPageWidgetModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#data)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#data)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1209,7 +1209,7 @@ pub const kpagewidgetmodel = struct {
         qtc.KPageWidgetModel_OnData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#data)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#data)
     ///
     /// Base class method implementation
     ///
@@ -1218,14 +1218,14 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#setData)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#setData)
     ///
     /// ``` self: QtC.KPageWidgetModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32 ```
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
         return qtc.KPageWidgetModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#setData)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#setData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1234,7 +1234,7 @@ pub const kpagewidgetmodel = struct {
         qtc.KPageWidgetModel_OnSetData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#setData)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#setData)
     ///
     /// Base class method implementation
     ///
@@ -1243,7 +1243,7 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#flags)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#flags)
     ///
     /// ``` self: QtC.KPageWidgetModel, index: QtC.QModelIndex ```
     ///
@@ -1252,7 +1252,7 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#flags)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#flags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1261,7 +1261,7 @@ pub const kpagewidgetmodel = struct {
         qtc.KPageWidgetModel_OnFlags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#flags)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#flags)
     ///
     /// Base class method implementation
     ///
@@ -1272,14 +1272,14 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#index)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#index)
     ///
     /// ``` self: QtC.KPageWidgetModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
         return qtc.KPageWidgetModel_Index(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#index)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#index)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1288,7 +1288,7 @@ pub const kpagewidgetmodel = struct {
         qtc.KPageWidgetModel_OnIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#index)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#index)
     ///
     /// Base class method implementation
     ///
@@ -1297,14 +1297,14 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_QBaseIndex(@ptrCast(self), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#parent)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#parent)
     ///
     /// ``` self: QtC.KPageWidgetModel, index: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
         return qtc.KPageWidgetModel_Parent(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#parent)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1313,7 +1313,7 @@ pub const kpagewidgetmodel = struct {
         qtc.KPageWidgetModel_OnParent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#parent)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#parent)
     ///
     /// Base class method implementation
     ///
@@ -1322,14 +1322,14 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_QBaseParent(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#rowCount)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#rowCount)
     ///
     /// ``` self: QtC.KPageWidgetModel, parent: QtC.QModelIndex ```
     pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.KPageWidgetModel_RowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#rowCount)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#rowCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1338,7 +1338,7 @@ pub const kpagewidgetmodel = struct {
         qtc.KPageWidgetModel_OnRowCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#rowCount)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#rowCount)
     ///
     /// Base class method implementation
     ///
@@ -1347,28 +1347,28 @@ pub const kpagewidgetmodel = struct {
         return qtc.KPageWidgetModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#item)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#item)
     ///
     /// ``` self: QtC.KPageWidgetModel, index: QtC.QModelIndex ```
     pub fn Item(self: ?*anyopaque, index: ?*anyopaque) QtC.KPageWidgetItem {
         return qtc.KPageWidgetModel_Item(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#index)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#index)
     ///
     /// ``` self: QtC.KPageWidgetModel, item: QtC.KPageWidgetItem ```
     pub fn Index2(self: ?*anyopaque, item: ?*anyopaque) QtC.QModelIndex {
         return qtc.KPageWidgetModel_Index2(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#toggled)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#toggled)
     ///
     /// ``` self: QtC.KPageWidgetModel, page: QtC.KPageWidgetItem, checked: bool ```
     pub fn Toggled(self: ?*anyopaque, page: ?*anyopaque, checked: bool) void {
         qtc.KPageWidgetModel_Toggled(@ptrCast(self), @ptrCast(page), checked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#toggled)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#toggled)
     ///
     /// ``` self: QtC.KPageWidgetModel, slot: fn (self: QtC.KPageWidgetModel, page: QtC.KPageWidgetItem, checked: bool) callconv(.c) void ```
     pub fn OnToggled(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
@@ -4437,7 +4437,7 @@ pub const kpagewidgetmodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagewidgetmodel.html#dtor.KPageWidgetModel)
+    /// [Qt documentation](https://api.kde.org/kpagewidgetmodel.html#dtor.KPageWidgetModel)
     ///
     /// Delete this object from C++ memory.
     ///

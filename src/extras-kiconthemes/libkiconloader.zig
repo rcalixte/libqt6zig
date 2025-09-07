@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kiconloader.html
+/// https://api.kde.org/kiconloader.html
 pub const kiconloader = struct {
     /// New constructs a new KIconLoader object.
     ///
@@ -118,14 +118,14 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#global)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#global)
     ///
     ///
     pub fn Global() QtC.KIconLoader {
         return qtc.KIconLoader_Global();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#addAppDir)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#addAppDir)
     ///
     /// ``` self: QtC.KIconLoader, appname: []const u8 ```
     pub fn AddAppDir(self: ?*anyopaque, appname: []const u8) void {
@@ -136,7 +136,7 @@ pub const kiconloader = struct {
         qtc.KIconLoader_AddAppDir(@ptrCast(self), appname_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadIcon)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadIcon)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group ```
     pub fn LoadIcon(self: ?*anyopaque, name: []const u8, group: i32) QtC.QPixmap {
@@ -147,7 +147,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadIcon(@ptrCast(self), name_str, @intCast(group));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadMimeTypeIcon)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadMimeTypeIcon)
     ///
     /// ``` self: QtC.KIconLoader, iconName: []const u8, group: kiconloader_enums.Group ```
     pub fn LoadMimeTypeIcon(self: ?*anyopaque, iconName: []const u8, group: i32) QtC.QPixmap {
@@ -158,7 +158,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadMimeTypeIcon(@ptrCast(self), iconName_str, @intCast(group));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#iconPath)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#iconPath)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group_or_size: i32, allocator: std.mem.Allocator ```
     pub fn IconPath(self: ?*anyopaque, name: []const u8, group_or_size: i32, allocator: std.mem.Allocator) []const u8 {
@@ -173,7 +173,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#iconPath)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#iconPath)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group_or_size: i32, canReturnNull: bool, scale: f64, allocator: std.mem.Allocator ```
     pub fn IconPath2(self: ?*anyopaque, name: []const u8, group_or_size: i32, canReturnNull: bool, scale: f64, allocator: std.mem.Allocator) []const u8 {
@@ -188,7 +188,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadMovie)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadMovie)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group ```
     pub fn LoadMovie(self: ?*anyopaque, name: []const u8, group: i32) QtC.QMovie {
@@ -199,7 +199,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadMovie(@ptrCast(self), name_str, @intCast(group));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#moviePath)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#moviePath)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group, allocator: std.mem.Allocator ```
     pub fn MoviePath(self: ?*anyopaque, name: []const u8, group: i32, allocator: std.mem.Allocator) []const u8 {
@@ -214,7 +214,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadAnimated)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadAnimated)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group, allocator: std.mem.Allocator ```
     pub fn LoadAnimated(self: ?*anyopaque, name: []const u8, group: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -240,7 +240,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#queryIcons)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#queryIcons)
     ///
     /// ``` self: QtC.KIconLoader, allocator: std.mem.Allocator ```
     pub fn QueryIcons(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -262,7 +262,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#queryIcons)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#queryIcons)
     ///
     /// ``` self: QtC.KIconLoader, group_or_size: i32, allocator: std.mem.Allocator ```
     pub fn QueryIcons2(self: ?*anyopaque, group_or_size: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -284,7 +284,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#queryIconsByContext)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#queryIconsByContext)
     ///
     /// ``` self: QtC.KIconLoader, group_or_size: i32, allocator: std.mem.Allocator ```
     pub fn QueryIconsByContext(self: ?*anyopaque, group_or_size: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -306,14 +306,14 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#hasContext)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#hasContext)
     ///
     /// ``` self: QtC.KIconLoader, context: kiconloader_enums.Context ```
     pub fn HasContext(self: ?*anyopaque, context: i32) bool {
         return qtc.KIconLoader_HasContext(@ptrCast(self), @intCast(context));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#queryIconsByDir)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#queryIconsByDir)
     ///
     /// ``` self: QtC.KIconLoader, iconsDir: []const u8, allocator: std.mem.Allocator ```
     pub fn QueryIconsByDir(self: ?*anyopaque, iconsDir: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -339,7 +339,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#searchPaths)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#searchPaths)
     ///
     /// ``` self: QtC.KIconLoader, allocator: std.mem.Allocator ```
     pub fn SearchPaths(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -361,28 +361,28 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#currentSize)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#currentSize)
     ///
     /// ``` self: QtC.KIconLoader, group: kiconloader_enums.Group ```
     pub fn CurrentSize(self: ?*anyopaque, group: i32) i32 {
         return qtc.KIconLoader_CurrentSize(@ptrCast(self), @intCast(group));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#theme)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#theme)
     ///
     /// ``` self: QtC.KIconLoader ```
     pub fn Theme(self: ?*anyopaque) QtC.KIconTheme {
         return qtc.KIconLoader_Theme(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#iconEffect)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#iconEffect)
     ///
     /// ``` self: QtC.KIconLoader ```
     pub fn IconEffect(self: ?*anyopaque) QtC.KIconEffect {
         return qtc.KIconLoader_IconEffect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#reconfigure)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#reconfigure)
     ///
     /// ``` self: QtC.KIconLoader, appname: []const u8 ```
     pub fn Reconfigure(self: ?*anyopaque, appname: []const u8) void {
@@ -393,14 +393,14 @@ pub const kiconloader = struct {
         qtc.KIconLoader_Reconfigure(@ptrCast(self), appname_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#unknown)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#unknown)
     ///
     ///
     pub fn Unknown() QtC.QPixmap {
         return qtc.KIconLoader_Unknown();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#drawOverlays)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#drawOverlays)
     ///
     /// ``` self: QtC.KIconLoader, overlays: [][]const u8, pixmap: QtC.QPixmap, group: kiconloader_enums.Group, allocator: std.mem.Allocator ```
     pub fn DrawOverlays(self: ?*anyopaque, overlays: [][]const u8, pixmap: ?*anyopaque, group: i32, allocator: std.mem.Allocator) void {
@@ -419,7 +419,7 @@ pub const kiconloader = struct {
         qtc.KIconLoader_DrawOverlays(@ptrCast(self), overlays_list, @ptrCast(pixmap), @intCast(group));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#hasIcon)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#hasIcon)
     ///
     /// ``` self: QtC.KIconLoader, iconName: []const u8 ```
     pub fn HasIcon(self: ?*anyopaque, iconName: []const u8) bool {
@@ -430,70 +430,70 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_HasIcon(@ptrCast(self), iconName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#setCustomPalette)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#setCustomPalette)
     ///
     /// ``` self: QtC.KIconLoader, palette: QtC.QPalette ```
     pub fn SetCustomPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
         qtc.KIconLoader_SetCustomPalette(@ptrCast(self), @ptrCast(palette));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#customPalette)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#customPalette)
     ///
     /// ``` self: QtC.KIconLoader ```
     pub fn CustomPalette(self: ?*anyopaque) QtC.QPalette {
         return qtc.KIconLoader_CustomPalette(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#resetPalette)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#resetPalette)
     ///
     /// ``` self: QtC.KIconLoader ```
     pub fn ResetPalette(self: ?*anyopaque) void {
         qtc.KIconLoader_ResetPalette(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#hasCustomPalette)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#hasCustomPalette)
     ///
     /// ``` self: QtC.KIconLoader ```
     pub fn HasCustomPalette(self: ?*anyopaque) bool {
         return qtc.KIconLoader_HasCustomPalette(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#newIconLoader)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#newIconLoader)
     ///
     /// ``` self: QtC.KIconLoader ```
     pub fn NewIconLoader(self: ?*anyopaque) void {
         qtc.KIconLoader_NewIconLoader(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#emitChange)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#emitChange)
     ///
     /// ``` group: kiconloader_enums.Group ```
     pub fn EmitChange(group: i32) void {
         qtc.KIconLoader_EmitChange(@intCast(group));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#iconLoaderSettingsChanged)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#iconLoaderSettingsChanged)
     ///
     /// ``` self: QtC.KIconLoader ```
     pub fn IconLoaderSettingsChanged(self: ?*anyopaque) void {
         qtc.KIconLoader_IconLoaderSettingsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#iconLoaderSettingsChanged)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#iconLoaderSettingsChanged)
     ///
     /// ``` self: QtC.KIconLoader, slot: fn (self: QtC.KIconLoader) callconv(.c) void ```
     pub fn OnIconLoaderSettingsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KIconLoader_Connect_IconLoaderSettingsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#iconChanged)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#iconChanged)
     ///
     /// ``` self: QtC.KIconLoader, group: i32 ```
     pub fn IconChanged(self: ?*anyopaque, group: i32) void {
         qtc.KIconLoader_IconChanged(@ptrCast(self), @intCast(group));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#iconChanged)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#iconChanged)
     ///
     /// ``` self: QtC.KIconLoader, slot: fn (self: QtC.KIconLoader, group: i32) callconv(.c) void ```
     pub fn OnIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -526,7 +526,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#addAppDir)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#addAppDir)
     ///
     /// ``` self: QtC.KIconLoader, appname: []const u8, themeBaseDir: []const u8 ```
     pub fn AddAppDir2(self: ?*anyopaque, appname: []const u8, themeBaseDir: []const u8) void {
@@ -541,7 +541,7 @@ pub const kiconloader = struct {
         qtc.KIconLoader_AddAppDir2(@ptrCast(self), appname_str, themeBaseDir_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadIcon)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadIcon)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group, size: i32 ```
     pub fn LoadIcon3(self: ?*anyopaque, name: []const u8, group: i32, size: i32) QtC.QPixmap {
@@ -552,7 +552,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadIcon3(@ptrCast(self), name_str, @intCast(group), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadIcon)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadIcon)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group, size: i32, state: i32 ```
     pub fn LoadIcon4(self: ?*anyopaque, name: []const u8, group: i32, size: i32, state: i32) QtC.QPixmap {
@@ -563,7 +563,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadIcon4(@ptrCast(self), name_str, @intCast(group), @intCast(size), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadIcon)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadIcon)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group, size: i32, state: i32, overlays: [][]const u8, allocator: std.mem.Allocator ```
     pub fn LoadIcon5(self: ?*anyopaque, name: []const u8, group: i32, size: i32, state: i32, overlays: [][]const u8, allocator: std.mem.Allocator) QtC.QPixmap {
@@ -586,7 +586,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadIcon5(@ptrCast(self), name_str, @intCast(group), @intCast(size), @intCast(state), overlays_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadMimeTypeIcon)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadMimeTypeIcon)
     ///
     /// ``` self: QtC.KIconLoader, iconName: []const u8, group: kiconloader_enums.Group, size: i32 ```
     pub fn LoadMimeTypeIcon3(self: ?*anyopaque, iconName: []const u8, group: i32, size: i32) QtC.QPixmap {
@@ -597,7 +597,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadMimeTypeIcon3(@ptrCast(self), iconName_str, @intCast(group), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadMimeTypeIcon)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadMimeTypeIcon)
     ///
     /// ``` self: QtC.KIconLoader, iconName: []const u8, group: kiconloader_enums.Group, size: i32, state: i32 ```
     pub fn LoadMimeTypeIcon4(self: ?*anyopaque, iconName: []const u8, group: i32, size: i32, state: i32) QtC.QPixmap {
@@ -608,7 +608,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadMimeTypeIcon4(@ptrCast(self), iconName_str, @intCast(group), @intCast(size), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadMimeTypeIcon)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadMimeTypeIcon)
     ///
     /// ``` self: QtC.KIconLoader, iconName: []const u8, group: kiconloader_enums.Group, size: i32, state: i32, overlays: [][]const u8, allocator: std.mem.Allocator ```
     pub fn LoadMimeTypeIcon5(self: ?*anyopaque, iconName: []const u8, group: i32, size: i32, state: i32, overlays: [][]const u8, allocator: std.mem.Allocator) QtC.QPixmap {
@@ -631,7 +631,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadMimeTypeIcon5(@ptrCast(self), iconName_str, @intCast(group), @intCast(size), @intCast(state), overlays_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#iconPath)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#iconPath)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group_or_size: i32, canReturnNull: bool, allocator: std.mem.Allocator ```
     pub fn IconPath3(self: ?*anyopaque, name: []const u8, group_or_size: i32, canReturnNull: bool, allocator: std.mem.Allocator) []const u8 {
@@ -646,7 +646,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadMovie)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadMovie)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group, size: i32 ```
     pub fn LoadMovie3(self: ?*anyopaque, name: []const u8, group: i32, size: i32) QtC.QMovie {
@@ -657,7 +657,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadMovie3(@ptrCast(self), name_str, @intCast(group), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadMovie)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadMovie)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group, size: i32, parent: QtC.QObject ```
     pub fn LoadMovie4(self: ?*anyopaque, name: []const u8, group: i32, size: i32, parent: ?*anyopaque) QtC.QMovie {
@@ -668,7 +668,7 @@ pub const kiconloader = struct {
         return qtc.KIconLoader_LoadMovie4(@ptrCast(self), name_str, @intCast(group), @intCast(size), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#moviePath)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#moviePath)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group, size: i32, allocator: std.mem.Allocator ```
     pub fn MoviePath3(self: ?*anyopaque, name: []const u8, group: i32, size: i32, allocator: std.mem.Allocator) []const u8 {
@@ -683,7 +683,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#loadAnimated)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#loadAnimated)
     ///
     /// ``` self: QtC.KIconLoader, name: []const u8, group: kiconloader_enums.Group, size: i32, allocator: std.mem.Allocator ```
     pub fn LoadAnimated3(self: ?*anyopaque, name: []const u8, group: i32, size: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -709,7 +709,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#queryIcons)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#queryIcons)
     ///
     /// ``` self: QtC.KIconLoader, group_or_size: i32, context: kiconloader_enums.Context, allocator: std.mem.Allocator ```
     pub fn QueryIcons22(self: ?*anyopaque, group_or_size: i32, context: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -731,7 +731,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#queryIconsByContext)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#queryIconsByContext)
     ///
     /// ``` self: QtC.KIconLoader, group_or_size: i32, context: kiconloader_enums.Context, allocator: std.mem.Allocator ```
     pub fn QueryIconsByContext2(self: ?*anyopaque, group_or_size: i32, context: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -753,7 +753,7 @@ pub const kiconloader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#reconfigure)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#reconfigure)
     ///
     /// ``` self: QtC.KIconLoader, appname: []const u8, extraSearchPaths: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Reconfigure2(self: ?*anyopaque, appname: []const u8, extraSearchPaths: [][]const u8, allocator: std.mem.Allocator) void {
@@ -776,7 +776,7 @@ pub const kiconloader = struct {
         qtc.KIconLoader_Reconfigure2(@ptrCast(self), appname_str, extraSearchPaths_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#drawOverlays)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#drawOverlays)
     ///
     /// ``` self: QtC.KIconLoader, overlays: [][]const u8, pixmap: QtC.QPixmap, group: kiconloader_enums.Group, state: i32, allocator: std.mem.Allocator ```
     pub fn DrawOverlays4(self: ?*anyopaque, overlays: [][]const u8, pixmap: ?*anyopaque, group: i32, state: i32, allocator: std.mem.Allocator) void {
@@ -1548,7 +1548,7 @@ pub const kiconloader = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconloader.html#dtor.KIconLoader)
+    /// [Qt documentation](https://api.kde.org/kiconloader.html#dtor.KIconLoader)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1558,9 +1558,9 @@ pub const kiconloader = struct {
     }
 };
 
-/// https://api-staging.kde.org/kde.html
+/// https://api.kde.org/kde.html
 pub const kde = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kde.html#icon)
+    /// [Qt documentation](https://api.kde.org/kde.html#icon)
     ///
     /// ``` param1: []const u8, param2: QtC.KIconLoader ```
     pub fn Icon(param1: []const u8, param2: ?*anyopaque) QtC.QIcon {
@@ -1571,7 +1571,7 @@ pub const kde = struct {
         return qtc.KDE_Icon(param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kde.html#icon)
+    /// [Qt documentation](https://api.kde.org/kde.html#icon)
     ///
     /// ``` param1: []const u8, param2: QtC.KIconColors, param3: QtC.KIconLoader ```
     pub fn Icon2(param1: []const u8, param2: ?*anyopaque, param3: ?*anyopaque) QtC.QIcon {
@@ -1582,7 +1582,7 @@ pub const kde = struct {
         return qtc.KDE_Icon2(param1_str, @ptrCast(param2), @ptrCast(param3));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kde.html#icon)
+    /// [Qt documentation](https://api.kde.org/kde.html#icon)
     ///
     /// ``` param1: []const u8, param2: [][]const u8, param3: QtC.KIconLoader, allocator: std.mem.Allocator ```
     pub fn Icon3(param1: []const u8, param2: [][]const u8, param3: ?*anyopaque, allocator: std.mem.Allocator) QtC.QIcon {
@@ -1606,7 +1606,7 @@ pub const kde = struct {
     }
 };
 
-/// https://api-staging.kde.org/kiconloader.html#types
+/// https://api.kde.org/kiconloader.html#types
 pub const enums = struct {
     pub const Context = enum {
         pub const Any: i32 = 0;

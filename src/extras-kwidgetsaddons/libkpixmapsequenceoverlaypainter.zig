@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html
+/// https://api.kde.org/kpixmapsequenceoverlaypainter.html
 pub const kpixmapsequenceoverlaypainter = struct {
     /// New constructs a new KPixmapSequenceOverlayPainter object.
     ///
@@ -78,28 +78,28 @@ pub const kpixmapsequenceoverlaypainter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#sequence)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#sequence)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter ```
     pub fn Sequence(self: ?*anyopaque) QtC.KPixmapSequence {
         return qtc.KPixmapSequenceOverlayPainter_Sequence(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#interval)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#interval)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter ```
     pub fn Interval(self: ?*anyopaque) i32 {
         return qtc.KPixmapSequenceOverlayPainter_Interval(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#rect)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#rect)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
         return qtc.KPixmapSequenceOverlayPainter_Rect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#alignment)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#alignment)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter ```
     ///
@@ -108,77 +108,77 @@ pub const kpixmapsequenceoverlaypainter = struct {
         return qtc.KPixmapSequenceOverlayPainter_Alignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#offset)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#offset)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter ```
     pub fn Offset(self: ?*anyopaque) QtC.QPoint {
         return qtc.KPixmapSequenceOverlayPainter_Offset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#setSequence)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#setSequence)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter, seq: QtC.KPixmapSequence ```
     pub fn SetSequence(self: ?*anyopaque, seq: ?*anyopaque) void {
         qtc.KPixmapSequenceOverlayPainter_SetSequence(@ptrCast(self), @ptrCast(seq));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#setInterval)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#setInterval)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter, msecs: i32 ```
     pub fn SetInterval(self: ?*anyopaque, msecs: i32) void {
         qtc.KPixmapSequenceOverlayPainter_SetInterval(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#setWidget)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#setWidget)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter, w: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, w: ?*anyopaque) void {
         qtc.KPixmapSequenceOverlayPainter_SetWidget(@ptrCast(self), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#setRect)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#setRect)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter, rect: QtC.QRect ```
     pub fn SetRect(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.KPixmapSequenceOverlayPainter_SetRect(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#setAlignment)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#setAlignment)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter, alignVal: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, alignVal: i32) void {
         qtc.KPixmapSequenceOverlayPainter_SetAlignment(@ptrCast(self), @intCast(alignVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#setOffset)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#setOffset)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter, offset: QtC.QPoint ```
     pub fn SetOffset(self: ?*anyopaque, offset: ?*anyopaque) void {
         qtc.KPixmapSequenceOverlayPainter_SetOffset(@ptrCast(self), @ptrCast(offset));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#start)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#start)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.KPixmapSequenceOverlayPainter_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#stop)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#stop)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.KPixmapSequenceOverlayPainter_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#eventFilter)
     ///
     /// ``` self: QtC.KPixmapSequenceOverlayPainter, obj: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, obj: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KPixmapSequenceOverlayPainter_EventFilter(@ptrCast(self), @ptrCast(obj), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -187,7 +187,7 @@ pub const kpixmapsequenceoverlaypainter = struct {
         qtc.KPixmapSequenceOverlayPainter_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -942,7 +942,7 @@ pub const kpixmapsequenceoverlaypainter = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapsequenceoverlaypainter.html#dtor.KPixmapSequenceOverlayPainter)
+    /// [Qt documentation](https://api.kde.org/kpixmapsequenceoverlaypainter.html#dtor.KPixmapSequenceOverlayPainter)
     ///
     /// Delete this object from C++ memory.
     ///

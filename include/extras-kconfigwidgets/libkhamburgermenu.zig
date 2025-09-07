@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/khamburgermenu.html
+/// https://api.kde.org/khamburgermenu.html
 pub const khamburgermenu = struct {
     /// New constructs a new KHamburgerMenu object.
     ///
@@ -59,91 +59,91 @@ pub const khamburgermenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#setMenuBar)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#setMenuBar)
     ///
     /// ``` self: QtC.KHamburgerMenu, menuBar: QtC.QMenuBar ```
     pub fn SetMenuBar(self: ?*anyopaque, menuBar: ?*anyopaque) void {
         qtc.KHamburgerMenu_SetMenuBar(@ptrCast(self), @ptrCast(menuBar));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#menuBar)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#menuBar)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn MenuBar(self: ?*anyopaque) QtC.QMenuBar {
         return qtc.KHamburgerMenu_MenuBar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#setMenuBarAdvertised)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#setMenuBarAdvertised)
     ///
     /// ``` self: QtC.KHamburgerMenu, advertise: bool ```
     pub fn SetMenuBarAdvertised(self: ?*anyopaque, advertise: bool) void {
         qtc.KHamburgerMenu_SetMenuBarAdvertised(@ptrCast(self), advertise);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#menuBarAdvertised)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#menuBarAdvertised)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn MenuBarAdvertised(self: ?*anyopaque) bool {
         return qtc.KHamburgerMenu_MenuBarAdvertised(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#setShowMenuBarAction)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#setShowMenuBarAction)
     ///
     /// ``` self: QtC.KHamburgerMenu, showMenuBarAction: QtC.QAction ```
     pub fn SetShowMenuBarAction(self: ?*anyopaque, showMenuBarAction: ?*anyopaque) void {
         qtc.KHamburgerMenu_SetShowMenuBarAction(@ptrCast(self), @ptrCast(showMenuBarAction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#addToMenu)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#addToMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu, menu: QtC.QMenu ```
     pub fn AddToMenu(self: ?*anyopaque, menu: ?*anyopaque) void {
         qtc.KHamburgerMenu_AddToMenu(@ptrCast(self), @ptrCast(menu));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#insertIntoMenuBefore)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#insertIntoMenuBefore)
     ///
     /// ``` self: QtC.KHamburgerMenu, menu: QtC.QMenu, before: QtC.QAction ```
     pub fn InsertIntoMenuBefore(self: ?*anyopaque, menu: ?*anyopaque, before: ?*anyopaque) void {
         qtc.KHamburgerMenu_InsertIntoMenuBefore(@ptrCast(self), @ptrCast(menu), @ptrCast(before));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#hideActionsOf)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#hideActionsOf)
     ///
     /// ``` self: QtC.KHamburgerMenu, widget: QtC.QWidget ```
     pub fn HideActionsOf(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KHamburgerMenu_HideActionsOf(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#showActionsOf)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#showActionsOf)
     ///
     /// ``` self: QtC.KHamburgerMenu, widget: QtC.QWidget ```
     pub fn ShowActionsOf(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KHamburgerMenu_ShowActionsOf(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#aboutToShowMenu)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#aboutToShowMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn AboutToShowMenu(self: ?*anyopaque) void {
         qtc.KHamburgerMenu_AboutToShowMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#aboutToShowMenu)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#aboutToShowMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu, slot: fn (self: QtC.KHamburgerMenu) callconv(.c) void ```
     pub fn OnAboutToShowMenu(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KHamburgerMenu_Connect_AboutToShowMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#createWidget)
     ///
     /// ``` self: QtC.KHamburgerMenu, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KHamburgerMenu_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -152,7 +152,7 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -1742,7 +1742,7 @@ pub const khamburgermenu = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/khamburgermenu.html#dtor.KHamburgerMenu)
+    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#dtor.KHamburgerMenu)
     ///
     /// Delete this object from C++ memory.
     ///

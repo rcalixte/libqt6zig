@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api-staging.kde.org/kfuzzymatcher-result.html
+/// https://api.kde.org/kfuzzymatcher-result.html
 pub const kfuzzymatcher__result = struct {
     /// New constructs a new KFuzzyMatcher::Result object.
     ///
@@ -31,28 +31,28 @@ pub const kfuzzymatcher__result = struct {
         qtc.KFuzzyMatcher__Result_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfuzzymatcher-result.html#score-var)
+    /// [Qt documentation](https://api.kde.org/kfuzzymatcher-result.html#score-var)
     ///
     /// ``` self: QtC.KFuzzyMatcher__Result ```
     pub fn Score(self: ?*anyopaque) i32 {
         return qtc.KFuzzyMatcher__Result_Score(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfuzzymatcher-result.html#score-var)
+    /// [Qt documentation](https://api.kde.org/kfuzzymatcher-result.html#score-var)
     ///
     /// ``` self: QtC.KFuzzyMatcher__Result, score: i32 ```
     pub fn SetScore(self: ?*anyopaque, score: i32) void {
         qtc.KFuzzyMatcher__Result_SetScore(@ptrCast(self), @intCast(score));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfuzzymatcher-result.html#matched-var)
+    /// [Qt documentation](https://api.kde.org/kfuzzymatcher-result.html#matched-var)
     ///
     /// ``` self: QtC.KFuzzyMatcher__Result ```
     pub fn Matched(self: ?*anyopaque) bool {
         return qtc.KFuzzyMatcher__Result_Matched(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfuzzymatcher-result.html#matched-var)
+    /// [Qt documentation](https://api.kde.org/kfuzzymatcher-result.html#matched-var)
     ///
     /// ``` self: QtC.KFuzzyMatcher__Result, matched: bool ```
     pub fn SetMatched(self: ?*anyopaque, matched: bool) void {
@@ -67,7 +67,7 @@ pub const kfuzzymatcher__result = struct {
     }
 };
 
-/// https://api-staging.kde.org/kfuzzymatcher-range.html
+/// https://api.kde.org/kfuzzymatcher-range.html
 pub const kfuzzymatcher__range = struct {
     /// New constructs a new KFuzzyMatcher::Range object.
     ///
@@ -83,28 +83,28 @@ pub const kfuzzymatcher__range = struct {
         return qtc.KFuzzyMatcher__Range_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfuzzymatcher-range.html#start-var)
+    /// [Qt documentation](https://api.kde.org/kfuzzymatcher-range.html#start-var)
     ///
     /// ``` self: QtC.KFuzzyMatcher__Range ```
     pub fn Start(self: ?*anyopaque) i32 {
         return qtc.KFuzzyMatcher__Range_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfuzzymatcher-range.html#start-var)
+    /// [Qt documentation](https://api.kde.org/kfuzzymatcher-range.html#start-var)
     ///
     /// ``` self: QtC.KFuzzyMatcher__Range, start: i32 ```
     pub fn SetStart(self: ?*anyopaque, start: i32) void {
         qtc.KFuzzyMatcher__Range_SetStart(@ptrCast(self), @intCast(start));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfuzzymatcher-range.html#length-var)
+    /// [Qt documentation](https://api.kde.org/kfuzzymatcher-range.html#length-var)
     ///
     /// ``` self: QtC.KFuzzyMatcher__Range ```
     pub fn Length(self: ?*anyopaque) i32 {
         return qtc.KFuzzyMatcher__Range_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfuzzymatcher-range.html#length-var)
+    /// [Qt documentation](https://api.kde.org/kfuzzymatcher-range.html#length-var)
     ///
     /// ``` self: QtC.KFuzzyMatcher__Range, length: i32 ```
     pub fn SetLength(self: ?*anyopaque, length: i32) void {
@@ -119,7 +119,7 @@ pub const kfuzzymatcher__range = struct {
     }
 };
 
-/// https://api-staging.kde.org/kfuzzymatcher.html#types
+/// https://api.kde.org/kfuzzymatcher.html#types
 pub const enums = struct {
     pub const RangeType = enum {
         pub const FullyMatched: u8 = 0;

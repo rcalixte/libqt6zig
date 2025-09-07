@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kkeysequencerecorder.html
+/// https://api.kde.org/kkeysequencerecorder.html
 pub const kkeysequencerecorder = struct {
     /// New constructs a new KKeySequenceRecorder object.
     ///
@@ -65,98 +65,98 @@ pub const kkeysequencerecorder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#startRecording)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#startRecording)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn StartRecording(self: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_StartRecording(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#isRecording)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#isRecording)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn IsRecording(self: ?*anyopaque) bool {
         return qtc.KKeySequenceRecorder_IsRecording(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#currentKeySequence)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#currentKeySequence)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn CurrentKeySequence(self: ?*anyopaque) QtC.QKeySequence {
         return qtc.KKeySequenceRecorder_CurrentKeySequence(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#setCurrentKeySequence)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#setCurrentKeySequence)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, sequence: QtC.QKeySequence ```
     pub fn SetCurrentKeySequence(self: ?*anyopaque, sequence: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_SetCurrentKeySequence(@ptrCast(self), @ptrCast(sequence));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#window)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#window)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn Window(self: ?*anyopaque) QtC.QWindow {
         return qtc.KKeySequenceRecorder_Window(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#setWindow)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#setWindow)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, window: QtC.QWindow ```
     pub fn SetWindow(self: ?*anyopaque, window: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_SetWindow(@ptrCast(self), @ptrCast(window));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowed)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn MultiKeyShortcutsAllowed(self: ?*anyopaque) bool {
         return qtc.KKeySequenceRecorder_MultiKeyShortcutsAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#setMultiKeyShortcutsAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#setMultiKeyShortcutsAllowed)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, allowed: bool ```
     pub fn SetMultiKeyShortcutsAllowed(self: ?*anyopaque, allowed: bool) void {
         qtc.KKeySequenceRecorder_SetMultiKeyShortcutsAllowed(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#setModifierlessAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#setModifierlessAllowed)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, allowed: bool ```
     pub fn SetModifierlessAllowed(self: ?*anyopaque, allowed: bool) void {
         qtc.KKeySequenceRecorder_SetModifierlessAllowed(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#modifierlessAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierlessAllowed)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn ModifierlessAllowed(self: ?*anyopaque) bool {
         return qtc.KKeySequenceRecorder_ModifierlessAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#setModifierOnlyAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#setModifierOnlyAllowed)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, allowed: bool ```
     pub fn SetModifierOnlyAllowed(self: ?*anyopaque, allowed: bool) void {
         qtc.KKeySequenceRecorder_SetModifierOnlyAllowed(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#modifierOnlyAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierOnlyAllowed)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn ModifierOnlyAllowed(self: ?*anyopaque) bool {
         return qtc.KKeySequenceRecorder_ModifierOnlyAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#setPatterns)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#setPatterns)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, patterns: flag of kkeysequencerecorder_enums.Pattern ```
     pub fn SetPatterns(self: ?*anyopaque, patterns: i32) void {
         qtc.KKeySequenceRecorder_SetPatterns(@ptrCast(self), @intCast(patterns));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#patterns)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#patterns)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     ///
@@ -165,119 +165,119 @@ pub const kkeysequencerecorder = struct {
         return qtc.KKeySequenceRecorder_Patterns(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#cancelRecording)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#cancelRecording)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn CancelRecording(self: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_CancelRecording(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#gotKeySequence)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#gotKeySequence)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, keySequence: QtC.QKeySequence ```
     pub fn GotKeySequence(self: ?*anyopaque, keySequence: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_GotKeySequence(@ptrCast(self), @ptrCast(keySequence));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#gotKeySequence)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#gotKeySequence)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, keySequence: QtC.QKeySequence) callconv(.c) void ```
     pub fn OnGotKeySequence(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_GotKeySequence(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#recordingChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#recordingChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn RecordingChanged(self: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_RecordingChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#recordingChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#recordingChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
     pub fn OnRecordingChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_RecordingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#windowChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#windowChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn WindowChanged(self: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_WindowChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#windowChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#windowChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
     pub fn OnWindowChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_WindowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#currentKeySequenceChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#currentKeySequenceChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn CurrentKeySequenceChanged(self: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_CurrentKeySequenceChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#currentKeySequenceChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#currentKeySequenceChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
     pub fn OnCurrentKeySequenceChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_CurrentKeySequenceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowedChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowedChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn MultiKeyShortcutsAllowedChanged(self: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_MultiKeyShortcutsAllowedChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowedChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowedChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
     pub fn OnMultiKeyShortcutsAllowedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_MultiKeyShortcutsAllowedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#modifierlessAllowedChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierlessAllowedChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn ModifierlessAllowedChanged(self: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_ModifierlessAllowedChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#modifierlessAllowedChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierlessAllowedChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
     pub fn OnModifierlessAllowedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_ModifierlessAllowedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#modifierOnlyAllowedChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierOnlyAllowedChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn ModifierOnlyAllowedChanged(self: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_ModifierOnlyAllowedChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#modifierOnlyAllowedChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierOnlyAllowedChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
     pub fn OnModifierOnlyAllowedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_ModifierOnlyAllowedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#patternsChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#patternsChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder ```
     pub fn PatternsChanged(self: ?*anyopaque) void {
         qtc.KKeySequenceRecorder_PatternsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#patternsChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#patternsChanged)
     ///
     /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
     pub fn OnPatternsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -1063,7 +1063,7 @@ pub const kkeysequencerecorder = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencerecorder.html#dtor.KKeySequenceRecorder)
+    /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#dtor.KKeySequenceRecorder)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1073,7 +1073,7 @@ pub const kkeysequencerecorder = struct {
     }
 };
 
-/// https://api-staging.kde.org/kkeysequencerecorder.html#types
+/// https://api.kde.org/kkeysequencerecorder.html#types
 pub const enums = struct {
     pub const Pattern = enum {
         pub const Modifier: i32 = 1;

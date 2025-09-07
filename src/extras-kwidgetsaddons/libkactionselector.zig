@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kactionselector.html
+/// https://api.kde.org/kactionselector.html
 pub const kactionselector = struct {
     /// New constructs a new KActionSelector object.
     ///
@@ -69,49 +69,49 @@ pub const kactionselector = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#availableListWidget)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#availableListWidget)
     ///
     /// ``` self: QtC.KActionSelector ```
     pub fn AvailableListWidget(self: ?*anyopaque) QtC.QListWidget {
         return qtc.KActionSelector_AvailableListWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#selectedListWidget)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#selectedListWidget)
     ///
     /// ``` self: QtC.KActionSelector ```
     pub fn SelectedListWidget(self: ?*anyopaque) QtC.QListWidget {
         return qtc.KActionSelector_SelectedListWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#moveOnDoubleClick)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#moveOnDoubleClick)
     ///
     /// ``` self: QtC.KActionSelector ```
     pub fn MoveOnDoubleClick(self: ?*anyopaque) bool {
         return qtc.KActionSelector_MoveOnDoubleClick(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setMoveOnDoubleClick)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setMoveOnDoubleClick)
     ///
     /// ``` self: QtC.KActionSelector, enable: bool ```
     pub fn SetMoveOnDoubleClick(self: ?*anyopaque, enable: bool) void {
         qtc.KActionSelector_SetMoveOnDoubleClick(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#keyboardEnabled)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#keyboardEnabled)
     ///
     /// ``` self: QtC.KActionSelector ```
     pub fn KeyboardEnabled(self: ?*anyopaque) bool {
         return qtc.KActionSelector_KeyboardEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setKeyboardEnabled)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setKeyboardEnabled)
     ///
     /// ``` self: QtC.KActionSelector, enable: bool ```
     pub fn SetKeyboardEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KActionSelector_SetKeyboardEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#availableLabel)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#availableLabel)
     ///
     /// ``` self: QtC.KActionSelector, allocator: std.mem.Allocator ```
     pub fn AvailableLabel(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -122,7 +122,7 @@ pub const kactionselector = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setAvailableLabel)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setAvailableLabel)
     ///
     /// ``` self: QtC.KActionSelector, text: []const u8 ```
     pub fn SetAvailableLabel(self: ?*anyopaque, text: []const u8) void {
@@ -133,7 +133,7 @@ pub const kactionselector = struct {
         qtc.KActionSelector_SetAvailableLabel(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#selectedLabel)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#selectedLabel)
     ///
     /// ``` self: QtC.KActionSelector, allocator: std.mem.Allocator ```
     pub fn SelectedLabel(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -144,7 +144,7 @@ pub const kactionselector = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setSelectedLabel)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setSelectedLabel)
     ///
     /// ``` self: QtC.KActionSelector, text: []const u8 ```
     pub fn SetSelectedLabel(self: ?*anyopaque, text: []const u8) void {
@@ -155,7 +155,7 @@ pub const kactionselector = struct {
         qtc.KActionSelector_SetSelectedLabel(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#availableInsertionPolicy)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#availableInsertionPolicy)
     ///
     /// ``` self: QtC.KActionSelector ```
     ///
@@ -164,14 +164,14 @@ pub const kactionselector = struct {
         return qtc.KActionSelector_AvailableInsertionPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setAvailableInsertionPolicy)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setAvailableInsertionPolicy)
     ///
     /// ``` self: QtC.KActionSelector, policy: kactionselector_enums.InsertionPolicy ```
     pub fn SetAvailableInsertionPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.KActionSelector_SetAvailableInsertionPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#selectedInsertionPolicy)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#selectedInsertionPolicy)
     ///
     /// ``` self: QtC.KActionSelector ```
     ///
@@ -180,28 +180,28 @@ pub const kactionselector = struct {
         return qtc.KActionSelector_SelectedInsertionPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setSelectedInsertionPolicy)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setSelectedInsertionPolicy)
     ///
     /// ``` self: QtC.KActionSelector, policy: kactionselector_enums.InsertionPolicy ```
     pub fn SetSelectedInsertionPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.KActionSelector_SetSelectedInsertionPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#showUpDownButtons)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#showUpDownButtons)
     ///
     /// ``` self: QtC.KActionSelector ```
     pub fn ShowUpDownButtons(self: ?*anyopaque) bool {
         return qtc.KActionSelector_ShowUpDownButtons(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setShowUpDownButtons)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setShowUpDownButtons)
     ///
     /// ``` self: QtC.KActionSelector, show: bool ```
     pub fn SetShowUpDownButtons(self: ?*anyopaque, show: bool) void {
         qtc.KActionSelector_SetShowUpDownButtons(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setButtonIcon)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setButtonIcon)
     ///
     /// ``` self: QtC.KActionSelector, icon: []const u8, button: kactionselector_enums.MoveButton ```
     pub fn SetButtonIcon(self: ?*anyopaque, icon: []const u8, button: i32) void {
@@ -212,14 +212,14 @@ pub const kactionselector = struct {
         qtc.KActionSelector_SetButtonIcon(@ptrCast(self), icon_str, @intCast(button));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setButtonIconSet)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setButtonIconSet)
     ///
     /// ``` self: QtC.KActionSelector, iconset: QtC.QIcon, button: kactionselector_enums.MoveButton ```
     pub fn SetButtonIconSet(self: ?*anyopaque, iconset: ?*anyopaque, button: i32) void {
         qtc.KActionSelector_SetButtonIconSet(@ptrCast(self), @ptrCast(iconset), @intCast(button));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setButtonTooltip)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setButtonTooltip)
     ///
     /// ``` self: QtC.KActionSelector, tip: []const u8, button: kactionselector_enums.MoveButton ```
     pub fn SetButtonTooltip(self: ?*anyopaque, tip: []const u8, button: i32) void {
@@ -230,7 +230,7 @@ pub const kactionselector = struct {
         qtc.KActionSelector_SetButtonTooltip(@ptrCast(self), tip_str, @intCast(button));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setButtonWhatsThis)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setButtonWhatsThis)
     ///
     /// ``` self: QtC.KActionSelector, text: []const u8, button: kactionselector_enums.MoveButton ```
     pub fn SetButtonWhatsThis(self: ?*anyopaque, text: []const u8, button: i32) void {
@@ -241,77 +241,77 @@ pub const kactionselector = struct {
         qtc.KActionSelector_SetButtonWhatsThis(@ptrCast(self), text_str, @intCast(button));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#added)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#added)
     ///
     /// ``` self: QtC.KActionSelector, item: QtC.QListWidgetItem ```
     pub fn Added(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KActionSelector_Added(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#added)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#added)
     ///
     /// ``` self: QtC.KActionSelector, slot: fn (self: QtC.KActionSelector, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnAdded(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionSelector_Connect_Added(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#removed)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#removed)
     ///
     /// ``` self: QtC.KActionSelector, item: QtC.QListWidgetItem ```
     pub fn Removed(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KActionSelector_Removed(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#removed)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#removed)
     ///
     /// ``` self: QtC.KActionSelector, slot: fn (self: QtC.KActionSelector, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionSelector_Connect_Removed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#movedUp)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#movedUp)
     ///
     /// ``` self: QtC.KActionSelector, item: QtC.QListWidgetItem ```
     pub fn MovedUp(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KActionSelector_MovedUp(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#movedUp)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#movedUp)
     ///
     /// ``` self: QtC.KActionSelector, slot: fn (self: QtC.KActionSelector, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnMovedUp(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionSelector_Connect_MovedUp(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#movedDown)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#movedDown)
     ///
     /// ``` self: QtC.KActionSelector, item: QtC.QListWidgetItem ```
     pub fn MovedDown(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KActionSelector_MovedDown(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#movedDown)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#movedDown)
     ///
     /// ``` self: QtC.KActionSelector, slot: fn (self: QtC.KActionSelector, item: QtC.QListWidgetItem) callconv(.c) void ```
     pub fn OnMovedDown(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KActionSelector_Connect_MovedDown(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#setButtonsEnabled)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#setButtonsEnabled)
     ///
     /// ``` self: QtC.KActionSelector ```
     pub fn SetButtonsEnabled(self: ?*anyopaque) void {
         qtc.KActionSelector_SetButtonsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#keyPressEvent)
     ///
     /// ``` self: QtC.KActionSelector, param1: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KActionSelector_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -320,7 +320,7 @@ pub const kactionselector = struct {
         qtc.KActionSelector_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -329,14 +329,14 @@ pub const kactionselector = struct {
         qtc.KActionSelector_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#eventFilter)
     ///
     /// ``` self: QtC.KActionSelector, param1: QtC.QObject, param2: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
         return qtc.KActionSelector_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -345,7 +345,7 @@ pub const kactionselector = struct {
         qtc.KActionSelector_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -5294,7 +5294,7 @@ pub const kactionselector = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionselector.html#dtor.KActionSelector)
+    /// [Qt documentation](https://api.kde.org/kactionselector.html#dtor.KActionSelector)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5304,7 +5304,7 @@ pub const kactionselector = struct {
     }
 };
 
-/// https://api-staging.kde.org/kactionselector.html#types
+/// https://api.kde.org/kactionselector.html#types
 pub const enums = struct {
     pub const MoveButton = enum {
         pub const ButtonAdd: i32 = 0;

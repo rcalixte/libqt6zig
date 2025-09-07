@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kconfigskeleton.html
+/// https://api.kde.org/kconfigskeleton.html
 pub const kconfigskeleton = struct {
     /// New constructs a new KConfigSkeleton object.
     ///
@@ -109,7 +109,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#load)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#load)
     ///
     /// ``` self: QtC.KConfigSkeleton ```
     pub fn Load(self: ?*anyopaque) void {
@@ -118,7 +118,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#read)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#read)
     ///
     /// ``` self: QtC.KConfigSkeleton ```
     pub fn Read(self: ?*anyopaque) void {
@@ -127,7 +127,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#isDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#isDefaults)
     ///
     /// ``` self: QtC.KConfigSkeleton ```
     pub fn IsDefaults(self: ?*anyopaque) bool {
@@ -136,7 +136,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#isSaveNeeded)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#isSaveNeeded)
     ///
     /// ``` self: QtC.KConfigSkeleton ```
     pub fn IsSaveNeeded(self: ?*anyopaque) bool {
@@ -145,7 +145,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#setCurrentGroup)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#setCurrentGroup)
     ///
     /// ``` self: QtC.KConfigSkeleton, group: []const u8 ```
     pub fn SetCurrentGroup(self: ?*anyopaque, group: []const u8) void {
@@ -158,7 +158,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#currentGroup)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#currentGroup)
     ///
     /// ``` self: QtC.KConfigSkeleton, allocator: std.mem.Allocator ```
     pub fn CurrentGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -171,7 +171,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#addItem)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItem)
     ///
     /// ``` self: QtC.KConfigSkeleton, item: QtC.KConfigSkeletonItem ```
     pub fn AddItem(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -180,7 +180,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#addItemPassword)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
     /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8 ```
     pub fn AddItemPassword(self: ?*anyopaque, name: []const u8, reference: []const u8) QtC.KCoreConfigSkeleton__ItemPassword {
@@ -197,7 +197,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#addItemPath)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
     ///
     /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8 ```
     pub fn AddItemPath(self: ?*anyopaque, name: []const u8, reference: []const u8) QtC.KCoreConfigSkeleton__ItemPath {
@@ -214,7 +214,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#config)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#config)
     ///
     /// ``` self: QtC.KConfigSkeleton ```
     pub fn Config(self: ?*anyopaque) QtC.KConfig {
@@ -223,7 +223,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#config)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#config)
     ///
     /// ``` self: QtC.KConfigSkeleton ```
     pub fn Config2(self: ?*anyopaque) QtC.KConfig {
@@ -232,7 +232,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#items)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#items)
     ///
     /// ``` self: QtC.KConfigSkeleton, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KConfigSkeletonItem {
@@ -246,7 +246,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#removeItem)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#removeItem)
     ///
     /// ``` self: QtC.KConfigSkeleton, name: []const u8 ```
     pub fn RemoveItem(self: ?*anyopaque, name: []const u8) void {
@@ -259,7 +259,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#clearItems)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#clearItems)
     ///
     /// ``` self: QtC.KConfigSkeleton ```
     pub fn ClearItems(self: ?*anyopaque) void {
@@ -268,7 +268,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#isImmutable)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#isImmutable)
     ///
     /// ``` self: QtC.KConfigSkeleton, name: []const u8 ```
     pub fn IsImmutable(self: ?*anyopaque, name: []const u8) bool {
@@ -281,7 +281,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#findItem)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#findItem)
     ///
     /// ``` self: QtC.KConfigSkeleton, name: []const u8 ```
     pub fn FindItem(self: ?*anyopaque, name: []const u8) QtC.KConfigSkeletonItem {
@@ -294,7 +294,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#save)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#save)
     ///
     /// ``` self: QtC.KConfigSkeleton ```
     pub fn Save(self: ?*anyopaque) bool {
@@ -303,7 +303,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#configChanged)
     ///
     /// ``` self: QtC.KConfigSkeleton ```
     pub fn ConfigChanged(self: ?*anyopaque) void {
@@ -312,7 +312,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#configChanged)
     ///
     /// ``` self: QtC.KConfigSkeleton, slot: fn (self: QtC.KConfigSkeleton) callconv(.c) void ```
     pub fn OnConfigChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -321,7 +321,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#addItem)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItem)
     ///
     /// ``` self: QtC.KConfigSkeleton, item: QtC.KConfigSkeletonItem, name: []const u8 ```
     pub fn AddItem2(self: ?*anyopaque, item: ?*anyopaque, name: []const u8) void {
@@ -334,7 +334,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#addItemPassword)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
     /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8 ```
     pub fn AddItemPassword3(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8) QtC.KCoreConfigSkeleton__ItemPassword {
@@ -355,7 +355,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#addItemPassword)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
     /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8 ```
     pub fn AddItemPassword4(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) QtC.KCoreConfigSkeleton__ItemPassword {
@@ -380,7 +380,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#addItemPath)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
     ///
     /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8 ```
     pub fn AddItemPath3(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8) QtC.KCoreConfigSkeleton__ItemPath {
@@ -401,7 +401,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#addItemPath)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
     ///
     /// ``` self: QtC.KConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8 ```
     pub fn AddItemPath4(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) QtC.KCoreConfigSkeleton__ItemPath {
@@ -803,7 +803,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#setDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -814,7 +814,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#setDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -825,7 +825,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#setDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -836,7 +836,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#useDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -847,7 +847,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#useDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -858,7 +858,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#useDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -869,7 +869,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -880,7 +880,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -891,7 +891,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -902,7 +902,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -913,7 +913,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -924,7 +924,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -935,7 +935,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrRead)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -946,7 +946,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrRead)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -957,7 +957,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrRead)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -968,7 +968,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrSave)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -979,7 +979,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrSave)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -990,7 +990,7 @@ pub const kconfigskeleton = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kcoreconfigskeleton.html#usrSave)
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1375,7 +1375,7 @@ pub const kconfigskeleton = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigskeleton.html#dtor.KConfigSkeleton)
+    /// [Qt documentation](https://api.kde.org/kconfigskeleton.html#dtor.KConfigSkeleton)
     ///
     /// Delete this object from C++ memory.
     ///

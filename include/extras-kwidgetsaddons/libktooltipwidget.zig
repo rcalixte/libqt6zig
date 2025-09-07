@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktooltipwidget.html
+/// https://api.kde.org/ktooltipwidget.html
 pub const ktooltipwidget = struct {
     /// New constructs a new KToolTipWidget object.
     ///
@@ -68,63 +68,63 @@ pub const ktooltipwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#showAt)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#showAt)
     ///
     /// ``` self: QtC.KToolTipWidget, pos: QtC.QPoint, content: QtC.QWidget, transientParent: QtC.QWindow ```
     pub fn ShowAt(self: ?*anyopaque, pos: ?*anyopaque, content: ?*anyopaque, transientParent: ?*anyopaque) void {
         qtc.KToolTipWidget_ShowAt(@ptrCast(self), @ptrCast(pos), @ptrCast(content), @ptrCast(transientParent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#showBelow)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#showBelow)
     ///
     /// ``` self: QtC.KToolTipWidget, rect: QtC.QRect, content: QtC.QWidget, transientParent: QtC.QWindow ```
     pub fn ShowBelow(self: ?*anyopaque, rect: ?*anyopaque, content: ?*anyopaque, transientParent: ?*anyopaque) void {
         qtc.KToolTipWidget_ShowBelow(@ptrCast(self), @ptrCast(rect), @ptrCast(content), @ptrCast(transientParent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#hideDelay)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#hideDelay)
     ///
     /// ``` self: QtC.KToolTipWidget ```
     pub fn HideDelay(self: ?*anyopaque) i32 {
         return qtc.KToolTipWidget_HideDelay(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#hideLater)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#hideLater)
     ///
     /// ``` self: QtC.KToolTipWidget ```
     pub fn HideLater(self: ?*anyopaque) void {
         qtc.KToolTipWidget_HideLater(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#setHideDelay)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#setHideDelay)
     ///
     /// ``` self: QtC.KToolTipWidget, delay: i32 ```
     pub fn SetHideDelay(self: ?*anyopaque, delay: i32) void {
         qtc.KToolTipWidget_SetHideDelay(@ptrCast(self), @intCast(delay));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#hidden)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#hidden)
     ///
     /// ``` self: QtC.KToolTipWidget ```
     pub fn Hidden(self: ?*anyopaque) void {
         qtc.KToolTipWidget_Hidden(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#hidden)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#hidden)
     ///
     /// ``` self: QtC.KToolTipWidget, slot: fn (self: QtC.KToolTipWidget) callconv(.c) void ```
     pub fn OnHidden(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KToolTipWidget_Connect_Hidden(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#enterEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#enterEvent)
     ///
     /// ``` self: QtC.KToolTipWidget, event: QtC.QEnterEvent ```
     pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KToolTipWidget_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#enterEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#enterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -133,7 +133,7 @@ pub const ktooltipwidget = struct {
         qtc.KToolTipWidget_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#enterEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#enterEvent)
     ///
     /// Base class method implementation
     ///
@@ -142,14 +142,14 @@ pub const ktooltipwidget = struct {
         qtc.KToolTipWidget_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#hideEvent)
     ///
     /// ``` self: QtC.KToolTipWidget, param1: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolTipWidget_HideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#hideEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -158,7 +158,7 @@ pub const ktooltipwidget = struct {
         qtc.KToolTipWidget_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#hideEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#hideEvent)
     ///
     /// Base class method implementation
     ///
@@ -167,14 +167,14 @@ pub const ktooltipwidget = struct {
         qtc.KToolTipWidget_QBaseHideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#leaveEvent)
     ///
     /// ``` self: QtC.KToolTipWidget, param1: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KToolTipWidget_LeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#leaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -183,7 +183,7 @@ pub const ktooltipwidget = struct {
         qtc.KToolTipWidget_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#leaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -192,14 +192,14 @@ pub const ktooltipwidget = struct {
         qtc.KToolTipWidget_QBaseLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#paintEvent)
     ///
     /// ``` self: QtC.KToolTipWidget, event: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KToolTipWidget_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -208,7 +208,7 @@ pub const ktooltipwidget = struct {
         qtc.KToolTipWidget_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -5091,7 +5091,7 @@ pub const ktooltipwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktooltipwidget.html#dtor.KToolTipWidget)
+    /// [Qt documentation](https://api.kde.org/ktooltipwidget.html#dtor.KToolTipWidget)
     ///
     /// Delete this object from C++ memory.
     ///

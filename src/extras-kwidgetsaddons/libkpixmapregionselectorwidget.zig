@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpixmapregionselectorwidget.html
+/// https://api.kde.org/kpixmapregionselectorwidget.html
 pub const kpixmapregionselectorwidget = struct {
     /// New constructs a new KPixmapRegionSelectorWidget object.
     ///
@@ -69,119 +69,119 @@ pub const kpixmapregionselectorwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#setPixmap)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#setPixmap)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget, pixmap: QtC.QPixmap ```
     pub fn SetPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
         qtc.KPixmapRegionSelectorWidget_SetPixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#pixmap)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#pixmap)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn Pixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.KPixmapRegionSelectorWidget_Pixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#setSelectedRegion)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#setSelectedRegion)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget, rect: QtC.QRect ```
     pub fn SetSelectedRegion(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.KPixmapRegionSelectorWidget_SetSelectedRegion(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#selectedRegion)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#selectedRegion)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn SelectedRegion(self: ?*anyopaque) QtC.QRect {
         return qtc.KPixmapRegionSelectorWidget_SelectedRegion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#unzoomedSelectedRegion)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#unzoomedSelectedRegion)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn UnzoomedSelectedRegion(self: ?*anyopaque) QtC.QRect {
         return qtc.KPixmapRegionSelectorWidget_UnzoomedSelectedRegion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#resetSelection)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#resetSelection)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn ResetSelection(self: ?*anyopaque) void {
         qtc.KPixmapRegionSelectorWidget_ResetSelection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#selectedImage)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#selectedImage)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn SelectedImage(self: ?*anyopaque) QtC.QImage {
         return qtc.KPixmapRegionSelectorWidget_SelectedImage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#setSelectionAspectRatio)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#setSelectionAspectRatio)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget, width: i32, height: i32 ```
     pub fn SetSelectionAspectRatio(self: ?*anyopaque, width: i32, height: i32) void {
         qtc.KPixmapRegionSelectorWidget_SetSelectionAspectRatio(@ptrCast(self), @intCast(width), @intCast(height));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#setFreeSelectionAspectRatio)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#setFreeSelectionAspectRatio)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn SetFreeSelectionAspectRatio(self: ?*anyopaque) void {
         qtc.KPixmapRegionSelectorWidget_SetFreeSelectionAspectRatio(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#setMaximumWidgetSize)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#setMaximumWidgetSize)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget, width: i32, height: i32 ```
     pub fn SetMaximumWidgetSize(self: ?*anyopaque, width: i32, height: i32) void {
         qtc.KPixmapRegionSelectorWidget_SetMaximumWidgetSize(@ptrCast(self), @intCast(width), @intCast(height));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#rotate)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#rotate)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget, direction: kpixmapregionselectorwidget_enums.RotateDirection ```
     pub fn Rotate(self: ?*anyopaque, direction: i32) void {
         qtc.KPixmapRegionSelectorWidget_Rotate(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#rotateClockwise)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#rotateClockwise)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn RotateClockwise(self: ?*anyopaque) void {
         qtc.KPixmapRegionSelectorWidget_RotateClockwise(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#rotateCounterclockwise)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#rotateCounterclockwise)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn RotateCounterclockwise(self: ?*anyopaque) void {
         qtc.KPixmapRegionSelectorWidget_RotateCounterclockwise(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#pixmapRotated)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#pixmapRotated)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn PixmapRotated(self: ?*anyopaque) void {
         qtc.KPixmapRegionSelectorWidget_PixmapRotated(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#pixmapRotated)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#pixmapRotated)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget, slot: fn (self: QtC.KPixmapRegionSelectorWidget) callconv(.c) void ```
     pub fn OnPixmapRotated(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorWidget_Connect_PixmapRotated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#createPopupMenu)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#createPopupMenu)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget ```
     pub fn CreatePopupMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KPixmapRegionSelectorWidget_CreatePopupMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#createPopupMenu)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#createPopupMenu)
     ///
     /// Allows for overriding the related default method
     ///
@@ -190,7 +190,7 @@ pub const kpixmapregionselectorwidget = struct {
         qtc.KPixmapRegionSelectorWidget_OnCreatePopupMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#createPopupMenu)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#createPopupMenu)
     ///
     /// Base class method implementation
     ///
@@ -199,14 +199,14 @@ pub const kpixmapregionselectorwidget = struct {
         return qtc.KPixmapRegionSelectorWidget_QBaseCreatePopupMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#eventFilter)
     ///
     /// ``` self: QtC.KPixmapRegionSelectorWidget, obj: QtC.QObject, ev: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, obj: ?*anyopaque, ev: ?*anyopaque) bool {
         return qtc.KPixmapRegionSelectorWidget_EventFilter(@ptrCast(self), @ptrCast(obj), @ptrCast(ev));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -215,7 +215,7 @@ pub const kpixmapregionselectorwidget = struct {
         qtc.KPixmapRegionSelectorWidget_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -5197,7 +5197,7 @@ pub const kpixmapregionselectorwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpixmapregionselectorwidget.html#dtor.KPixmapRegionSelectorWidget)
+    /// [Qt documentation](https://api.kde.org/kpixmapregionselectorwidget.html#dtor.KPixmapRegionSelectorWidget)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5207,7 +5207,7 @@ pub const kpixmapregionselectorwidget = struct {
     }
 };
 
-/// https://api-staging.kde.org/kpixmapregionselectorwidget.html#types
+/// https://api.kde.org/kpixmapregionselectorwidget.html#types
 pub const enums = struct {
     pub const RotateDirection = enum {
         pub const Rotate90: i32 = 0;

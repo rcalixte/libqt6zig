@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kviewstatemaintainerbase.html
+/// https://api.kde.org/kviewstatemaintainerbase.html
 pub const kviewstatemaintainerbase = struct {
     /// New constructs a new KViewStateMaintainerBase object.
     ///
@@ -64,42 +64,42 @@ pub const kviewstatemaintainerbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#setSelectionModel)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#setSelectionModel)
     ///
     /// ``` self: QtC.KViewStateMaintainerBase, selectionModel: QtC.QItemSelectionModel ```
     pub fn SetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
         qtc.KViewStateMaintainerBase_SetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#selectionModel)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#selectionModel)
     ///
     /// ``` self: QtC.KViewStateMaintainerBase ```
     pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
         return qtc.KViewStateMaintainerBase_SelectionModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#setView)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#setView)
     ///
     /// ``` self: QtC.KViewStateMaintainerBase, view: QtC.QAbstractItemView ```
     pub fn SetView(self: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KViewStateMaintainerBase_SetView(@ptrCast(self), @ptrCast(view));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#view)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#view)
     ///
     /// ``` self: QtC.KViewStateMaintainerBase ```
     pub fn View(self: ?*anyopaque) QtC.QAbstractItemView {
         return qtc.KViewStateMaintainerBase_View(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#saveState)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#saveState)
     ///
     /// ``` self: QtC.KViewStateMaintainerBase ```
     pub fn SaveState(self: ?*anyopaque) void {
         qtc.KViewStateMaintainerBase_SaveState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#saveState)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#saveState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -108,7 +108,7 @@ pub const kviewstatemaintainerbase = struct {
         qtc.KViewStateMaintainerBase_OnSaveState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#saveState)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#saveState)
     ///
     /// Base class method implementation
     ///
@@ -117,14 +117,14 @@ pub const kviewstatemaintainerbase = struct {
         qtc.KViewStateMaintainerBase_QBaseSaveState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#restoreState)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#restoreState)
     ///
     /// ``` self: QtC.KViewStateMaintainerBase ```
     pub fn RestoreState(self: ?*anyopaque) void {
         qtc.KViewStateMaintainerBase_RestoreState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#restoreState)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#restoreState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -133,7 +133,7 @@ pub const kviewstatemaintainerbase = struct {
         qtc.KViewStateMaintainerBase_OnRestoreState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#restoreState)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#restoreState)
     ///
     /// Base class method implementation
     ///
@@ -921,7 +921,7 @@ pub const kviewstatemaintainerbase = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kviewstatemaintainerbase.html#dtor.KViewStateMaintainerBase)
+    /// [Qt documentation](https://api.kde.org/kviewstatemaintainerbase.html#dtor.KViewStateMaintainerBase)
     ///
     /// Delete this object from C++ memory.
     ///

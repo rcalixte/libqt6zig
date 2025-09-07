@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktoolbarspaceraction.html
+/// https://api.kde.org/ktoolbarspaceraction.html
 pub const ktoolbarspaceraction = struct {
     /// New constructs a new KToolBarSpacerAction object.
     ///
@@ -59,14 +59,14 @@ pub const ktoolbarspaceraction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarspaceraction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/ktoolbarspaceraction.html#createWidget)
     ///
     /// ``` self: QtC.KToolBarSpacerAction, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KToolBarSpacerAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarspaceraction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/ktoolbarspaceraction.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -75,7 +75,7 @@ pub const ktoolbarspaceraction = struct {
         qtc.KToolBarSpacerAction_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarspaceraction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/ktoolbarspaceraction.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -1665,7 +1665,7 @@ pub const ktoolbarspaceraction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarspaceraction.html#dtor.KToolBarSpacerAction)
+    /// [Qt documentation](https://api.kde.org/ktoolbarspaceraction.html#dtor.KToolBarSpacerAction)
     ///
     /// Delete this object from C++ memory.
     ///

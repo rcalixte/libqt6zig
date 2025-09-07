@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kjobuidelegate.html
+/// https://api.kde.org/kjobuidelegate.html
 pub const kjobuidelegate = struct {
     /// New constructs a new KJobUiDelegate object.
     ///
@@ -65,14 +65,14 @@ pub const kjobuidelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#setJob)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#setJob)
     ///
     /// ``` self: QtC.KJobUiDelegate, job: QtC.KJob ```
     pub fn SetJob(self: ?*anyopaque, job: ?*anyopaque) bool {
         return qtc.KJobUiDelegate_SetJob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#setJob)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#setJob)
     ///
     /// Allows for overriding the related default method
     ///
@@ -81,7 +81,7 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnSetJob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#setJob)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#setJob)
     ///
     /// Base class method implementation
     ///
@@ -90,14 +90,14 @@ pub const kjobuidelegate = struct {
         return qtc.KJobUiDelegate_QBaseSetJob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#job)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#job)
     ///
     /// ``` self: QtC.KJobUiDelegate ```
     pub fn Job(self: ?*anyopaque) QtC.KJob {
         return qtc.KJobUiDelegate_Job(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#job)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#job)
     ///
     /// Allows for overriding the related default method
     ///
@@ -106,7 +106,7 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnJob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#job)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#job)
     ///
     /// Base class method implementation
     ///
@@ -115,14 +115,14 @@ pub const kjobuidelegate = struct {
         return qtc.KJobUiDelegate_QBaseJob(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#showErrorMessage)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#showErrorMessage)
     ///
     /// ``` self: QtC.KJobUiDelegate ```
     pub fn ShowErrorMessage(self: ?*anyopaque) void {
         qtc.KJobUiDelegate_ShowErrorMessage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#showErrorMessage)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#showErrorMessage)
     ///
     /// Allows for overriding the related default method
     ///
@@ -131,7 +131,7 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnShowErrorMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#showErrorMessage)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#showErrorMessage)
     ///
     /// Base class method implementation
     ///
@@ -140,35 +140,35 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_QBaseShowErrorMessage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#setAutoErrorHandlingEnabled)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#setAutoErrorHandlingEnabled)
     ///
     /// ``` self: QtC.KJobUiDelegate, enable: bool ```
     pub fn SetAutoErrorHandlingEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KJobUiDelegate_SetAutoErrorHandlingEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#isAutoErrorHandlingEnabled)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#isAutoErrorHandlingEnabled)
     ///
     /// ``` self: QtC.KJobUiDelegate ```
     pub fn IsAutoErrorHandlingEnabled(self: ?*anyopaque) bool {
         return qtc.KJobUiDelegate_IsAutoErrorHandlingEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#setAutoWarningHandlingEnabled)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#setAutoWarningHandlingEnabled)
     ///
     /// ``` self: QtC.KJobUiDelegate, enable: bool ```
     pub fn SetAutoWarningHandlingEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KJobUiDelegate_SetAutoWarningHandlingEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#isAutoWarningHandlingEnabled)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#isAutoWarningHandlingEnabled)
     ///
     /// ``` self: QtC.KJobUiDelegate ```
     pub fn IsAutoWarningHandlingEnabled(self: ?*anyopaque) bool {
         return qtc.KJobUiDelegate_IsAutoWarningHandlingEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#slotWarning)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#slotWarning)
     ///
     /// ``` self: QtC.KJobUiDelegate, job: QtC.KJob, message: []const u8 ```
     pub fn SlotWarning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -179,7 +179,7 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_SlotWarning(@ptrCast(self), @ptrCast(job), message_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#slotWarning)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#slotWarning)
     ///
     /// Allows for overriding the related default method
     ///
@@ -188,7 +188,7 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnSlotWarning(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#slotWarning)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#slotWarning)
     ///
     /// Base class method implementation
     ///
@@ -980,7 +980,7 @@ pub const kjobuidelegate = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kjobuidelegate.html#dtor.KJobUiDelegate)
+    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#dtor.KJobUiDelegate)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -990,7 +990,7 @@ pub const kjobuidelegate = struct {
     }
 };
 
-/// https://api-staging.kde.org/kjobuidelegate.html#types
+/// https://api.kde.org/kjobuidelegate.html#types
 pub const enums = struct {
     pub const Flag = enum {
         pub const AutoHandlingDisabled: i32 = 0;

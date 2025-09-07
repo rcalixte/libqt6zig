@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kkeysequencewidget.html
+/// https://api.kde.org/kkeysequencewidget.html
 pub const kkeysequencewidget = struct {
     /// New constructs a new KKeySequenceWidget object.
     ///
@@ -70,14 +70,14 @@ pub const kkeysequencewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setCheckForConflictsAgainst)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setCheckForConflictsAgainst)
     ///
     /// ``` self: QtC.KKeySequenceWidget, types: flag of kkeysequencewidget_enums.ShortcutType ```
     pub fn SetCheckForConflictsAgainst(self: ?*anyopaque, types: i32) void {
         qtc.KKeySequenceWidget_SetCheckForConflictsAgainst(@ptrCast(self), @intCast(types));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#checkForConflictsAgainst)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#checkForConflictsAgainst)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     ///
@@ -86,70 +86,70 @@ pub const kkeysequencewidget = struct {
         return qtc.KKeySequenceWidget_CheckForConflictsAgainst(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setMultiKeyShortcutsAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setMultiKeyShortcutsAllowed)
     ///
     /// ``` self: QtC.KKeySequenceWidget, multiKeyShortcutsAllowed: bool ```
     pub fn SetMultiKeyShortcutsAllowed(self: ?*anyopaque, multiKeyShortcutsAllowed: bool) void {
         qtc.KKeySequenceWidget_SetMultiKeyShortcutsAllowed(@ptrCast(self), multiKeyShortcutsAllowed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#multiKeyShortcutsAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#multiKeyShortcutsAllowed)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     pub fn MultiKeyShortcutsAllowed(self: ?*anyopaque) bool {
         return qtc.KKeySequenceWidget_MultiKeyShortcutsAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setModifierlessAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setModifierlessAllowed)
     ///
     /// ``` self: QtC.KKeySequenceWidget, allow: bool ```
     pub fn SetModifierlessAllowed(self: ?*anyopaque, allow: bool) void {
         qtc.KKeySequenceWidget_SetModifierlessAllowed(@ptrCast(self), allow);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#isModifierlessAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#isModifierlessAllowed)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     pub fn IsModifierlessAllowed(self: ?*anyopaque) bool {
         return qtc.KKeySequenceWidget_IsModifierlessAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setModifierOnlyAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setModifierOnlyAllowed)
     ///
     /// ``` self: QtC.KKeySequenceWidget, allow: bool ```
     pub fn SetModifierOnlyAllowed(self: ?*anyopaque, allow: bool) void {
         qtc.KKeySequenceWidget_SetModifierOnlyAllowed(@ptrCast(self), allow);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#modifierOnlyAllowed)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#modifierOnlyAllowed)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     pub fn ModifierOnlyAllowed(self: ?*anyopaque) bool {
         return qtc.KKeySequenceWidget_ModifierOnlyAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setClearButtonShown)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setClearButtonShown)
     ///
     /// ``` self: QtC.KKeySequenceWidget, show: bool ```
     pub fn SetClearButtonShown(self: ?*anyopaque, show: bool) void {
         qtc.KKeySequenceWidget_SetClearButtonShown(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#isKeySequenceAvailable)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#isKeySequenceAvailable)
     ///
     /// ``` self: QtC.KKeySequenceWidget, seq: QtC.QKeySequence ```
     pub fn IsKeySequenceAvailable(self: ?*anyopaque, seq: ?*anyopaque) bool {
         return qtc.KKeySequenceWidget_IsKeySequenceAvailable(@ptrCast(self), @ptrCast(seq));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#keySequence)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#keySequence)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     pub fn KeySequence(self: ?*anyopaque) QtC.QKeySequence {
         return qtc.KKeySequenceWidget_KeySequence(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setCheckActionCollections)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setCheckActionCollections)
     ///
     /// ``` self: QtC.KKeySequenceWidget, actionCollections: []QtC.KActionCollection ```
     pub fn SetCheckActionCollections(self: ?*anyopaque, actionCollections: []?*anyopaque) void {
@@ -160,7 +160,7 @@ pub const kkeysequencewidget = struct {
         qtc.KKeySequenceWidget_SetCheckActionCollections(@ptrCast(self), actionCollections_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setComponentName)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setComponentName)
     ///
     /// ``` self: QtC.KKeySequenceWidget, componentName: []const u8 ```
     pub fn SetComponentName(self: ?*anyopaque, componentName: []const u8) void {
@@ -171,21 +171,21 @@ pub const kkeysequencewidget = struct {
         qtc.KKeySequenceWidget_SetComponentName(@ptrCast(self), componentName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#isRecording)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#isRecording)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     pub fn IsRecording(self: ?*anyopaque) bool {
         return qtc.KKeySequenceWidget_IsRecording(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setPatterns)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setPatterns)
     ///
     /// ``` self: QtC.KKeySequenceWidget, patterns: flag of kkeysequencerecorder_enums.Pattern ```
     pub fn SetPatterns(self: ?*anyopaque, patterns: i32) void {
         qtc.KKeySequenceWidget_SetPatterns(@ptrCast(self), @intCast(patterns));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#patterns)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#patterns)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     ///
@@ -194,70 +194,70 @@ pub const kkeysequencewidget = struct {
         return qtc.KKeySequenceWidget_Patterns(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#keySequenceChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#keySequenceChanged)
     ///
     /// ``` self: QtC.KKeySequenceWidget, seq: QtC.QKeySequence ```
     pub fn KeySequenceChanged(self: ?*anyopaque, seq: ?*anyopaque) void {
         qtc.KKeySequenceWidget_KeySequenceChanged(@ptrCast(self), @ptrCast(seq));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#keySequenceChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#keySequenceChanged)
     ///
     /// ``` self: QtC.KKeySequenceWidget, slot: fn (self: QtC.KKeySequenceWidget, seq: QtC.QKeySequence) callconv(.c) void ```
     pub fn OnKeySequenceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceWidget_Connect_KeySequenceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#stealShortcut)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#stealShortcut)
     ///
     /// ``` self: QtC.KKeySequenceWidget, seq: QtC.QKeySequence, action: QtC.QAction ```
     pub fn StealShortcut(self: ?*anyopaque, seq: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KKeySequenceWidget_StealShortcut(@ptrCast(self), @ptrCast(seq), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#stealShortcut)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#stealShortcut)
     ///
     /// ``` self: QtC.KKeySequenceWidget, slot: fn (self: QtC.KKeySequenceWidget, seq: QtC.QKeySequence, action: QtC.QAction) callconv(.c) void ```
     pub fn OnStealShortcut(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceWidget_Connect_StealShortcut(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#recordingChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#recordingChanged)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     pub fn RecordingChanged(self: ?*anyopaque) void {
         qtc.KKeySequenceWidget_RecordingChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#recordingChanged)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#recordingChanged)
     ///
     /// ``` self: QtC.KKeySequenceWidget, slot: fn (self: QtC.KKeySequenceWidget) callconv(.c) void ```
     pub fn OnRecordingChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KKeySequenceWidget_Connect_RecordingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#captureKeySequence)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#captureKeySequence)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     pub fn CaptureKeySequence(self: ?*anyopaque) void {
         qtc.KKeySequenceWidget_CaptureKeySequence(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setKeySequence)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setKeySequence)
     ///
     /// ``` self: QtC.KKeySequenceWidget, seq: QtC.QKeySequence ```
     pub fn SetKeySequence(self: ?*anyopaque, seq: ?*anyopaque) void {
         qtc.KKeySequenceWidget_SetKeySequence(@ptrCast(self), @ptrCast(seq));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#clearKeySequence)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#clearKeySequence)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     pub fn ClearKeySequence(self: ?*anyopaque) void {
         qtc.KKeySequenceWidget_ClearKeySequence(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#applyStealShortcut)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#applyStealShortcut)
     ///
     /// ``` self: QtC.KKeySequenceWidget ```
     pub fn ApplyStealShortcut(self: ?*anyopaque) void {
@@ -290,7 +290,7 @@ pub const kkeysequencewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#setKeySequence)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#setKeySequence)
     ///
     /// ``` self: QtC.KKeySequenceWidget, seq: QtC.QKeySequence, val: kkeysequencewidget_enums.Validation ```
     pub fn SetKeySequence2(self: ?*anyopaque, seq: ?*anyopaque, val: i32) void {
@@ -5244,7 +5244,7 @@ pub const kkeysequencewidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kkeysequencewidget.html#dtor.KKeySequenceWidget)
+    /// [Qt documentation](https://api.kde.org/kkeysequencewidget.html#dtor.KKeySequenceWidget)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5254,7 +5254,7 @@ pub const kkeysequencewidget = struct {
     }
 };
 
-/// https://api-staging.kde.org/kkeysequencewidget.html#types
+/// https://api.kde.org/kkeysequencewidget.html#types
 pub const enums = struct {
     pub const Validation = enum {
         pub const Validate: i32 = 0;

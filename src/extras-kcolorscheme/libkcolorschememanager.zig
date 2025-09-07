@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcolorschememanager.html
+/// https://api.kde.org/kcolorschememanager.html
 pub const kcolorschememanager = struct {
     /// New constructs a new KColorSchemeManager object.
     ///
@@ -64,14 +64,14 @@ pub const kcolorschememanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#model)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#model)
     ///
     /// ``` self: QtC.KColorSchemeManager ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.KColorSchemeManager_Model(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#indexForSchemeId)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#indexForSchemeId)
     ///
     /// ``` self: QtC.KColorSchemeManager, id: []const u8 ```
     pub fn IndexForSchemeId(self: ?*anyopaque, id: []const u8) QtC.QModelIndex {
@@ -82,7 +82,7 @@ pub const kcolorschememanager = struct {
         return qtc.KColorSchemeManager_IndexForSchemeId(@ptrCast(self), id_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#indexForScheme)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#indexForScheme)
     ///
     /// ``` self: QtC.KColorSchemeManager, name: []const u8 ```
     pub fn IndexForScheme(self: ?*anyopaque, name: []const u8) QtC.QModelIndex {
@@ -93,7 +93,7 @@ pub const kcolorschememanager = struct {
         return qtc.KColorSchemeManager_IndexForScheme(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#saveSchemeToConfigFile)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#saveSchemeToConfigFile)
     ///
     /// ``` self: QtC.KColorSchemeManager, schemeName: []const u8 ```
     pub fn SaveSchemeToConfigFile(self: ?*anyopaque, schemeName: []const u8) void {
@@ -104,14 +104,14 @@ pub const kcolorschememanager = struct {
         qtc.KColorSchemeManager_SaveSchemeToConfigFile(@ptrCast(self), schemeName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#setAutosaveChanges)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#setAutosaveChanges)
     ///
     /// ``` self: QtC.KColorSchemeManager, autosaveChanges: bool ```
     pub fn SetAutosaveChanges(self: ?*anyopaque, autosaveChanges: bool) void {
         qtc.KColorSchemeManager_SetAutosaveChanges(@ptrCast(self), autosaveChanges);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#activeSchemeId)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#activeSchemeId)
     ///
     /// ``` self: QtC.KColorSchemeManager, allocator: std.mem.Allocator ```
     pub fn ActiveSchemeId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -122,7 +122,7 @@ pub const kcolorschememanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#activeSchemeName)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#activeSchemeName)
     ///
     /// ``` self: QtC.KColorSchemeManager, allocator: std.mem.Allocator ```
     pub fn ActiveSchemeName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -133,14 +133,14 @@ pub const kcolorschememanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#instance)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#instance)
     ///
     ///
     pub fn Instance() QtC.KColorSchemeManager {
         return qtc.KColorSchemeManager_Instance();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#activateScheme)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#activateScheme)
     ///
     /// ``` self: QtC.KColorSchemeManager, index: QtC.QModelIndex ```
     pub fn ActivateScheme(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -926,7 +926,7 @@ pub const kcolorschememanager = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememanager.html#dtor.KColorSchemeManager)
+    /// [Qt documentation](https://api.kde.org/kcolorschememanager.html#dtor.KColorSchemeManager)
     ///
     /// Delete this object from C++ memory.
     ///

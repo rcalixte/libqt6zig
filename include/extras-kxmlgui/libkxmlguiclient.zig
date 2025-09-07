@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const kxmlguiclient_enums = enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kxmlguiclient.html
+/// https://api.kde.org/kxmlguiclient.html
 pub const kxmlguiclient = struct {
     /// New constructs a new KXMLGUIClient object.
     ///
@@ -19,7 +19,7 @@ pub const kxmlguiclient = struct {
         return qtc.KXMLGUIClient_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#action)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// ``` self: QtC.KXMLGUIClient, name: []const u8 ```
     pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
@@ -30,14 +30,14 @@ pub const kxmlguiclient = struct {
         return qtc.KXMLGUIClient_Action(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#action)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// ``` self: QtC.KXMLGUIClient, element: QtC.QDomElement ```
     pub fn Action2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
         return qtc.KXMLGUIClient_Action2(@ptrCast(self), @ptrCast(element));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#action)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Allows for overriding the related default method
     ///
@@ -46,7 +46,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnAction2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#action)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Base class method implementation
     ///
@@ -55,14 +55,14 @@ pub const kxmlguiclient = struct {
         return qtc.KXMLGUIClient_QBaseAction2(@ptrCast(self), @ptrCast(element));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#actionCollection)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// ``` self: QtC.KXMLGUIClient ```
     pub fn ActionCollection(self: ?*anyopaque) QtC.KActionCollection {
         return qtc.KXMLGUIClient_ActionCollection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#actionCollection)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -71,7 +71,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnActionCollection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#actionCollection)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Base class method implementation
     ///
@@ -80,7 +80,7 @@ pub const kxmlguiclient = struct {
         return qtc.KXMLGUIClient_QBaseActionCollection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#componentName)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -91,7 +91,7 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#componentName)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Allows for overriding the related default method
     ///
@@ -100,7 +100,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnComponentName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#componentName)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Base class method implementation
     ///
@@ -113,14 +113,14 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#domDocument)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// ``` self: QtC.KXMLGUIClient ```
     pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_DomDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#domDocument)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Allows for overriding the related default method
     ///
@@ -129,7 +129,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnDomDocument(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#domDocument)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Base class method implementation
     ///
@@ -138,7 +138,7 @@ pub const kxmlguiclient = struct {
         return qtc.KXMLGUIClient_QBaseDomDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#xmlFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
     pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -149,7 +149,7 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#xmlFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Allows for overriding the related default method
     ///
@@ -158,7 +158,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnXmlFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#xmlFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Base class method implementation
     ///
@@ -171,7 +171,7 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#localXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
     pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -182,7 +182,7 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#localXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Allows for overriding the related default method
     ///
@@ -191,7 +191,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnLocalXMLFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#localXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Base class method implementation
     ///
@@ -204,56 +204,56 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
     ///
     /// ``` self: QtC.KXMLGUIClient, doc: QtC.QDomDocument ```
     pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self), @ptrCast(doc));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
     ///
     /// ``` self: QtC.KXMLGUIClient ```
     pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
         return qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setFactory)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setFactory)
     ///
     /// ``` self: QtC.KXMLGUIClient, factory: QtC.KXMLGUIFactory ```
     pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetFactory(@ptrCast(self), @ptrCast(factory));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#factory)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#factory)
     ///
     /// ``` self: QtC.KXMLGUIClient ```
     pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
         return qtc.KXMLGUIClient_Factory(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#parentClient)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#parentClient)
     ///
     /// ``` self: QtC.KXMLGUIClient ```
     pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
         return qtc.KXMLGUIClient_ParentClient(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#insertChildClient)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#insertChildClient)
     ///
     /// ``` self: QtC.KXMLGUIClient, child: QtC.KXMLGUIClient ```
     pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#removeChildClient)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#removeChildClient)
     ///
     /// ``` self: QtC.KXMLGUIClient, child: QtC.KXMLGUIClient ```
     pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
         qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#childClients)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#childClients)
     ///
     /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
     pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
@@ -265,28 +265,28 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setClientBuilder)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
     ///
     /// ``` self: QtC.KXMLGUIClient, builder: QtC.KXMLGUIBuilder ```
     pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
         qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self), @ptrCast(builder));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#clientBuilder)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#clientBuilder)
     ///
     /// ``` self: QtC.KXMLGUIClient ```
     pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
         return qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#reloadXML)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#reloadXML)
     ///
     /// ``` self: QtC.KXMLGUIClient ```
     pub fn ReloadXML(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_ReloadXML(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#plugActionList)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#plugActionList)
     ///
     /// ``` self: QtC.KXMLGUIClient, name: []const u8, actionList: []QtC.QAction ```
     pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
@@ -301,7 +301,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_PlugActionList(@ptrCast(self), name_str, actionList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#unplugActionList)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#unplugActionList)
     ///
     /// ``` self: QtC.KXMLGUIClient, name: []const u8 ```
     pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
@@ -312,7 +312,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
     ///
     /// ``` files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator ```
     pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -339,7 +339,7 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#addStateActionEnabled)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
     ///
     /// ``` self: QtC.KXMLGUIClient, state: []const u8, action: []const u8 ```
     pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
@@ -354,7 +354,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self), state_str, action_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#addStateActionDisabled)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
     ///
     /// ``` self: QtC.KXMLGUIClient, state: []const u8, action: []const u8 ```
     pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
@@ -369,7 +369,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self), state_str, action_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#getActionsToChangeForState)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
     ///
     /// ``` self: QtC.KXMLGUIClient, state: []const u8 ```
     pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
@@ -380,28 +380,28 @@ pub const kxmlguiclient = struct {
         return qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self), state_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#beginXMLPlug)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
     ///
     /// ``` self: QtC.KXMLGUIClient, param1: QtC.QWidget ```
     pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#endXMLPlug)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
     ///
     /// ``` self: QtC.KXMLGUIClient ```
     pub fn EndXMLPlug(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#prepareXMLUnplug)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
     ///
     /// ``` self: QtC.KXMLGUIClient, param1: QtC.QWidget ```
     pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
     /// ``` self: QtC.KXMLGUIClient, xmlfile: []const u8, localxmlfile: []const u8 ```
     pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
@@ -416,7 +416,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self), xmlfile_str, localxmlfile_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#findVersionNumber)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
     ///
     /// ``` xml: []const u8, allocator: std.mem.Allocator ```
     pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -431,7 +431,7 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setComponentName)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// ``` self: QtC.KXMLGUIClient, componentName: []const u8, componentDisplayName: []const u8 ```
     pub fn SetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
@@ -446,7 +446,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_SetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setComponentName)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Allows for overriding the related default method
     ///
@@ -455,7 +455,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetComponentName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setComponentName)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Base class method implementation
     ///
@@ -472,7 +472,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// ``` self: QtC.KXMLGUIClient, file: []const u8, merge: bool, setXMLDoc: bool ```
     pub fn SetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
@@ -483,7 +483,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_SetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Allows for overriding the related default method
     ///
@@ -492,7 +492,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetXMLFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Base class method implementation
     ///
@@ -505,7 +505,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// ``` self: QtC.KXMLGUIClient, allocator: std.mem.Allocator ```
     pub fn StandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -516,7 +516,7 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Allows for overriding the related default method
     ///
@@ -525,7 +525,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnStandardsXmlFileLocation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Base class method implementation
     ///
@@ -538,14 +538,14 @@ pub const kxmlguiclient = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// ``` self: QtC.KXMLGUIClient ```
     pub fn LoadStandardsXmlFile(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_LoadStandardsXmlFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Allows for overriding the related default method
     ///
@@ -554,7 +554,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnLoadStandardsXmlFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Base class method implementation
     ///
@@ -563,7 +563,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseLoadStandardsXmlFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// ``` self: QtC.KXMLGUIClient, file: []const u8 ```
     pub fn SetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
@@ -574,7 +574,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_SetLocalXMLFile(@ptrCast(self), file_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Allows for overriding the related default method
     ///
@@ -583,7 +583,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetLocalXMLFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Base class method implementation
     ///
@@ -596,7 +596,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseSetLocalXMLFile(@ptrCast(self), file_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setXML)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// ``` self: QtC.KXMLGUIClient, document: []const u8, merge: bool ```
     pub fn SetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
@@ -607,7 +607,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_SetXML(@ptrCast(self), document_str, merge);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setXML)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Allows for overriding the related default method
     ///
@@ -616,7 +616,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetXML(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setXML)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Base class method implementation
     ///
@@ -629,14 +629,14 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseSetXML(@ptrCast(self), document_str, merge);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// ``` self: QtC.KXMLGUIClient, document: QtC.QDomDocument, merge: bool ```
     pub fn SetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
         qtc.KXMLGUIClient_SetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Allows for overriding the related default method
     ///
@@ -645,7 +645,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetDOMDocument(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Base class method implementation
     ///
@@ -654,7 +654,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#stateChanged)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// ``` self: QtC.KXMLGUIClient, newstate: []const u8, reverse: kxmlguiclient_enums.ReverseStateChange ```
     pub fn StateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
@@ -665,7 +665,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_StateChanged(@ptrCast(self), newstate_str, @intCast(reverse));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#stateChanged)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -674,7 +674,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#stateChanged)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Base class method implementation
     ///
@@ -687,14 +687,14 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseStateChanged(@ptrCast(self), newstate_str, @intCast(reverse));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#virtual_hook)
     ///
     /// ``` self: QtC.KXMLGUIClient, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.KXMLGUIClient_VirtualHook(@ptrCast(self), @intCast(id), data);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#virtual_hook)
     ///
     /// Allows for overriding the related default method
     ///
@@ -703,7 +703,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#virtual_hook)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#virtual_hook)
     ///
     /// Base class method implementation
     ///
@@ -712,7 +712,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
     /// ``` self: QtC.KXMLGUIClient, xmlfile: []const u8, localxmlfile: []const u8, merge: bool ```
     pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
@@ -727,7 +727,7 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self), xmlfile_str, localxmlfile_str, merge);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient.html#dtor.KXMLGUIClient)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#dtor.KXMLGUIClient)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -737,9 +737,9 @@ pub const kxmlguiclient = struct {
     }
 };
 
-/// https://api-staging.kde.org/kxmlguiclient-statechange.html
+/// https://api.kde.org/kxmlguiclient-statechange.html
 pub const kxmlguiclient__statechange = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient-statechange.html#actionsToEnable-var)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient-statechange.html#actionsToEnable-var)
     ///
     /// ``` self: QtC.KXMLGUIClient__StateChange, allocator: std.mem.Allocator ```
     pub fn ActionsToEnable(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -761,7 +761,7 @@ pub const kxmlguiclient__statechange = struct {
         return actionsToEnable_ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient-statechange.html#actionsToEnable-var)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient-statechange.html#actionsToEnable-var)
     ///
     /// ``` self: QtC.KXMLGUIClient__StateChange, actionsToEnable: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetActionsToEnable(self: ?*anyopaque, actionsToEnable: [][]const u8, allocator: std.mem.Allocator) void {
@@ -780,7 +780,7 @@ pub const kxmlguiclient__statechange = struct {
         qtc.KXMLGUIClient__StateChange_SetActionsToEnable(@ptrCast(self), actionsToEnable_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient-statechange.html#actionsToDisable-var)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient-statechange.html#actionsToDisable-var)
     ///
     /// ``` self: QtC.KXMLGUIClient__StateChange, allocator: std.mem.Allocator ```
     pub fn ActionsToDisable(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -802,7 +802,7 @@ pub const kxmlguiclient__statechange = struct {
         return actionsToDisable_ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kxmlguiclient-statechange.html#actionsToDisable-var)
+    /// [Qt documentation](https://api.kde.org/kxmlguiclient-statechange.html#actionsToDisable-var)
     ///
     /// ``` self: QtC.KXMLGUIClient__StateChange, actionsToDisable: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetActionsToDisable(self: ?*anyopaque, actionsToDisable: [][]const u8, allocator: std.mem.Allocator) void {
@@ -829,7 +829,7 @@ pub const kxmlguiclient__statechange = struct {
     }
 };
 
-/// https://api-staging.kde.org/kxmlguiclient.html#types
+/// https://api.kde.org/kxmlguiclient.html#types
 pub const enums = struct {
     pub const ReverseStateChange = enum {
         pub const StateNoReverse: i32 = 0;

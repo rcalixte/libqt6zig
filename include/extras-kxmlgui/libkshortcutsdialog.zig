@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kshortcutsdialog.html
+/// https://api.kde.org/kshortcutsdialog.html
 pub const kshortcutsdialog = struct {
     /// New constructs a new KShortcutsDialog object.
     ///
@@ -90,14 +90,14 @@ pub const kshortcutsdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#addCollection)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#addCollection)
     ///
     /// ``` self: QtC.KShortcutsDialog, collection: QtC.KActionCollection ```
     pub fn AddCollection(self: ?*anyopaque, collection: ?*anyopaque) void {
         qtc.KShortcutsDialog_AddCollection(@ptrCast(self), @ptrCast(collection));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#actionCollections)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#actionCollections)
     ///
     /// ``` self: QtC.KShortcutsDialog, allocator: std.mem.Allocator ```
     pub fn ActionCollections(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KActionCollection {
@@ -109,21 +109,21 @@ pub const kshortcutsdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#configure)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#configure)
     ///
     /// ``` self: QtC.KShortcutsDialog ```
     pub fn Configure(self: ?*anyopaque) bool {
         return qtc.KShortcutsDialog_Configure(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#sizeHint)
     ///
     /// ``` self: QtC.KShortcutsDialog ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KShortcutsDialog_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -132,7 +132,7 @@ pub const kshortcutsdialog = struct {
         qtc.KShortcutsDialog_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -141,14 +141,14 @@ pub const kshortcutsdialog = struct {
         return qtc.KShortcutsDialog_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#showDialog)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#showDialog)
     ///
     /// ``` collection: QtC.KActionCollection ```
     pub fn ShowDialog(collection: ?*anyopaque) void {
         qtc.KShortcutsDialog_ShowDialog(@ptrCast(collection));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#importConfiguration)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#importConfiguration)
     ///
     /// ``` self: QtC.KShortcutsDialog, path: []const u8 ```
     pub fn ImportConfiguration(self: ?*anyopaque, path: []const u8) void {
@@ -159,7 +159,7 @@ pub const kshortcutsdialog = struct {
         qtc.KShortcutsDialog_ImportConfiguration(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#exportConfiguration)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#exportConfiguration)
     ///
     /// ``` self: QtC.KShortcutsDialog, path: []const u8 ```
     pub fn ExportConfiguration(self: ?*anyopaque, path: []const u8) void {
@@ -170,28 +170,28 @@ pub const kshortcutsdialog = struct {
         qtc.KShortcutsDialog_ExportConfiguration(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#refreshSchemes)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#refreshSchemes)
     ///
     /// ``` self: QtC.KShortcutsDialog ```
     pub fn RefreshSchemes(self: ?*anyopaque) void {
         qtc.KShortcutsDialog_RefreshSchemes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#addActionToSchemesMoreButton)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#addActionToSchemesMoreButton)
     ///
     /// ``` self: QtC.KShortcutsDialog, action: QtC.QAction ```
     pub fn AddActionToSchemesMoreButton(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KShortcutsDialog_AddActionToSchemesMoreButton(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#accept)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#accept)
     ///
     /// ``` self: QtC.KShortcutsDialog ```
     pub fn Accept(self: ?*anyopaque) void {
         qtc.KShortcutsDialog_Accept(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#accept)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#accept)
     ///
     /// Allows for overriding the related default method
     ///
@@ -200,7 +200,7 @@ pub const kshortcutsdialog = struct {
         qtc.KShortcutsDialog_OnAccept(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#accept)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#accept)
     ///
     /// Base class method implementation
     ///
@@ -209,14 +209,14 @@ pub const kshortcutsdialog = struct {
         qtc.KShortcutsDialog_QBaseAccept(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#saved)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#saved)
     ///
     /// ``` self: QtC.KShortcutsDialog ```
     pub fn Saved(self: ?*anyopaque) void {
         qtc.KShortcutsDialog_Saved(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#saved)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#saved)
     ///
     /// ``` self: QtC.KShortcutsDialog, slot: fn (self: QtC.KShortcutsDialog) callconv(.c) void ```
     pub fn OnSaved(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -249,7 +249,7 @@ pub const kshortcutsdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#addCollection)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#addCollection)
     ///
     /// ``` self: QtC.KShortcutsDialog, collection: QtC.KActionCollection, title: []const u8 ```
     pub fn AddCollection2(self: ?*anyopaque, collection: ?*anyopaque, title: []const u8) void {
@@ -260,21 +260,21 @@ pub const kshortcutsdialog = struct {
         qtc.KShortcutsDialog_AddCollection2(@ptrCast(self), @ptrCast(collection), title_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#configure)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#configure)
     ///
     /// ``` self: QtC.KShortcutsDialog, saveSettings: bool ```
     pub fn Configure1(self: ?*anyopaque, saveSettings: bool) bool {
         return qtc.KShortcutsDialog_Configure1(@ptrCast(self), saveSettings);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#showDialog)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#showDialog)
     ///
     /// ``` collection: QtC.KActionCollection, allowLetterShortcuts: kshortcutseditor_enums.LetterShortcuts ```
     pub fn ShowDialog2(collection: ?*anyopaque, allowLetterShortcuts: i32) void {
         qtc.KShortcutsDialog_ShowDialog2(@ptrCast(collection), @intCast(allowLetterShortcuts));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#showDialog)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#showDialog)
     ///
     /// ``` collection: QtC.KActionCollection, allowLetterShortcuts: kshortcutseditor_enums.LetterShortcuts, parent: QtC.QWidget ```
     pub fn ShowDialog3(collection: ?*anyopaque, allowLetterShortcuts: i32, parent: ?*anyopaque) void {
@@ -5492,7 +5492,7 @@ pub const kshortcutsdialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kshortcutsdialog.html#dtor.KShortcutsDialog)
+    /// [Qt documentation](https://api.kde.org/kshortcutsdialog.html#dtor.KShortcutsDialog)
     ///
     /// Delete this object from C++ memory.
     ///

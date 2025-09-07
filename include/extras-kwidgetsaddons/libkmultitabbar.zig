@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kmultitabbar.html
+/// https://api.kde.org/kmultitabbar.html
 pub const kmultitabbar = struct {
     /// New constructs a new KMultiTabBar object.
     ///
@@ -83,70 +83,70 @@ pub const kmultitabbar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#appendButton)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#appendButton)
     ///
     /// ``` self: QtC.KMultiTabBar, icon: QtC.QIcon ```
     pub fn AppendButton(self: ?*anyopaque, icon: ?*anyopaque) i32 {
         return qtc.KMultiTabBar_AppendButton(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#removeButton)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#removeButton)
     ///
     /// ``` self: QtC.KMultiTabBar, id: i32 ```
     pub fn RemoveButton(self: ?*anyopaque, id: i32) void {
         qtc.KMultiTabBar_RemoveButton(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#appendTab)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#appendTab)
     ///
     /// ``` self: QtC.KMultiTabBar, icon: QtC.QIcon ```
     pub fn AppendTab(self: ?*anyopaque, icon: ?*anyopaque) i32 {
         return qtc.KMultiTabBar_AppendTab(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#removeTab)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#removeTab)
     ///
     /// ``` self: QtC.KMultiTabBar, id: i32 ```
     pub fn RemoveTab(self: ?*anyopaque, id: i32) void {
         qtc.KMultiTabBar_RemoveTab(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#setTab)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#setTab)
     ///
     /// ``` self: QtC.KMultiTabBar, id: i32, state: bool ```
     pub fn SetTab(self: ?*anyopaque, id: i32, state: bool) void {
         qtc.KMultiTabBar_SetTab(@ptrCast(self), @intCast(id), state);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#isTabRaised)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#isTabRaised)
     ///
     /// ``` self: QtC.KMultiTabBar, id: i32 ```
     pub fn IsTabRaised(self: ?*anyopaque, id: i32) bool {
         return qtc.KMultiTabBar_IsTabRaised(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#button)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#button)
     ///
     /// ``` self: QtC.KMultiTabBar, id: i32 ```
     pub fn Button(self: ?*anyopaque, id: i32) QtC.KMultiTabBarButton {
         return qtc.KMultiTabBar_Button(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#tab)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#tab)
     ///
     /// ``` self: QtC.KMultiTabBar, id: i32 ```
     pub fn Tab(self: ?*anyopaque, id: i32) QtC.KMultiTabBarTab {
         return qtc.KMultiTabBar_Tab(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#setPosition)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#setPosition)
     ///
     /// ``` self: QtC.KMultiTabBar, pos: kmultitabbar_enums.KMultiTabBarPosition ```
     pub fn SetPosition(self: ?*anyopaque, pos: i32) void {
         qtc.KMultiTabBar_SetPosition(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#position)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#position)
     ///
     /// ``` self: QtC.KMultiTabBar ```
     ///
@@ -155,14 +155,14 @@ pub const kmultitabbar = struct {
         return qtc.KMultiTabBar_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#setStyle)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#setStyle)
     ///
     /// ``` self: QtC.KMultiTabBar, style: kmultitabbar_enums.KMultiTabBarStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
         qtc.KMultiTabBar_SetStyle(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#tabStyle)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#tabStyle)
     ///
     /// ``` self: QtC.KMultiTabBar ```
     ///
@@ -171,14 +171,14 @@ pub const kmultitabbar = struct {
         return qtc.KMultiTabBar_TabStyle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#fontChange)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#fontChange)
     ///
     /// ``` self: QtC.KMultiTabBar, param1: QtC.QFont ```
     pub fn FontChange(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KMultiTabBar_FontChange(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#fontChange)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#fontChange)
     ///
     /// Allows for overriding the related default method
     ///
@@ -187,7 +187,7 @@ pub const kmultitabbar = struct {
         qtc.KMultiTabBar_OnFontChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#fontChange)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#fontChange)
     ///
     /// Base class method implementation
     ///
@@ -196,14 +196,14 @@ pub const kmultitabbar = struct {
         qtc.KMultiTabBar_QBaseFontChange(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#paintEvent)
     ///
     /// ``` self: QtC.KMultiTabBar, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KMultiTabBar_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -212,7 +212,7 @@ pub const kmultitabbar = struct {
         qtc.KMultiTabBar_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -221,14 +221,14 @@ pub const kmultitabbar = struct {
         qtc.KMultiTabBar_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#updateSeparator)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#updateSeparator)
     ///
     /// ``` self: QtC.KMultiTabBar ```
     pub fn UpdateSeparator(self: ?*anyopaque) void {
         qtc.KMultiTabBar_UpdateSeparator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#updateSeparator)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#updateSeparator)
     ///
     /// Allows for overriding the related default method
     ///
@@ -237,7 +237,7 @@ pub const kmultitabbar = struct {
         qtc.KMultiTabBar_OnUpdateSeparator(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#updateSeparator)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#updateSeparator)
     ///
     /// Base class method implementation
     ///
@@ -272,21 +272,21 @@ pub const kmultitabbar = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#appendButton)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#appendButton)
     ///
     /// ``` self: QtC.KMultiTabBar, icon: QtC.QIcon, id: i32 ```
     pub fn AppendButton2(self: ?*anyopaque, icon: ?*anyopaque, id: i32) i32 {
         return qtc.KMultiTabBar_AppendButton2(@ptrCast(self), @ptrCast(icon), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#appendButton)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#appendButton)
     ///
     /// ``` self: QtC.KMultiTabBar, icon: QtC.QIcon, id: i32, popup: QtC.QMenu ```
     pub fn AppendButton3(self: ?*anyopaque, icon: ?*anyopaque, id: i32, popup: ?*anyopaque) i32 {
         return qtc.KMultiTabBar_AppendButton3(@ptrCast(self), @ptrCast(icon), @intCast(id), @ptrCast(popup));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#appendButton)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#appendButton)
     ///
     /// ``` self: QtC.KMultiTabBar, icon: QtC.QIcon, id: i32, popup: QtC.QMenu, not_used_yet: []const u8 ```
     pub fn AppendButton4(self: ?*anyopaque, icon: ?*anyopaque, id: i32, popup: ?*anyopaque, not_used_yet: []const u8) i32 {
@@ -297,14 +297,14 @@ pub const kmultitabbar = struct {
         return qtc.KMultiTabBar_AppendButton4(@ptrCast(self), @ptrCast(icon), @intCast(id), @ptrCast(popup), not_used_yet_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#appendTab)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#appendTab)
     ///
     /// ``` self: QtC.KMultiTabBar, icon: QtC.QIcon, id: i32 ```
     pub fn AppendTab2(self: ?*anyopaque, icon: ?*anyopaque, id: i32) i32 {
         return qtc.KMultiTabBar_AppendTab2(@ptrCast(self), @ptrCast(icon), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#appendTab)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#appendTab)
     ///
     /// ``` self: QtC.KMultiTabBar, icon: QtC.QIcon, id: i32, text: []const u8 ```
     pub fn AppendTab3(self: ?*anyopaque, icon: ?*anyopaque, id: i32, text: []const u8) i32 {
@@ -5253,7 +5253,7 @@ pub const kmultitabbar = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbar.html#dtor.KMultiTabBar)
+    /// [Qt documentation](https://api.kde.org/kmultitabbar.html#dtor.KMultiTabBar)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5263,7 +5263,7 @@ pub const kmultitabbar = struct {
     }
 };
 
-/// https://api-staging.kde.org/kmultitabbarbutton.html
+/// https://api.kde.org/kmultitabbarbutton.html
 pub const kmultitabbarbutton = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -5295,14 +5295,14 @@ pub const kmultitabbarbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbarbutton.html#id)
+    /// [Qt documentation](https://api.kde.org/kmultitabbarbutton.html#id)
     ///
     /// ``` self: QtC.KMultiTabBarButton ```
     pub fn Id(self: ?*anyopaque) i32 {
         return qtc.KMultiTabBarButton_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbarbutton.html#setText)
+    /// [Qt documentation](https://api.kde.org/kmultitabbarbutton.html#setText)
     ///
     /// ``` self: QtC.KMultiTabBarButton, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -5313,14 +5313,14 @@ pub const kmultitabbarbutton = struct {
         qtc.KMultiTabBarButton_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbarbutton.html#clicked)
+    /// [Qt documentation](https://api.kde.org/kmultitabbarbutton.html#clicked)
     ///
     /// ``` self: QtC.KMultiTabBarButton, id: i32 ```
     pub fn Clicked(self: ?*anyopaque, id: i32) void {
         qtc.KMultiTabBarButton_Clicked(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbarbutton.html#clicked)
+    /// [Qt documentation](https://api.kde.org/kmultitabbarbutton.html#clicked)
     ///
     /// ``` self: QtC.KMultiTabBarButton, slot: fn (self: QtC.KMultiTabBarButton, id: i32) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -8905,7 +8905,7 @@ pub const kmultitabbarbutton = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbarbutton.html#dtor.KMultiTabBarButton)
+    /// [Qt documentation](https://api.kde.org/kmultitabbarbutton.html#dtor.KMultiTabBarButton)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -8915,7 +8915,7 @@ pub const kmultitabbarbutton = struct {
     }
 };
 
-/// https://api-staging.kde.org/kmultitabbartab.html
+/// https://api.kde.org/kmultitabbartab.html
 pub const kmultitabbartab = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8947,35 +8947,35 @@ pub const kmultitabbartab = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbartab.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kmultitabbartab.html#sizeHint)
     ///
     /// ``` self: QtC.KMultiTabBarTab ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KMultiTabBarTab_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbartab.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kmultitabbartab.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KMultiTabBarTab ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KMultiTabBarTab_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbartab.html#setPosition)
+    /// [Qt documentation](https://api.kde.org/kmultitabbartab.html#setPosition)
     ///
     /// ``` self: QtC.KMultiTabBarTab, position: kmultitabbar_enums.KMultiTabBarPosition ```
     pub fn SetPosition(self: ?*anyopaque, position: i32) void {
         qtc.KMultiTabBarTab_SetPosition(@ptrCast(self), @intCast(position));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbartab.html#setStyle)
+    /// [Qt documentation](https://api.kde.org/kmultitabbartab.html#setStyle)
     ///
     /// ``` self: QtC.KMultiTabBarTab, style: kmultitabbar_enums.KMultiTabBarStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: i32) void {
         qtc.KMultiTabBarTab_SetStyle(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbartab.html#setState)
+    /// [Qt documentation](https://api.kde.org/kmultitabbartab.html#setState)
     ///
     /// ``` self: QtC.KMultiTabBarTab, state: bool ```
     pub fn SetState(self: ?*anyopaque, state: bool) void {
@@ -9010,7 +9010,7 @@ pub const kmultitabbartab = struct {
 
     /// Inherited from KMultiTabBarButton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbarbutton.html#id)
+    /// [Qt documentation](https://api.kde.org/kmultitabbarbutton.html#id)
     ///
     /// ``` self: QtC.KMultiTabBarTab ```
     pub fn Id(self: ?*anyopaque) i32 {
@@ -9019,7 +9019,7 @@ pub const kmultitabbartab = struct {
 
     /// Inherited from KMultiTabBarButton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbarbutton.html#setText)
+    /// [Qt documentation](https://api.kde.org/kmultitabbarbutton.html#setText)
     ///
     /// ``` self: QtC.KMultiTabBarTab, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -9032,7 +9032,7 @@ pub const kmultitabbartab = struct {
 
     /// Inherited from KMultiTabBarButton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbarbutton.html#clicked)
+    /// [Qt documentation](https://api.kde.org/kmultitabbarbutton.html#clicked)
     ///
     /// ``` self: QtC.KMultiTabBarTab, id: i32 ```
     pub fn Clicked(self: ?*anyopaque, id: i32) void {
@@ -9041,7 +9041,7 @@ pub const kmultitabbartab = struct {
 
     /// Inherited from KMultiTabBarButton
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbarbutton.html#clicked)
+    /// [Qt documentation](https://api.kde.org/kmultitabbarbutton.html#clicked)
     ///
     /// ``` self: QtC.KMultiTabBarTab, slot: fn (self: QtC.KMultiTabBarTab, id: i32) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -12573,7 +12573,7 @@ pub const kmultitabbartab = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmultitabbartab.html#dtor.KMultiTabBarTab)
+    /// [Qt documentation](https://api.kde.org/kmultitabbartab.html#dtor.KMultiTabBarTab)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -12583,7 +12583,7 @@ pub const kmultitabbartab = struct {
     }
 };
 
-/// https://api-staging.kde.org/kmultitabbar.html#types
+/// https://api.kde.org/kmultitabbar.html#types
 pub const enums = struct {
     pub const KMultiTabBarPosition = enum {
         pub const Left: i32 = 0;

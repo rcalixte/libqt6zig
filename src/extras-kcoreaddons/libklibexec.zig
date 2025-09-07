@@ -2,9 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/klibexec.html
+/// https://api.kde.org/klibexec.html
 pub const klibexec = struct {
-    /// [Qt documentation](https://api-staging.kde.org/klibexec.html#pathFromAddress)
+    /// [Qt documentation](https://api.kde.org/klibexec.html#pathFromAddress)
     ///
     /// ``` param1: []const u8, param2: ?*anyopaque, allocator: std.mem.Allocator ```
     pub fn PathFromAddress(param1: []const u8, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -19,7 +19,7 @@ pub const klibexec = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klibexec.html#pathCandidates)
+    /// [Qt documentation](https://api.kde.org/klibexec.html#pathCandidates)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn PathCandidates(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -45,7 +45,7 @@ pub const klibexec = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klibexec.html#path)
+    /// [Qt documentation](https://api.kde.org/klibexec.html#path)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn Path(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -60,7 +60,7 @@ pub const klibexec = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klibexec.html#kdeFrameworksPaths)
+    /// [Qt documentation](https://api.kde.org/klibexec.html#kdeFrameworksPaths)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn KdeFrameworksPaths(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {

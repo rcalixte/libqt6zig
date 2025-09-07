@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktwofingertap.html
+/// https://api.kde.org/ktwofingertap.html
 pub const ktwofingertap = struct {
     /// New constructs a new KTwoFingerTap object.
     ///
@@ -66,42 +66,42 @@ pub const ktwofingertap = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertap.html#pos)
+    /// [Qt documentation](https://api.kde.org/ktwofingertap.html#pos)
     ///
     /// ``` self: QtC.KTwoFingerTap ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
         return qtc.KTwoFingerTap_Pos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertap.html#setPos)
+    /// [Qt documentation](https://api.kde.org/ktwofingertap.html#setPos)
     ///
     /// ``` self: QtC.KTwoFingerTap, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: QtC.QPointF) void {
         qtc.KTwoFingerTap_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertap.html#screenPos)
+    /// [Qt documentation](https://api.kde.org/ktwofingertap.html#screenPos)
     ///
     /// ``` self: QtC.KTwoFingerTap ```
     pub fn ScreenPos(self: ?*anyopaque) QtC.QPointF {
         return qtc.KTwoFingerTap_ScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertap.html#setScreenPos)
+    /// [Qt documentation](https://api.kde.org/ktwofingertap.html#setScreenPos)
     ///
     /// ``` self: QtC.KTwoFingerTap, screenPos: QtC.QPointF ```
     pub fn SetScreenPos(self: ?*anyopaque, screenPos: QtC.QPointF) void {
         qtc.KTwoFingerTap_SetScreenPos(@ptrCast(self), @ptrCast(screenPos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertap.html#scenePos)
+    /// [Qt documentation](https://api.kde.org/ktwofingertap.html#scenePos)
     ///
     /// ``` self: QtC.KTwoFingerTap ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.KTwoFingerTap_ScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertap.html#setScenePos)
+    /// [Qt documentation](https://api.kde.org/ktwofingertap.html#setScenePos)
     ///
     /// ``` self: QtC.KTwoFingerTap, scenePos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, scenePos: QtC.QPointF) void {
@@ -965,7 +965,7 @@ pub const ktwofingertap = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertap.html#dtor.KTwoFingerTap)
+    /// [Qt documentation](https://api.kde.org/ktwofingertap.html#dtor.KTwoFingerTap)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -975,7 +975,7 @@ pub const ktwofingertap = struct {
     }
 };
 
-/// https://api-staging.kde.org/ktwofingertaprecognizer.html
+/// https://api.kde.org/ktwofingertaprecognizer.html
 pub const ktwofingertaprecognizer = struct {
     /// New constructs a new KTwoFingerTapRecognizer object.
     ///
@@ -984,14 +984,14 @@ pub const ktwofingertaprecognizer = struct {
         return qtc.KTwoFingerTapRecognizer_new();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertaprecognizer.html#create)
+    /// [Qt documentation](https://api.kde.org/ktwofingertaprecognizer.html#create)
     ///
     /// ``` self: QtC.KTwoFingerTapRecognizer, target: QtC.QObject ```
     pub fn Create(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
         return qtc.KTwoFingerTapRecognizer_Create(@ptrCast(self), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertaprecognizer.html#create)
+    /// [Qt documentation](https://api.kde.org/ktwofingertaprecognizer.html#create)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1000,7 +1000,7 @@ pub const ktwofingertaprecognizer = struct {
         qtc.KTwoFingerTapRecognizer_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertaprecognizer.html#create)
+    /// [Qt documentation](https://api.kde.org/ktwofingertaprecognizer.html#create)
     ///
     /// Base class method implementation
     ///
@@ -1009,7 +1009,7 @@ pub const ktwofingertaprecognizer = struct {
         return qtc.KTwoFingerTapRecognizer_QBaseCreate(@ptrCast(self), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertaprecognizer.html#recognize)
+    /// [Qt documentation](https://api.kde.org/ktwofingertaprecognizer.html#recognize)
     ///
     /// ``` self: QtC.KTwoFingerTapRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
@@ -1018,7 +1018,7 @@ pub const ktwofingertaprecognizer = struct {
         return qtc.KTwoFingerTapRecognizer_Recognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertaprecognizer.html#recognize)
+    /// [Qt documentation](https://api.kde.org/ktwofingertaprecognizer.html#recognize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1027,7 +1027,7 @@ pub const ktwofingertaprecognizer = struct {
         qtc.KTwoFingerTapRecognizer_OnRecognize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertaprecognizer.html#recognize)
+    /// [Qt documentation](https://api.kde.org/ktwofingertaprecognizer.html#recognize)
     ///
     /// Base class method implementation
     ///
@@ -1038,14 +1038,14 @@ pub const ktwofingertaprecognizer = struct {
         return qtc.KTwoFingerTapRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertaprecognizer.html#tapRadius)
+    /// [Qt documentation](https://api.kde.org/ktwofingertaprecognizer.html#tapRadius)
     ///
     /// ``` self: QtC.KTwoFingerTapRecognizer ```
     pub fn TapRadius(self: ?*anyopaque) i32 {
         return qtc.KTwoFingerTapRecognizer_TapRadius(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertaprecognizer.html#setTapRadius)
+    /// [Qt documentation](https://api.kde.org/ktwofingertaprecognizer.html#setTapRadius)
     ///
     /// ``` self: QtC.KTwoFingerTapRecognizer, i: i32 ```
     pub fn SetTapRadius(self: ?*anyopaque, i: i32) void {
@@ -1114,7 +1114,7 @@ pub const ktwofingertaprecognizer = struct {
         qtc.KTwoFingerTapRecognizer_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingertaprecognizer.html#dtor.KTwoFingerTapRecognizer)
+    /// [Qt documentation](https://api.kde.org/ktwofingertaprecognizer.html#dtor.KTwoFingerTapRecognizer)
     ///
     /// Delete this object from C++ memory.
     ///

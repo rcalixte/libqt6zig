@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kreplacedialog.html
+/// https://api.kde.org/kreplacedialog.html
 pub const kreplacedialog = struct {
     /// New constructs a new KReplaceDialog object.
     ///
@@ -159,7 +159,7 @@ pub const kreplacedialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#setReplacementHistory)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#setReplacementHistory)
     ///
     /// ``` self: QtC.KReplaceDialog, history: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetReplacementHistory(self: ?*anyopaque, history: [][]const u8, allocator: std.mem.Allocator) void {
@@ -178,7 +178,7 @@ pub const kreplacedialog = struct {
         qtc.KReplaceDialog_SetReplacementHistory(@ptrCast(self), history_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#replacementHistory)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#replacementHistory)
     ///
     /// ``` self: QtC.KReplaceDialog, allocator: std.mem.Allocator ```
     pub fn ReplacementHistory(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -200,21 +200,21 @@ pub const kreplacedialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#setOptions)
     ///
     /// ``` self: QtC.KReplaceDialog, options: i64 ```
     pub fn SetOptions(self: ?*anyopaque, options: i64) void {
         qtc.KReplaceDialog_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#options)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#options)
     ///
     /// ``` self: QtC.KReplaceDialog ```
     pub fn Options(self: ?*anyopaque) i64 {
         return qtc.KReplaceDialog_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#replacement)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#replacement)
     ///
     /// ``` self: QtC.KReplaceDialog, allocator: std.mem.Allocator ```
     pub fn Replacement(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -225,21 +225,21 @@ pub const kreplacedialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#replaceExtension)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#replaceExtension)
     ///
     /// ``` self: QtC.KReplaceDialog ```
     pub fn ReplaceExtension(self: ?*anyopaque) QtC.QWidget {
         return qtc.KReplaceDialog_ReplaceExtension(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#showEvent)
     ///
     /// ``` self: QtC.KReplaceDialog, param1: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KReplaceDialog_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -248,7 +248,7 @@ pub const kreplacedialog = struct {
         qtc.KReplaceDialog_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -285,7 +285,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setFindHistory)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setFindHistory)
     ///
     /// ``` self: QtC.KReplaceDialog, history: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFindHistory(self: ?*anyopaque, history: [][]const u8, allocator: std.mem.Allocator) void {
@@ -306,7 +306,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#findHistory)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#findHistory)
     ///
     /// ``` self: QtC.KReplaceDialog, allocator: std.mem.Allocator ```
     pub fn FindHistory(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -330,7 +330,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setHasSelection)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setHasSelection)
     ///
     /// ``` self: QtC.KReplaceDialog, hasSelection: bool ```
     pub fn SetHasSelection(self: ?*anyopaque, hasSelection: bool) void {
@@ -339,7 +339,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setHasCursor)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setHasCursor)
     ///
     /// ``` self: QtC.KReplaceDialog, hasCursor: bool ```
     pub fn SetHasCursor(self: ?*anyopaque, hasCursor: bool) void {
@@ -348,7 +348,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setSupportsBackwardsFind)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setSupportsBackwardsFind)
     ///
     /// ``` self: QtC.KReplaceDialog, supports: bool ```
     pub fn SetSupportsBackwardsFind(self: ?*anyopaque, supports: bool) void {
@@ -357,7 +357,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setSupportsCaseSensitiveFind)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setSupportsCaseSensitiveFind)
     ///
     /// ``` self: QtC.KReplaceDialog, supports: bool ```
     pub fn SetSupportsCaseSensitiveFind(self: ?*anyopaque, supports: bool) void {
@@ -366,7 +366,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setSupportsWholeWordsFind)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setSupportsWholeWordsFind)
     ///
     /// ``` self: QtC.KReplaceDialog, supports: bool ```
     pub fn SetSupportsWholeWordsFind(self: ?*anyopaque, supports: bool) void {
@@ -375,7 +375,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setSupportsRegularExpressionFind)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setSupportsRegularExpressionFind)
     ///
     /// ``` self: QtC.KReplaceDialog, supports: bool ```
     pub fn SetSupportsRegularExpressionFind(self: ?*anyopaque, supports: bool) void {
@@ -384,7 +384,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#pattern)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#pattern)
     ///
     /// ``` self: QtC.KReplaceDialog, allocator: std.mem.Allocator ```
     pub fn Pattern(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -397,7 +397,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#setPattern)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#setPattern)
     ///
     /// ``` self: QtC.KReplaceDialog, pattern: []const u8 ```
     pub fn SetPattern(self: ?*anyopaque, pattern: []const u8) void {
@@ -410,7 +410,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#findExtension)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#findExtension)
     ///
     /// ``` self: QtC.KReplaceDialog ```
     pub fn FindExtension(self: ?*anyopaque) QtC.QWidget {
@@ -419,7 +419,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#optionsChanged)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#optionsChanged)
     ///
     /// ``` self: QtC.KReplaceDialog ```
     pub fn OptionsChanged(self: ?*anyopaque) void {
@@ -428,7 +428,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#optionsChanged)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#optionsChanged)
     ///
     /// ``` self: QtC.KReplaceDialog, slot: fn (self: QtC.KReplaceDialog) callconv(.c) void ```
     pub fn OnOptionsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -437,7 +437,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#okClicked)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#okClicked)
     ///
     /// ``` self: QtC.KReplaceDialog ```
     pub fn OkClicked(self: ?*anyopaque) void {
@@ -446,7 +446,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#okClicked)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#okClicked)
     ///
     /// ``` self: QtC.KReplaceDialog, slot: fn (self: QtC.KReplaceDialog) callconv(.c) void ```
     pub fn OnOkClicked(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -455,7 +455,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#cancelClicked)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#cancelClicked)
     ///
     /// ``` self: QtC.KReplaceDialog ```
     pub fn CancelClicked(self: ?*anyopaque) void {
@@ -464,7 +464,7 @@ pub const kreplacedialog = struct {
 
     /// Inherited from KFindDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kfinddialog.html#cancelClicked)
+    /// [Qt documentation](https://api.kde.org/kfinddialog.html#cancelClicked)
     ///
     /// ``` self: QtC.KReplaceDialog, slot: fn (self: QtC.KReplaceDialog) callconv(.c) void ```
     pub fn OnCancelClicked(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -5715,7 +5715,7 @@ pub const kreplacedialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kreplacedialog.html#dtor.KReplaceDialog)
+    /// [Qt documentation](https://api.kde.org/kreplacedialog.html#dtor.KReplaceDialog)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5725,7 +5725,7 @@ pub const kreplacedialog = struct {
     }
 };
 
-/// https://api-staging.kde.org/kreplacedialog.html#types
+/// https://api.kde.org/kreplacedialog.html#types
 pub const enums = struct {
     pub const Options = enum {
         pub const PromptOnReplace: i32 = 256;

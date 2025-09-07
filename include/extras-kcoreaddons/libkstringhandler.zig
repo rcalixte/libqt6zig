@@ -2,9 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/kstringhandler.html
+/// https://api.kde.org/kstringhandler.html
 pub const kstringhandler = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#capwords)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#capwords)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn Capwords(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -19,7 +19,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#capwords)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#capwords)
     ///
     /// ``` param1: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Capwords2(param1: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -53,7 +53,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#lsqueeze)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#lsqueeze)
     ///
     /// ``` param1: []const u8, param2: i32, allocator: std.mem.Allocator ```
     pub fn Lsqueeze(param1: []const u8, param2: i32, allocator: std.mem.Allocator) []const u8 {
@@ -68,7 +68,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#csqueeze)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#csqueeze)
     ///
     /// ``` param1: []const u8, param2: i32, allocator: std.mem.Allocator ```
     pub fn Csqueeze(param1: []const u8, param2: i32, allocator: std.mem.Allocator) []const u8 {
@@ -83,7 +83,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#rsqueeze)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#rsqueeze)
     ///
     /// ``` param1: []const u8, param2: i32, allocator: std.mem.Allocator ```
     pub fn Rsqueeze(param1: []const u8, param2: i32, allocator: std.mem.Allocator) []const u8 {
@@ -98,7 +98,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#perlSplit)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#perlSplit)
     ///
     /// ``` param1: []const u8, param2: []const u8, param3: i32, allocator: std.mem.Allocator ```
     pub fn PerlSplit2(param1: []const u8, param2: []const u8, param3: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -128,7 +128,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#perlSplit)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#perlSplit)
     ///
     /// ``` param1: QtC.QChar, param2: []const u8, param3: i32, allocator: std.mem.Allocator ```
     pub fn PerlSplit3(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -154,7 +154,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#perlSplit)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#perlSplit)
     ///
     /// ``` param1: QtC.QRegularExpression, param2: []const u8, param3: i32, allocator: std.mem.Allocator ```
     pub fn PerlSplit4(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -180,7 +180,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#tagUrls)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#tagUrls)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn TagUrls(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -195,7 +195,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#obscure)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#obscure)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn Obscure(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -210,7 +210,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#preProcessWrap)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#preProcessWrap)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn PreProcessWrap(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -225,7 +225,7 @@ pub const kstringhandler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kstringhandler.html#logicalLength)
+    /// [Qt documentation](https://api.kde.org/kstringhandler.html#logicalLength)
     ///
     /// ``` param1: []const u8 ```
     pub fn LogicalLength(param1: []const u8) i32 {

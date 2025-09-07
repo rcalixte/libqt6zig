@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpagedialog.html
+/// https://api.kde.org/kpagedialog.html
 pub const kpagedialog = struct {
     /// New constructs a new KPageDialog object.
     ///
@@ -77,14 +77,14 @@ pub const kpagedialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setFaceType)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setFaceType)
     ///
     /// ``` self: QtC.KPageDialog, faceType: kpagedialog_enums.FaceType ```
     pub fn SetFaceType(self: ?*anyopaque, faceType: i32) void {
         qtc.KPageDialog_SetFaceType(@ptrCast(self), @intCast(faceType));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addPage)
     ///
     /// ``` self: QtC.KPageDialog, widget: QtC.QWidget, name: []const u8 ```
     pub fn AddPage(self: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -95,14 +95,14 @@ pub const kpagedialog = struct {
         return qtc.KPageDialog_AddPage(@ptrCast(self), @ptrCast(widget), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addPage)
     ///
     /// ``` self: QtC.KPageDialog, item: QtC.KPageWidgetItem ```
     pub fn AddPage2(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KPageDialog_AddPage2(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#insertPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#insertPage)
     ///
     /// ``` self: QtC.KPageDialog, before: QtC.KPageWidgetItem, widget: QtC.QWidget, name: []const u8 ```
     pub fn InsertPage(self: ?*anyopaque, before: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -113,14 +113,14 @@ pub const kpagedialog = struct {
         return qtc.KPageDialog_InsertPage(@ptrCast(self), @ptrCast(before), @ptrCast(widget), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#insertPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#insertPage)
     ///
     /// ``` self: QtC.KPageDialog, before: QtC.KPageWidgetItem, item: QtC.KPageWidgetItem ```
     pub fn InsertPage2(self: ?*anyopaque, before: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KPageDialog_InsertPage2(@ptrCast(self), @ptrCast(before), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addSubPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addSubPage)
     ///
     /// ``` self: QtC.KPageDialog, parent: QtC.KPageWidgetItem, widget: QtC.QWidget, name: []const u8 ```
     pub fn AddSubPage(self: ?*anyopaque, parent: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -131,91 +131,91 @@ pub const kpagedialog = struct {
         return qtc.KPageDialog_AddSubPage(@ptrCast(self), @ptrCast(parent), @ptrCast(widget), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addSubPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addSubPage)
     ///
     /// ``` self: QtC.KPageDialog, parent: QtC.KPageWidgetItem, item: QtC.KPageWidgetItem ```
     pub fn AddSubPage2(self: ?*anyopaque, parent: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KPageDialog_AddSubPage2(@ptrCast(self), @ptrCast(parent), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#removePage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#removePage)
     ///
     /// ``` self: QtC.KPageDialog, item: QtC.KPageWidgetItem ```
     pub fn RemovePage(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KPageDialog_RemovePage(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setCurrentPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setCurrentPage)
     ///
     /// ``` self: QtC.KPageDialog, item: QtC.KPageWidgetItem ```
     pub fn SetCurrentPage(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KPageDialog_SetCurrentPage(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#currentPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#currentPage)
     ///
     /// ``` self: QtC.KPageDialog ```
     pub fn CurrentPage(self: ?*anyopaque) QtC.KPageWidgetItem {
         return qtc.KPageDialog_CurrentPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setStandardButtons)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setStandardButtons)
     ///
     /// ``` self: QtC.KPageDialog, buttons: flag of qdialogbuttonbox_enums.StandardButton ```
     pub fn SetStandardButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.KPageDialog_SetStandardButtons(@ptrCast(self), @intCast(buttons));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#button)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#button)
     ///
     /// ``` self: QtC.KPageDialog, which: qdialogbuttonbox_enums.StandardButton ```
     pub fn Button(self: ?*anyopaque, which: i32) QtC.QPushButton {
         return qtc.KPageDialog_Button(@ptrCast(self), @intCast(which));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addActionButton)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addActionButton)
     ///
     /// ``` self: QtC.KPageDialog, button: QtC.QAbstractButton ```
     pub fn AddActionButton(self: ?*anyopaque, button: ?*anyopaque) void {
         qtc.KPageDialog_AddActionButton(@ptrCast(self), @ptrCast(button));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#currentPageChanged)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#currentPageChanged)
     ///
     /// ``` self: QtC.KPageDialog, current: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem ```
     pub fn CurrentPageChanged(self: ?*anyopaque, current: ?*anyopaque, before: ?*anyopaque) void {
         qtc.KPageDialog_CurrentPageChanged(@ptrCast(self), @ptrCast(current), @ptrCast(before));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#currentPageChanged)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#currentPageChanged)
     ///
     /// ``` self: QtC.KPageDialog, slot: fn (self: QtC.KPageDialog, current: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem) callconv(.c) void ```
     pub fn OnCurrentPageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KPageDialog_Connect_CurrentPageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageRemoved)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageRemoved)
     ///
     /// ``` self: QtC.KPageDialog, page: QtC.KPageWidgetItem ```
     pub fn PageRemoved(self: ?*anyopaque, page: ?*anyopaque) void {
         qtc.KPageDialog_PageRemoved(@ptrCast(self), @ptrCast(page));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageRemoved)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageRemoved)
     ///
     /// ``` self: QtC.KPageDialog, slot: fn (self: QtC.KPageDialog, page: QtC.KPageWidgetItem) callconv(.c) void ```
     pub fn OnPageRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KPageDialog_Connect_PageRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// ``` self: QtC.KPageDialog ```
     pub fn PageWidget(self: ?*anyopaque) QtC.KPageWidget {
         return qtc.KPageDialog_PageWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -224,7 +224,7 @@ pub const kpagedialog = struct {
         qtc.KPageDialog_OnPageWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Base class method implementation
     ///
@@ -233,14 +233,14 @@ pub const kpagedialog = struct {
         return qtc.KPageDialog_QBasePageWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// ``` self: QtC.KPageDialog ```
     pub fn PageWidget2(self: ?*anyopaque) QtC.KPageWidget {
         return qtc.KPageDialog_PageWidget2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -249,7 +249,7 @@ pub const kpagedialog = struct {
         qtc.KPageDialog_OnPageWidget2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Base class method implementation
     ///
@@ -258,14 +258,14 @@ pub const kpagedialog = struct {
         return qtc.KPageDialog_QBasePageWidget2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setPageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setPageWidget)
     ///
     /// ``` self: QtC.KPageDialog, widget: QtC.KPageWidget ```
     pub fn SetPageWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KPageDialog_SetPageWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setPageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setPageWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -274,7 +274,7 @@ pub const kpagedialog = struct {
         qtc.KPageDialog_OnSetPageWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setPageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setPageWidget)
     ///
     /// Base class method implementation
     ///
@@ -283,14 +283,14 @@ pub const kpagedialog = struct {
         qtc.KPageDialog_QBaseSetPageWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// ``` self: QtC.KPageDialog ```
     pub fn ButtonBox(self: ?*anyopaque) QtC.QDialogButtonBox {
         return qtc.KPageDialog_ButtonBox(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Allows for overriding the related default method
     ///
@@ -299,7 +299,7 @@ pub const kpagedialog = struct {
         qtc.KPageDialog_OnButtonBox(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Base class method implementation
     ///
@@ -308,14 +308,14 @@ pub const kpagedialog = struct {
         return qtc.KPageDialog_QBaseButtonBox(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// ``` self: QtC.KPageDialog ```
     pub fn ButtonBox2(self: ?*anyopaque) QtC.QDialogButtonBox {
         return qtc.KPageDialog_ButtonBox2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Allows for overriding the related default method
     ///
@@ -324,7 +324,7 @@ pub const kpagedialog = struct {
         qtc.KPageDialog_OnButtonBox2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Base class method implementation
     ///
@@ -333,14 +333,14 @@ pub const kpagedialog = struct {
         return qtc.KPageDialog_QBaseButtonBox2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setButtonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setButtonBox)
     ///
     /// ``` self: QtC.KPageDialog, box: QtC.QDialogButtonBox ```
     pub fn SetButtonBox(self: ?*anyopaque, box: ?*anyopaque) void {
         qtc.KPageDialog_SetButtonBox(@ptrCast(self), @ptrCast(box));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setButtonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setButtonBox)
     ///
     /// Allows for overriding the related default method
     ///
@@ -349,7 +349,7 @@ pub const kpagedialog = struct {
         qtc.KPageDialog_OnSetButtonBox(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setButtonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setButtonBox)
     ///
     /// Base class method implementation
     ///
@@ -5661,7 +5661,7 @@ pub const kpagedialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#dtor.KPageDialog)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#dtor.KPageDialog)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5671,7 +5671,7 @@ pub const kpagedialog = struct {
     }
 };
 
-/// https://api-staging.kde.org/kpagedialog.html#types
+/// https://api.kde.org/kpagedialog.html#types
 pub const enums = struct {
     pub const FaceType = enum {
         pub const Auto: i32 = 0;

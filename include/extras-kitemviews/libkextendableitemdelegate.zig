@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kextendableitemdelegate.html
+/// https://api.kde.org/kextendableitemdelegate.html
 pub const kextendableitemdelegate = struct {
     /// New constructs a new KExtendableItemDelegate object.
     ///
@@ -58,14 +58,14 @@ pub const kextendableitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#sizeHint)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn SizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
         return qtc.KExtendableItemDelegate_SizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -74,7 +74,7 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -83,14 +83,14 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_QBaseSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#paint)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#paint)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#paint)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#paint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -99,7 +99,7 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#paint)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#paint)
     ///
     /// Base class method implementation
     ///
@@ -108,42 +108,42 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extendItem)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extendItem)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, extender: QtC.QWidget, index: QtC.QModelIndex ```
     pub fn ExtendItem(self: ?*anyopaque, extender: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_ExtendItem(@ptrCast(self), @ptrCast(extender), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#contractItem)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#contractItem)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, index: QtC.QModelIndex ```
     pub fn ContractItem(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_ContractItem(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#contractAll)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#contractAll)
     ///
     /// ``` self: QtC.KExtendableItemDelegate ```
     pub fn ContractAll(self: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_ContractAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#isExtended)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#isExtended)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, index: QtC.QModelIndex ```
     pub fn IsExtended(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KExtendableItemDelegate_IsExtended(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#updateExtenderGeometry)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#updateExtenderGeometry)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, extender: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn UpdateExtenderGeometry(self: ?*anyopaque, extender: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_UpdateExtenderGeometry(@ptrCast(self), @ptrCast(extender), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#updateExtenderGeometry)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#updateExtenderGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -152,7 +152,7 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnUpdateExtenderGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#updateExtenderGeometry)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#updateExtenderGeometry)
     ///
     /// Base class method implementation
     ///
@@ -161,42 +161,42 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_QBaseUpdateExtenderGeometry(@ptrCast(self), @ptrCast(extender), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extenderCreated)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extenderCreated)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, extender: QtC.QWidget, index: QtC.QModelIndex ```
     pub fn ExtenderCreated(self: ?*anyopaque, extender: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_ExtenderCreated(@ptrCast(self), @ptrCast(extender), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extenderCreated)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extenderCreated)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, slot: fn (self: QtC.KExtendableItemDelegate, extender: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnExtenderCreated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KExtendableItemDelegate_Connect_ExtenderCreated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extenderDestroyed)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extenderDestroyed)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, extender: QtC.QWidget, index: QtC.QModelIndex ```
     pub fn ExtenderDestroyed(self: ?*anyopaque, extender: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_ExtenderDestroyed(@ptrCast(self), @ptrCast(extender), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extenderDestroyed)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extenderDestroyed)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, slot: fn (self: QtC.KExtendableItemDelegate, extender: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnExtenderDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KExtendableItemDelegate_Connect_ExtenderDestroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extenderRect)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extenderRect)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, extender: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn ExtenderRect(self: ?*anyopaque, extender: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
         return qtc.KExtendableItemDelegate_ExtenderRect(@ptrCast(self), @ptrCast(extender), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extenderRect)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extenderRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -205,7 +205,7 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnExtenderRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extenderRect)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extenderRect)
     ///
     /// Base class method implementation
     ///
@@ -214,14 +214,14 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_QBaseExtenderRect(@ptrCast(self), @ptrCast(extender), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#setExtendPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#setExtendPixmap)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, pixmap: QtC.QPixmap ```
     pub fn SetExtendPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_SetExtendPixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#setExtendPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#setExtendPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -230,7 +230,7 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnSetExtendPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#setExtendPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#setExtendPixmap)
     ///
     /// Base class method implementation
     ///
@@ -239,14 +239,14 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_QBaseSetExtendPixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#setContractPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#setContractPixmap)
     ///
     /// ``` self: QtC.KExtendableItemDelegate, pixmap: QtC.QPixmap ```
     pub fn SetContractPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_SetContractPixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#setContractPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#setContractPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -255,7 +255,7 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnSetContractPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#setContractPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#setContractPixmap)
     ///
     /// Base class method implementation
     ///
@@ -264,14 +264,14 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_QBaseSetContractPixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extendPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extendPixmap)
     ///
     /// ``` self: QtC.KExtendableItemDelegate ```
     pub fn ExtendPixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.KExtendableItemDelegate_ExtendPixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extendPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extendPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -280,7 +280,7 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnExtendPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#extendPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#extendPixmap)
     ///
     /// Base class method implementation
     ///
@@ -289,14 +289,14 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_QBaseExtendPixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#contractPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#contractPixmap)
     ///
     /// ``` self: QtC.KExtendableItemDelegate ```
     pub fn ContractPixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.KExtendableItemDelegate_ContractPixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#contractPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#contractPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -305,7 +305,7 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnContractPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#contractPixmap)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#contractPixmap)
     ///
     /// Base class method implementation
     ///
@@ -1531,7 +1531,7 @@ pub const kextendableitemdelegate = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kextendableitemdelegate.html#dtor.KExtendableItemDelegate)
+    /// [Qt documentation](https://api.kde.org/kextendableitemdelegate.html#dtor.KExtendableItemDelegate)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1541,7 +1541,7 @@ pub const kextendableitemdelegate = struct {
     }
 };
 
-/// https://api-staging.kde.org/kextendableitemdelegate.html#types
+/// https://api.kde.org/kextendableitemdelegate.html#types
 pub const enums = struct {
     pub const auxDataRoles = enum {
         pub const ShowExtensionIndicatorRole: i32 = 456;

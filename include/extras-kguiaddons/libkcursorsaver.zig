@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 
-/// https://api-staging.kde.org/kcursorsaver.html
+/// https://api.kde.org/kcursorsaver.html
 pub const kcursorsaver = struct {
     /// New constructs a new KCursorSaver object.
     ///
@@ -11,14 +11,14 @@ pub const kcursorsaver = struct {
         return qtc.KCursorSaver_new(@intCast(shape));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcursorsaver.html#restoreCursor)
+    /// [Qt documentation](https://api.kde.org/kcursorsaver.html#restoreCursor)
     ///
     /// ``` self: QtC.KCursorSaver ```
     pub fn RestoreCursor(self: ?*anyopaque) void {
         qtc.KCursorSaver_RestoreCursor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcursorsaver.html#dtor.KCursorSaver)
+    /// [Qt documentation](https://api.kde.org/kcursorsaver.html#dtor.KCursorSaver)
     ///
     /// Delete this object from C++ memory.
     ///

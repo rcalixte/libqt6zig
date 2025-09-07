@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/kplotpoint.html
+/// https://api.kde.org/kplotpoint.html
 pub const kplotpoint = struct {
     /// New constructs a new KPlotPoint object.
     ///
@@ -73,49 +73,49 @@ pub const kplotpoint = struct {
         return qtc.KPlotPoint_new7(@ptrCast(p), label_str, @floatCast(width));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#position)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#position)
     ///
     /// ``` self: QtC.KPlotPoint ```
     pub fn Position(self: ?*anyopaque) QtC.QPointF {
         return qtc.KPlotPoint_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#setPosition)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#setPosition)
     ///
     /// ``` self: QtC.KPlotPoint, pos: QtC.QPointF ```
     pub fn SetPosition(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.KPlotPoint_SetPosition(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#x)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#x)
     ///
     /// ``` self: QtC.KPlotPoint ```
     pub fn X(self: ?*anyopaque) f64 {
         return qtc.KPlotPoint_X(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#setX)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#setX)
     ///
     /// ``` self: QtC.KPlotPoint, x: f64 ```
     pub fn SetX(self: ?*anyopaque, x: f64) void {
         qtc.KPlotPoint_SetX(@ptrCast(self), @floatCast(x));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#y)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#y)
     ///
     /// ``` self: QtC.KPlotPoint ```
     pub fn Y(self: ?*anyopaque) f64 {
         return qtc.KPlotPoint_Y(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#setY)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#setY)
     ///
     /// ``` self: QtC.KPlotPoint, y: f64 ```
     pub fn SetY(self: ?*anyopaque, y: f64) void {
         qtc.KPlotPoint_SetY(@ptrCast(self), @floatCast(y));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#label)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#label)
     ///
     /// ``` self: QtC.KPlotPoint, allocator: std.mem.Allocator ```
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -126,7 +126,7 @@ pub const kplotpoint = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#setLabel)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#setLabel)
     ///
     /// ``` self: QtC.KPlotPoint, label: []const u8 ```
     pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
@@ -137,21 +137,21 @@ pub const kplotpoint = struct {
         qtc.KPlotPoint_SetLabel(@ptrCast(self), label_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#barWidth)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#barWidth)
     ///
     /// ``` self: QtC.KPlotPoint ```
     pub fn BarWidth(self: ?*anyopaque) f64 {
         return qtc.KPlotPoint_BarWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#setBarWidth)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#setBarWidth)
     ///
     /// ``` self: QtC.KPlotPoint, w: f64 ```
     pub fn SetBarWidth(self: ?*anyopaque, w: f64) void {
         qtc.KPlotPoint_SetBarWidth(@ptrCast(self), @floatCast(w));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kplotpoint.html#dtor.KPlotPoint)
+    /// [Qt documentation](https://api.kde.org/kplotpoint.html#dtor.KPlotPoint)
     ///
     /// Delete this object from C++ memory.
     ///

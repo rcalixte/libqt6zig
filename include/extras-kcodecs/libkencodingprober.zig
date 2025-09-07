@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const kencodingprober_enums = enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kencodingprober.html
+/// https://api.kde.org/kencodingprober.html
 pub const kencodingprober = struct {
     /// New constructs a new KEncodingProber object.
     ///
@@ -31,14 +31,14 @@ pub const kencodingprober = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#reset)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#reset)
     ///
     /// ``` self: QtC.KEncodingProber ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.KEncodingProber_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#feed)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#feed)
     ///
     /// ``` self: QtC.KEncodingProber, data: []const u8 ```
     ///
@@ -47,7 +47,7 @@ pub const kencodingprober = struct {
         return qtc.KEncodingProber_Feed(@ptrCast(self), data.ptr);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#feed)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#feed)
     ///
     /// ``` self: QtC.KEncodingProber, data: []const u8, lenVal: i64 ```
     ///
@@ -57,7 +57,7 @@ pub const kencodingprober = struct {
         return qtc.KEncodingProber_Feed2(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#state)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#state)
     ///
     /// ``` self: QtC.KEncodingProber ```
     ///
@@ -66,7 +66,7 @@ pub const kencodingprober = struct {
         return qtc.KEncodingProber_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#encoding)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#encoding)
     ///
     /// ``` self: QtC.KEncodingProber, allocator: std.mem.Allocator ```
     pub fn Encoding(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -77,14 +77,14 @@ pub const kencodingprober = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#confidence)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#confidence)
     ///
     /// ``` self: QtC.KEncodingProber ```
     pub fn Confidence(self: ?*anyopaque) f32 {
         return qtc.KEncodingProber_Confidence(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#proberType)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#proberType)
     ///
     /// ``` self: QtC.KEncodingProber ```
     ///
@@ -93,14 +93,14 @@ pub const kencodingprober = struct {
         return qtc.KEncodingProber_ProberType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#setProberType)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#setProberType)
     ///
     /// ``` self: QtC.KEncodingProber, proberType: kencodingprober_enums.ProberType ```
     pub fn SetProberType(self: ?*anyopaque, proberType: i32) void {
         qtc.KEncodingProber_SetProberType(@ptrCast(self), @intCast(proberType));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#proberTypeForName)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#proberTypeForName)
     ///
     /// ``` lang: []const u8 ```
     ///
@@ -113,7 +113,7 @@ pub const kencodingprober = struct {
         return qtc.KEncodingProber_ProberTypeForName(lang_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#nameForProberType)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#nameForProberType)
     ///
     /// ``` proberType: kencodingprober_enums.ProberType, allocator: std.mem.Allocator ```
     pub fn NameForProberType(proberType: i32, allocator: std.mem.Allocator) []const u8 {
@@ -150,7 +150,7 @@ pub const kencodingprober = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kencodingprober.html#dtor.KEncodingProber)
+    /// [Qt documentation](https://api.kde.org/kencodingprober.html#dtor.KEncodingProber)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -160,7 +160,7 @@ pub const kencodingprober = struct {
     }
 };
 
-/// https://api-staging.kde.org/kencodingprober.html#types
+/// https://api.kde.org/kencodingprober.html#types
 pub const enums = struct {
     pub const ProberState = enum {
         pub const FoundIt: i32 = 0;

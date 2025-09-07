@@ -11,7 +11,7 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 pub const map_qtcqdate_constu8 = std.AutoHashMapUnmanaged(QtC.QDate, []const u8);
 
-/// https://api-staging.kde.org/kdatetimeedit.html
+/// https://api.kde.org/kdatetimeedit.html
 pub const kdatetimeedit = struct {
     /// New constructs a new KDateTimeEdit object.
     ///
@@ -71,7 +71,7 @@ pub const kdatetimeedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#options)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#options)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     ///
@@ -80,35 +80,35 @@ pub const kdatetimeedit = struct {
         return qtc.KDateTimeEdit_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn DateTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.KDateTimeEdit_DateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#date)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#date)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn Date(self: ?*anyopaque) QtC.QDate {
         return qtc.KDateTimeEdit_Date(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#time)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#time)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn Time(self: ?*anyopaque) QtC.QTime {
         return qtc.KDateTimeEdit_Time(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeZone)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeZone)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn TimeZone(self: ?*anyopaque) QtC.QTimeZone {
         return qtc.KDateTimeEdit_TimeZone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#calendarLocalesList)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#calendarLocalesList)
     ///
     /// ``` self: QtC.KDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn CalendarLocalesList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QLocale {
@@ -120,21 +120,21 @@ pub const kdatetimeedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#minimumDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#minimumDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn MinimumDateTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.KDateTimeEdit_MinimumDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#maximumDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#maximumDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn MaximumDateTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.KDateTimeEdit_MaximumDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateDisplayFormat)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateDisplayFormat)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     ///
@@ -143,7 +143,7 @@ pub const kdatetimeedit = struct {
         return qtc.KDateTimeEdit_DateDisplayFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateMap)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateMap)
     ///
     /// ``` self: QtC.KDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn DateMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_qtcqdate_constu8 {
@@ -164,7 +164,7 @@ pub const kdatetimeedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeDisplayFormat)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeDisplayFormat)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     ///
@@ -173,14 +173,14 @@ pub const kdatetimeedit = struct {
         return qtc.KDateTimeEdit_TimeDisplayFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeListInterval)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeListInterval)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn TimeListInterval(self: ?*anyopaque) i32 {
         return qtc.KDateTimeEdit_TimeListInterval(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeList)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeList)
     ///
     /// ``` self: QtC.KDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn TimeList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTime {
@@ -192,7 +192,7 @@ pub const kdatetimeedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeZones)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeZones)
     ///
     /// ``` self: QtC.KDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn TimeZones(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTimeZone {
@@ -204,315 +204,315 @@ pub const kdatetimeedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#isValid)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#isValid)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KDateTimeEdit_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#isNull)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#isNull)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.KDateTimeEdit_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#isValidDate)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#isValidDate)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn IsValidDate(self: ?*anyopaque) bool {
         return qtc.KDateTimeEdit_IsValidDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#isNullDate)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#isNullDate)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn IsNullDate(self: ?*anyopaque) bool {
         return qtc.KDateTimeEdit_IsNullDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#isValidTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#isValidTime)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn IsValidTime(self: ?*anyopaque) bool {
         return qtc.KDateTimeEdit_IsValidTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#isNullTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#isNullTime)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn IsNullTime(self: ?*anyopaque) bool {
         return qtc.KDateTimeEdit_IsNullTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateTimeEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateTimeEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, dateTime: QtC.QDateTime ```
     pub fn DateTimeEntered(self: ?*anyopaque, dateTime: ?*anyopaque) void {
         qtc.KDateTimeEdit_DateTimeEntered(@ptrCast(self), @ptrCast(dateTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateTimeEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateTimeEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
     pub fn OnDateTimeEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_DateTimeEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateTimeChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateTimeChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, dateTime: QtC.QDateTime ```
     pub fn DateTimeChanged(self: ?*anyopaque, dateTime: ?*anyopaque) void {
         qtc.KDateTimeEdit_DateTimeChanged(@ptrCast(self), @ptrCast(dateTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateTimeChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateTimeChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
     pub fn OnDateTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateTimeEdited)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateTimeEdited)
     ///
     /// ``` self: QtC.KDateTimeEdit, dateTime: QtC.QDateTime ```
     pub fn DateTimeEdited(self: ?*anyopaque, dateTime: ?*anyopaque) void {
         qtc.KDateTimeEdit_DateTimeEdited(@ptrCast(self), @ptrCast(dateTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateTimeEdited)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateTimeEdited)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
     pub fn OnDateTimeEdited(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_DateTimeEdited(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#calendarEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#calendarEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, calendarLocale: QtC.QLocale ```
     pub fn CalendarEntered(self: ?*anyopaque, calendarLocale: ?*anyopaque) void {
         qtc.KDateTimeEdit_CalendarEntered(@ptrCast(self), @ptrCast(calendarLocale));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#calendarEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#calendarEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, calendarLocale: QtC.QLocale) callconv(.c) void ```
     pub fn OnCalendarEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_CalendarEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#calendarChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#calendarChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, calendarLocale: QtC.QLocale ```
     pub fn CalendarChanged(self: ?*anyopaque, calendarLocale: ?*anyopaque) void {
         qtc.KDateTimeEdit_CalendarChanged(@ptrCast(self), @ptrCast(calendarLocale));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#calendarChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#calendarChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, calendarLocale: QtC.QLocale) callconv(.c) void ```
     pub fn OnCalendarChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_CalendarChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, date: QtC.QDate ```
     pub fn DateEntered(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateTimeEdit_DateEntered(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_DateEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, date: QtC.QDate ```
     pub fn DateChanged(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateTimeEdit_DateChanged(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_DateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateEdited)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateEdited)
     ///
     /// ``` self: QtC.KDateTimeEdit, date: QtC.QDate ```
     pub fn DateEdited(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateTimeEdit_DateEdited(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dateEdited)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dateEdited)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateEdited(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_DateEdited(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, time: QtC.QTime ```
     pub fn TimeEntered(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KDateTimeEdit_TimeEntered(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, time: QtC.QTime) callconv(.c) void ```
     pub fn OnTimeEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_TimeEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, time: QtC.QTime ```
     pub fn TimeChanged(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KDateTimeEdit_TimeChanged(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, time: QtC.QTime) callconv(.c) void ```
     pub fn OnTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeEdited)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeEdited)
     ///
     /// ``` self: QtC.KDateTimeEdit, time: QtC.QTime ```
     pub fn TimeEdited(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KDateTimeEdit_TimeEdited(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeEdited)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeEdited)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, time: QtC.QTime) callconv(.c) void ```
     pub fn OnTimeEdited(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_TimeEdited(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeZoneEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeZoneEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, zone: QtC.QTimeZone ```
     pub fn TimeZoneEntered(self: ?*anyopaque, zone: ?*anyopaque) void {
         qtc.KDateTimeEdit_TimeZoneEntered(@ptrCast(self), @ptrCast(zone));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeZoneEntered)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeZoneEntered)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, zone: QtC.QTimeZone) callconv(.c) void ```
     pub fn OnTimeZoneEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_TimeZoneEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeZoneChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeZoneChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, zone: QtC.QTimeZone ```
     pub fn TimeZoneChanged(self: ?*anyopaque, zone: ?*anyopaque) void {
         qtc.KDateTimeEdit_TimeZoneChanged(@ptrCast(self), @ptrCast(zone));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#timeZoneChanged)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#timeZoneChanged)
     ///
     /// ``` self: QtC.KDateTimeEdit, slot: fn (self: QtC.KDateTimeEdit, zone: QtC.QTimeZone) callconv(.c) void ```
     pub fn OnTimeZoneChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KDateTimeEdit_Connect_TimeZoneChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setOptions)
     ///
     /// ``` self: QtC.KDateTimeEdit, options: flag of kdatetimeedit_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.KDateTimeEdit_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit, dateTime: QtC.QDateTime ```
     pub fn SetDateTime(self: ?*anyopaque, dateTime: ?*anyopaque) void {
         qtc.KDateTimeEdit_SetDateTime(@ptrCast(self), @ptrCast(dateTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setDate)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setDate)
     ///
     /// ``` self: QtC.KDateTimeEdit, date: QtC.QDate ```
     pub fn SetDate(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateTimeEdit_SetDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setTime)
     ///
     /// ``` self: QtC.KDateTimeEdit, time: QtC.QTime ```
     pub fn SetTime(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KDateTimeEdit_SetTime(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setTimeZone)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setTimeZone)
     ///
     /// ``` self: QtC.KDateTimeEdit, zone: QtC.QTimeZone ```
     pub fn SetTimeZone(self: ?*anyopaque, zone: ?*anyopaque) void {
         qtc.KDateTimeEdit_SetTimeZone(@ptrCast(self), @ptrCast(zone));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setDateTimeRange)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setDateTimeRange)
     ///
     /// ``` self: QtC.KDateTimeEdit, minDateTime: QtC.QDateTime, maxDateTime: QtC.QDateTime ```
     pub fn SetDateTimeRange(self: ?*anyopaque, minDateTime: ?*anyopaque, maxDateTime: ?*anyopaque) void {
         qtc.KDateTimeEdit_SetDateTimeRange(@ptrCast(self), @ptrCast(minDateTime), @ptrCast(maxDateTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#resetDateTimeRange)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#resetDateTimeRange)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn ResetDateTimeRange(self: ?*anyopaque) void {
         qtc.KDateTimeEdit_ResetDateTimeRange(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setMinimumDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setMinimumDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit, minDateTime: QtC.QDateTime ```
     pub fn SetMinimumDateTime(self: ?*anyopaque, minDateTime: ?*anyopaque) void {
         qtc.KDateTimeEdit_SetMinimumDateTime(@ptrCast(self), @ptrCast(minDateTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#resetMinimumDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#resetMinimumDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn ResetMinimumDateTime(self: ?*anyopaque) void {
         qtc.KDateTimeEdit_ResetMinimumDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setMaximumDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setMaximumDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit, maxDateTime: QtC.QDateTime ```
     pub fn SetMaximumDateTime(self: ?*anyopaque, maxDateTime: ?*anyopaque) void {
         qtc.KDateTimeEdit_SetMaximumDateTime(@ptrCast(self), @ptrCast(maxDateTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#resetMaximumDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#resetMaximumDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit ```
     pub fn ResetMaximumDateTime(self: ?*anyopaque) void {
         qtc.KDateTimeEdit_ResetMaximumDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setDateDisplayFormat)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setDateDisplayFormat)
     ///
     /// ``` self: QtC.KDateTimeEdit, format: qlocale_enums.FormatType ```
     pub fn SetDateDisplayFormat(self: ?*anyopaque, format: i32) void {
         qtc.KDateTimeEdit_SetDateDisplayFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setCalendarLocalesList)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setCalendarLocalesList)
     ///
     /// ``` self: QtC.KDateTimeEdit, calendarLocales: []QtC.QLocale ```
     pub fn SetCalendarLocalesList(self: ?*anyopaque, calendarLocales: []QtC.QLocale) void {
@@ -523,7 +523,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_SetCalendarLocalesList(@ptrCast(self), calendarLocales_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setDateMap)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setDateMap)
     ///
     /// ``` self: QtC.KDateTimeEdit, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator ```
     pub fn SetDateMap(self: ?*anyopaque, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator) void {
@@ -547,21 +547,21 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_SetDateMap(@ptrCast(self), dateMap_map);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setTimeDisplayFormat)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setTimeDisplayFormat)
     ///
     /// ``` self: QtC.KDateTimeEdit, format: qlocale_enums.FormatType ```
     pub fn SetTimeDisplayFormat(self: ?*anyopaque, format: i32) void {
         qtc.KDateTimeEdit_SetTimeDisplayFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setTimeListInterval)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setTimeListInterval)
     ///
     /// ``` self: QtC.KDateTimeEdit, minutes: i32 ```
     pub fn SetTimeListInterval(self: ?*anyopaque, minutes: i32) void {
         qtc.KDateTimeEdit_SetTimeListInterval(@ptrCast(self), @intCast(minutes));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setTimeList)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setTimeList)
     ///
     /// ``` self: QtC.KDateTimeEdit, timeList: []QtC.QTime ```
     pub fn SetTimeList(self: ?*anyopaque, timeList: []QtC.QTime) void {
@@ -572,7 +572,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_SetTimeList(@ptrCast(self), timeList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setTimeZones)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setTimeZones)
     ///
     /// ``` self: QtC.KDateTimeEdit, zones: []QtC.QTimeZone ```
     pub fn SetTimeZones(self: ?*anyopaque, zones: []QtC.QTimeZone) void {
@@ -583,14 +583,14 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_SetTimeZones(@ptrCast(self), zones_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#eventFilter)
     ///
     /// ``` self: QtC.KDateTimeEdit, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KDateTimeEdit_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -599,7 +599,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -608,14 +608,14 @@ pub const kdatetimeedit = struct {
         return qtc.KDateTimeEdit_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#focusInEvent)
     ///
     /// ``` self: QtC.KDateTimeEdit, event: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateTimeEdit_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -624,7 +624,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#focusInEvent)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -633,14 +633,14 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#focusOutEvent)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#focusOutEvent)
     ///
     /// ``` self: QtC.KDateTimeEdit, event: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateTimeEdit_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#focusOutEvent)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#focusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -649,7 +649,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#focusOutEvent)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#focusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -658,14 +658,14 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#resizeEvent)
     ///
     /// ``` self: QtC.KDateTimeEdit, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KDateTimeEdit_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -674,7 +674,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -683,14 +683,14 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit, dateTime: QtC.QDateTime ```
     pub fn AssignDateTime(self: ?*anyopaque, dateTime: ?*anyopaque) void {
         qtc.KDateTimeEdit_AssignDateTime(@ptrCast(self), @ptrCast(dateTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignDateTime)
     ///
     /// Allows for overriding the related default method
     ///
@@ -699,7 +699,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_OnAssignDateTime(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignDateTime)
     ///
     /// Base class method implementation
     ///
@@ -708,14 +708,14 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_QBaseAssignDateTime(@ptrCast(self), @ptrCast(dateTime));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignDate)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignDate)
     ///
     /// ``` self: QtC.KDateTimeEdit, date: QtC.QDate ```
     pub fn AssignDate(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.KDateTimeEdit_AssignDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignDate)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignDate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -724,7 +724,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_OnAssignDate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignDate)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignDate)
     ///
     /// Base class method implementation
     ///
@@ -733,14 +733,14 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_QBaseAssignDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignTime)
     ///
     /// ``` self: QtC.KDateTimeEdit, time: QtC.QTime ```
     pub fn AssignTime(self: ?*anyopaque, time: ?*anyopaque) void {
         qtc.KDateTimeEdit_AssignTime(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignTime)
     ///
     /// Allows for overriding the related default method
     ///
@@ -749,7 +749,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_OnAssignTime(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignTime)
     ///
     /// Base class method implementation
     ///
@@ -758,14 +758,14 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_QBaseAssignTime(@ptrCast(self), @ptrCast(time));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignTimeZone)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignTimeZone)
     ///
     /// ``` self: QtC.KDateTimeEdit, zone: QtC.QTimeZone ```
     pub fn AssignTimeZone(self: ?*anyopaque, zone: ?*anyopaque) void {
         qtc.KDateTimeEdit_AssignTimeZone(@ptrCast(self), @ptrCast(zone));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignTimeZone)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignTimeZone)
     ///
     /// Allows for overriding the related default method
     ///
@@ -774,7 +774,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_OnAssignTimeZone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#assignTimeZone)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#assignTimeZone)
     ///
     /// Base class method implementation
     ///
@@ -809,7 +809,7 @@ pub const kdatetimeedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setDateTimeRange)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setDateTimeRange)
     ///
     /// ``` self: QtC.KDateTimeEdit, minDateTime: QtC.QDateTime, maxDateTime: QtC.QDateTime, minWarnMsg: []const u8 ```
     pub fn SetDateTimeRange3(self: ?*anyopaque, minDateTime: ?*anyopaque, maxDateTime: ?*anyopaque, minWarnMsg: []const u8) void {
@@ -820,7 +820,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_SetDateTimeRange3(@ptrCast(self), @ptrCast(minDateTime), @ptrCast(maxDateTime), minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setDateTimeRange)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setDateTimeRange)
     ///
     /// ``` self: QtC.KDateTimeEdit, minDateTime: QtC.QDateTime, maxDateTime: QtC.QDateTime, minWarnMsg: []const u8, maxWarnMsg: []const u8 ```
     pub fn SetDateTimeRange4(self: ?*anyopaque, minDateTime: ?*anyopaque, maxDateTime: ?*anyopaque, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
@@ -835,7 +835,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_SetDateTimeRange4(@ptrCast(self), @ptrCast(minDateTime), @ptrCast(maxDateTime), minWarnMsg_str, maxWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setMinimumDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setMinimumDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit, minDateTime: QtC.QDateTime, minWarnMsg: []const u8 ```
     pub fn SetMinimumDateTime2(self: ?*anyopaque, minDateTime: ?*anyopaque, minWarnMsg: []const u8) void {
@@ -846,7 +846,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_SetMinimumDateTime2(@ptrCast(self), @ptrCast(minDateTime), minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setMaximumDateTime)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setMaximumDateTime)
     ///
     /// ``` self: QtC.KDateTimeEdit, maxDateTime: QtC.QDateTime, maxWarnMsg: []const u8 ```
     pub fn SetMaximumDateTime2(self: ?*anyopaque, maxDateTime: ?*anyopaque, maxWarnMsg: []const u8) void {
@@ -857,7 +857,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_SetMaximumDateTime2(@ptrCast(self), @ptrCast(maxDateTime), maxWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setTimeList)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setTimeList)
     ///
     /// ``` self: QtC.KDateTimeEdit, timeList: []QtC.QTime, minWarnMsg: []const u8 ```
     pub fn SetTimeList2(self: ?*anyopaque, timeList: []QtC.QTime, minWarnMsg: []const u8) void {
@@ -872,7 +872,7 @@ pub const kdatetimeedit = struct {
         qtc.KDateTimeEdit_SetTimeList2(@ptrCast(self), timeList_list, minWarnMsg_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#setTimeList)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#setTimeList)
     ///
     /// ``` self: QtC.KDateTimeEdit, timeList: []QtC.QTime, minWarnMsg: []const u8, maxWarnMsg: []const u8 ```
     pub fn SetTimeList3(self: ?*anyopaque, timeList: []QtC.QTime, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
@@ -5739,7 +5739,7 @@ pub const kdatetimeedit = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kdatetimeedit.html#dtor.KDateTimeEdit)
+    /// [Qt documentation](https://api.kde.org/kdatetimeedit.html#dtor.KDateTimeEdit)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5749,7 +5749,7 @@ pub const kdatetimeedit = struct {
     }
 };
 
-/// https://api-staging.kde.org/kdatetimeedit.html#types
+/// https://api.kde.org/kdatetimeedit.html#types
 pub const enums = struct {
     pub const Option = enum {
         pub const ShowCalendar: i32 = 1;

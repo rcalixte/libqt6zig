@@ -5,9 +5,9 @@ const qdialogbuttonbox_enums = @import("../libqdialogbuttonbox.zig").enums;
 const qmessagebox_enums = @import("../libqmessagebox.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kmessagebox.html
+/// https://api.kde.org/kmessagebox.html
 pub const kmessagebox = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#questionTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#questionTwoActions)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: []const u8, param7: flag of kmessagebox_enums.Option ```
     ///
@@ -28,7 +28,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_QuestionTwoActions(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#questionTwoActionsCancel)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#questionTwoActionsCancel)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option ```
     ///
@@ -49,7 +49,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_QuestionTwoActionsCancel(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#questionTwoActionsList)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#questionTwoActionsList)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     ///
@@ -82,7 +82,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_QuestionTwoActionsList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningTwoActions)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: []const u8, param7: flag of kmessagebox_enums.Option ```
     ///
@@ -103,7 +103,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningTwoActions(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningTwoActionsList)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningTwoActionsList)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     ///
@@ -136,7 +136,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningTwoActionsList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningContinueCancel)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningContinueCancel)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: []const u8, param7: flag of kmessagebox_enums.Option ```
     ///
@@ -157,7 +157,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningContinueCancel(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningContinueCancelDetailed)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningContinueCancelDetailed)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: []const u8, param7: flag of kmessagebox_enums.Option, param8: []const u8 ```
     ///
@@ -182,7 +182,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningContinueCancelDetailed(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7), param8_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningContinueCancelList)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningContinueCancelList)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     ///
@@ -215,7 +215,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningContinueCancelList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningTwoActionsCancel)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningTwoActionsCancel)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option ```
     ///
@@ -236,7 +236,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningTwoActionsCancel(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningTwoActionsCancelList)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningTwoActionsCancelList)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: QtC.KGuiItem, param8: []const u8, param9: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     ///
@@ -269,7 +269,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningTwoActionsCancelList(@ptrCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @intCast(param9));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#error)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#error)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: flag of kmessagebox_enums.Option ```
     pub fn Error(param1: ?*anyopaque, param2: []const u8, param3: []const u8, param4: i32) void {
@@ -284,7 +284,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_Error(@ptrCast(param1), param2_str, param3_str, @intCast(param4));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#error)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#error)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: flag of kmessagebox_enums.Option ```
     pub fn Error2(param1: ?*anyopaque, param2: []const u8, param3: []const u8, param4: ?*anyopaque, param5: i32) void {
@@ -299,7 +299,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_Error2(@ptrCast(param1), param2_str, param3_str, @ptrCast(param4), @intCast(param5));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#errorList)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#errorList)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     pub fn ErrorList(param1: ?*anyopaque, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: i32, allocator: std.mem.Allocator) void {
@@ -326,7 +326,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_ErrorList(@ptrCast(param1), param2_str, param3_list, param4_str, @intCast(param5));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#detailedError)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#detailedError)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: []const u8, param5: flag of kmessagebox_enums.Option ```
     pub fn DetailedError(param1: ?*anyopaque, param2: []const u8, param3: []const u8, param4: []const u8, param5: i32) void {
@@ -345,7 +345,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_DetailedError(@ptrCast(param1), param2_str, param3_str, param4_str, @intCast(param5));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#detailedError)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#detailedError)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: []const u8, param5: QtC.KGuiItem, param6: flag of kmessagebox_enums.Option ```
     pub fn DetailedError2(param1: ?*anyopaque, param2: []const u8, param3: []const u8, param4: []const u8, param5: ?*anyopaque, param6: i32) void {
@@ -364,7 +364,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_DetailedError2(@ptrCast(param1), param2_str, param3_str, param4_str, @ptrCast(param5), @intCast(param6));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#information)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#information)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: []const u8, param4: []const u8, param5: flag of kmessagebox_enums.Option ```
     pub fn Information(param1: ?*anyopaque, param2: []const u8, param3: []const u8, param4: []const u8, param5: i32) void {
@@ -383,7 +383,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_Information(@ptrCast(param1), param2_str, param3_str, param4_str, @intCast(param5));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#informationList)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#informationList)
     ///
     /// ``` param1: QtC.QWidget, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: []const u8, param6: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     pub fn InformationList(param1: ?*anyopaque, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: []const u8, param6: i32, allocator: std.mem.Allocator) void {
@@ -414,14 +414,14 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_InformationList(@ptrCast(param1), param2_str, param3_list, param4_str, param5_str, @intCast(param6));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#enableAllMessages)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#enableAllMessages)
     ///
     ///
     pub fn EnableAllMessages() void {
         qtc.KMessageBox_EnableAllMessages();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#enableMessage)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#enableMessage)
     ///
     /// ``` param1: []const u8 ```
     pub fn EnableMessage(param1: []const u8) void {
@@ -432,7 +432,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_EnableMessage(param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#messageBox)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#messageBox)
     ///
     /// ``` param1: QtC.QWidget, param2: kmessagebox_enums.DialogType, param3: []const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: QtC.KGuiItem, param8: []const u8, param9: flag of kmessagebox_enums.Option ```
     ///
@@ -453,7 +453,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_MessageBox(@ptrCast(param1), @intCast(param2), param3_str, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @intCast(param9));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#shouldBeShownTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#shouldBeShownTwoActions)
     ///
     /// ``` param1: []const u8, param2: *kmessagebox_enums.ButtonCode ```
     pub fn ShouldBeShownTwoActions(param1: []const u8, param2: *i32) bool {
@@ -464,7 +464,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_ShouldBeShownTwoActions(param1_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#shouldBeShownContinue)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#shouldBeShownContinue)
     ///
     /// ``` param1: []const u8 ```
     pub fn ShouldBeShownContinue(param1: []const u8) bool {
@@ -475,7 +475,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_ShouldBeShownContinue(param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#saveDontShowAgainTwoActions)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#saveDontShowAgainTwoActions)
     ///
     /// ``` param1: []const u8, param2: kmessagebox_enums.ButtonCode ```
     pub fn SaveDontShowAgainTwoActions(param1: []const u8, param2: i32) void {
@@ -486,7 +486,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_SaveDontShowAgainTwoActions(param1_str, @intCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#saveDontShowAgainContinue)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#saveDontShowAgainContinue)
     ///
     /// ``` param1: []const u8 ```
     pub fn SaveDontShowAgainContinue(param1: []const u8) void {
@@ -497,28 +497,28 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_SaveDontShowAgainContinue(param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#setDontShowAgainConfig)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#setDontShowAgainConfig)
     ///
     /// ``` param1: QtC.KConfig ```
     pub fn SetDontShowAgainConfig(param1: ?*anyopaque) void {
         qtc.KMessageBox_SetDontShowAgainConfig(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#setDontShowAgainInterface)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#setDontShowAgainInterface)
     ///
     /// ``` param1: QtC.KMessageBoxDontAskAgainInterface ```
     pub fn SetDontShowAgainInterface(param1: ?*anyopaque) void {
         qtc.KMessageBox_SetDontShowAgainInterface(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#setNotifyInterface)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#setNotifyInterface)
     ///
     /// ``` param1: QtC.KMessageBoxNotifyInterface ```
     pub fn SetNotifyInterface(param1: ?*anyopaque) void {
         qtc.KMessageBox_SetNotifyInterface(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#createKMessageBox)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#createKMessageBox)
     ///
     /// ``` param1: QtC.QDialog, param2: QtC.QDialogButtonBox, param3: qmessagebox_enums.Icon, param4: []const u8, param5: [][]const u8, param6: []const u8, param7: *bool, param8: flag of kmessagebox_enums.Option, param9: []const u8, allocator: std.mem.Allocator ```
     ///
@@ -551,7 +551,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_CreateKMessageBox(@ptrCast(param1), @ptrCast(param2), @intCast(param3), param4_str, param5_list, param6_str, @ptrCast(param7), @intCast(param8), param9_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#createKMessageBox)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#createKMessageBox)
     ///
     /// ``` param1: QtC.QDialog, param2: QtC.QDialogButtonBox, param3: QtC.QIcon, param4: []const u8, param5: [][]const u8, param6: []const u8, param7: *bool, param8: flag of kmessagebox_enums.Option, param9: []const u8, param10: qmessagebox_enums.Icon, allocator: std.mem.Allocator ```
     ///
@@ -584,7 +584,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_CreateKMessageBox2(@ptrCast(param1), @ptrCast(param2), @ptrCast(param3), param4_str, param5_list, param6_str, @ptrCast(param7), @intCast(param8), param9_str, @intCast(param10));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#questionTwoActionsWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#questionTwoActionsWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: []const u8, param7: flag of kmessagebox_enums.Option ```
     ///
@@ -605,7 +605,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_QuestionTwoActionsWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#questionTwoActionsCancelWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#questionTwoActionsCancelWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option ```
     ///
@@ -626,7 +626,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_QuestionTwoActionsCancelWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#questionTwoActionsListWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#questionTwoActionsListWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     ///
@@ -659,7 +659,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_QuestionTwoActionsListWId(@intCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningTwoActionsWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningTwoActionsWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: []const u8, param7: flag of kmessagebox_enums.Option ```
     ///
@@ -680,7 +680,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningTwoActionsWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningTwoActionsListWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningTwoActionsListWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     ///
@@ -713,7 +713,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningTwoActionsListWId(@intCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningContinueCancelWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningContinueCancelWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: []const u8, param7: flag of kmessagebox_enums.Option ```
     ///
@@ -734,7 +734,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningContinueCancelWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), param6_str, @intCast(param7));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningContinueCancelListWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningContinueCancelListWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     ///
@@ -767,7 +767,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningContinueCancelListWId(@intCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningTwoActionsCancelWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningTwoActionsCancelWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: []const u8, param4: QtC.KGuiItem, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: []const u8, param8: flag of kmessagebox_enums.Option ```
     ///
@@ -788,7 +788,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningTwoActionsCancelWId(@intCast(param1), param2_str, param3_str, @ptrCast(param4), @ptrCast(param5), @ptrCast(param6), param7_str, @intCast(param8));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#warningTwoActionsCancelListWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#warningTwoActionsCancelListWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: QtC.KGuiItem, param8: []const u8, param9: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     ///
@@ -821,7 +821,7 @@ pub const kmessagebox = struct {
         return qtc.KMessageBox_WarningTwoActionsCancelListWId(@intCast(param1), param2_str, param3_list, param4_str, @ptrCast(param5), @ptrCast(param6), @ptrCast(param7), param8_str, @intCast(param9));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#errorWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#errorWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: []const u8, param4: flag of kmessagebox_enums.Option ```
     pub fn ErrorWId(param1: usize, param2: []const u8, param3: []const u8, param4: i32) void {
@@ -836,7 +836,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_ErrorWId(@intCast(param1), param2_str, param3_str, @intCast(param4));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#errorListWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#errorListWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     pub fn ErrorListWId(param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: i32, allocator: std.mem.Allocator) void {
@@ -863,7 +863,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_ErrorListWId(@intCast(param1), param2_str, param3_list, param4_str, @intCast(param5));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#detailedErrorWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#detailedErrorWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: []const u8, param4: []const u8, param5: flag of kmessagebox_enums.Option ```
     pub fn DetailedErrorWId(param1: usize, param2: []const u8, param3: []const u8, param4: []const u8, param5: i32) void {
@@ -882,7 +882,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_DetailedErrorWId(@intCast(param1), param2_str, param3_str, param4_str, @intCast(param5));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#detailedErrorWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#detailedErrorWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: []const u8, param4: []const u8, param5: QtC.KGuiItem, param6: flag of kmessagebox_enums.Option ```
     pub fn DetailedErrorWId2(param1: usize, param2: []const u8, param3: []const u8, param4: []const u8, param5: ?*anyopaque, param6: i32) void {
@@ -901,7 +901,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_DetailedErrorWId2(@intCast(param1), param2_str, param3_str, param4_str, @ptrCast(param5), @intCast(param6));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#informationWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#informationWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: []const u8, param4: []const u8, param5: flag of kmessagebox_enums.Option ```
     pub fn InformationWId(param1: usize, param2: []const u8, param3: []const u8, param4: []const u8, param5: i32) void {
@@ -920,7 +920,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_InformationWId(@intCast(param1), param2_str, param3_str, param4_str, @intCast(param5));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#informationListWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#informationListWId)
     ///
     /// ``` param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: []const u8, param6: flag of kmessagebox_enums.Option, allocator: std.mem.Allocator ```
     pub fn InformationListWId(param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: []const u8, param6: i32, allocator: std.mem.Allocator) void {
@@ -951,7 +951,7 @@ pub const kmessagebox = struct {
         qtc.KMessageBox_InformationListWId(@intCast(param1), param2_str, param3_list, param4_str, param5_str, @intCast(param6));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessagebox.html#messageBoxWId)
+    /// [Qt documentation](https://api.kde.org/kmessagebox.html#messageBoxWId)
     ///
     /// ``` param1: usize, param2: kmessagebox_enums.DialogType, param3: []const u8, param4: []const u8, param5: QtC.KGuiItem, param6: QtC.KGuiItem, param7: QtC.KGuiItem, param8: []const u8, param9: flag of kmessagebox_enums.Option ```
     ///
@@ -973,7 +973,7 @@ pub const kmessagebox = struct {
     }
 };
 
-/// https://api-staging.kde.org/kmessagebox.html#types
+/// https://api.kde.org/kmessagebox.html#types
 pub const enums = struct {
     pub const ButtonCode = enum {
         pub const Ok: i32 = 1;

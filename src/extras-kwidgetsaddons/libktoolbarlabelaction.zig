@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktoolbarlabelaction.html
+/// https://api.kde.org/ktoolbarlabelaction.html
 pub const ktoolbarlabelaction = struct {
     /// New constructs a new KToolBarLabelAction object.
     ///
@@ -76,28 +76,28 @@ pub const ktoolbarlabelaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#setBuddy)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#setBuddy)
     ///
     /// ``` self: QtC.KToolBarLabelAction, buddy: QtC.QAction ```
     pub fn SetBuddy(self: ?*anyopaque, buddy: ?*anyopaque) void {
         qtc.KToolBarLabelAction_SetBuddy(@ptrCast(self), @ptrCast(buddy));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#buddy)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#buddy)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Buddy(self: ?*anyopaque) QtC.QAction {
         return qtc.KToolBarLabelAction_Buddy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
     ///
     /// ``` self: QtC.KToolBarLabelAction, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KToolBarLabelAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -106,7 +106,7 @@ pub const ktoolbarlabelaction = struct {
         qtc.KToolBarLabelAction_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -115,7 +115,7 @@ pub const ktoolbarlabelaction = struct {
         return qtc.KToolBarLabelAction_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#textChanged)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#textChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction, newText: []const u8 ```
     pub fn TextChanged(self: ?*anyopaque, newText: []const u8) void {
@@ -126,21 +126,21 @@ pub const ktoolbarlabelaction = struct {
         qtc.KToolBarLabelAction_TextChanged(@ptrCast(self), newText_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#textChanged)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#textChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, newText: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KToolBarLabelAction_Connect_TextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#event)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#event)
     ///
     /// ``` self: QtC.KToolBarLabelAction, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KToolBarLabelAction_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#event)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -149,7 +149,7 @@ pub const ktoolbarlabelaction = struct {
         qtc.KToolBarLabelAction_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#event)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#event)
     ///
     /// Base class method implementation
     ///
@@ -158,14 +158,14 @@ pub const ktoolbarlabelaction = struct {
         return qtc.KToolBarLabelAction_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
     ///
     /// ``` self: QtC.KToolBarLabelAction, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KToolBarLabelAction_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -174,7 +174,7 @@ pub const ktoolbarlabelaction = struct {
         qtc.KToolBarLabelAction_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -1698,7 +1698,7 @@ pub const ktoolbarlabelaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktoolbarlabelaction.html#dtor.KToolBarLabelAction)
+    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#dtor.KToolBarLabelAction)
     ///
     /// Delete this object from C++ memory.
     ///

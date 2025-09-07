@@ -3,9 +3,9 @@ const qtc = @import("qt6c");
 const kfilesystemtype_enums = enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kfilesystemtype.html
+/// https://api.kde.org/kfilesystemtype.html
 pub const kfilesystemtype = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kfilesystemtype.html#fileSystemType)
+    /// [Qt documentation](https://api.kde.org/kfilesystemtype.html#fileSystemType)
     ///
     /// ``` param1: []const u8 ```
     ///
@@ -18,7 +18,7 @@ pub const kfilesystemtype = struct {
         return qtc.KFileSystemType_FileSystemType(param1_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfilesystemtype.html#fileSystemName)
+    /// [Qt documentation](https://api.kde.org/kfilesystemtype.html#fileSystemName)
     ///
     /// ``` param1: kfilesystemtype_enums.Type, allocator: std.mem.Allocator ```
     pub fn FileSystemName(param1: i32, allocator: std.mem.Allocator) []const u8 {
@@ -30,7 +30,7 @@ pub const kfilesystemtype = struct {
     }
 };
 
-/// https://api-staging.kde.org/kfilesystemtype.html#types
+/// https://api.kde.org/kfilesystemtype.html#types
 pub const enums = struct {
     pub const Type = enum {
         pub const Unknown: i32 = 0;

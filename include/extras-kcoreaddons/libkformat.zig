@@ -4,7 +4,7 @@ const kformat_enums = enums;
 const qlocale_enums = @import("../libqlocale.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kformat.html
+/// https://api.kde.org/kformat.html
 pub const kformat = struct {
     /// New constructs a new KFormat object.
     ///
@@ -27,14 +27,14 @@ pub const kformat = struct {
         return qtc.KFormat_new3(@ptrCast(locale));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#operator-eq)
+    /// [Qt documentation](https://api.kde.org/kformat.html#operator-eq)
     ///
     /// ``` self: QtC.KFormat, other: QtC.KFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KFormat_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatByteSize)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatByteSize)
     ///
     /// ``` self: QtC.KFormat, size: f64, allocator: std.mem.Allocator ```
     pub fn FormatByteSize(self: ?*anyopaque, size: f64, allocator: std.mem.Allocator) []const u8 {
@@ -45,7 +45,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatDuration)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatDuration)
     ///
     /// ``` self: QtC.KFormat, msecs: u64, allocator: std.mem.Allocator ```
     pub fn FormatDuration(self: ?*anyopaque, msecs: u64, allocator: std.mem.Allocator) []const u8 {
@@ -56,7 +56,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatDecimalDuration)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatDecimalDuration)
     ///
     /// ``` self: QtC.KFormat, msecs: u64, allocator: std.mem.Allocator ```
     pub fn FormatDecimalDuration(self: ?*anyopaque, msecs: u64, allocator: std.mem.Allocator) []const u8 {
@@ -67,7 +67,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatSpelloutDuration)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatSpelloutDuration)
     ///
     /// ``` self: QtC.KFormat, msecs: u64, allocator: std.mem.Allocator ```
     pub fn FormatSpelloutDuration(self: ?*anyopaque, msecs: u64, allocator: std.mem.Allocator) []const u8 {
@@ -78,7 +78,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatRelativeDate)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatRelativeDate)
     ///
     /// ``` self: QtC.KFormat, date: QtC.QDate, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
     pub fn FormatRelativeDate(self: ?*anyopaque, date: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
@@ -89,7 +89,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatRelativeDateTime)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatRelativeDateTime)
     ///
     /// ``` self: QtC.KFormat, dateTime: QtC.QDateTime, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
     pub fn FormatRelativeDateTime(self: ?*anyopaque, dateTime: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
@@ -100,7 +100,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatValue)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatValue)
     ///
     /// ``` self: QtC.KFormat, value: f64, unit: kformat_enums.Unit, allocator: std.mem.Allocator ```
     pub fn FormatValue(self: ?*anyopaque, value: f64, unit: i32, allocator: std.mem.Allocator) []const u8 {
@@ -111,7 +111,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatValue)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatValue)
     ///
     /// ``` self: QtC.KFormat, value: f64, unit: []const u8, allocator: std.mem.Allocator ```
     pub fn FormatValue2(self: ?*anyopaque, value: f64, unit: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -126,7 +126,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatValue)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatValue)
     ///
     /// ``` self: QtC.KFormat, value: f64, unit: []const u8, precision: i32, prefix: kformat_enums.UnitPrefix, dialect: kformat_enums.BinaryUnitDialect, allocator: std.mem.Allocator ```
     pub fn FormatValue3(self: ?*anyopaque, value: f64, unit: []const u8, precision: i32, prefix: i32, dialect: i32, allocator: std.mem.Allocator) []const u8 {
@@ -141,7 +141,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatDistance)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatDistance)
     ///
     /// ``` self: QtC.KFormat, distance: f64, allocator: std.mem.Allocator ```
     pub fn FormatDistance(self: ?*anyopaque, distance: f64, allocator: std.mem.Allocator) []const u8 {
@@ -152,7 +152,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatByteSize)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatByteSize)
     ///
     /// ``` self: QtC.KFormat, size: f64, precision: i32, allocator: std.mem.Allocator ```
     pub fn FormatByteSize2(self: ?*anyopaque, size: f64, precision: i32, allocator: std.mem.Allocator) []const u8 {
@@ -163,7 +163,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatByteSize)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatByteSize)
     ///
     /// ``` self: QtC.KFormat, size: f64, precision: i32, dialect: kformat_enums.BinaryUnitDialect, allocator: std.mem.Allocator ```
     pub fn FormatByteSize3(self: ?*anyopaque, size: f64, precision: i32, dialect: i32, allocator: std.mem.Allocator) []const u8 {
@@ -174,7 +174,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatByteSize)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatByteSize)
     ///
     /// ``` self: QtC.KFormat, size: f64, precision: i32, dialect: kformat_enums.BinaryUnitDialect, units: kformat_enums.BinarySizeUnits, allocator: std.mem.Allocator ```
     pub fn FormatByteSize4(self: ?*anyopaque, size: f64, precision: i32, dialect: i32, units: i32, allocator: std.mem.Allocator) []const u8 {
@@ -185,7 +185,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatDuration)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatDuration)
     ///
     /// ``` self: QtC.KFormat, msecs: u64, options: flag of kformat_enums.DurationFormatOption, allocator: std.mem.Allocator ```
     pub fn FormatDuration2(self: ?*anyopaque, msecs: u64, options: i32, allocator: std.mem.Allocator) []const u8 {
@@ -196,7 +196,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatDecimalDuration)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatDecimalDuration)
     ///
     /// ``` self: QtC.KFormat, msecs: u64, decimalPlaces: i32, allocator: std.mem.Allocator ```
     pub fn FormatDecimalDuration2(self: ?*anyopaque, msecs: u64, decimalPlaces: i32, allocator: std.mem.Allocator) []const u8 {
@@ -207,7 +207,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatValue)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatValue)
     ///
     /// ``` self: QtC.KFormat, value: f64, unit: kformat_enums.Unit, precision: i32, allocator: std.mem.Allocator ```
     pub fn FormatValue32(self: ?*anyopaque, value: f64, unit: i32, precision: i32, allocator: std.mem.Allocator) []const u8 {
@@ -218,7 +218,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatValue)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatValue)
     ///
     /// ``` self: QtC.KFormat, value: f64, unit: kformat_enums.Unit, precision: i32, prefix: kformat_enums.UnitPrefix, allocator: std.mem.Allocator ```
     pub fn FormatValue4(self: ?*anyopaque, value: f64, unit: i32, precision: i32, prefix: i32, allocator: std.mem.Allocator) []const u8 {
@@ -229,7 +229,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatValue)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatValue)
     ///
     /// ``` self: QtC.KFormat, value: f64, unit: kformat_enums.Unit, precision: i32, prefix: kformat_enums.UnitPrefix, dialect: kformat_enums.BinaryUnitDialect, allocator: std.mem.Allocator ```
     pub fn FormatValue5(self: ?*anyopaque, value: f64, unit: i32, precision: i32, prefix: i32, dialect: i32, allocator: std.mem.Allocator) []const u8 {
@@ -240,7 +240,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatValue)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatValue)
     ///
     /// ``` self: QtC.KFormat, value: f64, unit: []const u8, precision: i32, allocator: std.mem.Allocator ```
     pub fn FormatValue33(self: ?*anyopaque, value: f64, unit: []const u8, precision: i32, allocator: std.mem.Allocator) []const u8 {
@@ -255,7 +255,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatValue)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatValue)
     ///
     /// ``` self: QtC.KFormat, value: f64, unit: []const u8, precision: i32, prefix: kformat_enums.UnitPrefix, allocator: std.mem.Allocator ```
     pub fn FormatValue42(self: ?*anyopaque, value: f64, unit: []const u8, precision: i32, prefix: i32, allocator: std.mem.Allocator) []const u8 {
@@ -270,7 +270,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#formatDistance)
+    /// [Qt documentation](https://api.kde.org/kformat.html#formatDistance)
     ///
     /// ``` self: QtC.KFormat, distance: f64, param2: flag of kformat_enums.DistanceFormatOption, allocator: std.mem.Allocator ```
     pub fn FormatDistance2(self: ?*anyopaque, distance: f64, param2: i32, allocator: std.mem.Allocator) []const u8 {
@@ -281,7 +281,7 @@ pub const kformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kformat.html#dtor.KFormat)
+    /// [Qt documentation](https://api.kde.org/kformat.html#dtor.KFormat)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -291,7 +291,7 @@ pub const kformat = struct {
     }
 };
 
-/// https://api-staging.kde.org/kformat.html#types
+/// https://api.kde.org/kformat.html#types
 pub const enums = struct {
     pub const BinarySizeUnits = enum {
         pub const DefaultBinaryUnits: i32 = -1;

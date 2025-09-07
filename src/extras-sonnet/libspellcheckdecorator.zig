@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/sonnet-spellcheckdecorator.html
+/// https://api.kde.org/sonnet-spellcheckdecorator.html
 pub const sonnet__spellcheckdecorator = struct {
     /// New constructs a new Sonnet::SpellCheckDecorator object.
     ///
@@ -20,7 +20,7 @@ pub const sonnet__spellcheckdecorator = struct {
         return qtc.Sonnet__SpellCheckDecorator_new2(@ptrCast(textEdit));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#metaObject)
+    /// [Qt documentation](https://api.kde.org/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__SpellCheckDecorator ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -52,7 +52,7 @@ pub const sonnet__spellcheckdecorator = struct {
         return qtc.Sonnet__SpellCheckDecorator_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -64,28 +64,28 @@ pub const sonnet__spellcheckdecorator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-spellcheckdecorator.html#setHighlighter)
+    /// [Qt documentation](https://api.kde.org/sonnet-spellcheckdecorator.html#setHighlighter)
     ///
     /// ``` self: QtC.Sonnet__SpellCheckDecorator, highlighter: QtC.Sonnet__Highlighter ```
     pub fn SetHighlighter(self: ?*anyopaque, highlighter: ?*anyopaque) void {
         qtc.Sonnet__SpellCheckDecorator_SetHighlighter(@ptrCast(self), @ptrCast(highlighter));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-spellcheckdecorator.html#highlighter)
+    /// [Qt documentation](https://api.kde.org/sonnet-spellcheckdecorator.html#highlighter)
     ///
     /// ``` self: QtC.Sonnet__SpellCheckDecorator ```
     pub fn Highlighter(self: ?*anyopaque) QtC.Sonnet__Highlighter {
         return qtc.Sonnet__SpellCheckDecorator_Highlighter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-spellcheckdecorator.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/sonnet-spellcheckdecorator.html#eventFilter)
     ///
     /// ``` self: QtC.Sonnet__SpellCheckDecorator, obj: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, obj: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.Sonnet__SpellCheckDecorator_EventFilter(@ptrCast(self), @ptrCast(obj), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-spellcheckdecorator.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/sonnet-spellcheckdecorator.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -94,7 +94,7 @@ pub const sonnet__spellcheckdecorator = struct {
         qtc.Sonnet__SpellCheckDecorator_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-spellcheckdecorator.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/sonnet-spellcheckdecorator.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -103,7 +103,7 @@ pub const sonnet__spellcheckdecorator = struct {
         return qtc.Sonnet__SpellCheckDecorator_QBaseEventFilter(@ptrCast(self), @ptrCast(obj), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-spellcheckdecorator.html#isSpellCheckingEnabledForBlock)
+    /// [Qt documentation](https://api.kde.org/sonnet-spellcheckdecorator.html#isSpellCheckingEnabledForBlock)
     ///
     /// ``` self: QtC.Sonnet__SpellCheckDecorator, textBlock: []const u8 ```
     pub fn IsSpellCheckingEnabledForBlock(self: ?*anyopaque, textBlock: []const u8) bool {
@@ -114,7 +114,7 @@ pub const sonnet__spellcheckdecorator = struct {
         return qtc.Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock(@ptrCast(self), textBlock_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-spellcheckdecorator.html#isSpellCheckingEnabledForBlock)
+    /// [Qt documentation](https://api.kde.org/sonnet-spellcheckdecorator.html#isSpellCheckingEnabledForBlock)
     ///
     /// Allows for overriding the related default method
     ///
@@ -123,7 +123,7 @@ pub const sonnet__spellcheckdecorator = struct {
         qtc.Sonnet__SpellCheckDecorator_OnIsSpellCheckingEnabledForBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-spellcheckdecorator.html#isSpellCheckingEnabledForBlock)
+    /// [Qt documentation](https://api.kde.org/sonnet-spellcheckdecorator.html#isSpellCheckingEnabledForBlock)
     ///
     /// Base class method implementation
     ///
@@ -136,7 +136,7 @@ pub const sonnet__spellcheckdecorator = struct {
         return qtc.Sonnet__SpellCheckDecorator_QBaseIsSpellCheckingEnabledForBlock(@ptrCast(self), textBlock_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -149,7 +149,7 @@ pub const sonnet__spellcheckdecorator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {

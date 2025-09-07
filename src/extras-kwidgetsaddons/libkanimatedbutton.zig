@@ -9,7 +9,7 @@ const qtoolbutton_enums = @import("../libqtoolbutton.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kanimatedbutton.html
+/// https://api.kde.org/kanimatedbutton.html
 pub const kanimatedbutton = struct {
     /// New constructs a new KAnimatedButton object.
     ///
@@ -69,7 +69,7 @@ pub const kanimatedbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kanimatedbutton.html#animationPath)
+    /// [Qt documentation](https://api.kde.org/kanimatedbutton.html#animationPath)
     ///
     /// ``` self: QtC.KAnimatedButton, allocator: std.mem.Allocator ```
     pub fn AnimationPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -80,7 +80,7 @@ pub const kanimatedbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kanimatedbutton.html#setAnimationPath)
+    /// [Qt documentation](https://api.kde.org/kanimatedbutton.html#setAnimationPath)
     ///
     /// ``` self: QtC.KAnimatedButton, path: []const u8 ```
     pub fn SetAnimationPath(self: ?*anyopaque, path: []const u8) void {
@@ -91,14 +91,14 @@ pub const kanimatedbutton = struct {
         qtc.KAnimatedButton_SetAnimationPath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kanimatedbutton.html#start)
+    /// [Qt documentation](https://api.kde.org/kanimatedbutton.html#start)
     ///
     /// ``` self: QtC.KAnimatedButton ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.KAnimatedButton_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kanimatedbutton.html#stop)
+    /// [Qt documentation](https://api.kde.org/kanimatedbutton.html#stop)
     ///
     /// ``` self: QtC.KAnimatedButton ```
     pub fn Stop(self: ?*anyopaque) void {
@@ -5716,7 +5716,7 @@ pub const kanimatedbutton = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kanimatedbutton.html#dtor.KAnimatedButton)
+    /// [Qt documentation](https://api.kde.org/kanimatedbutton.html#dtor.KAnimatedButton)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -8,7 +8,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qtoolbutton_enums = @import("../libqtoolbutton.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/krecentfilesaction.html
+/// https://api.kde.org/krecentfilesaction.html
 pub const krecentfilesaction = struct {
     /// New constructs a new KRecentFilesAction object.
     ///
@@ -85,7 +85,7 @@ pub const krecentfilesaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction, url: QtC.QUrl, name: []const u8 ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque, url: ?*anyopaque, name: []const u8) void {
@@ -96,14 +96,14 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_AddAction(@ptrCast(self), @ptrCast(action), @ptrCast(url), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#removeAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
         return qtc.KRecentFilesAction_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#removeAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -112,7 +112,7 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_OnRemoveAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#removeAction)
     ///
     /// Base class method implementation
     ///
@@ -121,42 +121,42 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_QBaseRemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#maxItems)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#maxItems)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn MaxItems(self: ?*anyopaque) i32 {
         return qtc.KRecentFilesAction_MaxItems(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#setMaxItems)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#setMaxItems)
     ///
     /// ``` self: QtC.KRecentFilesAction, maxItems: i32 ```
     pub fn SetMaxItems(self: ?*anyopaque, maxItems: i32) void {
         qtc.KRecentFilesAction_SetMaxItems(@ptrCast(self), @intCast(maxItems));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#loadEntries)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#loadEntries)
     ///
     /// ``` self: QtC.KRecentFilesAction, config: QtC.KConfigGroup ```
     pub fn LoadEntries(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KRecentFilesAction_LoadEntries(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#saveEntries)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#saveEntries)
     ///
     /// ``` self: QtC.KRecentFilesAction, config: QtC.KConfigGroup ```
     pub fn SaveEntries(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KRecentFilesAction_SaveEntries(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#addUrl)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addUrl)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl ```
     pub fn AddUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KRecentFilesAction_AddUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#addUrl)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addUrl)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl, name: []const u8, mimeType: []const u8 ```
     pub fn AddUrl2(self: ?*anyopaque, url: ?*anyopaque, name: []const u8, mimeType: []const u8) void {
@@ -171,14 +171,14 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_AddUrl2(@ptrCast(self), @ptrCast(url), name_str, mimeType_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#removeUrl)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#removeUrl)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl ```
     pub fn RemoveUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KRecentFilesAction_RemoveUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#urls)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#urls)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn Urls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -190,14 +190,14 @@ pub const krecentfilesaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#clear)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#clear)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KRecentFilesAction_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#clear)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#clear)
     ///
     /// Allows for overriding the related default method
     ///
@@ -206,7 +206,7 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#clear)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#clear)
     ///
     /// Base class method implementation
     ///
@@ -215,28 +215,28 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_QBaseClear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#urlSelected)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#urlSelected)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl ```
     pub fn UrlSelected(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KRecentFilesAction_UrlSelected(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#urlSelected)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#urlSelected)
     ///
     /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnUrlSelected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRecentFilesAction_Connect_UrlSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#recentListCleared)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#recentListCleared)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn RecentListCleared(self: ?*anyopaque) void {
         qtc.KRecentFilesAction_RecentListCleared(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#recentListCleared)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#recentListCleared)
     ///
     /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
     pub fn OnRecentListCleared(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -269,7 +269,7 @@ pub const krecentfilesaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction, url: QtC.QUrl, name: []const u8, mimeType: QtC.QMimeType ```
     pub fn AddAction4(self: ?*anyopaque, action: ?*anyopaque, url: ?*anyopaque, name: []const u8, mimeType: ?*anyopaque) void {
@@ -280,7 +280,7 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_AddAction4(@ptrCast(self), @ptrCast(action), @ptrCast(url), name_str, @ptrCast(mimeType));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#addUrl)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addUrl)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl, name: []const u8 ```
     pub fn AddUrl22(self: ?*anyopaque, url: ?*anyopaque, name: []const u8) void {
@@ -293,7 +293,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#toolBarMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolBarMode)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     ///
@@ -304,7 +304,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setToolBarMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolBarMode)
     ///
     /// ``` self: QtC.KRecentFilesAction, mode: kselectaction_enums.ToolBarMode ```
     pub fn SetToolBarMode(self: ?*anyopaque, mode: i32) void {
@@ -313,7 +313,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#toolButtonPopupMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     ///
@@ -324,7 +324,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setToolButtonPopupMode)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
     ///
     /// ``` self: QtC.KRecentFilesAction, mode: qtoolbutton_enums.ToolButtonPopupMode ```
     pub fn SetToolButtonPopupMode(self: ?*anyopaque, mode: i32) void {
@@ -333,7 +333,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#selectableActionGroup)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#selectableActionGroup)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn SelectableActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -342,7 +342,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentAction)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn CurrentAction(self: ?*anyopaque) QtC.QAction {
@@ -351,7 +351,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentItem)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn CurrentItem(self: ?*anyopaque) i32 {
@@ -360,7 +360,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#currentText)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentText)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -373,7 +373,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actions)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actions)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -387,7 +387,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KRecentFilesAction, index: i32 ```
     pub fn Action(self: ?*anyopaque, index: i32) QtC.QAction {
@@ -396,7 +396,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn Action2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -409,7 +409,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction ```
     pub fn SetCurrentAction(self: ?*anyopaque, action: ?*anyopaque) bool {
@@ -418,7 +418,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentItem)
     ///
     /// ``` self: QtC.KRecentFilesAction, index: i32 ```
     pub fn SetCurrentItem(self: ?*anyopaque, index: i32) bool {
@@ -427,7 +427,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn SetCurrentAction2(self: ?*anyopaque, text: []const u8) bool {
@@ -440,7 +440,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -453,7 +453,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -466,7 +466,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setItems)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setItems)
     ///
     /// ``` self: QtC.KRecentFilesAction, lst: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, lst: [][]const u8, allocator: std.mem.Allocator) void {
@@ -487,7 +487,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#items)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#items)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -511,7 +511,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#isEditable)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#isEditable)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsEditable(self: ?*anyopaque) bool {
@@ -520,7 +520,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setEditable)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setEditable)
     ///
     /// ``` self: QtC.KRecentFilesAction, editable: bool ```
     pub fn SetEditable(self: ?*anyopaque, editable: bool) void {
@@ -529,7 +529,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#comboWidth)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#comboWidth)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn ComboWidth(self: ?*anyopaque) i32 {
@@ -538,7 +538,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setComboWidth)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setComboWidth)
     ///
     /// ``` self: QtC.KRecentFilesAction, width: i32 ```
     pub fn SetComboWidth(self: ?*anyopaque, width: i32) void {
@@ -547,7 +547,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setMaxComboViewCount)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
     ///
     /// ``` self: QtC.KRecentFilesAction, n: i32 ```
     pub fn SetMaxComboViewCount(self: ?*anyopaque, n: i32) void {
@@ -556,7 +556,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#removeAllActions)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAllActions)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn RemoveAllActions(self: ?*anyopaque) void {
@@ -565,7 +565,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setMenuAccelsEnabled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
     ///
     /// ``` self: QtC.KRecentFilesAction, b: bool ```
     pub fn SetMenuAccelsEnabled(self: ?*anyopaque, b: bool) void {
@@ -574,7 +574,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#menuAccelsEnabled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn MenuAccelsEnabled(self: ?*anyopaque) bool {
@@ -583,7 +583,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#changeItem)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#changeItem)
     ///
     /// ``` self: QtC.KRecentFilesAction, index: i32, text: []const u8 ```
     pub fn ChangeItem(self: ?*anyopaque, index: i32, text: []const u8) void {
@@ -596,7 +596,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction ```
     pub fn ActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -605,7 +605,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#actionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, action: QtC.QAction) callconv(.c) void ```
     pub fn OnActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -614,7 +614,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#indexTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, index: i32 ```
     pub fn IndexTriggered(self: ?*anyopaque, index: i32) void {
@@ -623,7 +623,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#indexTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, index: i32) callconv(.c) void ```
     pub fn OnIndexTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -632,7 +632,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#textTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn TextTriggered(self: ?*anyopaque, text: []const u8) void {
@@ -645,7 +645,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#textTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -654,7 +654,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#action)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Action22(self: ?*anyopaque, text: []const u8, cs: i32) QtC.QAction {
@@ -667,7 +667,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#setCurrentAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn SetCurrentAction22(self: ?*anyopaque, text: []const u8, cs: i32) bool {
@@ -1783,7 +1783,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1794,7 +1794,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1805,7 +1805,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1816,7 +1816,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1827,7 +1827,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1838,7 +1838,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1849,7 +1849,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1860,7 +1860,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1871,7 +1871,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1882,7 +1882,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1893,7 +1893,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1904,7 +1904,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#deleteWidget)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1915,7 +1915,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1926,7 +1926,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1937,7 +1937,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#event)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1948,7 +1948,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1959,7 +1959,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1970,7 +1970,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2146,7 +2146,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2157,7 +2157,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2168,7 +2168,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kselectaction.html#slotToggled)
+    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2365,7 +2365,7 @@ pub const krecentfilesaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/krecentfilesaction.html#dtor.KRecentFilesAction)
+    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#dtor.KRecentFilesAction)
     ///
     /// Delete this object from C++ memory.
     ///

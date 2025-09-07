@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcharselect.html
+/// https://api.kde.org/kcharselect.html
 pub const kcharselect = struct {
     /// New constructs a new KCharSelect object.
     ///
@@ -83,14 +83,14 @@ pub const kcharselect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#sizeHint)
     ///
     /// ``` self: QtC.KCharSelect ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KCharSelect_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -99,7 +99,7 @@ pub const kcharselect = struct {
         qtc.KCharSelect_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -108,42 +108,42 @@ pub const kcharselect = struct {
         return qtc.KCharSelect_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#setAllPlanesEnabled)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#setAllPlanesEnabled)
     ///
     /// ``` self: QtC.KCharSelect, all: bool ```
     pub fn SetAllPlanesEnabled(self: ?*anyopaque, all: bool) void {
         qtc.KCharSelect_SetAllPlanesEnabled(@ptrCast(self), all);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#allPlanesEnabled)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#allPlanesEnabled)
     ///
     /// ``` self: QtC.KCharSelect ```
     pub fn AllPlanesEnabled(self: ?*anyopaque) bool {
         return qtc.KCharSelect_AllPlanesEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#currentChar)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#currentChar)
     ///
     /// ``` self: QtC.KCharSelect ```
     pub fn CurrentChar(self: ?*anyopaque) QtC.QChar {
         return qtc.KCharSelect_CurrentChar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#currentCodePoint)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#currentCodePoint)
     ///
     /// ``` self: QtC.KCharSelect ```
     pub fn CurrentCodePoint(self: ?*anyopaque) u32 {
         return qtc.KCharSelect_CurrentCodePoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#currentFont)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#currentFont)
     ///
     /// ``` self: QtC.KCharSelect ```
     pub fn CurrentFont(self: ?*anyopaque) QtC.QFont {
         return qtc.KCharSelect_CurrentFont(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#displayedChars)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#displayedChars)
     ///
     /// ``` self: QtC.KCharSelect, allocator: std.mem.Allocator ```
     pub fn DisplayedChars(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QChar {
@@ -155,7 +155,7 @@ pub const kcharselect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#displayedCodePoints)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#displayedCodePoints)
     ///
     /// ``` self: QtC.KCharSelect, allocator: std.mem.Allocator ```
     pub fn DisplayedCodePoints(self: ?*anyopaque, allocator: std.mem.Allocator) []u32 {
@@ -167,105 +167,105 @@ pub const kcharselect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#setCurrentChar)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#setCurrentChar)
     ///
     /// ``` self: QtC.KCharSelect, c: QtC.QChar ```
     pub fn SetCurrentChar(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.KCharSelect_SetCurrentChar(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#setCurrentCodePoint)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#setCurrentCodePoint)
     ///
     /// ``` self: QtC.KCharSelect, codePoint: u32 ```
     pub fn SetCurrentCodePoint(self: ?*anyopaque, codePoint: u32) void {
         qtc.KCharSelect_SetCurrentCodePoint(@ptrCast(self), @intCast(codePoint));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#setCurrentFont)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#setCurrentFont)
     ///
     /// ``` self: QtC.KCharSelect, font: QtC.QFont ```
     pub fn SetCurrentFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.KCharSelect_SetCurrentFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#currentFontChanged)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#currentFontChanged)
     ///
     /// ``` self: QtC.KCharSelect, font: QtC.QFont ```
     pub fn CurrentFontChanged(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.KCharSelect_CurrentFontChanged(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#currentFontChanged)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#currentFontChanged)
     ///
     /// ``` self: QtC.KCharSelect, slot: fn (self: QtC.KCharSelect, font: QtC.QFont) callconv(.c) void ```
     pub fn OnCurrentFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCharSelect_Connect_CurrentFontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#currentCharChanged)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#currentCharChanged)
     ///
     /// ``` self: QtC.KCharSelect, c: QtC.QChar ```
     pub fn CurrentCharChanged(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.KCharSelect_CurrentCharChanged(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#currentCharChanged)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#currentCharChanged)
     ///
     /// ``` self: QtC.KCharSelect, slot: fn (self: QtC.KCharSelect, c: QtC.QChar) callconv(.c) void ```
     pub fn OnCurrentCharChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCharSelect_Connect_CurrentCharChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#currentCodePointChanged)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#currentCodePointChanged)
     ///
     /// ``` self: QtC.KCharSelect, codePoint: u32 ```
     pub fn CurrentCodePointChanged(self: ?*anyopaque, codePoint: u32) void {
         qtc.KCharSelect_CurrentCodePointChanged(@ptrCast(self), @intCast(codePoint));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#currentCodePointChanged)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#currentCodePointChanged)
     ///
     /// ``` self: QtC.KCharSelect, slot: fn (self: QtC.KCharSelect, codePoint: u32) callconv(.c) void ```
     pub fn OnCurrentCodePointChanged(self: ?*anyopaque, slot: fn (?*anyopaque, u32) callconv(.c) void) void {
         qtc.KCharSelect_Connect_CurrentCodePointChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#displayedCharsChanged)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#displayedCharsChanged)
     ///
     /// ``` self: QtC.KCharSelect ```
     pub fn DisplayedCharsChanged(self: ?*anyopaque) void {
         qtc.KCharSelect_DisplayedCharsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#displayedCharsChanged)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#displayedCharsChanged)
     ///
     /// ``` self: QtC.KCharSelect, slot: fn (self: QtC.KCharSelect) callconv(.c) void ```
     pub fn OnDisplayedCharsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KCharSelect_Connect_DisplayedCharsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#charSelected)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#charSelected)
     ///
     /// ``` self: QtC.KCharSelect, c: QtC.QChar ```
     pub fn CharSelected(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.KCharSelect_CharSelected(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#charSelected)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#charSelected)
     ///
     /// ``` self: QtC.KCharSelect, slot: fn (self: QtC.KCharSelect, c: QtC.QChar) callconv(.c) void ```
     pub fn OnCharSelected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCharSelect_Connect_CharSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#codePointSelected)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#codePointSelected)
     ///
     /// ``` self: QtC.KCharSelect, codePoint: u32 ```
     pub fn CodePointSelected(self: ?*anyopaque, codePoint: u32) void {
         qtc.KCharSelect_CodePointSelected(@ptrCast(self), @intCast(codePoint));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#codePointSelected)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#codePointSelected)
     ///
     /// ``` self: QtC.KCharSelect, slot: fn (self: QtC.KCharSelect, codePoint: u32) callconv(.c) void ```
     pub fn OnCodePointSelected(self: ?*anyopaque, slot: fn (?*anyopaque, u32) callconv(.c) void) void {
@@ -5245,7 +5245,7 @@ pub const kcharselect = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcharselect.html#dtor.KCharSelect)
+    /// [Qt documentation](https://api.kde.org/kcharselect.html#dtor.KCharSelect)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5255,7 +5255,7 @@ pub const kcharselect = struct {
     }
 };
 
-/// https://api-staging.kde.org/kcharselect.html#types
+/// https://api.kde.org/kcharselect.html#types
 pub const enums = struct {
     pub const Control = enum {
         pub const SearchLine: i32 = 1;

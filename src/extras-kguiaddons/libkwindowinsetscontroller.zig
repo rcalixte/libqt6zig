@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kwindowinsetscontroller.html
+/// https://api.kde.org/kwindowinsetscontroller.html
 pub const kwindowinsetscontroller = struct {
     /// New constructs a new KWindowInsetsController object.
     ///
@@ -64,56 +64,56 @@ pub const kwindowinsetscontroller = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowinsetscontroller.html#statusBarBackgroundColor)
+    /// [Qt documentation](https://api.kde.org/kwindowinsetscontroller.html#statusBarBackgroundColor)
     ///
     /// ``` self: QtC.KWindowInsetsController ```
     pub fn StatusBarBackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KWindowInsetsController_StatusBarBackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowinsetscontroller.html#setStatusBarBackgroundColor)
+    /// [Qt documentation](https://api.kde.org/kwindowinsetscontroller.html#setStatusBarBackgroundColor)
     ///
     /// ``` self: QtC.KWindowInsetsController, color: QtC.QColor ```
     pub fn SetStatusBarBackgroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KWindowInsetsController_SetStatusBarBackgroundColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowinsetscontroller.html#navigationBarBackgroundColor)
+    /// [Qt documentation](https://api.kde.org/kwindowinsetscontroller.html#navigationBarBackgroundColor)
     ///
     /// ``` self: QtC.KWindowInsetsController ```
     pub fn NavigationBarBackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KWindowInsetsController_NavigationBarBackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowinsetscontroller.html#setNavigationBarBackgroundColor)
+    /// [Qt documentation](https://api.kde.org/kwindowinsetscontroller.html#setNavigationBarBackgroundColor)
     ///
     /// ``` self: QtC.KWindowInsetsController, color: QtC.QColor ```
     pub fn SetNavigationBarBackgroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KWindowInsetsController_SetNavigationBarBackgroundColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowinsetscontroller.html#statusBarBackgroundColorChanged)
+    /// [Qt documentation](https://api.kde.org/kwindowinsetscontroller.html#statusBarBackgroundColorChanged)
     ///
     /// ``` self: QtC.KWindowInsetsController ```
     pub fn StatusBarBackgroundColorChanged(self: ?*anyopaque) void {
         qtc.KWindowInsetsController_StatusBarBackgroundColorChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowinsetscontroller.html#statusBarBackgroundColorChanged)
+    /// [Qt documentation](https://api.kde.org/kwindowinsetscontroller.html#statusBarBackgroundColorChanged)
     ///
     /// ``` self: QtC.KWindowInsetsController, slot: fn (self: QtC.KWindowInsetsController) callconv(.c) void ```
     pub fn OnStatusBarBackgroundColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KWindowInsetsController_Connect_StatusBarBackgroundColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowinsetscontroller.html#navigationBarBackgroundColorChanged)
+    /// [Qt documentation](https://api.kde.org/kwindowinsetscontroller.html#navigationBarBackgroundColorChanged)
     ///
     /// ``` self: QtC.KWindowInsetsController ```
     pub fn NavigationBarBackgroundColorChanged(self: ?*anyopaque) void {
         qtc.KWindowInsetsController_NavigationBarBackgroundColorChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowinsetscontroller.html#navigationBarBackgroundColorChanged)
+    /// [Qt documentation](https://api.kde.org/kwindowinsetscontroller.html#navigationBarBackgroundColorChanged)
     ///
     /// ``` self: QtC.KWindowInsetsController, slot: fn (self: QtC.KWindowInsetsController) callconv(.c) void ```
     pub fn OnNavigationBarBackgroundColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -899,7 +899,7 @@ pub const kwindowinsetscontroller = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowinsetscontroller.html#dtor.KWindowInsetsController)
+    /// [Qt documentation](https://api.kde.org/kwindowinsetscontroller.html#dtor.KWindowInsetsController)
     ///
     /// Delete this object from C++ memory.
     ///

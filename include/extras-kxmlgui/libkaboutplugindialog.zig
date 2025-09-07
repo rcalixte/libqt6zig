@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kaboutplugindialog.html
+/// https://api.kde.org/kaboutplugindialog.html
 pub const kaboutplugindialog = struct {
     /// New constructs a new KAboutPluginDialog object.
     ///
@@ -5386,7 +5386,7 @@ pub const kaboutplugindialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kaboutplugindialog.html#dtor.KAboutPluginDialog)
+    /// [Qt documentation](https://api.kde.org/kaboutplugindialog.html#dtor.KAboutPluginDialog)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5396,7 +5396,7 @@ pub const kaboutplugindialog = struct {
     }
 };
 
-/// https://api-staging.kde.org/kaboutplugindialog.html#types
+/// https://api.kde.org/kaboutplugindialog.html#types
 pub const enums = struct {
     pub const Option = enum {
         pub const NoOptions: i32 = 0;

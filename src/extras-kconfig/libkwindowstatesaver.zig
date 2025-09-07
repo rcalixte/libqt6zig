@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kwindowstatesaver.html
+/// https://api.kde.org/kwindowstatesaver.html
 pub const kwindowstatesaver = struct {
     /// New constructs a new KWindowStateSaver object.
     ///
@@ -813,7 +813,7 @@ pub const kwindowstatesaver = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwindowstatesaver.html#dtor.KWindowStateSaver)
+    /// [Qt documentation](https://api.kde.org/kwindowstatesaver.html#dtor.KWindowStateSaver)
     ///
     /// Delete this object from C++ memory.
     ///

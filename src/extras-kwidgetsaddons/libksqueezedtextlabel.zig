@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ksqueezedtextlabel.html
+/// https://api.kde.org/ksqueezedtextlabel.html
 pub const ksqueezedtextlabel = struct {
     /// New constructs a new KSqueezedTextLabel object.
     ///
@@ -93,14 +93,14 @@ pub const ksqueezedtextlabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KSqueezedTextLabel ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KSqueezedTextLabel_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -109,7 +109,7 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -118,14 +118,14 @@ pub const ksqueezedtextlabel = struct {
         return qtc.KSqueezedTextLabel_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#sizeHint)
     ///
     /// ``` self: QtC.KSqueezedTextLabel ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KSqueezedTextLabel_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -134,7 +134,7 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -143,28 +143,28 @@ pub const ksqueezedtextlabel = struct {
         return qtc.KSqueezedTextLabel_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#setIndent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#setIndent)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, indent: i32 ```
     pub fn SetIndent(self: ?*anyopaque, indent: i32) void {
         qtc.KSqueezedTextLabel_SetIndent(@ptrCast(self), @intCast(indent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#setMargin)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#setMargin)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, margin: i32 ```
     pub fn SetMargin(self: ?*anyopaque, margin: i32) void {
         qtc.KSqueezedTextLabel_SetMargin(@ptrCast(self), @intCast(margin));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#setAlignment)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#setAlignment)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.KSqueezedTextLabel_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#setAlignment)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#setAlignment)
     ///
     /// Allows for overriding the related default method
     ///
@@ -173,7 +173,7 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_OnSetAlignment(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#setAlignment)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#setAlignment)
     ///
     /// Base class method implementation
     ///
@@ -182,7 +182,7 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_QBaseSetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#textElideMode)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#textElideMode)
     ///
     /// ``` self: QtC.KSqueezedTextLabel ```
     ///
@@ -191,14 +191,14 @@ pub const ksqueezedtextlabel = struct {
         return qtc.KSqueezedTextLabel_TextElideMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#setTextElideMode)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#setTextElideMode)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, mode: qnamespace_enums.TextElideMode ```
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
         qtc.KSqueezedTextLabel_SetTextElideMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#fullText)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#fullText)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, allocator: std.mem.Allocator ```
     pub fn FullText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -209,21 +209,21 @@ pub const ksqueezedtextlabel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#isSqueezed)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#isSqueezed)
     ///
     /// ``` self: QtC.KSqueezedTextLabel ```
     pub fn IsSqueezed(self: ?*anyopaque) bool {
         return qtc.KSqueezedTextLabel_IsSqueezed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#contentsRect)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#contentsRect)
     ///
     /// ``` self: QtC.KSqueezedTextLabel ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
         return qtc.KSqueezedTextLabel_ContentsRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#setText)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#setText)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -234,21 +234,21 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#clear)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#clear)
     ///
     /// ``` self: QtC.KSqueezedTextLabel ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KSqueezedTextLabel_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, param1: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KSqueezedTextLabel_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -257,7 +257,7 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#mouseReleaseEvent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -266,14 +266,14 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#resizeEvent)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, param1: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KSqueezedTextLabel_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -282,7 +282,7 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -291,14 +291,14 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#contextMenuEvent)
     ///
     /// ``` self: QtC.KSqueezedTextLabel, param1: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KSqueezedTextLabel_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#contextMenuEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -307,7 +307,7 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#contextMenuEvent)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#contextMenuEvent)
     ///
     /// Base class method implementation
     ///
@@ -316,14 +316,14 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#squeezeTextToLabel)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#squeezeTextToLabel)
     ///
     /// ``` self: QtC.KSqueezedTextLabel ```
     pub fn SqueezeTextToLabel(self: ?*anyopaque) void {
         qtc.KSqueezedTextLabel_SqueezeTextToLabel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#squeezeTextToLabel)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#squeezeTextToLabel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -332,7 +332,7 @@ pub const ksqueezedtextlabel = struct {
         qtc.KSqueezedTextLabel_OnSqueezeTextToLabel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#squeezeTextToLabel)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#squeezeTextToLabel)
     ///
     /// Base class method implementation
     ///
@@ -5688,7 +5688,7 @@ pub const ksqueezedtextlabel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ksqueezedtextlabel.html#dtor.KSqueezedTextLabel)
+    /// [Qt documentation](https://api.kde.org/ksqueezedtextlabel.html#dtor.KSqueezedTextLabel)
     ///
     /// Delete this object from C++ memory.
     ///

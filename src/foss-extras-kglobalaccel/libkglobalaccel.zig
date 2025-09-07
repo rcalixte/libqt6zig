@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kglobalaccel.html
+/// https://api.kde.org/kglobalaccel.html
 pub const kglobalaccel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -37,21 +37,21 @@ pub const kglobalaccel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#self)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#self)
     ///
     ///
     pub fn Self() QtC.KGlobalAccel {
         return qtc.KGlobalAccel_Self();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#stealShortcutSystemwide)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#stealShortcutSystemwide)
     ///
     /// ``` seq: QtC.QKeySequence ```
     pub fn StealShortcutSystemwide(seq: ?*anyopaque) void {
         qtc.KGlobalAccel_StealShortcutSystemwide(@ptrCast(seq));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#cleanComponent)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#cleanComponent)
     ///
     /// ``` componentUnique: []const u8 ```
     pub fn CleanComponent(componentUnique: []const u8) bool {
@@ -62,7 +62,7 @@ pub const kglobalaccel = struct {
         return qtc.KGlobalAccel_CleanComponent(componentUnique_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#isComponentActive)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#isComponentActive)
     ///
     /// ``` componentName: []const u8 ```
     pub fn IsComponentActive(componentName: []const u8) bool {
@@ -73,7 +73,7 @@ pub const kglobalaccel = struct {
         return qtc.KGlobalAccel_IsComponentActive(componentName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#globalShortcutsByKey)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcutsByKey)
     ///
     /// ``` seq: QtC.QKeySequence, allocator: std.mem.Allocator ```
     pub fn GlobalShortcutsByKey(seq: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KGlobalShortcutInfo {
@@ -85,14 +85,14 @@ pub const kglobalaccel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#isGlobalShortcutAvailable)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#isGlobalShortcutAvailable)
     ///
     /// ``` seq: QtC.QKeySequence ```
     pub fn IsGlobalShortcutAvailable(seq: ?*anyopaque) bool {
         return qtc.KGlobalAccel_IsGlobalShortcutAvailable(@ptrCast(seq));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#promptStealShortcutSystemwide)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#promptStealShortcutSystemwide)
     ///
     /// ``` parent: QtC.QWidget, shortcuts: []QtC.KGlobalShortcutInfo, seq: QtC.QKeySequence ```
     pub fn PromptStealShortcutSystemwide(parent: ?*anyopaque, shortcuts: []QtC.KGlobalShortcutInfo, seq: ?*anyopaque) bool {
@@ -103,7 +103,7 @@ pub const kglobalaccel = struct {
         return qtc.KGlobalAccel_PromptStealShortcutSystemwide(@ptrCast(parent), shortcuts_list, @ptrCast(seq));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#setDefaultShortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#setDefaultShortcut)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction, shortcut: []QtC.QKeySequence ```
     pub fn SetDefaultShortcut(self: ?*anyopaque, action: ?*anyopaque, shortcut: []QtC.QKeySequence) bool {
@@ -114,7 +114,7 @@ pub const kglobalaccel = struct {
         return qtc.KGlobalAccel_SetDefaultShortcut(@ptrCast(self), @ptrCast(action), shortcut_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#setShortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#setShortcut)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction, shortcut: []QtC.QKeySequence ```
     pub fn SetShortcut(self: ?*anyopaque, action: ?*anyopaque, shortcut: []QtC.QKeySequence) bool {
@@ -125,7 +125,7 @@ pub const kglobalaccel = struct {
         return qtc.KGlobalAccel_SetShortcut(@ptrCast(self), @ptrCast(action), shortcut_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#setGlobalShortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#setGlobalShortcut)
     ///
     /// ``` action: QtC.QAction, shortcut: []QtC.QKeySequence ```
     pub fn SetGlobalShortcut(action: ?*anyopaque, shortcut: []QtC.QKeySequence) bool {
@@ -136,14 +136,14 @@ pub const kglobalaccel = struct {
         return qtc.KGlobalAccel_SetGlobalShortcut(@ptrCast(action), shortcut_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#setGlobalShortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#setGlobalShortcut)
     ///
     /// ``` action: QtC.QAction, shortcut: QtC.QKeySequence ```
     pub fn SetGlobalShortcut2(action: ?*anyopaque, shortcut: ?*anyopaque) bool {
         return qtc.KGlobalAccel_SetGlobalShortcut2(@ptrCast(action), @ptrCast(shortcut));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#defaultShortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#defaultShortcut)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction, allocator: std.mem.Allocator ```
     pub fn DefaultShortcut(self: ?*anyopaque, action: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -155,7 +155,7 @@ pub const kglobalaccel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#shortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#shortcut)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction, allocator: std.mem.Allocator ```
     pub fn Shortcut(self: ?*anyopaque, action: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -167,7 +167,7 @@ pub const kglobalaccel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#globalShortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcut)
     ///
     /// ``` self: QtC.KGlobalAccel, componentName: []const u8, actionId: []const u8, allocator: std.mem.Allocator ```
     pub fn GlobalShortcut(self: ?*anyopaque, componentName: []const u8, actionId: []const u8, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -187,42 +187,42 @@ pub const kglobalaccel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#removeAllShortcuts)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#removeAllShortcuts)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction ```
     pub fn RemoveAllShortcuts(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KGlobalAccel_RemoveAllShortcuts(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#hasShortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#hasShortcut)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction ```
     pub fn HasShortcut(self: ?*anyopaque, action: ?*anyopaque) bool {
         return qtc.KGlobalAccel_HasShortcut(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#globalShortcutChanged)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcutChanged)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction, seq: QtC.QKeySequence ```
     pub fn GlobalShortcutChanged(self: ?*anyopaque, action: ?*anyopaque, seq: ?*anyopaque) void {
         qtc.KGlobalAccel_GlobalShortcutChanged(@ptrCast(self), @ptrCast(action), @ptrCast(seq));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#globalShortcutChanged)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcutChanged)
     ///
     /// ``` self: QtC.KGlobalAccel, slot: fn (self: QtC.KGlobalAccel, action: QtC.QAction, seq: QtC.QKeySequence) callconv(.c) void ```
     pub fn OnGlobalShortcutChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KGlobalAccel_Connect_GlobalShortcutChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#globalShortcutActiveChanged)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcutActiveChanged)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction, active: bool ```
     pub fn GlobalShortcutActiveChanged(self: ?*anyopaque, action: ?*anyopaque, active: bool) void {
         qtc.KGlobalAccel_GlobalShortcutActiveChanged(@ptrCast(self), @ptrCast(action), active);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#globalShortcutActiveChanged)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcutActiveChanged)
     ///
     /// ``` self: QtC.KGlobalAccel, slot: fn (self: QtC.KGlobalAccel, action: QtC.QAction, active: bool) callconv(.c) void ```
     pub fn OnGlobalShortcutActiveChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
@@ -255,7 +255,7 @@ pub const kglobalaccel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#globalShortcutsByKey)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcutsByKey)
     ///
     /// ``` seq: QtC.QKeySequence, typeVal: kglobalaccel_enums.MatchType, allocator: std.mem.Allocator ```
     pub fn GlobalShortcutsByKey2(seq: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) []QtC.KGlobalShortcutInfo {
@@ -267,7 +267,7 @@ pub const kglobalaccel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#isGlobalShortcutAvailable)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#isGlobalShortcutAvailable)
     ///
     /// ``` seq: QtC.QKeySequence, component: []const u8 ```
     pub fn IsGlobalShortcutAvailable2(seq: ?*anyopaque, component: []const u8) bool {
@@ -278,7 +278,7 @@ pub const kglobalaccel = struct {
         return qtc.KGlobalAccel_IsGlobalShortcutAvailable2(@ptrCast(seq), component_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#setDefaultShortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#setDefaultShortcut)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction, shortcut: []QtC.QKeySequence, loadFlag: kglobalaccel_enums.GlobalShortcutLoading ```
     pub fn SetDefaultShortcut3(self: ?*anyopaque, action: ?*anyopaque, shortcut: []QtC.QKeySequence, loadFlag: i32) bool {
@@ -289,7 +289,7 @@ pub const kglobalaccel = struct {
         return qtc.KGlobalAccel_SetDefaultShortcut3(@ptrCast(self), @ptrCast(action), shortcut_list, @intCast(loadFlag));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kglobalaccel.html#setShortcut)
+    /// [Qt documentation](https://api.kde.org/kglobalaccel.html#setShortcut)
     ///
     /// ``` self: QtC.KGlobalAccel, action: QtC.QAction, shortcut: []QtC.QKeySequence, loadFlag: kglobalaccel_enums.GlobalShortcutLoading ```
     pub fn SetShortcut3(self: ?*anyopaque, action: ?*anyopaque, shortcut: []QtC.QKeySequence, loadFlag: i32) bool {
@@ -707,7 +707,7 @@ pub const kglobalaccel = struct {
     }
 };
 
-/// https://api-staging.kde.org/kglobalaccel.html#types
+/// https://api.kde.org/kglobalaccel.html#types
 pub const enums = struct {
     pub const GlobalShortcutLoading = enum {
         pub const Autoloading: i32 = 0;

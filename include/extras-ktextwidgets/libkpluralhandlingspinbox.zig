@@ -10,7 +10,7 @@ const qvalidator_enums = @import("../libqvalidator.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kpluralhandlingspinbox.html
+/// https://api.kde.org/kpluralhandlingspinbox.html
 pub const kpluralhandlingspinbox = struct {
     /// New constructs a new KPluralHandlingSpinBox object.
     ///
@@ -70,7 +70,7 @@ pub const kpluralhandlingspinbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluralhandlingspinbox.html#setSuffix)
+    /// [Qt documentation](https://api.kde.org/kpluralhandlingspinbox.html#setSuffix)
     ///
     /// ``` self: QtC.KPluralHandlingSpinBox, suffix: QtC.KLocalizedString ```
     pub fn SetSuffix(self: ?*anyopaque, suffix: ?*anyopaque) void {
@@ -5934,7 +5934,7 @@ pub const kpluralhandlingspinbox = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kpluralhandlingspinbox.html#dtor.KPluralHandlingSpinBox)
+    /// [Qt documentation](https://api.kde.org/kpluralhandlingspinbox.html#dtor.KPluralHandlingSpinBox)
     ///
     /// Delete this object from C++ memory.
     ///

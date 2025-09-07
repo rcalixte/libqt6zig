@@ -2,9 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
-/// https://api-staging.kde.org/kruntimeplatform.html
+/// https://api.kde.org/kruntimeplatform.html
 pub const kruntimeplatform = struct {
-    /// [Qt documentation](https://api-staging.kde.org/kruntimeplatform.html#runtimePlatform)
+    /// [Qt documentation](https://api.kde.org/kruntimeplatform.html#runtimePlatform)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn RuntimePlatform(allocator: std.mem.Allocator) [][]const u8 {

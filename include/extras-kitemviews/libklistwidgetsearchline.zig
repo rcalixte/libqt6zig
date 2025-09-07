@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/klistwidgetsearchline.html
+/// https://api.kde.org/klistwidgetsearchline.html
 pub const klistwidgetsearchline = struct {
     /// New constructs a new KListWidgetSearchLine object.
     ///
@@ -76,7 +76,7 @@ pub const klistwidgetsearchline = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#caseSensitive)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#caseSensitive)
     ///
     /// ``` self: QtC.KListWidgetSearchLine ```
     ///
@@ -85,14 +85,14 @@ pub const klistwidgetsearchline = struct {
         return qtc.KListWidgetSearchLine_CaseSensitive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#listWidget)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#listWidget)
     ///
     /// ``` self: QtC.KListWidgetSearchLine ```
     pub fn ListWidget(self: ?*anyopaque) QtC.QListWidget {
         return qtc.KListWidgetSearchLine_ListWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#updateSearch)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#updateSearch)
     ///
     /// ``` self: QtC.KListWidgetSearchLine, s: []const u8 ```
     pub fn UpdateSearch(self: ?*anyopaque, s: []const u8) void {
@@ -103,7 +103,7 @@ pub const klistwidgetsearchline = struct {
         qtc.KListWidgetSearchLine_UpdateSearch(@ptrCast(self), s_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#updateSearch)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#updateSearch)
     ///
     /// Allows for overriding the related default method
     ///
@@ -112,7 +112,7 @@ pub const klistwidgetsearchline = struct {
         qtc.KListWidgetSearchLine_OnUpdateSearch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#updateSearch)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#updateSearch)
     ///
     /// Base class method implementation
     ///
@@ -125,28 +125,28 @@ pub const klistwidgetsearchline = struct {
         qtc.KListWidgetSearchLine_QBaseUpdateSearch(@ptrCast(self), s_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#setCaseSensitivity)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#setCaseSensitivity)
     ///
     /// ``` self: QtC.KListWidgetSearchLine, cs: qnamespace_enums.CaseSensitivity ```
     pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
         qtc.KListWidgetSearchLine_SetCaseSensitivity(@ptrCast(self), @intCast(cs));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#setListWidget)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#setListWidget)
     ///
     /// ``` self: QtC.KListWidgetSearchLine, lv: QtC.QListWidget ```
     pub fn SetListWidget(self: ?*anyopaque, lv: ?*anyopaque) void {
         qtc.KListWidgetSearchLine_SetListWidget(@ptrCast(self), @ptrCast(lv));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#clear)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#clear)
     ///
     /// ``` self: QtC.KListWidgetSearchLine ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KListWidgetSearchLine_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#itemMatches)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#itemMatches)
     ///
     /// ``` self: QtC.KListWidgetSearchLine, item: QtC.QListWidgetItem, s: []const u8 ```
     pub fn ItemMatches(self: ?*anyopaque, item: ?*anyopaque, s: []const u8) bool {
@@ -157,7 +157,7 @@ pub const klistwidgetsearchline = struct {
         return qtc.KListWidgetSearchLine_ItemMatches(@ptrCast(self), @ptrCast(item), s_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#itemMatches)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#itemMatches)
     ///
     /// Allows for overriding the related default method
     ///
@@ -166,7 +166,7 @@ pub const klistwidgetsearchline = struct {
         qtc.KListWidgetSearchLine_OnItemMatches(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#itemMatches)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#itemMatches)
     ///
     /// Base class method implementation
     ///
@@ -179,14 +179,14 @@ pub const klistwidgetsearchline = struct {
         return qtc.KListWidgetSearchLine_QBaseItemMatches(@ptrCast(self), @ptrCast(item), s_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#event)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#event)
     ///
     /// ``` self: QtC.KListWidgetSearchLine, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KListWidgetSearchLine_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#event)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -195,7 +195,7 @@ pub const klistwidgetsearchline = struct {
         qtc.KListWidgetSearchLine_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#event)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#event)
     ///
     /// Base class method implementation
     ///
@@ -5991,7 +5991,7 @@ pub const klistwidgetsearchline = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/klistwidgetsearchline.html#dtor.KListWidgetSearchLine)
+    /// [Qt documentation](https://api.kde.org/klistwidgetsearchline.html#dtor.KListWidgetSearchLine)
     ///
     /// Delete this object from C++ memory.
     ///

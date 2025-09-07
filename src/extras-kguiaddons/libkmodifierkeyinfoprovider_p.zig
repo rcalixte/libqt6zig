@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kmodifierkeyinfoprovider.html
+/// https://api.kde.org/kmodifierkeyinfoprovider.html
 pub const kmodifierkeyinfoprovider = struct {
     /// New constructs a new KModifierKeyInfoProvider object.
     ///
@@ -58,28 +58,28 @@ pub const kmodifierkeyinfoprovider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#isKeyPressed)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#isKeyPressed)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key ```
     pub fn IsKeyPressed(self: ?*anyopaque, key: i32) bool {
         return qtc.KModifierKeyInfoProvider_IsKeyPressed(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#isKeyLatched)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#isKeyLatched)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key ```
     pub fn IsKeyLatched(self: ?*anyopaque, key: i32) bool {
         return qtc.KModifierKeyInfoProvider_IsKeyLatched(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#setKeyLatched)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLatched)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, latched: bool ```
     pub fn SetKeyLatched(self: ?*anyopaque, key: i32, latched: bool) bool {
         return qtc.KModifierKeyInfoProvider_SetKeyLatched(@ptrCast(self), @intCast(key), latched);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#setKeyLatched)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLatched)
     ///
     /// Allows for overriding the related default method
     ///
@@ -88,7 +88,7 @@ pub const kmodifierkeyinfoprovider = struct {
         qtc.KModifierKeyInfoProvider_OnSetKeyLatched(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#setKeyLatched)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLatched)
     ///
     /// Base class method implementation
     ///
@@ -97,21 +97,21 @@ pub const kmodifierkeyinfoprovider = struct {
         return qtc.KModifierKeyInfoProvider_QBaseSetKeyLatched(@ptrCast(self), @intCast(key), latched);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#isKeyLocked)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#isKeyLocked)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key ```
     pub fn IsKeyLocked(self: ?*anyopaque, key: i32) bool {
         return qtc.KModifierKeyInfoProvider_IsKeyLocked(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#setKeyLocked)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLocked)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, locked: bool ```
     pub fn SetKeyLocked(self: ?*anyopaque, key: i32, locked: bool) bool {
         return qtc.KModifierKeyInfoProvider_SetKeyLocked(@ptrCast(self), @intCast(key), locked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#setKeyLocked)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLocked)
     ///
     /// Allows for overriding the related default method
     ///
@@ -120,7 +120,7 @@ pub const kmodifierkeyinfoprovider = struct {
         qtc.KModifierKeyInfoProvider_OnSetKeyLocked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#setKeyLocked)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLocked)
     ///
     /// Base class method implementation
     ///
@@ -129,21 +129,21 @@ pub const kmodifierkeyinfoprovider = struct {
         return qtc.KModifierKeyInfoProvider_QBaseSetKeyLocked(@ptrCast(self), @intCast(key), locked);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#isButtonPressed)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#isButtonPressed)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, button: qnamespace_enums.MouseButton ```
     pub fn IsButtonPressed(self: ?*anyopaque, button: i64) bool {
         return qtc.KModifierKeyInfoProvider_IsButtonPressed(@ptrCast(self), @intCast(button));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#knowsKey)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#knowsKey)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key ```
     pub fn KnowsKey(self: ?*anyopaque, key: i32) bool {
         return qtc.KModifierKeyInfoProvider_KnowsKey(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#knownKeys)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#knownKeys)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, allocator: std.mem.Allocator ```
     ///
@@ -157,98 +157,98 @@ pub const kmodifierkeyinfoprovider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyLatched)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLatched)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool ```
     pub fn KeyLatched(self: ?*anyopaque, key: i32, state: bool) void {
         qtc.KModifierKeyInfoProvider_KeyLatched(@ptrCast(self), @intCast(key), state);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyLatched)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLatched)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void ```
     pub fn OnKeyLatched(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyLatched(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyLocked)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLocked)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool ```
     pub fn KeyLocked(self: ?*anyopaque, key: i32, state: bool) void {
         qtc.KModifierKeyInfoProvider_KeyLocked(@ptrCast(self), @intCast(key), state);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyLocked)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLocked)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void ```
     pub fn OnKeyLocked(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyLocked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyPressed)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyPressed)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool ```
     pub fn KeyPressed(self: ?*anyopaque, key: i32, state: bool) void {
         qtc.KModifierKeyInfoProvider_KeyPressed(@ptrCast(self), @intCast(key), state);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyPressed)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyPressed)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void ```
     pub fn OnKeyPressed(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#buttonPressed)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#buttonPressed)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, button: qnamespace_enums.MouseButton, state: bool ```
     pub fn ButtonPressed(self: ?*anyopaque, button: i64, state: bool) void {
         qtc.KModifierKeyInfoProvider_ButtonPressed(@ptrCast(self), @intCast(button), state);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#buttonPressed)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#buttonPressed)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, button: qnamespace_enums.MouseButton, state: bool) callconv(.c) void ```
     pub fn OnButtonPressed(self: ?*anyopaque, slot: fn (?*anyopaque, i64, bool) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_ButtonPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyAdded)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyAdded)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key ```
     pub fn KeyAdded(self: ?*anyopaque, key: i32) void {
         qtc.KModifierKeyInfoProvider_KeyAdded(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyAdded)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyAdded)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void ```
     pub fn OnKeyAdded(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyRemoved)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyRemoved)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key ```
     pub fn KeyRemoved(self: ?*anyopaque, key: i32) void {
         qtc.KModifierKeyInfoProvider_KeyRemoved(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#keyRemoved)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyRemoved)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void ```
     pub fn OnKeyRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KModifierKeyInfoProvider_Connect_KeyRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
     ///
     /// ``` self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState ```
     pub fn StateUpdated(self: ?*anyopaque, key: i32, state: i32) void {
         qtc.KModifierKeyInfoProvider_StateUpdated(@ptrCast(self), @intCast(key), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
     ///
     /// Allows for overriding the related default method
     ///
@@ -257,7 +257,7 @@ pub const kmodifierkeyinfoprovider = struct {
         qtc.KModifierKeyInfoProvider_OnStateUpdated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
     ///
     /// Base class method implementation
     ///
@@ -1045,7 +1045,7 @@ pub const kmodifierkeyinfoprovider = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmodifierkeyinfoprovider.html#dtor.KModifierKeyInfoProvider)
+    /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#dtor.KModifierKeyInfoProvider)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1055,7 +1055,7 @@ pub const kmodifierkeyinfoprovider = struct {
     }
 };
 
-/// https://api-staging.kde.org/kmodifierkeyinfoprovider_p.html#types
+/// https://api.kde.org/kmodifierkeyinfoprovider_p.html#types
 pub const enums = struct {
     pub const ModifierState = enum {
         pub const Nothing: i32 = 0;

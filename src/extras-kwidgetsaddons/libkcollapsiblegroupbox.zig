@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcollapsiblegroupbox.html
+/// https://api.kde.org/kcollapsiblegroupbox.html
 pub const kcollapsiblegroupbox = struct {
     /// New constructs a new KCollapsibleGroupBox object.
     ///
@@ -68,7 +68,7 @@ pub const kcollapsiblegroupbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#setTitle)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#setTitle)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, title: []const u8 ```
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
@@ -79,7 +79,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_SetTitle(@ptrCast(self), title_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#title)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#title)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,28 +90,28 @@ pub const kcollapsiblegroupbox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#setExpanded)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#setExpanded)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, expanded: bool ```
     pub fn SetExpanded(self: ?*anyopaque, expanded: bool) void {
         qtc.KCollapsibleGroupBox_SetExpanded(@ptrCast(self), expanded);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#isExpanded)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#isExpanded)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox ```
     pub fn IsExpanded(self: ?*anyopaque) bool {
         return qtc.KCollapsibleGroupBox_IsExpanded(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#sizeHint)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KCollapsibleGroupBox_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -120,7 +120,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -129,14 +129,14 @@ pub const kcollapsiblegroupbox = struct {
         return qtc.KCollapsibleGroupBox_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KCollapsibleGroupBox_MinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -145,7 +145,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#minimumSizeHint)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#minimumSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -154,63 +154,63 @@ pub const kcollapsiblegroupbox = struct {
         return qtc.KCollapsibleGroupBox_QBaseMinimumSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#toggle)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#toggle)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox ```
     pub fn Toggle(self: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_Toggle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#expand)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#expand)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox ```
     pub fn Expand(self: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_Expand(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#collapse)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#collapse)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox ```
     pub fn Collapse(self: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_Collapse(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#titleChanged)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#titleChanged)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox ```
     pub fn TitleChanged(self: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_TitleChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#titleChanged)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#titleChanged)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, slot: fn (self: QtC.KCollapsibleGroupBox) callconv(.c) void ```
     pub fn OnTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KCollapsibleGroupBox_Connect_TitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#expandedChanged)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#expandedChanged)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox ```
     pub fn ExpandedChanged(self: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_ExpandedChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#expandedChanged)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#expandedChanged)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, slot: fn (self: QtC.KCollapsibleGroupBox) callconv(.c) void ```
     pub fn OnExpandedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KCollapsibleGroupBox_Connect_ExpandedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#paintEvent)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -219,7 +219,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -228,14 +228,14 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#event)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#event)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KCollapsibleGroupBox_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#event)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -244,7 +244,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#event)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#event)
     ///
     /// Base class method implementation
     ///
@@ -253,14 +253,14 @@ pub const kcollapsiblegroupbox = struct {
         return qtc.KCollapsibleGroupBox_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#mousePressEvent)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, param1: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -269,7 +269,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#mousePressEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -278,14 +278,14 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, param1: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -294,7 +294,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#mouseMoveEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -303,14 +303,14 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#leaveEvent)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, param1: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_LeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#leaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -319,7 +319,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#leaveEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#leaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -328,14 +328,14 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_QBaseLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#keyPressEvent)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, param1: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -344,7 +344,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -353,14 +353,14 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#resizeEvent)
     ///
     /// ``` self: QtC.KCollapsibleGroupBox, param1: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCollapsibleGroupBox_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -369,7 +369,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.KCollapsibleGroupBox_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#resizeEvent)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -5087,7 +5087,7 @@ pub const kcollapsiblegroupbox = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcollapsiblegroupbox.html#dtor.KCollapsibleGroupBox)
+    /// [Qt documentation](https://api.kde.org/kcollapsiblegroupbox.html#dtor.KCollapsibleGroupBox)
     ///
     /// Delete this object from C++ memory.
     ///

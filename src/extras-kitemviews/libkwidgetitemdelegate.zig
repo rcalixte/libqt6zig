@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kwidgetitemdelegate.html
+/// https://api.kde.org/kwidgetitemdelegate.html
 pub const kwidgetitemdelegate = struct {
     /// New constructs a new KWidgetItemDelegate object.
     ///
@@ -66,28 +66,28 @@ pub const kwidgetitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#itemView)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#itemView)
     ///
     /// ``` self: QtC.KWidgetItemDelegate ```
     pub fn ItemView(self: ?*anyopaque) QtC.QAbstractItemView {
         return qtc.KWidgetItemDelegate_ItemView(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#focusedIndex)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#focusedIndex)
     ///
     /// ``` self: QtC.KWidgetItemDelegate ```
     pub fn FocusedIndex(self: ?*anyopaque) QtC.QPersistentModelIndex {
         return qtc.KWidgetItemDelegate_FocusedIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#resetModel)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#resetModel)
     ///
     /// ``` self: QtC.KWidgetItemDelegate ```
     pub fn ResetModel(self: ?*anyopaque) void {
         qtc.KWidgetItemDelegate_ResetModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#createItemWidgets)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#createItemWidgets)
     ///
     /// ``` self: QtC.KWidgetItemDelegate, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn CreateItemWidgets(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -99,7 +99,7 @@ pub const kwidgetitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#createItemWidgets)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#createItemWidgets)
     ///
     /// Allows for overriding the related default method
     ///
@@ -108,7 +108,7 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnCreateItemWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#createItemWidgets)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#createItemWidgets)
     ///
     /// Base class method implementation
     ///
@@ -122,7 +122,7 @@ pub const kwidgetitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
     ///
     /// ``` self: QtC.KWidgetItemDelegate, widgets: []QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QPersistentModelIndex ```
     pub fn UpdateItemWidgets(self: ?*anyopaque, widgets: []?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
@@ -133,7 +133,7 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_UpdateItemWidgets(@ptrCast(self), widgets_list, @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
     ///
     /// Allows for overriding the related default method
     ///
@@ -142,7 +142,7 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnUpdateItemWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
     ///
     /// Base class method implementation
     ///
@@ -155,7 +155,7 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_QBaseUpdateItemWidgets(@ptrCast(self), widgets_list, @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
     ///
     /// ``` self: QtC.KWidgetItemDelegate, widget: QtC.QWidget, types: []qcoreevent_enums.Type ```
     pub fn SetBlockedEventTypes(self: ?*anyopaque, widget: ?*anyopaque, types: []i32) void {
@@ -166,7 +166,7 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_SetBlockedEventTypes(@ptrCast(self), @ptrCast(widget), types_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -175,7 +175,7 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnSetBlockedEventTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
     ///
     /// Base class method implementation
     ///
@@ -188,7 +188,7 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_QBaseSetBlockedEventTypes(@ptrCast(self), @ptrCast(widget), types_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
     ///
     /// ``` self: QtC.KWidgetItemDelegate, widget: QtC.QWidget, allocator: std.mem.Allocator ```
     ///
@@ -202,7 +202,7 @@ pub const kwidgetitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -211,7 +211,7 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnBlockedEventTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
     ///
     /// Base class method implementation
     ///
@@ -1418,7 +1418,7 @@ pub const kwidgetitemdelegate = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kwidgetitemdelegate.html#dtor.KWidgetItemDelegate)
+    /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#dtor.KWidgetItemDelegate)
     ///
     /// Delete this object from C++ memory.
     ///

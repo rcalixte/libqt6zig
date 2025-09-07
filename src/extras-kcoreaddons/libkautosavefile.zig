@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kautosavefile.html
+/// https://api.kde.org/kautosavefile.html
 pub const kautosavefile = struct {
     /// New constructs a new KAutoSaveFile object.
     ///
@@ -80,28 +80,28 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#managedFile)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#managedFile)
     ///
     /// ``` self: QtC.KAutoSaveFile ```
     pub fn ManagedFile(self: ?*anyopaque) QtC.QUrl {
         return qtc.KAutoSaveFile_ManagedFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#setManagedFile)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#setManagedFile)
     ///
     /// ``` self: QtC.KAutoSaveFile, filename: QtC.QUrl ```
     pub fn SetManagedFile(self: ?*anyopaque, filename: ?*anyopaque) void {
         qtc.KAutoSaveFile_SetManagedFile(@ptrCast(self), @ptrCast(filename));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#releaseLock)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#releaseLock)
     ///
     /// ``` self: QtC.KAutoSaveFile ```
     pub fn ReleaseLock(self: ?*anyopaque) void {
         qtc.KAutoSaveFile_ReleaseLock(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#releaseLock)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#releaseLock)
     ///
     /// Allows for overriding the related default method
     ///
@@ -110,7 +110,7 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_OnReleaseLock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#releaseLock)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#releaseLock)
     ///
     /// Base class method implementation
     ///
@@ -119,14 +119,14 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_QBaseReleaseLock(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#open)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#open)
     ///
     /// ``` self: QtC.KAutoSaveFile, openmode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open(self: ?*anyopaque, openmode: i32) bool {
         return qtc.KAutoSaveFile_Open(@ptrCast(self), @intCast(openmode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#open)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#open)
     ///
     /// Allows for overriding the related default method
     ///
@@ -135,7 +135,7 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#open)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#open)
     ///
     /// Base class method implementation
     ///
@@ -144,7 +144,7 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_QBaseOpen(@ptrCast(self), @intCast(openmode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#staleFiles)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#staleFiles)
     ///
     /// ``` url: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn StaleFiles(url: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
@@ -156,7 +156,7 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#allStaleFiles)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#allStaleFiles)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AllStaleFiles(allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
@@ -194,7 +194,7 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#staleFiles)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#staleFiles)
     ///
     /// ``` url: QtC.QUrl, applicationName: []const u8, allocator: std.mem.Allocator ```
     pub fn StaleFiles2(url: ?*anyopaque, applicationName: []const u8, allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
@@ -210,7 +210,7 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#allStaleFiles)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#allStaleFiles)
     ///
     /// ``` applicationName: []const u8, allocator: std.mem.Allocator ```
     pub fn AllStaleFiles1(applicationName: []const u8, allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
@@ -2561,7 +2561,7 @@ pub const kautosavefile = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kautosavefile.html#dtor.KAutoSaveFile)
+    /// [Qt documentation](https://api.kde.org/kautosavefile.html#dtor.KAutoSaveFile)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -6,7 +6,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/ktwofingerswipe.html
+/// https://api.kde.org/ktwofingerswipe.html
 pub const ktwofingerswipe = struct {
     /// New constructs a new KTwoFingerSwipe object.
     ///
@@ -66,56 +66,56 @@ pub const ktwofingerswipe = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswipe.html#pos)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#pos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
         return qtc.KTwoFingerSwipe_Pos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswipe.html#setPos)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#setPos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: QtC.QPointF) void {
         qtc.KTwoFingerSwipe_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswipe.html#screenPos)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#screenPos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn ScreenPos(self: ?*anyopaque) QtC.QPointF {
         return qtc.KTwoFingerSwipe_ScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswipe.html#setScreenPos)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#setScreenPos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, screenPos: QtC.QPointF ```
     pub fn SetScreenPos(self: ?*anyopaque, screenPos: QtC.QPointF) void {
         qtc.KTwoFingerSwipe_SetScreenPos(@ptrCast(self), @ptrCast(screenPos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswipe.html#scenePos)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#scenePos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.KTwoFingerSwipe_ScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswipe.html#setScenePos)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#setScenePos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, scenePos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, scenePos: QtC.QPointF) void {
         qtc.KTwoFingerSwipe_SetScenePos(@ptrCast(self), @ptrCast(scenePos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswipe.html#swipeAngle)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#swipeAngle)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn SwipeAngle(self: ?*anyopaque) f64 {
         return qtc.KTwoFingerSwipe_SwipeAngle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswipe.html#setSwipeAngle)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#setSwipeAngle)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, swipeAngle: f64 ```
     pub fn SetSwipeAngle(self: ?*anyopaque, swipeAngle: f64) void {
@@ -979,7 +979,7 @@ pub const ktwofingerswipe = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswipe.html#dtor.KTwoFingerSwipe)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#dtor.KTwoFingerSwipe)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -989,7 +989,7 @@ pub const ktwofingerswipe = struct {
     }
 };
 
-/// https://api-staging.kde.org/ktwofingerswiperecognizer.html
+/// https://api.kde.org/ktwofingerswiperecognizer.html
 pub const ktwofingerswiperecognizer = struct {
     /// New constructs a new KTwoFingerSwipeRecognizer object.
     ///
@@ -998,14 +998,14 @@ pub const ktwofingerswiperecognizer = struct {
         return qtc.KTwoFingerSwipeRecognizer_new();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#create)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#create)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, target: QtC.QObject ```
     pub fn Create(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
         return qtc.KTwoFingerSwipeRecognizer_Create(@ptrCast(self), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#create)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#create)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1014,7 +1014,7 @@ pub const ktwofingerswiperecognizer = struct {
         qtc.KTwoFingerSwipeRecognizer_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#create)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#create)
     ///
     /// Base class method implementation
     ///
@@ -1023,7 +1023,7 @@ pub const ktwofingerswiperecognizer = struct {
         return qtc.KTwoFingerSwipeRecognizer_QBaseCreate(@ptrCast(self), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#recognize)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
@@ -1032,7 +1032,7 @@ pub const ktwofingerswiperecognizer = struct {
         return qtc.KTwoFingerSwipeRecognizer_Recognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#recognize)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1041,7 +1041,7 @@ pub const ktwofingerswiperecognizer = struct {
         qtc.KTwoFingerSwipeRecognizer_OnRecognize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#recognize)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
     ///
     /// Base class method implementation
     ///
@@ -1052,28 +1052,28 @@ pub const ktwofingerswiperecognizer = struct {
         return qtc.KTwoFingerSwipeRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#maxSwipeTime)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#maxSwipeTime)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer ```
     pub fn MaxSwipeTime(self: ?*anyopaque) i32 {
         return qtc.KTwoFingerSwipeRecognizer_MaxSwipeTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#setMaxSwipeTime)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#setMaxSwipeTime)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, i: i32 ```
     pub fn SetMaxSwipeTime(self: ?*anyopaque, i: i32) void {
         qtc.KTwoFingerSwipeRecognizer_SetMaxSwipeTime(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#minSswipeDistance)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#minSswipeDistance)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer ```
     pub fn MinSswipeDistance(self: ?*anyopaque) i32 {
         return qtc.KTwoFingerSwipeRecognizer_MinSswipeDistance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#setSwipeDistance)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#setSwipeDistance)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, i: i32 ```
     pub fn SetSwipeDistance(self: ?*anyopaque, i: i32) void {
@@ -1142,7 +1142,7 @@ pub const ktwofingerswiperecognizer = struct {
         qtc.KTwoFingerSwipeRecognizer_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/ktwofingerswiperecognizer.html#dtor.KTwoFingerSwipeRecognizer)
+    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#dtor.KTwoFingerSwipeRecognizer)
     ///
     /// Delete this object from C++ memory.
     ///

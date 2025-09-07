@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kfontrequester.html
+/// https://api.kde.org/kfontrequester.html
 pub const kfontrequester = struct {
     /// New constructs a new KFontRequester object.
     ///
@@ -75,21 +75,21 @@ pub const kfontrequester = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#font)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#font)
     ///
     /// ``` self: QtC.KFontRequester ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.KFontRequester_Font(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#isFixedOnly)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#isFixedOnly)
     ///
     /// ``` self: QtC.KFontRequester ```
     pub fn IsFixedOnly(self: ?*anyopaque) bool {
         return qtc.KFontRequester_IsFixedOnly(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#sampleText)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#sampleText)
     ///
     /// ``` self: QtC.KFontRequester, allocator: std.mem.Allocator ```
     pub fn SampleText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -100,7 +100,7 @@ pub const kfontrequester = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#title)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#title)
     ///
     /// ``` self: QtC.KFontRequester, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -111,28 +111,28 @@ pub const kfontrequester = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#label)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#label)
     ///
     /// ``` self: QtC.KFontRequester ```
     pub fn Label(self: ?*anyopaque) QtC.QLabel {
         return qtc.KFontRequester_Label(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#button)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#button)
     ///
     /// ``` self: QtC.KFontRequester ```
     pub fn Button(self: ?*anyopaque) QtC.QPushButton {
         return qtc.KFontRequester_Button(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#setFont)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#setFont)
     ///
     /// ``` self: QtC.KFontRequester, font: QtC.QFont, onlyFixed: bool ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque, onlyFixed: bool) void {
         qtc.KFontRequester_SetFont(@ptrCast(self), @ptrCast(font), onlyFixed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#setFont)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#setFont)
     ///
     /// Allows for overriding the related default method
     ///
@@ -141,7 +141,7 @@ pub const kfontrequester = struct {
         qtc.KFontRequester_OnSetFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#setFont)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#setFont)
     ///
     /// Base class method implementation
     ///
@@ -150,7 +150,7 @@ pub const kfontrequester = struct {
         qtc.KFontRequester_QBaseSetFont(@ptrCast(self), @ptrCast(font), onlyFixed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#setSampleText)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#setSampleText)
     ///
     /// ``` self: QtC.KFontRequester, text: []const u8 ```
     pub fn SetSampleText(self: ?*anyopaque, text: []const u8) void {
@@ -161,7 +161,7 @@ pub const kfontrequester = struct {
         qtc.KFontRequester_SetSampleText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#setSampleText)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#setSampleText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -170,7 +170,7 @@ pub const kfontrequester = struct {
         qtc.KFontRequester_OnSetSampleText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#setSampleText)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#setSampleText)
     ///
     /// Base class method implementation
     ///
@@ -183,7 +183,7 @@ pub const kfontrequester = struct {
         qtc.KFontRequester_QBaseSetSampleText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#setTitle)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#setTitle)
     ///
     /// ``` self: QtC.KFontRequester, title: []const u8 ```
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
@@ -194,7 +194,7 @@ pub const kfontrequester = struct {
         qtc.KFontRequester_SetTitle(@ptrCast(self), title_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#setTitle)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#setTitle)
     ///
     /// Allows for overriding the related default method
     ///
@@ -203,7 +203,7 @@ pub const kfontrequester = struct {
         qtc.KFontRequester_OnSetTitle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#setTitle)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#setTitle)
     ///
     /// Base class method implementation
     ///
@@ -216,28 +216,28 @@ pub const kfontrequester = struct {
         qtc.KFontRequester_QBaseSetTitle(@ptrCast(self), title_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#fontSelected)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#fontSelected)
     ///
     /// ``` self: QtC.KFontRequester, font: QtC.QFont ```
     pub fn FontSelected(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.KFontRequester_FontSelected(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#fontSelected)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#fontSelected)
     ///
     /// ``` self: QtC.KFontRequester, slot: fn (self: QtC.KFontRequester, font: QtC.QFont) callconv(.c) void ```
     pub fn OnFontSelected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KFontRequester_Connect_FontSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#eventFilter)
     ///
     /// ``` self: QtC.KFontRequester, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFontRequester_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -246,7 +246,7 @@ pub const kfontrequester = struct {
         qtc.KFontRequester_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#eventFilter)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -5210,7 +5210,7 @@ pub const kfontrequester = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontrequester.html#dtor.KFontRequester)
+    /// [Qt documentation](https://api.kde.org/kfontrequester.html#dtor.KFontRequester)
     ///
     /// Delete this object from C++ memory.
     ///

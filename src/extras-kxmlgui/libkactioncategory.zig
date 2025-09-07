@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kactioncategory.html
+/// https://api.kde.org/kactioncategory.html
 pub const kactioncategory = struct {
     /// New constructs a new KActionCategory object.
     ///
@@ -75,7 +75,7 @@ pub const kactioncategory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncategory.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kactioncategory.html#addAction)
     ///
     /// ``` self: QtC.KActionCategory, name: []const u8, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, name: []const u8, action: ?*anyopaque) QtC.QAction {
@@ -86,14 +86,14 @@ pub const kactioncategory = struct {
         return qtc.KActionCategory_AddAction(@ptrCast(self), name_str, @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncategory.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kactioncategory.html#addAction)
     ///
     /// ``` self: QtC.KActionCategory, actionType: kstandardactions_enums.StandardAction ```
     pub fn AddAction2(self: ?*anyopaque, actionType: i32) QtC.QAction {
         return qtc.KActionCategory_AddAction2(@ptrCast(self), @intCast(actionType));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncategory.html#actions)
+    /// [Qt documentation](https://api.kde.org/kactioncategory.html#actions)
     ///
     /// ``` self: QtC.KActionCategory, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -105,14 +105,14 @@ pub const kactioncategory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncategory.html#collection)
+    /// [Qt documentation](https://api.kde.org/kactioncategory.html#collection)
     ///
     /// ``` self: QtC.KActionCategory ```
     pub fn Collection(self: ?*anyopaque) QtC.KActionCollection {
         return qtc.KActionCategory_Collection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncategory.html#text)
+    /// [Qt documentation](https://api.kde.org/kactioncategory.html#text)
     ///
     /// ``` self: QtC.KActionCategory, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -123,7 +123,7 @@ pub const kactioncategory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncategory.html#setText)
+    /// [Qt documentation](https://api.kde.org/kactioncategory.html#setText)
     ///
     /// ``` self: QtC.KActionCategory, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -913,7 +913,7 @@ pub const kactioncategory = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactioncategory.html#dtor.KActionCategory)
+    /// [Qt documentation](https://api.kde.org/kactioncategory.html#dtor.KActionCategory)
     ///
     /// Delete this object from C++ memory.
     ///

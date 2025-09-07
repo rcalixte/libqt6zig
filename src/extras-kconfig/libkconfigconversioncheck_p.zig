@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://api-staging.kde.org/kconfigconversioncheck-supported.html
+/// https://api.kde.org/kconfigconversioncheck-supported.html
 pub const kconfigconversioncheck__supported = struct {
     /// New constructs a new KConfigConversionCheck::supported object.
     ///
@@ -39,7 +39,7 @@ pub const kconfigconversioncheck__supported = struct {
     }
 };
 
-/// https://api-staging.kde.org/kconfigconversioncheck-unsupported.html
+/// https://api.kde.org/kconfigconversioncheck-unsupported.html
 pub const kconfigconversioncheck__unsupported = struct {
     /// New constructs a new KConfigConversionCheck::unsupported object.
     ///

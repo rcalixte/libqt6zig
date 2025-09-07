@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kfontchooser.html
+/// https://api.kde.org/kfontchooser.html
 pub const kfontchooser = struct {
     /// New constructs a new KFontChooser object.
     ///
@@ -83,21 +83,21 @@ pub const kfontchooser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#enableColumn)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#enableColumn)
     ///
     /// ``` self: QtC.KFontChooser, column: i32, state: bool ```
     pub fn EnableColumn(self: ?*anyopaque, column: i32, state: bool) void {
         qtc.KFontChooser_EnableColumn(@ptrCast(self), @intCast(column), state);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#setFont)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#setFont)
     ///
     /// ``` self: QtC.KFontChooser, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.KFontChooser_SetFont(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#fontDiffFlags)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#fontDiffFlags)
     ///
     /// ``` self: QtC.KFontChooser ```
     ///
@@ -106,42 +106,42 @@ pub const kfontchooser = struct {
         return qtc.KFontChooser_FontDiffFlags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#font)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#font)
     ///
     /// ``` self: QtC.KFontChooser ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.KFontChooser_Font(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#setColor)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#setColor)
     ///
     /// ``` self: QtC.KFontChooser, col: QtC.QColor ```
     pub fn SetColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.KFontChooser_SetColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#color)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#color)
     ///
     /// ``` self: QtC.KFontChooser ```
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.KFontChooser_Color(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#setBackgroundColor)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#setBackgroundColor)
     ///
     /// ``` self: QtC.KFontChooser, col: QtC.QColor ```
     pub fn SetBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.KFontChooser_SetBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#backgroundColor)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#backgroundColor)
     ///
     /// ``` self: QtC.KFontChooser ```
     pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KFontChooser_BackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#sampleText)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#sampleText)
     ///
     /// ``` self: QtC.KFontChooser, allocator: std.mem.Allocator ```
     pub fn SampleText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -152,7 +152,7 @@ pub const kfontchooser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#setSampleText)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#setSampleText)
     ///
     /// ``` self: QtC.KFontChooser, text: []const u8 ```
     pub fn SetSampleText(self: ?*anyopaque, text: []const u8) void {
@@ -163,14 +163,14 @@ pub const kfontchooser = struct {
         qtc.KFontChooser_SetSampleText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#setSampleBoxVisible)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#setSampleBoxVisible)
     ///
     /// ``` self: QtC.KFontChooser, visible: bool ```
     pub fn SetSampleBoxVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KFontChooser_SetSampleBoxVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#createFontList)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#createFontList)
     ///
     /// ``` fontListCriteria: u32, allocator: std.mem.Allocator ```
     pub fn CreateFontList(fontListCriteria: u32, allocator: std.mem.Allocator) [][]const u8 {
@@ -192,7 +192,7 @@ pub const kfontchooser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#setFontListItems)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#setFontListItems)
     ///
     /// ``` self: QtC.KFontChooser, fontList: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFontListItems(self: ?*anyopaque, fontList: [][]const u8, allocator: std.mem.Allocator) void {
@@ -211,21 +211,21 @@ pub const kfontchooser = struct {
         qtc.KFontChooser_SetFontListItems(@ptrCast(self), fontList_list);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#setMinVisibleItems)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#setMinVisibleItems)
     ///
     /// ``` self: QtC.KFontChooser, visibleItems: i32 ```
     pub fn SetMinVisibleItems(self: ?*anyopaque, visibleItems: i32) void {
         qtc.KFontChooser_SetMinVisibleItems(@ptrCast(self), @intCast(visibleItems));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#sizeHint)
     ///
     /// ``` self: QtC.KFontChooser ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KFontChooser_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -234,7 +234,7 @@ pub const kfontchooser = struct {
         qtc.KFontChooser_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#sizeHint)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -243,14 +243,14 @@ pub const kfontchooser = struct {
         return qtc.KFontChooser_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#fontSelected)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#fontSelected)
     ///
     /// ``` self: QtC.KFontChooser, font: QtC.QFont ```
     pub fn FontSelected(self: ?*anyopaque, font: ?*anyopaque) void {
         qtc.KFontChooser_FontSelected(@ptrCast(self), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#fontSelected)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#fontSelected)
     ///
     /// ``` self: QtC.KFontChooser, slot: fn (self: QtC.KFontChooser, font: QtC.QFont) callconv(.c) void ```
     pub fn OnFontSelected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -283,7 +283,7 @@ pub const kfontchooser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#setFont)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#setFont)
     ///
     /// ``` self: QtC.KFontChooser, font: QtC.QFont, onlyFixed: bool ```
     pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, onlyFixed: bool) void {
@@ -5219,7 +5219,7 @@ pub const kfontchooser = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfontchooser.html#dtor.KFontChooser)
+    /// [Qt documentation](https://api.kde.org/kfontchooser.html#dtor.KFontChooser)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5229,7 +5229,7 @@ pub const kfontchooser = struct {
     }
 };
 
-/// https://api-staging.kde.org/kfontchooser.html#types
+/// https://api.kde.org/kfontchooser.html#types
 pub const enums = struct {
     pub const FontColumn = enum {
         pub const FamilyList: i32 = 1;

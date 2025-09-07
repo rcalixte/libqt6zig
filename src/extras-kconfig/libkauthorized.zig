@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kauthorized.html
+/// https://api.kde.org/kauthorized.html
 pub const kauthorized = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -37,7 +37,7 @@ pub const kauthorized = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kauthorized.html#authorize)
+    /// [Qt documentation](https://api.kde.org/kauthorized.html#authorize)
     ///
     /// ``` action: []const u8 ```
     pub fn Authorize(action: []const u8) bool {
@@ -48,14 +48,14 @@ pub const kauthorized = struct {
         return qtc.KAuthorized_Authorize(action_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kauthorized.html#authorize)
+    /// [Qt documentation](https://api.kde.org/kauthorized.html#authorize)
     ///
     /// ``` action: kauthorized_enums.GenericRestriction ```
     pub fn Authorize2(action: i32) bool {
         return qtc.KAuthorized_Authorize2(@intCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kauthorized.html#authorizeAction)
+    /// [Qt documentation](https://api.kde.org/kauthorized.html#authorizeAction)
     ///
     /// ``` action: []const u8 ```
     pub fn AuthorizeAction(action: []const u8) bool {
@@ -66,14 +66,14 @@ pub const kauthorized = struct {
         return qtc.KAuthorized_AuthorizeAction(action_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kauthorized.html#authorizeAction)
+    /// [Qt documentation](https://api.kde.org/kauthorized.html#authorizeAction)
     ///
     /// ``` action: kauthorized_enums.GenericAction ```
     pub fn AuthorizeAction2(action: i32) bool {
         return qtc.KAuthorized_AuthorizeAction2(@intCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kauthorized.html#authorizeControlModule)
+    /// [Qt documentation](https://api.kde.org/kauthorized.html#authorizeControlModule)
     ///
     /// ``` pluginId: []const u8 ```
     pub fn AuthorizeControlModule(pluginId: []const u8) bool {
@@ -516,7 +516,7 @@ pub const kauthorized = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kauthorized.html#dtor.KAuthorized)
+    /// [Qt documentation](https://api.kde.org/kauthorized.html#dtor.KAuthorized)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -526,7 +526,7 @@ pub const kauthorized = struct {
     }
 };
 
-/// https://api-staging.kde.org/kauthorized.html#types
+/// https://api.kde.org/kauthorized.html#types
 pub const enums = struct {
     pub const GenericRestriction = enum {
         pub const SHELL_ACCESS: i32 = 1;

@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kruler.html
+/// https://api.kde.org/kruler.html
 pub const kruler = struct {
     /// New constructs a new KRuler object.
     ///
@@ -112,161 +112,161 @@ pub const kruler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setTinyMarkDistance)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setTinyMarkDistance)
     ///
     /// ``` self: QtC.KRuler, tinyMarkDistance: i32 ```
     pub fn SetTinyMarkDistance(self: ?*anyopaque, tinyMarkDistance: i32) void {
         qtc.KRuler_SetTinyMarkDistance(@ptrCast(self), @intCast(tinyMarkDistance));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#tinyMarkDistance)
+    /// [Qt documentation](https://api.kde.org/kruler.html#tinyMarkDistance)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn TinyMarkDistance(self: ?*anyopaque) i32 {
         return qtc.KRuler_TinyMarkDistance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setLittleMarkDistance)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setLittleMarkDistance)
     ///
     /// ``` self: QtC.KRuler, littleMarkDistance: i32 ```
     pub fn SetLittleMarkDistance(self: ?*anyopaque, littleMarkDistance: i32) void {
         qtc.KRuler_SetLittleMarkDistance(@ptrCast(self), @intCast(littleMarkDistance));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#littleMarkDistance)
+    /// [Qt documentation](https://api.kde.org/kruler.html#littleMarkDistance)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn LittleMarkDistance(self: ?*anyopaque) i32 {
         return qtc.KRuler_LittleMarkDistance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setMediumMarkDistance)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setMediumMarkDistance)
     ///
     /// ``` self: QtC.KRuler, mediumMarkDistance: i32 ```
     pub fn SetMediumMarkDistance(self: ?*anyopaque, mediumMarkDistance: i32) void {
         qtc.KRuler_SetMediumMarkDistance(@ptrCast(self), @intCast(mediumMarkDistance));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#mediumMarkDistance)
+    /// [Qt documentation](https://api.kde.org/kruler.html#mediumMarkDistance)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn MediumMarkDistance(self: ?*anyopaque) i32 {
         return qtc.KRuler_MediumMarkDistance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setBigMarkDistance)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setBigMarkDistance)
     ///
     /// ``` self: QtC.KRuler, bigMarkDistance: i32 ```
     pub fn SetBigMarkDistance(self: ?*anyopaque, bigMarkDistance: i32) void {
         qtc.KRuler_SetBigMarkDistance(@ptrCast(self), @intCast(bigMarkDistance));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#bigMarkDistance)
+    /// [Qt documentation](https://api.kde.org/kruler.html#bigMarkDistance)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn BigMarkDistance(self: ?*anyopaque) i32 {
         return qtc.KRuler_BigMarkDistance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setShowTinyMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setShowTinyMarks)
     ///
     /// ``` self: QtC.KRuler, showTinyMarks: bool ```
     pub fn SetShowTinyMarks(self: ?*anyopaque, showTinyMarks: bool) void {
         qtc.KRuler_SetShowTinyMarks(@ptrCast(self), showTinyMarks);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#showTinyMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#showTinyMarks)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn ShowTinyMarks(self: ?*anyopaque) bool {
         return qtc.KRuler_ShowTinyMarks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setShowLittleMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setShowLittleMarks)
     ///
     /// ``` self: QtC.KRuler, showLittleMarks: bool ```
     pub fn SetShowLittleMarks(self: ?*anyopaque, showLittleMarks: bool) void {
         qtc.KRuler_SetShowLittleMarks(@ptrCast(self), showLittleMarks);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#showLittleMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#showLittleMarks)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn ShowLittleMarks(self: ?*anyopaque) bool {
         return qtc.KRuler_ShowLittleMarks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setShowMediumMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setShowMediumMarks)
     ///
     /// ``` self: QtC.KRuler, showMediumMarks: bool ```
     pub fn SetShowMediumMarks(self: ?*anyopaque, showMediumMarks: bool) void {
         qtc.KRuler_SetShowMediumMarks(@ptrCast(self), showMediumMarks);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#showMediumMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#showMediumMarks)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn ShowMediumMarks(self: ?*anyopaque) bool {
         return qtc.KRuler_ShowMediumMarks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setShowBigMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setShowBigMarks)
     ///
     /// ``` self: QtC.KRuler, showBigMarks: bool ```
     pub fn SetShowBigMarks(self: ?*anyopaque, showBigMarks: bool) void {
         qtc.KRuler_SetShowBigMarks(@ptrCast(self), showBigMarks);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#showBigMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#showBigMarks)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn ShowBigMarks(self: ?*anyopaque) bool {
         return qtc.KRuler_ShowBigMarks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setShowEndMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setShowEndMarks)
     ///
     /// ``` self: QtC.KRuler, showEndMarks: bool ```
     pub fn SetShowEndMarks(self: ?*anyopaque, showEndMarks: bool) void {
         qtc.KRuler_SetShowEndMarks(@ptrCast(self), showEndMarks);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#showEndMarks)
+    /// [Qt documentation](https://api.kde.org/kruler.html#showEndMarks)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn ShowEndMarks(self: ?*anyopaque) bool {
         return qtc.KRuler_ShowEndMarks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setShowPointer)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setShowPointer)
     ///
     /// ``` self: QtC.KRuler, showPointer: bool ```
     pub fn SetShowPointer(self: ?*anyopaque, showPointer: bool) void {
         qtc.KRuler_SetShowPointer(@ptrCast(self), showPointer);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#showPointer)
+    /// [Qt documentation](https://api.kde.org/kruler.html#showPointer)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn ShowPointer(self: ?*anyopaque) bool {
         return qtc.KRuler_ShowPointer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setShowEndLabel)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setShowEndLabel)
     ///
     /// ``` self: QtC.KRuler, showEndLabel: bool ```
     pub fn SetShowEndLabel(self: ?*anyopaque, showEndLabel: bool) void {
         qtc.KRuler_SetShowEndLabel(@ptrCast(self), showEndLabel);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#showEndLabel)
+    /// [Qt documentation](https://api.kde.org/kruler.html#showEndLabel)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn ShowEndLabel(self: ?*anyopaque) bool {
         return qtc.KRuler_ShowEndLabel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setEndLabel)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setEndLabel)
     ///
     /// ``` self: QtC.KRuler, endLabel: []const u8 ```
     pub fn SetEndLabel(self: ?*anyopaque, endLabel: []const u8) void {
@@ -277,7 +277,7 @@ pub const kruler = struct {
         qtc.KRuler_SetEndLabel(@ptrCast(self), endLabel_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#endLabel)
+    /// [Qt documentation](https://api.kde.org/kruler.html#endLabel)
     ///
     /// ``` self: QtC.KRuler, allocator: std.mem.Allocator ```
     pub fn EndLabel(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -288,119 +288,119 @@ pub const kruler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setRulerMetricStyle)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setRulerMetricStyle)
     ///
     /// ``` self: QtC.KRuler, rulerMetricStyle: kruler_enums.MetricStyle ```
     pub fn SetRulerMetricStyle(self: ?*anyopaque, rulerMetricStyle: i32) void {
         qtc.KRuler_SetRulerMetricStyle(@ptrCast(self), @intCast(rulerMetricStyle));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setPixelPerMark)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setPixelPerMark)
     ///
     /// ``` self: QtC.KRuler, rate: f64 ```
     pub fn SetPixelPerMark(self: ?*anyopaque, rate: f64) void {
         qtc.KRuler_SetPixelPerMark(@ptrCast(self), @floatCast(rate));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#pixelPerMark)
+    /// [Qt documentation](https://api.kde.org/kruler.html#pixelPerMark)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn PixelPerMark(self: ?*anyopaque) f64 {
         return qtc.KRuler_PixelPerMark(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setLength)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setLength)
     ///
     /// ``` self: QtC.KRuler, length: i32 ```
     pub fn SetLength(self: ?*anyopaque, length: i32) void {
         qtc.KRuler_SetLength(@ptrCast(self), @intCast(length));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#length)
+    /// [Qt documentation](https://api.kde.org/kruler.html#length)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn Length(self: ?*anyopaque) i32 {
         return qtc.KRuler_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setLengthFixed)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setLengthFixed)
     ///
     /// ``` self: QtC.KRuler, fix: bool ```
     pub fn SetLengthFixed(self: ?*anyopaque, fix: bool) void {
         qtc.KRuler_SetLengthFixed(@ptrCast(self), fix);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#lengthFixed)
+    /// [Qt documentation](https://api.kde.org/kruler.html#lengthFixed)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn LengthFixed(self: ?*anyopaque) bool {
         return qtc.KRuler_LengthFixed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#slideUp)
+    /// [Qt documentation](https://api.kde.org/kruler.html#slideUp)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn SlideUp(self: ?*anyopaque) void {
         qtc.KRuler_SlideUp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#slideDown)
+    /// [Qt documentation](https://api.kde.org/kruler.html#slideDown)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn SlideDown(self: ?*anyopaque) void {
         qtc.KRuler_SlideDown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#setOffset)
+    /// [Qt documentation](https://api.kde.org/kruler.html#setOffset)
     ///
     /// ``` self: QtC.KRuler, offset: i32 ```
     pub fn SetOffset(self: ?*anyopaque, offset: i32) void {
         qtc.KRuler_SetOffset(@ptrCast(self), @intCast(offset));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#offset)
+    /// [Qt documentation](https://api.kde.org/kruler.html#offset)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn Offset(self: ?*anyopaque) i32 {
         return qtc.KRuler_Offset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#endOffset)
+    /// [Qt documentation](https://api.kde.org/kruler.html#endOffset)
     ///
     /// ``` self: QtC.KRuler ```
     pub fn EndOffset(self: ?*anyopaque) i32 {
         return qtc.KRuler_EndOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#slotNewValue)
+    /// [Qt documentation](https://api.kde.org/kruler.html#slotNewValue)
     ///
     /// ``` self: QtC.KRuler, param1: i32 ```
     pub fn SlotNewValue(self: ?*anyopaque, param1: i32) void {
         qtc.KRuler_SlotNewValue(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#slotNewOffset)
+    /// [Qt documentation](https://api.kde.org/kruler.html#slotNewOffset)
     ///
     /// ``` self: QtC.KRuler, param1: i32 ```
     pub fn SlotNewOffset(self: ?*anyopaque, param1: i32) void {
         qtc.KRuler_SlotNewOffset(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#slotEndOffset)
+    /// [Qt documentation](https://api.kde.org/kruler.html#slotEndOffset)
     ///
     /// ``` self: QtC.KRuler, param1: i32 ```
     pub fn SlotEndOffset(self: ?*anyopaque, param1: i32) void {
         qtc.KRuler_SlotEndOffset(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kruler.html#paintEvent)
     ///
     /// ``` self: QtC.KRuler, param1: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KRuler_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kruler.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -409,7 +409,7 @@ pub const kruler = struct {
         qtc.KRuler_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#paintEvent)
+    /// [Qt documentation](https://api.kde.org/kruler.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -444,14 +444,14 @@ pub const kruler = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#slideUp)
+    /// [Qt documentation](https://api.kde.org/kruler.html#slideUp)
     ///
     /// ``` self: QtC.KRuler, count: i32 ```
     pub fn SlideUp1(self: ?*anyopaque, count: i32) void {
         qtc.KRuler_SlideUp1(@ptrCast(self), @intCast(count));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#slideDown)
+    /// [Qt documentation](https://api.kde.org/kruler.html#slideDown)
     ///
     /// ``` self: QtC.KRuler, count: i32 ```
     pub fn SlideDown1(self: ?*anyopaque, count: i32) void {
@@ -5834,7 +5834,7 @@ pub const kruler = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kruler.html#dtor.KRuler)
+    /// [Qt documentation](https://api.kde.org/kruler.html#dtor.KRuler)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5844,7 +5844,7 @@ pub const kruler = struct {
     }
 };
 
-/// https://api-staging.kde.org/kruler.html#types
+/// https://api.kde.org/kruler.html#types
 pub const enums = struct {
     pub const MetricStyle = enum {
         pub const Custom: i32 = 0;

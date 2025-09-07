@@ -10,7 +10,7 @@ const qtabwidget_enums = @import("../libqtabwidget.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kmainwindow.html
+/// https://api.kde.org/kmainwindow.html
 pub const kmainwindow = struct {
     /// New constructs a new KMainWindow object.
     ///
@@ -77,14 +77,14 @@ pub const kmainwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#canBeRestored)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#canBeRestored)
     ///
     /// ``` numberOfInstances: i32 ```
     pub fn CanBeRestored(numberOfInstances: i32) bool {
         return qtc.KMainWindow_CanBeRestored(@intCast(numberOfInstances));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#classNameOfToplevel)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#classNameOfToplevel)
     ///
     /// ``` instanceNumber: i32, allocator: std.mem.Allocator ```
     pub fn ClassNameOfToplevel(instanceNumber: i32, allocator: std.mem.Allocator) []const u8 {
@@ -95,21 +95,21 @@ pub const kmainwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#restore)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#restore)
     ///
     /// ``` self: QtC.KMainWindow, numberOfInstances: i32 ```
     pub fn Restore(self: ?*anyopaque, numberOfInstances: i32) bool {
         return qtc.KMainWindow_Restore(@ptrCast(self), @intCast(numberOfInstances));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#hasMenuBar)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#hasMenuBar)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn HasMenuBar(self: ?*anyopaque) bool {
         return qtc.KMainWindow_HasMenuBar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#memberList)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#memberList)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MemberList(allocator: std.mem.Allocator) []QtC.KMainWindow {
@@ -121,14 +121,14 @@ pub const kmainwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#toolBar)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#toolBar)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn ToolBar(self: ?*anyopaque) QtC.KToolBar {
         return qtc.KMainWindow_ToolBar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#toolBars)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#toolBars)
     ///
     /// ``` self: QtC.KMainWindow, allocator: std.mem.Allocator ```
     pub fn ToolBars(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KToolBar {
@@ -140,35 +140,35 @@ pub const kmainwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn SetAutoSaveSettings(self: ?*anyopaque) void {
         qtc.KMainWindow_SetAutoSaveSettings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KMainWindow, group: QtC.KConfigGroup ```
     pub fn SetAutoSaveSettings2(self: ?*anyopaque, group: ?*anyopaque) void {
         qtc.KMainWindow_SetAutoSaveSettings2(@ptrCast(self), @ptrCast(group));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#resetAutoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#resetAutoSaveSettings)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn ResetAutoSaveSettings(self: ?*anyopaque) void {
         qtc.KMainWindow_ResetAutoSaveSettings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#autoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#autoSaveSettings)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn AutoSaveSettings(self: ?*anyopaque) bool {
         return qtc.KMainWindow_AutoSaveSettings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#autoSaveGroup)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#autoSaveGroup)
     ///
     /// ``` self: QtC.KMainWindow, allocator: std.mem.Allocator ```
     pub fn AutoSaveGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -179,14 +179,14 @@ pub const kmainwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#autoSaveConfigGroup)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#autoSaveConfigGroup)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn AutoSaveConfigGroup(self: ?*anyopaque) QtC.KConfigGroup {
         return qtc.KMainWindow_AutoSaveConfigGroup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setStateConfigGroup)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setStateConfigGroup)
     ///
     /// ``` self: QtC.KMainWindow, configGroup: []const u8 ```
     pub fn SetStateConfigGroup(self: ?*anyopaque, configGroup: []const u8) void {
@@ -197,21 +197,21 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_SetStateConfigGroup(@ptrCast(self), configGroup_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#stateConfigGroup)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#stateConfigGroup)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn StateConfigGroup(self: ?*anyopaque) QtC.KConfigGroup {
         return qtc.KMainWindow_StateConfigGroup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#applyMainWindowSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#applyMainWindowSettings)
     ///
     /// ``` self: QtC.KMainWindow, config: QtC.KConfigGroup ```
     pub fn ApplyMainWindowSettings(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KMainWindow_ApplyMainWindowSettings(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#applyMainWindowSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#applyMainWindowSettings)
     ///
     /// Allows for overriding the related default method
     ///
@@ -220,7 +220,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnApplyMainWindowSettings(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#applyMainWindowSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#applyMainWindowSettings)
     ///
     /// Base class method implementation
     ///
@@ -229,14 +229,14 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseApplyMainWindowSettings(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveMainWindowSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveMainWindowSettings)
     ///
     /// ``` self: QtC.KMainWindow, config: QtC.KConfigGroup ```
     pub fn SaveMainWindowSettings(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KMainWindow_SaveMainWindowSettings(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#dbusName)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#dbusName)
     ///
     /// ``` self: QtC.KMainWindow, allocator: std.mem.Allocator ```
     pub fn DbusName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -247,7 +247,7 @@ pub const kmainwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setCaption)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// ``` self: QtC.KMainWindow, caption: []const u8 ```
     pub fn SetCaption(self: ?*anyopaque, caption: []const u8) void {
@@ -258,7 +258,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_SetCaption(@ptrCast(self), caption_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setCaption)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -267,7 +267,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnSetCaption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setCaption)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// Base class method implementation
     ///
@@ -280,7 +280,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseSetCaption(@ptrCast(self), caption_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setCaption)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// ``` self: QtC.KMainWindow, caption: []const u8, modified: bool ```
     pub fn SetCaption2(self: ?*anyopaque, caption: []const u8, modified: bool) void {
@@ -291,7 +291,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_SetCaption2(@ptrCast(self), caption_str, modified);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setCaption)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -300,7 +300,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnSetCaption2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setCaption)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setCaption)
     ///
     /// Base class method implementation
     ///
@@ -313,7 +313,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseSetCaption2(@ptrCast(self), caption_str, modified);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setPlainCaption)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setPlainCaption)
     ///
     /// ``` self: QtC.KMainWindow, caption: []const u8 ```
     pub fn SetPlainCaption(self: ?*anyopaque, caption: []const u8) void {
@@ -324,7 +324,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_SetPlainCaption(@ptrCast(self), caption_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setPlainCaption)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setPlainCaption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -333,7 +333,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnSetPlainCaption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setPlainCaption)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setPlainCaption)
     ///
     /// Base class method implementation
     ///
@@ -346,28 +346,28 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseSetPlainCaption(@ptrCast(self), caption_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#appHelpActivated)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#appHelpActivated)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn AppHelpActivated(self: ?*anyopaque) void {
         qtc.KMainWindow_AppHelpActivated(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setSettingsDirty)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setSettingsDirty)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn SetSettingsDirty(self: ?*anyopaque) void {
         qtc.KMainWindow_SetSettingsDirty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#event)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#event)
     ///
     /// ``` self: QtC.KMainWindow, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KMainWindow_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#event)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -376,7 +376,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#event)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#event)
     ///
     /// Base class method implementation
     ///
@@ -385,14 +385,14 @@ pub const kmainwindow = struct {
         return qtc.KMainWindow_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#keyPressEvent)
     ///
     /// ``` self: QtC.KMainWindow, keyEvent: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, keyEvent: ?*anyopaque) void {
         qtc.KMainWindow_KeyPressEvent(@ptrCast(self), @ptrCast(keyEvent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -401,7 +401,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#keyPressEvent)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -410,14 +410,14 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(keyEvent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#closeEvent)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#closeEvent)
     ///
     /// ``` self: QtC.KMainWindow, param1: QtC.QCloseEvent ```
     pub fn CloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KMainWindow_CloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#closeEvent)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#closeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -426,7 +426,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#closeEvent)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#closeEvent)
     ///
     /// Base class method implementation
     ///
@@ -435,14 +435,14 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseCloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#queryClose)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#queryClose)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn QueryClose(self: ?*anyopaque) bool {
         return qtc.KMainWindow_QueryClose(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#queryClose)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#queryClose)
     ///
     /// Allows for overriding the related default method
     ///
@@ -451,7 +451,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnQueryClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#queryClose)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#queryClose)
     ///
     /// Base class method implementation
     ///
@@ -460,14 +460,14 @@ pub const kmainwindow = struct {
         return qtc.KMainWindow_QBaseQueryClose(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveProperties)
     ///
     /// ``` self: QtC.KMainWindow, param1: QtC.KConfigGroup ```
     pub fn SaveProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KMainWindow_SaveProperties(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveProperties)
     ///
     /// Allows for overriding the related default method
     ///
@@ -476,7 +476,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnSaveProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveProperties)
     ///
     /// Base class method implementation
     ///
@@ -485,14 +485,14 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseSaveProperties(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#readProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readProperties)
     ///
     /// ``` self: QtC.KMainWindow, param1: QtC.KConfigGroup ```
     pub fn ReadProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KMainWindow_ReadProperties(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#readProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readProperties)
     ///
     /// Allows for overriding the related default method
     ///
@@ -501,7 +501,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnReadProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#readProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readProperties)
     ///
     /// Base class method implementation
     ///
@@ -510,14 +510,14 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseReadProperties(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveGlobalProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
     ///
     /// ``` self: QtC.KMainWindow, sessionConfig: QtC.KConfig ```
     pub fn SaveGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
         qtc.KMainWindow_SaveGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveGlobalProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
     ///
     /// Allows for overriding the related default method
     ///
@@ -526,7 +526,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnSaveGlobalProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveGlobalProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
     ///
     /// Base class method implementation
     ///
@@ -535,14 +535,14 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseSaveGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#readGlobalProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readGlobalProperties)
     ///
     /// ``` self: QtC.KMainWindow, sessionConfig: QtC.KConfig ```
     pub fn ReadGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
         qtc.KMainWindow_ReadGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#readGlobalProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readGlobalProperties)
     ///
     /// Allows for overriding the related default method
     ///
@@ -551,7 +551,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnReadGlobalProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#readGlobalProperties)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readGlobalProperties)
     ///
     /// Base class method implementation
     ///
@@ -560,14 +560,14 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseReadGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#savePropertiesInternal)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
     ///
     /// ``` self: QtC.KMainWindow, param1: QtC.KConfig, param2: i32 ```
     pub fn SavePropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
         qtc.KMainWindow_SavePropertiesInternal(@ptrCast(self), @ptrCast(param1), @intCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#savePropertiesInternal)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
     ///
     /// Allows for overriding the related default method
     ///
@@ -576,7 +576,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnSavePropertiesInternal(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#savePropertiesInternal)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
     ///
     /// Base class method implementation
     ///
@@ -585,14 +585,14 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_QBaseSavePropertiesInternal(@ptrCast(self), @ptrCast(param1), @intCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#readPropertiesInternal)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
     ///
     /// ``` self: QtC.KMainWindow, param1: QtC.KConfig, param2: i32 ```
     pub fn ReadPropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) bool {
         return qtc.KMainWindow_ReadPropertiesInternal(@ptrCast(self), @ptrCast(param1), @intCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#readPropertiesInternal)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
     ///
     /// Allows for overriding the related default method
     ///
@@ -601,7 +601,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnReadPropertiesInternal(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#readPropertiesInternal)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
     ///
     /// Base class method implementation
     ///
@@ -610,14 +610,14 @@ pub const kmainwindow = struct {
         return qtc.KMainWindow_QBaseReadPropertiesInternal(@ptrCast(self), @ptrCast(param1), @intCast(param2));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#settingsDirty)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#settingsDirty)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn SettingsDirty(self: ?*anyopaque) bool {
         return qtc.KMainWindow_SettingsDirty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#settingsDirty)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#settingsDirty)
     ///
     /// Allows for overriding the related default method
     ///
@@ -626,7 +626,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnSettingsDirty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#settingsDirty)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#settingsDirty)
     ///
     /// Base class method implementation
     ///
@@ -635,14 +635,14 @@ pub const kmainwindow = struct {
         return qtc.KMainWindow_QBaseSettingsDirty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveAutoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
     ///
     /// ``` self: QtC.KMainWindow ```
     pub fn SaveAutoSaveSettings(self: ?*anyopaque) void {
         qtc.KMainWindow_SaveAutoSaveSettings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveAutoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
     ///
     /// Allows for overriding the related default method
     ///
@@ -651,7 +651,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_OnSaveAutoSaveSettings(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#saveAutoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
     ///
     /// Base class method implementation
     ///
@@ -686,14 +686,14 @@ pub const kmainwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#restore)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#restore)
     ///
     /// ``` self: QtC.KMainWindow, numberOfInstances: i32, show: bool ```
     pub fn Restore2(self: ?*anyopaque, numberOfInstances: i32, show: bool) bool {
         return qtc.KMainWindow_Restore2(@ptrCast(self), @intCast(numberOfInstances), show);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#toolBar)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#toolBar)
     ///
     /// ``` self: QtC.KMainWindow, name: []const u8 ```
     pub fn ToolBar1(self: ?*anyopaque, name: []const u8) QtC.KToolBar {
@@ -704,7 +704,7 @@ pub const kmainwindow = struct {
         return qtc.KMainWindow_ToolBar1(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KMainWindow, groupName: []const u8 ```
     pub fn SetAutoSaveSettings1(self: ?*anyopaque, groupName: []const u8) void {
@@ -715,7 +715,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_SetAutoSaveSettings1(@ptrCast(self), groupName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KMainWindow, groupName: []const u8, saveWindowSize: bool ```
     pub fn SetAutoSaveSettings22(self: ?*anyopaque, groupName: []const u8, saveWindowSize: bool) void {
@@ -726,7 +726,7 @@ pub const kmainwindow = struct {
         qtc.KMainWindow_SetAutoSaveSettings22(@ptrCast(self), groupName_str, saveWindowSize);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#setAutoSaveSettings)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#setAutoSaveSettings)
     ///
     /// ``` self: QtC.KMainWindow, group: QtC.KConfigGroup, saveWindowSize: bool ```
     pub fn SetAutoSaveSettings23(self: ?*anyopaque, group: ?*anyopaque, saveWindowSize: bool) void {
@@ -6234,7 +6234,7 @@ pub const kmainwindow = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmainwindow.html#dtor.KMainWindow)
+    /// [Qt documentation](https://api.kde.org/kmainwindow.html#dtor.KMainWindow)
     ///
     /// Delete this object from C++ memory.
     ///

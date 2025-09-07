@@ -9,7 +9,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kiconbutton.html
+/// https://api.kde.org/kiconbutton.html
 pub const kiconbutton = struct {
     /// New constructs a new KIconButton object.
     ///
@@ -69,28 +69,28 @@ pub const kiconbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#setStrictIconSize)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#setStrictIconSize)
     ///
     /// ``` self: QtC.KIconButton, b: bool ```
     pub fn SetStrictIconSize(self: ?*anyopaque, b: bool) void {
         qtc.KIconButton_SetStrictIconSize(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#strictIconSize)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#strictIconSize)
     ///
     /// ``` self: QtC.KIconButton ```
     pub fn StrictIconSize(self: ?*anyopaque) bool {
         return qtc.KIconButton_StrictIconSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#setIconType)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#setIconType)
     ///
     /// ``` self: QtC.KIconButton, group: kiconloader_enums.Group, context: kiconloader_enums.Context ```
     pub fn SetIconType(self: ?*anyopaque, group: i32, context: i32) void {
         qtc.KIconButton_SetIconType(@ptrCast(self), @intCast(group), @intCast(context));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#setIcon)
     ///
     /// ``` self: QtC.KIconButton, icon: []const u8 ```
     pub fn SetIcon(self: ?*anyopaque, icon: []const u8) void {
@@ -101,21 +101,21 @@ pub const kiconbutton = struct {
         qtc.KIconButton_SetIcon(@ptrCast(self), icon_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#setIcon)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#setIcon)
     ///
     /// ``` self: QtC.KIconButton, icon: QtC.QIcon ```
     pub fn SetIcon2(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.KIconButton_SetIcon2(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#resetIcon)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#resetIcon)
     ///
     /// ``` self: QtC.KIconButton ```
     pub fn ResetIcon(self: ?*anyopaque) void {
         qtc.KIconButton_ResetIcon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#icon)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#icon)
     ///
     /// ``` self: QtC.KIconButton, allocator: std.mem.Allocator ```
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -126,35 +126,35 @@ pub const kiconbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#setIconSize)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#setIconSize)
     ///
     /// ``` self: QtC.KIconButton, size: i32 ```
     pub fn SetIconSize(self: ?*anyopaque, size: i32) void {
         qtc.KIconButton_SetIconSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#iconSize)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#iconSize)
     ///
     /// ``` self: QtC.KIconButton ```
     pub fn IconSize(self: ?*anyopaque) i32 {
         return qtc.KIconButton_IconSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#setButtonIconSize)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#setButtonIconSize)
     ///
     /// ``` self: QtC.KIconButton, size: i32 ```
     pub fn SetButtonIconSize(self: ?*anyopaque, size: i32) void {
         qtc.KIconButton_SetButtonIconSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#buttonIconSize)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#buttonIconSize)
     ///
     /// ``` self: QtC.KIconButton ```
     pub fn ButtonIconSize(self: ?*anyopaque) i32 {
         return qtc.KIconButton_ButtonIconSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#iconChanged)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#iconChanged)
     ///
     /// ``` self: QtC.KIconButton, icon: []const u8 ```
     pub fn IconChanged(self: ?*anyopaque, icon: []const u8) void {
@@ -165,7 +165,7 @@ pub const kiconbutton = struct {
         qtc.KIconButton_IconChanged(@ptrCast(self), icon_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#iconChanged)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#iconChanged)
     ///
     /// ``` self: QtC.KIconButton, slot: fn (self: QtC.KIconButton, icon: [*:0]const u8) callconv(.c) void ```
     pub fn OnIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -198,7 +198,7 @@ pub const kiconbutton = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#setIconType)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#setIconType)
     ///
     /// ``` self: QtC.KIconButton, group: kiconloader_enums.Group, context: kiconloader_enums.Context, user: bool ```
     pub fn SetIconType3(self: ?*anyopaque, group: i32, context: i32, user: bool) void {
@@ -5694,7 +5694,7 @@ pub const kiconbutton = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kiconbutton.html#dtor.KIconButton)
+    /// [Qt documentation](https://api.kde.org/kiconbutton.html#dtor.KIconButton)
     ///
     /// Delete this object from C++ memory.
     ///

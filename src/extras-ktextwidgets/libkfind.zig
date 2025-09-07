@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kfind.html
+/// https://api.kde.org/kfind.html
 pub const kfind = struct {
     /// New constructs a new KFind object.
     ///
@@ -75,14 +75,14 @@ pub const kfind = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#needData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#needData)
     ///
     /// ``` self: QtC.KFind ```
     pub fn NeedData(self: ?*anyopaque) bool {
         return qtc.KFind_NeedData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setData)
     ///
     /// ``` self: QtC.KFind, data: []const u8 ```
     pub fn SetData(self: ?*anyopaque, data: []const u8) void {
@@ -93,7 +93,7 @@ pub const kfind = struct {
         qtc.KFind_SetData(@ptrCast(self), data_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setData)
     ///
     /// ``` self: QtC.KFind, id: i32, data: []const u8 ```
     pub fn SetData2(self: ?*anyopaque, id: i32, data: []const u8) void {
@@ -104,7 +104,7 @@ pub const kfind = struct {
         qtc.KFind_SetData2(@ptrCast(self), @intCast(id), data_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#find)
+    /// [Qt documentation](https://api.kde.org/kfind.html#find)
     ///
     /// ``` self: QtC.KFind ```
     ///
@@ -113,21 +113,21 @@ pub const kfind = struct {
         return qtc.KFind_Find(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#options)
+    /// [Qt documentation](https://api.kde.org/kfind.html#options)
     ///
     /// ``` self: QtC.KFind ```
     pub fn Options(self: ?*anyopaque) i64 {
         return qtc.KFind_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setOptions)
     ///
     /// ``` self: QtC.KFind, options: i64 ```
     pub fn SetOptions(self: ?*anyopaque, options: i64) void {
         qtc.KFind_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setOptions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -136,7 +136,7 @@ pub const kfind = struct {
         qtc.KFind_OnSetOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setOptions)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setOptions)
     ///
     /// Base class method implementation
     ///
@@ -145,7 +145,7 @@ pub const kfind = struct {
         qtc.KFind_QBaseSetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#pattern)
+    /// [Qt documentation](https://api.kde.org/kfind.html#pattern)
     ///
     /// ``` self: QtC.KFind, allocator: std.mem.Allocator ```
     pub fn Pattern(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -156,7 +156,7 @@ pub const kfind = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setPattern)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setPattern)
     ///
     /// ``` self: QtC.KFind, pattern: []const u8 ```
     pub fn SetPattern(self: ?*anyopaque, pattern: []const u8) void {
@@ -167,21 +167,21 @@ pub const kfind = struct {
         qtc.KFind_SetPattern(@ptrCast(self), pattern_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#numMatches)
+    /// [Qt documentation](https://api.kde.org/kfind.html#numMatches)
     ///
     /// ``` self: QtC.KFind ```
     pub fn NumMatches(self: ?*anyopaque) i32 {
         return qtc.KFind_NumMatches(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#resetCounts)
+    /// [Qt documentation](https://api.kde.org/kfind.html#resetCounts)
     ///
     /// ``` self: QtC.KFind ```
     pub fn ResetCounts(self: ?*anyopaque) void {
         qtc.KFind_ResetCounts(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#resetCounts)
+    /// [Qt documentation](https://api.kde.org/kfind.html#resetCounts)
     ///
     /// Allows for overriding the related default method
     ///
@@ -190,7 +190,7 @@ pub const kfind = struct {
         qtc.KFind_OnResetCounts(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#resetCounts)
+    /// [Qt documentation](https://api.kde.org/kfind.html#resetCounts)
     ///
     /// Base class method implementation
     ///
@@ -199,7 +199,7 @@ pub const kfind = struct {
         qtc.KFind_QBaseResetCounts(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#validateMatch)
+    /// [Qt documentation](https://api.kde.org/kfind.html#validateMatch)
     ///
     /// ``` self: QtC.KFind, text: []const u8, index: i32, matchedlength: i32 ```
     pub fn ValidateMatch(self: ?*anyopaque, text: []const u8, index: i32, matchedlength: i32) bool {
@@ -210,7 +210,7 @@ pub const kfind = struct {
         return qtc.KFind_ValidateMatch(@ptrCast(self), text_str, @intCast(index), @intCast(matchedlength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#validateMatch)
+    /// [Qt documentation](https://api.kde.org/kfind.html#validateMatch)
     ///
     /// Allows for overriding the related default method
     ///
@@ -219,7 +219,7 @@ pub const kfind = struct {
         qtc.KFind_OnValidateMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#validateMatch)
+    /// [Qt documentation](https://api.kde.org/kfind.html#validateMatch)
     ///
     /// Base class method implementation
     ///
@@ -232,14 +232,14 @@ pub const kfind = struct {
         return qtc.KFind_QBaseValidateMatch(@ptrCast(self), text_str, @intCast(index), @intCast(matchedlength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#shouldRestart)
+    /// [Qt documentation](https://api.kde.org/kfind.html#shouldRestart)
     ///
     /// ``` self: QtC.KFind, forceAsking: bool, showNumMatches: bool ```
     pub fn ShouldRestart(self: ?*anyopaque, forceAsking: bool, showNumMatches: bool) bool {
         return qtc.KFind_ShouldRestart(@ptrCast(self), forceAsking, showNumMatches);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#shouldRestart)
+    /// [Qt documentation](https://api.kde.org/kfind.html#shouldRestart)
     ///
     /// Allows for overriding the related default method
     ///
@@ -248,7 +248,7 @@ pub const kfind = struct {
         qtc.KFind_OnShouldRestart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#shouldRestart)
+    /// [Qt documentation](https://api.kde.org/kfind.html#shouldRestart)
     ///
     /// Base class method implementation
     ///
@@ -257,7 +257,7 @@ pub const kfind = struct {
         return qtc.KFind_QBaseShouldRestart(@ptrCast(self), forceAsking, showNumMatches);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#find)
+    /// [Qt documentation](https://api.kde.org/kfind.html#find)
     ///
     /// ``` text: []const u8, pattern: []const u8, index: i32, options: i64, matchedLength: *i32, rmatch: QtC.QRegularExpressionMatch ```
     pub fn Find2(text: []const u8, pattern: []const u8, index: i32, options: i64, matchedLength: *i32, rmatch: ?*anyopaque) i32 {
@@ -272,14 +272,14 @@ pub const kfind = struct {
         return qtc.KFind_Find2(text_str, pattern_str, @intCast(index), @intCast(options), @ptrCast(matchedLength), @ptrCast(rmatch));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#displayFinalDialog)
+    /// [Qt documentation](https://api.kde.org/kfind.html#displayFinalDialog)
     ///
     /// ``` self: QtC.KFind ```
     pub fn DisplayFinalDialog(self: ?*anyopaque) void {
         qtc.KFind_DisplayFinalDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#displayFinalDialog)
+    /// [Qt documentation](https://api.kde.org/kfind.html#displayFinalDialog)
     ///
     /// Allows for overriding the related default method
     ///
@@ -288,7 +288,7 @@ pub const kfind = struct {
         qtc.KFind_OnDisplayFinalDialog(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#displayFinalDialog)
+    /// [Qt documentation](https://api.kde.org/kfind.html#displayFinalDialog)
     ///
     /// Base class method implementation
     ///
@@ -297,28 +297,28 @@ pub const kfind = struct {
         qtc.KFind_QBaseDisplayFinalDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#findNextDialog)
+    /// [Qt documentation](https://api.kde.org/kfind.html#findNextDialog)
     ///
     /// ``` self: QtC.KFind ```
     pub fn FindNextDialog(self: ?*anyopaque) QtC.QDialog {
         return qtc.KFind_FindNextDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#closeFindNextDialog)
+    /// [Qt documentation](https://api.kde.org/kfind.html#closeFindNextDialog)
     ///
     /// ``` self: QtC.KFind ```
     pub fn CloseFindNextDialog(self: ?*anyopaque) void {
         qtc.KFind_CloseFindNextDialog(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#index)
+    /// [Qt documentation](https://api.kde.org/kfind.html#index)
     ///
     /// ``` self: QtC.KFind ```
     pub fn Index(self: ?*anyopaque) i32 {
         return qtc.KFind_Index(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#textFound)
+    /// [Qt documentation](https://api.kde.org/kfind.html#textFound)
     ///
     /// ``` self: QtC.KFind, text: []const u8, matchingIndex: i32, matchedLength: i32 ```
     pub fn TextFound(self: ?*anyopaque, text: []const u8, matchingIndex: i32, matchedLength: i32) void {
@@ -329,77 +329,77 @@ pub const kfind = struct {
         qtc.KFind_TextFound(@ptrCast(self), text_str, @intCast(matchingIndex), @intCast(matchedLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#textFound)
+    /// [Qt documentation](https://api.kde.org/kfind.html#textFound)
     ///
     /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, text: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void ```
     pub fn OnTextFound(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) void) void {
         qtc.KFind_Connect_TextFound(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#textFoundAtId)
+    /// [Qt documentation](https://api.kde.org/kfind.html#textFoundAtId)
     ///
     /// ``` self: QtC.KFind, id: i32, matchingIndex: i32, matchedLength: i32 ```
     pub fn TextFoundAtId(self: ?*anyopaque, id: i32, matchingIndex: i32, matchedLength: i32) void {
         qtc.KFind_TextFoundAtId(@ptrCast(self), @intCast(id), @intCast(matchingIndex), @intCast(matchedLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#textFoundAtId)
+    /// [Qt documentation](https://api.kde.org/kfind.html#textFoundAtId)
     ///
     /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, id: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void ```
     pub fn OnTextFoundAtId(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.KFind_Connect_TextFoundAtId(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#findNext)
+    /// [Qt documentation](https://api.kde.org/kfind.html#findNext)
     ///
     /// ``` self: QtC.KFind ```
     pub fn FindNext(self: ?*anyopaque) void {
         qtc.KFind_FindNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#findNext)
+    /// [Qt documentation](https://api.kde.org/kfind.html#findNext)
     ///
     /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind) callconv(.c) void ```
     pub fn OnFindNext(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KFind_Connect_FindNext(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#optionsChanged)
+    /// [Qt documentation](https://api.kde.org/kfind.html#optionsChanged)
     ///
     /// ``` self: QtC.KFind ```
     pub fn OptionsChanged(self: ?*anyopaque) void {
         qtc.KFind_OptionsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#optionsChanged)
+    /// [Qt documentation](https://api.kde.org/kfind.html#optionsChanged)
     ///
     /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind) callconv(.c) void ```
     pub fn OnOptionsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KFind_Connect_OptionsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogClosed)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogClosed)
     ///
     /// ``` self: QtC.KFind ```
     pub fn DialogClosed(self: ?*anyopaque) void {
         qtc.KFind_DialogClosed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogClosed)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogClosed)
     ///
     /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind) callconv(.c) void ```
     pub fn OnDialogClosed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KFind_Connect_DialogClosed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#parentWidget)
+    /// [Qt documentation](https://api.kde.org/kfind.html#parentWidget)
     ///
     /// ``` self: QtC.KFind ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
         return qtc.KFind_ParentWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#parentWidget)
+    /// [Qt documentation](https://api.kde.org/kfind.html#parentWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -408,7 +408,7 @@ pub const kfind = struct {
         qtc.KFind_OnParentWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#parentWidget)
+    /// [Qt documentation](https://api.kde.org/kfind.html#parentWidget)
     ///
     /// Base class method implementation
     ///
@@ -417,14 +417,14 @@ pub const kfind = struct {
         return qtc.KFind_QBaseParentWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogsParent)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogsParent)
     ///
     /// ``` self: QtC.KFind ```
     pub fn DialogsParent(self: ?*anyopaque) QtC.QWidget {
         return qtc.KFind_DialogsParent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogsParent)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogsParent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -433,7 +433,7 @@ pub const kfind = struct {
         qtc.KFind_OnDialogsParent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dialogsParent)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dialogsParent)
     ///
     /// Base class method implementation
     ///
@@ -468,7 +468,7 @@ pub const kfind = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setData)
     ///
     /// ``` self: QtC.KFind, data: []const u8, startPos: i32 ```
     pub fn SetData22(self: ?*anyopaque, data: []const u8, startPos: i32) void {
@@ -479,7 +479,7 @@ pub const kfind = struct {
         qtc.KFind_SetData22(@ptrCast(self), data_str, @intCast(startPos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#setData)
+    /// [Qt documentation](https://api.kde.org/kfind.html#setData)
     ///
     /// ``` self: QtC.KFind, id: i32, data: []const u8, startPos: i32 ```
     pub fn SetData3(self: ?*anyopaque, id: i32, data: []const u8, startPos: i32) void {
@@ -490,7 +490,7 @@ pub const kfind = struct {
         qtc.KFind_SetData3(@ptrCast(self), @intCast(id), data_str, @intCast(startPos));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#findNextDialog)
+    /// [Qt documentation](https://api.kde.org/kfind.html#findNextDialog)
     ///
     /// ``` self: QtC.KFind, create: bool ```
     pub fn FindNextDialog1(self: ?*anyopaque, create: bool) QtC.QDialog {
@@ -1250,7 +1250,7 @@ pub const kfind = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kfind.html#dtor.KFind)
+    /// [Qt documentation](https://api.kde.org/kfind.html#dtor.KFind)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1260,7 +1260,7 @@ pub const kfind = struct {
     }
 };
 
-/// https://api-staging.kde.org/kfind.html#types
+/// https://api.kde.org/kfind.html#types
 pub const enums = struct {
     pub const Options = enum {
         pub const WholeWordsOnly: i32 = 1;

@@ -7,7 +7,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qtoolbutton_enums = @import("../libqtoolbutton.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kactionmenu.html
+/// https://api.kde.org/kactionmenu.html
 pub const kactionmenu = struct {
     /// New constructs a new KActionMenu object.
     ///
@@ -84,42 +84,42 @@ pub const kactionmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#addAction)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#addAction)
     ///
     /// ``` self: QtC.KActionMenu, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KActionMenu_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#addSeparator)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#addSeparator)
     ///
     /// ``` self: QtC.KActionMenu ```
     pub fn AddSeparator(self: ?*anyopaque) QtC.QAction {
         return qtc.KActionMenu_AddSeparator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#insertAction)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#insertAction)
     ///
     /// ``` self: QtC.KActionMenu, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KActionMenu_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#insertSeparator)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#insertSeparator)
     ///
     /// ``` self: QtC.KActionMenu, before: QtC.QAction ```
     pub fn InsertSeparator(self: ?*anyopaque, before: ?*anyopaque) QtC.QAction {
         return qtc.KActionMenu_InsertSeparator(@ptrCast(self), @ptrCast(before));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#removeAction)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#removeAction)
     ///
     /// ``` self: QtC.KActionMenu, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KActionMenu_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#popupMode)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#popupMode)
     ///
     /// ``` self: QtC.KActionMenu ```
     ///
@@ -128,21 +128,21 @@ pub const kactionmenu = struct {
         return qtc.KActionMenu_PopupMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#setPopupMode)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#setPopupMode)
     ///
     /// ``` self: QtC.KActionMenu, popupMode: qtoolbutton_enums.ToolButtonPopupMode ```
     pub fn SetPopupMode(self: ?*anyopaque, popupMode: i32) void {
         qtc.KActionMenu_SetPopupMode(@ptrCast(self), @intCast(popupMode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#createWidget)
     ///
     /// ``` self: QtC.KActionMenu, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KActionMenu_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -151,7 +151,7 @@ pub const kactionmenu = struct {
         qtc.KActionMenu_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#createWidget)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -1741,7 +1741,7 @@ pub const kactionmenu = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kactionmenu.html#dtor.KActionMenu)
+    /// [Qt documentation](https://api.kde.org/kactionmenu.html#dtor.KActionMenu)
     ///
     /// Delete this object from C++ memory.
     ///

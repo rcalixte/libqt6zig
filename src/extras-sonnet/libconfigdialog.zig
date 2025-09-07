@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/sonnet-configdialog.html
+/// https://api.kde.org/sonnet-configdialog.html
 pub const sonnet__configdialog = struct {
     /// New constructs a new Sonnet::ConfigDialog object.
     ///
@@ -17,7 +17,7 @@ pub const sonnet__configdialog = struct {
         return qtc.Sonnet__ConfigDialog_new(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#metaObject)
+    /// [Qt documentation](https://api.kde.org/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__ConfigDialog ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -49,7 +49,7 @@ pub const sonnet__configdialog = struct {
         return qtc.Sonnet__ConfigDialog_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -61,7 +61,7 @@ pub const sonnet__configdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#setLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#setLanguage)
     ///
     /// ``` self: QtC.Sonnet__ConfigDialog, language: []const u8 ```
     pub fn SetLanguage(self: ?*anyopaque, language: []const u8) void {
@@ -72,7 +72,7 @@ pub const sonnet__configdialog = struct {
         qtc.Sonnet__ConfigDialog_SetLanguage(@ptrCast(self), language_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#language)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#language)
     ///
     /// ``` self: QtC.Sonnet__ConfigDialog, allocator: std.mem.Allocator ```
     pub fn Language(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -83,14 +83,14 @@ pub const sonnet__configdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#slotOk)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#slotOk)
     ///
     /// ``` self: QtC.Sonnet__ConfigDialog ```
     pub fn SlotOk(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigDialog_SlotOk(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#slotOk)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#slotOk)
     ///
     /// Allows for overriding the related default method
     ///
@@ -99,7 +99,7 @@ pub const sonnet__configdialog = struct {
         qtc.Sonnet__ConfigDialog_OnSlotOk(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#slotOk)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#slotOk)
     ///
     /// Base class method implementation
     ///
@@ -108,14 +108,14 @@ pub const sonnet__configdialog = struct {
         qtc.Sonnet__ConfigDialog_QBaseSlotOk(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#slotApply)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#slotApply)
     ///
     /// ``` self: QtC.Sonnet__ConfigDialog ```
     pub fn SlotApply(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigDialog_SlotApply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#slotApply)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#slotApply)
     ///
     /// Allows for overriding the related default method
     ///
@@ -124,7 +124,7 @@ pub const sonnet__configdialog = struct {
         qtc.Sonnet__ConfigDialog_OnSlotApply(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#slotApply)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#slotApply)
     ///
     /// Base class method implementation
     ///
@@ -133,7 +133,7 @@ pub const sonnet__configdialog = struct {
         qtc.Sonnet__ConfigDialog_QBaseSlotApply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#languageChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#languageChanged)
     ///
     /// ``` self: QtC.Sonnet__ConfigDialog, language: []const u8 ```
     pub fn LanguageChanged(self: ?*anyopaque, language: []const u8) void {
@@ -144,28 +144,28 @@ pub const sonnet__configdialog = struct {
         qtc.Sonnet__ConfigDialog_LanguageChanged(@ptrCast(self), language_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#languageChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#languageChanged)
     ///
     /// ``` self: QtC.Sonnet__ConfigDialog, slot: fn (self: QtC.Sonnet__ConfigDialog, language: [*:0]const u8) callconv(.c) void ```
     pub fn OnLanguageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__ConfigDialog_Connect_LanguageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#configChanged)
     ///
     /// ``` self: QtC.Sonnet__ConfigDialog ```
     pub fn ConfigChanged(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigDialog_ConfigChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configdialog.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-configdialog.html#configChanged)
     ///
     /// ``` self: QtC.Sonnet__ConfigDialog, slot: fn (self: QtC.Sonnet__ConfigDialog) callconv(.c) void ```
     pub fn OnConfigChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__ConfigDialog_Connect_ConfigChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -178,7 +178,7 @@ pub const sonnet__configdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {

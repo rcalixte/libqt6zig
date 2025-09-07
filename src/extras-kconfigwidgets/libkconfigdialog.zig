@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kconfigdialog.html
+/// https://api.kde.org/kconfigdialog.html
 pub const kconfigdialog = struct {
     /// New constructs a new KConfigDialog object.
     ///
@@ -68,21 +68,21 @@ pub const kconfigdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#widgetModified)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#widgetModified)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn WidgetModified(self: ?*anyopaque) void {
         qtc.KConfigDialog_WidgetModified(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#widgetModified)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#widgetModified)
     ///
     /// ``` self: QtC.KConfigDialog, slot: fn (self: QtC.KConfigDialog) callconv(.c) void ```
     pub fn OnWidgetModified(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.KConfigDialog_Connect_WidgetModified(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#settingsChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#settingsChanged)
     ///
     /// ``` self: QtC.KConfigDialog, dialogName: []const u8 ```
     pub fn SettingsChanged(self: ?*anyopaque, dialogName: []const u8) void {
@@ -93,14 +93,14 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_SettingsChanged(@ptrCast(self), dialogName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#settingsChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#settingsChanged)
     ///
     /// ``` self: QtC.KConfigDialog, slot: fn (self: QtC.KConfigDialog, dialogName: [*:0]const u8) callconv(.c) void ```
     pub fn OnSettingsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KConfigDialog_Connect_SettingsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#addPage)
     ///
     /// ``` self: QtC.KConfigDialog, page: QtC.QWidget, itemName: []const u8 ```
     pub fn AddPage(self: ?*anyopaque, page: ?*anyopaque, itemName: []const u8) QtC.KPageWidgetItem {
@@ -111,7 +111,7 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_AddPage(@ptrCast(self), @ptrCast(page), itemName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#addPage)
     ///
     /// ``` self: QtC.KConfigDialog, page: QtC.QWidget, config: QtC.KCoreConfigSkeleton, itemName: []const u8 ```
     pub fn AddPage2(self: ?*anyopaque, page: ?*anyopaque, config: ?*anyopaque, itemName: []const u8) QtC.KPageWidgetItem {
@@ -122,7 +122,7 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_AddPage2(@ptrCast(self), @ptrCast(page), @ptrCast(config), itemName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#exists)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#exists)
     ///
     /// ``` name: []const u8 ```
     pub fn Exists(name: []const u8) QtC.KConfigDialog {
@@ -133,7 +133,7 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_Exists(name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#showDialog)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#showDialog)
     ///
     /// ``` name: []const u8 ```
     pub fn ShowDialog(name: []const u8) bool {
@@ -144,14 +144,14 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_ShowDialog(name_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateSettings)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateSettings)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn UpdateSettings(self: ?*anyopaque) void {
         qtc.KConfigDialog_UpdateSettings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateSettings)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateSettings)
     ///
     /// Allows for overriding the related default method
     ///
@@ -160,7 +160,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnUpdateSettings(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateSettings)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateSettings)
     ///
     /// Base class method implementation
     ///
@@ -169,14 +169,14 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_QBaseUpdateSettings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateWidgets)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateWidgets)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn UpdateWidgets(self: ?*anyopaque) void {
         qtc.KConfigDialog_UpdateWidgets(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateWidgets)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateWidgets)
     ///
     /// Allows for overriding the related default method
     ///
@@ -185,7 +185,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnUpdateWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateWidgets)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateWidgets)
     ///
     /// Base class method implementation
     ///
@@ -194,14 +194,14 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_QBaseUpdateWidgets(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateWidgetsDefault)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateWidgetsDefault)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn UpdateWidgetsDefault(self: ?*anyopaque) void {
         qtc.KConfigDialog_UpdateWidgetsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateWidgetsDefault)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateWidgetsDefault)
     ///
     /// Allows for overriding the related default method
     ///
@@ -210,7 +210,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnUpdateWidgetsDefault(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateWidgetsDefault)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateWidgetsDefault)
     ///
     /// Base class method implementation
     ///
@@ -219,14 +219,14 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_QBaseUpdateWidgetsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateButtons)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateButtons)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn UpdateButtons(self: ?*anyopaque) void {
         qtc.KConfigDialog_UpdateButtons(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateButtons)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateButtons)
     ///
     /// Allows for overriding the related default method
     ///
@@ -235,7 +235,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnUpdateButtons(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#updateButtons)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#updateButtons)
     ///
     /// Base class method implementation
     ///
@@ -244,14 +244,14 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_QBaseUpdateButtons(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#settingsChangedSlot)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#settingsChangedSlot)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn SettingsChangedSlot(self: ?*anyopaque) void {
         qtc.KConfigDialog_SettingsChangedSlot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#settingsChangedSlot)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#settingsChangedSlot)
     ///
     /// Allows for overriding the related default method
     ///
@@ -260,7 +260,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnSettingsChangedSlot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#settingsChangedSlot)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#settingsChangedSlot)
     ///
     /// Base class method implementation
     ///
@@ -269,7 +269,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_QBaseSettingsChangedSlot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#setHelp)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#setHelp)
     ///
     /// ``` self: QtC.KConfigDialog, anchor: []const u8 ```
     pub fn SetHelp(self: ?*anyopaque, anchor: []const u8) void {
@@ -280,7 +280,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_SetHelp(@ptrCast(self), anchor_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#setHelp)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#setHelp)
     ///
     /// Allows for overriding the related default method
     ///
@@ -289,7 +289,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnSetHelp(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#setHelp)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#setHelp)
     ///
     /// Base class method implementation
     ///
@@ -302,14 +302,14 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_QBaseSetHelp(@ptrCast(self), anchor_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#showHelp)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#showHelp)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn ShowHelp(self: ?*anyopaque) void {
         qtc.KConfigDialog_ShowHelp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#showHelp)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#showHelp)
     ///
     /// Allows for overriding the related default method
     ///
@@ -318,7 +318,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnShowHelp(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#showHelp)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#showHelp)
     ///
     /// Base class method implementation
     ///
@@ -327,14 +327,14 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_QBaseShowHelp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#hasChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#hasChanged)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn HasChanged(self: ?*anyopaque) bool {
         return qtc.KConfigDialog_HasChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#hasChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#hasChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -343,7 +343,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnHasChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#hasChanged)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#hasChanged)
     ///
     /// Base class method implementation
     ///
@@ -352,14 +352,14 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_QBaseHasChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#isDefault)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#isDefault)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn IsDefault(self: ?*anyopaque) bool {
         return qtc.KConfigDialog_IsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#isDefault)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#isDefault)
     ///
     /// Allows for overriding the related default method
     ///
@@ -368,7 +368,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnIsDefault(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#isDefault)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#isDefault)
     ///
     /// Base class method implementation
     ///
@@ -377,14 +377,14 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_QBaseIsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#showEvent)
     ///
     /// ``` self: QtC.KConfigDialog, e: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.KConfigDialog_ShowEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -393,7 +393,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#showEvent)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -428,7 +428,7 @@ pub const kconfigdialog = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#addPage)
     ///
     /// ``` self: QtC.KConfigDialog, page: QtC.QWidget, itemName: []const u8, pixmapName: []const u8 ```
     pub fn AddPage3(self: ?*anyopaque, page: ?*anyopaque, itemName: []const u8, pixmapName: []const u8) QtC.KPageWidgetItem {
@@ -443,7 +443,7 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_AddPage3(@ptrCast(self), @ptrCast(page), itemName_str, pixmapName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#addPage)
     ///
     /// ``` self: QtC.KConfigDialog, page: QtC.QWidget, itemName: []const u8, pixmapName: []const u8, header: []const u8 ```
     pub fn AddPage4(self: ?*anyopaque, page: ?*anyopaque, itemName: []const u8, pixmapName: []const u8, header: []const u8) QtC.KPageWidgetItem {
@@ -462,7 +462,7 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_AddPage4(@ptrCast(self), @ptrCast(page), itemName_str, pixmapName_str, header_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#addPage)
     ///
     /// ``` self: QtC.KConfigDialog, page: QtC.QWidget, itemName: []const u8, pixmapName: []const u8, header: []const u8, manage: bool ```
     pub fn AddPage5(self: ?*anyopaque, page: ?*anyopaque, itemName: []const u8, pixmapName: []const u8, header: []const u8, manage: bool) QtC.KPageWidgetItem {
@@ -481,7 +481,7 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_AddPage5(@ptrCast(self), @ptrCast(page), itemName_str, pixmapName_str, header_str, manage);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#addPage)
     ///
     /// ``` self: QtC.KConfigDialog, page: QtC.QWidget, config: QtC.KCoreConfigSkeleton, itemName: []const u8, pixmapName: []const u8 ```
     pub fn AddPage42(self: ?*anyopaque, page: ?*anyopaque, config: ?*anyopaque, itemName: []const u8, pixmapName: []const u8) QtC.KPageWidgetItem {
@@ -496,7 +496,7 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_AddPage42(@ptrCast(self), @ptrCast(page), @ptrCast(config), itemName_str, pixmapName_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#addPage)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#addPage)
     ///
     /// ``` self: QtC.KConfigDialog, page: QtC.QWidget, config: QtC.KCoreConfigSkeleton, itemName: []const u8, pixmapName: []const u8, header: []const u8 ```
     pub fn AddPage52(self: ?*anyopaque, page: ?*anyopaque, config: ?*anyopaque, itemName: []const u8, pixmapName: []const u8, header: []const u8) QtC.KPageWidgetItem {
@@ -515,7 +515,7 @@ pub const kconfigdialog = struct {
         return qtc.KConfigDialog_AddPage52(@ptrCast(self), @ptrCast(page), @ptrCast(config), itemName_str, pixmapName_str, header_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#setHelp)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#setHelp)
     ///
     /// ``` self: QtC.KConfigDialog, anchor: []const u8, appname: []const u8 ```
     pub fn SetHelp2(self: ?*anyopaque, anchor: []const u8, appname: []const u8) void {
@@ -530,7 +530,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_SetHelp2(@ptrCast(self), anchor_str, appname_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#setHelp)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#setHelp)
     ///
     /// Allows for overriding the related default method
     ///
@@ -539,7 +539,7 @@ pub const kconfigdialog = struct {
         qtc.KConfigDialog_OnSetHelp2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#setHelp)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#setHelp)
     ///
     /// Base class method implementation
     ///
@@ -558,7 +558,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setFaceType)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setFaceType)
     ///
     /// ``` self: QtC.KConfigDialog, faceType: kpagedialog_enums.FaceType ```
     pub fn SetFaceType(self: ?*anyopaque, faceType: i32) void {
@@ -567,7 +567,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#insertPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#insertPage)
     ///
     /// ``` self: QtC.KConfigDialog, before: QtC.KPageWidgetItem, widget: QtC.QWidget, name: []const u8 ```
     pub fn InsertPage(self: ?*anyopaque, before: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -580,7 +580,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#insertPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#insertPage)
     ///
     /// ``` self: QtC.KConfigDialog, before: QtC.KPageWidgetItem, item: QtC.KPageWidgetItem ```
     pub fn InsertPage2(self: ?*anyopaque, before: ?*anyopaque, item: ?*anyopaque) void {
@@ -589,7 +589,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addSubPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addSubPage)
     ///
     /// ``` self: QtC.KConfigDialog, parent: QtC.KPageWidgetItem, widget: QtC.QWidget, name: []const u8 ```
     pub fn AddSubPage(self: ?*anyopaque, parent: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
@@ -602,7 +602,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addSubPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addSubPage)
     ///
     /// ``` self: QtC.KConfigDialog, parent: QtC.KPageWidgetItem, item: QtC.KPageWidgetItem ```
     pub fn AddSubPage2(self: ?*anyopaque, parent: ?*anyopaque, item: ?*anyopaque) void {
@@ -611,7 +611,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#removePage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#removePage)
     ///
     /// ``` self: QtC.KConfigDialog, item: QtC.KPageWidgetItem ```
     pub fn RemovePage(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -620,7 +620,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setCurrentPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setCurrentPage)
     ///
     /// ``` self: QtC.KConfigDialog, item: QtC.KPageWidgetItem ```
     pub fn SetCurrentPage(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -629,7 +629,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#currentPage)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#currentPage)
     ///
     /// ``` self: QtC.KConfigDialog ```
     pub fn CurrentPage(self: ?*anyopaque) QtC.KPageWidgetItem {
@@ -638,7 +638,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setStandardButtons)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setStandardButtons)
     ///
     /// ``` self: QtC.KConfigDialog, buttons: flag of qdialogbuttonbox_enums.StandardButton ```
     pub fn SetStandardButtons(self: ?*anyopaque, buttons: i32) void {
@@ -647,7 +647,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#button)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#button)
     ///
     /// ``` self: QtC.KConfigDialog, which: qdialogbuttonbox_enums.StandardButton ```
     pub fn Button(self: ?*anyopaque, which: i32) QtC.QPushButton {
@@ -656,7 +656,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#addActionButton)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#addActionButton)
     ///
     /// ``` self: QtC.KConfigDialog, button: QtC.QAbstractButton ```
     pub fn AddActionButton(self: ?*anyopaque, button: ?*anyopaque) void {
@@ -665,7 +665,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#currentPageChanged)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#currentPageChanged)
     ///
     /// ``` self: QtC.KConfigDialog, current: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem ```
     pub fn CurrentPageChanged(self: ?*anyopaque, current: ?*anyopaque, before: ?*anyopaque) void {
@@ -674,7 +674,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#currentPageChanged)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#currentPageChanged)
     ///
     /// ``` self: QtC.KConfigDialog, slot: fn (self: QtC.KConfigDialog, current: QtC.KPageWidgetItem, before: QtC.KPageWidgetItem) callconv(.c) void ```
     pub fn OnCurrentPageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -683,7 +683,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageRemoved)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageRemoved)
     ///
     /// ``` self: QtC.KConfigDialog, page: QtC.KPageWidgetItem ```
     pub fn PageRemoved(self: ?*anyopaque, page: ?*anyopaque) void {
@@ -692,7 +692,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageRemoved)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageRemoved)
     ///
     /// ``` self: QtC.KConfigDialog, slot: fn (self: QtC.KConfigDialog, page: QtC.KPageWidgetItem) callconv(.c) void ```
     pub fn OnPageRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5569,7 +5569,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5580,7 +5580,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5591,7 +5591,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#pageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#pageWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5602,7 +5602,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setPageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setPageWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5613,7 +5613,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setPageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setPageWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5624,7 +5624,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setPageWidget)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setPageWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5635,7 +5635,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5646,7 +5646,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5657,7 +5657,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#buttonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#buttonBox)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5668,7 +5668,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setButtonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setButtonBox)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5679,7 +5679,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setButtonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setButtonBox)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5690,7 +5690,7 @@ pub const kconfigdialog = struct {
 
     /// Inherited from KPageDialog
     ///
-    /// [Qt documentation](https://api-staging.kde.org/kpagedialog.html#setButtonBox)
+    /// [Qt documentation](https://api.kde.org/kpagedialog.html#setButtonBox)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6075,7 +6075,7 @@ pub const kconfigdialog = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kconfigdialog.html#dtor.KConfigDialog)
+    /// [Qt documentation](https://api.kde.org/kconfigdialog.html#dtor.KConfigDialog)
     ///
     /// Delete this object from C++ memory.
     ///

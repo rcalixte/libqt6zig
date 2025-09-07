@@ -7,7 +7,7 @@ const std = @import("std");
 pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
 pub const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
-/// https://api-staging.kde.org/kcolorschememodel.html
+/// https://api.kde.org/kcolorschememodel.html
 pub const kcolorschememodel = struct {
     /// New constructs a new KColorSchemeModel object.
     ///
@@ -67,14 +67,14 @@ pub const kcolorschememodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememodel.html#data)
+    /// [Qt documentation](https://api.kde.org/kcolorschememodel.html#data)
     ///
     /// ``` self: QtC.KColorSchemeModel, index: QtC.QModelIndex, role: i32 ```
     pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.KColorSchemeModel_Data(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememodel.html#data)
+    /// [Qt documentation](https://api.kde.org/kcolorschememodel.html#data)
     ///
     /// Allows for overriding the related default method
     ///
@@ -83,7 +83,7 @@ pub const kcolorschememodel = struct {
         qtc.KColorSchemeModel_OnData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememodel.html#data)
+    /// [Qt documentation](https://api.kde.org/kcolorschememodel.html#data)
     ///
     /// Base class method implementation
     ///
@@ -92,14 +92,14 @@ pub const kcolorschememodel = struct {
         return qtc.KColorSchemeModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememodel.html#rowCount)
+    /// [Qt documentation](https://api.kde.org/kcolorschememodel.html#rowCount)
     ///
     /// ``` self: QtC.KColorSchemeModel, parent: QtC.QModelIndex ```
     pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.KColorSchemeModel_RowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememodel.html#rowCount)
+    /// [Qt documentation](https://api.kde.org/kcolorschememodel.html#rowCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -108,7 +108,7 @@ pub const kcolorschememodel = struct {
         qtc.KColorSchemeModel_OnRowCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememodel.html#rowCount)
+    /// [Qt documentation](https://api.kde.org/kcolorschememodel.html#rowCount)
     ///
     /// Base class method implementation
     ///
@@ -3342,7 +3342,7 @@ pub const kcolorschememodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcolorschememodel.html#dtor.KColorSchemeModel)
+    /// [Qt documentation](https://api.kde.org/kcolorschememodel.html#dtor.KColorSchemeModel)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -3352,7 +3352,7 @@ pub const kcolorschememodel = struct {
     }
 };
 
-/// https://api-staging.kde.org/kcolorschememodel.html#types
+/// https://api.kde.org/kcolorschememodel.html#types
 pub const enums = struct {
     pub const Roles = enum {
         pub const NameRole: i32 = 0;

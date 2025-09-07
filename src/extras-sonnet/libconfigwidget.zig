@@ -8,7 +8,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/sonnet-configwidget.html
+/// https://api.kde.org/sonnet-configwidget.html
 pub const sonnet__configwidget = struct {
     /// New constructs a new Sonnet::ConfigWidget object.
     ///
@@ -17,7 +17,7 @@ pub const sonnet__configwidget = struct {
         return qtc.Sonnet__ConfigWidget_new(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#metaObject)
+    /// [Qt documentation](https://api.kde.org/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -49,7 +49,7 @@ pub const sonnet__configwidget = struct {
         return qtc.Sonnet__ConfigWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -61,14 +61,14 @@ pub const sonnet__configwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#backgroundCheckingButtonShown)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#backgroundCheckingButtonShown)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget ```
     pub fn BackgroundCheckingButtonShown(self: ?*anyopaque) bool {
         return qtc.Sonnet__ConfigWidget_BackgroundCheckingButtonShown(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#setLanguage)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#setLanguage)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget, language: []const u8 ```
     pub fn SetLanguage(self: ?*anyopaque, language: []const u8) void {
@@ -79,7 +79,7 @@ pub const sonnet__configwidget = struct {
         qtc.Sonnet__ConfigWidget_SetLanguage(@ptrCast(self), language_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#language)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#language)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget, allocator: std.mem.Allocator ```
     pub fn Language(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,35 +90,35 @@ pub const sonnet__configwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#save)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#save)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget ```
     pub fn Save(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigWidget_Save(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#setBackgroundCheckingButtonShown)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#setBackgroundCheckingButtonShown)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget, backgroundCheckingButtonShown: bool ```
     pub fn SetBackgroundCheckingButtonShown(self: ?*anyopaque, backgroundCheckingButtonShown: bool) void {
         qtc.Sonnet__ConfigWidget_SetBackgroundCheckingButtonShown(@ptrCast(self), backgroundCheckingButtonShown);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#slotDefault)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#slotDefault)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget ```
     pub fn SlotDefault(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigWidget_SlotDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#slotIgnoreWordRemoved)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordRemoved)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget ```
     pub fn SlotIgnoreWordRemoved(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigWidget_SlotIgnoreWordRemoved(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#slotIgnoreWordRemoved)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordRemoved)
     ///
     /// Allows for overriding the related default method
     ///
@@ -127,7 +127,7 @@ pub const sonnet__configwidget = struct {
         qtc.Sonnet__ConfigWidget_OnSlotIgnoreWordRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#slotIgnoreWordRemoved)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordRemoved)
     ///
     /// Base class method implementation
     ///
@@ -136,14 +136,14 @@ pub const sonnet__configwidget = struct {
         qtc.Sonnet__ConfigWidget_QBaseSlotIgnoreWordRemoved(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#slotIgnoreWordAdded)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordAdded)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget ```
     pub fn SlotIgnoreWordAdded(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigWidget_SlotIgnoreWordAdded(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#slotIgnoreWordAdded)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordAdded)
     ///
     /// Allows for overriding the related default method
     ///
@@ -152,7 +152,7 @@ pub const sonnet__configwidget = struct {
         qtc.Sonnet__ConfigWidget_OnSlotIgnoreWordAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#slotIgnoreWordAdded)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordAdded)
     ///
     /// Base class method implementation
     ///
@@ -161,21 +161,21 @@ pub const sonnet__configwidget = struct {
         qtc.Sonnet__ConfigWidget_QBaseSlotIgnoreWordAdded(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#configChanged)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget ```
     pub fn ConfigChanged(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigWidget_ConfigChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/sonnet-configwidget.html#configChanged)
+    /// [Qt documentation](https://api.kde.org/sonnet-configwidget.html#configChanged)
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget, slot: fn (self: QtC.Sonnet__ConfigWidget) callconv(.c) void ```
     pub fn OnConfigChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.Sonnet__ConfigWidget_Connect_ConfigChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -188,7 +188,7 @@ pub const sonnet__configwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/qobject.html#tr)
+    /// [Qt documentation](https://api.kde.org/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {

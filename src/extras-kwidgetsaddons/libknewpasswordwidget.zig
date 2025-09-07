@@ -10,7 +10,7 @@ const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/knewpasswordwidget.html
+/// https://api.kde.org/knewpasswordwidget.html
 pub const knewpasswordwidget = struct {
     /// New constructs a new KNewPasswordWidget object.
     ///
@@ -70,7 +70,7 @@ pub const knewpasswordwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#passwordStatus)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#passwordStatus)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     ///
@@ -79,63 +79,63 @@ pub const knewpasswordwidget = struct {
         return qtc.KNewPasswordWidget_PasswordStatus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#allowEmptyPasswords)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#allowEmptyPasswords)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     pub fn AllowEmptyPasswords(self: ?*anyopaque) bool {
         return qtc.KNewPasswordWidget_AllowEmptyPasswords(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#minimumPasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#minimumPasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     pub fn MinimumPasswordLength(self: ?*anyopaque) i32 {
         return qtc.KNewPasswordWidget_MinimumPasswordLength(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#maximumPasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#maximumPasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     pub fn MaximumPasswordLength(self: ?*anyopaque) i32 {
         return qtc.KNewPasswordWidget_MaximumPasswordLength(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#reasonablePasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#reasonablePasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     pub fn ReasonablePasswordLength(self: ?*anyopaque) i32 {
         return qtc.KNewPasswordWidget_ReasonablePasswordLength(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#passwordStrengthWarningLevel)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#passwordStrengthWarningLevel)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     pub fn PasswordStrengthWarningLevel(self: ?*anyopaque) i32 {
         return qtc.KNewPasswordWidget_PasswordStrengthWarningLevel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#backgroundWarningColor)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#backgroundWarningColor)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     pub fn BackgroundWarningColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KNewPasswordWidget_BackgroundWarningColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#isPasswordStrengthMeterVisible)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#isPasswordStrengthMeterVisible)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     pub fn IsPasswordStrengthMeterVisible(self: ?*anyopaque) bool {
         return qtc.KNewPasswordWidget_IsPasswordStrengthMeterVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#isRevealPasswordAvailable)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#isRevealPasswordAvailable)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     pub fn IsRevealPasswordAvailable(self: ?*anyopaque) bool {
         return qtc.KNewPasswordWidget_IsRevealPasswordAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#revealPasswordMode)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#revealPasswordMode)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     ///
@@ -144,7 +144,7 @@ pub const knewpasswordwidget = struct {
         return qtc.KNewPasswordWidget_RevealPasswordMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#password)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#password)
     ///
     /// ``` self: QtC.KNewPasswordWidget, allocator: std.mem.Allocator ```
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -155,77 +155,77 @@ pub const knewpasswordwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#setAllowEmptyPasswords)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#setAllowEmptyPasswords)
     ///
     /// ``` self: QtC.KNewPasswordWidget, allowed: bool ```
     pub fn SetAllowEmptyPasswords(self: ?*anyopaque, allowed: bool) void {
         qtc.KNewPasswordWidget_SetAllowEmptyPasswords(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#setMinimumPasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#setMinimumPasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordWidget, minLength: i32 ```
     pub fn SetMinimumPasswordLength(self: ?*anyopaque, minLength: i32) void {
         qtc.KNewPasswordWidget_SetMinimumPasswordLength(@ptrCast(self), @intCast(minLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#setMaximumPasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#setMaximumPasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordWidget, maxLength: i32 ```
     pub fn SetMaximumPasswordLength(self: ?*anyopaque, maxLength: i32) void {
         qtc.KNewPasswordWidget_SetMaximumPasswordLength(@ptrCast(self), @intCast(maxLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#setReasonablePasswordLength)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#setReasonablePasswordLength)
     ///
     /// ``` self: QtC.KNewPasswordWidget, reasonableLength: i32 ```
     pub fn SetReasonablePasswordLength(self: ?*anyopaque, reasonableLength: i32) void {
         qtc.KNewPasswordWidget_SetReasonablePasswordLength(@ptrCast(self), @intCast(reasonableLength));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#setPasswordStrengthWarningLevel)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#setPasswordStrengthWarningLevel)
     ///
     /// ``` self: QtC.KNewPasswordWidget, warningLevel: i32 ```
     pub fn SetPasswordStrengthWarningLevel(self: ?*anyopaque, warningLevel: i32) void {
         qtc.KNewPasswordWidget_SetPasswordStrengthWarningLevel(@ptrCast(self), @intCast(warningLevel));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#setBackgroundWarningColor)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#setBackgroundWarningColor)
     ///
     /// ``` self: QtC.KNewPasswordWidget, color: QtC.QColor ```
     pub fn SetBackgroundWarningColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KNewPasswordWidget_SetBackgroundWarningColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#setPasswordStrengthMeterVisible)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#setPasswordStrengthMeterVisible)
     ///
     /// ``` self: QtC.KNewPasswordWidget, visible: bool ```
     pub fn SetPasswordStrengthMeterVisible(self: ?*anyopaque, visible: bool) void {
         qtc.KNewPasswordWidget_SetPasswordStrengthMeterVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#setRevealPasswordAvailable)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#setRevealPasswordAvailable)
     ///
     /// ``` self: QtC.KNewPasswordWidget, reveal: bool ```
     pub fn SetRevealPasswordAvailable(self: ?*anyopaque, reveal: bool) void {
         qtc.KNewPasswordWidget_SetRevealPasswordAvailable(@ptrCast(self), reveal);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#setRevealPasswordMode)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#setRevealPasswordMode)
     ///
     /// ``` self: QtC.KNewPasswordWidget, revealPasswordMode: kpassword_enums.RevealMode ```
     pub fn SetRevealPasswordMode(self: ?*anyopaque, revealPasswordMode: i32) void {
         qtc.KNewPasswordWidget_SetRevealPasswordMode(@ptrCast(self), @intCast(revealPasswordMode));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#passwordStatusChanged)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#passwordStatusChanged)
     ///
     /// ``` self: QtC.KNewPasswordWidget ```
     pub fn PasswordStatusChanged(self: ?*anyopaque) void {
         qtc.KNewPasswordWidget_PasswordStatusChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#passwordStatusChanged)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#passwordStatusChanged)
     ///
     /// ``` self: QtC.KNewPasswordWidget, slot: fn (self: QtC.KNewPasswordWidget) callconv(.c) void ```
     pub fn OnPasswordStatusChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
@@ -5238,7 +5238,7 @@ pub const knewpasswordwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knewpasswordwidget.html#dtor.KNewPasswordWidget)
+    /// [Qt documentation](https://api.kde.org/knewpasswordwidget.html#dtor.KNewPasswordWidget)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5248,7 +5248,7 @@ pub const knewpasswordwidget = struct {
     }
 };
 
-/// https://api-staging.kde.org/knewpasswordwidget.html#types
+/// https://api.kde.org/knewpasswordwidget.html#types
 pub const enums = struct {
     pub const PasswordStatus = enum {
         pub const EmptyPasswordNotAllowed: i32 = 0;

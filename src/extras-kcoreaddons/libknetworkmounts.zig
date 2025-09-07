@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/knetworkmounts.html
+/// https://api.kde.org/knetworkmounts.html
 pub const knetworkmounts = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -37,14 +37,14 @@ pub const knetworkmounts = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#self)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#self)
     ///
     ///
     pub fn Self() QtC.KNetworkMounts {
         return qtc.KNetworkMounts_Self();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#isSlowPath)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#isSlowPath)
     ///
     /// ``` self: QtC.KNetworkMounts, path: []const u8 ```
     pub fn IsSlowPath(self: ?*anyopaque, path: []const u8) bool {
@@ -55,7 +55,7 @@ pub const knetworkmounts = struct {
         return qtc.KNetworkMounts_IsSlowPath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#isOptionEnabledForPath)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#isOptionEnabledForPath)
     ///
     /// ``` self: QtC.KNetworkMounts, path: []const u8, option: knetworkmounts_enums.KNetworkMountOption ```
     pub fn IsOptionEnabledForPath(self: ?*anyopaque, path: []const u8, option: i32) bool {
@@ -66,35 +66,35 @@ pub const knetworkmounts = struct {
         return qtc.KNetworkMounts_IsOptionEnabledForPath(@ptrCast(self), path_str, @intCast(option));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#isEnabled)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#isEnabled)
     ///
     /// ``` self: QtC.KNetworkMounts ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
         return qtc.KNetworkMounts_IsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#setEnabled)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#setEnabled)
     ///
     /// ``` self: QtC.KNetworkMounts, value: bool ```
     pub fn SetEnabled(self: ?*anyopaque, value: bool) void {
         qtc.KNetworkMounts_SetEnabled(@ptrCast(self), value);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#isOptionEnabled)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#isOptionEnabled)
     ///
     /// ``` self: QtC.KNetworkMounts, option: knetworkmounts_enums.KNetworkMountOption ```
     pub fn IsOptionEnabled(self: ?*anyopaque, option: i32) bool {
         return qtc.KNetworkMounts_IsOptionEnabled(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#setOption)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#setOption)
     ///
     /// ``` self: QtC.KNetworkMounts, option: knetworkmounts_enums.KNetworkMountOption, value: bool ```
     pub fn SetOption(self: ?*anyopaque, option: i32, value: bool) void {
         qtc.KNetworkMounts_SetOption(@ptrCast(self), @intCast(option), value);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#paths)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#paths)
     ///
     /// ``` self: QtC.KNetworkMounts, allocator: std.mem.Allocator ```
     pub fn Paths(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -116,7 +116,7 @@ pub const knetworkmounts = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#setPaths)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#setPaths)
     ///
     /// ``` self: QtC.KNetworkMounts, paths: [][]const u8, typeVal: knetworkmounts_enums.KNetworkMountsType, allocator: std.mem.Allocator ```
     pub fn SetPaths(self: ?*anyopaque, paths: [][]const u8, typeVal: i32, allocator: std.mem.Allocator) void {
@@ -135,7 +135,7 @@ pub const knetworkmounts = struct {
         qtc.KNetworkMounts_SetPaths(@ptrCast(self), paths_list, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#addPath)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#addPath)
     ///
     /// ``` self: QtC.KNetworkMounts, path: []const u8, typeVal: knetworkmounts_enums.KNetworkMountsType ```
     pub fn AddPath(self: ?*anyopaque, path: []const u8, typeVal: i32) void {
@@ -146,7 +146,7 @@ pub const knetworkmounts = struct {
         qtc.KNetworkMounts_AddPath(@ptrCast(self), path_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#canonicalSymlinkPath)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#canonicalSymlinkPath)
     ///
     /// ``` self: QtC.KNetworkMounts, path: []const u8, allocator: std.mem.Allocator ```
     pub fn CanonicalSymlinkPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -161,14 +161,14 @@ pub const knetworkmounts = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#clearCache)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#clearCache)
     ///
     /// ``` self: QtC.KNetworkMounts ```
     pub fn ClearCache(self: ?*anyopaque) void {
         qtc.KNetworkMounts_ClearCache(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#sync)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#sync)
     ///
     /// ``` self: QtC.KNetworkMounts ```
     pub fn Sync(self: ?*anyopaque) void {
@@ -201,7 +201,7 @@ pub const knetworkmounts = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#isSlowPath)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#isSlowPath)
     ///
     /// ``` self: QtC.KNetworkMounts, path: []const u8, typeVal: knetworkmounts_enums.KNetworkMountsType ```
     pub fn IsSlowPath2(self: ?*anyopaque, path: []const u8, typeVal: i32) bool {
@@ -212,14 +212,14 @@ pub const knetworkmounts = struct {
         return qtc.KNetworkMounts_IsSlowPath2(@ptrCast(self), path_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#isOptionEnabled)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#isOptionEnabled)
     ///
     /// ``` self: QtC.KNetworkMounts, option: knetworkmounts_enums.KNetworkMountOption, defaultValue: bool ```
     pub fn IsOptionEnabled2(self: ?*anyopaque, option: i32, defaultValue: bool) bool {
         return qtc.KNetworkMounts_IsOptionEnabled2(@ptrCast(self), @intCast(option), defaultValue);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/knetworkmounts.html#paths)
+    /// [Qt documentation](https://api.kde.org/knetworkmounts.html#paths)
     ///
     /// ``` self: QtC.KNetworkMounts, typeVal: knetworkmounts_enums.KNetworkMountsType, allocator: std.mem.Allocator ```
     pub fn Paths1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -648,7 +648,7 @@ pub const knetworkmounts = struct {
     }
 };
 
-/// https://api-staging.kde.org/knetworkmounts.html#types
+/// https://api.kde.org/knetworkmounts.html#types
 pub const enums = struct {
     pub const KNetworkMountOption = enum {
         pub const LowSideEffectsOptimizations: i32 = 0;

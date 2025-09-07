@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qicon_enums = @import("../libqicon.zig").enums;
 const std = @import("std");
 
-/// https://api-staging.kde.org/kcountryflagemojiiconengine.html
+/// https://api.kde.org/kcountryflagemojiiconengine.html
 pub const kcountryflagemojiiconengine = struct {
     /// New constructs a new KCountryFlagEmojiIconEngine object.
     ///
@@ -17,14 +17,14 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_new(regionOrCountry_str);
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#clone)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine ```
     pub fn Clone(self: ?*anyopaque) QtC.QIconEngine {
         return qtc.KCountryFlagEmojiIconEngine_Clone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#clone)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
     ///
     /// Allows for overriding the related default method
     ///
@@ -33,7 +33,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#clone)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
     ///
     /// Base class method implementation
     ///
@@ -42,7 +42,7 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_QBaseClone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#key)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#key)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -53,7 +53,7 @@ pub const kcountryflagemojiiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#key)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#key)
     ///
     /// Allows for overriding the related default method
     ///
@@ -62,7 +62,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnKey(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#key)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#key)
     ///
     /// Base class method implementation
     ///
@@ -75,14 +75,14 @@ pub const kcountryflagemojiiconengine = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#paint)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
         qtc.KCountryFlagEmojiIconEngine_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#paint)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -91,7 +91,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#paint)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
     ///
     /// Base class method implementation
     ///
@@ -100,14 +100,14 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#pixmap)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn Pixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
         return qtc.KCountryFlagEmojiIconEngine_Pixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#pixmap)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -116,7 +116,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#pixmap)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
     ///
     /// Base class method implementation
     ///
@@ -125,14 +125,14 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_QBasePixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64 ```
     pub fn ScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
         return qtc.KCountryFlagEmojiIconEngine_ScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -141,7 +141,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnScaledPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
     ///
     /// Base class method implementation
     ///
@@ -150,14 +150,14 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_QBaseScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#isNull)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.KCountryFlagEmojiIconEngine_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#isNull)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
     ///
     /// Allows for overriding the related default method
     ///
@@ -166,7 +166,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnIsNull(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#isNull)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
     ///
     /// Base class method implementation
     ///
@@ -175,7 +175,7 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_QBaseIsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#setGlobalDefaultFont)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#setGlobalDefaultFont)
     ///
     /// ``` font: QtC.QFont ```
     pub fn SetGlobalDefaultFont(font: ?*anyopaque) void {
@@ -472,7 +472,7 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kcountryflagemojiiconengine.html#dtor.KCountryFlagEmojiIconEngine)
+    /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#dtor.KCountryFlagEmojiIconEngine)
     ///
     /// Delete this object from C++ memory.
     ///

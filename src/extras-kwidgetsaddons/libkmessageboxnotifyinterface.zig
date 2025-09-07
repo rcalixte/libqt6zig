@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qmessagebox_enums = @import("../libqmessagebox.zig").enums;
 
-/// https://api-staging.kde.org/kmessageboxnotifyinterface.html
+/// https://api.kde.org/kmessageboxnotifyinterface.html
 pub const kmessageboxnotifyinterface = struct {
     /// New constructs a new KMessageBoxNotifyInterface object.
     ///
@@ -11,7 +11,7 @@ pub const kmessageboxnotifyinterface = struct {
         return qtc.KMessageBoxNotifyInterface_new();
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxnotifyinterface.html#sendNotification)
+    /// [Qt documentation](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
     ///
     /// ``` self: QtC.KMessageBoxNotifyInterface, notificationType: qmessagebox_enums.Icon, message: []const u8, parent: QtC.QWidget ```
     pub fn SendNotification(self: ?*anyopaque, notificationType: i32, message: []const u8, parent: ?*anyopaque) void {
@@ -22,7 +22,7 @@ pub const kmessageboxnotifyinterface = struct {
         qtc.KMessageBoxNotifyInterface_SendNotification(@ptrCast(self), @intCast(notificationType), message_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxnotifyinterface.html#sendNotification)
+    /// [Qt documentation](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
     ///
     /// Allows for overriding the related default method
     ///
@@ -31,7 +31,7 @@ pub const kmessageboxnotifyinterface = struct {
         qtc.KMessageBoxNotifyInterface_OnSendNotification(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxnotifyinterface.html#sendNotification)
+    /// [Qt documentation](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
     ///
     /// Base class method implementation
     ///
@@ -44,14 +44,14 @@ pub const kmessageboxnotifyinterface = struct {
         qtc.KMessageBoxNotifyInterface_QBaseSendNotification(@ptrCast(self), @intCast(notificationType), message_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxnotifyinterface.html#operator-eq)
+    /// [Qt documentation](https://api.kde.org/kmessageboxnotifyinterface.html#operator-eq)
     ///
     /// ``` self: QtC.KMessageBoxNotifyInterface, param1: QtC.KMessageBoxNotifyInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KMessageBoxNotifyInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api-staging.kde.org/kmessageboxnotifyinterface.html#dtor.KMessageBoxNotifyInterface)
+    /// [Qt documentation](https://api.kde.org/kmessageboxnotifyinterface.html#dtor.KMessageBoxNotifyInterface)
     ///
     /// Delete this object from C++ memory.
     ///
