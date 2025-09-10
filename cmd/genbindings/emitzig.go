@@ -1021,7 +1021,20 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "var " + namePrefix + "_ret: set_" + t.RenderTypeMapZig(zfs, false) + " = .empty;\n"
 			afterword += "const " + namePrefix + "_data: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
 			afterword += "for (0.." + namePrefix + "_set.len) |i| {\n"
-			afterword += "    " + namePrefix + "_ret.put(allocator, " + namePrefix + "_data[i].data[0.." + namePrefix + "_data[i].len], {}) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Map insertion failed\");\n"
+			afterword += "    " + namePrefix + "_ret.put(allocator, " + namePrefix + "_data[i].data[0.." + namePrefix + "_data[i].len], {}) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Set insertion failed\");\n"
+			afterword += "}\n"
+
+			afterword += assignExpr + " " + namePrefix + "_ret;"
+			return shouldReturn + " " + rvalue + ";\n" + afterword
+		} else if t.IsKnownEnum() {
+			zfs.imports["std"] = struct{}{}
+			e, _ := KnownEnums[t.ParameterType]
+			shouldReturn = "const " + namePrefix + "_set: qtc.libqt_list = "
+
+			afterword += "var " + namePrefix + "_ret: set_" + e.EnumTypeZig + " = .empty;\n"
+			afterword += "const " + namePrefix + "_data: [*]" + e.EnumTypeZig + " = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
+			afterword += "for (0.." + namePrefix + "_set.len) |i| {\n"
+			afterword += "    " + namePrefix + "_ret.put(allocator, " + namePrefix + "_data[i], {}) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Set insertion failed\");\n"
 			afterword += "}\n"
 
 			afterword += assignExpr + " " + namePrefix + "_ret;"
@@ -1984,8 +1997,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			if strings.HasPrefix(k, "set_") {
 				kSplit := strings.Split(k, "_")
 				keyType := kSplit[1]
-				if mapParamToString(keyType) != "anyopaque" {
-					structDef = append(structDef, "pub const set_"+mapParamToString(keyType)+" = std.StringHashMapUnmanaged(void);")
+				if mapParamToString(keyType) == "i32" {
+					structDef = append(structDef, "const set_"+mapParamToString(keyType)+" = std.AutoHashMapUnmanaged(i32, void);")
+				} else if mapParamToString(keyType) != "anyopaque" {
+					structDef = append(structDef, "const set_"+mapParamToString(keyType)+" = std.StringHashMapUnmanaged(void);")
 				}
 			}
 		}
