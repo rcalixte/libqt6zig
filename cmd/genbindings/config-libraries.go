@@ -333,6 +333,18 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KConfigWidgets -I/usr/include/KF6/KColorScheme -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KConfigGui -I/usr/include/KF6/KGuiAddons -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// KBookmarks
+		// Depends on Qt Core, GUI, Widgets, XML
+		{
+			path: "extras-kbookmarks",
+			dirs: []string{
+				"/usr/include/KF6/KBookmarks",
+				"/usr/include/KF6/KBookmarksWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17  -I/usr/include/KF6/KBookmarks -I/usr/include/KF6/KBookmarksWidgets -I/usr/include/KF6/KConfigWidgets -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets") + pkgConfigCflags("Qt6Xml"),
+		},
+
 		// KIconThemes
 		// Depends on Qt Core, GUI, Widgets, KWidgetsAddons
 		{
