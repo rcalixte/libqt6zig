@@ -40,8 +40,8 @@ pub fn build(b: *std.Build) !void {
     defer arena.deinit();
     const allocator = arena.allocator();
 
-    var cpp_sources: std.ArrayListUnmanaged([]const u8) = .empty;
-    var cpp_header_files: std.ArrayListUnmanaged([]const u8) = .empty;
+    var cpp_sources: std.ArrayList([]const u8) = .empty;
+    var cpp_header_files: std.ArrayList([]const u8) = .empty;
     var prefix_options: std.StringHashMapUnmanaged(bool) = .empty;
 
     const src_dir = b.build_root.path.?;
@@ -130,7 +130,7 @@ pub fn build(b: *std.Build) !void {
         else => @panic("Unsupported OS"),
     };
 
-    var qt_include_path: std.ArrayListUnmanaged([]const u8) = .empty;
+    var qt_include_path: std.ArrayList([]const u8) = .empty;
     for (extra_paths) |extra_path| {
         if (std.mem.eql(u8, extra_path, "")) continue;
         try qt_include_path.append(b.allocator, b.dupe(extra_path));
@@ -207,6 +207,9 @@ pub fn build(b: *std.Build) !void {
         "KColorScheme",
         // Qt 6 KConfigWidgets
         "KConfigWidgets",
+        // Qt 6 KBookmarks
+        "KBookmarks",
+        "KBookmarksWidgets",
         // Qt 6 KIconThemes
         "KIconThemes",
         "KIconWidgets",
