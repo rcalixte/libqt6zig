@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const kuitsetup_enums = @import("libkuitsetup.zig").enums;
 const std = @import("std");
-pub const set_constu8 = std.StringHashMapUnmanaged(void);
+const set_constu8 = std.StringHashMapUnmanaged(void);
 
 /// https://api.kde.org/klocalizedstring.html
 pub const klocalizedstring = struct {
@@ -328,7 +328,7 @@ pub const klocalizedstring = struct {
         var _ret: set_constu8 = .empty;
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i| {
-            _ret.put(allocator, _data[i].data[0.._data[i].len], {}) catch @panic("klocalizedstring.AvailableApplicationTranslations: Map insertion failed");
+            _ret.put(allocator, _data[i].data[0.._data[i].len], {}) catch @panic("klocalizedstring.AvailableApplicationTranslations: Set insertion failed");
         }
         return _ret;
     }
@@ -345,7 +345,7 @@ pub const klocalizedstring = struct {
         var _ret: set_constu8 = .empty;
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i| {
-            _ret.put(allocator, _data[i].data[0.._data[i].len], {}) catch @panic("klocalizedstring.AvailableDomainTranslations: Map insertion failed");
+            _ret.put(allocator, _data[i].data[0.._data[i].len], {}) catch @panic("klocalizedstring.AvailableDomainTranslations: Set insertion failed");
         }
         return _ret;
     }

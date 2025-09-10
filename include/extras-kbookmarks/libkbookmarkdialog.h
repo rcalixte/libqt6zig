@@ -1,0 +1,280 @@
+#pragma once
+#ifndef SRC_EXTRAS_KBOOKMARKSC_LIBKBOOKMARKDIALOG_H
+#define SRC_EXTRAS_KBOOKMARKSC_LIBKBOOKMARKDIALOG_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KBookmarkOwner__FutureBookmark)
+typedef KBookmarkOwner::FutureBookmark KBookmarkOwner__FutureBookmark;
+#endif
+#else
+typedef struct KBookmark KBookmark;
+typedef struct KBookmarkDialog KBookmarkDialog;
+typedef struct KBookmarkGroup KBookmarkGroup;
+typedef struct KBookmarkManager KBookmarkManager;
+typedef struct KBookmarkOwner__FutureBookmark KBookmarkOwner__FutureBookmark;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDialog QDialog;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QUrl QUrl;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KBookmarkDialog* KBookmarkDialog_new(KBookmarkManager* manager);
+KBookmarkDialog* KBookmarkDialog_new2(KBookmarkManager* manager, QWidget* parent);
+QMetaObject* KBookmarkDialog_MetaObject(const KBookmarkDialog* self);
+void* KBookmarkDialog_Metacast(KBookmarkDialog* self, const char* param1);
+int KBookmarkDialog_Metacall(KBookmarkDialog* self, int param1, int param2, void** param3);
+libqt_string KBookmarkDialog_Tr(const char* s);
+KBookmark* KBookmarkDialog_EditBookmark(KBookmarkDialog* self, const KBookmark* bm);
+KBookmark* KBookmarkDialog_AddBookmark(KBookmarkDialog* self, const libqt_string title, const QUrl* url, const libqt_string icon);
+KBookmarkGroup* KBookmarkDialog_AddBookmarks(KBookmarkDialog* self, const libqt_list /* of KBookmarkOwner__FutureBookmark* */ list);
+KBookmarkGroup* KBookmarkDialog_CreateNewFolder(KBookmarkDialog* self, const libqt_string name);
+KBookmarkGroup* KBookmarkDialog_SelectFolder(KBookmarkDialog* self);
+void KBookmarkDialog_Accept(KBookmarkDialog* self);
+libqt_string KBookmarkDialog_Tr2(const char* s, const char* c);
+libqt_string KBookmarkDialog_Tr3(const char* s, const char* c, int n);
+KBookmark* KBookmarkDialog_AddBookmark4(KBookmarkDialog* self, const libqt_string title, const QUrl* url, const libqt_string icon, KBookmark* parent);
+KBookmarkGroup* KBookmarkDialog_AddBookmarks2(KBookmarkDialog* self, const libqt_list /* of KBookmarkOwner__FutureBookmark* */ list, const libqt_string name);
+KBookmarkGroup* KBookmarkDialog_AddBookmarks3(KBookmarkDialog* self, const libqt_list /* of KBookmarkOwner__FutureBookmark* */ list, const libqt_string name, KBookmarkGroup* parent);
+KBookmarkGroup* KBookmarkDialog_CreateNewFolder2(KBookmarkDialog* self, const libqt_string name, KBookmark* parent);
+KBookmarkGroup* KBookmarkDialog_SelectFolder1(KBookmarkDialog* self, KBookmark* start);
+void KBookmarkDialog_OnMetacall(KBookmarkDialog* self, intptr_t slot);
+int KBookmarkDialog_QBaseMetacall(KBookmarkDialog* self, int param1, int param2, void** param3);
+void KBookmarkDialog_OnAccept(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseAccept(KBookmarkDialog* self);
+void KBookmarkDialog_SetVisible(KBookmarkDialog* self, bool visible);
+void KBookmarkDialog_OnSetVisible(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseSetVisible(KBookmarkDialog* self, bool visible);
+QSize* KBookmarkDialog_SizeHint(const KBookmarkDialog* self);
+void KBookmarkDialog_OnSizeHint(const KBookmarkDialog* self, intptr_t slot);
+QSize* KBookmarkDialog_QBaseSizeHint(const KBookmarkDialog* self);
+QSize* KBookmarkDialog_MinimumSizeHint(const KBookmarkDialog* self);
+void KBookmarkDialog_OnMinimumSizeHint(const KBookmarkDialog* self, intptr_t slot);
+QSize* KBookmarkDialog_QBaseMinimumSizeHint(const KBookmarkDialog* self);
+void KBookmarkDialog_Open(KBookmarkDialog* self);
+void KBookmarkDialog_OnOpen(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseOpen(KBookmarkDialog* self);
+int KBookmarkDialog_Exec(KBookmarkDialog* self);
+void KBookmarkDialog_OnExec(KBookmarkDialog* self, intptr_t slot);
+int KBookmarkDialog_QBaseExec(KBookmarkDialog* self);
+void KBookmarkDialog_Done(KBookmarkDialog* self, int param1);
+void KBookmarkDialog_OnDone(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseDone(KBookmarkDialog* self, int param1);
+void KBookmarkDialog_Reject(KBookmarkDialog* self);
+void KBookmarkDialog_OnReject(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseReject(KBookmarkDialog* self);
+void KBookmarkDialog_KeyPressEvent(KBookmarkDialog* self, QKeyEvent* param1);
+void KBookmarkDialog_OnKeyPressEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseKeyPressEvent(KBookmarkDialog* self, QKeyEvent* param1);
+void KBookmarkDialog_CloseEvent(KBookmarkDialog* self, QCloseEvent* param1);
+void KBookmarkDialog_OnCloseEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseCloseEvent(KBookmarkDialog* self, QCloseEvent* param1);
+void KBookmarkDialog_ShowEvent(KBookmarkDialog* self, QShowEvent* param1);
+void KBookmarkDialog_OnShowEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseShowEvent(KBookmarkDialog* self, QShowEvent* param1);
+void KBookmarkDialog_ResizeEvent(KBookmarkDialog* self, QResizeEvent* param1);
+void KBookmarkDialog_OnResizeEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseResizeEvent(KBookmarkDialog* self, QResizeEvent* param1);
+void KBookmarkDialog_ContextMenuEvent(KBookmarkDialog* self, QContextMenuEvent* param1);
+void KBookmarkDialog_OnContextMenuEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseContextMenuEvent(KBookmarkDialog* self, QContextMenuEvent* param1);
+bool KBookmarkDialog_EventFilter(KBookmarkDialog* self, QObject* param1, QEvent* param2);
+void KBookmarkDialog_OnEventFilter(KBookmarkDialog* self, intptr_t slot);
+bool KBookmarkDialog_QBaseEventFilter(KBookmarkDialog* self, QObject* param1, QEvent* param2);
+int KBookmarkDialog_DevType(const KBookmarkDialog* self);
+void KBookmarkDialog_OnDevType(const KBookmarkDialog* self, intptr_t slot);
+int KBookmarkDialog_QBaseDevType(const KBookmarkDialog* self);
+int KBookmarkDialog_HeightForWidth(const KBookmarkDialog* self, int param1);
+void KBookmarkDialog_OnHeightForWidth(const KBookmarkDialog* self, intptr_t slot);
+int KBookmarkDialog_QBaseHeightForWidth(const KBookmarkDialog* self, int param1);
+bool KBookmarkDialog_HasHeightForWidth(const KBookmarkDialog* self);
+void KBookmarkDialog_OnHasHeightForWidth(const KBookmarkDialog* self, intptr_t slot);
+bool KBookmarkDialog_QBaseHasHeightForWidth(const KBookmarkDialog* self);
+QPaintEngine* KBookmarkDialog_PaintEngine(const KBookmarkDialog* self);
+void KBookmarkDialog_OnPaintEngine(const KBookmarkDialog* self, intptr_t slot);
+QPaintEngine* KBookmarkDialog_QBasePaintEngine(const KBookmarkDialog* self);
+bool KBookmarkDialog_Event(KBookmarkDialog* self, QEvent* event);
+void KBookmarkDialog_OnEvent(KBookmarkDialog* self, intptr_t slot);
+bool KBookmarkDialog_QBaseEvent(KBookmarkDialog* self, QEvent* event);
+void KBookmarkDialog_MousePressEvent(KBookmarkDialog* self, QMouseEvent* event);
+void KBookmarkDialog_OnMousePressEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseMousePressEvent(KBookmarkDialog* self, QMouseEvent* event);
+void KBookmarkDialog_MouseReleaseEvent(KBookmarkDialog* self, QMouseEvent* event);
+void KBookmarkDialog_OnMouseReleaseEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseMouseReleaseEvent(KBookmarkDialog* self, QMouseEvent* event);
+void KBookmarkDialog_MouseDoubleClickEvent(KBookmarkDialog* self, QMouseEvent* event);
+void KBookmarkDialog_OnMouseDoubleClickEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseMouseDoubleClickEvent(KBookmarkDialog* self, QMouseEvent* event);
+void KBookmarkDialog_MouseMoveEvent(KBookmarkDialog* self, QMouseEvent* event);
+void KBookmarkDialog_OnMouseMoveEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseMouseMoveEvent(KBookmarkDialog* self, QMouseEvent* event);
+void KBookmarkDialog_WheelEvent(KBookmarkDialog* self, QWheelEvent* event);
+void KBookmarkDialog_OnWheelEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseWheelEvent(KBookmarkDialog* self, QWheelEvent* event);
+void KBookmarkDialog_KeyReleaseEvent(KBookmarkDialog* self, QKeyEvent* event);
+void KBookmarkDialog_OnKeyReleaseEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseKeyReleaseEvent(KBookmarkDialog* self, QKeyEvent* event);
+void KBookmarkDialog_FocusInEvent(KBookmarkDialog* self, QFocusEvent* event);
+void KBookmarkDialog_OnFocusInEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseFocusInEvent(KBookmarkDialog* self, QFocusEvent* event);
+void KBookmarkDialog_FocusOutEvent(KBookmarkDialog* self, QFocusEvent* event);
+void KBookmarkDialog_OnFocusOutEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseFocusOutEvent(KBookmarkDialog* self, QFocusEvent* event);
+void KBookmarkDialog_EnterEvent(KBookmarkDialog* self, QEnterEvent* event);
+void KBookmarkDialog_OnEnterEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseEnterEvent(KBookmarkDialog* self, QEnterEvent* event);
+void KBookmarkDialog_LeaveEvent(KBookmarkDialog* self, QEvent* event);
+void KBookmarkDialog_OnLeaveEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseLeaveEvent(KBookmarkDialog* self, QEvent* event);
+void KBookmarkDialog_PaintEvent(KBookmarkDialog* self, QPaintEvent* event);
+void KBookmarkDialog_OnPaintEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBasePaintEvent(KBookmarkDialog* self, QPaintEvent* event);
+void KBookmarkDialog_MoveEvent(KBookmarkDialog* self, QMoveEvent* event);
+void KBookmarkDialog_OnMoveEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseMoveEvent(KBookmarkDialog* self, QMoveEvent* event);
+void KBookmarkDialog_TabletEvent(KBookmarkDialog* self, QTabletEvent* event);
+void KBookmarkDialog_OnTabletEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseTabletEvent(KBookmarkDialog* self, QTabletEvent* event);
+void KBookmarkDialog_ActionEvent(KBookmarkDialog* self, QActionEvent* event);
+void KBookmarkDialog_OnActionEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseActionEvent(KBookmarkDialog* self, QActionEvent* event);
+void KBookmarkDialog_DragEnterEvent(KBookmarkDialog* self, QDragEnterEvent* event);
+void KBookmarkDialog_OnDragEnterEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseDragEnterEvent(KBookmarkDialog* self, QDragEnterEvent* event);
+void KBookmarkDialog_DragMoveEvent(KBookmarkDialog* self, QDragMoveEvent* event);
+void KBookmarkDialog_OnDragMoveEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseDragMoveEvent(KBookmarkDialog* self, QDragMoveEvent* event);
+void KBookmarkDialog_DragLeaveEvent(KBookmarkDialog* self, QDragLeaveEvent* event);
+void KBookmarkDialog_OnDragLeaveEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseDragLeaveEvent(KBookmarkDialog* self, QDragLeaveEvent* event);
+void KBookmarkDialog_DropEvent(KBookmarkDialog* self, QDropEvent* event);
+void KBookmarkDialog_OnDropEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseDropEvent(KBookmarkDialog* self, QDropEvent* event);
+void KBookmarkDialog_HideEvent(KBookmarkDialog* self, QHideEvent* event);
+void KBookmarkDialog_OnHideEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseHideEvent(KBookmarkDialog* self, QHideEvent* event);
+bool KBookmarkDialog_NativeEvent(KBookmarkDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KBookmarkDialog_OnNativeEvent(KBookmarkDialog* self, intptr_t slot);
+bool KBookmarkDialog_QBaseNativeEvent(KBookmarkDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KBookmarkDialog_ChangeEvent(KBookmarkDialog* self, QEvent* param1);
+void KBookmarkDialog_OnChangeEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseChangeEvent(KBookmarkDialog* self, QEvent* param1);
+int KBookmarkDialog_Metric(const KBookmarkDialog* self, int param1);
+void KBookmarkDialog_OnMetric(const KBookmarkDialog* self, intptr_t slot);
+int KBookmarkDialog_QBaseMetric(const KBookmarkDialog* self, int param1);
+void KBookmarkDialog_InitPainter(const KBookmarkDialog* self, QPainter* painter);
+void KBookmarkDialog_OnInitPainter(const KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseInitPainter(const KBookmarkDialog* self, QPainter* painter);
+QPaintDevice* KBookmarkDialog_Redirected(const KBookmarkDialog* self, QPoint* offset);
+void KBookmarkDialog_OnRedirected(const KBookmarkDialog* self, intptr_t slot);
+QPaintDevice* KBookmarkDialog_QBaseRedirected(const KBookmarkDialog* self, QPoint* offset);
+QPainter* KBookmarkDialog_SharedPainter(const KBookmarkDialog* self);
+void KBookmarkDialog_OnSharedPainter(const KBookmarkDialog* self, intptr_t slot);
+QPainter* KBookmarkDialog_QBaseSharedPainter(const KBookmarkDialog* self);
+void KBookmarkDialog_InputMethodEvent(KBookmarkDialog* self, QInputMethodEvent* param1);
+void KBookmarkDialog_OnInputMethodEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseInputMethodEvent(KBookmarkDialog* self, QInputMethodEvent* param1);
+QVariant* KBookmarkDialog_InputMethodQuery(const KBookmarkDialog* self, int param1);
+void KBookmarkDialog_OnInputMethodQuery(const KBookmarkDialog* self, intptr_t slot);
+QVariant* KBookmarkDialog_QBaseInputMethodQuery(const KBookmarkDialog* self, int param1);
+bool KBookmarkDialog_FocusNextPrevChild(KBookmarkDialog* self, bool next);
+void KBookmarkDialog_OnFocusNextPrevChild(KBookmarkDialog* self, intptr_t slot);
+bool KBookmarkDialog_QBaseFocusNextPrevChild(KBookmarkDialog* self, bool next);
+void KBookmarkDialog_TimerEvent(KBookmarkDialog* self, QTimerEvent* event);
+void KBookmarkDialog_OnTimerEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseTimerEvent(KBookmarkDialog* self, QTimerEvent* event);
+void KBookmarkDialog_ChildEvent(KBookmarkDialog* self, QChildEvent* event);
+void KBookmarkDialog_OnChildEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseChildEvent(KBookmarkDialog* self, QChildEvent* event);
+void KBookmarkDialog_CustomEvent(KBookmarkDialog* self, QEvent* event);
+void KBookmarkDialog_OnCustomEvent(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseCustomEvent(KBookmarkDialog* self, QEvent* event);
+void KBookmarkDialog_ConnectNotify(KBookmarkDialog* self, const QMetaMethod* signal);
+void KBookmarkDialog_OnConnectNotify(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseConnectNotify(KBookmarkDialog* self, const QMetaMethod* signal);
+void KBookmarkDialog_DisconnectNotify(KBookmarkDialog* self, const QMetaMethod* signal);
+void KBookmarkDialog_OnDisconnectNotify(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseDisconnectNotify(KBookmarkDialog* self, const QMetaMethod* signal);
+void KBookmarkDialog_NewFolderButton(KBookmarkDialog* self);
+void KBookmarkDialog_OnNewFolderButton(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseNewFolderButton(KBookmarkDialog* self);
+void KBookmarkDialog_AdjustPosition(KBookmarkDialog* self, QWidget* param1);
+void KBookmarkDialog_OnAdjustPosition(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseAdjustPosition(KBookmarkDialog* self, QWidget* param1);
+void KBookmarkDialog_UpdateMicroFocus(KBookmarkDialog* self);
+void KBookmarkDialog_OnUpdateMicroFocus(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseUpdateMicroFocus(KBookmarkDialog* self);
+void KBookmarkDialog_Create(KBookmarkDialog* self);
+void KBookmarkDialog_OnCreate(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseCreate(KBookmarkDialog* self);
+void KBookmarkDialog_Destroy(KBookmarkDialog* self);
+void KBookmarkDialog_OnDestroy(KBookmarkDialog* self, intptr_t slot);
+void KBookmarkDialog_QBaseDestroy(KBookmarkDialog* self);
+bool KBookmarkDialog_FocusNextChild(KBookmarkDialog* self);
+void KBookmarkDialog_OnFocusNextChild(KBookmarkDialog* self, intptr_t slot);
+bool KBookmarkDialog_QBaseFocusNextChild(KBookmarkDialog* self);
+bool KBookmarkDialog_FocusPreviousChild(KBookmarkDialog* self);
+void KBookmarkDialog_OnFocusPreviousChild(KBookmarkDialog* self, intptr_t slot);
+bool KBookmarkDialog_QBaseFocusPreviousChild(KBookmarkDialog* self);
+QObject* KBookmarkDialog_Sender(const KBookmarkDialog* self);
+void KBookmarkDialog_OnSender(const KBookmarkDialog* self, intptr_t slot);
+QObject* KBookmarkDialog_QBaseSender(const KBookmarkDialog* self);
+int KBookmarkDialog_SenderSignalIndex(const KBookmarkDialog* self);
+void KBookmarkDialog_OnSenderSignalIndex(const KBookmarkDialog* self, intptr_t slot);
+int KBookmarkDialog_QBaseSenderSignalIndex(const KBookmarkDialog* self);
+int KBookmarkDialog_Receivers(const KBookmarkDialog* self, const char* signal);
+void KBookmarkDialog_OnReceivers(const KBookmarkDialog* self, intptr_t slot);
+int KBookmarkDialog_QBaseReceivers(const KBookmarkDialog* self, const char* signal);
+bool KBookmarkDialog_IsSignalConnected(const KBookmarkDialog* self, const QMetaMethod* signal);
+void KBookmarkDialog_OnIsSignalConnected(const KBookmarkDialog* self, intptr_t slot);
+bool KBookmarkDialog_QBaseIsSignalConnected(const KBookmarkDialog* self, const QMetaMethod* signal);
+double KBookmarkDialog_GetDecodedMetricF(const KBookmarkDialog* self, int metricA, int metricB);
+void KBookmarkDialog_OnGetDecodedMetricF(const KBookmarkDialog* self, intptr_t slot);
+double KBookmarkDialog_QBaseGetDecodedMetricF(const KBookmarkDialog* self, int metricA, int metricB);
+void KBookmarkDialog_Delete(KBookmarkDialog* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
