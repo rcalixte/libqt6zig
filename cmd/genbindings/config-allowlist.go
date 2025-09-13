@@ -194,6 +194,7 @@ func AllowClass(className string) bool {
 		"KCompletionMatches",                                 // Qt 6 kcompletionmatches.h, inherits from KSortableList<QString>
 		"KQuickIconProvider",                                 // Qt 6 kquickiconprovider.h, inherits from QQuickImageProvider
 		"KBookmarkGroupTraverser",                            // Qt 6 kbookmark.h, a legacy class
+		"KLocalization::Internal",                            // Qt 6 klocalizedqmlcontext.h
 		"____last____":
 		return false
 	}
