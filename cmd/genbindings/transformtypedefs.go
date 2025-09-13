@@ -107,6 +107,25 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 				p.QtCppOriginalType.ParameterType = p.ParameterType
 			}
 		}
+
+	} else if t, ok := p.QSetOf(); ok {
+		t2 := applyTypedefs(t, className) // recursive
+
+		// Wipe out so that RenderTypeQtCpp() does not see it
+		t2.QtCppOriginalType = nil
+
+		tType := resolveStructType(t2.RenderTypeQtCpp(), className, "")
+		p.ParameterType = "QSet<" + tType + ">"
+
+		if p.QtCppOriginalType == nil {
+			tmp := p // copy
+			p.QtCppOriginalType = &tmp
+			p.QtCppOriginalType.ParameterType = p.ParameterType
+		} else {
+			if _, ok := KnownTypedefs[p.QtCppOriginalType.ParameterType]; ok {
+				p.QtCppOriginalType.ParameterType = p.ParameterType
+			}
+		}
 	}
 
 	if ctd, ok := KnownClassnames[p.ParameterType]; ok {
