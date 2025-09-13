@@ -62,6 +62,9 @@ func (p *CppParameter) GetQtCppType() *CppParameter {
 		if strings.Contains(p.ParameterType, p.QtCppOriginalType.ParameterType) && !strings.HasPrefix(p.ParameterType, "QFlags<") {
 			return p
 		}
+		if !strings.Contains(p.ParameterType, "<") && strings.Count(p.ParameterType, "::") > strings.Count(p.QtCppOriginalType.ParameterType, "::") {
+			return p
+		}
 		return p.QtCppOriginalType
 	}
 
