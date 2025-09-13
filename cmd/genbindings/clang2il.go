@@ -135,7 +135,7 @@ nextTopLevel:
 			}
 
 			// Handle class method
-			if className := getClassFromMangledName(fn.mangledName); className != "" {
+			if className := getClassFromMangledName(fn.mangledName, fn.name); className != "" {
 				if shouldSkipClass(className) {
 					continue nextTopLevel
 				}
@@ -1333,7 +1333,7 @@ func parseFunctionDecl(node map[string]interface{}) (*functionInfo, error) {
 
 // getClassFromMangledName returns the class name from a mangled name
 // The format is typically _ZN<length><classname><length><methodname>E...
-func getClassFromMangledName(mangledName string) string {
+func getClassFromMangledName(mangledName, methodName string) string {
 	if !strings.Contains(mangledName, "ZN") || strings.Count(mangledName, "E") == 0 {
 		return ""
 	}
@@ -1344,20 +1344,38 @@ func getClassFromMangledName(mangledName string) string {
 	}
 
 	rest := parts[1]
-	var classNameLen int
-	for i, c := range rest {
-		if c < '0' || c > '9' {
-			classNameLen, _ = strconv.Atoi(rest[:i])
-			rest = rest[i:]
+	var result []string
+
+	for len(rest) > 0 {
+		if rest[0] < '0' || rest[0] > '9' {
+			rest = rest[1:]
+			continue
+		}
+
+		var nameLen int
+		for i, c := range rest {
+			if c < '0' || c > '9' {
+				nameLen, _ = strconv.Atoi(rest[:i])
+				rest = rest[i:]
+				break
+			}
+		}
+
+		if nameLen == 0 || len(rest) < nameLen {
+			return ""
+		}
+
+		name := rest[:nameLen]
+		rest = rest[nameLen:]
+
+		if name == methodName {
 			break
 		}
+
+		result = append(result, name)
 	}
 
-	if classNameLen == 0 || len(rest) < classNameLen {
-		return ""
-	}
-
-	return rest[:classNameLen]
+	return strings.Join(result, "::")
 }
 
 func shouldSkipClass(className string) bool {
