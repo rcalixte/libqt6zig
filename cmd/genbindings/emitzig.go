@@ -931,7 +931,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		arrType := t.RenderTypeZig(zfs, true, true)
 
-		if IsKnownClass(t.ParameterType) || IsKnownTypeDef(t.ParameterType) || t.IntType() {
+		if IsKnownClass(t.ParameterType) || IsKnownTypeDef(t.ParameterType) || t.IntType() || arrType == "i32" {
 			if t.needsPointer(arrType) {
 				arrType = "QtC." + arrType
 			}
@@ -1504,9 +1504,6 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			zfs.currentMethodName = mSafeMethodName
 			cSafeMethodName := mSafeMethodName
 
-			if zigReservedWord(mSafeMethodName) {
-				mSafeMethodName = "_" + mSafeMethodName
-			}
 			if _, ok := previousMethods[m.MethodName]; ok {
 				continue
 			}
@@ -1724,10 +1721,6 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			zfs.currentMethodName = mSafeMethodName
 			cSafeMethodName := mSafeMethodName
 
-			if zigReservedWord(mSafeMethodName) {
-				mSafeMethodName = "_" + mSafeMethodName
-			}
-
 			// Include inheritance information if we have it
 			var inheritedFrom, maybeCommentStruct, maybeAnyopaque, maybeCommentSelf string
 			cmdStructName := zigStructName
@@ -1817,10 +1810,6 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		for _, m := range privateSignals {
 			mSafeMethodName := m.SafeMethodName()
 			cSafeMethodName := mSafeMethodName
-
-			if zigReservedWord(mSafeMethodName) {
-				mSafeMethodName = "_" + mSafeMethodName
-			}
 
 			zfs.currentMethodName = mSafeMethodName
 
@@ -1946,7 +1935,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			} else if k == "builtin" {
 				allImports = append(allImports, `const builtin = @import("builtin");`)
 			}
-			if strings.Contains(k, ",") {
+			if strings.Contains(k, ",") && strings.Count(k, ",") >= 2 {
 				kSplit := strings.Split(k, ",")
 				mapType := kSplit[0]
 				keyType := kSplit[1]
