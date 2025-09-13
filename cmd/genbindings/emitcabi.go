@@ -40,7 +40,7 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 				return "const char**"
 			} else if innerType == "int" {
 				return "int*"
-			} else if IsKnownClass(strings.TrimSuffix(innerType, "*")) {
+			} else if IsKnownClass(inner.ParameterType) {
 				return innerType + "*"
 			}
 		}
@@ -308,7 +308,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 				preamble += indent + nameprefix + "_" + containerType + refType + "reserve(" + p.ParameterName + "_len);\n"
 				dataField = ""
 				iterField = "_len"
-			} else if isSlot && IsKnownClass(strings.TrimSuffix(lType, "*")) {
+			} else if isSlot && IsKnownClass(listType.ParameterType) {
 				if p.ByRef {
 					preamble += indent + nameprefix + "_" + containerType + " = new " + containerQtType + ";\n"
 				}
@@ -316,7 +316,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 				preamble += indent + nameprefix + "_" + containerType + refType + "reserve(" + p.ParameterName + ".len);\n"
 			}
 
-			if isSlot && IsKnownClass(strings.TrimSuffix(lType, "*")) {
+			if isSlot && IsKnownClass(listType.ParameterType) {
 				maybeExtraDeref := "*"
 				if strings.HasSuffix(containerQtType, "*>") {
 					maybeExtraDeref = ""
@@ -619,7 +619,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 				afterCall += indent + namePrefix + "_arr[" + namePrefix + "_ret" + memberRef + "size()] = -1;\n"
 
 				afterCall += indent + assignExpression + namePrefix + "_arr;\n"
-			} else if IsKnownClass(strings.TrimSuffix(cType, "*")) {
+			} else if IsKnownClass(t.ParameterType) {
 				afterCall += indent + "// Append sentinel value to the list\n"
 				afterCall += indent + namePrefix + "_arr[" + namePrefix + "_ret" + memberRef + "size()] = nullptr;\n"
 
