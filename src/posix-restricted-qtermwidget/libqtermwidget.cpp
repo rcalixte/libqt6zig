@@ -661,7 +661,7 @@ int QTermWidget_GetPtySlaveFd(const QTermWidget* self) {
 }
 
 void QTermWidget_SetKeyboardCursorShape(QTermWidget* self, int shape) {
-    self->setKeyboardCursorShape(static_cast<QTermWidget::KeyboardCursorShape>(shape));
+    self->setKeyboardCursorShape(static_cast<Konsole::Emulation::KeyboardCursorShape>(shape));
 }
 
 void QTermWidget_SetBlinkingCursor(QTermWidget* self, bool blink) {
