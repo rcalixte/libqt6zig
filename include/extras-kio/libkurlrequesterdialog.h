@@ -1,0 +1,268 @@
+#pragma once
+#ifndef SRC_EXTRAS_KIOC_LIBKURLREQUESTERDIALOG_H
+#define SRC_EXTRAS_KIOC_LIBKURLREQUESTERDIALOG_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KUrlRequester KUrlRequester;
+typedef struct KUrlRequesterDialog KUrlRequesterDialog;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDialog QDialog;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QUrl QUrl;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KUrlRequesterDialog* KUrlRequesterDialog_new(const QUrl* url);
+KUrlRequesterDialog* KUrlRequesterDialog_new2(const QUrl* url, const libqt_string text, QWidget* parent);
+KUrlRequesterDialog* KUrlRequesterDialog_new3(const QUrl* url, QWidget* parent);
+QMetaObject* KUrlRequesterDialog_MetaObject(const KUrlRequesterDialog* self);
+void* KUrlRequesterDialog_Metacast(KUrlRequesterDialog* self, const char* param1);
+int KUrlRequesterDialog_Metacall(KUrlRequesterDialog* self, int param1, int param2, void** param3);
+libqt_string KUrlRequesterDialog_Tr(const char* s);
+QUrl* KUrlRequesterDialog_SelectedUrl(const KUrlRequesterDialog* self);
+QUrl* KUrlRequesterDialog_GetUrl();
+KUrlRequester* KUrlRequesterDialog_UrlRequester(KUrlRequesterDialog* self);
+libqt_string KUrlRequesterDialog_Tr2(const char* s, const char* c);
+libqt_string KUrlRequesterDialog_Tr3(const char* s, const char* c, int n);
+QUrl* KUrlRequesterDialog_GetUrl1(const QUrl* url);
+QUrl* KUrlRequesterDialog_GetUrl2(const QUrl* url, QWidget* parent);
+QUrl* KUrlRequesterDialog_GetUrl3(const QUrl* url, QWidget* parent, const libqt_string title);
+void KUrlRequesterDialog_OnMetacall(KUrlRequesterDialog* self, intptr_t slot);
+int KUrlRequesterDialog_QBaseMetacall(KUrlRequesterDialog* self, int param1, int param2, void** param3);
+void KUrlRequesterDialog_SetVisible(KUrlRequesterDialog* self, bool visible);
+void KUrlRequesterDialog_OnSetVisible(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseSetVisible(KUrlRequesterDialog* self, bool visible);
+QSize* KUrlRequesterDialog_SizeHint(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnSizeHint(const KUrlRequesterDialog* self, intptr_t slot);
+QSize* KUrlRequesterDialog_QBaseSizeHint(const KUrlRequesterDialog* self);
+QSize* KUrlRequesterDialog_MinimumSizeHint(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnMinimumSizeHint(const KUrlRequesterDialog* self, intptr_t slot);
+QSize* KUrlRequesterDialog_QBaseMinimumSizeHint(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_Open(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnOpen(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseOpen(KUrlRequesterDialog* self);
+int KUrlRequesterDialog_Exec(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnExec(KUrlRequesterDialog* self, intptr_t slot);
+int KUrlRequesterDialog_QBaseExec(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_Done(KUrlRequesterDialog* self, int param1);
+void KUrlRequesterDialog_OnDone(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseDone(KUrlRequesterDialog* self, int param1);
+void KUrlRequesterDialog_Accept(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnAccept(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseAccept(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_Reject(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnReject(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseReject(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_KeyPressEvent(KUrlRequesterDialog* self, QKeyEvent* param1);
+void KUrlRequesterDialog_OnKeyPressEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseKeyPressEvent(KUrlRequesterDialog* self, QKeyEvent* param1);
+void KUrlRequesterDialog_CloseEvent(KUrlRequesterDialog* self, QCloseEvent* param1);
+void KUrlRequesterDialog_OnCloseEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseCloseEvent(KUrlRequesterDialog* self, QCloseEvent* param1);
+void KUrlRequesterDialog_ShowEvent(KUrlRequesterDialog* self, QShowEvent* param1);
+void KUrlRequesterDialog_OnShowEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseShowEvent(KUrlRequesterDialog* self, QShowEvent* param1);
+void KUrlRequesterDialog_ResizeEvent(KUrlRequesterDialog* self, QResizeEvent* param1);
+void KUrlRequesterDialog_OnResizeEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseResizeEvent(KUrlRequesterDialog* self, QResizeEvent* param1);
+void KUrlRequesterDialog_ContextMenuEvent(KUrlRequesterDialog* self, QContextMenuEvent* param1);
+void KUrlRequesterDialog_OnContextMenuEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseContextMenuEvent(KUrlRequesterDialog* self, QContextMenuEvent* param1);
+bool KUrlRequesterDialog_EventFilter(KUrlRequesterDialog* self, QObject* param1, QEvent* param2);
+void KUrlRequesterDialog_OnEventFilter(KUrlRequesterDialog* self, intptr_t slot);
+bool KUrlRequesterDialog_QBaseEventFilter(KUrlRequesterDialog* self, QObject* param1, QEvent* param2);
+int KUrlRequesterDialog_DevType(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnDevType(const KUrlRequesterDialog* self, intptr_t slot);
+int KUrlRequesterDialog_QBaseDevType(const KUrlRequesterDialog* self);
+int KUrlRequesterDialog_HeightForWidth(const KUrlRequesterDialog* self, int param1);
+void KUrlRequesterDialog_OnHeightForWidth(const KUrlRequesterDialog* self, intptr_t slot);
+int KUrlRequesterDialog_QBaseHeightForWidth(const KUrlRequesterDialog* self, int param1);
+bool KUrlRequesterDialog_HasHeightForWidth(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnHasHeightForWidth(const KUrlRequesterDialog* self, intptr_t slot);
+bool KUrlRequesterDialog_QBaseHasHeightForWidth(const KUrlRequesterDialog* self);
+QPaintEngine* KUrlRequesterDialog_PaintEngine(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnPaintEngine(const KUrlRequesterDialog* self, intptr_t slot);
+QPaintEngine* KUrlRequesterDialog_QBasePaintEngine(const KUrlRequesterDialog* self);
+bool KUrlRequesterDialog_Event(KUrlRequesterDialog* self, QEvent* event);
+void KUrlRequesterDialog_OnEvent(KUrlRequesterDialog* self, intptr_t slot);
+bool KUrlRequesterDialog_QBaseEvent(KUrlRequesterDialog* self, QEvent* event);
+void KUrlRequesterDialog_MousePressEvent(KUrlRequesterDialog* self, QMouseEvent* event);
+void KUrlRequesterDialog_OnMousePressEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseMousePressEvent(KUrlRequesterDialog* self, QMouseEvent* event);
+void KUrlRequesterDialog_MouseReleaseEvent(KUrlRequesterDialog* self, QMouseEvent* event);
+void KUrlRequesterDialog_OnMouseReleaseEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseMouseReleaseEvent(KUrlRequesterDialog* self, QMouseEvent* event);
+void KUrlRequesterDialog_MouseDoubleClickEvent(KUrlRequesterDialog* self, QMouseEvent* event);
+void KUrlRequesterDialog_OnMouseDoubleClickEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseMouseDoubleClickEvent(KUrlRequesterDialog* self, QMouseEvent* event);
+void KUrlRequesterDialog_MouseMoveEvent(KUrlRequesterDialog* self, QMouseEvent* event);
+void KUrlRequesterDialog_OnMouseMoveEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseMouseMoveEvent(KUrlRequesterDialog* self, QMouseEvent* event);
+void KUrlRequesterDialog_WheelEvent(KUrlRequesterDialog* self, QWheelEvent* event);
+void KUrlRequesterDialog_OnWheelEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseWheelEvent(KUrlRequesterDialog* self, QWheelEvent* event);
+void KUrlRequesterDialog_KeyReleaseEvent(KUrlRequesterDialog* self, QKeyEvent* event);
+void KUrlRequesterDialog_OnKeyReleaseEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseKeyReleaseEvent(KUrlRequesterDialog* self, QKeyEvent* event);
+void KUrlRequesterDialog_FocusInEvent(KUrlRequesterDialog* self, QFocusEvent* event);
+void KUrlRequesterDialog_OnFocusInEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseFocusInEvent(KUrlRequesterDialog* self, QFocusEvent* event);
+void KUrlRequesterDialog_FocusOutEvent(KUrlRequesterDialog* self, QFocusEvent* event);
+void KUrlRequesterDialog_OnFocusOutEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseFocusOutEvent(KUrlRequesterDialog* self, QFocusEvent* event);
+void KUrlRequesterDialog_EnterEvent(KUrlRequesterDialog* self, QEnterEvent* event);
+void KUrlRequesterDialog_OnEnterEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseEnterEvent(KUrlRequesterDialog* self, QEnterEvent* event);
+void KUrlRequesterDialog_LeaveEvent(KUrlRequesterDialog* self, QEvent* event);
+void KUrlRequesterDialog_OnLeaveEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseLeaveEvent(KUrlRequesterDialog* self, QEvent* event);
+void KUrlRequesterDialog_PaintEvent(KUrlRequesterDialog* self, QPaintEvent* event);
+void KUrlRequesterDialog_OnPaintEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBasePaintEvent(KUrlRequesterDialog* self, QPaintEvent* event);
+void KUrlRequesterDialog_MoveEvent(KUrlRequesterDialog* self, QMoveEvent* event);
+void KUrlRequesterDialog_OnMoveEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseMoveEvent(KUrlRequesterDialog* self, QMoveEvent* event);
+void KUrlRequesterDialog_TabletEvent(KUrlRequesterDialog* self, QTabletEvent* event);
+void KUrlRequesterDialog_OnTabletEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseTabletEvent(KUrlRequesterDialog* self, QTabletEvent* event);
+void KUrlRequesterDialog_ActionEvent(KUrlRequesterDialog* self, QActionEvent* event);
+void KUrlRequesterDialog_OnActionEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseActionEvent(KUrlRequesterDialog* self, QActionEvent* event);
+void KUrlRequesterDialog_DragEnterEvent(KUrlRequesterDialog* self, QDragEnterEvent* event);
+void KUrlRequesterDialog_OnDragEnterEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseDragEnterEvent(KUrlRequesterDialog* self, QDragEnterEvent* event);
+void KUrlRequesterDialog_DragMoveEvent(KUrlRequesterDialog* self, QDragMoveEvent* event);
+void KUrlRequesterDialog_OnDragMoveEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseDragMoveEvent(KUrlRequesterDialog* self, QDragMoveEvent* event);
+void KUrlRequesterDialog_DragLeaveEvent(KUrlRequesterDialog* self, QDragLeaveEvent* event);
+void KUrlRequesterDialog_OnDragLeaveEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseDragLeaveEvent(KUrlRequesterDialog* self, QDragLeaveEvent* event);
+void KUrlRequesterDialog_DropEvent(KUrlRequesterDialog* self, QDropEvent* event);
+void KUrlRequesterDialog_OnDropEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseDropEvent(KUrlRequesterDialog* self, QDropEvent* event);
+void KUrlRequesterDialog_HideEvent(KUrlRequesterDialog* self, QHideEvent* event);
+void KUrlRequesterDialog_OnHideEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseHideEvent(KUrlRequesterDialog* self, QHideEvent* event);
+bool KUrlRequesterDialog_NativeEvent(KUrlRequesterDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KUrlRequesterDialog_OnNativeEvent(KUrlRequesterDialog* self, intptr_t slot);
+bool KUrlRequesterDialog_QBaseNativeEvent(KUrlRequesterDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KUrlRequesterDialog_ChangeEvent(KUrlRequesterDialog* self, QEvent* param1);
+void KUrlRequesterDialog_OnChangeEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseChangeEvent(KUrlRequesterDialog* self, QEvent* param1);
+int KUrlRequesterDialog_Metric(const KUrlRequesterDialog* self, int param1);
+void KUrlRequesterDialog_OnMetric(const KUrlRequesterDialog* self, intptr_t slot);
+int KUrlRequesterDialog_QBaseMetric(const KUrlRequesterDialog* self, int param1);
+void KUrlRequesterDialog_InitPainter(const KUrlRequesterDialog* self, QPainter* painter);
+void KUrlRequesterDialog_OnInitPainter(const KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseInitPainter(const KUrlRequesterDialog* self, QPainter* painter);
+QPaintDevice* KUrlRequesterDialog_Redirected(const KUrlRequesterDialog* self, QPoint* offset);
+void KUrlRequesterDialog_OnRedirected(const KUrlRequesterDialog* self, intptr_t slot);
+QPaintDevice* KUrlRequesterDialog_QBaseRedirected(const KUrlRequesterDialog* self, QPoint* offset);
+QPainter* KUrlRequesterDialog_SharedPainter(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnSharedPainter(const KUrlRequesterDialog* self, intptr_t slot);
+QPainter* KUrlRequesterDialog_QBaseSharedPainter(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_InputMethodEvent(KUrlRequesterDialog* self, QInputMethodEvent* param1);
+void KUrlRequesterDialog_OnInputMethodEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseInputMethodEvent(KUrlRequesterDialog* self, QInputMethodEvent* param1);
+QVariant* KUrlRequesterDialog_InputMethodQuery(const KUrlRequesterDialog* self, int param1);
+void KUrlRequesterDialog_OnInputMethodQuery(const KUrlRequesterDialog* self, intptr_t slot);
+QVariant* KUrlRequesterDialog_QBaseInputMethodQuery(const KUrlRequesterDialog* self, int param1);
+bool KUrlRequesterDialog_FocusNextPrevChild(KUrlRequesterDialog* self, bool next);
+void KUrlRequesterDialog_OnFocusNextPrevChild(KUrlRequesterDialog* self, intptr_t slot);
+bool KUrlRequesterDialog_QBaseFocusNextPrevChild(KUrlRequesterDialog* self, bool next);
+void KUrlRequesterDialog_TimerEvent(KUrlRequesterDialog* self, QTimerEvent* event);
+void KUrlRequesterDialog_OnTimerEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseTimerEvent(KUrlRequesterDialog* self, QTimerEvent* event);
+void KUrlRequesterDialog_ChildEvent(KUrlRequesterDialog* self, QChildEvent* event);
+void KUrlRequesterDialog_OnChildEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseChildEvent(KUrlRequesterDialog* self, QChildEvent* event);
+void KUrlRequesterDialog_CustomEvent(KUrlRequesterDialog* self, QEvent* event);
+void KUrlRequesterDialog_OnCustomEvent(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseCustomEvent(KUrlRequesterDialog* self, QEvent* event);
+void KUrlRequesterDialog_ConnectNotify(KUrlRequesterDialog* self, const QMetaMethod* signal);
+void KUrlRequesterDialog_OnConnectNotify(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseConnectNotify(KUrlRequesterDialog* self, const QMetaMethod* signal);
+void KUrlRequesterDialog_DisconnectNotify(KUrlRequesterDialog* self, const QMetaMethod* signal);
+void KUrlRequesterDialog_OnDisconnectNotify(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseDisconnectNotify(KUrlRequesterDialog* self, const QMetaMethod* signal);
+void KUrlRequesterDialog_AdjustPosition(KUrlRequesterDialog* self, QWidget* param1);
+void KUrlRequesterDialog_OnAdjustPosition(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseAdjustPosition(KUrlRequesterDialog* self, QWidget* param1);
+void KUrlRequesterDialog_UpdateMicroFocus(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnUpdateMicroFocus(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseUpdateMicroFocus(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_Create(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnCreate(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseCreate(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_Destroy(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnDestroy(KUrlRequesterDialog* self, intptr_t slot);
+void KUrlRequesterDialog_QBaseDestroy(KUrlRequesterDialog* self);
+bool KUrlRequesterDialog_FocusNextChild(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnFocusNextChild(KUrlRequesterDialog* self, intptr_t slot);
+bool KUrlRequesterDialog_QBaseFocusNextChild(KUrlRequesterDialog* self);
+bool KUrlRequesterDialog_FocusPreviousChild(KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnFocusPreviousChild(KUrlRequesterDialog* self, intptr_t slot);
+bool KUrlRequesterDialog_QBaseFocusPreviousChild(KUrlRequesterDialog* self);
+QObject* KUrlRequesterDialog_Sender(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnSender(const KUrlRequesterDialog* self, intptr_t slot);
+QObject* KUrlRequesterDialog_QBaseSender(const KUrlRequesterDialog* self);
+int KUrlRequesterDialog_SenderSignalIndex(const KUrlRequesterDialog* self);
+void KUrlRequesterDialog_OnSenderSignalIndex(const KUrlRequesterDialog* self, intptr_t slot);
+int KUrlRequesterDialog_QBaseSenderSignalIndex(const KUrlRequesterDialog* self);
+int KUrlRequesterDialog_Receivers(const KUrlRequesterDialog* self, const char* signal);
+void KUrlRequesterDialog_OnReceivers(const KUrlRequesterDialog* self, intptr_t slot);
+int KUrlRequesterDialog_QBaseReceivers(const KUrlRequesterDialog* self, const char* signal);
+bool KUrlRequesterDialog_IsSignalConnected(const KUrlRequesterDialog* self, const QMetaMethod* signal);
+void KUrlRequesterDialog_OnIsSignalConnected(const KUrlRequesterDialog* self, intptr_t slot);
+bool KUrlRequesterDialog_QBaseIsSignalConnected(const KUrlRequesterDialog* self, const QMetaMethod* signal);
+double KUrlRequesterDialog_GetDecodedMetricF(const KUrlRequesterDialog* self, int metricA, int metricB);
+void KUrlRequesterDialog_OnGetDecodedMetricF(const KUrlRequesterDialog* self, intptr_t slot);
+double KUrlRequesterDialog_QBaseGetDecodedMetricF(const KUrlRequesterDialog* self, int metricA, int metricB);
+void KUrlRequesterDialog_Delete(KUrlRequesterDialog* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

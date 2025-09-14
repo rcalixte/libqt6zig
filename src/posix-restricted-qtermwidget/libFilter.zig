@@ -4754,7 +4754,7 @@ pub const konsole__urlfilter__hotspot = struct {
     }
 };
 
-/// https://doc.qt.io/qt-6/filter.html#types
+/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
 pub const enums = struct {
     pub const Type = enum {
         pub const NotSpecified: i32 = 0;

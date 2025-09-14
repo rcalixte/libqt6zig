@@ -1507,7 +1507,7 @@ pub const konsole__emulation = struct {
     }
 };
 
-/// https://doc.qt.io/qt-6/emulation.html#types
+/// https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api
 pub const enums = struct {
     pub const Konsole = enum {
         pub const NOTIFYNORMAL: i32 = 0;

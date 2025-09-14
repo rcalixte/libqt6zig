@@ -1,0 +1,264 @@
+#pragma once
+#ifndef SRC_EXTRAS_KIOC_LIBKDIRMODEL_H
+#define SRC_EXTRAS_KIOC_LIBKDIRMODEL_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KDirLister KDirLister;
+typedef struct KDirModel KDirModel;
+typedef struct KFileItem KFileItem;
+typedef struct QAbstractItemModel QAbstractItemModel;
+typedef struct QChildEvent QChildEvent;
+typedef struct QDataStream QDataStream;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMimeData QMimeData;
+typedef struct QModelIndex QModelIndex;
+typedef struct QModelRoleDataSpan QModelRoleDataSpan;
+typedef struct QObject QObject;
+typedef struct QSize QSize;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QUrl QUrl;
+typedef struct QVariant QVariant;
+#endif
+
+KDirModel* KDirModel_new();
+KDirModel* KDirModel_new2(QObject* parent);
+QMetaObject* KDirModel_MetaObject(const KDirModel* self);
+void* KDirModel_Metacast(KDirModel* self, const char* param1);
+int KDirModel_Metacall(KDirModel* self, int param1, int param2, void** param3);
+libqt_string KDirModel_Tr(const char* s);
+void KDirModel_OpenUrl(KDirModel* self, const QUrl* url);
+void KDirModel_SetDirLister(KDirModel* self, KDirLister* dirLister);
+KDirLister* KDirModel_DirLister(const KDirModel* self);
+KFileItem* KDirModel_ItemForIndex(const KDirModel* self, const QModelIndex* index);
+QModelIndex* KDirModel_IndexForItem(const KDirModel* self, const KFileItem* param1);
+QModelIndex* KDirModel_IndexForUrl(const KDirModel* self, const QUrl* url);
+void KDirModel_ExpandToUrl(KDirModel* self, const QUrl* url);
+void KDirModel_ItemChanged(KDirModel* self, const QModelIndex* index);
+void KDirModel_ClearAllPreviews(KDirModel* self);
+void KDirModel_SetDropsAllowed(KDirModel* self, int dropsAllowed);
+bool KDirModel_CanFetchMore(const KDirModel* self, const QModelIndex* parent);
+int KDirModel_ColumnCount(const KDirModel* self, const QModelIndex* parent);
+QVariant* KDirModel_Data(const KDirModel* self, const QModelIndex* index, int role);
+bool KDirModel_DropMimeData(KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
+void KDirModel_FetchMore(KDirModel* self, const QModelIndex* parent);
+int KDirModel_Flags(const KDirModel* self, const QModelIndex* index);
+bool KDirModel_HasChildren(const KDirModel* self, const QModelIndex* parent);
+QVariant* KDirModel_HeaderData(const KDirModel* self, int section, int orientation, int role);
+QModelIndex* KDirModel_Index(const KDirModel* self, int row, int column, const QModelIndex* parent);
+QMimeData* KDirModel_MimeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes);
+libqt_list /* of libqt_string */ KDirModel_MimeTypes(const KDirModel* self);
+QModelIndex* KDirModel_Parent(const KDirModel* self, const QModelIndex* index);
+QModelIndex* KDirModel_Sibling(const KDirModel* self, int row, int column, const QModelIndex* index);
+int KDirModel_RowCount(const KDirModel* self, const QModelIndex* parent);
+bool KDirModel_SetData(KDirModel* self, const QModelIndex* index, const QVariant* value, int role);
+void KDirModel_Sort(KDirModel* self, int column, int order);
+libqt_map /* of int to libqt_string */ KDirModel_RoleNames(const KDirModel* self);
+libqt_list /* of QUrl* */ KDirModel_SimplifiedUrlList(const libqt_list /* of QUrl* */ urls);
+void KDirModel_RequestSequenceIcon(KDirModel* self, const QModelIndex* index, int sequenceIndex);
+void KDirModel_SetJobTransfersVisible(KDirModel* self, bool show);
+bool KDirModel_JobTransfersVisible(const KDirModel* self);
+int KDirModel_SupportedDropActions(const KDirModel* self);
+void KDirModel_Expand(KDirModel* self, const QModelIndex* index);
+void KDirModel_Connect_Expand(KDirModel* self, intptr_t slot);
+void KDirModel_NeedSequenceIcon(KDirModel* self, const QModelIndex* index, int sequenceIndex);
+void KDirModel_Connect_NeedSequenceIcon(KDirModel* self, intptr_t slot);
+libqt_string KDirModel_Tr2(const char* s, const char* c);
+libqt_string KDirModel_Tr3(const char* s, const char* c, int n);
+void KDirModel_OpenUrl2(KDirModel* self, const QUrl* url, int flags);
+void KDirModel_OnMetacall(KDirModel* self, intptr_t slot);
+int KDirModel_QBaseMetacall(KDirModel* self, int param1, int param2, void** param3);
+void KDirModel_OnCanFetchMore(const KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseCanFetchMore(const KDirModel* self, const QModelIndex* parent);
+void KDirModel_OnColumnCount(const KDirModel* self, intptr_t slot);
+int KDirModel_QBaseColumnCount(const KDirModel* self, const QModelIndex* parent);
+void KDirModel_OnData(const KDirModel* self, intptr_t slot);
+QVariant* KDirModel_QBaseData(const KDirModel* self, const QModelIndex* index, int role);
+void KDirModel_OnDropMimeData(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseDropMimeData(KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
+void KDirModel_OnFetchMore(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseFetchMore(KDirModel* self, const QModelIndex* parent);
+void KDirModel_OnFlags(const KDirModel* self, intptr_t slot);
+int KDirModel_QBaseFlags(const KDirModel* self, const QModelIndex* index);
+void KDirModel_OnHasChildren(const KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseHasChildren(const KDirModel* self, const QModelIndex* parent);
+void KDirModel_OnHeaderData(const KDirModel* self, intptr_t slot);
+QVariant* KDirModel_QBaseHeaderData(const KDirModel* self, int section, int orientation, int role);
+void KDirModel_OnIndex(const KDirModel* self, intptr_t slot);
+QModelIndex* KDirModel_QBaseIndex(const KDirModel* self, int row, int column, const QModelIndex* parent);
+void KDirModel_OnMimeData(const KDirModel* self, intptr_t slot);
+QMimeData* KDirModel_QBaseMimeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes);
+void KDirModel_OnMimeTypes(const KDirModel* self, intptr_t slot);
+libqt_list /* of libqt_string */ KDirModel_QBaseMimeTypes(const KDirModel* self);
+void KDirModel_OnParent(const KDirModel* self, intptr_t slot);
+QModelIndex* KDirModel_QBaseParent(const KDirModel* self, const QModelIndex* index);
+void KDirModel_OnSibling(const KDirModel* self, intptr_t slot);
+QModelIndex* KDirModel_QBaseSibling(const KDirModel* self, int row, int column, const QModelIndex* index);
+void KDirModel_OnRowCount(const KDirModel* self, intptr_t slot);
+int KDirModel_QBaseRowCount(const KDirModel* self, const QModelIndex* parent);
+void KDirModel_OnSetData(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseSetData(KDirModel* self, const QModelIndex* index, const QVariant* value, int role);
+void KDirModel_OnSort(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseSort(KDirModel* self, int column, int order);
+void KDirModel_OnRoleNames(const KDirModel* self, intptr_t slot);
+libqt_map /* of int to libqt_string */ KDirModel_QBaseRoleNames(const KDirModel* self);
+void KDirModel_OnSupportedDropActions(const KDirModel* self, intptr_t slot);
+int KDirModel_QBaseSupportedDropActions(const KDirModel* self);
+bool KDirModel_SetHeaderData(KDirModel* self, int section, int orientation, const QVariant* value, int role);
+void KDirModel_OnSetHeaderData(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseSetHeaderData(KDirModel* self, int section, int orientation, const QVariant* value, int role);
+libqt_map /* of int to QVariant* */ KDirModel_ItemData(const KDirModel* self, const QModelIndex* index);
+void KDirModel_OnItemData(const KDirModel* self, intptr_t slot);
+libqt_map /* of int to QVariant* */ KDirModel_QBaseItemData(const KDirModel* self, const QModelIndex* index);
+bool KDirModel_SetItemData(KDirModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles);
+void KDirModel_OnSetItemData(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseSetItemData(KDirModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles);
+bool KDirModel_ClearItemData(KDirModel* self, const QModelIndex* index);
+void KDirModel_OnClearItemData(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseClearItemData(KDirModel* self, const QModelIndex* index);
+bool KDirModel_CanDropMimeData(const KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
+void KDirModel_OnCanDropMimeData(const KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseCanDropMimeData(const KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
+int KDirModel_SupportedDragActions(const KDirModel* self);
+void KDirModel_OnSupportedDragActions(const KDirModel* self, intptr_t slot);
+int KDirModel_QBaseSupportedDragActions(const KDirModel* self);
+bool KDirModel_MoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild);
+void KDirModel_OnMoveRows(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild);
+bool KDirModel_MoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
+void KDirModel_OnMoveColumns(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
+QModelIndex* KDirModel_Buddy(const KDirModel* self, const QModelIndex* index);
+void KDirModel_OnBuddy(const KDirModel* self, intptr_t slot);
+QModelIndex* KDirModel_QBaseBuddy(const KDirModel* self, const QModelIndex* index);
+libqt_list /* of QModelIndex* */ KDirModel_Match(const KDirModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags);
+void KDirModel_OnMatch(const KDirModel* self, intptr_t slot);
+libqt_list /* of QModelIndex* */ KDirModel_QBaseMatch(const KDirModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags);
+QSize* KDirModel_Span(const KDirModel* self, const QModelIndex* index);
+void KDirModel_OnSpan(const KDirModel* self, intptr_t slot);
+QSize* KDirModel_QBaseSpan(const KDirModel* self, const QModelIndex* index);
+void KDirModel_MultiData(const KDirModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan);
+void KDirModel_OnMultiData(const KDirModel* self, intptr_t slot);
+void KDirModel_QBaseMultiData(const KDirModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan);
+bool KDirModel_Submit(KDirModel* self);
+void KDirModel_OnSubmit(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseSubmit(KDirModel* self);
+void KDirModel_Revert(KDirModel* self);
+void KDirModel_OnRevert(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseRevert(KDirModel* self);
+void KDirModel_ResetInternalData(KDirModel* self);
+void KDirModel_OnResetInternalData(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseResetInternalData(KDirModel* self);
+bool KDirModel_Event(KDirModel* self, QEvent* event);
+void KDirModel_OnEvent(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseEvent(KDirModel* self, QEvent* event);
+bool KDirModel_EventFilter(KDirModel* self, QObject* watched, QEvent* event);
+void KDirModel_OnEventFilter(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseEventFilter(KDirModel* self, QObject* watched, QEvent* event);
+void KDirModel_TimerEvent(KDirModel* self, QTimerEvent* event);
+void KDirModel_OnTimerEvent(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseTimerEvent(KDirModel* self, QTimerEvent* event);
+void KDirModel_ChildEvent(KDirModel* self, QChildEvent* event);
+void KDirModel_OnChildEvent(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseChildEvent(KDirModel* self, QChildEvent* event);
+void KDirModel_CustomEvent(KDirModel* self, QEvent* event);
+void KDirModel_OnCustomEvent(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseCustomEvent(KDirModel* self, QEvent* event);
+void KDirModel_ConnectNotify(KDirModel* self, const QMetaMethod* signal);
+void KDirModel_OnConnectNotify(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseConnectNotify(KDirModel* self, const QMetaMethod* signal);
+void KDirModel_DisconnectNotify(KDirModel* self, const QMetaMethod* signal);
+void KDirModel_OnDisconnectNotify(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseDisconnectNotify(KDirModel* self, const QMetaMethod* signal);
+QModelIndex* KDirModel_CreateIndex(const KDirModel* self, int row, int column);
+void KDirModel_OnCreateIndex(const KDirModel* self, intptr_t slot);
+QModelIndex* KDirModel_QBaseCreateIndex(const KDirModel* self, int row, int column);
+void KDirModel_EncodeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+void KDirModel_OnEncodeData(const KDirModel* self, intptr_t slot);
+void KDirModel_QBaseEncodeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+bool KDirModel_DecodeData(KDirModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+void KDirModel_OnDecodeData(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseDecodeData(KDirModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+void KDirModel_BeginInsertRows(KDirModel* self, const QModelIndex* parent, int first, int last);
+void KDirModel_OnBeginInsertRows(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseBeginInsertRows(KDirModel* self, const QModelIndex* parent, int first, int last);
+void KDirModel_EndInsertRows(KDirModel* self);
+void KDirModel_OnEndInsertRows(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseEndInsertRows(KDirModel* self);
+void KDirModel_BeginRemoveRows(KDirModel* self, const QModelIndex* parent, int first, int last);
+void KDirModel_OnBeginRemoveRows(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseBeginRemoveRows(KDirModel* self, const QModelIndex* parent, int first, int last);
+void KDirModel_EndRemoveRows(KDirModel* self);
+void KDirModel_OnEndRemoveRows(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseEndRemoveRows(KDirModel* self);
+bool KDirModel_BeginMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+void KDirModel_OnBeginMoveRows(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseBeginMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+void KDirModel_EndMoveRows(KDirModel* self);
+void KDirModel_OnEndMoveRows(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseEndMoveRows(KDirModel* self);
+void KDirModel_BeginInsertColumns(KDirModel* self, const QModelIndex* parent, int first, int last);
+void KDirModel_OnBeginInsertColumns(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseBeginInsertColumns(KDirModel* self, const QModelIndex* parent, int first, int last);
+void KDirModel_EndInsertColumns(KDirModel* self);
+void KDirModel_OnEndInsertColumns(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseEndInsertColumns(KDirModel* self);
+void KDirModel_BeginRemoveColumns(KDirModel* self, const QModelIndex* parent, int first, int last);
+void KDirModel_OnBeginRemoveColumns(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseBeginRemoveColumns(KDirModel* self, const QModelIndex* parent, int first, int last);
+void KDirModel_EndRemoveColumns(KDirModel* self);
+void KDirModel_OnEndRemoveColumns(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseEndRemoveColumns(KDirModel* self);
+bool KDirModel_BeginMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+void KDirModel_OnBeginMoveColumns(KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseBeginMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+void KDirModel_EndMoveColumns(KDirModel* self);
+void KDirModel_OnEndMoveColumns(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseEndMoveColumns(KDirModel* self);
+void KDirModel_BeginResetModel(KDirModel* self);
+void KDirModel_OnBeginResetModel(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseBeginResetModel(KDirModel* self);
+void KDirModel_EndResetModel(KDirModel* self);
+void KDirModel_OnEndResetModel(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseEndResetModel(KDirModel* self);
+void KDirModel_ChangePersistentIndex(KDirModel* self, const QModelIndex* from, const QModelIndex* to);
+void KDirModel_OnChangePersistentIndex(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseChangePersistentIndex(KDirModel* self, const QModelIndex* from, const QModelIndex* to);
+void KDirModel_ChangePersistentIndexList(KDirModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+void KDirModel_OnChangePersistentIndexList(KDirModel* self, intptr_t slot);
+void KDirModel_QBaseChangePersistentIndexList(KDirModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+libqt_list /* of QModelIndex* */ KDirModel_PersistentIndexList(const KDirModel* self);
+void KDirModel_OnPersistentIndexList(const KDirModel* self, intptr_t slot);
+libqt_list /* of QModelIndex* */ KDirModel_QBasePersistentIndexList(const KDirModel* self);
+QObject* KDirModel_Sender(const KDirModel* self);
+void KDirModel_OnSender(const KDirModel* self, intptr_t slot);
+QObject* KDirModel_QBaseSender(const KDirModel* self);
+int KDirModel_SenderSignalIndex(const KDirModel* self);
+void KDirModel_OnSenderSignalIndex(const KDirModel* self, intptr_t slot);
+int KDirModel_QBaseSenderSignalIndex(const KDirModel* self);
+int KDirModel_Receivers(const KDirModel* self, const char* signal);
+void KDirModel_OnReceivers(const KDirModel* self, intptr_t slot);
+int KDirModel_QBaseReceivers(const KDirModel* self, const char* signal);
+bool KDirModel_IsSignalConnected(const KDirModel* self, const QMetaMethod* signal);
+void KDirModel_OnIsSignalConnected(const KDirModel* self, intptr_t slot);
+bool KDirModel_QBaseIsSignalConnected(const KDirModel* self, const QMetaMethod* signal);
+void KDirModel_Delete(KDirModel* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -1,0 +1,267 @@
+#pragma once
+#ifndef SRC_EXTRAS_KIOC_LIBKFILECUSTOMDIALOG_H
+#define SRC_EXTRAS_KIOC_LIBKFILECUSTOMDIALOG_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KFileCustomDialog KFileCustomDialog;
+typedef struct KFileWidget KFileWidget;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDialog QDialog;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QUrl QUrl;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KFileCustomDialog* KFileCustomDialog_new(QWidget* parent);
+KFileCustomDialog* KFileCustomDialog_new2();
+KFileCustomDialog* KFileCustomDialog_new3(const QUrl* startDir);
+KFileCustomDialog* KFileCustomDialog_new4(const QUrl* startDir, QWidget* parent);
+QMetaObject* KFileCustomDialog_MetaObject(const KFileCustomDialog* self);
+void* KFileCustomDialog_Metacast(KFileCustomDialog* self, const char* param1);
+int KFileCustomDialog_Metacall(KFileCustomDialog* self, int param1, int param2, void** param3);
+libqt_string KFileCustomDialog_Tr(const char* s);
+void KFileCustomDialog_SetUrl(KFileCustomDialog* self, const QUrl* url);
+void KFileCustomDialog_SetCustomWidget(KFileCustomDialog* self, QWidget* widget);
+KFileWidget* KFileCustomDialog_FileWidget(const KFileCustomDialog* self);
+void KFileCustomDialog_SetOperationMode(KFileCustomDialog* self, int op);
+void KFileCustomDialog_Accept(KFileCustomDialog* self);
+libqt_string KFileCustomDialog_Tr2(const char* s, const char* c);
+libqt_string KFileCustomDialog_Tr3(const char* s, const char* c, int n);
+void KFileCustomDialog_OnMetacall(KFileCustomDialog* self, intptr_t slot);
+int KFileCustomDialog_QBaseMetacall(KFileCustomDialog* self, int param1, int param2, void** param3);
+void KFileCustomDialog_OnAccept(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseAccept(KFileCustomDialog* self);
+void KFileCustomDialog_SetVisible(KFileCustomDialog* self, bool visible);
+void KFileCustomDialog_OnSetVisible(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseSetVisible(KFileCustomDialog* self, bool visible);
+QSize* KFileCustomDialog_SizeHint(const KFileCustomDialog* self);
+void KFileCustomDialog_OnSizeHint(const KFileCustomDialog* self, intptr_t slot);
+QSize* KFileCustomDialog_QBaseSizeHint(const KFileCustomDialog* self);
+QSize* KFileCustomDialog_MinimumSizeHint(const KFileCustomDialog* self);
+void KFileCustomDialog_OnMinimumSizeHint(const KFileCustomDialog* self, intptr_t slot);
+QSize* KFileCustomDialog_QBaseMinimumSizeHint(const KFileCustomDialog* self);
+void KFileCustomDialog_Open(KFileCustomDialog* self);
+void KFileCustomDialog_OnOpen(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseOpen(KFileCustomDialog* self);
+int KFileCustomDialog_Exec(KFileCustomDialog* self);
+void KFileCustomDialog_OnExec(KFileCustomDialog* self, intptr_t slot);
+int KFileCustomDialog_QBaseExec(KFileCustomDialog* self);
+void KFileCustomDialog_Done(KFileCustomDialog* self, int param1);
+void KFileCustomDialog_OnDone(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseDone(KFileCustomDialog* self, int param1);
+void KFileCustomDialog_Reject(KFileCustomDialog* self);
+void KFileCustomDialog_OnReject(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseReject(KFileCustomDialog* self);
+void KFileCustomDialog_KeyPressEvent(KFileCustomDialog* self, QKeyEvent* param1);
+void KFileCustomDialog_OnKeyPressEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseKeyPressEvent(KFileCustomDialog* self, QKeyEvent* param1);
+void KFileCustomDialog_CloseEvent(KFileCustomDialog* self, QCloseEvent* param1);
+void KFileCustomDialog_OnCloseEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseCloseEvent(KFileCustomDialog* self, QCloseEvent* param1);
+void KFileCustomDialog_ShowEvent(KFileCustomDialog* self, QShowEvent* param1);
+void KFileCustomDialog_OnShowEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseShowEvent(KFileCustomDialog* self, QShowEvent* param1);
+void KFileCustomDialog_ResizeEvent(KFileCustomDialog* self, QResizeEvent* param1);
+void KFileCustomDialog_OnResizeEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseResizeEvent(KFileCustomDialog* self, QResizeEvent* param1);
+void KFileCustomDialog_ContextMenuEvent(KFileCustomDialog* self, QContextMenuEvent* param1);
+void KFileCustomDialog_OnContextMenuEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseContextMenuEvent(KFileCustomDialog* self, QContextMenuEvent* param1);
+bool KFileCustomDialog_EventFilter(KFileCustomDialog* self, QObject* param1, QEvent* param2);
+void KFileCustomDialog_OnEventFilter(KFileCustomDialog* self, intptr_t slot);
+bool KFileCustomDialog_QBaseEventFilter(KFileCustomDialog* self, QObject* param1, QEvent* param2);
+int KFileCustomDialog_DevType(const KFileCustomDialog* self);
+void KFileCustomDialog_OnDevType(const KFileCustomDialog* self, intptr_t slot);
+int KFileCustomDialog_QBaseDevType(const KFileCustomDialog* self);
+int KFileCustomDialog_HeightForWidth(const KFileCustomDialog* self, int param1);
+void KFileCustomDialog_OnHeightForWidth(const KFileCustomDialog* self, intptr_t slot);
+int KFileCustomDialog_QBaseHeightForWidth(const KFileCustomDialog* self, int param1);
+bool KFileCustomDialog_HasHeightForWidth(const KFileCustomDialog* self);
+void KFileCustomDialog_OnHasHeightForWidth(const KFileCustomDialog* self, intptr_t slot);
+bool KFileCustomDialog_QBaseHasHeightForWidth(const KFileCustomDialog* self);
+QPaintEngine* KFileCustomDialog_PaintEngine(const KFileCustomDialog* self);
+void KFileCustomDialog_OnPaintEngine(const KFileCustomDialog* self, intptr_t slot);
+QPaintEngine* KFileCustomDialog_QBasePaintEngine(const KFileCustomDialog* self);
+bool KFileCustomDialog_Event(KFileCustomDialog* self, QEvent* event);
+void KFileCustomDialog_OnEvent(KFileCustomDialog* self, intptr_t slot);
+bool KFileCustomDialog_QBaseEvent(KFileCustomDialog* self, QEvent* event);
+void KFileCustomDialog_MousePressEvent(KFileCustomDialog* self, QMouseEvent* event);
+void KFileCustomDialog_OnMousePressEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseMousePressEvent(KFileCustomDialog* self, QMouseEvent* event);
+void KFileCustomDialog_MouseReleaseEvent(KFileCustomDialog* self, QMouseEvent* event);
+void KFileCustomDialog_OnMouseReleaseEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseMouseReleaseEvent(KFileCustomDialog* self, QMouseEvent* event);
+void KFileCustomDialog_MouseDoubleClickEvent(KFileCustomDialog* self, QMouseEvent* event);
+void KFileCustomDialog_OnMouseDoubleClickEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseMouseDoubleClickEvent(KFileCustomDialog* self, QMouseEvent* event);
+void KFileCustomDialog_MouseMoveEvent(KFileCustomDialog* self, QMouseEvent* event);
+void KFileCustomDialog_OnMouseMoveEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseMouseMoveEvent(KFileCustomDialog* self, QMouseEvent* event);
+void KFileCustomDialog_WheelEvent(KFileCustomDialog* self, QWheelEvent* event);
+void KFileCustomDialog_OnWheelEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseWheelEvent(KFileCustomDialog* self, QWheelEvent* event);
+void KFileCustomDialog_KeyReleaseEvent(KFileCustomDialog* self, QKeyEvent* event);
+void KFileCustomDialog_OnKeyReleaseEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseKeyReleaseEvent(KFileCustomDialog* self, QKeyEvent* event);
+void KFileCustomDialog_FocusInEvent(KFileCustomDialog* self, QFocusEvent* event);
+void KFileCustomDialog_OnFocusInEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseFocusInEvent(KFileCustomDialog* self, QFocusEvent* event);
+void KFileCustomDialog_FocusOutEvent(KFileCustomDialog* self, QFocusEvent* event);
+void KFileCustomDialog_OnFocusOutEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseFocusOutEvent(KFileCustomDialog* self, QFocusEvent* event);
+void KFileCustomDialog_EnterEvent(KFileCustomDialog* self, QEnterEvent* event);
+void KFileCustomDialog_OnEnterEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseEnterEvent(KFileCustomDialog* self, QEnterEvent* event);
+void KFileCustomDialog_LeaveEvent(KFileCustomDialog* self, QEvent* event);
+void KFileCustomDialog_OnLeaveEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseLeaveEvent(KFileCustomDialog* self, QEvent* event);
+void KFileCustomDialog_PaintEvent(KFileCustomDialog* self, QPaintEvent* event);
+void KFileCustomDialog_OnPaintEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBasePaintEvent(KFileCustomDialog* self, QPaintEvent* event);
+void KFileCustomDialog_MoveEvent(KFileCustomDialog* self, QMoveEvent* event);
+void KFileCustomDialog_OnMoveEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseMoveEvent(KFileCustomDialog* self, QMoveEvent* event);
+void KFileCustomDialog_TabletEvent(KFileCustomDialog* self, QTabletEvent* event);
+void KFileCustomDialog_OnTabletEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseTabletEvent(KFileCustomDialog* self, QTabletEvent* event);
+void KFileCustomDialog_ActionEvent(KFileCustomDialog* self, QActionEvent* event);
+void KFileCustomDialog_OnActionEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseActionEvent(KFileCustomDialog* self, QActionEvent* event);
+void KFileCustomDialog_DragEnterEvent(KFileCustomDialog* self, QDragEnterEvent* event);
+void KFileCustomDialog_OnDragEnterEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseDragEnterEvent(KFileCustomDialog* self, QDragEnterEvent* event);
+void KFileCustomDialog_DragMoveEvent(KFileCustomDialog* self, QDragMoveEvent* event);
+void KFileCustomDialog_OnDragMoveEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseDragMoveEvent(KFileCustomDialog* self, QDragMoveEvent* event);
+void KFileCustomDialog_DragLeaveEvent(KFileCustomDialog* self, QDragLeaveEvent* event);
+void KFileCustomDialog_OnDragLeaveEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseDragLeaveEvent(KFileCustomDialog* self, QDragLeaveEvent* event);
+void KFileCustomDialog_DropEvent(KFileCustomDialog* self, QDropEvent* event);
+void KFileCustomDialog_OnDropEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseDropEvent(KFileCustomDialog* self, QDropEvent* event);
+void KFileCustomDialog_HideEvent(KFileCustomDialog* self, QHideEvent* event);
+void KFileCustomDialog_OnHideEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseHideEvent(KFileCustomDialog* self, QHideEvent* event);
+bool KFileCustomDialog_NativeEvent(KFileCustomDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KFileCustomDialog_OnNativeEvent(KFileCustomDialog* self, intptr_t slot);
+bool KFileCustomDialog_QBaseNativeEvent(KFileCustomDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KFileCustomDialog_ChangeEvent(KFileCustomDialog* self, QEvent* param1);
+void KFileCustomDialog_OnChangeEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseChangeEvent(KFileCustomDialog* self, QEvent* param1);
+int KFileCustomDialog_Metric(const KFileCustomDialog* self, int param1);
+void KFileCustomDialog_OnMetric(const KFileCustomDialog* self, intptr_t slot);
+int KFileCustomDialog_QBaseMetric(const KFileCustomDialog* self, int param1);
+void KFileCustomDialog_InitPainter(const KFileCustomDialog* self, QPainter* painter);
+void KFileCustomDialog_OnInitPainter(const KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseInitPainter(const KFileCustomDialog* self, QPainter* painter);
+QPaintDevice* KFileCustomDialog_Redirected(const KFileCustomDialog* self, QPoint* offset);
+void KFileCustomDialog_OnRedirected(const KFileCustomDialog* self, intptr_t slot);
+QPaintDevice* KFileCustomDialog_QBaseRedirected(const KFileCustomDialog* self, QPoint* offset);
+QPainter* KFileCustomDialog_SharedPainter(const KFileCustomDialog* self);
+void KFileCustomDialog_OnSharedPainter(const KFileCustomDialog* self, intptr_t slot);
+QPainter* KFileCustomDialog_QBaseSharedPainter(const KFileCustomDialog* self);
+void KFileCustomDialog_InputMethodEvent(KFileCustomDialog* self, QInputMethodEvent* param1);
+void KFileCustomDialog_OnInputMethodEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseInputMethodEvent(KFileCustomDialog* self, QInputMethodEvent* param1);
+QVariant* KFileCustomDialog_InputMethodQuery(const KFileCustomDialog* self, int param1);
+void KFileCustomDialog_OnInputMethodQuery(const KFileCustomDialog* self, intptr_t slot);
+QVariant* KFileCustomDialog_QBaseInputMethodQuery(const KFileCustomDialog* self, int param1);
+bool KFileCustomDialog_FocusNextPrevChild(KFileCustomDialog* self, bool next);
+void KFileCustomDialog_OnFocusNextPrevChild(KFileCustomDialog* self, intptr_t slot);
+bool KFileCustomDialog_QBaseFocusNextPrevChild(KFileCustomDialog* self, bool next);
+void KFileCustomDialog_TimerEvent(KFileCustomDialog* self, QTimerEvent* event);
+void KFileCustomDialog_OnTimerEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseTimerEvent(KFileCustomDialog* self, QTimerEvent* event);
+void KFileCustomDialog_ChildEvent(KFileCustomDialog* self, QChildEvent* event);
+void KFileCustomDialog_OnChildEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseChildEvent(KFileCustomDialog* self, QChildEvent* event);
+void KFileCustomDialog_CustomEvent(KFileCustomDialog* self, QEvent* event);
+void KFileCustomDialog_OnCustomEvent(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseCustomEvent(KFileCustomDialog* self, QEvent* event);
+void KFileCustomDialog_ConnectNotify(KFileCustomDialog* self, const QMetaMethod* signal);
+void KFileCustomDialog_OnConnectNotify(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseConnectNotify(KFileCustomDialog* self, const QMetaMethod* signal);
+void KFileCustomDialog_DisconnectNotify(KFileCustomDialog* self, const QMetaMethod* signal);
+void KFileCustomDialog_OnDisconnectNotify(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseDisconnectNotify(KFileCustomDialog* self, const QMetaMethod* signal);
+void KFileCustomDialog_AdjustPosition(KFileCustomDialog* self, QWidget* param1);
+void KFileCustomDialog_OnAdjustPosition(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseAdjustPosition(KFileCustomDialog* self, QWidget* param1);
+void KFileCustomDialog_UpdateMicroFocus(KFileCustomDialog* self);
+void KFileCustomDialog_OnUpdateMicroFocus(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseUpdateMicroFocus(KFileCustomDialog* self);
+void KFileCustomDialog_Create(KFileCustomDialog* self);
+void KFileCustomDialog_OnCreate(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseCreate(KFileCustomDialog* self);
+void KFileCustomDialog_Destroy(KFileCustomDialog* self);
+void KFileCustomDialog_OnDestroy(KFileCustomDialog* self, intptr_t slot);
+void KFileCustomDialog_QBaseDestroy(KFileCustomDialog* self);
+bool KFileCustomDialog_FocusNextChild(KFileCustomDialog* self);
+void KFileCustomDialog_OnFocusNextChild(KFileCustomDialog* self, intptr_t slot);
+bool KFileCustomDialog_QBaseFocusNextChild(KFileCustomDialog* self);
+bool KFileCustomDialog_FocusPreviousChild(KFileCustomDialog* self);
+void KFileCustomDialog_OnFocusPreviousChild(KFileCustomDialog* self, intptr_t slot);
+bool KFileCustomDialog_QBaseFocusPreviousChild(KFileCustomDialog* self);
+QObject* KFileCustomDialog_Sender(const KFileCustomDialog* self);
+void KFileCustomDialog_OnSender(const KFileCustomDialog* self, intptr_t slot);
+QObject* KFileCustomDialog_QBaseSender(const KFileCustomDialog* self);
+int KFileCustomDialog_SenderSignalIndex(const KFileCustomDialog* self);
+void KFileCustomDialog_OnSenderSignalIndex(const KFileCustomDialog* self, intptr_t slot);
+int KFileCustomDialog_QBaseSenderSignalIndex(const KFileCustomDialog* self);
+int KFileCustomDialog_Receivers(const KFileCustomDialog* self, const char* signal);
+void KFileCustomDialog_OnReceivers(const KFileCustomDialog* self, intptr_t slot);
+int KFileCustomDialog_QBaseReceivers(const KFileCustomDialog* self, const char* signal);
+bool KFileCustomDialog_IsSignalConnected(const KFileCustomDialog* self, const QMetaMethod* signal);
+void KFileCustomDialog_OnIsSignalConnected(const KFileCustomDialog* self, intptr_t slot);
+bool KFileCustomDialog_QBaseIsSignalConnected(const KFileCustomDialog* self, const QMetaMethod* signal);
+double KFileCustomDialog_GetDecodedMetricF(const KFileCustomDialog* self, int metricA, int metricB);
+void KFileCustomDialog_OnGetDecodedMetricF(const KFileCustomDialog* self, intptr_t slot);
+double KFileCustomDialog_QBaseGetDecodedMetricF(const KFileCustomDialog* self, int metricA, int metricB);
+void KFileCustomDialog_Delete(KFileCustomDialog* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

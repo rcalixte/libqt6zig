@@ -1,0 +1,261 @@
+#pragma once
+#ifndef SRC_EXTRAS_KIOC_LIBKSSLINFODIALOG_H
+#define SRC_EXTRAS_KIOC_LIBKSSLINFODIALOG_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KSslInfoDialog KSslInfoDialog;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDialog QDialog;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KSslInfoDialog* KSslInfoDialog_new(QWidget* parent);
+KSslInfoDialog* KSslInfoDialog_new2();
+QMetaObject* KSslInfoDialog_MetaObject(const KSslInfoDialog* self);
+void* KSslInfoDialog_Metacast(KSslInfoDialog* self, const char* param1);
+int KSslInfoDialog_Metacall(KSslInfoDialog* self, int param1, int param2, void** param3);
+libqt_string KSslInfoDialog_Tr(const char* s);
+void KSslInfoDialog_SetMainPartEncrypted(KSslInfoDialog* self, bool mainPartEncrypted);
+void KSslInfoDialog_SetAuxiliaryPartsEncrypted(KSslInfoDialog* self, bool auxiliaryPartsEncrypted);
+libqt_string KSslInfoDialog_Tr2(const char* s, const char* c);
+libqt_string KSslInfoDialog_Tr3(const char* s, const char* c, int n);
+void KSslInfoDialog_OnMetacall(KSslInfoDialog* self, intptr_t slot);
+int KSslInfoDialog_QBaseMetacall(KSslInfoDialog* self, int param1, int param2, void** param3);
+void KSslInfoDialog_SetVisible(KSslInfoDialog* self, bool visible);
+void KSslInfoDialog_OnSetVisible(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseSetVisible(KSslInfoDialog* self, bool visible);
+QSize* KSslInfoDialog_SizeHint(const KSslInfoDialog* self);
+void KSslInfoDialog_OnSizeHint(const KSslInfoDialog* self, intptr_t slot);
+QSize* KSslInfoDialog_QBaseSizeHint(const KSslInfoDialog* self);
+QSize* KSslInfoDialog_MinimumSizeHint(const KSslInfoDialog* self);
+void KSslInfoDialog_OnMinimumSizeHint(const KSslInfoDialog* self, intptr_t slot);
+QSize* KSslInfoDialog_QBaseMinimumSizeHint(const KSslInfoDialog* self);
+void KSslInfoDialog_Open(KSslInfoDialog* self);
+void KSslInfoDialog_OnOpen(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseOpen(KSslInfoDialog* self);
+int KSslInfoDialog_Exec(KSslInfoDialog* self);
+void KSslInfoDialog_OnExec(KSslInfoDialog* self, intptr_t slot);
+int KSslInfoDialog_QBaseExec(KSslInfoDialog* self);
+void KSslInfoDialog_Done(KSslInfoDialog* self, int param1);
+void KSslInfoDialog_OnDone(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseDone(KSslInfoDialog* self, int param1);
+void KSslInfoDialog_Accept(KSslInfoDialog* self);
+void KSslInfoDialog_OnAccept(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseAccept(KSslInfoDialog* self);
+void KSslInfoDialog_Reject(KSslInfoDialog* self);
+void KSslInfoDialog_OnReject(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseReject(KSslInfoDialog* self);
+void KSslInfoDialog_KeyPressEvent(KSslInfoDialog* self, QKeyEvent* param1);
+void KSslInfoDialog_OnKeyPressEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseKeyPressEvent(KSslInfoDialog* self, QKeyEvent* param1);
+void KSslInfoDialog_CloseEvent(KSslInfoDialog* self, QCloseEvent* param1);
+void KSslInfoDialog_OnCloseEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseCloseEvent(KSslInfoDialog* self, QCloseEvent* param1);
+void KSslInfoDialog_ShowEvent(KSslInfoDialog* self, QShowEvent* param1);
+void KSslInfoDialog_OnShowEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseShowEvent(KSslInfoDialog* self, QShowEvent* param1);
+void KSslInfoDialog_ResizeEvent(KSslInfoDialog* self, QResizeEvent* param1);
+void KSslInfoDialog_OnResizeEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseResizeEvent(KSslInfoDialog* self, QResizeEvent* param1);
+void KSslInfoDialog_ContextMenuEvent(KSslInfoDialog* self, QContextMenuEvent* param1);
+void KSslInfoDialog_OnContextMenuEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseContextMenuEvent(KSslInfoDialog* self, QContextMenuEvent* param1);
+bool KSslInfoDialog_EventFilter(KSslInfoDialog* self, QObject* param1, QEvent* param2);
+void KSslInfoDialog_OnEventFilter(KSslInfoDialog* self, intptr_t slot);
+bool KSslInfoDialog_QBaseEventFilter(KSslInfoDialog* self, QObject* param1, QEvent* param2);
+int KSslInfoDialog_DevType(const KSslInfoDialog* self);
+void KSslInfoDialog_OnDevType(const KSslInfoDialog* self, intptr_t slot);
+int KSslInfoDialog_QBaseDevType(const KSslInfoDialog* self);
+int KSslInfoDialog_HeightForWidth(const KSslInfoDialog* self, int param1);
+void KSslInfoDialog_OnHeightForWidth(const KSslInfoDialog* self, intptr_t slot);
+int KSslInfoDialog_QBaseHeightForWidth(const KSslInfoDialog* self, int param1);
+bool KSslInfoDialog_HasHeightForWidth(const KSslInfoDialog* self);
+void KSslInfoDialog_OnHasHeightForWidth(const KSslInfoDialog* self, intptr_t slot);
+bool KSslInfoDialog_QBaseHasHeightForWidth(const KSslInfoDialog* self);
+QPaintEngine* KSslInfoDialog_PaintEngine(const KSslInfoDialog* self);
+void KSslInfoDialog_OnPaintEngine(const KSslInfoDialog* self, intptr_t slot);
+QPaintEngine* KSslInfoDialog_QBasePaintEngine(const KSslInfoDialog* self);
+bool KSslInfoDialog_Event(KSslInfoDialog* self, QEvent* event);
+void KSslInfoDialog_OnEvent(KSslInfoDialog* self, intptr_t slot);
+bool KSslInfoDialog_QBaseEvent(KSslInfoDialog* self, QEvent* event);
+void KSslInfoDialog_MousePressEvent(KSslInfoDialog* self, QMouseEvent* event);
+void KSslInfoDialog_OnMousePressEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseMousePressEvent(KSslInfoDialog* self, QMouseEvent* event);
+void KSslInfoDialog_MouseReleaseEvent(KSslInfoDialog* self, QMouseEvent* event);
+void KSslInfoDialog_OnMouseReleaseEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseMouseReleaseEvent(KSslInfoDialog* self, QMouseEvent* event);
+void KSslInfoDialog_MouseDoubleClickEvent(KSslInfoDialog* self, QMouseEvent* event);
+void KSslInfoDialog_OnMouseDoubleClickEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseMouseDoubleClickEvent(KSslInfoDialog* self, QMouseEvent* event);
+void KSslInfoDialog_MouseMoveEvent(KSslInfoDialog* self, QMouseEvent* event);
+void KSslInfoDialog_OnMouseMoveEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseMouseMoveEvent(KSslInfoDialog* self, QMouseEvent* event);
+void KSslInfoDialog_WheelEvent(KSslInfoDialog* self, QWheelEvent* event);
+void KSslInfoDialog_OnWheelEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseWheelEvent(KSslInfoDialog* self, QWheelEvent* event);
+void KSslInfoDialog_KeyReleaseEvent(KSslInfoDialog* self, QKeyEvent* event);
+void KSslInfoDialog_OnKeyReleaseEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseKeyReleaseEvent(KSslInfoDialog* self, QKeyEvent* event);
+void KSslInfoDialog_FocusInEvent(KSslInfoDialog* self, QFocusEvent* event);
+void KSslInfoDialog_OnFocusInEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseFocusInEvent(KSslInfoDialog* self, QFocusEvent* event);
+void KSslInfoDialog_FocusOutEvent(KSslInfoDialog* self, QFocusEvent* event);
+void KSslInfoDialog_OnFocusOutEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseFocusOutEvent(KSslInfoDialog* self, QFocusEvent* event);
+void KSslInfoDialog_EnterEvent(KSslInfoDialog* self, QEnterEvent* event);
+void KSslInfoDialog_OnEnterEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseEnterEvent(KSslInfoDialog* self, QEnterEvent* event);
+void KSslInfoDialog_LeaveEvent(KSslInfoDialog* self, QEvent* event);
+void KSslInfoDialog_OnLeaveEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseLeaveEvent(KSslInfoDialog* self, QEvent* event);
+void KSslInfoDialog_PaintEvent(KSslInfoDialog* self, QPaintEvent* event);
+void KSslInfoDialog_OnPaintEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBasePaintEvent(KSslInfoDialog* self, QPaintEvent* event);
+void KSslInfoDialog_MoveEvent(KSslInfoDialog* self, QMoveEvent* event);
+void KSslInfoDialog_OnMoveEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseMoveEvent(KSslInfoDialog* self, QMoveEvent* event);
+void KSslInfoDialog_TabletEvent(KSslInfoDialog* self, QTabletEvent* event);
+void KSslInfoDialog_OnTabletEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseTabletEvent(KSslInfoDialog* self, QTabletEvent* event);
+void KSslInfoDialog_ActionEvent(KSslInfoDialog* self, QActionEvent* event);
+void KSslInfoDialog_OnActionEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseActionEvent(KSslInfoDialog* self, QActionEvent* event);
+void KSslInfoDialog_DragEnterEvent(KSslInfoDialog* self, QDragEnterEvent* event);
+void KSslInfoDialog_OnDragEnterEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseDragEnterEvent(KSslInfoDialog* self, QDragEnterEvent* event);
+void KSslInfoDialog_DragMoveEvent(KSslInfoDialog* self, QDragMoveEvent* event);
+void KSslInfoDialog_OnDragMoveEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseDragMoveEvent(KSslInfoDialog* self, QDragMoveEvent* event);
+void KSslInfoDialog_DragLeaveEvent(KSslInfoDialog* self, QDragLeaveEvent* event);
+void KSslInfoDialog_OnDragLeaveEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseDragLeaveEvent(KSslInfoDialog* self, QDragLeaveEvent* event);
+void KSslInfoDialog_DropEvent(KSslInfoDialog* self, QDropEvent* event);
+void KSslInfoDialog_OnDropEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseDropEvent(KSslInfoDialog* self, QDropEvent* event);
+void KSslInfoDialog_HideEvent(KSslInfoDialog* self, QHideEvent* event);
+void KSslInfoDialog_OnHideEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseHideEvent(KSslInfoDialog* self, QHideEvent* event);
+bool KSslInfoDialog_NativeEvent(KSslInfoDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KSslInfoDialog_OnNativeEvent(KSslInfoDialog* self, intptr_t slot);
+bool KSslInfoDialog_QBaseNativeEvent(KSslInfoDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KSslInfoDialog_ChangeEvent(KSslInfoDialog* self, QEvent* param1);
+void KSslInfoDialog_OnChangeEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseChangeEvent(KSslInfoDialog* self, QEvent* param1);
+int KSslInfoDialog_Metric(const KSslInfoDialog* self, int param1);
+void KSslInfoDialog_OnMetric(const KSslInfoDialog* self, intptr_t slot);
+int KSslInfoDialog_QBaseMetric(const KSslInfoDialog* self, int param1);
+void KSslInfoDialog_InitPainter(const KSslInfoDialog* self, QPainter* painter);
+void KSslInfoDialog_OnInitPainter(const KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseInitPainter(const KSslInfoDialog* self, QPainter* painter);
+QPaintDevice* KSslInfoDialog_Redirected(const KSslInfoDialog* self, QPoint* offset);
+void KSslInfoDialog_OnRedirected(const KSslInfoDialog* self, intptr_t slot);
+QPaintDevice* KSslInfoDialog_QBaseRedirected(const KSslInfoDialog* self, QPoint* offset);
+QPainter* KSslInfoDialog_SharedPainter(const KSslInfoDialog* self);
+void KSslInfoDialog_OnSharedPainter(const KSslInfoDialog* self, intptr_t slot);
+QPainter* KSslInfoDialog_QBaseSharedPainter(const KSslInfoDialog* self);
+void KSslInfoDialog_InputMethodEvent(KSslInfoDialog* self, QInputMethodEvent* param1);
+void KSslInfoDialog_OnInputMethodEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseInputMethodEvent(KSslInfoDialog* self, QInputMethodEvent* param1);
+QVariant* KSslInfoDialog_InputMethodQuery(const KSslInfoDialog* self, int param1);
+void KSslInfoDialog_OnInputMethodQuery(const KSslInfoDialog* self, intptr_t slot);
+QVariant* KSslInfoDialog_QBaseInputMethodQuery(const KSslInfoDialog* self, int param1);
+bool KSslInfoDialog_FocusNextPrevChild(KSslInfoDialog* self, bool next);
+void KSslInfoDialog_OnFocusNextPrevChild(KSslInfoDialog* self, intptr_t slot);
+bool KSslInfoDialog_QBaseFocusNextPrevChild(KSslInfoDialog* self, bool next);
+void KSslInfoDialog_TimerEvent(KSslInfoDialog* self, QTimerEvent* event);
+void KSslInfoDialog_OnTimerEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseTimerEvent(KSslInfoDialog* self, QTimerEvent* event);
+void KSslInfoDialog_ChildEvent(KSslInfoDialog* self, QChildEvent* event);
+void KSslInfoDialog_OnChildEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseChildEvent(KSslInfoDialog* self, QChildEvent* event);
+void KSslInfoDialog_CustomEvent(KSslInfoDialog* self, QEvent* event);
+void KSslInfoDialog_OnCustomEvent(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseCustomEvent(KSslInfoDialog* self, QEvent* event);
+void KSslInfoDialog_ConnectNotify(KSslInfoDialog* self, const QMetaMethod* signal);
+void KSslInfoDialog_OnConnectNotify(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseConnectNotify(KSslInfoDialog* self, const QMetaMethod* signal);
+void KSslInfoDialog_DisconnectNotify(KSslInfoDialog* self, const QMetaMethod* signal);
+void KSslInfoDialog_OnDisconnectNotify(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseDisconnectNotify(KSslInfoDialog* self, const QMetaMethod* signal);
+void KSslInfoDialog_AdjustPosition(KSslInfoDialog* self, QWidget* param1);
+void KSslInfoDialog_OnAdjustPosition(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseAdjustPosition(KSslInfoDialog* self, QWidget* param1);
+void KSslInfoDialog_UpdateMicroFocus(KSslInfoDialog* self);
+void KSslInfoDialog_OnUpdateMicroFocus(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseUpdateMicroFocus(KSslInfoDialog* self);
+void KSslInfoDialog_Create(KSslInfoDialog* self);
+void KSslInfoDialog_OnCreate(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseCreate(KSslInfoDialog* self);
+void KSslInfoDialog_Destroy(KSslInfoDialog* self);
+void KSslInfoDialog_OnDestroy(KSslInfoDialog* self, intptr_t slot);
+void KSslInfoDialog_QBaseDestroy(KSslInfoDialog* self);
+bool KSslInfoDialog_FocusNextChild(KSslInfoDialog* self);
+void KSslInfoDialog_OnFocusNextChild(KSslInfoDialog* self, intptr_t slot);
+bool KSslInfoDialog_QBaseFocusNextChild(KSslInfoDialog* self);
+bool KSslInfoDialog_FocusPreviousChild(KSslInfoDialog* self);
+void KSslInfoDialog_OnFocusPreviousChild(KSslInfoDialog* self, intptr_t slot);
+bool KSslInfoDialog_QBaseFocusPreviousChild(KSslInfoDialog* self);
+QObject* KSslInfoDialog_Sender(const KSslInfoDialog* self);
+void KSslInfoDialog_OnSender(const KSslInfoDialog* self, intptr_t slot);
+QObject* KSslInfoDialog_QBaseSender(const KSslInfoDialog* self);
+int KSslInfoDialog_SenderSignalIndex(const KSslInfoDialog* self);
+void KSslInfoDialog_OnSenderSignalIndex(const KSslInfoDialog* self, intptr_t slot);
+int KSslInfoDialog_QBaseSenderSignalIndex(const KSslInfoDialog* self);
+int KSslInfoDialog_Receivers(const KSslInfoDialog* self, const char* signal);
+void KSslInfoDialog_OnReceivers(const KSslInfoDialog* self, intptr_t slot);
+int KSslInfoDialog_QBaseReceivers(const KSslInfoDialog* self, const char* signal);
+bool KSslInfoDialog_IsSignalConnected(const KSslInfoDialog* self, const QMetaMethod* signal);
+void KSslInfoDialog_OnIsSignalConnected(const KSslInfoDialog* self, intptr_t slot);
+bool KSslInfoDialog_QBaseIsSignalConnected(const KSslInfoDialog* self, const QMetaMethod* signal);
+double KSslInfoDialog_GetDecodedMetricF(const KSslInfoDialog* self, int metricA, int metricB);
+void KSslInfoDialog_OnGetDecodedMetricF(const KSslInfoDialog* self, intptr_t slot);
+double KSslInfoDialog_QBaseGetDecodedMetricF(const KSslInfoDialog* self, int metricA, int metricB);
+void KSslInfoDialog_Delete(KSslInfoDialog* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

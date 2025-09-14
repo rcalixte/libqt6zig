@@ -1,0 +1,44 @@
+#pragma once
+#ifndef SRC_EXTRAS_KSERVICEC_LIBKSERVICECONVERSIONCHECK_P_H
+#define SRC_EXTRAS_KSERVICEC_LIBKSERVICECONVERSIONCHECK_P_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KServiceConversionCheck__supported)
+typedef KServiceConversionCheck::supported KServiceConversionCheck__supported;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KServiceConversionCheck__unsupported)
+typedef KServiceConversionCheck::unsupported KServiceConversionCheck__unsupported;
+#endif
+#else
+typedef struct KServiceConversionCheck__supported KServiceConversionCheck__supported;
+typedef struct KServiceConversionCheck__unsupported KServiceConversionCheck__unsupported;
+#endif
+
+KServiceConversionCheck__supported* KServiceConversionCheck__supported_new(const KServiceConversionCheck__supported* other);
+KServiceConversionCheck__supported* KServiceConversionCheck__supported_new2(KServiceConversionCheck__supported* other);
+void KServiceConversionCheck__supported_CopyAssign(KServiceConversionCheck__supported* self, KServiceConversionCheck__supported* other);
+void KServiceConversionCheck__supported_MoveAssign(KServiceConversionCheck__supported* self, KServiceConversionCheck__supported* other);
+void KServiceConversionCheck__supported_Delete(KServiceConversionCheck__supported* self);
+
+KServiceConversionCheck__unsupported* KServiceConversionCheck__unsupported_new(const KServiceConversionCheck__unsupported* other);
+KServiceConversionCheck__unsupported* KServiceConversionCheck__unsupported_new2(KServiceConversionCheck__unsupported* other);
+void KServiceConversionCheck__unsupported_CopyAssign(KServiceConversionCheck__unsupported* self, KServiceConversionCheck__unsupported* other);
+void KServiceConversionCheck__unsupported_MoveAssign(KServiceConversionCheck__unsupported* self, KServiceConversionCheck__unsupported* other);
+void KServiceConversionCheck__unsupported_Delete(KServiceConversionCheck__unsupported* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

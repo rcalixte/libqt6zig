@@ -1,0 +1,283 @@
+#pragma once
+#ifndef SRC_EXTRAS_KIOC_LIBRENAMEDIALOG_H
+#define SRC_EXTRAS_KIOC_LIBRENAMEDIALOG_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__RenameDialog)
+typedef KIO::RenameDialog KIO__RenameDialog;
+#endif
+#else
+typedef struct KIO__RenameDialog KIO__RenameDialog;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDateTime QDateTime;
+typedef struct QDialog QDialog;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QUrl QUrl;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KIO__RenameDialog* KIO__RenameDialog_new(QWidget* parent, const libqt_string title, const QUrl* src, const QUrl* dest, int options);
+KIO__RenameDialog* KIO__RenameDialog_new2(QWidget* parent, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc);
+KIO__RenameDialog* KIO__RenameDialog_new3(QWidget* parent, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc, unsigned long long sizeDest);
+KIO__RenameDialog* KIO__RenameDialog_new4(QWidget* parent, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc, unsigned long long sizeDest, const QDateTime* ctimeSrc);
+KIO__RenameDialog* KIO__RenameDialog_new5(QWidget* parent, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc, unsigned long long sizeDest, const QDateTime* ctimeSrc, const QDateTime* ctimeDest);
+KIO__RenameDialog* KIO__RenameDialog_new6(QWidget* parent, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc, unsigned long long sizeDest, const QDateTime* ctimeSrc, const QDateTime* ctimeDest, const QDateTime* mtimeSrc);
+KIO__RenameDialog* KIO__RenameDialog_new7(QWidget* parent, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc, unsigned long long sizeDest, const QDateTime* ctimeSrc, const QDateTime* ctimeDest, const QDateTime* mtimeSrc, const QDateTime* mtimeDest);
+QMetaObject* KIO__RenameDialog_MetaObject(const KIO__RenameDialog* self);
+void* KIO__RenameDialog_Metacast(KIO__RenameDialog* self, const char* param1);
+int KIO__RenameDialog_Metacall(KIO__RenameDialog* self, int param1, int param2, void** param3);
+libqt_string KIO__RenameDialog_Tr(const char* s);
+QUrl* KIO__RenameDialog_NewDestUrl(KIO__RenameDialog* self);
+QUrl* KIO__RenameDialog_AutoDestUrl(const KIO__RenameDialog* self);
+void KIO__RenameDialog_CancelPressed(KIO__RenameDialog* self);
+void KIO__RenameDialog_RenamePressed(KIO__RenameDialog* self);
+void KIO__RenameDialog_SkipPressed(KIO__RenameDialog* self);
+void KIO__RenameDialog_OverwritePressed(KIO__RenameDialog* self);
+void KIO__RenameDialog_OverwriteAllPressed(KIO__RenameDialog* self);
+void KIO__RenameDialog_OverwriteWhenOlderPressed(KIO__RenameDialog* self);
+void KIO__RenameDialog_ResumePressed(KIO__RenameDialog* self);
+void KIO__RenameDialog_ResumeAllPressed(KIO__RenameDialog* self);
+void KIO__RenameDialog_SuggestNewNamePressed(KIO__RenameDialog* self);
+libqt_string KIO__RenameDialog_Tr2(const char* s, const char* c);
+libqt_string KIO__RenameDialog_Tr3(const char* s, const char* c, int n);
+void KIO__RenameDialog_OnMetacall(KIO__RenameDialog* self, intptr_t slot);
+int KIO__RenameDialog_QBaseMetacall(KIO__RenameDialog* self, int param1, int param2, void** param3);
+void KIO__RenameDialog_SetVisible(KIO__RenameDialog* self, bool visible);
+void KIO__RenameDialog_OnSetVisible(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseSetVisible(KIO__RenameDialog* self, bool visible);
+QSize* KIO__RenameDialog_SizeHint(const KIO__RenameDialog* self);
+void KIO__RenameDialog_OnSizeHint(const KIO__RenameDialog* self, intptr_t slot);
+QSize* KIO__RenameDialog_QBaseSizeHint(const KIO__RenameDialog* self);
+QSize* KIO__RenameDialog_MinimumSizeHint(const KIO__RenameDialog* self);
+void KIO__RenameDialog_OnMinimumSizeHint(const KIO__RenameDialog* self, intptr_t slot);
+QSize* KIO__RenameDialog_QBaseMinimumSizeHint(const KIO__RenameDialog* self);
+void KIO__RenameDialog_Open(KIO__RenameDialog* self);
+void KIO__RenameDialog_OnOpen(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseOpen(KIO__RenameDialog* self);
+int KIO__RenameDialog_Exec(KIO__RenameDialog* self);
+void KIO__RenameDialog_OnExec(KIO__RenameDialog* self, intptr_t slot);
+int KIO__RenameDialog_QBaseExec(KIO__RenameDialog* self);
+void KIO__RenameDialog_Done(KIO__RenameDialog* self, int param1);
+void KIO__RenameDialog_OnDone(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseDone(KIO__RenameDialog* self, int param1);
+void KIO__RenameDialog_Accept(KIO__RenameDialog* self);
+void KIO__RenameDialog_OnAccept(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseAccept(KIO__RenameDialog* self);
+void KIO__RenameDialog_Reject(KIO__RenameDialog* self);
+void KIO__RenameDialog_OnReject(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseReject(KIO__RenameDialog* self);
+void KIO__RenameDialog_KeyPressEvent(KIO__RenameDialog* self, QKeyEvent* param1);
+void KIO__RenameDialog_OnKeyPressEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseKeyPressEvent(KIO__RenameDialog* self, QKeyEvent* param1);
+void KIO__RenameDialog_CloseEvent(KIO__RenameDialog* self, QCloseEvent* param1);
+void KIO__RenameDialog_OnCloseEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseCloseEvent(KIO__RenameDialog* self, QCloseEvent* param1);
+void KIO__RenameDialog_ShowEvent(KIO__RenameDialog* self, QShowEvent* param1);
+void KIO__RenameDialog_OnShowEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseShowEvent(KIO__RenameDialog* self, QShowEvent* param1);
+void KIO__RenameDialog_ResizeEvent(KIO__RenameDialog* self, QResizeEvent* param1);
+void KIO__RenameDialog_OnResizeEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseResizeEvent(KIO__RenameDialog* self, QResizeEvent* param1);
+void KIO__RenameDialog_ContextMenuEvent(KIO__RenameDialog* self, QContextMenuEvent* param1);
+void KIO__RenameDialog_OnContextMenuEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseContextMenuEvent(KIO__RenameDialog* self, QContextMenuEvent* param1);
+bool KIO__RenameDialog_EventFilter(KIO__RenameDialog* self, QObject* param1, QEvent* param2);
+void KIO__RenameDialog_OnEventFilter(KIO__RenameDialog* self, intptr_t slot);
+bool KIO__RenameDialog_QBaseEventFilter(KIO__RenameDialog* self, QObject* param1, QEvent* param2);
+int KIO__RenameDialog_DevType(const KIO__RenameDialog* self);
+void KIO__RenameDialog_OnDevType(const KIO__RenameDialog* self, intptr_t slot);
+int KIO__RenameDialog_QBaseDevType(const KIO__RenameDialog* self);
+int KIO__RenameDialog_HeightForWidth(const KIO__RenameDialog* self, int param1);
+void KIO__RenameDialog_OnHeightForWidth(const KIO__RenameDialog* self, intptr_t slot);
+int KIO__RenameDialog_QBaseHeightForWidth(const KIO__RenameDialog* self, int param1);
+bool KIO__RenameDialog_HasHeightForWidth(const KIO__RenameDialog* self);
+void KIO__RenameDialog_OnHasHeightForWidth(const KIO__RenameDialog* self, intptr_t slot);
+bool KIO__RenameDialog_QBaseHasHeightForWidth(const KIO__RenameDialog* self);
+QPaintEngine* KIO__RenameDialog_PaintEngine(const KIO__RenameDialog* self);
+void KIO__RenameDialog_OnPaintEngine(const KIO__RenameDialog* self, intptr_t slot);
+QPaintEngine* KIO__RenameDialog_QBasePaintEngine(const KIO__RenameDialog* self);
+bool KIO__RenameDialog_Event(KIO__RenameDialog* self, QEvent* event);
+void KIO__RenameDialog_OnEvent(KIO__RenameDialog* self, intptr_t slot);
+bool KIO__RenameDialog_QBaseEvent(KIO__RenameDialog* self, QEvent* event);
+void KIO__RenameDialog_MousePressEvent(KIO__RenameDialog* self, QMouseEvent* event);
+void KIO__RenameDialog_OnMousePressEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseMousePressEvent(KIO__RenameDialog* self, QMouseEvent* event);
+void KIO__RenameDialog_MouseReleaseEvent(KIO__RenameDialog* self, QMouseEvent* event);
+void KIO__RenameDialog_OnMouseReleaseEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseMouseReleaseEvent(KIO__RenameDialog* self, QMouseEvent* event);
+void KIO__RenameDialog_MouseDoubleClickEvent(KIO__RenameDialog* self, QMouseEvent* event);
+void KIO__RenameDialog_OnMouseDoubleClickEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseMouseDoubleClickEvent(KIO__RenameDialog* self, QMouseEvent* event);
+void KIO__RenameDialog_MouseMoveEvent(KIO__RenameDialog* self, QMouseEvent* event);
+void KIO__RenameDialog_OnMouseMoveEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseMouseMoveEvent(KIO__RenameDialog* self, QMouseEvent* event);
+void KIO__RenameDialog_WheelEvent(KIO__RenameDialog* self, QWheelEvent* event);
+void KIO__RenameDialog_OnWheelEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseWheelEvent(KIO__RenameDialog* self, QWheelEvent* event);
+void KIO__RenameDialog_KeyReleaseEvent(KIO__RenameDialog* self, QKeyEvent* event);
+void KIO__RenameDialog_OnKeyReleaseEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseKeyReleaseEvent(KIO__RenameDialog* self, QKeyEvent* event);
+void KIO__RenameDialog_FocusInEvent(KIO__RenameDialog* self, QFocusEvent* event);
+void KIO__RenameDialog_OnFocusInEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseFocusInEvent(KIO__RenameDialog* self, QFocusEvent* event);
+void KIO__RenameDialog_FocusOutEvent(KIO__RenameDialog* self, QFocusEvent* event);
+void KIO__RenameDialog_OnFocusOutEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseFocusOutEvent(KIO__RenameDialog* self, QFocusEvent* event);
+void KIO__RenameDialog_EnterEvent(KIO__RenameDialog* self, QEnterEvent* event);
+void KIO__RenameDialog_OnEnterEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseEnterEvent(KIO__RenameDialog* self, QEnterEvent* event);
+void KIO__RenameDialog_LeaveEvent(KIO__RenameDialog* self, QEvent* event);
+void KIO__RenameDialog_OnLeaveEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseLeaveEvent(KIO__RenameDialog* self, QEvent* event);
+void KIO__RenameDialog_PaintEvent(KIO__RenameDialog* self, QPaintEvent* event);
+void KIO__RenameDialog_OnPaintEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBasePaintEvent(KIO__RenameDialog* self, QPaintEvent* event);
+void KIO__RenameDialog_MoveEvent(KIO__RenameDialog* self, QMoveEvent* event);
+void KIO__RenameDialog_OnMoveEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseMoveEvent(KIO__RenameDialog* self, QMoveEvent* event);
+void KIO__RenameDialog_TabletEvent(KIO__RenameDialog* self, QTabletEvent* event);
+void KIO__RenameDialog_OnTabletEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseTabletEvent(KIO__RenameDialog* self, QTabletEvent* event);
+void KIO__RenameDialog_ActionEvent(KIO__RenameDialog* self, QActionEvent* event);
+void KIO__RenameDialog_OnActionEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseActionEvent(KIO__RenameDialog* self, QActionEvent* event);
+void KIO__RenameDialog_DragEnterEvent(KIO__RenameDialog* self, QDragEnterEvent* event);
+void KIO__RenameDialog_OnDragEnterEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseDragEnterEvent(KIO__RenameDialog* self, QDragEnterEvent* event);
+void KIO__RenameDialog_DragMoveEvent(KIO__RenameDialog* self, QDragMoveEvent* event);
+void KIO__RenameDialog_OnDragMoveEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseDragMoveEvent(KIO__RenameDialog* self, QDragMoveEvent* event);
+void KIO__RenameDialog_DragLeaveEvent(KIO__RenameDialog* self, QDragLeaveEvent* event);
+void KIO__RenameDialog_OnDragLeaveEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseDragLeaveEvent(KIO__RenameDialog* self, QDragLeaveEvent* event);
+void KIO__RenameDialog_DropEvent(KIO__RenameDialog* self, QDropEvent* event);
+void KIO__RenameDialog_OnDropEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseDropEvent(KIO__RenameDialog* self, QDropEvent* event);
+void KIO__RenameDialog_HideEvent(KIO__RenameDialog* self, QHideEvent* event);
+void KIO__RenameDialog_OnHideEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseHideEvent(KIO__RenameDialog* self, QHideEvent* event);
+bool KIO__RenameDialog_NativeEvent(KIO__RenameDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KIO__RenameDialog_OnNativeEvent(KIO__RenameDialog* self, intptr_t slot);
+bool KIO__RenameDialog_QBaseNativeEvent(KIO__RenameDialog* self, const libqt_string eventType, void* message, intptr_t* result);
+void KIO__RenameDialog_ChangeEvent(KIO__RenameDialog* self, QEvent* param1);
+void KIO__RenameDialog_OnChangeEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseChangeEvent(KIO__RenameDialog* self, QEvent* param1);
+int KIO__RenameDialog_Metric(const KIO__RenameDialog* self, int param1);
+void KIO__RenameDialog_OnMetric(const KIO__RenameDialog* self, intptr_t slot);
+int KIO__RenameDialog_QBaseMetric(const KIO__RenameDialog* self, int param1);
+void KIO__RenameDialog_InitPainter(const KIO__RenameDialog* self, QPainter* painter);
+void KIO__RenameDialog_OnInitPainter(const KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseInitPainter(const KIO__RenameDialog* self, QPainter* painter);
+QPaintDevice* KIO__RenameDialog_Redirected(const KIO__RenameDialog* self, QPoint* offset);
+void KIO__RenameDialog_OnRedirected(const KIO__RenameDialog* self, intptr_t slot);
+QPaintDevice* KIO__RenameDialog_QBaseRedirected(const KIO__RenameDialog* self, QPoint* offset);
+QPainter* KIO__RenameDialog_SharedPainter(const KIO__RenameDialog* self);
+void KIO__RenameDialog_OnSharedPainter(const KIO__RenameDialog* self, intptr_t slot);
+QPainter* KIO__RenameDialog_QBaseSharedPainter(const KIO__RenameDialog* self);
+void KIO__RenameDialog_InputMethodEvent(KIO__RenameDialog* self, QInputMethodEvent* param1);
+void KIO__RenameDialog_OnInputMethodEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseInputMethodEvent(KIO__RenameDialog* self, QInputMethodEvent* param1);
+QVariant* KIO__RenameDialog_InputMethodQuery(const KIO__RenameDialog* self, int param1);
+void KIO__RenameDialog_OnInputMethodQuery(const KIO__RenameDialog* self, intptr_t slot);
+QVariant* KIO__RenameDialog_QBaseInputMethodQuery(const KIO__RenameDialog* self, int param1);
+bool KIO__RenameDialog_FocusNextPrevChild(KIO__RenameDialog* self, bool next);
+void KIO__RenameDialog_OnFocusNextPrevChild(KIO__RenameDialog* self, intptr_t slot);
+bool KIO__RenameDialog_QBaseFocusNextPrevChild(KIO__RenameDialog* self, bool next);
+void KIO__RenameDialog_TimerEvent(KIO__RenameDialog* self, QTimerEvent* event);
+void KIO__RenameDialog_OnTimerEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseTimerEvent(KIO__RenameDialog* self, QTimerEvent* event);
+void KIO__RenameDialog_ChildEvent(KIO__RenameDialog* self, QChildEvent* event);
+void KIO__RenameDialog_OnChildEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseChildEvent(KIO__RenameDialog* self, QChildEvent* event);
+void KIO__RenameDialog_CustomEvent(KIO__RenameDialog* self, QEvent* event);
+void KIO__RenameDialog_OnCustomEvent(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseCustomEvent(KIO__RenameDialog* self, QEvent* event);
+void KIO__RenameDialog_ConnectNotify(KIO__RenameDialog* self, const QMetaMethod* signal);
+void KIO__RenameDialog_OnConnectNotify(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseConnectNotify(KIO__RenameDialog* self, const QMetaMethod* signal);
+void KIO__RenameDialog_DisconnectNotify(KIO__RenameDialog* self, const QMetaMethod* signal);
+void KIO__RenameDialog_OnDisconnectNotify(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseDisconnectNotify(KIO__RenameDialog* self, const QMetaMethod* signal);
+void KIO__RenameDialog_EnableRenameButton(KIO__RenameDialog* self, const libqt_string param1);
+void KIO__RenameDialog_OnEnableRenameButton(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseEnableRenameButton(KIO__RenameDialog* self, const libqt_string param1);
+void KIO__RenameDialog_AdjustPosition(KIO__RenameDialog* self, QWidget* param1);
+void KIO__RenameDialog_OnAdjustPosition(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseAdjustPosition(KIO__RenameDialog* self, QWidget* param1);
+void KIO__RenameDialog_UpdateMicroFocus(KIO__RenameDialog* self);
+void KIO__RenameDialog_OnUpdateMicroFocus(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseUpdateMicroFocus(KIO__RenameDialog* self);
+void KIO__RenameDialog_Create(KIO__RenameDialog* self);
+void KIO__RenameDialog_OnCreate(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseCreate(KIO__RenameDialog* self);
+void KIO__RenameDialog_Destroy(KIO__RenameDialog* self);
+void KIO__RenameDialog_OnDestroy(KIO__RenameDialog* self, intptr_t slot);
+void KIO__RenameDialog_QBaseDestroy(KIO__RenameDialog* self);
+bool KIO__RenameDialog_FocusNextChild(KIO__RenameDialog* self);
+void KIO__RenameDialog_OnFocusNextChild(KIO__RenameDialog* self, intptr_t slot);
+bool KIO__RenameDialog_QBaseFocusNextChild(KIO__RenameDialog* self);
+bool KIO__RenameDialog_FocusPreviousChild(KIO__RenameDialog* self);
+void KIO__RenameDialog_OnFocusPreviousChild(KIO__RenameDialog* self, intptr_t slot);
+bool KIO__RenameDialog_QBaseFocusPreviousChild(KIO__RenameDialog* self);
+QObject* KIO__RenameDialog_Sender(const KIO__RenameDialog* self);
+void KIO__RenameDialog_OnSender(const KIO__RenameDialog* self, intptr_t slot);
+QObject* KIO__RenameDialog_QBaseSender(const KIO__RenameDialog* self);
+int KIO__RenameDialog_SenderSignalIndex(const KIO__RenameDialog* self);
+void KIO__RenameDialog_OnSenderSignalIndex(const KIO__RenameDialog* self, intptr_t slot);
+int KIO__RenameDialog_QBaseSenderSignalIndex(const KIO__RenameDialog* self);
+int KIO__RenameDialog_Receivers(const KIO__RenameDialog* self, const char* signal);
+void KIO__RenameDialog_OnReceivers(const KIO__RenameDialog* self, intptr_t slot);
+int KIO__RenameDialog_QBaseReceivers(const KIO__RenameDialog* self, const char* signal);
+bool KIO__RenameDialog_IsSignalConnected(const KIO__RenameDialog* self, const QMetaMethod* signal);
+void KIO__RenameDialog_OnIsSignalConnected(const KIO__RenameDialog* self, intptr_t slot);
+bool KIO__RenameDialog_QBaseIsSignalConnected(const KIO__RenameDialog* self, const QMetaMethod* signal);
+double KIO__RenameDialog_GetDecodedMetricF(const KIO__RenameDialog* self, int metricA, int metricB);
+void KIO__RenameDialog_OnGetDecodedMetricF(const KIO__RenameDialog* self, intptr_t slot);
+double KIO__RenameDialog_QBaseGetDecodedMetricF(const KIO__RenameDialog* self, int metricA, int metricB);
+void KIO__RenameDialog_Delete(KIO__RenameDialog* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
