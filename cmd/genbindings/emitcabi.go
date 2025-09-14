@@ -150,6 +150,11 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 		cppType += "&"
 	}
 
+	// hack a broken typedef for now
+	if cppType == "ListJob::ListFlags" {
+		return "KIO::ListJob::ListFlags"
+	}
+
 	return cppType
 }
 
@@ -889,6 +894,10 @@ func cabiClassName(className string) string {
 }
 
 func cabiPreventStructDeclaration(className string) bool {
+	if !AllowStructDef(className) {
+		return true
+	}
+
 	switch className {
 	case "QList", "QString", "QSet", "QMap", "QHash", "QPair", "QVector", "QByteArray", "QSpan":
 		return true // These types are reprojected
@@ -909,6 +918,11 @@ var (
 		"QMicrophonePermission": {},
 		"QPrintDialog":          {},
 		"QsciScintillaBase":     {},
+	}
+
+	// temporary hack
+	skipQtConnect = map[string]struct{}{
+		"KCoreDirLister_refreshItems": {},
 	}
 
 	moveCtorOnly = map[string]struct{}{
@@ -933,6 +947,8 @@ var (
 
 	skippedMethods = map[string]struct{}{
 		"QHostAddress_IsInSubnet2":  {}, // linker error
+		"KIO_FileCopy2":             {}, // this overload is intentionally not implemented upstream
+		"KIO_FileMove2":             {}, // this overload is intentionally not implemented upstream
 		"KXmlGuiWindow_VirtualHook": {}, // this method is found in multiple base classes of different types and undocumented
 	}
 
@@ -1179,8 +1195,12 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 					customCallback += indent + "if (" + callbackName + " != nullptr) {\n"
 					customCallback += indent + "\t" + retString
 					if !m.ReturnType.Void() {
+						ret := "{}"
+						if c.ClassName == "KIO::ThumbnailCreator" && m.MethodName == "create" {
+							ret = "KIO::ThumbnailResult::fail()"
+						}
 						customCallback += indent + "} else {\n"
-						customCallback += indent + "\t" + maybeReturn + "{};\n"
+						customCallback += indent + "\t" + maybeReturn + ret + ";\n"
 					}
 					customCallback += indent + "}\n"
 				} else {
@@ -1395,6 +1415,10 @@ extern "C" {
 				if _, ok := noQtConnect[methodPrefixName]; ok {
 					addConnect = false
 				}
+				if _, ok := skipQtConnect[methodPrefixName+"_"+m.MethodName]; ok {
+					addConnect = false
+				}
+
 				if addConnect {
 					ret.WriteString(fmt.Sprintf("%s %s_Connect_%s(%s* self, intptr_t slot);\n", m.ReturnType.RenderTypeCabi(false), methodPrefixName, mSafeMethodName, methodPrefixName))
 				}
@@ -1773,6 +1797,10 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 				if _, ok := noQtConnect[methodPrefixName]; ok {
 					continue
 				}
+				if _, ok := skipQtConnect[methodPrefixName+"_"+m.MethodName]; ok {
+					continue
+				}
+
 				signalTarget := "slotFunc(self"
 
 				// Qt 6.8 moved many operator== implementations from class methods
