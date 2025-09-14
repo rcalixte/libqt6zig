@@ -265,6 +265,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KItemViews " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// KJobWidgets
+		// Depends on Qt Core, KCoreAddons
+		{
+			path: "extras-kjobwidgets",
+			dirs: []string{
+				"/usr/include/KF6/KJobWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17  -I/usr/include/KF6/KJobWidgets -I/usr/include/KF6/KCoreAddons " + pkgConfigCflags("Qt6Core"),
+		},
+
 		// KPlotting
 		// Depends on Qt Core, GUI, Widgets
 		{
@@ -274,6 +285,29 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 -I/usr/include/KF6/KPlotting " + pkgConfigCflags("Qt6Widgets"),
+		},
+
+		// KService
+		// Depends on Qt Core
+		{
+			path: "extras-kservice",
+			dirs: []string{
+				"/usr/include/KF6/KService",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KService " + pkgConfigCflags("Qt6Core"),
+		},
+
+		// Solid
+		// Depends on Qt Core
+		{
+			path: "extras-solid",
+			dirs: []string{
+				"/usr/include/KF6/Solid",
+				"/usr/include/KF6/Solid/solid",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17  -I/usr/include/KF6/Solid " + pkgConfigCflags("Qt6Core"),
 		},
 
 		// Sonnet
@@ -345,6 +379,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17  -I/usr/include/KF6/KBookmarks -I/usr/include/KF6/KBookmarksWidgets -I/usr/include/KF6/KConfigWidgets -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets") + pkgConfigCflags("Qt6Xml"),
 		},
 
+		// KNotifications
+		// Depends on Qt Core, GUI, KConfig
+		{
+			path: "extras-knotifications",
+			dirs: []string{
+				"/usr/include/KF6/KNotifications",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17  -I/usr/include/KF6/KNotifications -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KConfigGui " + pkgConfigCflags("Qt6Gui"),
+		},
+
 		// KIconThemes
 		// Depends on Qt Core, GUI, Widgets, KWidgetsAddons
 		{
@@ -381,6 +426,20 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KGlobalAccel " + pkgConfigCflags("Qt6Gui") + pkgConfigCflags("Qt6DBus"),
 		},
 
+		// KWindowSystem
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "foss-extras-kwindowsystem",
+			dirs: []string{
+				"/usr/include/KF6/KWindowSystem",
+			},
+			allowHeader: func(fullpath string) bool {
+				baseName := filepath.Base(fullpath)
+				return baseName != "kx11extras.h"
+			},
+			cflags: "--std=c++17 -I/usr/include/KF6/KWindowSystem " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// posix-extras
 
 		// Qt 6 D-Bus
@@ -392,6 +451,26 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6DBus"),
+		},
+
+		// extras (cont.)
+
+		// KIO
+		// Depends on Qt Core, GUI, Widgets, D-Bus, Network, XML, KConfig, KCoreAddons, KWidgetsAddons, KBookmarks, KCompletion, KIconThemes, KItemViews, KJobWidgets, KService, Solid
+		{
+			path: "extras-kio",
+			dirs: []string{
+				"/usr/include/KF6/KIO",
+				"/usr/include/KF6/KIOCore",
+				"/usr/include/KF6/KIOCore/kio",
+				"/usr/include/KF6/KIOGui",
+				"/usr/include/KF6/KIOGui/kio",
+				"/usr/include/KF6/KIOWidgets",
+				"/usr/include/KF6/KIOWidgets/kio",
+				"/usr/include/KF6/KIOFileWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KIO -I/usr/include/KF6/KIOCore -I/usr/include/KF6/KIOCore/kio/KIO -I/usr/include/KF6/KIOGui -I/usr/include/KF6/KIOGui/KIO -I/usr/include/KF6/KIOWidgets -I/usr/include/KF6/KIOWidgets/KIO -I/usr/include/KF6/KIOFileWidgets -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KCoreAddons -I/usr/include/KF6/KWidgetsAddons -I/usr/include/KF6/KBookmarks -I/usr/include/KF6/KCompletion -I/usr/include/KF6/KIconThemes -I/usr/include/KF6/KItemViews -I/usr/include/KF6/KJobWidgets -I/usr/include/KF6/KService -I/usr/include/KF6/Solid " + pkgConfigCflags("Qt6Widgets") + pkgConfigCflags("Qt6Network") + pkgConfigCflags("Qt6DBus") + pkgConfigCflags("Qt6Xml"),
 		},
 
 		// posix-restricted
