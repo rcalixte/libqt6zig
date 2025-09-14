@@ -17,7 +17,7 @@ func zigReservedWord(s string) bool {
 	switch s {
 	case "default", "const", "fn", "var", "type", "len", "new", "copy", "import",
 		"error", "string", "map", "int", "select", "pub", "ret", "suspend",
-		"opaque", "align", "self", "allocator":
+		"opaque", "align", "self", "allocator", "URLs":
 		return true
 	default:
 		return false
@@ -86,14 +86,13 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 	}
 
 	if strings.HasPrefix(pageName, "qtermwidget") || strings.HasPrefix(className, "Keyboard") ||
-		strings.HasPrefix(className, "Konsole") {
+		strings.HasPrefix(className, "Konsole") || pageName == "emulation" || pageName == "filter" {
 		return "https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api"
 	}
 
 	qtUrl := "https://doc.qt.io/qt-6/"
-	if len(className) > 0 && pageName != "qobject" &&
-		className[0] == 'K' || className[0] == 'k' ||
-		strings.HasPrefix(className, "Sonnet") || strings.HasPrefix(pageName, "sonnet") {
+	if pageName[0] != 'q' && pageName != "disambiguated_t" &&
+		pageName != "partial_ordering" && pageName != "weak_ordering" && pageName != "strong_ordering" {
 		qtUrl = "https://api.kde.org/"
 	}
 
@@ -286,9 +285,9 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			ret += "u64"
 		}
 
-	case "unsigned int", "quint32", "uint", "gid_t", "uid_t":
+	case "unsigned int", "quint32", "uint32_t", "uint", "gid_t", "uid_t", "dev_t", "mode_t":
 		ret += "u32"
-	case "qint32", "int":
+	case "qint32", "int", "pid_t":
 		ret += "i32"
 	case "qlonglong", "qint64", "long long":
 		ret += "i64"
@@ -1599,6 +1598,9 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				if _, ok := noQtConnect[cmdStructName]; ok {
 					addConnect = false
 				}
+				if _, ok := skipQtConnect[cmdStructName+"_"+m.MethodName]; ok {
+					addConnect = false
+				}
 
 				if addConnect {
 					slotComma := ifv(len(m.Parameters) != 0, ", ", "")
@@ -1871,8 +1873,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 	if len(src.Enums) > 0 {
 		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + `_enums = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").enums;`
 		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-		maybeSonnet := ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", "")
-		pageName := maybeSonnet + getPageName(zfs.currentHeaderName) + maybeCharts
+		maybeUrlPrefix := ifv(strings.Contains(src.Filename, "KIO") && !strings.HasPrefix(getPageName(zfs.currentHeaderName), "k"), "kio-", "")
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Solid"), "solid-", maybeUrlPrefix)
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
+		pageName := maybeUrlPrefix + getPageName(zfs.currentHeaderName) + maybeCharts
 		pageUrl := getPageUrl(EnumPage, pageName, "", zfs.currentHeaderName)
 		maybeUrl := ifv(pageUrl != "", "\n/// "+pageUrl, "")
 		ret.WriteString(maybeUrl + "\npub const enums = struct {\n")
