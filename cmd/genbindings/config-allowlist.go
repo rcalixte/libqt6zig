@@ -26,6 +26,20 @@ func InsertTypedefs() {
 
 	// Qt 6 ksandbox.h uses an inherited enum
 	KnownTypedefs["QProcess::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QProcess::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode")}}
+
+	// Qt 6 predicate.h has a broken typedef for DeviceInterface::Type
+	KnownTypedefs["DeviceInterface::Type"] = lookupResultTypedef{pp, CppTypedef{"Solid::DeviceInterface::Type", parseSingleTypeString("Solid::DeviceInterface::Type")}}
+
+	// Qt 6 KIO
+	KnownImports["PrivilegeOperationStatus"] = lookupResultImport{"extras-kio", "global"}
+	KnownImports["RulesStorage"] = lookupResultImport{"extras-kio", "sslui"}
+	KnownTypedefs["AskUserActionInterface::ConfirmationType"] = lookupResultTypedef{pp, CppTypedef{"KIO::AskUserActionInterface::ConfirmationType", parseSingleTypeString("KIO::AskUserActionInterface::ConfirmationType")}}
+	KnownTypedefs["AskUserActionInterface::DeletionType"] = lookupResultTypedef{pp, CppTypedef{"KIO::AskUserActionInterface::DeletionType", parseSingleTypeString("KIO::AskUserActionInterface::DeletionType")}}
+	KnownTypedefs["AuthInfo::FieldFlags"] = lookupResultTypedef{pp, CppTypedef{"KIO::AuthInfo::FieldFlags", parseSingleTypeString("KIO::AuthInfo::FieldFlags")}}
+	KnownTypedefs["FileUndoManager::CommandType"] = lookupResultTypedef{pp, CppTypedef{"KIO::FileUndoManager::CommandType", parseSingleTypeString("KIO::FileUndoManager::CommandType")}}
+	KnownTypedefs["ListJob::ListFlags"] = lookupResultTypedef{pp, CppTypedef{"KIO::ListJob::ListFlags", parseSingleTypeString("KIO::ListJob::ListFlags")}}
+	KnownTypedefs["KProtocolInfo::Type"] = lookupResultTypedef{pp, CppTypedef{"KProtocolInfo::ExtraField::Type", parseSingleTypeString("KProtocolInfo::ExtraField::Type")}}
+	KnownTypedefs["RulesStorage"] = lookupResultTypedef{pp, CppTypedef{"KIO::SslUi::RulesStorage", parseSingleTypeString("KIO::SslUi::RulesStorage")}}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -90,6 +104,13 @@ func ImportHeaderForClass(className string) bool {
 		return false
 	}
 
+	// Qt 6 KWindowSystem
+	if strings.HasPrefix(className, "NET") {
+		// e.g. NET, NETExtendedStrut, NETFullscreenMonitors, NETRootInfo, NETWinInfo
+		// These classes don't have a <> version to include
+		return false
+	}
+
 	if strings.HasPrefix(className, "Qsci") {
 		// QScintilla - does not produce imports
 		return false
@@ -128,6 +149,14 @@ func ImportHeaderForClass(className string) bool {
 		"KModifierKeyInfoProvider",       // Qt 6 kmodifierkeyinfoprovider_p.h
 		"KDE",                            // Qt 6 kiconloader.h
 		"KBookmarkGroup",                 // Qt 6 KBookmarks, a legacy class
+		"KNotificationAction",            // Qt 6 knotification.h
+		"KStartupInfoData",               // Qt 6 kstartupinfo.h, a legacy class
+		"KStartupInfoId",                 // Qt 6 kstartupinfo.h, a legacy class
+		"KFileItemList",                  // Qt 6 kfileitem.h
+		"KIO",                            // Qt 6 jobtracker.h
+		"KUriFilterData",                 // Qt 6 kurifilter.h
+		"KUriFilterSearchProvider",       // Qt 6 kurifilter.h
+		"KUrlComboRequester",             // Qt 6 kurlrequester.h
 		"____last____":
 		return false
 	}
@@ -195,6 +224,11 @@ func AllowClass(className string) bool {
 		"KQuickIconProvider",                                 // Qt 6 kquickiconprovider.h, inherits from QQuickImageProvider
 		"KBookmarkGroupTraverser",                            // Qt 6 kbookmark.h, a legacy class
 		"KLocalization::Internal",                            // Qt 6 klocalizedqmlcontext.h
+		"KSycocaFactory",                                     // Qt 6 ksycoca.h, a legacy class
+		"KSycocaFactoryList",                                 // Qt 6 ksycoca.h, a legacy class
+		"NETWinInfo",                                         // Qt 6 kwindowsystem.h
+		"NETRootInfo",                                        // Qt 6 kwindowsystem.h
+		"OrgKdeKDirNotifyInterface",                          // Qt 6 kdirnotify.h
 		"____last____":
 		return false
 	}
@@ -339,6 +373,76 @@ func AllowVirtualForClass(className string) bool {
 		return false
 	}
 
+	// Qt 6 KWindowSystem
+	if className == "KX11Extras" {
+		return false
+	}
+
+	// Qt 6 KIO
+	if className == "KEncodingFileDialog" {
+		return false
+	}
+	if className == "KIO::BatchRenameJob" {
+		return false
+	}
+	if className == "KIO::ChmodJob" {
+		return false
+	}
+	if className == "KIO::CopyJob" {
+		return false
+	}
+	if className == "KIO::DavJob" {
+		return false
+	}
+	if className == "KIO::DeleteJob" {
+		return false
+	}
+	if className == "KIO::DirectorySizeJob" {
+		return false
+	}
+	if className == "KIO::DropJob" {
+		return false
+	}
+	if className == "KIO::EmptyTrashJob" {
+		return false
+	}
+	if className == "KIO::FileCopyJob" {
+		return false
+	}
+	if className == "KIO::Job" {
+		return false
+	}
+	if className == "KIO::ListJob" {
+		return false
+	}
+	if className == "KIO::MimetypeJob" {
+		return false
+	}
+	if className == "KIO::MkdirJob" {
+		return false
+	}
+	if className == "KIO::MkpathJob" {
+		return false
+	}
+	if className == "KIO::PasteJob" {
+		return false
+	}
+	if className == "KIO::RestoreJob" {
+		return false
+	}
+	if className == "KIO::SimpleJob" {
+		return false
+	}
+	if className == "KIO::StatJob" {
+		return false
+	}
+	if className == "KIO::TransferJob" {
+		return false
+	}
+	if className == "KIO::WorkerFactory" {
+		return false
+	}
+
 	return true
 }
 
@@ -459,6 +563,38 @@ func AllowMethod(className string, mm CppMethod) error {
 	// Qt 6 KIconThemes
 	if className == "KIconLoader" && (mm.SafeMethodName() == "LoadScaledIcon" || mm.SafeMethodName() == "LoadScaledIcon2") {
 		// Qt 6 kiconloader.h: there are multiple definitions and two broken overload combinations
+		return ErrTooComplex
+	}
+
+	// Qt 6 Solid
+	if className == "Solid::StorageVolume" && mm.MethodName == "encryptedContainer" {
+		// Qt 6 storagevolume.h: incomplete return type
+		return ErrTooComplex
+	}
+
+	// Qt 6 KWindowSystem
+	if className == "KKeyServer" && mm.MethodName == "xEventToQt" {
+		// Qt 6 kkeyserver.h: incomplete external parameter type
+		return ErrTooComplex
+	}
+
+	// Qt 6 KIO
+	if className == "KProtocolManager" && mm.MethodName == "fileNameUsedForCopying" {
+		// Qt 6 kprotocolmanager.h: this hits an unresolved bug
+		return ErrTooComplex
+	}
+	if className == "KSslInfoDialog" && (mm.MethodName == "setSslInfo" || mm.MethodName == "certificateErrorsFromString") {
+		// Qt 6 ksslinfodialog.h: this has a parameter/return type that is not in the binding yet:
+		// const QList<QList<QSslError::SslError>>
+		// this can be implemented at some point
+		return ErrTooComplex
+	}
+	if className == "KFileItemListProperties" && mm.MethodName == "items" {
+		// Qt 6 kfileitemlistproperties.h: this has a legacy return type
+		return ErrTooComplex
+	}
+	if className == "KIO" && mm.MethodName == "chmod" {
+		// Qt 6 chmodjob.h && simplejob.h: cross-header conflict for the same method name
 		return ErrTooComplex
 	}
 
@@ -670,6 +806,24 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex
 	}
 
+	// Qt 6 KWindowSystem
+	if strings.Contains(p.ParameterType, "NET::") {
+		// e.g. NET, NETExtendedStrut, NETFullscreenMonitors, NETRootInfo, NETWinInfo
+		// These classes don't have a valid include and end up as incomplete types
+		return ErrTooComplex
+	}
+	if strings.HasPrefix(p.ParameterType, "xcb_") {
+		// e.g. xcb_atom_t, xcb_connection_t, xcb_generic_event_t
+		// These are external types that require more work to project
+		return ErrTooComplex
+	}
+
+	// Qt 6 KIO
+	if strings.Contains(p.ParameterType, "stat64") {
+		// a parameter to a UDSEntry constructor variant, this is a Qt struct typedef alias for an external type
+		return ErrTooComplex
+	}
+
 	if p.Pointer && p.PointerCount >= 2 { // Out-parameters
 		if p.ParameterType != "char" && p.ParameterType != "void" {
 			return ErrTooComplex // e.g. QGraphicsItem_IsBlockedByModalPanel1
@@ -747,6 +901,8 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"group",                           // Qt 6 kuser.h
 		"passwd",                          // Qt 6 kuser.h
 		"DBusError",                       // Qt 6 qdbuserror.h, this is an external type forward declaration
+		"ClipboardUpdater",                // Qt 6 jobuidelegate.h
+		"KIO::SslUi",                      // Qt 6 sslui.h
 		"____last____":
 		return ErrTooComplex
 	}
@@ -771,6 +927,15 @@ func AllowFieldForClass(className string) bool {
 		return false
 	}
 	return true
+}
+
+func AllowStructDef(className string) bool {
+	switch className {
+	case "KIO::SslUi":
+		return false
+	default:
+		return true
+	}
 }
 
 // LinuxWindowsCompatCheck checks if the parameter is incompatible between the
