@@ -9,9 +9,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn ExecNow(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_ExecNow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn ExecNow(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_ExecNow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Auto execution in main thread (thread-safe)
@@ -24,9 +24,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn Exec(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_Exec(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn Exec(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_Exec(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Unique auto execution in main thread (thread-safe)
@@ -36,9 +36,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn ExecUnique(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_ExecUnique(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn ExecUnique(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_ExecUnique(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Single-shot execution in main thread (thread-safe)
@@ -47,9 +47,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn ExecOnce(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_ExecOnce(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn ExecOnce(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_ExecOnce(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Non-blocking execution in main thread (thread-safe)
@@ -60,9 +60,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn Async(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_Async(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn Async(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_Async(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Unique non-blocking execution in main thread (thread-safe)
@@ -72,9 +72,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn AsyncUnique(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_AsyncUnique(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn AsyncUnique(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_AsyncUnique(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Single-shot non-blocking execution in main thread (thread-safe)
@@ -83,9 +83,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn AsyncOnce(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_AsyncOnce(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn AsyncOnce(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_AsyncOnce(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Unique single-shot non-blocking execution in main thread (thread-safe)
@@ -95,9 +95,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn AsyncUniqueOnce(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_AsyncUniqueOnce(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn AsyncUniqueOnce(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_AsyncUniqueOnce(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Blocking execution in main thread (thread-safe)
@@ -123,9 +123,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn Sync(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_Sync(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn Sync(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_Sync(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Unique blocking execution in main thread (thread-safe)
@@ -136,9 +136,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn SyncUnique(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_SyncUnique(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn SyncUnique(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_SyncUnique(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Single-shot blocking execution in main thread (thread-safe)
@@ -148,9 +148,9 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn SyncOnce(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_SyncOnce(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn SyncOnce(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_SyncOnce(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Unique single-shot blocking execution in main thread (thread-safe)
@@ -161,8 +161,8 @@ pub const Threading = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/threads-qobject.html)
     ///
-    /// ``` self: ?*anyopaque, func: fn (self: ?*anyopaque) callconv(.c) void ```
-    pub fn SyncUniqueOnce(self: ?*anyopaque, func: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Threading_SyncUniqueOnce(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&func))));
+    /// ``` self: ?*anyopaque, callback: *const fn (self: ?*anyopaque) callconv(.c) void ```
+    pub fn SyncUniqueOnce(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Threading_SyncUniqueOnce(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };
