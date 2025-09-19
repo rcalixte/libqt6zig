@@ -16,7 +16,7 @@ For previous libqt6zig versions supporting Qt 6.4+, there are branches correspon
 
 This library is designed to be used as a dependency in a larger application and not as a standalone library. The versioning scheme used by this library is based on the Qt version used as a base to generate the bindings with an additional nod to the library revision number. Any breaking changes to the library will be reflected in the changelog.
 
-These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in August 2024. This library features support for Qt Core, GUI, Widgets, and Network as well as [additional Qt modules](https://doc.qt.io/qt-6/qt-additional-modules.html) such as Multimedia, Print Support, Spatial Audio, SQL, SVG, WebChannel, WebEngine, and more. In addition to Qt modules, this library also features support for third-party libraries such as [QScintilla](https://riverbankcomputing.com/software/qscintilla), various [KDE Frameworks](https://api-staging.kde.org), and others. This library has support for slots/signals, subclassing, custom widgets, async via Qt, etc. In addition, there is library tooling that provides native support for Qt Creator/Designer forms and the Qt Resource System. With improper handling, it is fairly easy to encounter segmentation faults or errors. Q3 of the [FAQ](#faq) is a decent entry point for newcomers in addition to the [examples](https://github.com/rcalixte/libqt6zig-examples). Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues directly relevant to this library.
+These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in August 2024. This library features support for Qt Core, GUI, Widgets, and Network as well as [additional Qt modules](https://doc.qt.io/qt-6/qt-additional-modules.html) such as Multimedia, Print Support, Spatial Audio, SQL, SVG, WebChannel, WebEngine, and more. In addition to Qt modules, this library also features support for third-party libraries such as [QScintilla](https://riverbankcomputing.com/software/qscintilla), various [KDE Frameworks](https://api.kde.org), and others. This library has support for slots/signals, subclassing, custom widgets, async via Qt, etc. In addition, there is library tooling that provides native support for Qt Creator/Designer forms and the Qt Resource System. With improper handling, it is fairly easy to encounter segmentation faults or errors. Q3 of the [FAQ](#faq) is a decent entry point for newcomers in addition to the [examples](https://github.com/rcalixte/libqt6zig-examples). Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues directly relevant to this library.
 
 ---
 
@@ -122,7 +122,7 @@ FreeBSD (native)
 For dynamic linking with the Qt 6 system libraries:
 
 ```bash
-sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchannel qt6-webengine kf6-kbookmarks kf6-kcodecs kf6-kcolorscheme kf6-kcompletion kf6-kconfig kf6-kconfigwidgets kf6-kcoreaddons kf6-kcrash kf6-kglobalaccel kf6-kguiaddons kf6-ki18n kf6-kiconthemes kf6-kio kf6-kitemviews kf6-kjobwidgets kf6-knotifications kf6-kplotting kf6-kservice kf6-solid kf6-sonnet kf6-ktextwidgets kf6-kwidgetsaddons kf6-kwindowsystem kf6-kxmlgui qscintilla2-qt6 qtermwidget
+sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchannel qt6-webengine kf6-attica kf6-kbookmarks kf6-kcodecs kf6-kcolorscheme kf6-kcompletion kf6-kconfig kf6-kconfigwidgets kf6-kcoreaddons kf6-kcrash kf6-kglobalaccel kf6-kguiaddons kf6-ki18n kf6-kiconthemes kf6-kio kf6-kitemviews kf6-kjobwidgets kf6-knotifications kf6-kplotting kf6-kservice kf6-solid kf6-sonnet kf6-ktextwidgets kf6-kwidgetsaddons kf6-kwindowsystem kf6-kxmlgui qscintilla2-qt6 qtermwidget
 ```
 
 > [!NOTE]
@@ -146,7 +146,7 @@ For dynamic linking with the Qt 6 system libraries:
 - __Debian-based distributions__:
 
 ```bash
-sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev libkf6bookmarks-dev libkf6codecs-dev libkf6colorscheme-dev libkf6completion-dev libkf6config-dev libkf6configwidgets-dev libkf6coreaddons-dev libkf6crash-dev libkf6globalaccel-dev libkf6guiaddons-dev libkf6i18n-dev libkf6iconthemes-dev libkf6kio-dev libkf6itemviews-dev libkf6jobwidgets-dev libkf6notifications-dev libkf6plotting-dev libkf6service-dev libkf6solid-dev libkf6sonnet-dev libkf6textwidgets-dev libkf6widgetsaddons-dev libkf6windowsystem-dev libkf6xmlgui-dev libqscintilla2-qt6-dev libqtermwidget-dev sonnet6-plugins
+sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev libkf6attica-dev libkf6bookmarks-dev libkf6codecs-dev libkf6colorscheme-dev libkf6completion-dev libkf6config-dev libkf6configwidgets-dev libkf6coreaddons-dev libkf6crash-dev libkf6globalaccel-dev libkf6guiaddons-dev libkf6i18n-dev libkf6iconthemes-dev libkf6kio-dev libkf6itemviews-dev libkf6jobwidgets-dev libkf6notifications-dev libkf6plotting-dev libkf6service-dev libkf6solid-dev libkf6sonnet-dev libkf6textwidgets-dev libkf6widgetsaddons-dev libkf6windowsystem-dev libkf6xmlgui-dev libqscintilla2-qt6-dev libqtermwidget-dev sonnet6-plugins
 ```
 
 > [!NOTE]
@@ -155,7 +155,7 @@ sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia
 - __Fedora-based distributions__:
 
 ```bash
-sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel kf6-kbookmarks-devel kf6-kcodecs-devel kf6-kcolorscheme-devel kf6-kcompletion-devel kf6-kconfig-devel kf6-kconfigwidgets-devel kf6-kcoreaddons-devel kf6-kcrash-devel kf6-kglobalaccel-devel kf6-kguiaddons-devel kf6-ki18n-devel kf6-kiconthemes-devel kf6-kio-devel kf6-kitemviews-devel kf6-kjobwidgets-devel kf6-knotifications-devel kf6-kplotting-devel kf6-kservice-devel kf6-solid-devel kf6-sonnet-devel kf6-ktextwidgets-devel kf6-kwidgetsaddons-devel kf6-kwindowsystem-devel kf6-kxmlgui-devel qtermwidget-devel qscintilla-qt6-devel kf6-sonnet-aspell
+sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel kf6-attica-devel kf6-kbookmarks-devel kf6-kcodecs-devel kf6-kcolorscheme-devel kf6-kcompletion-devel kf6-kconfig-devel kf6-kconfigwidgets-devel kf6-kcoreaddons-devel kf6-kcrash-devel kf6-kglobalaccel-devel kf6-kguiaddons-devel kf6-ki18n-devel kf6-kiconthemes-devel kf6-kio-devel kf6-kitemviews-devel kf6-kjobwidgets-devel kf6-knotifications-devel kf6-kplotting-devel kf6-kservice-devel kf6-solid-devel kf6-sonnet-devel kf6-ktextwidgets-devel kf6-kwidgetsaddons-devel kf6-kwindowsystem-devel kf6-kxmlgui-devel qtermwidget-devel qscintilla-qt6-devel kf6-sonnet-aspell
 ```
 
 > [!NOTE]
@@ -164,7 +164,7 @@ sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-
 - __Arch-based distributions__:
 
 ```bash
-sudo pacman -S qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine kbookmarks kcodecs kcolorscheme kcompletion kconfig kconfigwidgets kcoreaddons kcrash kglobalaccel kguiaddons ki18n kiconthemes kio kitemviews kjobwidgets knotifications kplotting kservice ktextwidgets kwidgetsaddons kwindowsystem kxmlgui qscintilla-qt6 qtermwidget solid sonnet
+sudo pacman -S qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine attica kbookmarks kcodecs kcolorscheme kcompletion kconfig kconfigwidgets kcoreaddons kcrash kglobalaccel kguiaddons ki18n kiconthemes kio kitemviews kjobwidgets knotifications kplotting kservice ktextwidgets kwidgetsaddons kwindowsystem kxmlgui qscintilla-qt6 qtermwidget solid sonnet
 ```
 
 > [!NOTE]
@@ -270,7 +270,7 @@ Yes. You must also meet your Qt license obligations: either dynamically link Qt 
 
 ### Q2. How long does it take to compile?
 
-Under normal conditions, the first compilation of the entire library should take less than 10 minutes, assuming the hardware in use is at or above the level of that of a consumer-grade mid-tier machine released in the past decade. Once the build cache is warmed up, subsequent compilations should be very fast, on the order of seconds. For client applications that use and configure a specific subset of the main library, the expected compilation time should be much shorter, e.g. compiling the `helloworld` example, only linking the libraries needed and without a warm cache, should take under 30 seconds.
+Under normal conditions, the first compilation of the entire library should take less than 30 minutes, assuming the hardware in use is at or above the level of that of a consumer-grade mid-tier machine released in the past decade. Once the build cache is warmed up, subsequent compilations should be very fast, on the order of seconds. **Compiling the entire library is not necessary unless direct library development is an objective.** For client applications that use and configure a specific subset of the main library, the expected compilation time should be much shorter, e.g. compiling the `helloworld` example, only linking the libraries needed and without a warm cache, should take under 30 seconds.
 
 ### Q3. How does the `libqt6zig` API differ from the official Qt C++ API?
 
