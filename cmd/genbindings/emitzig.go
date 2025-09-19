@@ -295,7 +295,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += "u64"
 	case "float":
 		ret += "f32"
-	case "double", "qreal":
+	case "const double", "double", "qreal":
 		ret += "f64"
 	case "size_t": // size_t is unsigned
 		if C.sizeof_size_t == 4 {
@@ -1414,7 +1414,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		seenMethods := make(map[string]struct{})
 		baseMethods := c.Methods
 		protectedMethods := c.ProtectedMethods()
-		virtualEligible := AllowVirtualForClass(c.ClassName)
+		virtualEligible := AllowVirtualForClass(c.ClassName) && len(virtualMethods) > 0
 
 		if virtualEligible && len(virtualMethods) > 0 {
 			virtualMethods = append(virtualMethods, protectedMethods...)
@@ -1604,12 +1604,12 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 				if addConnect {
 					slotComma := ifv(len(m.Parameters) != 0, ", ", "")
-					ret.WriteString(inheritedFrom + docCommentUrl + "\n    /// ``` self: QtC." + zigStructName + ", slot: fn (self: QtC." +
+					ret.WriteString(inheritedFrom + docCommentUrl + "\n    /// ``` self: QtC." + zigStructName + ", callback: *const fn (self: QtC." +
 						zigStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void ```\n")
 
-					ret.WriteString("    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (?*anyopaque" +
+					ret.WriteString("    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (?*anyopaque" +
 						slotComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
-						"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));\n}\n")
+						"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 				}
 			}
 
@@ -1644,12 +1644,12 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				onDocComment := "\n/// Allows for overriding the related default method\n    ///"
 
 				ret.WriteString(inheritedFrom + docCommentUrl + onDocComment + "\n    /// ``` self: QtC." +
-					zigStructName + ", slot: fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
+					zigStructName + ", callback: *const fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
 					") callconv(.c) " + m.ReturnType.renderReturnTypeZig(&zfs, true) + " ```\n" +
-					"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (" + maybeAnyopaque + maybeComma +
+					"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (" + maybeAnyopaque + maybeComma +
 					zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) " +
 					m.ReturnType.renderReturnTypeZig(&zfs, true) + ") void {\n" +
-					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));\n}\n")
+					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 
 				maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
 				qbaseDocComment := "\n/// Base class method implementation\n    ///"
@@ -1801,12 +1801,12 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			headerComment = "\n /// Wrapper to allow overriding base class virtual or protected method\n ///\n"
 
 			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
-				zigStructName + ", slot: fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
+				zigStructName + ", callback: *const fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
 				") callconv(.c) " + m.ReturnType.renderReturnTypeZig(&zfs, true) + " ```\n" +
-				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (" + maybeAnyopaque + commaParams +
+				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (" + maybeAnyopaque + commaParams +
 				zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) " +
 				m.ReturnType.renderReturnTypeZig(&zfs, true) + ") void {\n" +
-				"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));\n}\n")
+				"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 		}
 
 		for _, m := range privateSignals {
@@ -1848,11 +1848,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			slotComma := ifv(len(m.Parameters) != 0, ", ", "")
 			headerComment := "/// Wrapper to allow calling private signal\n///"
 
-			ret.WriteString(inheritedFrom + docCommentUrl + headerComment + "\n  /// ``` self: QtC." + zigStructName + ", slot: fn (self: QtC." +
+			ret.WriteString(inheritedFrom + docCommentUrl + headerComment + "\n  /// ``` self: QtC." + zigStructName + ", callback: *const fn (self: QtC." +
 				zigStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void ```\n" +
-				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (?*anyopaque" +
+				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (?*anyopaque" +
 				slotComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
-				"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));\n}\n")
+				"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 		}
 
 		if c.CanDelete && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
@@ -1874,6 +1874,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + `_enums = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").enums;`
 		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
 		maybeUrlPrefix := ifv(strings.Contains(src.Filename, "KIO") && !strings.HasPrefix(getPageName(zfs.currentHeaderName), "k"), "kio-", "")
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Attica"), "attica-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Solid"), "solid-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
 		pageName := maybeUrlPrefix + getPageName(zfs.currentHeaderName) + maybeCharts
