@@ -185,6 +185,18 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 		// extras
 
+		// Attica
+		// Depends on Qt Core, Network
+		{
+			path: "extras-attica",
+			dirs: []string{
+				"/usr/include/KF6/Attica",
+				"/usr/include/KF6/Attica/attica",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/Attica -I/usr/include/KF6/Attica/Attica -I/usr/include/KF6/Attica/attica " + pkgConfigCflags("Qt6Core") + pkgConfigCflags("Qt6Network"),
+		},
+
 		// KCodecs
 		// Depends on Qt Core
 		{
