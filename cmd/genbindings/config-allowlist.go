@@ -24,6 +24,11 @@ func InsertTypedefs() {
 	KnownTypedefs["Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
 	KnownImports["Command"] = lookupResultImport{"posix-restricted-qtermwidget", "KeyboardTranslator"}
 
+	// Qt 6 Attica has broken typedefs
+	KnownTypedefs["Comment::Type"] = lookupResultTypedef{pp, CppTypedef{"Attica::Comment::Type", parseSingleTypeString("Attica::Comment::Type")}}
+	KnownTypedefs["Achievement::Type"] = lookupResultTypedef{pp, CppTypedef{"Attica::Achievement::Type", parseSingleTypeString("Attica::Achievement::Type")}}
+	KnownTypedefs["Achievement::Visibility"] = lookupResultTypedef{pp, CppTypedef{"Attica::Achievement::Visibility", parseSingleTypeString("Attica::Achievement::Visibility")}}
+
 	// Qt 6 ksandbox.h uses an inherited enum
 	KnownTypedefs["QProcess::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QProcess::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode")}}
 
@@ -135,6 +140,7 @@ func ImportHeaderForClass(className string) bool {
 		"QTermWidget",                    // Qt 6 qtermwidget.h
 		"QTermWidgetInterface",           // Qt 6 qtermwidget_interface.h
 		"Konsole",                        // Qt 6 KeyboardTranslator.h
+		"Attica",                         // Qt 6 version.h
 		"KConfigSkeletonItem",            // Qt 6 kconfigloader.h
 		"KConfigCompilerSignallingItem",  // Qt 6 kcoreconfigskeleton.h
 		"KPropertySkeletonItem",          // Qt 6 kcoreconfigskeleton.h
@@ -261,24 +267,6 @@ func AllowVirtual(mm CppMethod) bool {
 }
 
 func AllowVirtualForClass(className string) bool {
-	if className == "QAccessibleInterface" {
-		return false
-	}
-
-	if className == "QAccessibleTableInterface" {
-		return false
-	}
-
-	if className == "QDBusAbstractAdaptor" {
-		return false
-	}
-	if className == "QDBusAbstractInterface" {
-		return false
-	}
-	if className == "QDBusConnectionInterface" {
-		return false
-	}
-
 	// Pure virtual method futureInterface() returns an unprojectable template type
 	if className == "QFutureWatcherBase" {
 		return false
@@ -292,154 +280,6 @@ func AllowVirtualForClass(className string) bool {
 	// Pure virtual method registerEventNotifier takes a QWinEventNotifier* on Windows
 	// which is platform-specific
 	if strings.HasPrefix(className, "QAbstractEventDispatcher") {
-		return false
-	}
-
-	if className == "QTest::QTouchEventSequence" {
-		return false
-	}
-
-	if className == "QFileDevice" {
-		return false
-	}
-	if className == "QImageIOPlugin" {
-		return false
-	}
-	if className == "QNetworkReply" {
-		return false
-	}
-	if className == "QPagedPaintDevice" {
-		return false
-	}
-	if className == "QPaintDevice" {
-		return false
-	}
-	if className == "QPaintDeviceWindow" {
-		return false
-	}
-	if className == "QScreen" {
-		return false
-	}
-	if className == "QSurface" {
-		return false
-	}
-	if className == "QTextBlockGroup" {
-		return false
-	}
-	if className == "QTextObject" {
-		return false
-	}
-
-	// Qt 6 SQL
-	if className == "QSqlResult" {
-		return false
-	}
-
-	// Qt 6 Charts
-	if className == "QBarModelMapper" {
-		return false
-	}
-	if className == "QBoxPlotModelMapper" {
-		return false
-	}
-	if className == "QLegend" {
-		return false
-	}
-	if className == "QPieModelMapper" {
-		return false
-	}
-	if className == "QXYModelMapper" {
-		return false
-	}
-
-	// Qt 6 KCodecs
-	if className == "KCodecs::Codec" {
-		return false
-	}
-	if className == "KCodecs::Encoder" {
-		return false
-	}
-
-	// Qt 6 KConfig
-	if className == "KConfigBase" {
-		return false
-	}
-
-	// Qt 6 KWidgetsAddons
-	if className == "KMultiTabBarButton" {
-		return false
-	}
-	if className == "KMultiTabBarTab" {
-		return false
-	}
-
-	// Qt 6 KWindowSystem
-	if className == "KX11Extras" {
-		return false
-	}
-
-	// Qt 6 KIO
-	if className == "KEncodingFileDialog" {
-		return false
-	}
-	if className == "KIO::BatchRenameJob" {
-		return false
-	}
-	if className == "KIO::ChmodJob" {
-		return false
-	}
-	if className == "KIO::CopyJob" {
-		return false
-	}
-	if className == "KIO::DavJob" {
-		return false
-	}
-	if className == "KIO::DeleteJob" {
-		return false
-	}
-	if className == "KIO::DirectorySizeJob" {
-		return false
-	}
-	if className == "KIO::DropJob" {
-		return false
-	}
-	if className == "KIO::EmptyTrashJob" {
-		return false
-	}
-	if className == "KIO::FileCopyJob" {
-		return false
-	}
-	if className == "KIO::Job" {
-		return false
-	}
-	if className == "KIO::ListJob" {
-		return false
-	}
-	if className == "KIO::MimetypeJob" {
-		return false
-	}
-	if className == "KIO::MkdirJob" {
-		return false
-	}
-	if className == "KIO::MkpathJob" {
-		return false
-	}
-	if className == "KIO::PasteJob" {
-		return false
-	}
-	if className == "KIO::RestoreJob" {
-		return false
-	}
-	if className == "KIO::SimpleJob" {
-		return false
-	}
-	if className == "KIO::StatJob" {
-		return false
-	}
-	if className == "KIO::TransferJob" {
-		return false
-	}
-	if className == "KIO::WorkerFactory" {
 		return false
 	}
 
@@ -613,6 +453,16 @@ func AllowCtor(className string) bool {
 		// @ref https://github.com/qt/qtbase/commit/41679e0b4398c0de38a8107642dc643fe2c3554f
 		// @ref https://github.com/mappu/miqt/issues/168
 		// Block both ctors from generation
+		return false
+	}
+
+	// Qt 6 Attica
+	if className == "Attica::PlatformDependentV2" || className == "Attica::PlatformDependentV3" {
+		return false
+	}
+
+	// Qt 6 KIO
+	if className == "KIO::WorkerFactory" {
 		return false
 	}
 
@@ -806,6 +656,17 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex
 	}
 
+	// Qt 6 Attica
+	if strings.HasPrefix(p.ParameterType, "ItemJob<") {
+		return ErrTooComplex // template classes
+	}
+	if strings.HasPrefix(p.ParameterType, "ItemPostJob<") {
+		return ErrTooComplex // template classes
+	}
+	if strings.HasPrefix(p.ParameterType, "ListJob<") {
+		return ErrTooComplex // template classes
+	}
+
 	// Qt 6 KWindowSystem
 	if strings.Contains(p.ParameterType, "NET::") {
 		// e.g. NET, NETExtendedStrut, NETFullscreenMonitors, NETRootInfo, NETWinInfo
@@ -936,6 +797,22 @@ func AllowStructDef(className string) bool {
 	default:
 		return true
 	}
+}
+
+func AllowInnerClassDef(className string) bool {
+	switch className {
+	case
+		"KIO::DeleteJob", // Qt 6 KIO, deletejob.h
+		"KIO::Job",       // Qt 6 KIO, listjob.h
+		"KIO::ListJob",   // Qt 6 KIO, listjob.h
+		"KIO::MetaData",  // Qt 6 KIO, metadata.h
+		"KIO::SimpleJob", // Qt 6 KIO, listjob.h
+		"KIO::UDSEntry",  // Qt 6 KIO, listjob.h
+		"____last____":
+		return true
+	}
+
+	return false
 }
 
 // LinuxWindowsCompatCheck checks if the parameter is incompatible between the
